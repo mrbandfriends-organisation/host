@@ -1,16 +1,24 @@
-<?php 
+<?php
 function password_protect_staging($env, $unprotected_envs) {
-	
+
 	// Don't protect "unprotected" envs
     if( in_array($env, $unprotected_envs) ) {
     	return;
     }
 
-    if(preg_match('/Basic+(.*)$/i', $_SERVER['REDIRECT_HTTP_AUTHORIZATION'], $matches))	{
-		list($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']) = explode(':' , base64_decode(substr($_SERVER['REDIRECT_HTTP_AUTHORIZATION'], 6)));
+    $sAuthHeader = '';
+    if (isset($_SERVER['REDIRECT_HTTP_AUTHORIZATION']))
+    {
+        $sAuthHeader = $_SERVER['REDIRECT_HTTP_AUTHORIZATION'];
+    }
+    elseif (isset($_SERVER['HTTP_AUTHORIZATION']))
+    {
+        $sAuthHeader = $_SERVER['HTTP_AUTHORIZATION'];
+    }
+
+    if(preg_match('/Basic+(.*)$/i', $sAuthHeader, $matches))	{
+		list($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW']) = explode(':' , base64_decode($matches[1]));
 	}
-
-
 
     // Auth details - could go in ENV file
 	$details = array(
