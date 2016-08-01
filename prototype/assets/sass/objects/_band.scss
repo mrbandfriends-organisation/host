@@ -74,18 +74,10 @@
 
 %band--tertiary,
 .band--tertiary {
-    color: #fff;
     background-color: $t-color;
+    color: #fff;
 
     @include headings(1, 6) {
         color: #fff;
     }
 }
-
-
-
-
-
-
-
-

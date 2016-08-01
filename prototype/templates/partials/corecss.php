@@ -1,13 +1,10 @@
-<?php 
+<?php
     /**
      * CORE CSS
      * for production environment serve the built minified files
      */
     $cssSuffix =  ( $environment === "production" ) ? 'min.' : '';
-?>  
-<!--[if lte IE 8]>
-    <link rel="stylesheet" href="<?=$this->asset("/assets/css/main-oldie.{$cssSuffix}css"); ?>">
-<![endif]-->
-<!--[if gt IE 8]><!-->
+?>
     <link rel="stylesheet" href="<?=$this->asset("/assets/css/main.{$cssSuffix}css"); ?>">
-<!--<![endif]-->
+    <style><?=file_get_contents(ROOT_DIR.'/assets/css/critical.min.css'); ?></style>
+    <noscript><style><?=file_get_contents(ROOT_DIR.'/assets/css/critical.no-js.min.css'); ?></style></noscript>

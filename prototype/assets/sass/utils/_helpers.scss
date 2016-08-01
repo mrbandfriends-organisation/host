@@ -96,36 +96,33 @@
 %img-left,
 .img-l,
 .alignleft {
-    float: left;
     margin: 0 $base-line-height $base-line-height 0;
+    float: left;
 }
 
 .img-right,
 %img-right,
 .img-r,
 .alignright {
-    float: right;
     margin: 0 0 $base-line-height $base-line-height;
+    float: right;
 }
 
 .img-center,
 %img-center,
 .aligncenter {
     display: block;
-    float: none;
     margin: 0 auto $base-line-height;
+    float: none;
 }
 
 .ir,
 %ir,
 .img-replace {
-    // scss-lint:disable PropertySpelling
-    overflow: hidden;
     border: 0;
     background-color: transparent;
     line-height: 0; // http://adriandalvarez.tumblr.com/post/6731022156/html5-boilerplate-image-replacement-helper-class-ie7
-    // IE 6/7 fallback
-    *text-indent: -9999px;
+    overflow: hidden;
 }
 
 .ir:before,
@@ -166,25 +163,27 @@
 .screen-reader-text,
 .assistive-text {
     position: absolute;
-    overflow: hidden;
+
     width: 1px;
     height: 1px;
     margin: -1px;
     padding: 0;
-    border: 0;
+
     clip: rect(0 0 0 0);
+    border: 0;
+    overflow: hidden;
 }
 
 .vh.focusable:active,
-.vh.focusable:focus
+.vh.focusable:focus,
 .v-hidden.focusable:active,
 .v-hidden.focusable:focus {
     position: static;
-    overflow: visible;
     width: auto;
     height: auto;
     margin: 0;
     clip: auto;
+    overflow: visible;
 }
 
 // ==========================================================================

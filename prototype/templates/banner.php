@@ -1,7 +1,7 @@
 <header class="banner js-banner" role="banner">
 	<div class="banner__inner container">
 		<div class="banner__section banner__brand">
-			<img src="<?=$this->asset('/assets/images/site-logo.png')?>" alt="<?=$this->e($site_name);?>" class="site-logo" >
+			
 		</div>
 
 		<div class="banner__section banner__nav">

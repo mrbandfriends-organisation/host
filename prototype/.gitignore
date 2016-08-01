@@ -5,6 +5,10 @@ npm-debug.log
 npm-debug.log.*
 .sass-cache
 .env.json
+/dist/*
+!/dist/.gitkeep
+/vendor/*
+!/vendor/.gitkeep
 
 # Miscellaneous
 *.esproj
@@ -14,12 +18,5 @@ npm-debug.log.*
 *.zip
 *.sublime-project
 *.sublime-workspace
-
-# Compiled files
-assets/js/dist/*
-assets/css/*
-assets/svg/sprites/output/*
-/dist/*
-
-# Ansible stuffs
-/.vagrant
+composer.lock
+Gemfile.lock

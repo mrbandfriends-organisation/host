@@ -152,8 +152,8 @@ hr {
 // ==========================================================================
 
 mark {
-    color: #000;
     background: #ff0;
+    color: #000;
 }
 
 // # Correct font family set oddly in Safari 5 and Chrome.
@@ -269,7 +269,7 @@ select,
 textarea {
     margin: 0; // 3
     font-size: 100%; // 2
-    font-family: inherit; // 1 
+    font-family: inherit; // 1
 }
 
 

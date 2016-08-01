@@ -6,8 +6,6 @@
  */
 
 // NPM Modules
-//require('es5-shim');
-require('modernizr');
 require('jquery');
 window.$ = require('jquery');
 

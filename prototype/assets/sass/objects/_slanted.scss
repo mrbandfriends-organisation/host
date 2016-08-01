@@ -3,7 +3,7 @@
 // MODULE: SLANTED
 
 // Description: provides ability to enhance sectioning elements
-// with slanted edges 
+// with slanted edges
 
 // ============================================================
 
@@ -21,7 +21,7 @@
     // top: auto;
 
     //max-height: 0;
-    //transform: translateY(-1600px);   
+    //transform: translateY(-1600px);
     //transform: translate3d(0,-1600px,0);
 }
 
@@ -52,20 +52,22 @@
 .slanted__content {
     position: relative;
     z-index: 2;
-   
+
     &:after {
+        display: block;
         position: absolute;
         top: 0;
         right: -70px;
         bottom: 0;
         left: -70px;
-        z-index: -1;
-        display: block;
-        content: "";
-        background-color: inherit;
+
         transform: rotate(0);
-        transform-origin: right center;    
+        transform-origin: right center;
         transition: transform 0.2s linear;
+        background-color: inherit;
+
+        z-index: -1;
+        content: "";
     }
 }
 
@@ -75,10 +77,9 @@
 
 .slanted__drawer {
     position: relative;
+    background-color: #565a5d;
     z-index: 1;
     overflow: hidden;
-    background-color: #565a5d;
-
 
     .cssanimations & {
         @include animation(openDrawer 1s ease-in);
@@ -94,10 +95,10 @@
 
         @include mq($from: medium) {
             padding-top: 5%;
-            
+
             .cssanimations & {
                 padding-top: 10%;
-            }   
+            }
         }
     }
 }
@@ -109,14 +110,14 @@
 
 .slanted.is-expanded {
     overflow: hidden;
-    
+
     .slanted__drawer {
         .cssanimations & {
             @include animation-fill-mode(forwards);
             @include animation-play-state(running);
         }
     }
-    
+
     .slanted__content:after {
         transform: rotate(-3deg);
         transition: transform 0.2s linear;
@@ -170,4 +171,3 @@
     }
 
 }
-

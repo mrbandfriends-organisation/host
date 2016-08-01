@@ -2,12 +2,14 @@
 	require 'vendor/autoload.php';
     require 'tools/password-protect-staging.php';
 
+    define('ROOT_DIR', __DIR__);
+
 	/**
 	 * Local Environment Config Data
 	 * grab environment specific config details
 	 */
 	$local_data = json_decode( file_get_contents(".env.json"), true);
-	
+
 	// Error Reporting
 	if ( $local_data['environment'] !== "production" ) {
 		ini_set('display_startup_errors',1);
@@ -19,17 +21,17 @@
 	 * Setup Plates PHP templating system
 	 * http://platesphp.com/
 	 */
-	$templates = new League\Plates\Engine($_SERVER["DOCUMENT_ROOT"] . '/templates/');
-	$templates->addFolder('layouts', $_SERVER["DOCUMENT_ROOT"] . '/templates/layouts/');
-	$templates->addFolder('pages', $_SERVER["DOCUMENT_ROOT"] . '/templates/pages/');
-	$templates->addFolder('partials', $_SERVER["DOCUMENT_ROOT"] . '/templates/partials/');
+	$templates = new League\Plates\Engine(ROOT_DIR . '/templates/');
+	$templates->addFolder('layouts', ROOT_DIR . '/templates/layouts/');
+	$templates->addFolder('pages', ROOT_DIR . '/templates/pages/');
+	$templates->addFolder('partials', ROOT_DIR . '/templates/partials/');
 
 	$path_info = !empty($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : (!empty($_SERVER['ORIG_PATH_INFO']) ? $_SERVER['ORIG_PATH_INFO'] : '');
 
 	// Load URI extension using global variable
 	$templates->loadExtension(new League\Plates\Extension\URI( $path_info ));
 
-	
+
 
 	/**
 	 * Site Wide Config Details
@@ -64,4 +66,4 @@
 
 	// Initialise PlatesPHP Asset management extensions
 	// http://platesphp.com/extensions/asset/
-	$templates->loadExtension(new League\Plates\Extension\Asset($_SERVER["DOCUMENT_ROOT"], true));
+	$templates->loadExtension(new League\Plates\Extension\Asset(__DIR__, true));

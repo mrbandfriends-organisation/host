@@ -114,8 +114,8 @@
 
     &:hover,
     &:focus {
-        color: $color;
         background-color: lighten($bg-color, 15%);
+        color: $color;
     }
 }
 
@@ -147,12 +147,12 @@
 @mixin selection($background, $color, $element:false) {
     @if($element) {
         // scss-lint:disable VendorPrefix
-        &::-moz-selection { color: $color; background: $background; text-shadow: none; }
-        &::selection { color: $color; background: $background; text-shadow: none; }
+        &::-moz-selection { background: $background; color: $color; text-shadow: none; }
+        &::selection { background: $background; color: $color; text-shadow: none; }
     } @else {
         // scss-lint:disable VendorPrefix
-        ::-moz-selection { color: $color; background: $background; text-shadow: none; }
-        ::selection { color: $color; background: $background; text-shadow: none; }
+        ::-moz-selection { background: $background; color: $color; text-shadow: none; }
+        ::selection { background: $background; color: $color; text-shadow: none; }
     }
 }
 
@@ -264,9 +264,9 @@
     width: percentage($proportion / $context);
 
     .flexbox & {
+        flex-basis: percentage($proportion / $context);
         width: auto;
         max-width: percentage($proportion / $context);
-        flex-basis: percentage($proportion / $context);
     }
 }
 
@@ -298,6 +298,7 @@
         right: auto;
         bottom: auto;
         left: auto;
+
         z-index: 9999;
         content: "";
 
@@ -370,9 +371,9 @@
         left: 0;
         width: 0;
         height: rem(3px);
-        content: "";
-        background-color: $link-color;
         transition: width ease-in-out 0.5s;
+        background-color: $link-color;
+        content: "";
     }
 
     &:hover,

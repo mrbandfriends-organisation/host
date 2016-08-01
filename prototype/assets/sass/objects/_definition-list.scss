@@ -13,7 +13,7 @@
     margin-top: 0;
     padding: 0;
     list-style: none;
-    
+
     .definitions__group,
     .definitions__term,
     .definitions__desc,
@@ -23,8 +23,8 @@
     dt,
     dd {
         @include inline-block;
-        vertical-align: baseline;
         margin: 0;
+        vertical-align: baseline;
     }
 
     .definitions__term,
@@ -49,7 +49,7 @@
 
 .definitions--desc-priority,
 %definitions--desc-priority {
-    
+
     .definitions__term,
     %definitions__term--desc-priority,
     dt {
@@ -80,7 +80,7 @@
         display: block;
         float: left;
     }
-    
+
     .definitions__term,
     %definitions__term--stacked,
     dt {
@@ -95,7 +95,7 @@
 
 .definitions--v-spaced,
 %definitions--v-spaced {
-    
+
     .definitions__term,
     .definitions__desc,
     %definitions__term--v-spaced,

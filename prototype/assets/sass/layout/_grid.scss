@@ -11,29 +11,15 @@
 // ==========================================================================
 
 @mixin gw() {
-    @include clearfix;
-    clear: both;
-    margin: 0;
-    #{$margin-left}: -$gutter;
-    padding: 0;
-    list-style: none;
-    text-rendering: optimizespeed; // Protect against WebKit bug with optimizelegibility.
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 0 1 auto;
 
-
-    .flexbox & {
-        display: flex;
-        flex: 0 1 auto;
-        flex-direction: flip(row, row-reverse);
-        flex-wrap: wrap;
-
-        // Fix clearfix for Flexbox
-        // http://danisadesigner.com/blog/flexbox-clear-fix-pseudo-elements/
-        &:before,
-        &:after {
-            flex-basis: 0;
-            order: 1;
-        }
-    }
+    margin-left: -#{$gutter};
+    padding:     0;
+    list-style:  none;
+    text-rendering: optimizespeed;
 }
 
 .grid,
@@ -51,28 +37,17 @@
 
 @mixin gc() {
     // scss-lint:disable PropertySpelling
-    float: flip(left, right);
+    flex: 0 0 auto;
     box-sizing: border-box;
     width: 100%;
     #{$padding-left}: $gutter;
     text-rendering: auto; // Reset text defaults.
-
-    // Include this if we're really old
-    @if ($is-oldie == true) {
-        *behavior: url("/boxsizing.htc");
-    }
-
-    .flexbox & {
-        flex: 0 0 auto;
-        float: none;
-    }
 }
 
 .gc,
 %gc {
     @include gc();
 }
-
 
 @if ($use-standard-breakpoints == true) {
     // Tiny
@@ -98,23 +73,6 @@
     // Extra Large
     @include mq($from: xlarge) {
         @include griddle-build($grids, "xl");
-    }
-}
-
-// OLDIE FIX
-// If we're in IE and JS is disabled then the .htc box-sizing hack won't
-// run therefore we need to linearise our layout to ensure it doesn't
-// break in older IE
-// ==========================================================================
-
-@if ($is-oldie == true) {
-    .no-js {
-        .gc {
-            // scss-lint:disable ImportantRule
-            float: none !important;
-            // scss-lint:disable ImportantRule
-            width: 100% !important;
-        }
     }
 }
 
@@ -214,10 +172,10 @@
     > .gc,
     > %gc--ib {
         @include inline-block;
-        vertical-align: top;
         float: none;
         letter-spacing: normal; // Reset text defaults.
         word-spacing: normal; // Reset text defaults.
+        vertical-align: top;
     }
 }
 
@@ -226,15 +184,7 @@
 
 .grid--center,
 %grid--center {
-    .noflexbox & {
-        // scss-lint:disable PlaceholderInExtend
-        @extend .grid--ib;
-        text-align: center;
-    }
-
-    .flexbox & {
-        justify-content: center;
-    }
+    justify-content: center;
 }
 
 // LEFT
@@ -242,15 +192,7 @@
 
 .grid--left,
 %grid--left {
-    .noflexbox & {
-        // scss-lint:disable PlaceholderInExtend
-        @extend .grid--ib;
-        text-align: left;
-    }
-
-    .flexbox & {
-        justify-content: left;
-    }
+    justify-content: left;
 }
 
 
@@ -259,15 +201,7 @@
 
 .grid--right,
 %grid--right {
-    .noflexbox & {
-        // scss-lint:disable PlaceholderInExtend
-        @extend .grid--ib;
-        text-align: right;
-    }
-
-    .flexbox & {
-        justify-content: right;
-    }
+    justify-content: right;
 }
 
 
@@ -288,17 +222,11 @@
 
 .grid--vmiddle,
 %grid--vmiddle {
-    .flexbox & {
-        align-items: center;
-    }
+    align-items: center;
 
     > .gc,
     > %gc--vmiddle {
-        vertical-align: middle;
-
-        .flexbox & {
-            vertical-align: inherit;
-        }
+        vertical-align: inherit;
     }
 }
 
@@ -307,17 +235,11 @@
 
 .grid--vbottom,
 %grid--vbottom {
-    .flexbox & {
-        align-items: flex-end;
-    }
+    align-items: flex-end;
 
     > .gc,
     > %gc--vbottom {
-        vertical-align: bottom;
-
-        .flexbox & {
-            vertical-align: inherit;
-        }
+        vertical-align: inherit;
     }
 }
 
@@ -326,16 +248,14 @@
 
 .grid--reversed,
 %grid--reversed {
-    .flexbox & {
-        flex-direction: flip(row-reverse, row);
-    }
+    flex-direction: row-reverse;
 }
 
 // # SEPARATED content
 // ==========================================================================
 .grid--separated {
-    overflow-x: hidden;
     transform:  translateX(rem(-1));
+    overflow-x: hidden;
 
     .gc {
         position:  relative;
@@ -343,14 +263,15 @@
 
         &:not(:last-child)::after {
             position: absolute;
-            content:  "";
 
             top:    0;
             right: -$half-gutter-width;
             bottom: 0;
+            
             width:  rem(1);
 
             background: darken($light-grey, 15%);
+            content:  "";
         }
     }
 }
@@ -384,9 +305,9 @@
     }
 
     &:before {
-        float:   left;
-        width: 1px;
+        width:   1px;
         margin-left: -1px;
+        float:   left;
         content: "";
 
     }
@@ -400,5 +321,4 @@
     &.ar25:before  { padding-top:  25%; }
     &.ar50:before  { padding-top:  50%; }
     &.ar100:before { padding-top: 100%; }
-
 }

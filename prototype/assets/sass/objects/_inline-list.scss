@@ -1,7 +1,7 @@
 // ==========================================================================
 // INLINE LIST
-// 
-// Description: create horizontally laid-out lists with 
+//
+// Description: create horizontally laid-out lists with
 // optional spacing and dividers
 // ==========================================================================
 
@@ -19,9 +19,9 @@
 .inline-list__item,
 %inline-list__item,
 .inline-list > li {
-    display: block; 
-    float: left;
+    display: block;
     margin-left: $spacing-unit;
+    float: left;
     list-style: none;
 }
 
@@ -32,7 +32,7 @@
 .inline-list--divided,
 %inline-list--divided {
     margin-left: (-$half-spacing-unit);
-    
+
     .inline-list__item,
     %inline-list__item--divided,
     > li {
@@ -61,9 +61,9 @@
     .inline-list__item,
     %inline-list__item--centered {
         @include inline-block;
-        float: none;
         margin-right: $half-spacing-unit;
         margin-left: $half-spacing-unit;
+        float: none;
         letter-spacing: normal;
     }
 }
@@ -80,9 +80,9 @@
     %inline-list__item--ib,
     > li {
         @include inline-block;
-        vertical-align: middle;
         float: none;
         letter-spacing: normal;
+        vertical-align: middle;
     }
 }
 
@@ -121,4 +121,3 @@
 %inline-list--reduced {
     @extend %inline-list--contracted;
 }
-
