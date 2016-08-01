@@ -4,15 +4,14 @@
 //
 // Description: UI styles to create button-like elements
 // ##Standard Example - Grid "Two Up" */
-/*
-    <ul class="item-list">
-        <li>Item in the list</li>
-        <li>Item in the list</li>
-        <li>Item in the list</li>
-        <li>Item in the list</li>
-        <li>Item in the list</li>
-    </ul>
-*/
+//
+//      <ul class="item-list">
+//          <li>Item in the list</li>
+//          <li>Item in the list</li>
+//          <li>Item in the list</li>
+//          <li>Item in the list</li>
+//          <li>Item in the list</li>
+//      </ul>
 //
 // ==========================================================================
 
@@ -27,8 +26,8 @@
   	> li,
   	.list-item,
   	%list-item {
-        margin-bottom: $baseLineHeight;
-    		padding-bottom: $baseLineHeight;
+        margin-bottom: $baseline-height;
+    		padding-bottom: $baseline-height;
     		@include clearfix;
   	}
 }
@@ -39,8 +38,8 @@
   	> li,
   	.list-item,
   	%list-item--contracted {
-  		  margin-bottom: $baseLineHeight/2;
-  		  padding-bottom: $baseLineHeight/2;
+  		  margin-bottom: $baseline-height/2;
+  		  padding-bottom: $baseline-height/2;
   	}
 }
 
@@ -51,8 +50,8 @@
   	> li,
   	.list-item,
   	%list-item--expanded {
-  		  margin-bottom: $baseLineHeight*2;
-  		  padding-bottom: $baseLineHeight*2;
+  		  margin-bottom: $baseline-height*2;
+  		  padding-bottom: $baseline-height*2;
   	}
 }
 
@@ -63,7 +62,7 @@
   	> li,
   	.list-item,
   	%list-item--bdr-solid {
-  	  	border-bottom: 1px solid $itemListBorderColor;
+  	  	border-bottom: 1px solid $item-list-border-color;
   	}
 }
 
@@ -73,7 +72,7 @@
   	> li,
   	.list-item,
   	%list-item--bdr-dashed {
-  	  	border-bottom: 1px dashed $itemListBorderColor;
+  	  	border-bottom: 1px dashed $item-list-border-color;
   	}
 }
 

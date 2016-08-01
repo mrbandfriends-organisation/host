@@ -19,6 +19,27 @@
     @return rgba(255, 255, 255, $opacity);
 }
 
+@function brand($color) {
+    @if map-has-key($brand-palette, $color)
+    {
+        @return map-get($brand-palette, $color);
+    }
+    @else
+    {
+        @return inherit;
+    }
+}
+
+@function tint($color) {
+    @if map-has-key($brand-tints, $color)
+    {
+        @return map-get($brand-tints, $color);
+    }
+    @else
+    {
+        @return inherit;
+    }
+}
 
 // ==========================================================================
 // # FLIP
