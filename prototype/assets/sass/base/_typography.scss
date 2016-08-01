@@ -4,23 +4,23 @@
 // Description: base typography styles to apply globally
 // ==========================================================================
 
+//scss-lint:disable SpaceAfterComma (no idea: it’s set to at_least_one_space)
+@include font-face('CircularWeb', '../fonts/circular/book',       $file-formats: woff2 woff);
+@include font-face('CircularWeb', '../fonts/circular/bold', bold, $file-formats: woff2 woff);
+
 // ==========================================================================
 // GLOBAL
 // ==========================================================================
 
 html {
-    font-size: $base-font-size;
-    line-height: $base-line-height;
+    font-size:   100%;
+    line-height: 1.55556;
 }
 
 body {
-    color: $base-font-color;
-    font-size: 1rem;
-    font-family: $base-font-family;
+    color: brand(ink);
 
-    .wf-active & {
-        @include wf-primary;
-    }
+    font: normal rem(18) $base-font-family;
 }
 
 
@@ -31,28 +31,22 @@ body {
 // ==========================================================================
 
 p {
-    margin: 0 0 $base-line-height;
+    margin: 1em 0;
 }
 
-.muted {
-    color: #999;
-}
-
-.reduced {
-    font-size: 0.9em;
-}
+.small-copy { font-size: rem(15); }
 
 // ==========================================================================
 // LINKS
 // ==========================================================================
 
 a {
-    color: $link-color;
+    text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    color: $link-color-hover;
+    text-decoration: underline;
 }
 
 a:focus {
@@ -74,7 +68,7 @@ a:active {
 
 ul,
 ol {
-    margin: 0 0 $base-line-height 25px;
+    margin: 0 0 1em rem(25);
     padding: 0;
 }
 
@@ -112,7 +106,7 @@ dd {
 // ==========================================================================
 
 address {
-    margin-bottom: $base-line-height;
+    margin-bottom: 1em;
     font-style: normal;
 }
 

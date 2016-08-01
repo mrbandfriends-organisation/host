@@ -267,10 +267,10 @@
             top:    0;
             right: -$half-gutter-width;
             bottom: 0;
-            
+
             width:  rem(1);
 
-            background: darken($light-grey, 15%);
+            // background: darken($light-grey, 15%);
             content:  "";
         }
     }

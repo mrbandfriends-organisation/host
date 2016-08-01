@@ -2,29 +2,6 @@
 // BRAND
 // ==========================================================================
 
-// BRAND COLOURS
-// ==========================================================================
-
-// Primary
-$p-color:						#f00; // red
-
-// Secondary
-$s-color:						#ff0; // yellow
-
-// Tertiary
-$t-color:						#00f; // blue
-
-
-// Tones
-$light-grey: 					#e8e8e8;
-$base-grey: 					#d6d6d4;
-$dark-grey: 					#575a5d;
-
-
-$base-background-color:			#fff;
-$base-border-color: 			$base-grey;
-$base-border: 					1px solid $base-border-color;
-
 $brand-palette: (
     red:    #da1e48,
     orange: #f79433,
@@ -41,6 +18,16 @@ $brand-tints: (
     grape:  #a43d8e,
     ink:    #1c222d
 );
+
+// Other colours
+// ====================================================================
+
+$base-background-color: map-get($brand-palette, white);
+$base-border-color:     map-get($brand-palette, ink);
+
+$dark-grey: #f0f;   // shouldn't be used
+$base-grey: #f0f;   // shouldn’t be used, either
+$light-grey: #f0f;  // also…
 
 // Social Colors
 // ====================================================================
@@ -73,7 +60,7 @@ $rss-color                      : #f60;
 // Links
 // ==========================================================================
 
-$link-color:             		$p-color;
+$link-color:             	    map-get($brand-palette, red);
 $link-color-hover:        		darken($link-color, 15%);
 
 
@@ -130,33 +117,33 @@ $cursive: 						"Bradley Hand ITC", "Apple Chancery", "URW Chancery L", cursive;
 // ==========================================================================
 
 $base-font-size:          		16px;
-$base-font-family:        		$arial; // or write your own custom font-stack
+$base-font-family:        		CircularWeb, $arial; // or write your own custom font-stack
 $base-line-height:        		1.4;
-$base-font-color: 				    #444;
-$em-base: 				            $base-font-size;
+$base-font-color: 				brand(ink);
+$em-base: 				        $base-font-size;
 
-// Heading Levels
+// Heading Levels: unused
 // ==========================================================================
+//
+// $h1-fsize:						52px;
+// $h1-line-height:				40px;
+//
+// $h2-fsize:						30px;
+// $h2-line-height:				28px;
+//
+// $h3-fsize:						24px;
+// $h3-line-height:				25px;
+//
+// $h4-fsize:						20px;
+// $h4-line-height:				21px;
+//
+// $h5-fsize:						18px;
+// $h5-line-height:				18px;
+//
+// $h6-fsize:						16px;
+// $h6-line-height:				18px;
 
-$h1-fsize:						36px;
-$h1-line-height:				40px;
-
-$h2-fsize:						30px;
-$h2-line-height:				28px;
-
-$h3-fsize:						24px;
-$h3-line-height:				25px;
-
-$h4-fsize:						20px;
-$h4-line-height:				21px;
-
-$h5-fsize:						18px;
-$h5-line-height:				18px;
-
-$h6-fsize:						16px;
-$h6-line-height:				18px;
-
-// Web Fonts
+// Web Fonts: also unused
 // ==========================================================================
 
 @mixin wf-primary {
@@ -274,6 +261,7 @@ $quarter-gutter-width: 			($gutter/4);
 // # RADIUS
 // ==========================================================================
 
+$base-border: 1px solid $base-border-color;
 $base-border-radius:			5px;
 
 
