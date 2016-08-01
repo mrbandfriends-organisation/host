@@ -1,0 +1,25 @@
+# Tools
+node_modules/
+bower_components/
+npm-debug.log
+npm-debug.log.*
+.sass-cache
+.env.json
+
+# Miscellaneous
+*.esproj
+*.DS_Store
+*.orig
+*.psd
+*.zip
+*.sublime-project
+*.sublime-workspace
+
+# Compiled files
+assets/js/dist/*
+assets/css/*
+assets/svg/sprites/output/*
+/dist/*
+
+# Ansible stuffs
+/.vagrant

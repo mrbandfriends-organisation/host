@@ -1,0 +1,67 @@
+// ==========================================================================
+// FUNCTIONS
+//
+// Description: global application wide functions
+//
+// ==========================================================================
+
+// ==========================================================================
+// COLOUR
+// ==========================================================================
+
+@function black($opacity) {
+    @return rgba(0, 0, 0, $opacity);
+}
+
+@function white($opacity) {
+    @return rgba(255, 255, 255, $opacity);
+}
+
+
+// ==========================================================================
+// # FLIP
+// # flips a value depending on value of $direction. Useful for managing
+// # multi lingual sites
+// # http://bit.ly/1LRLRgZ
+// ==========================================================================
+
+@function flip($value-ltr, $value-rtl) {
+    @if $direction == right {
+        @return $value-rtl;
+    } @else {
+        @return $value-ltr;
+    }
+}
+
+
+// ==========================================================================
+// UTILITIES
+// ==========================================================================
+
+// PARSEINT
+// parses an integer from an input
+// ==========================================================================
+@function parse-int($n) {
+    @return $n / ($n * 0 + 1);
+}
+
+// GCF
+// Find the greatest common factor of two integers
+// borrowed from https://raw.github.com/necolas/griddle/master/_griddle-build.scss
+// ==========================================================================
+@function gcf($a, $b) {
+    @if $b == 0 {
+        @return $a;
+    } @else {
+        @return gcf($b, $a % $b);
+    }
+}
+
+// CONTAINS
+// Check if a list contains a given value
+// borrowed from https://raw.github.com/necolas/griddle/master/_griddle-build.scss
+// ==========================================================================
+@function contains($list, $value) {
+    @if length($list) != 1 { @return index($list, $value); }
+    @else { @return $list == $value; }
+}

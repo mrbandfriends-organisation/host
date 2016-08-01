@@ -1,0 +1,91 @@
+// ============================================================
+
+// MODULE: BAND
+
+// Description: full width section with style variations.
+// Typically used to isolate and define sections of a long
+// content driven page
+
+// ============================================================
+
+
+// ==========================================================================
+// BASE
+// ==========================================================================
+
+%band,
+.band {
+    @include clearfix;
+    padding: rem(30px) 0;
+
+    @include mq($from: medium) {
+        padding: rem(60px) 0;
+    }
+}
+
+
+// ==========================================================================
+// # MODIFIER: SMALL
+// ==========================================================================
+
+.band--small,
+.band-small {
+    padding-top: rem(15px);
+    padding-bottom: rem(15px);
+
+    @include mq($from: medium) {
+        padding-top: rem(30px);
+        padding-bottom: rem(30px);
+    }
+}
+
+
+// ==========================================================================
+// # MODIFIER: LARGE
+// ==========================================================================
+
+.band--large,
+.band-large {
+    padding-top: rem(50px);
+    padding-bottom: rem(50px);
+
+    @include mq($from: medium) {
+        padding-top: rem(100px);
+        padding-bottom: rem(100px);
+    }
+}
+
+
+
+// ==========================================================================
+// # MODIFIER: NO PADDING
+// ==========================================================================
+
+%band--no-padding,
+.band--no-padding {
+    padding: 0;
+}
+
+
+
+// ==========================================================================
+// # MODIFIER: TERTIARY
+// ==========================================================================
+
+%band--tertiary,
+.band--tertiary {
+    color: #fff;
+    background-color: $t-color;
+
+    @include headings(1, 6) {
+        color: #fff;
+    }
+}
+
+
+
+
+
+
+
+
