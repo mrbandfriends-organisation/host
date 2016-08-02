@@ -31,6 +31,10 @@ linters:
   DeclarationOrder:
     enabled: false
 
+  # disabling this because it doesn’t respect maps properly
+  ColorKeyword:
+     enabled: false
+
   QualifyingElement:
     enabled: false
   SelectorFormat:
