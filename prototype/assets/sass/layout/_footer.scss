@@ -92,8 +92,10 @@
 // ==========================================================================
 // # UTILITY NAV
 // ==========================================================================
-.nav-footer-utilities {
+.nav-footer-utilities[class] {
     display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -1em;
 
     font-size: rem(10);
     line-height: 1;
@@ -101,6 +103,7 @@
 
 .nav-footer-utilities__item {
     border-left: 1px solid #fff;
+    margin-bottom: 1em;
 
     &:first-child {
         padding-right: rem(10);
