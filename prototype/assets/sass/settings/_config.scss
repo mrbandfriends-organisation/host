@@ -249,10 +249,10 @@ $double-spacing-unit: 			$spacing-unit*2;
 $use-standard-breakpoints: 		true;
 
 // Grid configuration
-$grids: 						2 3 4 5;	// number of columns required
+$grids: 						2 3 4 5 6;	// number of columns required
 
 // Gutters
-$gutter: 						3em;	 // gutter between each column in em's
+$gutter: 						30px;	 // gutter between each column in em's
 $double-gutter-width: 			($gutter*2);
 $half-gutter-width: 			($gutter/2);
 $quarter-gutter-width: 			($gutter/4);
