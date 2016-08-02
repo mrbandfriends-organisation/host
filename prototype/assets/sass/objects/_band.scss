@@ -1,74 +1,26 @@
-// ============================================================
-
-// MODULE: BAND
-
-// Description: full width section with style variations.
-// Typically used to isolate and define sections of a long
-// content driven page
-
-// ============================================================
+// ==========================================================================
+//
+// # MODULE: BAND
+//
+// Due to the design of the site, bands aren’t used (see boxes), except for
+// one peculiar instance where it semantically makes more sense
+//
+// ==========================================================================
 
 
 // ==========================================================================
-// BASE
+// BASE—does nothing
 // ==========================================================================
 
 .band {
     //scss-lint:disable EmptyRule
 }
 
+
 // ==========================================================================
-// # COLOUR VARIANTS
+// # INSET BAND
 // ==========================================================================
-
-.band--red {
-    background: brand(red);
-    color: brand(white);
-
-    @include headings(1, 6) {
-        color: brand(ink);
-    }
-}
-
-.band--orange {
-    background: brand(orange);
-}
-
-.band--mint {
-    background: brand(mint);
-    color: brand(white);
-
-    &.-dark-fg {
-        color: brand(ink);
-    }
-}
-
-.band--sky {
-    background: brand(sky);
-    color: brand(white);
-
-    &.-dark-fg {
-        color: brand(ink);
-    }
-}
-
-.band--grape {
-    background: brand(grape);
-    color: brand(white);
-}
-
-.band--dark-sky {
-    background: hint(sky);
-    color: brand(white);
-}
-
-.band--dark-ink {
-    background: hint(ink);
-    color: brand(white);
-}
-
-// white is special
-.band--white {
+.band--inset {
     border: rem(30) solid brand(white);
     background: #fff;
 

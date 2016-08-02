@@ -1,0 +1,77 @@
+// ==========================================================================
+//
+// # MODULE: BOX (like Bands, only more Atomic™)
+//
+// A box is Host’s equivalent of a band in most other sites, and represents
+// an area of content with some overarching styling (padding, colours, etc)
+//
+// These differ from bands in that boxes typically only occupy part of the
+// horizontal space on a page, whereas bands are full-width
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE CLASS: no intrinsic styling
+// ==========================================================================
+
+.box {
+    background: #fff;
+    color: brand(ink);
+}
+
+// ==========================================================================
+// # PADDING VARIANCE
+// ==========================================================================
+.box--padded {
+
+}
+
+// ==========================================================================
+// # COLOUR VARIANCE
+// ==========================================================================
+.box--red {
+    background: brand(red);
+    color:      #fff;
+}
+
+.box--orange {
+    background: brand(orange);
+}
+
+.box--mint {
+    background: brand(mint);
+    color:      #fff;
+
+    &-alt {
+        background: brand(mint);
+    }
+}
+
+.box--sky {
+    background: brand(sky);
+    color:      #fff;
+
+    &-alt {
+        background: brand(sky);
+    }
+
+    &-dark {
+        background: hint(sky);
+        color:      #fff;
+    }
+}
+
+.box--grape {
+    background: brand(grape);
+    color:      #fff;
+}
+
+.box--ink {
+    background: brand(ink);
+    color:      #fff;
+
+    &-dark {
+        background: hint(ink);
+        color:      #fff;
+    }
+}
