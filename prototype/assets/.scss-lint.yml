@@ -45,8 +45,6 @@ linters:
     style: double_quotes
   ImportPath:
     enabled: true
-    leading_underscore: true
-    filename_extension: true
   TrailingWhitespace:
     enabled: false
   SpaceAfterVariableName:
