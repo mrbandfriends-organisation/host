@@ -20,3 +20,6 @@ npm-debug.log.*
 *.sublime-workspace
 composer.lock
 Gemfile.lock
+
+# hide vagrant stuffs
+/.vagrant
