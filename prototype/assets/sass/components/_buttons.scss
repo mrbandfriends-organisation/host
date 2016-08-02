@@ -13,9 +13,11 @@
 
 .btn,
 button {
-    display:   block;
+    display:   inline-block;
+
     margin:    0;
     padding:   rem(13) rem(15);
+    width:     auto;
     min-width: rem(280);
 
     transition: all 200ms;
@@ -112,6 +114,13 @@ button {
 
 .btn--small[class] {
     padding: rem(11) rem(15);
+}
+
+.btn--very-small[class] {
+    padding: rem(12) rem(15);
+
+    font-size:   rem(14);
+    line-height: rem(16);
 }
 
 .btn--narrow {
