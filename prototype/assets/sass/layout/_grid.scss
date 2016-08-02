@@ -16,7 +16,6 @@
     flex-wrap: wrap;
     flex: 0 1 auto;
 
-    margin-left: -#{$gutter};
     padding:     0;
     list-style:  none;
     text-rendering: optimizespeed;
@@ -40,7 +39,6 @@
     flex: 0 0 auto;
     box-sizing: border-box;
     width: 100%;
-    #{$padding-left}: $gutter;
     text-rendering: auto; // Reset text defaults.
 }
 
@@ -106,17 +104,24 @@
 // ROW MODIFIERS
 // ==========================================================================
 
+// Some gutter
+// ==========================================================================
+.grid--gutter {
+    #{$margin-left}: rem(-$gutter);
+
+    > .gc { #{$padding-left}: rem($gutter); }
+}
 
 // DOUBLE GUTTER
 // ==========================================================================
 
 .grid--double-gutter,
 %grid--double-gutter {
-    #{$margin-left}: -$double-gutter-width;
+    #{$margin-left}: rem(-$double-gutter-width);
 
     > .gc,
     > %gc--double-gutter {
-        #{$padding-left}: $double-gutter-width;
+        #{$padding-left}: rem($double-gutter-width);
     }
 }
 
@@ -125,11 +130,11 @@
 
 .grid--half-gutter,
 %grid--half-gutter {
-    #{$margin-left}: -$half-gutter-width;
+    #{$margin-left}: rem(-$half-gutter-width);
 
     > .gc,
     > %gc--half-gutter {
-        #{$padding-left}: $half-gutter-width;
+        #{$padding-left}: rem($half-gutter-width);
     }
 }
 
@@ -138,27 +143,13 @@
 
 .grid--quarter-gutter,
 %grid--quarter-gutter {
-    #{$margin-left}: -$quarter-gutter-width;
+    #{$margin-left}: rem(-$quarter-gutter-width);
 
     > .gc,
     > %gc--quarter-gutter {
-        #{$padding-left}: $quarter-gutter-width;
+        #{$padding-left}: rem($quarter-gutter-width);
     }
 }
-
-// NO GUTTER
-// ==========================================================================
-
-.grid--no-gutter,
-%grid--no-gutter {
-    #{$margin-left}: 0;
-
-    > .gc,
-    > %gc--no-gutter {
-        #{$padding-left}: 0;
-    }
-}
-
 
 // INLINE BLOCK
 // ==========================================================================
