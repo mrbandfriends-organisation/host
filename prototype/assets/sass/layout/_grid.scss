@@ -49,27 +49,27 @@
 
 @if ($use-standard-breakpoints == true) {
     // Tiny
-    @include mq($from: tiny) {
+    @include mq(tiny) {
         @include griddle-build($grids, "t");
     }
 
     // Small
-    @include mq($from: small) {
+    @include mq(small) {
         @include griddle-build($grids, "s");
     }
 
     // Medium
-    @include mq($from: medium) {
+    @include mq(medium) {
         @include griddle-build($grids, "m");
     }
 
     // Large
-    @include mq($from: large) {
+    @include mq(large) {
         @include griddle-build($grids, "l");
     }
 
     // Extra Large
-    @include mq($from: xlarge) {
+    @include mq(xlarge) {
         @include griddle-build($grids, "xl");
     }
 }
@@ -201,6 +201,8 @@
 
 .grid--divided,
 %grid--divided {
+    margin-bottom: -$gutter;
+    
     > .gc,
     > %gc--divided {
         margin-bottom: $gutter;

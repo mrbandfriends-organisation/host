@@ -1,7 +1,7 @@
 <header class="banner js-banner" role="banner">
 	<div class="banner__inner container">
 		<div class="banner__section banner__brand">
-            <a href="/" class="banner__home-link"><?=file_get_contents(ROOT_DIR.'/assets/svg/standalone/site-logo.svg'); ?></a>
+            <a href="/" class="banner__home-link"><?php $this->insert('partials::shared/icon', [ 'icon' => 'host-logo' ]); ?></a>
 		</div>
 
 		<div class="banner__section banner__nav">

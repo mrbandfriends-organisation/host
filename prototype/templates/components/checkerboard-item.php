@@ -11,11 +11,11 @@
     <div class="checkerboard-item__content">
         <p class="checkerboard-item__availability">
             <?=mt_rand(1, 20); ?> properties available
-            <a href="#" class="btn btn--small">Show me homes</a>
+            <a href="#" class="btn btn--very-small btn--narrow">Show me homes</a>
         </p>
         <p class="checkerboard-item__feeling-lucky">
             I’m feeling lucky:
-            <a href="#" class="btn btn--small">Find me a student home</a>
+            <a href="#" class="btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
         </p>
     </div>
 </article>

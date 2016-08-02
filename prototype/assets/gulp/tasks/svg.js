@@ -21,8 +21,8 @@ gulp.task('svgsprite', function()
                 .pipe(plumber({
                     errorHandler: errorHandler
                 }))
+                .pipe(rename({ prefix: 'icon-' }))
                 .pipe(svgstore({
-                    prefix: 'icon-',
                     cleanup: ['fill', 'style'],
                     cleanupdefs: true
                 }))
