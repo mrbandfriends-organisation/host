@@ -24,4 +24,8 @@ server {
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         include fastcgi_params;
     }
+
+    location ~* (.+)\.(?:\d+)\.(js|css|png|jpg|jpeg|gif)$ {
+        try_files $uri $1.$2;
+    }
 }
