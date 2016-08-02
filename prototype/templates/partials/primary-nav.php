@@ -1,12 +1,20 @@
+<?php
+    $aNav = [
+        [ 'text' => '<span>Locations</span> around the UK.' ],
+        [ 'text' => '<span>About</span> Host Students.' ],
+        [ 'text' => '<span>News</span> and views.' ],
+        [ 'text' => '<span>Contact</span> Host here.' ]
+    ];
+?>
 <nav class="menu-primary menu-primary--<?php echo $modifier; ?>">
 	<ul class="nav-primary nav-primary--<?php echo $modifier; ?> js-nav-primary">
-
-		<?php for ($i=1; $i < 5; $i++): ?>
-		<li>
-			<a href="#nav-item-<?php echo $i; ?>">Nav Item <?php echo $i; ?></a>
+	<?php foreach ($aNav AS $aN): ?>
+		<li class="nav-primary__item">
+			<a href="<?=(empty($aN['url']) ? '#' : $aN['url']); ?>" class="nav-primary__link"><?=$aN['text']; ?></a>
 		</li>
-		<?php endfor; ?>
-
-		
+	<?php endforeach; ?>
+        <li class="nav-primary__item">
+            <a href="#" class="btn btn--small btn--narrow">Choose language</a>
+        </li>
 	</ul>
 </nav>

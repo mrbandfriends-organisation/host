@@ -18,13 +18,10 @@ html {
 }
 
 body {
+    background: brand(white);
     color: brand(ink);
-
     font: normal rem(18) $base-font-family;
 }
-
-
-
 
 // ==========================================================================
 // PARAGRAPHS

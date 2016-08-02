@@ -10,48 +10,110 @@
 // # BASE
 // ==========================================================================
 
-@mixin btn {
-    @include inline-block;
-    position: relative;
-    z-index: 1;
-    padding: rem(10px) rem(20px);
-    border: 0;
-    color: #fff;
-    background-color: #ccc;
-    font-size: 100%;
-    text-align: center;
-    text-decoration: none;
-}
 
 .btn,
-%btn {
-    @include btn;
-}
+button {
+    display:   block;
+    margin:    0;
+    padding:   rem(13) rem(15);
+    min-width: rem(280);
 
+    transition: all 200ms;
 
+    border:    1px solid transparent;
+    border-radius: rem(6);
 
-// MODIFIER: DISABLED
-// ==========================================================================
+    background-color: brand(red);
 
-@mixin btn-disabled {
-    // scss-lint:disable ImportantRule
-    background-image: none !important;
-    // scss-lint:disable ImportantRule
-    cursor: default !important;
-    opacity: 0.65;
+    color: #fff;
+    font-size:   rem(16);
+    line-height: rem(18);
+    text-align:  center;
+    text-decoration: none;
 
-    &:active {
-        box-shadow: none;
+    cursor: pointer;
+
+    &:hover {
+        background: darken(brand(red), 10%);
+        text-decoration: none;
     }
-}
 
-.btn[disabled],
-.btn-disabled,
-.btn--disabled,
-%btn-disabled {
-    @include btn-disabled;
+    .svg-icon {
+        height: rem(18);
+        width:  auto;
+        fill:   currentColor;
+    }
+
+    @include mq(medium) {
+        padding:     rem(15) rem(25);
+        font-size:   rem(18);
+        line-height: rem(21);
+
+        .svg-icon { height: rem(21); }
+    }
+
+    & + & { margin-top: rem(20); }
 }
 
 // ==========================================================================
-// # BRAND
+// # COLOUR VARIENCE
+//
+// Note: this is not especially semantic, but as colours seem to be used
+// randomly without any real meaning…
 // ==========================================================================
+
+.btn--white {
+    background: #fff;
+    color:      brand(ink);
+
+    &:hover { background: #eee; }
+}
+
+.btn--orange {
+    background: brand(orange);
+
+    &:hover { background: darken(brand(orange), 10%); }
+}
+
+.btn--mint {
+    background: brand(mint);
+
+    &:hover { background: darken(brand(mint), 10%); }
+}
+
+.btn--sky {
+    background: brand(sky);
+
+    &:hover { background: darken(brand(sky), 10%); }
+}
+
+.btn--grape {
+    background: brand(grape);
+
+    &:hover { background: darken(brand(grape), 10%); }
+}
+
+.btn--ink {
+    background: brand(ink);
+
+    &:hover { background: lighten(brand(ink), 15%); }
+}
+
+.btn--outline-only {
+    border-color: #fff;
+    background:   rgba(255, 255, 255, 0);
+
+    &:hover { background: rgba(255, 255, 255, 0.2); }
+}
+
+// ==========================================================================
+// # SIZE VARIANCE
+// ==========================================================================
+
+.btn--small[class] {
+    padding: rem(11) rem(15);
+}
+
+.btn--narrow {
+    min-width: 0;
+}

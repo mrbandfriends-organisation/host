@@ -1,6 +1,7 @@
 <?php
 	require 'vendor/autoload.php';
     require 'tools/password-protect-staging.php';
+    require 'tools/helpers.php';
 
     define('ROOT_DIR', __DIR__);
 
@@ -25,6 +26,7 @@
 	$templates->addFolder('layouts', ROOT_DIR . '/templates/layouts/');
 	$templates->addFolder('pages', ROOT_DIR . '/templates/pages/');
 	$templates->addFolder('partials', ROOT_DIR . '/templates/partials/');
+    $templates->addFolder('component', ROOT_DIR . '/templates/components/');
 
 	$path_info = !empty($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : (!empty($_SERVER['ORIG_PATH_INFO']) ? $_SERVER['ORIG_PATH_INFO'] : '');
 

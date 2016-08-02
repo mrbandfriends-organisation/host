@@ -20,7 +20,7 @@ $is-oldie: false !default;
 
 // # PACKAGES
 // ==========================================================================
-@import "_bourbon";
+@import "bourbon";
 @import "node_modules/sass-mq/mq";
 
 
@@ -80,6 +80,7 @@ $is-oldie: false !default;
 // ==========================================================================
 @import "layout/banner";
 @import "layout/primary-menu";
+@import "layout/utilities-menu";
 @import "layout/footer";
 @import "layout/social-media-icons-list";
 
@@ -104,7 +105,7 @@ $is-oldie: false !default;
 // # SHAME FILE
 // # http://sass-guidelin.es/#shame-file
 // ==========================================================================
-@import "_shame";
+@import "shame";
 
 
 // # TRUMPS/HELPERS

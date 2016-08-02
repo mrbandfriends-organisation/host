@@ -13,40 +13,31 @@
 .banner {
     position: relative;
     width: 100%;
-    padding: 0;
-    background-color: $light-grey;
+    padding: 0 0 rem(25);
 }
 
 .banner__inner {
-    position: relative;
-    display: table;
-    padding-top: $half-spacing-unit;
-    padding-bottom: $half-spacing-unit;
-
-    .flexbox & {
-        display: flex;
-        flex-direction: flip(row, row-reverse);
-        align-items: center;
-    }
+    display:         flex;
+    justify-content: space-between;
+    align-items:     flex-end;
 }
 
 // ==========================================================================
 // # SECTION
 // ==========================================================================
-// scss-lint:disable EmptyRule
 .banner__section {
-    display: block;
-
-    @include mq($from: nav-break-2) {
-        display: table-cell;
-        vertical-align: middle;
-
-        .flexbox & {
-            display: block;
-            flex: 0 0 auto;
-            vertical-align: initial;
-        }
-    }
+    // scss-lint:disable EmptyRule
+    //
+    // @include mq($from: nav-break-2) {
+    //     display: table-cell;
+    //     vertical-align: middle;
+    //
+    //     .flexbox & {
+    //         display: block;
+    //         flex: 0 0 auto;
+    //         vertical-align: initial;
+    //     }
+    // }
 }
 
 // ==========================================================================
@@ -54,14 +45,12 @@
 // ==========================================================================
 
 .banner__brand {
-    margin-bottom: $half-spacing-unit;
 
-    @include mq($from: nav-break-2) {
-        margin-bottom: auto;
-    }
+    svg {
+        height: rem(60);
+        width:  rem(140);
 
-    .cuts-the-mustard & {
-        margin-bottom: auto;
+        fill:   brand(red);
     }
 
 }
@@ -71,8 +60,7 @@
 // ==========================================================================
 
 .banner__nav {
-
-    .flexbox & {
-        flex-grow: 1;
-    }
+    display:        flex;
+    flex-direction: column;
+    align-items:    flex-end;
 }
