@@ -22,13 +22,13 @@
         $second = $this->fetch($second);
     }
 ?>
-<div class="band<?=$band; ?> split-feature -<?=$align; ?>">
-    <div class="split-feature__main box<?=$color; ?>">
+<section class="band<?=$band; ?> split-feature -<?=$align; ?> grid">
+    <div class="split-feature__main box<?=$color; ?> m1-2">
         <div class="split-feature__content">
             <?=$content; ?>
         </div>
     </div>
-    <aside class="split-feature__secondary">
+    <aside class="split-feature__secondary m1-2">
         <?=$second; ?>
     </aside>
-</div>
+</section>
