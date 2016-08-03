@@ -10,18 +10,13 @@
 //
 // ==========================================================================
 
+// scss-lint:disable PlaceholderInExtend
+
 // ==========================================================================
-// # BASE CLASS: no intrinsic styling
+// # BASE CLASS
 // ==========================================================================
 
 .box {
-    display:         flex;
-
-    flex-direction:  column;
-    justify-content: center;
-    align-items:     flex-start;
-    flex-grow:       1;
-
     background: #fff;
     color: brand(ink);
 
