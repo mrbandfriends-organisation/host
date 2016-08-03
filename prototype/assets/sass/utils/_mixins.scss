@@ -261,13 +261,9 @@
 
 
 @mixin grid-column($proportion, $context) {
-    width: percentage($proportion / $context);
-
-    .flexbox & {
-        flex-basis: percentage($proportion / $context);
-        width: auto;
-        max-width: percentage($proportion / $context);
-    }
+    flex-basis: percentage($proportion / $context);
+    width: auto;
+    max-width: percentage($proportion / $context);
 }
 
 

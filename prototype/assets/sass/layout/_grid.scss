@@ -16,6 +16,7 @@
     flex-wrap: wrap;
     flex: 0 1 auto;
 
+    margin:      0;
     padding:     0;
     list-style:  none;
     text-rendering: optimizespeed;
@@ -70,7 +71,11 @@
 
     // Extra Large
     @include mq(xlarge) {
-        @include griddle-build($grids, "xl");
+        @include griddle-build($grids, "x");
+    }
+
+    @include mq(xxlarge) {
+        @include griddle-build($grids, "xx");
     }
 }
 
@@ -202,7 +207,7 @@
 .grid--divided,
 %grid--divided {
     margin-bottom: -$gutter;
-    
+
     > .gc,
     > %gc--divided {
         margin-bottom: $gutter;

@@ -3,9 +3,12 @@
     {
         $label = 'My City';
     }
+
+    $sPath = '/_dummy/checkerboard/'.strtolower($label).'-tile.jpg';
+    $sAttr = (file_exists(ROOT_DIR.$sPath)) ? " style=\"background-image:url({$sPath});\"" : '';
 ?>
 <article class="checkerboard-item">
-    <header class="checkerboard-item__title">
+    <header class="checkerboard-item__title"<?=$sAttr;?>>
         <a href="#" class="checkerboard-item__link"><?=$label; ?></a>
     </header>
     <div class="checkerboard-item__content">
