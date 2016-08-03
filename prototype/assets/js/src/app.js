@@ -6,8 +6,7 @@
  */
 
 // NPM Modules
-require('jquery');
-window.$ = require('jquery');
+require('expose?$!expose?jQuery!jquery');
 
 
 /**
@@ -43,7 +42,7 @@ window.$ = require('jquery');
 (function() {
     "use strict";
 
-    if ( Modernizr.mq( '(max-width: 992px)' ) ) {
+    if ( $('.js-offcanvas-toggle').is(':visible') ) {
         // Async load
         require.ensure(['offcanvas-toggler'], function() {
             var OffCanvasToggler = require('offcanvas-toggler');
