@@ -23,26 +23,6 @@ window.$ = require('jquery');
     // new GAEventTracking('.js-ga-tracking');
 }());
 
-
-/**
- * WEBFONT LOADING
- * managing loading of webfonts here to assist with
- * managing of FOUT/FOIT
- */
-(function() {
-    "use strict";
-
-    // Shimmed via package.json
-    var WebFont = require('webfontloader');
-
-    WebFont.load( {
-        custom: {
-            families: ['']
-        },
-        timeout: 2000 // if nowt happens then bail out
-    });
-}());
-
 /**
  * SVG SPRITEMAP
  * loads SVG spritemap into the DOM for use with <use>
