@@ -21,11 +21,15 @@
 }
 
 // ==========================================================================
-// # HALF-BANNER used in various content
+// # HALF-SIZED used in various content
 // ==========================================================================
-.container--half {
-    width: 50%;
+.half-container {
+    display: block;
+
+    width: 100%;
     max-width: rem(537.5);
+    margin-right: auto;
+    margin-left:  auto;
 
     &.-left { margin-right: 0; }
     &.-right { margin-left: 0; }

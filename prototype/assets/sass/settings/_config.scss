@@ -169,7 +169,7 @@ $em-base: 				        $base-font-size;
 $is-fixed:						if($is-oldie, true, false);
 
 // Width of primary ".container" elements - determined by $is-fixed var
-$container-width:				if($is-fixed, 960px, 90%);
+$container-width:				1075px;
 
 
 // RESPONSIVE

@@ -1,0 +1,55 @@
+// ==========================================================================
+// # SPLIT FEATURE
+//
+// Split features are one of the more common elements on the site, and are,
+// in-effect a two equal column grid… just a little more specialised
+// ==========================================================================
+
+// scss-lint:disable MergeableSelector
+
+// ==========================================================================
+// # Base
+// ==========================================================================
+.split-feature {
+    display: flex;
+    flex-direction: row;
+}
+
+.split-feature__main,
+.split-feature__secondary {
+    @include grid-column(1, 2);
+
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    align-items:     center;
+}
+
+// # Actual content
+// ==========================================================================
+.split-feature__content {
+    padding: rem(70);
+    max-width: rem($container-width / 2);
+}
+
+// # Secondary content
+// ==========================================================================
+.split-feature__secondary {
+    // scss-lint:disable EmptyRule
+}
+
+// ==========================================================================
+// # ALIGNMENT
+// ==========================================================================
+.split-feature.-left {
+
+    .split-feature__main    { align-items: flex-end; padding-left: rem(30); }
+    .split-feature__content { padding-left: 0; }
+}
+
+.split-feature.-right {
+    flex-direction: row-reverse;
+
+    .split-feature__main    { align-items: flex-start; padding-right: rem(30); }
+    .split-feature__content { padding-right: 0; }
+}

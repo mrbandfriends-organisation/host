@@ -24,6 +24,12 @@
 
     background: #fff;
     color: brand(ink);
+
+    @include headings(1, 4) {
+        color: brand(ink);
+
+        &:first-line { color: #fff; }
+    }
 }
 
 // ==========================================================================
@@ -40,23 +46,31 @@
 }
 
 // ==========================================================================
-// # COLOUR VARIANCE
+// # COLOUR VARIANCE - backgrounds
 // ==========================================================================
 .box--red {
     background: brand(red);
     color:      #fff;
+
+    .btn { @extend .btn--white; }
 }
 
 .box--orange {
     background: brand(orange);
+
+    .btn { @extend .btn--white; }
 }
 
 .box--mint {
     background: brand(mint);
     color:      #fff;
 
+    .btn { @extend .btn--white; }
+
     &-alt {
         background: brand(mint);
+
+        .btn { @extend .btn--white; }
     }
 }
 
@@ -64,27 +78,97 @@
     background: brand(sky);
     color:      #fff;
 
+    .btn { @extend .btn--white; }
+
     &-alt {
         background: brand(sky);
     }
 
     &-dark {
-        background: hint(sky);
+        background: tint(sky);
         color:      #fff;
+    }
+
+    &-alt,
+    &-dark {
+        .btn { @extend .btn--sky; }
+
+        @include headings(1, 4) {
+            color: #fff;
+
+            &:first-line { color: brand(sky); }
+        }
     }
 }
 
 .box--grape {
     background: brand(grape);
     color:      #fff;
+
+    .btn { @extend .btn--ink; }
 }
 
 .box--ink {
     background: brand(ink);
     color:      #fff;
 
+    .btn { @extend .btn--white; }
+
     &-dark {
-        background: hint(ink);
+        background: tint(ink);
         color:      #fff;
+
+        .btn { @extend .btn--white; }
+    }
+
+    &,
+    &-dark {
+        @include headings(1, 4) {
+            color: #fff;
+
+            &:first-line { color: brand(sky); }
+        }
+    }
+}
+
+// ==========================================================================
+// # MORE COLOUR VARIANCE—this time, for foreground hinting
+// ==========================================================================
+.box--fg-red {
+
+    @include headings(1, 4) {
+        &:first-line { color: brand(red); }
+    }
+}
+
+.box--fg-orange {
+    .btn { @extend .btn--orange; }
+
+    @include headings(1, 4) {
+        &:first-line { color: brand(orange); }
+    }
+}
+
+.box--fg-mint {
+    .btn { @extend .btn--mint; }
+
+    @include headings(1, 4) {
+        &:first-line { color: brand(mint); }
+    }
+}
+
+.box--fg-sky {
+    .btn { @extend .btn--sky; }
+
+    @include headings(1, 4) {
+        &:first-line { color: brand(sky); }
+    }
+}
+
+.box--fg-grape {
+    .btn { @extend .btn--grape; }
+
+    @include headings(1, 4) {
+        &:first-line { color: brand(grape); }
     }
 }

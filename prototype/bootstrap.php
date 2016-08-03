@@ -23,10 +23,11 @@
 	 * http://platesphp.com/
 	 */
 	$templates = new League\Plates\Engine(ROOT_DIR . '/templates/');
-	$templates->addFolder('layouts', ROOT_DIR . '/templates/layouts/');
-	$templates->addFolder('pages', ROOT_DIR . '/templates/pages/');
-	$templates->addFolder('partials', ROOT_DIR . '/templates/partials/');
+	$templates->addFolder('layouts',   ROOT_DIR . '/templates/layouts/');
+	$templates->addFolder('pages',     ROOT_DIR . '/templates/pages/');
+	$templates->addFolder('partials',  ROOT_DIR . '/templates/partials/');
     $templates->addFolder('component', ROOT_DIR . '/templates/components/');
+    $templates->addFolder('content',   ROOT_DIR . '/templates/content/');
 
 	$path_info = !empty($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : (!empty($_SERVER['ORIG_PATH_INFO']) ? $_SERVER['ORIG_PATH_INFO'] : '');
 
