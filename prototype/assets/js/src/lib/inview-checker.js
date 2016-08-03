@@ -1,3 +1,4 @@
+/* jshint strict: false */
 /**
  * INVIEW CHECKER
  * checks whether a selector is "in the viewport"
@@ -5,7 +6,6 @@
  * in the view
  */
 
-var $           = require('jquery');
 var verge       = require('verge');
 var debounce    = require('lodash.debounce');
 
@@ -26,7 +26,7 @@ var InViewChecker = function(selector, options) {
         wait: 400,
         inViewClassName: 'is-inview'
     }, options);
-    
+
     this._addListeners();
 };
 
@@ -51,13 +51,3 @@ InViewChecker.prototype._checkInView = function() {
 
 // Export
 module.exports = InViewChecker;
-
-
-
-
-
-
-
-
-
-

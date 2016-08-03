@@ -1,10 +1,9 @@
+/* jshint strict:false */
 /**
  * GOOGLE EVENT TRACKING
  * reusable method to allow GA Events to be defined using
  * data attributes in the DOM
  */
-
-var $ = require('jquery');
 
 var GATracker = function(selector) {
     this.$root = $('body');
@@ -29,14 +28,14 @@ GATracker.prototype._addListeners = function() {
 GATracker.prototype.trackEvent = function(data, event) {
     //debugger;
     if ( !(ga && data.eventCategory && data.eventAction && data.eventLabel) ) {
-        return false;        
+        return false;
     }
 
 
     var el = event.srcElement || event.target;
 
     /* Loop up the DOM tree through parent elements if clicked element is not a link (eg: an image inside a link) */
-    while (el && (typeof el.tagName == 'undefined' || el.tagName.toLowerCase() != 'a' || !el.href)) {
+    while (el && (typeof el.tagName == 'undefined' || el.tagName.toLowerCase() != 'a' || !el.href)) { // jshint ignore:line
         el = el.parentNode;
     }
 
@@ -45,24 +44,24 @@ GATracker.prototype.trackEvent = function(data, event) {
 
         var link = el.href;
 
-       
+
 
             var hbrun = false; // tracker has not yet run
 
             /* HitCallback to open link in same window after tracker */
             var hitBack = function() {
                 /* run once only */
-                if (hbrun) return;
+                if (hbrun) return; // jshint ignore:line
                 hbrun = true;
                 window.location.href = link;
             };
 
-            
+
             /* send event with callback */
 
             ga("send", "event", {
-                eventCategory: data.eventCategory, 
-                eventAction: data.eventAction, 
+                eventCategory: data.eventCategory,
+                eventAction: data.eventAction,
                 eventLabel: data.eventLabel,
                 "hitCallback": hitBack
             });
@@ -71,12 +70,12 @@ GATracker.prototype.trackEvent = function(data, event) {
             setTimeout(hitBack, 1000);
 
             /* Prevent standard click */
-            event.preventDefault ? event.preventDefault() : event.returnValue = !1;
-            
-        
+            event.preventDefault ? event.preventDefault() : event.returnValue = !1; // jshint ignore:line
+
+
 
     }
-    
+
 };
 
 

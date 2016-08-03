@@ -1,3 +1,4 @@
+/* jshint strict: false */
 /**
  * RESPONSIVE IMAGES BACKGROUNDS
  * utility to allow for true responsive images on CSS backgrounds

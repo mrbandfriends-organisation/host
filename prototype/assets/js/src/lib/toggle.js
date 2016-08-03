@@ -1,3 +1,4 @@
+// jshint strict:false
 /**
  * TOGGLE
  *
@@ -7,8 +8,6 @@
  * such as toggleable menus. Works well when paired with a CSS
  * "expandable" module. Data API is provided.
  */
-
-var $ = require('jquery');
 
 function Toggle(el, options) {
     this.el = el;

@@ -1,9 +1,9 @@
+/* jshint strict: false */
 /**
  * OFFCANVAS TOGGLER
  * manages toggling of offcanvas elements
  */
 
-require('jquery');
 var EventBus = require('pubsub-js');
 
 var OffCanvasToggler = function(options) {

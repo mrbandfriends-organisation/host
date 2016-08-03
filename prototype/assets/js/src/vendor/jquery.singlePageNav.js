@@ -21,7 +21,7 @@ if (typeof Object.create !== 'function') {
     var SinglePageNav = {
 
         init: function(options, container) {
-            
+
             this.options = $.extend({}, $.fn.singlePageNav.defaults, options);
 
             this.container = container;
