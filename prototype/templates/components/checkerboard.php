@@ -19,7 +19,7 @@
     ];
 ?>
 
-<section class="checkerboard">
+<section class="checkerboard js-checkerboard" data-checkerboard-selector=".checkerboard-item">
     <header class="checkerboard__header">
         <h1>Need a student home?<br>Let’s take a look.</h1>
     </header>

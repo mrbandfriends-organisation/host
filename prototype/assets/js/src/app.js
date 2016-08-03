@@ -7,6 +7,7 @@
 
 // NPM Modules
 require('expose?$!expose?jQuery!jquery');
+require('jquery.debounce');
 
 
 /**
@@ -73,3 +74,16 @@ require('expose?$!expose?jQuery!jquery');
 
     //new InViewChecker('.js-inview');
 }());
+
+/**
+ * UI code
+ *
+ * There really shouldn’t be anything here other than require()-ing bits of code in the 'ui' dir. If there is logic
+ * code here, use git blame to find out who is buying the beers this week…
+ */
+(function()
+{
+    "use strict";
+
+    require('checkerboard');
+})();

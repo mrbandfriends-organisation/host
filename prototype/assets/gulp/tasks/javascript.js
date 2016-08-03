@@ -45,7 +45,7 @@ gulp.task('javascripts', function() {
                     },
                     resolve: {
                         root: __dirname,
-                        modulesDirectories: ['lib', 'vendor', 'node_modules']
+                        modulesDirectories: ['lib', 'vendor', 'node_modules', 'ui']
                     }
                 },webpack)) // 2nd argument allows us to inject a custom version of webpack into the webpack-stream lib
                 .pipe(gulp.dest( paths.js.output ));

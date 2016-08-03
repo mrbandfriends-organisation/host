@@ -7,9 +7,9 @@
     $sPath = '/_dummy/checkerboard/'.strtolower($label).'-tile.jpg';
     $sAttr = (file_exists(ROOT_DIR.$sPath)) ? " style=\"background-image:url({$sPath});\"" : '';
 ?>
-<article class="checkerboard-item">
+<article class="checkerboard-item js-checkerboard__item">
     <header class="checkerboard-item__title"<?=$sAttr;?>>
-        <a href="#" class="checkerboard-item__link"><?=$label; ?></a>
+        <a href="#" class="checkerboard-item__link js-checkerboard__trigger"><?=$label; ?></a>
     </header>
     <div class="checkerboard-item__content">
         <p class="checkerboard-item__availability">
