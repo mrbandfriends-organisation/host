@@ -20,7 +20,9 @@
     background: transparent none no-repeat center center/cover;
     overflow: hidden;
 
-    &.js-enhanced { background: transparent none !important; }
+    &.js-enhanced {
+        background: transparent none !important; //scss-lint:disable ImportantRule
+    }
 }
 
 .map__static {
@@ -31,4 +33,45 @@
 
     transform: translate(-50%, -50%);
     opacity:  0.0000001;
+}
+
+// ==========================================================================
+// # Filters
+// ==========================================================================
+.map__filters {
+    position: absolute;
+
+    left: 0;
+    top:  50%;
+
+    transform: translateY(-50%);
+
+    .svg-icon {
+        float:  left;
+        height: rem(27);
+        width:  rem(20);
+
+        margin-left: rem(-40);
+
+        margin-right: 0.5em;
+
+        transition: fill 200ms;
+        fill: brand(grey);
+
+        vertical-align: middle;
+
+    }
+
+    .form-filter {
+        padding-left: rem(40);
+    }
+}
+
+// # Colourways
+// ==========================================================================
+.map__filter {
+    &.-unis      input:checked ~ .svg-icon { fill: brand(orange); }
+    &.-food      input:checked ~ .svg-icon { fill: brand(grape); }
+    &.-shops     input:checked ~ .svg-icon { fill: brand(mint); }
+    &.-transport input:checked ~ .svg-icon { fill: brand(ink); }
 }

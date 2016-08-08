@@ -6,7 +6,7 @@ var oIconMap = {
     transport: 'black',
     unis:      'orange',
     food:      'grape',
-    shopping:  'mint'
+    shops:     'mint'
 };
 
 function GMaps()
@@ -15,9 +15,10 @@ function GMaps()
 
     /** ivars */
     var el  = this;
-    var oEl = $(this);
     var oMap;
     var aoMarker = {};
+    var aoFilter = [];
+    var oWin     = null;
 
     // config
     var defaults = {
@@ -105,20 +106,38 @@ function GMaps()
         {
             oDefinition.icon = WEB_ROOT+'assets/svg/standalone/output/marker-'+oIconMap[oPlace.type]+'.svg';
         }
-        else
-        {
-            oPlace.type = 'default';
-        }
 
         // 5. draw the marker
         var oMarker = new google.maps.Marker(oDefinition);
 
-        // 6. store for later
+        // 7. if it’s a default marker, bail
+        if (oPlace.type === undefined)
+        {
+            return true;
+        }
+
+        // 8. otherwise, store it for later
         if (aoMarker[oPlace.type] === undefined)
         {
             aoMarker[oPlace.type] = [];
         }
         aoMarker[oPlace.type].push(oMarker);
+
+        // 9. bind click…
+        oMarker.addListener('click', showInfoWindow);
+    }
+
+    function showInfoWindow()
+    {
+        // 1. if there’s no window
+        if (oWin === null)
+        {
+            oWin = new google.maps.InfoWindow({ content: "" });
+        }
+
+        // 2. set the content + show it
+        oWin.setContent('<strong class="map__info-window">'+this.title+'</strong>');
+        oWin.open(oMap, this);
     }
 
     /**
@@ -127,10 +146,10 @@ function GMaps()
     function plotMarkers()
     {
         // 1. try parsing
-        var oMarker = [];
+        var aoMark = [];
         try
         {
-            aoMarker = JSON.parse(el.getAttribute('data-markers'));
+            aoMark = JSON.parse(el.getAttribute('data-markers'));
         }
         catch (ex)
         {
@@ -139,16 +158,16 @@ function GMaps()
 
         // 2. iterate through defined markers
         var k;
-        for (k in aoMarker)
+        for (k in aoMark)
         {
             // a. *sigh*
-            if (!aoMarker.hasOwnProperty(k))
+            if (!aoMark.hasOwnProperty(k))
             {
                 continue;
             }
 
             // b. plot
-            aoMarker[k].forEach(function(oMarker)
+            aoMark[k].forEach(function(oMarker)
             {
                 // i. set type
                 oMarker.type = k;
@@ -157,6 +176,38 @@ function GMaps()
                 plotPlace(oMarker);
             });
 
+        }
+    }
+
+    /**
+     * Updates filters
+     */
+    function updateFilters()
+    {
+        // 1. iterate our way through the filters and toggle markers
+        aoFilter.forEach(function(elFilter)
+        {
+            // a. set some stuff
+            var sFilter = elFilter.value;
+            var bCheck  = elFilter.checked;
+
+            // a. do we have any markers of that type?
+            if (aoMarker[sFilter] === undefined)
+            {
+                return;
+            }
+
+            // b. if so, wander through and update their visibility
+            aoMarker[sFilter].forEach(function(oF)
+            {
+                oF.setVisible(bCheck);
+            });
+        });
+
+        // 2. hide the info window, just to make things easier
+        if (oWin !== null)
+        {
+            oWin.close();
         }
     }
 
@@ -192,7 +243,14 @@ function GMaps()
             plotMarkers();
         }
 
-        // 6. flag things
+        // 6. passively hook filters
+        aoFilter = [].slice.call(el.parentNode.querySelectorAll('input[type=checkbox]'));
+        aoFilter.forEach(function(el)
+        {
+            el.addEventListener('change', updateFilters);
+        });
+
+        // 7. flag things
         el.classList.add('js-enhanced');
     }
 

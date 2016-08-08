@@ -1,8 +1,10 @@
 <?php
 
     // default zoom
-    $zoom   = (empty($zoom) || !is_numeric($zoom)) ? 15 : $zoom;
-    $centre = (empty($centre)) ? '0,0' : $centre;
+    $zoom    = (empty($zoom) || !is_numeric($zoom)) ? 15 : $zoom;
+    $centre  = (empty($centre))  ? '0,0' : $centre;
+    $filters = (empty($filters)) ? false : true;
+    $id      = (empty($id))      ? 'map' : $id;
 
     /** Base parameters */
     // static
@@ -40,9 +42,38 @@
     {
         $sAttrs .= sprintf(' data-%s="%s"', $sParm, esc_attr($sVal));
     }
+
+    /**
+     * Filter sets
+     */
+    $aFilter = [
+        'unis'      => 'Universities',
+        'food'      => 'Eating and drinking',
+        'shops'     => 'Shopping',
+        'transport' => 'Transport'
+    ];
 ?>
 <section class="map">
     <div class="map__map js-map"<?=$sAttrs; ?> style="background-image:url(<?=$sStaticPath; ?>)">
         <img src="<?=$sStaticPath; ?>" class="map__static" alt="">
     </div>
+    <?php if ($filters): ?>
+        <form action="#" method="post" class="map__filters box box--fg-mint box--padded">
+            <h3>What’s around<br>the local area?</h3>
+
+            <fieldset class="form-filter">
+                <ul class="form-filter__list">
+                <?php foreach ($aFilter AS $sFilter => $sLabel): ?>
+                    <li class="form-filter__item">
+                        <label for="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" class="form-filter__filter map__filter -<?=esc_attr($sFilter); ?>">
+                            <input type="checkbox" id="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" name="filter[]" value="<?=esc_attr($sFilter); ?>" checked>
+                            <?php $this->insert('partials::shared/icon', [ 'icon' => 'marker' ]); ?>
+                            <?=$sLabel; ?>
+                        </label>
+                    </li>
+                <?php endforeach; ?>
+                </ul>
+            </fieldset>
+        </form>
+    <?php endif; ?>
 </section>
