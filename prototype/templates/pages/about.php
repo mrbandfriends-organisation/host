@@ -16,7 +16,8 @@
 
         $this->insert('component::split-feature', [
             'color'   => 'fg-red',
-            'content' => 'content::about/hassle-free'
+            'content' => 'content::about/hassle-free',
+            'second'  => $this->fetch('component::bleed-image', [ 'image' => '/_dummy/hassle-free-carousel.jpg' ])
         ]);
 
         $this->insert('component::split-feature', [
@@ -24,5 +25,7 @@
             'content' => 'content::about/never-hidden',
             'second'  => $this->fetch('component::bleed-image', [ 'image' => '/_dummy/staff-phot.jpg' ])
         ]);
+
+        $this->insert('partials::common/testimonial-wall'); 
     ?>
 </main>

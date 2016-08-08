@@ -36,6 +36,12 @@
     @include mq(medium) { padding: rem(50) rem(40); }
 }
 
+.box--less-padding {
+    padding: rem(20);
+
+    @include mq(medium) { padding: rem(40) rem(30); }
+}
+
 // ==========================================================================
 // # COLOUR VARIANCE - backgrounds
 // ==========================================================================
@@ -44,6 +50,19 @@
     color:      #fff;
 
     .btn { @extend .btn--white; }
+
+    &-alt {
+        background: tint(red);
+        color:      #fff;
+
+        @include headings(1, 4) {
+            color: #fff;
+
+            &:first-line { color: brand(orange); }
+        }
+
+        .btn { @extend .btn--white; }
+    }
 }
 
 .box--orange {
