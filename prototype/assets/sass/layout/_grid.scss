@@ -38,11 +38,12 @@
 
     @if ($use-standard-breakpoints == true) {
 
-        @include mq(tiny)   { &-t  { @include gw-v; }}
-        @include mq(small)  { &-s  { @include gw-v; }}
-        @include mq(medium) { &-m  { @include gw-v; }}
-        @include mq(large)  { &-l  { @include gw-v; }}
-        @include mq(xlarge) { &-xl { @include gw-v; }}
+        @include mq(tiny)    { &-t   { @include gw-v; }}
+        @include mq(small)   { &-s   { @include gw-v; }}
+        @include mq(medium)  { &-m   { @include gw-v; }}
+        @include mq(large)   { &-l   { @include gw-v; }}
+        @include mq(xlarge)  { &-xl  { @include gw-v; }}
+        @include mq(xxlarge) { &-xxl { @include gw-v; }}
 
     }
 }
@@ -90,11 +91,11 @@
 
     // Extra Large
     @include mq(xlarge) {
-        @include griddle-build($grids, "x");
+        @include griddle-build($grids, "xl");
     }
 
     @include mq(xxlarge) {
-        @include griddle-build($grids, "xx");
+        @include griddle-build($grids, "xxl");
     }
 }
 
