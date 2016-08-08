@@ -1,0 +1,57 @@
+// ==========================================================================
+//
+// BUTTONS
+//
+// Description: UI styles to create button-like elements
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+@mixin btn {
+    @include inline-block;
+    position: relative;
+    z-index: 1;
+    padding: rem(10px) rem(20px);
+    border: 0;
+    color: #fff;
+    background-color: #ccc;
+    font-size: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn,
+%btn {
+    @include btn;
+}
+
+
+
+// MODIFIER: DISABLED
+// ==========================================================================
+
+@mixin btn-disabled {
+    // scss-lint:disable ImportantRule
+    background-image: none !important;
+    // scss-lint:disable ImportantRule
+    cursor: default !important;
+    opacity: 0.65;
+
+    &:active {
+        box-shadow: none;
+    }
+}
+
+.btn[disabled],
+.btn-disabled,
+.btn--disabled,
+%btn-disabled {
+    @include btn-disabled;
+}
+
+// ==========================================================================
+// # BRAND
+// ==========================================================================

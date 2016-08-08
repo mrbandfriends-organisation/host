@@ -1,0 +1,78 @@
+// ==========================================================================
+//
+// BANNER
+//
+// Description: layout and styling for primary banner/header of site
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.banner {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    background-color: $light-grey;
+}
+
+.banner__inner {
+    position: relative;
+    display: table;
+    padding-top: $half-spacing-unit;
+    padding-bottom: $half-spacing-unit;
+
+    .flexbox & {
+        display: flex;
+        flex-direction: flip(row, row-reverse);
+        align-items: center;
+    }
+}
+
+// ==========================================================================
+// # SECTION
+// ==========================================================================
+// scss-lint:disable EmptyRule
+.banner__section {
+    display: block;
+
+    @include mq($from: nav-break-2) {
+        display: table-cell;
+        vertical-align: middle;
+
+        .flexbox & {
+            display: block;
+            flex: 0 0 auto;
+            vertical-align: initial;
+        }
+    }
+}
+
+// ==========================================================================
+// # BRAND
+// ==========================================================================
+
+.banner__brand {
+    margin-bottom: $half-spacing-unit;
+
+    @include mq($from: nav-break-2) {
+        margin-bottom: auto;
+    }
+
+    .cuts-the-mustard & {
+        margin-bottom: auto;
+    }
+
+}
+
+// ==========================================================================
+// # NAV
+// ==========================================================================
+
+.banner__nav {
+
+    .flexbox & {
+        flex-grow: 1;
+    }
+}

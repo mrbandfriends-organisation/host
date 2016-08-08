@@ -1,0 +1,131 @@
+// ==========================================================================
+// TYPOGRAPHY
+//
+// Description: base typography styles to apply globally
+// ==========================================================================
+
+// ==========================================================================
+// GLOBAL
+// ==========================================================================
+
+html {
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+}
+
+body {
+    color: $base-font-color;
+    font-size: 1rem;
+    font-family: $base-font-family;
+
+    .wf-active & {
+        @include wf-primary;
+    }
+}
+
+
+
+
+// ==========================================================================
+// PARAGRAPHS
+// ==========================================================================
+
+p {
+    margin: 0 0 $base-line-height;
+}
+
+.muted {
+    color: #999;
+}
+
+.reduced {
+    font-size: 0.9em;
+}
+
+// ==========================================================================
+// LINKS
+// ==========================================================================
+
+a {
+    color: $link-color;
+}
+
+a:hover,
+a:focus {
+    color: $link-color-hover;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+a:hover,
+a:active {
+    outline: none;
+}
+
+
+// ==========================================================================
+// LISTS
+// ==========================================================================
+
+// Standard List
+// ==========================================================================
+
+ul,
+ol {
+    margin: 0 0 $base-line-height 25px;
+    padding: 0;
+}
+
+// Nested lists
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+    margin-bottom: 0;
+}
+
+ul {
+    list-style: disc;
+}
+
+ol {
+    list-style: decimal;
+}
+
+li {
+    line-height: $base-line-height;
+}
+
+
+// Definition List
+// ==========================================================================
+
+dd {
+    margin-left: 0;
+}
+
+
+// ==========================================================================
+// ADDRESS
+// ==========================================================================
+
+address {
+    margin-bottom: $base-line-height;
+    font-style: normal;
+}
+
+
+// ==========================================================================
+// IMAGES
+// ==========================================================================
+
+// Set things up for responsive
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+}

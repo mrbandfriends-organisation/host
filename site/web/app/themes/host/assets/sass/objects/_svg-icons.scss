@@ -1,0 +1,89 @@
+// ============================================================
+
+// MODULE: SVG ICONS
+
+// Description: 
+
+// ============================================================
+
+
+// ==========================================================================
+// BASE
+// ==========================================================================
+
+// Ensure SVG defs are hidden
+.svg-defs {
+    display: none;
+}
+
+
+.svg-icon {
+    width: rem(32px);
+    height: rem(32px);
+    fill: #fff;
+}
+
+
+// ==========================================================================
+// # COLOUR
+// ==========================================================================
+
+.svg-icon--light {
+    fill: #fff;
+}
+
+.svg-icon--dark {
+    fill: #000;
+}
+
+
+// ==========================================================================
+// # SIZING
+// ==========================================================================
+
+%svg-icon--small { 
+    width: rem(16px); 
+    height: rem(16px); 
+}
+
+%svg-icon--large { 
+    width: rem(64px); 
+    height: rem(64px); 
+
+}
+
+%svg-icon--huge { 
+    width: rem(128px); 
+    height: rem(128px);
+}
+
+%svg-icon--natural { 
+    width: inherit; 
+    height: inherit; 
+}
+
+%svg-icon--small-alt { 
+    width: rem(20px); 
+    height: rem(20px); 
+}
+
+%svg-icon--large-alt { 
+    width: rem(80px); 
+    height: rem(80px); 
+}
+
+%svg-icon--huge-alt { 
+    width: rem(190px); 
+    height: rem(190px); 
+}
+
+// Based on 32px icon grid
+.svg-icon--small { @extend %svg-icon--small; }
+.svg-icon--large { @extend %svg-icon--large; }
+.svg-icon--huge { @extend %svg-icon--huge; }
+.svg-icon--natural { @extend %svg-icon--natural; }
+
+// Based on 24px icon grid
+.svg-icon--small-alt { @extend %svg-icon--small-alt; }
+.svg-icon--large-alt { @extend %svg-icon--large-alt; }
+.svg-icon--huge-alt { @extend %svg-icon--huge-alt; }

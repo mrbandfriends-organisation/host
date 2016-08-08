@@ -1,0 +1,20 @@
+// ==========================================================================
+//
+// PLAN LINK
+//
+// Description: styles to make text hyperlinks look and feel like a standard
+// piece of document flow text
+//
+// ==========================================================================
+
+.plain-link {
+    color: $base-font-color;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+        color: $base-font-color;
+        text-decoration: none;
+    }
+}
+
