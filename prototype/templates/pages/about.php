@@ -21,7 +21,8 @@
 
         $this->insert('component::split-feature', [
             'color'   => 'red',
-            'content' => 'content::about/never-hidden'
+            'content' => 'content::about/never-hidden',
+            'second'  => $this->fetch('component::bleed-image', [ 'image' => '/_dummy/staff-phot.jpg' ])
         ]);
     ?>
 </main>

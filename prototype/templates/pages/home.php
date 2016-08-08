@@ -15,7 +15,8 @@
 
         $this->insert('component::split-feature', [
             'color'   => 'sky',
-            'content' => 'content::home/featured-home'
+            'content' => 'content::home/featured-home',
+            'second'  => 'content::home/featured-home-imgs'
         ]);
 
         $this->insert('partials::common/awards');
@@ -23,7 +24,8 @@
         $this->insert('component::split-feature', [
             'color'   => 'grape',
             'align'   => 'right',
-            'content' => 'content::home/investors'
+            'content' => 'content::home/investors',
+            'second'  => 'content::home/investors-imgs'
         ]);
     ?>
 </main>
