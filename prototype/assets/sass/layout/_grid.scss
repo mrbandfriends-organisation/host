@@ -28,7 +28,24 @@
     @include gw();
 }
 
-.grid--vertical { flex-direction: column; }
+// # Vertical grids, per breakpoint
+// ==========================================================================
+@mixin gw-v() {
+    flex-direction: column;
+}
+
+.grid--vertical {
+
+    @if ($use-standard-breakpoints == true) {
+
+        @include mq(tiny)   { &-t  { @include gw-v; }}
+        @include mq(small)  { &-s  { @include gw-v; }}
+        @include mq(medium) { &-m  { @include gw-v; }}
+        @include mq(large)  { &-l  { @include gw-v; }}
+        @include mq(xlarge) { &-xl { @include gw-v; }}
+
+    }
+}
 
 
 

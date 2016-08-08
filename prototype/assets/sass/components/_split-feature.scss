@@ -31,14 +31,18 @@
 // # Actual content
 // ==========================================================================
 .split-feature__content {
-    padding: rem(70);
+    padding:   rem(40) rem(30);
     max-width: rem($container-width / 2);
+
+    @include mq(medium) { padding: rem(70); }
 }
 
 // # Secondary pane
 // ==========================================================================
 .split-feature__secondary {
-    // scss-lint:disable EmptyRule
+
+    .grid { height: 100%; width: 100%; }
+
 }
 
 // ==========================================================================
@@ -46,22 +50,26 @@
 // ==========================================================================
 .split-feature.-left {
 
-    .split-feature__main {
-        align-items: flex-end;
-        padding-left: rem(30);
-    }
+    @include mq(large) {
+        .split-feature__main {
+            align-items: flex-end;
+            padding-left: rem(30);
+        }
 
-    .split-feature__content { padding-left: 0; }
+        .split-feature__content { padding-left: 0; }
+    }
 }
 
 .split-feature.-right {
-    
-    .split-feature__main {
-        align-items: flex-start;
-        order: 2;
 
-        padding-right: rem(30);
+    @include mq(large) {
+        .split-feature__main {
+            align-items: flex-start;
+            order: 2;
+
+            padding-right: rem(30);
+        }
+
+        .split-feature__content { padding-right: 0; }
     }
-
-    .split-feature__content { padding-right: 0; }
 }

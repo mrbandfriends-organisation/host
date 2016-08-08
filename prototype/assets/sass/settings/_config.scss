@@ -185,12 +185,12 @@ $mq-responsive: if($is-oldie, false, true);
 // across team members. It will improve communication between
 // stakeholders, designers, developers, and testers.
 $mq-breakpoints: (
-    tiny: 	320px,
-    small: 	600px,
-    medium: 768px,
-    large: 	992px,
-    xlarge: 1100px,
-    xxlarge: 1300px,
+    tiny: 	     320px,
+    small: 	     600px,
+    medium:      768px,
+    large: 	     992px,
+    xlarge:     1100px,
+    xxlarge:    1300px,
     nav-break-1: 768px,
 	nav-break-2: 992px,
 );

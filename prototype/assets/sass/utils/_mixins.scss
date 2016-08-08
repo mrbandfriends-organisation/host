@@ -252,7 +252,7 @@
                     // scss-lint:disable PlaceholderInExtend
                     @extend .#{$prefix}#{$i-r}-#{$n-r};
                 } @else { // Otherwise create a new % width
-                    @include grid-column($i, $n);
+                    @include grid-column($i, $n, $prefix);
                 }
             }
         }
@@ -260,10 +260,18 @@
 }
 
 
-@mixin grid-column($proportion, $context) {
+@mixin grid-column($proportion, $context, $prefix: "") {
     flex-basis: percentage($proportion / $context);
     width: auto;
-    max-width: percentage($proportion / $context);
+    max-width:  percentage($proportion / $context);
+
+    @if ($prefix != "") {
+        .grid--vertical-#{$prefix} > & {
+            width: 100%;
+            max-width: none;
+            max-height: percentage($proportion / $context);
+        }
+    }
 }
 
 
