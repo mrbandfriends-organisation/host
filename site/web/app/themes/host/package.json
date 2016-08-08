@@ -1,0 +1,22 @@
+{
+  "name": "mrb-wordpress-theme",
+  "version": "0.0.1",
+  "description": " ",
+  "main": "gulpfile.js",
+  "scripts": {
+    "postinstall": "bundle install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@mrbandfriends.git.beanstalkapp.com:/mrbandfriends/mrb-wordpress-theme.git"
+  },
+  "author": "Mr B & Friends",
+  "homepage": "",
+  "dependencies": {
+    "frontend-boilerplate-assets": "file:assets",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "require-dir": "^0.3.0"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "name": "frontend-boilerplate-assets",
+  "version": "1.0.0",
+  "description": " ",
+  "main": "gulpfile.js",
+  "scripts": {
+    "postinstall": "bundle install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@mrbandfriends.git.beanstalkapp.com:/mrbandfriends/frontend-boilerplate-assets.git"
+  },
+  "author": "Mr B & Friends",
+  "homepage": "https://docs.google.com/spreadsheets/d/1_iWnevKBoT8Ei2GEhf5s7T3FT3ieqoeG44QU78RpMOE/edit#gid=0",
+  "dependencies": {
+    "autoprefixer": "^6.3.7",
+    "clean-webpack-plugin": "^0.1.9",
+    "css-mqpacker": "^5.0.1",
+    "cssnano": "^3.7.1",
+    "gulp": "^3.9.1",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-jshint": "^2.0.1",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^6.1.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-glob": "^1.0.6",
+    "gulp-scss-lint": "^0.4.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-svgmin": "^1.2.2",
+    "gulp-svgstore": "^6.0.0",
+    "imagemin-pngquant": "^5.0.0",
+    "jquery": "^3.0.0",
+    "jshint": "^2.9.2",
+    "jshint-stylish": "^2.2.0",
+    "node-bourbon": "^4.2.8",
+    "path": "^0.12.7",
+    "postcss-sorting": "^1.6.1",
+    "pubsub-js": "^1.5.3",
+    "require-dir": "^0.3.0",
+    "sass-mq": "^3.2.9",
+    "webfontloader": "^1.6.24",
+    "webpack": "^1.13.1",
+    "webpack-stream": "^3.2.0"
+  },
+  "devDependencies": {}
+}

@@ -1,0 +1,58 @@
+// ==========================================================================
+// # BOX SIZING
+// ==========================================================================
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+
+// ==========================================================================
+// # FONT ALIASING
+// ==========================================================================
+html,
+body,
+button {
+  // -moz-osx-font-smoothing: grayscale;
+  // -webkit-font-smoothing: antialiased;
+  // font-smoothing: antialiased;
+}
+
+// ==========================================================================
+// # BROWSER UPGRADE NOTICE
+// ==========================================================================
+
+.browserupgrade {
+    margin: $half-spacing-unit 0;
+    padding: $half-spacing-unit 0;
+    background-color: #ccc;
+    color: #000;
+}
+
+// ==========================================================================
+// # FONTFACE FOUT PROTECTION
+// ==========================================================================
+body {
+    transition: opacity 0.1s linear;
+    opacity: 0;
+
+    .no-cuts-the-mustard &,
+    .no-webfonts &,
+    .wf-inactive &,
+    .wf-active &,
+    .no-js & {
+        // scss-lint:disable ImportantRule
+        opacity: 1 !important;
+    }
+
+
+}
