@@ -34,7 +34,16 @@
 	// Load URI extension using global variable
 	$templates->loadExtension(new League\Plates\Extension\URI( $path_info ));
 
-
+    /**
+     * Define google maps stuffs
+     */
+    if (!isset($local_data['gmaps_api']))
+    {
+        header("500 Internal Server Error", true, 500);
+        trigger_error("Missing 'gmaps_api' in .env.json");
+        exit(500);
+    }
+    define("GMAPS_API_KEY", $local_data['gmaps_api']);
 
 	/**
 	 * Site Wide Config Details

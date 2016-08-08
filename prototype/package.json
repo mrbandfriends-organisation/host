@@ -8,8 +8,8 @@
   },
   "scripts": {
     "postinstall": [
-        "composer update",
-        "bundle install"
+      "composer update",
+      "bundle install"
     ]
   },
   "repository": {
@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "del": "^2.2.1",
+    "fg-loadjs": "^1.0.0",
     "gulp-php2html": "^0.3.2",
     "run-sequence": "^1.2.2"
   }

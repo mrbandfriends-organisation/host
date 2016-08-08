@@ -31,5 +31,9 @@ e.document.createElement("link").relList.supports("preload")}catch(t){}},t.poly=
 t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preload"===r.rel&&"style"===r.getAttribute("as")
 &&(e.loadCSS(r.href,r),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&
 e.addEventListener("load",function(){e.clearInterval(n)})}}}(this);
+
+// Google maps
+var GOOGLE_MAPS_KEY = '<?=GMAPS_API_KEY;?>';
+var WEB_ROOT        = 'http://host-prototype.dev/';
 </script>
 <script async src="/assets/js/dist/app.js"></script>

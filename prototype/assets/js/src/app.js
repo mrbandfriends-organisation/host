@@ -86,4 +86,6 @@ require('jquery.debounce');
     "use strict";
 
     require('checkerboard');
+
+    require('maps')();
 })();
