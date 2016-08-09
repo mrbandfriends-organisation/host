@@ -6,6 +6,9 @@
   "scripts": {
     "postinstall": "bundle install"
   },
+  "engines": {
+      "node": ">=5.8.0"
+  },
   "repository": {
     "type": "git",
     "url": "git@mrbandfriends.git.beanstalkapp.com:/mrbandfriends/mrb-wordpress-theme.git"
@@ -16,7 +19,5 @@
     "frontend-boilerplate-assets": "file:assets",
     "gulp": "^3.9.1"
   },
-  "devDependencies": {
-    "require-dir": "^0.3.0"
-  }
+  "devDependencies": {}
 }

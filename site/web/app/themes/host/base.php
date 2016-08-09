@@ -7,7 +7,7 @@ use Roots\Sage\Utils;
 ?>
 
 <!doctype html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="no-js">
 	<?php get_template_part('templates/head'); ?>
 	<body <?php body_class(); ?>>
 		<div class="offcanvas__wrapper js-offcanvas__wrapper">
@@ -15,26 +15,24 @@ use Roots\Sage\Utils;
 				<?php
 					do_action('get_header');
 					get_template_part('templates/header');
+
+                    ?>
+
+                    <main id="main-content">
+                        <?php include Wrapper\template_path(); ?>
+                    </main>
+
+                    <?php do_action('get_footer');
+                    get_template_part('templates/footer');
 				?>
-				<main class="wrap container" role="document">
-					<div class="content row">
-						<div class="main">
-							<?php include Wrapper\template_path(); ?>
-						</div><!-- /.main -->
-						<?php if (Setup\display_sidebar()) : ?>
-							<aside class="sidebar">
-								<?php include Wrapper\sidebar_path(); ?>
-							</aside><!-- /.sidebar -->
-						<?php endif; ?>
-					</div><!-- /.content -->
-				</main><!-- /.wrap -->
 			</div>
-			<?php echo Utils\ob_load_template_part('templates/partials/primary-offcanvas.php');?>
+			<?php echo Utils\ob_load_template_part('templates/partials/primary-offcanvas.php'); ?>
 		</div>
 
 		<?php
-			do_action('get_footer');
-			get_template_part('templates/footer');
+            get_template_part('templates/partials/loadjs');
+            get_template_part('templates/core/third-party-tools');
+
 			wp_footer();
 		?>
 	</body>

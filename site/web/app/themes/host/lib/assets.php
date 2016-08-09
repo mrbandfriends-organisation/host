@@ -40,23 +40,111 @@ class JsonManifest {
   }
 }
 
-function asset_path($filename) {
-  $dist_path = get_template_directory_uri() . '/dist/';
-  $directory = dirname($filename) . '/';
-  $file = basename($filename);
-  static $manifest;
+function asset_path($filename)
+{
+    $dist_path = get_template_directory_uri() . '/';
+    $directory = dirname($filename);
+    $file = basename($filename);
+    static $manifest;
 
-  if (empty($manifest)) {
-    $manifest_path = get_template_directory() . '/dist/' . 'assets.json';
-    $manifest = new JsonManifest($manifest_path);
-  }
+    // rewrite things
+    switch ($directory)
+    {
+        case 'scripts':
+            $directory = 'assets/js/dist/';
+            break;
+        case 'styles':
+            $directory = 'assets/css/';
+            break;
+    }
 
-  if (array_key_exists($file, $manifest->get())) {
-    return $dist_path . $directory . $manifest->get()[$file];
-  } else {
-    return $dist_path . $directory . $file;
-  }
+    if (empty($manifest))
+    {
+        $manifest_path = get_template_directory() . '/assets/manifest.json';
+        $manifest = new JsonManifest($manifest_path);
+    }
+
+    if (isset($manifest->get()[$file]))
+    {
+        return $dist_path . $directory . $manifest->get()[$file];
+    }
+    else
+    {
+        return $dist_path . $directory . $file;
+    }
 }
+
+/**
+ * Includes ASYNC attr in each SCRIPT tag, unless we’re in the admin, in which case… never mind.
+ */
+function make_scripts_async($tag)
+{
+    // if we’re in the admin, who cares
+    if (is_admin())
+    {
+        return $tag;
+    }
+
+    // otherwise, modify tag to be async
+    return str_replace('<script', '<script async', $tag);
+}
+add_filter('script_loader_tag', __NAMESPACE__.'\\make_scripts_async');
+
+/**
+ * Munges CSS so it doesn’t block loading/
+ */
+function hook_loadcss($tag)
+{
+    // 1. get a copy of the tag to munge
+    $sMunge = $tag;
+
+    // 2. start swapping things around
+    // a. update @rel
+    $sMunge = str_replace("rel='stylesheet'", "rel='preload'", $sMunge);
+    // b. add @style and @onload
+    $sMunge = str_replace('/>', " as='style' onload='this.rel=\"stylesheet\"'>", $sMunge);
+
+    // 3. tidy things up
+    $tag = trim($tag);
+
+    return "{$sMunge}<noscript>{$tag}</noscript>\n";
+    return $tag;
+}
+add_filter('style_loader_tag', __NAMESPACE__.'\\hook_loadcss');
+
+/**
+ * Adds the last modification date of a file to the URL.
+ */
+function bust_caching($sUri)
+{
+    // 0. if we’re in development, or MinQueue is switched on…
+    if (class_exists('MinQueue') || (defined('WP_ENV') && (WP_ENV === 'development')))
+    {
+        return $sUri;
+    }
+
+    // 1. strip domain off the front of the source
+    $sUri = preg_replace_callback('/https?:\/\/(.*?)\//', function($aM)
+    {
+        return ($aM[1] === 'fonts.googleapis.com') ? $aM[0] : '/';
+    }, $sUri);
+
+    // 2. strip query string
+    $sUri  = preg_replace('/ver=([0-9\.]+)&?/', '', $sUri);
+    list($sUri, $sQs) = explode('?', $sUri);
+
+    // 2. work out the local path to the file
+    $sPath  = dirname(ABSPATH).preg_replace('/\?(.*?)$/', '', $sUri);
+    $sStamp = file_exists($sPath) ? ".".filemtime($sPath) : "";
+
+    // 3. min file
+    $sSuff = (defined('WP_ENV') && (WP_ENV !== 'development')) ? 'min.' : '';
+
+    // 4. create a new URL
+    return preg_replace('/\.(\w+)$/', "{$sSuff}{$sStamp}.$1", $sUri).(empty($sQs) ? '' : "?{$sQs}");
+}
+add_filter('script_loader_src', __NAMESPACE__.'\\bust_caching');
+add_filter('style_loader_src', __NAMESPACE__.'\\bust_caching');
 
 /**
  * Works in a similar way to wp_get_attachment_image, only returns an IMG with a srcset attribute
@@ -129,7 +217,8 @@ function get_responsive_image( $image_ref, $aConf = [] )
 
 
     // 4.5 - ensure we have a sizes attribute if the user didn't provide
-    if ( empty( $aConf['sizes'] ) ) {
+    if ( empty( $aConf['sizes'] ) && !empty($aConf['dimensions']))
+    {
         $largest_image = max( $aConf['dimensions'] );
         $aAttr['sizes'] = "(max-width: {$largest_image}px) 100vw, {$largest_image}px";
     }

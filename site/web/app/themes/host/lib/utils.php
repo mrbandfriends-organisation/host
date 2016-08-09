@@ -332,3 +332,40 @@ function tag($sTag, $aAttr = [], $sContent = null)
 
     return $sReturn;
 }
+
+
+/**
+ * Icon function: shortcut for normal icon partial include
+ */
+function icon($sIcon, $sTitle = null, $sClass = null)
+{
+    $args = array('icon' => $sIcon);
+    if ($sTitle !== null)
+    {
+        $args['title'] = $sTitle;
+    }
+    if ($sClass !== null)
+    {
+        $args['classnames'] = $sClass;
+    }
+
+    return ob_load_template_part('templates/partials/shared/icon.php', $args);
+}
+
+/**
+ * Gets post by slug
+ */
+function get_post_by_slug($sSlug, $additional_args = [])
+{
+    $args = array_merge([
+        'posts_per_page' => 1,
+        'post_status'    => 'publish',
+        'post_type'      => 'any'
+    ], $additional_args, [
+        'name' => $sSlug
+    ]);
+
+    $qry = new \WP_Query($args);
+
+    return (count($qry->posts) === 0) ? null : $qry->posts[0];
+}
