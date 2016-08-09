@@ -12,6 +12,12 @@
     transform: translateY(-50%);
 }
 
+// # Parent state (for positioning)
+// ==========================================================================
+.js-flyout__parent {
+    position: relative;
+}
+
 // # Button
 // ==========================================================================
 .js-flyout__button[class] {

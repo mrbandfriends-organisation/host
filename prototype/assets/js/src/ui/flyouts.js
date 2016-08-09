@@ -35,6 +35,9 @@ function Flyout()
 
         // 4. add an active class
         el.classList.add('js-flyout--active');
+
+        // 5. fix the parent
+        el.parentNode.classList.add('js-flyout__parent');
     })();
 }
 
