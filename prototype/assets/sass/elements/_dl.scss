@@ -1,0 +1,13 @@
+dl.-horizontal {
+    padding-left: rem(75);
+    
+    dt {
+        clear: left;
+        float: left;
+        width: rem(70);
+        margin-left: rem(-75);
+    }
+
+    dd + dt,
+    dd ~ dd { margin-top: rem(10); }
+}

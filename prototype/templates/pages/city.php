@@ -66,6 +66,12 @@
             ]
         ]);
 
+        $this->insert('component::split-feature', [
+            'color'   => 'ink',
+            'content' => 'content::city/whats-it-like-left',
+            'second'  => 'content::city/whats-it-like-right'
+        ]);
+
         $this->insert('component::map', [
             'place'   => 'Victoria Hall King\'s Cross Student Accommodation',
             'centre'  => '51.5392,-0.1261',

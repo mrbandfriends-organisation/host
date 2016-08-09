@@ -11,6 +11,8 @@
     margin: 1em 0;
     font-weight: bold;
     line-height: 1;
+
+    &.plain:first-line { color: currentColor !important; }
 }
 
 
