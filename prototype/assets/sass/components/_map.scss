@@ -47,14 +47,13 @@
     transform: translateY(-50%);
 
     .svg-icon {
-        float:  left;
         height: rem(27);
         width:  rem(20);
 
         margin-left: rem(-40);
-
         margin-right: 0.5em;
 
+        float:  left;
         transition: fill 200ms;
         fill: brand(grey);
 

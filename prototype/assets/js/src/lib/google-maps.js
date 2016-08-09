@@ -66,6 +66,23 @@ function GMaps()
     }
 
     /**
+     * Shows an info window
+     */
+    function showInfoWindow()
+    {
+        /* jshint validthis: true */
+        // 1. if there’s no window
+        if (oWin === null)
+        {
+            oWin = new google.maps.InfoWindow({ content: "" });
+        }
+
+        // 2. set the content + show it
+        oWin.setContent('<strong class="map__info-window">'+this.title+'</strong>');
+        oWin.open(oMap, this);
+    }
+
+    /**
      * Plots the main (place) marker on a map
      */
     function plotPlace(place)
@@ -127,19 +144,6 @@ function GMaps()
         oMarker.addListener('click', showInfoWindow);
     }
 
-    function showInfoWindow()
-    {
-        // 1. if there’s no window
-        if (oWin === null)
-        {
-            oWin = new google.maps.InfoWindow({ content: "" });
-        }
-
-        // 2. set the content + show it
-        oWin.setContent('<strong class="map__info-window">'+this.title+'</strong>');
-        oWin.open(oMap, this);
-    }
-
     /**
      * Plot markers
      */
@@ -167,6 +171,7 @@ function GMaps()
             }
 
             // b. plot
+            /* jshint loopfunc:true */
             aoMark[k].forEach(function(oMarker)
             {
                 // i. set type
