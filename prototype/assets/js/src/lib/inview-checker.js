@@ -1,53 +1,54 @@
-/* jshint strict: false */
 /**
- * INVIEW CHECKER
- * checks whether a selector is "in the viewport"
- * and applies a selector to the element when it's
- * in the view
+ * Inview checker
  */
 
-var verge       = require('verge');
-var debounce    = require('lodash.debounce');
+var verge    = require('verge');
+var debounce = require('lodash.debounce');
 
-
-// Extend Verge.js as jQuery Plugin
-// http://verge.airve.com/#integration
 $.extend(verge);
 
+var defaults = {
+    classes: {
+        add:    'js-inview',
+        first:  'js-inview--shown',
+        inview: 'js-inview--current'
+    },
+    timeout:   50,
+    tolerance: 0
+};
 
-var InViewChecker = function(selector, options) {
-    this.$collection = $(selector);
+function InviewChecker(selector)
+{
+    "use strict";
 
-    if ( !this.$collection.length ) {
-        return false;
+    var aoBound = [];
+    var options = $.extend(true, defaults, (arguments.length === 2 ? arguments[1] : {}));
+
+    function handleActivity()
+    {
+        // run through and do things
+        aoBound.each(function()
+        {
+            // a. grab and check
+            var oCurr   = $(this);
+            var bInview = $.inViewport(this, 0 - options.tolerance);
+
+            // b. bounce classes
+            if (bInview)
+                oCurr.addClass(options.classes.first);
+            oCurr.toggleClass(options.classes.inview, bInview);
+        });
+
     }
 
-    this.settings = $.extend({
-        wait: 400,
-        inViewClassName: 'is-inview'
-    }, options);
+    return (function()
+    {
+        // 1. get our victims
+        aoBound = $(selector).addClass(options.classes.add);
 
-    this._addListeners();
-};
+        // 2. bind resize to debounce
+        $(window).on('DOMContentLoaded load resize scroll', debounce(handleActivity, options.timeout));
+    })();
+}
 
-
-InViewChecker.prototype._addListeners = function() {
-    var self = this;
-
-    $(window).on('DOMContentLoaded load resize scroll', debounce(function() {
-        self._checkInView();
-    }, self.settings.wait));
-};
-
-InViewChecker.prototype._checkInView = function() {
-    var className = this.settings.inViewClassName;
-    this.$collection.each(function(e) {
-        var $this = $(this);
-        if ( $.inViewport( $this ) ) {
-            $this.addClass(className);
-        }
-    });
-};
-
-// Export
-module.exports = InViewChecker;
+module.exports = InviewChecker;
