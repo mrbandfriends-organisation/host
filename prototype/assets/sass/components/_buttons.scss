@@ -41,9 +41,10 @@ button {
     }
 
     .svg-icon {
-        height: rem(18);
-        width:  auto;
-        fill:   currentColor;
+        display: inline-block;
+        height:  rem(18);
+        width:   rem(18);
+        vertical-align: middle;
     }
 
     @include mq(medium) {
