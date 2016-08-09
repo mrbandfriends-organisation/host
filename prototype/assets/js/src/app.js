@@ -89,4 +89,6 @@ require('./ext/NodeList');
     require('checkerboard');
 
     require('maps')();
+
+    require('flyouts')();
 })();
