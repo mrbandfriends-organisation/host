@@ -7,7 +7,9 @@
 
         $this->insert('component::billboard', [
             'color'      => 'red',
-            'content'    => 'content::city/billboard'
+            'content'    => 'content::city/billboard',
+            'background' => '/_dummy/bus-bars-alpha.png',
+            'add_class'  => '-bg-actual-size'
         ]);
 
         $this->insert('component::map', [
@@ -34,7 +36,13 @@
                     [ 'title' => 'Central St Martin’s',          'lat' => 51.5364, 'lng' => -0.1269 ]
                 ]
             ]
-        ])
+        ]);
+
+        $this->insert('component::billboard', [
+            'color'      => 'grape',
+            'content'    => 'content::city/second-billboard',
+            'background' => '/_dummy/asian-girl-alpha.png'
+        ]);
 
     ?>
 </main>

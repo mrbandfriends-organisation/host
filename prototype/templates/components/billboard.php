@@ -1,6 +1,7 @@
 <?php
-    $align   = (empty($align))   ? 'left' : $align;
-    $color   = (empty($color))   ? ''     : " box--{$color}";
+    $align     = (empty($align))     ? 'left' : $align;
+    $color     = (empty($color))     ? ''     : " box--{$color}";
+    $add_class = (empty($add_class)) ? ''     : ' '.esc_attr($add_class);
 
     if (empty($content))
     {
@@ -22,7 +23,7 @@
 
     $sBg = (empty($background)) ? '' : ' style="background-image:url('.esc_attr($background).')"';
 ?>
-<section class="band billboard -<?=$align; ?> box<?=$color; ?>">
+<section class="band billboard -<?=$align; ?> box<?=$color.$add_class; ?>">
     <div class="container billboard__inner grid"<?=$sBg; ?>>
         <div class="billboard__main m3-5">
             <?=$content; ?>

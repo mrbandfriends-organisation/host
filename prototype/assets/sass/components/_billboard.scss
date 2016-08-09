@@ -18,3 +18,10 @@
     padding: rem(80) 0;
     background: transparent none no-repeat bottom right/auto 90%;
 }
+
+// ==========================================================================
+// # VARIANT: background is actual size (sorta)
+// ==========================================================================
+.-bg-actual-size > .billboard__inner {
+    background: transparent none no-repeat center right;
+}
