@@ -64,19 +64,6 @@ require('./ext/NodeList');
 }());
 
 /**
- * INVIEW
- * checks whether an element is within the Viewport
- * if so, then applies the 'in-view' class
- */
-(function() {
-    "use strict";
-
-    //var InViewChecker = require('inview-checker.js');
-
-    //new InViewChecker('.js-inview');
-}());
-
-/**
  * UI code
  *
  * There really shouldn’t be anything here other than require()-ing bits of code in the 'ui' dir. If there is logic
@@ -91,4 +78,6 @@ require('./ext/NodeList');
     require('maps')();
 
     require('flyouts')();
+
+    // require('bind-inview')();
 })();

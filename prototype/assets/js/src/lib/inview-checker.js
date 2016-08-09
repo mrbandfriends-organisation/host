@@ -35,7 +35,9 @@ function InviewChecker(selector)
 
             // b. bounce classes
             if (bInview)
+            {
                 oCurr.addClass(options.classes.first);
+            }
             oCurr.toggleClass(options.classes.inview, bInview);
         });
 
