@@ -65,6 +65,38 @@ $rss-color                      : #f60;
 $link-color:             	    map-get($brand-palette, red);
 $link-color-hover:        		darken($link-color, 15%);
 
+// Button colourways
+// ==========================================================================
+$button-colours: (
+    white: (
+        background: #fff,
+        hover: #eee,
+        text: map-get($brand-palette, ink)
+    ),
+    orange: (
+        background: map-get($brand-palette, orange)
+    ),
+    mint: (
+        background: map-get($brand-palette, mint)
+    ),
+    sky: (
+        background: map-get($brand-palette, sky)
+    ),
+    grape: (
+        background: map-get($brand-palette, grape)
+    ),
+    ink: (
+        background: map-get($brand-palette, ink),
+        hover:      lighten(map-get($brand-palette, ink), 15%)
+    ),
+    outline-only: (
+        border: #fff,
+        background: rgba(255, 255, 255, 0),
+        hover: rgba(255, 255, 255, 0.2),
+        text: #fff
+    )
+);
+
 
 // ==========================================================================
 // TYPOGRAPHY

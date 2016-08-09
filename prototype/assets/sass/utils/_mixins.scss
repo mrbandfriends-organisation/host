@@ -92,31 +92,39 @@
 
 // BUTTONS
 // ==========================================================================
-@mixin btn {
-    @include inline-block;
-    position: relative;
-    z-index: 1;
-    padding: rem(15px) rem(30px);
-    border: 0;
-    border-radius: rem(4px);
-    color: #fff;
-    font-size: rem(19px);
-    line-height: rem(19px);
-    background-color: #ccc;
-    text-align: center;
-    text-decoration: none;
-    transition: background-color ease-in-out 0.25s;
-}
+@mixin button($colourway) {
 
-@mixin btn-color($bg-color: #ccc, $color: #fff) {
-    color: $color;
-    background-color: $bg-color;
+    @if (map-has-key($button-colours, $colourway)) {
 
-    &:hover,
-    &:focus {
-        background-color: lighten($bg-color, 15%);
-        color: $color;
+        // get the colours
+        $colours: map-get($button-colours, $colourway);
+        $background: map-get($colours, background);
+
+        // work out a hover colour
+        $hover: if(map-has-key($colours, hover), map-get($colours, hover), darken($background, 10%));
+
+        // # Start outputting */
+        // background
+        background: $background;
+
+        // foreground colour
+        @if (map-has-key($colours, text)) {
+            color: map-get($colours, text);
+        }
+
+        // border colour
+        @if (map-has-key($colours, border)) {
+            border-color: map-get($colours, border);
+        }
+
+        // hover state
+        &:hover { background: $hover; }
+
+
+    } @else {
+        @warn "No colourway #{$colourway} found for buttons"
     }
+
 }
 
 // # EVENT WRAPPER
