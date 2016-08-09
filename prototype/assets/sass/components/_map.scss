@@ -39,13 +39,16 @@
 // # Filters
 // ==========================================================================
 .map__filters {
-    position: absolute;
+    width: 33.333%;
+    min-width: rem(250);
+    .form-filter {
+        padding-left: rem(40);
+    }
+}
 
-    left: 0;
-    top:  50%;
-
-    transform: translateY(-50%);
-
+// # Colourways
+// ==========================================================================
+.map__filter {
     .svg-icon {
         height: rem(27);
         width:  rem(20);
@@ -58,17 +61,8 @@
         fill: brand(grey);
 
         vertical-align: middle;
-
     }
 
-    .form-filter {
-        padding-left: rem(40);
-    }
-}
-
-// # Colourways
-// ==========================================================================
-.map__filter {
     &.-unis      input:checked ~ .svg-icon { fill: brand(orange); }
     &.-food      input:checked ~ .svg-icon { fill: brand(grape); }
     &.-shops     input:checked ~ .svg-icon { fill: brand(mint); }

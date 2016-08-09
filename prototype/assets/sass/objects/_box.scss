@@ -42,6 +42,12 @@
     @include mq(medium) { padding: rem(40) rem(30); }
 }
 
+.box--more-padding {
+    padding: rem(30);
+
+    @include mq(medium) { padding: rem(50) rem(80); }
+}
+
 // ==========================================================================
 // # COLOUR VARIANCE - backgrounds
 // ==========================================================================
