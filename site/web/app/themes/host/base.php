@@ -30,7 +30,7 @@ use Roots\Sage\Utils;
 		</div>
 
 		<?php
-            get_template_part('templates/partials/loadjs');
+            get_template_part('templates/core/corejs');
             get_template_part('templates/core/third-party-tools');
 
 			wp_footer();
