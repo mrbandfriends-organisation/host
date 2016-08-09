@@ -58,7 +58,7 @@
 
         float:  left;
         transition: fill 200ms;
-        fill: brand(grey);
+        fill: transparentize(brand(grey), 0.7);
 
         vertical-align: middle;
     }
