@@ -16,7 +16,7 @@
     flex-wrap: wrap;
     flex: 0 1 auto;
 
-    margin-left: -#{$gutter};
+    margin:      0;
     padding:     0;
     list-style:  none;
     text-rendering: optimizespeed;
@@ -26,6 +26,26 @@
 %grid,
 .grid-wrap {
     @include gw();
+}
+
+// # Vertical grids, per breakpoint
+// ==========================================================================
+@mixin gw-v() {
+    flex-direction: column;
+}
+
+.grid--vertical {
+
+    @if ($use-standard-breakpoints == true) {
+
+        @include mq(tiny)    { &-t   { @include gw-v; }}
+        @include mq(small)   { &-s   { @include gw-v; }}
+        @include mq(medium)  { &-m   { @include gw-v; }}
+        @include mq(large)   { &-l   { @include gw-v; }}
+        @include mq(xlarge)  { &-xl  { @include gw-v; }}
+        @include mq(xxlarge) { &-xxl { @include gw-v; }}
+
+    }
 }
 
 
@@ -40,7 +60,6 @@
     flex: 0 0 auto;
     box-sizing: border-box;
     width: 100%;
-    #{$padding-left}: $gutter;
     text-rendering: auto; // Reset text defaults.
 }
 
@@ -51,28 +70,32 @@
 
 @if ($use-standard-breakpoints == true) {
     // Tiny
-    @include mq($from: tiny) {
+    @include mq(tiny) {
         @include griddle-build($grids, "t");
     }
 
     // Small
-    @include mq($from: small) {
+    @include mq(small) {
         @include griddle-build($grids, "s");
     }
 
     // Medium
-    @include mq($from: medium) {
+    @include mq(medium) {
         @include griddle-build($grids, "m");
     }
 
     // Large
-    @include mq($from: large) {
+    @include mq(large) {
         @include griddle-build($grids, "l");
     }
 
     // Extra Large
-    @include mq($from: xlarge) {
+    @include mq(xlarge) {
         @include griddle-build($grids, "xl");
+    }
+
+    @include mq(xxlarge) {
+        @include griddle-build($grids, "xxl");
     }
 }
 
@@ -106,17 +129,24 @@
 // ROW MODIFIERS
 // ==========================================================================
 
+// Some gutter
+// ==========================================================================
+.grid--gutter {
+    #{$margin-left}: rem(-$gutter);
+
+    > .gc { #{$padding-left}: rem($gutter); }
+}
 
 // DOUBLE GUTTER
 // ==========================================================================
 
 .grid--double-gutter,
 %grid--double-gutter {
-    #{$margin-left}: -$double-gutter-width;
+    #{$margin-left}: rem(-$double-gutter-width);
 
     > .gc,
     > %gc--double-gutter {
-        #{$padding-left}: $double-gutter-width;
+        #{$padding-left}: rem($double-gutter-width);
     }
 }
 
@@ -125,11 +155,11 @@
 
 .grid--half-gutter,
 %grid--half-gutter {
-    #{$margin-left}: -$half-gutter-width;
+    #{$margin-left}: rem(-$half-gutter-width);
 
     > .gc,
     > %gc--half-gutter {
-        #{$padding-left}: $half-gutter-width;
+        #{$padding-left}: rem($half-gutter-width);
     }
 }
 
@@ -138,27 +168,13 @@
 
 .grid--quarter-gutter,
 %grid--quarter-gutter {
-    #{$margin-left}: -$quarter-gutter-width;
+    #{$margin-left}: rem(-$quarter-gutter-width);
 
     > .gc,
     > %gc--quarter-gutter {
-        #{$padding-left}: $quarter-gutter-width;
+        #{$padding-left}: rem($quarter-gutter-width);
     }
 }
-
-// NO GUTTER
-// ==========================================================================
-
-.grid--no-gutter,
-%grid--no-gutter {
-    #{$margin-left}: 0;
-
-    > .gc,
-    > %gc--no-gutter {
-        #{$padding-left}: 0;
-    }
-}
-
 
 // INLINE BLOCK
 // ==========================================================================
@@ -210,6 +226,8 @@
 
 .grid--divided,
 %grid--divided {
+    margin-bottom: -$gutter;
+
     > .gc,
     > %gc--divided {
         margin-bottom: $gutter;
@@ -267,10 +285,10 @@
             top:    0;
             right: -$half-gutter-width;
             bottom: 0;
-            
+
             width:  rem(1);
 
-            background: darken($light-grey, 15%);
+            // background: darken($light-grey, 15%);
             content:  "";
         }
     }

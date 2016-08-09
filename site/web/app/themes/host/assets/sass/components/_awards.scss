@@ -1,0 +1,17 @@
+// ==========================================================================
+// # AWARDS
+// ==========================================================================
+
+.awards {
+    display:   flex;
+    flex-wrap: wrap;
+
+    max-width: rem(405);
+    margin: 0;
+    list-style: none outside;
+}
+
+.awards__item {
+    flex: 33%;
+    padding: rem(5);
+}

@@ -405,7 +405,7 @@ input[type="checkbox"] + label {
     &:hover,
     &:focus {
         &:before {
-            border-color: $p-color;
+            // border-color: $p-color;
             background-color: $base-grey;
         }
     }
@@ -420,8 +420,8 @@ input[type="checkbox"] + label {
 
 input[type="checkbox"]:checked + label {
     &:before {
-        border-color: $p-color;
-        background-color: $p-color;
+        // border-color: $p-color;
+        // background-color: $p-color;
         content: "✔";
     }
 }
@@ -462,4 +462,28 @@ input[type="button"] {
         @include tab-focus();
         box-shadow: none; // override for file inputs
     }
+}
+
+// ==========================================================================
+// # FILTERS
+// ==========================================================================
+.form-filter {
+    // scss-lint:disable EmptyRule
+}
+
+.form-filter__list {
+    margin: 0;
+    list-style: none outside;
+}
+
+.form-filter__item {
+    & + & { border-top: 1px solid brand(grey); }
+}
+
+.form-filter__filter {
+    display: block;
+    padding: rem(10) 0;
+    
+    font-weight: bold;
+    cursor: pointer;
 }

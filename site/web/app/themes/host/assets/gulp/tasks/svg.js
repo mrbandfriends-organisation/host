@@ -5,6 +5,7 @@ var gulp         = require('gulp');
 var plumber      = require('gulp-plumber');
 var svgmin       = require('gulp-svgmin');
 var svgstore     = require('gulp-svgstore');
+var rename       = require('gulp-rename');
 var paths        = require('../paths');
 var errorHandler = require('../errorHandler');
 
@@ -20,9 +21,8 @@ gulp.task('svgsprite', function()
                 .pipe(plumber({
                     errorHandler: errorHandler
                 }))
+                .pipe(rename({ prefix: 'icon-' }))
                 .pipe(svgstore({
-                    fileName: 'spritesheet.svg',
-                    prefix: 'icon-',
                     cleanup: ['fill', 'style'],
                     cleanupdefs: true
                 }))
@@ -32,6 +32,7 @@ gulp.task('svgsprite', function()
                         { cleanupIDs: false }
                     ]
                 }))
+                .pipe(rename(paths.svg.output.spriteFile))
                 .pipe(gulp.dest( paths.svg.output.sprite ));
 });
 

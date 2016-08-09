@@ -6,37 +6,45 @@
 //
 // ==========================================================================
 
-
-// scss-lint:disable EmptyRule
-.menu-primary {
-    
-}
-
-.menu-primary--banner {
-    @include mq($from: nav-break-2) {
-        float: flip(right, left);
-    }
-}
-
-// Hide banner navigation on smaller viewports when offcanvas is active
-// and the browser is modern enough to use offcanvas
-.cuts-the-mustard .menu-primary--banner {
-    @include mq($until: nav-break-2) {
-        display: none;
-    }
-}
-
-
+// ==========================================================================
+// # BASE CLASSES
+// ==========================================================================
 .nav-primary {
-    @include ui-nav-menu();
-    @include ui-nav-menu--stacked();
+    margin: 0;
+    list-style: none outside;
+}
 
-    @include mq($from: nav-break-2) {
-        @include ui-nav-menu--inline();
-        float: left;
+.nav-primary__item {
+    // scss-lint:disable EmptyRule
+}
+
+.nav-primary__link {
+    display: block;
+}
+
+// ==========================================================================
+// # VARIANT: BANNER
+// ==========================================================================
+.nav-primary--banner {
+    display:      flex;
+    align-items:  center;
+
+    .nav-primary__link {
+        padding: rem(8) rem(15);
+        color:   tint(ink);
+        line-height: 1.25;
+
+        span {
+            display: block;
+            font-weight: bold;
+        }
     }
 
-    @if ($is-oldie == true) {
-        @include ui-nav-menu--inline();
-    }
+}
+
+// ==========================================================================
+// # VARIANT: OFFCANVAS
+// ==========================================================================
+.nav-primary--offcanvas {
+    // scss-lint:disable EmptyRule
 }

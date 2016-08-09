@@ -1,0 +1,75 @@
+// ==========================================================================
+// # SPLIT FEATURE
+//
+// Split features are one of the more common elements on the site, and are,
+// in-effect a two equal column grid… just a little more specialised
+// ==========================================================================
+
+// scss-lint:disable MergeableSelector
+
+// ==========================================================================
+// # Base
+// ==========================================================================
+.split-feature {
+    // scss-lint:disable EmptyRule
+}
+
+.split-feature__main,
+.split-feature__secondary {
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    align-items:     center;
+}
+
+// # Main pane
+// ==========================================================================
+.split-feature__main {
+    // scss-lint:disable EmptyRule
+}
+
+// # Actual content
+// ==========================================================================
+.split-feature__content {
+    padding:   rem(40) rem(30);
+    max-width: rem($container-width / 2);
+
+    @include mq(medium) { padding: rem(70); }
+}
+
+// # Secondary pane
+// ==========================================================================
+.split-feature__secondary {
+
+    .grid { height: 100%; width: 100%; }
+
+}
+
+// ==========================================================================
+// # ALIGNMENT
+// ==========================================================================
+.split-feature.-left {
+
+    @include mq(large) {
+        .split-feature__main {
+            align-items: flex-end;
+            padding-left: rem(30);
+        }
+
+        .split-feature__content { padding-left: 0; }
+    }
+}
+
+.split-feature.-right {
+
+    @include mq(large) {
+        .split-feature__main {
+            align-items: flex-start;
+            order: 2;
+
+            padding-right: rem(30);
+        }
+
+        .split-feature__content { padding-right: 0; }
+    }
+}

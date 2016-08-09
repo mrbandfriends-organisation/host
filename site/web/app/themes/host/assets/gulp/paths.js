@@ -1,7 +1,13 @@
 var path = require('path');
 var root = path.resolve(__dirname+'/..');
+var fs   = require('fs');
 
-module.exports = {
+// load local file if there’s one to load
+var localFile  = path.resolve('./paths.js');
+var localPaths = (fs.existsSync(localFile)) ? require(localFile) : {};
+
+// output
+module.exports = require('deep-assign')({
     boilerplate: root,
     sass: {
         watch:   root+'/sass/**/*.scss',
@@ -30,7 +36,8 @@ module.exports = {
         },
         output: {
             sprite:     root+'/svg/sprites/output/',
-            standalone: root+'/svg/standalone/output/',
+            spriteFile: 'spritesheet.svg',
+            standalone: root+'/svg/standalone/output/'
         }
     }
-};
+}, localPaths);

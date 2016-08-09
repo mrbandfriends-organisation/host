@@ -211,6 +211,12 @@
 // with "prefix" which is better suited to our grid system
 @mixin griddle-build($units, $prefix: "gc") {
 
+    // Full-width breakpoints
+    // ==========================================================================
+    .#{$prefix}-full {
+        @include grid-column(1, 1, $prefix);
+    }
+
     // Proportional units
     // ==========================================================================
 
@@ -252,7 +258,7 @@
                     // scss-lint:disable PlaceholderInExtend
                     @extend .#{$prefix}#{$i-r}-#{$n-r};
                 } @else { // Otherwise create a new % width
-                    @include grid-column($i, $n);
+                    @include grid-column($i, $n, $prefix);
                 }
             }
         }
@@ -260,13 +266,17 @@
 }
 
 
-@mixin grid-column($proportion, $context) {
-    width: percentage($proportion / $context);
+@mixin grid-column($proportion, $context, $prefix: "") {
+    flex-basis: percentage($proportion / $context);
+    width: auto;
+    max-width:  percentage($proportion / $context);
 
-    .flexbox & {
-        flex-basis: percentage($proportion / $context);
-        width: auto;
-        max-width: percentage($proportion / $context);
+    @if ($prefix != "") {
+        .grid--vertical-#{$prefix} > & {
+            width: 100%;
+            max-width: none;
+            max-height: percentage($proportion / $context);
+        }
     }
 }
 

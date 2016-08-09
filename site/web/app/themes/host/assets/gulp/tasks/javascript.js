@@ -24,11 +24,11 @@ gulp.task('javascripts', function() {
                         chunkFilename: "chunk-[name].[chunkhash].js" // generate one hash per chunk to enable cache busting on change
                     },
                     plugins: [
-                        new webpack.optimize.UglifyJsPlugin({
-                            compressor: {
-                                warnings: false,
-                            },
-                        }),
+                        // new webpack.optimize.UglifyJsPlugin({
+                        //     compressor: {
+                        //         warnings: false,
+                        //     },
+                        // }),
                         new webpack.ProvidePlugin({ // inject globals as required
                             $: "jquery",
                             jQuery: "jquery",
@@ -45,7 +45,7 @@ gulp.task('javascripts', function() {
                     },
                     resolve: {
                         root: __dirname,
-                        modulesDirectories: ['lib', 'vendor', 'node_modules']
+                        modulesDirectories: ['lib', 'vendor', 'node_modules', 'ui']
                     }
                 },webpack)) // 2nd argument allows us to inject a custom version of webpack into the webpack-stream lib
                 .pipe(gulp.dest( paths.js.output ));

@@ -11,45 +11,35 @@
 // ==========================================================================
 
 .container {
-    @include clearfix;
-    display: block;
-    
-    width: $container-width;
-    //width: calc(100% - 40px);
-    max-width: rem(1200px);
+    width: 100%;
+    max-width: rem(1075);
     margin-right: auto;
     margin-left: auto;
 
 }
 
 // ==========================================================================
-// # REDUCED
+// # HALF-SIZED used in various content
 // ==========================================================================
+.half-container {
+    width: 100%;
+    max-width: rem(537.5);
+    margin-right: auto;
+    margin-left:  auto;
 
-.container--reduced {
-    width: $container-width/2;
+    &.-left { margin-right: 0; }
+    &.-right { margin-left: 0; }
 }
 
 // ==========================================================================
-// # PADDED
+// # TWO-THIRD sized
 // ==========================================================================
+.two-third-container {
+    width: 100%;
+    max-width: rem(716.6667);
+    margin-right: auto;
+    margin-left:  auto;
 
-.container--padded {
-    padding-top: $base-line-height*1.5;
-    padding-bottom: $base-line-height*1.5;
-
-    > :last-child {
-        margin-bottom: 0;
-        padding-bottom: 0;
-    }
-}
-
-// ==========================================================================
-// # EXTENDED
-// ==========================================================================
-
-.container--extended,
-.container--extend {
-    @include clearfix;
-    width: auto;
+    &.-left { margin-right: 0; }
+    &.-right { margin-left: 0; }
 }

@@ -28,7 +28,7 @@ gulp.task('sass', function()
                 }))
                 .pipe(postcss([
                     require('autoprefixer')({ browsers: [ 'last 2 versions' ]}),
-                    require('css-mqpacker')
+                    require('css-mqpacker')({ sort: true })
                 ]))
                 // .pipe(sourcemaps.write())
                 .pipe(gulp.dest( paths.sass.output ))

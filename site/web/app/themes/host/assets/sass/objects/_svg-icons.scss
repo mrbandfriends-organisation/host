@@ -2,7 +2,7 @@
 
 // MODULE: SVG ICONS
 
-// Description: 
+// Description:
 
 // ============================================================
 
@@ -20,7 +20,7 @@
 .svg-icon {
     width: rem(32px);
     height: rem(32px);
-    fill: #fff;
+    fill: currentColor;
 }
 
 
@@ -41,40 +41,40 @@
 // # SIZING
 // ==========================================================================
 
-%svg-icon--small { 
-    width: rem(16px); 
-    height: rem(16px); 
+%svg-icon--small {
+    width: rem(16px);
+    height: rem(16px);
 }
 
-%svg-icon--large { 
-    width: rem(64px); 
-    height: rem(64px); 
+%svg-icon--large {
+    width: rem(64px);
+    height: rem(64px);
 
 }
 
-%svg-icon--huge { 
-    width: rem(128px); 
+%svg-icon--huge {
+    width: rem(128px);
     height: rem(128px);
 }
 
-%svg-icon--natural { 
-    width: inherit; 
-    height: inherit; 
+%svg-icon--natural {
+    width: inherit;
+    height: inherit;
 }
 
-%svg-icon--small-alt { 
-    width: rem(20px); 
-    height: rem(20px); 
+%svg-icon--small-alt {
+    width: rem(20px);
+    height: rem(20px);
 }
 
-%svg-icon--large-alt { 
-    width: rem(80px); 
-    height: rem(80px); 
+%svg-icon--large-alt {
+    width: rem(80px);
+    height: rem(80px);
 }
 
-%svg-icon--huge-alt { 
-    width: rem(190px); 
-    height: rem(190px); 
+%svg-icon--huge-alt {
+    width: rem(190px);
+    height: rem(190px);
 }
 
 // Based on 32px icon grid

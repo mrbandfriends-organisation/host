@@ -6,9 +6,10 @@
  */
 
 // NPM Modules
-require('jquery');
-window.$ = require('jquery');
+require('expose?$!expose?jQuery!jquery');
 
+// extend things
+require('./ext/NodeList');
 
 /**
  * GOGGLE EVENT TRACKING
@@ -21,26 +22,6 @@ window.$ = require('jquery');
 
     // // Initialise with selector
     // new GAEventTracking('.js-ga-tracking');
-}());
-
-
-/**
- * WEBFONT LOADING
- * managing loading of webfonts here to assist with
- * managing of FOUT/FOIT
- */
-(function() {
-    "use strict";
-
-    // Shimmed via package.json
-    var WebFont = require('webfontloader');
-
-    WebFont.load( {
-        custom: {
-            families: ['']
-        },
-        timeout: 2000 // if nowt happens then bail out
-    });
 }());
 
 /**
@@ -63,7 +44,7 @@ window.$ = require('jquery');
 (function() {
     "use strict";
 
-    if ( Modernizr.mq( '(max-width: 992px)' ) ) {
+    if ( $('.js-offcanvas-toggle').is(':visible') ) {
         // Async load
         require.ensure(['offcanvas-toggler'], function() {
             var OffCanvasToggler = require('offcanvas-toggler');
@@ -83,14 +64,20 @@ window.$ = require('jquery');
 }());
 
 /**
- * INVIEW
- * checks whether an element is within the Viewport
- * if so, then applies the 'in-view' class
+ * UI code
+ *
+ * There really shouldn’t be anything here other than require()-ing bits of code in the 'ui' dir. If there is logic
+ * code here, use git blame to find out who is buying the beers this week…
  */
-(function() {
+(function()
+{
     "use strict";
 
-    //var InViewChecker = require('inview-checker.js');
+    require('checkerboard');
 
-    //new InViewChecker('.js-inview');
-}());
+    require('maps')();
+
+    require('flyouts')();
+
+    // require('bind-inview')();
+})();

@@ -1,0 +1,204 @@
+// ==========================================================================
+//
+// # MODULE: BOX (like Bands, only more Atomic™)
+//
+// A box is Host’s equivalent of a band in most other sites, and represents
+// an area of content with some overarching styling (padding, colours, etc)
+//
+// These differ from bands in that boxes typically only occupy part of the
+// horizontal space on a page, whereas bands are full-width
+//
+// ==========================================================================
+
+// scss-lint:disable PlaceholderInExtend
+
+// ==========================================================================
+// # BASE CLASS
+// ==========================================================================
+
+.box {
+    background: #fff;
+    color: brand(ink);
+
+    @include headings(1, 4) {
+        color: brand(ink);
+
+        &:first-line { color: #fff; }
+    }
+}
+
+// ==========================================================================
+// # PADDING VARIANCE
+// ==========================================================================
+.box--padded {
+    padding: rem(20);
+
+    @include mq(medium) { padding: rem(50) rem(40); }
+}
+
+.box--less-padding {
+    padding: rem(20);
+
+    @include mq(medium) { padding: rem(40) rem(30); }
+}
+
+.box--more-padding {
+    padding: rem(30);
+
+    @include mq(medium) { padding: rem(50) rem(80); }
+}
+
+// ==========================================================================
+// # COLOUR VARIANCE - backgrounds
+// ==========================================================================
+.box--red {
+    background: brand(red);
+    color:      #fff;
+
+    .btn { @extend .btn--white; }
+
+    &-alt {
+        background: tint(red);
+        color:      #fff;
+
+        @include headings(1, 4) {
+            color: #fff;
+
+            &:first-line { color: brand(orange); }
+        }
+
+        .btn { @extend .btn--white; }
+        .inherit-fg { color: brand(orange); }
+    }
+}
+
+.box--orange {
+    background: brand(orange);
+
+    .btn { @extend .btn--white; }
+}
+
+.box--mint {
+    background: brand(mint);
+    color:      #fff;
+
+    .btn { @extend .btn--white; }
+
+    &-alt {
+        background: brand(mint);
+
+        .btn { @extend .btn--white; }
+    }
+}
+
+.box--sky {
+    background: brand(sky);
+    color:      #fff;
+
+    .btn { @extend .btn--white; }
+
+    &-alt {
+        background: brand(sky);
+    }
+
+    &-dark {
+        background: tint(sky);
+        color:      #fff;
+    }
+
+    &-alt,
+    &-dark {
+        .btn { @extend .btn--sky; }
+        .inherit-fg { color: brand(sky); }
+
+        @include headings(1, 4) {
+            color: #fff;
+
+            &:first-line { color: brand(sky); }
+        }
+    }
+}
+
+.box--grape {
+    background: brand(grape);
+    color:      #fff;
+
+    .btn { @extend .btn--ink; }
+}
+
+.box--ink {
+    background: brand(ink);
+    color:      #fff;
+
+    .btn { @extend .btn--white; }
+
+    &-dark {
+        background: tint(ink);
+        color:      #fff;
+
+        .btn { @extend .btn--white; }
+    }
+
+    &,
+    &-dark {
+        @include headings(1, 4) {
+            color: #fff;
+
+            &:first-line { color: brand(sky); }
+        }
+
+        .inherit-fg { color: brand(sky); }
+    }
+}
+
+// ==========================================================================
+// # MORE COLOUR VARIANCE—this time, for foreground hinting
+// ==========================================================================
+.box--fg-red {
+
+    .inherit-fg { color: brand(red); }
+
+    @include headings(1, 4) {
+        &:first-line { color: brand(red); }
+    }
+}
+
+.box--fg-orange {
+    .btn { @extend .btn--orange; }
+
+    .inherit-fg { color: brand(orange); }
+
+    @include headings(1, 4) {
+        &:first-line { color: brand(orange); }
+    }
+}
+
+.box--fg-mint {
+    .btn { @extend .btn--mint; }
+
+    .inherit-fg { color: brand(mint); }
+
+    @include headings(1, 4) {
+        &:first-line { color: brand(mint); }
+    }
+}
+
+.box--fg-sky {
+    .btn { @extend .btn--sky; }
+
+    .inherit-fg { color: brand(sky); }
+
+    @include headings(1, 4) {
+        &:first-line { color: brand(sky); }
+    }
+}
+
+.box--fg-grape {
+    .btn { @extend .btn--grape; }
+
+    .inherit-fg { color: brand(grape); }
+
+    @include headings(1, 4) {
+        &:first-line { color: brand(grape); }
+    }
+}
