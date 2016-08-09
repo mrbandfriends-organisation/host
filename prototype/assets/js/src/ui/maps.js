@@ -18,7 +18,7 @@ module.exports = function()
         maps_loading = false;
         maps_loaded  = true;
 
-        [].slice.call(document.querySelectorAll('.js-map')).forEach(function(el)
+        document.querySelectorAll('.js-map').toArray().forEach(function(el)
         {
             GMaps.call(el);
         });

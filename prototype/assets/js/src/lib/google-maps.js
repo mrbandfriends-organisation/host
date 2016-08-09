@@ -249,7 +249,7 @@ function GMaps()
         }
 
         // 6. passively hook filters
-        aoFilter = [].slice.call(el.parentNode.querySelectorAll('input[type=checkbox]'));
+        aoFilter = el.parentNode.querySelectorAll('input[type=checkbox]').toArray();
         aoFilter.forEach(function(el)
         {
             el.addEventListener('change', updateFilters);

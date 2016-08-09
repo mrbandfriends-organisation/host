@@ -7,8 +7,9 @@
 
 // NPM Modules
 require('expose?$!expose?jQuery!jquery');
-require('jquery.debounce');
 
+// extend things
+require('./ext/NodeList');
 
 /**
  * GOGGLE EVENT TRACKING

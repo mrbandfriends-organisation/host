@@ -51,7 +51,7 @@ module.exports = (function()
 {
     "use strict";
 
-    [].slice.call(document.querySelectorAll('.js-checkerboard')).forEach(function(el)
+    document.querySelectorAll('.js-checkerboard').toArray().forEach(function(el)
     {
         Checkerboard.call(el);
     });
