@@ -11,8 +11,6 @@
 // ==========================================================================
 
 .container {
-    display: block;
-
     width: 100%;
     max-width: rem(1075);
     margin-right: auto;
@@ -24,10 +22,21 @@
 // # HALF-SIZED used in various content
 // ==========================================================================
 .half-container {
-    display: block;
-
     width: 100%;
     max-width: rem(537.5);
+    margin-right: auto;
+    margin-left:  auto;
+
+    &.-left { margin-right: 0; }
+    &.-right { margin-left: 0; }
+}
+
+// ==========================================================================
+// # TWO-THIRD sized
+// ==========================================================================
+.two-third-container {
+    width: 100%;
+    max-width: rem(716.6667);
     margin-right: auto;
     margin-left:  auto;
 

@@ -1,10 +1,15 @@
-<?php if ( !empty( $icon ) ): ?>
-
 <?php
-	$icon_fallback = '/assets/svg/sprites/output/png/' . $icon . '.png';
-?>
+    if ( empty($icon) )
+    {
+        return "";
+    }
 
-<svg class="svg-icon <?php echo esc_attr( (!empty( $classnames ) ) ? "$classnames" : '' ); ?>" aria-labelledby="title desc" role="img">
+    // get a class
+    $class = (empty($classnames)) ? '' : ' '.esc_attr($classnames);
+
+    // and also the current icon name
+    $class = ' svg-icon--'.esc_attr($icon).$class;
+?>
+<svg class="svg-icon<?=$class; ?>" role="img">
     <use xlink:href="#icon-<?php echo esc_attr( $icon ); ?>"></use>
 </svg>
-<?php endif; ?>

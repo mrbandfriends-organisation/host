@@ -68,6 +68,7 @@
         }
 
         .btn { @extend .btn--white; }
+        .inherit-fg { color: brand(orange); }
     }
 }
 
@@ -108,6 +109,7 @@
     &-alt,
     &-dark {
         .btn { @extend .btn--sky; }
+        .inherit-fg { color: brand(sky); }
 
         @include headings(1, 4) {
             color: #fff;
@@ -144,6 +146,8 @@
 
             &:first-line { color: brand(sky); }
         }
+
+        .inherit-fg { color: brand(sky); }
     }
 }
 
@@ -151,6 +155,8 @@
 // # MORE COLOUR VARIANCE—this time, for foreground hinting
 // ==========================================================================
 .box--fg-red {
+
+    .inherit-fg { color: brand(red); }
 
     @include headings(1, 4) {
         &:first-line { color: brand(red); }
@@ -160,6 +166,8 @@
 .box--fg-orange {
     .btn { @extend .btn--orange; }
 
+    .inherit-fg { color: brand(orange); }
+
     @include headings(1, 4) {
         &:first-line { color: brand(orange); }
     }
@@ -167,6 +175,8 @@
 
 .box--fg-mint {
     .btn { @extend .btn--mint; }
+
+    .inherit-fg { color: brand(mint); }
 
     @include headings(1, 4) {
         &:first-line { color: brand(mint); }
@@ -176,6 +186,8 @@
 .box--fg-sky {
     .btn { @extend .btn--sky; }
 
+    .inherit-fg { color: brand(sky); }
+
     @include headings(1, 4) {
         &:first-line { color: brand(sky); }
     }
@@ -183,6 +195,8 @@
 
 .box--fg-grape {
     .btn { @extend .btn--grape; }
+
+    .inherit-fg { color: brand(grape); }
 
     @include headings(1, 4) {
         &:first-line { color: brand(grape); }
