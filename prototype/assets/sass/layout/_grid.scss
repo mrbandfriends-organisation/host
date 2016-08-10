@@ -70,33 +70,33 @@
 
 @if ($use-standard-breakpoints == true) {
     // Tiny
-    @include mq(tiny) {
-        @include griddle-build($grids, "t");
-    }
+    @include mq(tiny) { @include griddle-build($grids, "t");  }
 
     // Small
-    @include mq(small) {
-        @include griddle-build($grids, "s");
-    }
+    @include mq(small) { @include griddle-build($grids, "s"); }
 
     // Medium
     @include mq(medium) {
         @include griddle-build($grids, "m");
+
+        // special 30% grid at medium breakpoint. This is a kludge, but the alternative is defining a 10% grid
+        // at every breakpoint or defining it across all the components it uses
+        // Grr@designers
+        .m-30pc { @include grid-column(3, 10); }
     }
 
     // Large
     @include mq(large) {
         @include griddle-build($grids, "l");
+
+        // let’s hook it on the large breakpoint as well, because why not…
+        .l-30pc { @include grid-column(3, 10); }
     }
 
     // Extra Large
-    @include mq(xlarge) {
-        @include griddle-build($grids, "xl");
-    }
+    @include mq(xlarge) { @include griddle-build($grids, "xl"); }
 
-    @include mq(xxlarge) {
-        @include griddle-build($grids, "xxl");
-    }
+    @include mq(xxlarge) { @include griddle-build($grids, "xxl"); }
 }
 
 

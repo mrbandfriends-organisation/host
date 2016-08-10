@@ -25,11 +25,11 @@
 ?>
 <section class="band billboard -<?=$align; ?> box<?=$color.$add_class; ?>">
     <div class="container billboard__inner grid"<?=$sBg; ?>>
-        <div class="billboard__main m3-5">
+        <div class="billboard__main l3-5">
             <?=$content; ?>
         </div>
         <?php if (!empty($second)): ?>
-        <aside class="billboard__secondary m2-5">
+        <aside class="billboard__secondary l-30pc">
             <?=$second; ?>
         </aside>
         <?php endif; ?>
