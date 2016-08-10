@@ -6,40 +6,50 @@
 //
 // ==========================================================================
 
+%container {
+    width: 100%;
+    margin-right: auto;
+    margin-left:  auto;
+}
+
+%container-lr {
+    &.-left { margin-right: 0; }
+    &.-right { margin-left: 0; }
+}
+
 // ==========================================================================
 // # BASE
 // ==========================================================================
 
 .container {
-    width: 100%;
-    max-width: rem(1075);
-    margin-right: auto;
-    margin-left: auto;
+    @extend %container;
 
+    max-width: rem(1075);
 }
 
 // ==========================================================================
 // # HALF-SIZED used in various content
 // ==========================================================================
 .half-container {
-    width: 100%;
-    max-width: rem(537.5);
-    margin-right: auto;
-    margin-left:  auto;
+    @extend %container, %container-lr;
 
-    &.-left { margin-right: 0; }
-    &.-right { margin-left: 0; }
+    max-width: rem(537.5);
 }
 
 // ==========================================================================
 // # TWO-THIRD sized
 // ==========================================================================
 .two-third-container {
-    width: 100%;
-    max-width: rem(716.6667);
-    margin-right: auto;
-    margin-left:  auto;
+    @extend %container, %container-lr;
 
-    &.-left { margin-right: 0; }
-    &.-right { margin-left: 0; }
+    max-width: rem(716.6667);
+}
+
+// ==========================================================================
+// # Special case for -30pc grids
+// ==========================================================================
+.thirty-container {
+    @extend %container, %container-lr;
+
+    max-width: rem(322.5);
 }
