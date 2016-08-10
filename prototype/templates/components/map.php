@@ -2,9 +2,10 @@
 
     // default zoom
     $zoom    = (empty($zoom) || !is_numeric($zoom)) ? 15 : $zoom;
-    $centre  = (empty($centre))  ? '0,0' : $centre;
-    $filters = (empty($filters)) ? false : true;
-    $id      = (empty($id))      ? 'map' : $id;
+    $centre  = (empty($centre))  ? '0,0'  : $centre;
+    $filters = (empty($filters)) ? false  : true;
+    $id      = (empty($id))      ? 'map'  : $id;
+    $fg      = (empty($fg))      ? 'mint' : $fg;
 
     /** Base parameters */
     // static
@@ -58,7 +59,7 @@
         <img src="<?=$sStaticPath; ?>" class="map__static" alt="">
     </div>
     <?php if ($filters): ?>
-        <form action="#" method="post" class="map__filters box box--fg-mint box--more-padding js-flyout js-flyout--left">
+        <form action="#" method="post" class="map__filters box box--fg-<?=$fg; ?> box--more-padding js-flyout js-flyout--left">
             <h3>What’s around<br>the local area?</h3>
 
             <fieldset class="form-filter">

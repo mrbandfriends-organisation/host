@@ -33,6 +33,8 @@
 
     border-radius: 0;
 
+    @include button(mint);
+
     .svg-icon {
         width:  rem(15);
         height: rem(23);
