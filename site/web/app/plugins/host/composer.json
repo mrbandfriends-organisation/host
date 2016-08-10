@@ -1,0 +1,14 @@
+{
+    "name": "mrbandfriends/my-plugin",
+    "description": "Boilerplate Plugin for functionality Plugins in Mr B & Friends WordPress sites",
+    "license": "Restricted",
+    "authors": [
+        {
+            "name": "Mr B and Friends Developers",
+            "email": "developers@mrbandfriends.co.uk"
+        }
+    ],
+    "require": {
+        "jjgrainger/wp-custom-post-type-class": "dev-master"
+    }
+}
