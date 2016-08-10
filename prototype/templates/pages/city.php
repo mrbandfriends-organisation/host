@@ -12,7 +12,7 @@
             'add_class'  => '-bg-actual-size'
         ]);
 
-        $this->insert('component::room-list', [
+        $this->insert('component::property-list/index', [
             'title' => 'Properties<br>in London',
             'rooms' => [
                 [

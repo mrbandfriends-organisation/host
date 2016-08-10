@@ -4,7 +4,7 @@
     <ul class="room-list__list">
     <?php foreach ($rooms AS $aRoom): ?>
         <li class="room-list__item">
-            <?php $this->insert('component::room-list-room', $aRoom); ?>
+            <?php $this->insert('component::property-list/property', $aRoom); ?>
         </li>
     <?php endforeach; ?>
     </ul>

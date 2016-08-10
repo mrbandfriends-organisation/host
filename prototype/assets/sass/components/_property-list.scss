@@ -1,42 +1,42 @@
 // ==========================================================================
-// # Module: ROOM LIST
+// # Module: property LIST
 // ==========================================================================
 
-.room-list {
+.property-list {
     // scss-lint:disable EmptyRule
 }
 
 // # LIST
 // ==========================================================================
-.room-list__list {
+.property-list__list {
     margin: 0;
     list-style: none outside;
 }
 
 // # LIST ITEM
 // ==========================================================================
-.room-list__item {
+.property-list__item {
     & + & { margin-top: rem(20); }
 }
 
 // ==========================================================================
-// # Actual Room
+// # Actual property
 // ==========================================================================
-.listed-room {
+.listed-property {
     // scss-lint:disable EmptyRule
 }
 
 // Title + description
 // ==========================================================================
-.listed-room__title-desc { @include mq(xlarge) { padding-right: rem(40); }}
+.listed-property__title-desc { @include mq(xlarge) { padding-right: rem(40); }}
 
-.listed-room__title {
+.listed-property__title {
     font-size: rem(35);
 }
 
 // Address + contact
 // ==========================================================================
-.listed-room__address-contact {
+.listed-property__address-contact {
     margin-top: rem(30);
 
     .btn { min-width: 0; }
@@ -69,6 +69,6 @@
 
 // Image
 // ==========================================================================
-.listed-room__image {
+.listed-property__image {
     background: brand(sky) none no-repeat bottom center/cover;
 }
