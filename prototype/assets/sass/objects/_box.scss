@@ -20,6 +20,8 @@
     background: #fff;
     color: brand(ink);
 
+    .inherit-fg { color: #fff; }
+
     @include headings(1, 4) {
         color: brand(ink);
 
@@ -99,15 +101,14 @@
 
     &-alt {
         background: brand(sky);
+
+        @include headings(1, 4) { color: #fff; }
     }
 
     &-dark {
         background: tint(sky);
         color:      #fff;
-    }
 
-    &-alt,
-    &-dark {
         .btn { @include button(sky); }
         .inherit-fg { color: brand(sky); }
 
@@ -164,7 +165,7 @@
 }
 
 .box--fg-orange {
-    // .btn { @extend %btn--orange; }
+    .btn { @include button(orange); }
 
     .inherit-fg { color: brand(orange); }
 
@@ -174,7 +175,7 @@
 }
 
 .box--fg-mint {
-    // .btn { @extend %btn--mint; }
+    .btn { @include button(mint); }
 
     .inherit-fg { color: brand(mint); }
 
@@ -194,7 +195,7 @@
 }
 
 .box--fg-grape {
-    // .btn { @extend %btn--grape; }
+    .btn { @include button(grape); }
 
     .inherit-fg { color: brand(grape); }
 
