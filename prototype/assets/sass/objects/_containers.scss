@@ -4,25 +4,26 @@
 //
 // Description: standard structures for dividing pages into "sections"
 //
+// Note—a lot of this is mixins for a reason—the various non full-width
+// container setups should not be used directly in the HTML because they
+// break responsivity.
+//
 // ==========================================================================
 
-%container {
+@mixin container($align: "") {
     width: 100%;
-    margin-right: auto;
-    margin-left:  auto;
+
+    margin-right: if(($align == "left"),  0, auto);
+    margin-left:  if(($align == "right"), 0, auto);
 }
 
-%container-lr {
-    &.-left { margin-right: 0; }
-    &.-right { margin-left: 0; }
-}
 
 // ==========================================================================
 // # BASE
 // ==========================================================================
 
 .container {
-    @extend %container;
+    @include container;
 
     max-width: rem(1075);
 }
@@ -30,26 +31,23 @@
 // ==========================================================================
 // # HALF-SIZED used in various content
 // ==========================================================================
-.half-container {
-    @extend %container, %container-lr;
-
-    max-width: rem(537.5);
-}
+@mixin half-container { max-width: rem(537.5); }
 
 // ==========================================================================
-// # TWO-THIRD sized
+// # TWO-THIRDS WIDTH
 // ==========================================================================
-.two-third-container {
-    @extend %container, %container-lr;
-
-    max-width: rem(716.6667);
-}
+@mixin two-third-container { max-width: rem(716.6667); }
 
 // ==========================================================================
-// # Special case for -30pc grids
+// # THIRTY-PERCENT WIDTH
 // ==========================================================================
+@mixin thirty-container { max-width: rem(322.5); }
+
+// ==========================================================================
+// # Old, deprecated stuff
+// ==========================================================================
+.half-container,
+.two-third-container,
 .thirty-container {
-    @extend %container, %container-lr;
-
-    max-width: rem(322.5);
+    transform: scaleX(-1);
 }

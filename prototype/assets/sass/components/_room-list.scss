@@ -1,0 +1,125 @@
+// ==========================================================================
+// # Room list module
+// ==========================================================================
+
+.room-list {
+    // scss-lint:disable EmptyRule
+}
+
+// ==========================================================================
+// # HEADER
+// ==========================================================================
+.room-list__header {
+    background: #fff;
+
+    @include mq(large) {
+        padding: 0 rem(60);
+        background: #fff url("/assets/images/grape-30pc.svg") repeat-y center center/rem(3000);
+    }
+
+}
+
+.room-list__header-inner {
+    @include mq(large) { justify-content: space-between; }
+}
+
+// Title container
+// ==========================================================================
+.room-list__title-info {
+    padding: rem(30);
+
+    @include mq(large) {
+        padding: rem(60);
+        padding-left: 0;
+    }
+}
+
+// Navigation
+// ==========================================================================
+.room-list__nav {
+    margin-top: rem(30);
+    padding:    rem(30);
+
+    @include mq(large) {
+        margin: 0;
+        padding: rem(50);
+        padding-right: 0;
+    }
+}
+
+// ==========================================================================
+// # CONTENT
+// ==========================================================================
+.room-list__list {
+    margin: rem(20) 0 0;
+    list-style: none outside;
+}
+
+.room-list__item {
+    margin-top: rem(20);
+}
+
+// ==========================================================================
+// # ACTUAL ROOM
+// ==========================================================================
+.listed-room {
+    display: flex;
+    justify-content: flex-end;
+
+    background: brand(ink) none no-repeat center center/cover;
+
+    @include mq(small) {
+        padding: rem(20);
+    }
+
+    @include mq(medium) {
+        padding: rem(40);
+    }
+}
+
+// Content
+// ==========================================================================
+.listed-room__content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    @include mq(small) {
+        @include grid-column(3, 10);
+        min-width: rem(300);
+    }
+}
+
+// Info panel
+// ==========================================================================
+.listed-room__info {
+    order: 2;
+}
+
+// Title
+// ==========================================================================
+.listed-room__title { margin: 0; }
+.listed-room__price { margin: 0 0 2em; }
+
+// Availability slug
+// ==========================================================================
+.listed-room__avail[class] {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+    margin: 0;
+
+    transform: translateX(-50%);
+
+    color: #fff;
+    white-space: nowrap;
+}
+
+// Slideshow
+// ==========================================================================
+.listed-room__slideshow {
+    order: 1;
+    background: tint(grape);
+}
