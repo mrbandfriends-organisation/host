@@ -1,11 +1,11 @@
 <?php
     $aSlideshowConf = [
-        "selector" => "#{$id}",
+        "selector" => "#r{$id}",
         "offset"   => -1
     ];
 ?>
 
-<article id="<?=$id; ?>" class="listed-room room-list__room">
+<article id="r<?=$id; ?>" class="listed-room room-list__room">
     <div class="listed-room__content">
         <div class="listed-room__info box box--fg-grape box--less-padding">
             <h3 class="listed-room__title"><?=$title;?></h3>
@@ -21,7 +21,7 @@
                 <a href="#" class="btn btn--small btn--narrow">More information</a>
             </p>
         </div>
-        <aside class="listed-room__slideshow slideshow js-slideshow" data-slideshow-pagination="dots pn" data-slideshow-mirror="<?=esc_attr(json_encode($aSlideshowConf)); ?>">
+        <aside class="listed-room__slideshow slideshow js-slideshow" data-pagination="pn dots" data-mirror-to="<?=esc_attr(json_encode($aSlideshowConf)); ?>">
             <ul class="slideshow__list js-slideshow__list">
             <?php foreach ($images AS $sImg): ?>
                 <li class="slideshow__item js-slideshow__item">

@@ -10,7 +10,7 @@
             <ul class="separated-list">
             <?php foreach ($rooms AS $idx => $aRoom): ?>
                 <li class="separated-list__item">
-                    <a href="#<?="{$id}-{$idx}"; ?>"><?=$aRoom['title']; ?></a>
+                    <a href="#<?="r{$id}-{$idx}"; ?>"><?=$aRoom['title']; ?></a>
                 </li>
             <?php endforeach; ?>
             </ul>
