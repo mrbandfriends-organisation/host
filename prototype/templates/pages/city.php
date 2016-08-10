@@ -14,7 +14,7 @@
 
         $this->insert('component::property-list/index', [
             'title' => 'Properties<br>in London',
-            'rooms' => [
+            'properties' => [
                 [
                     'fg'          => 'sky',
                     'title'       => 'Kings Cross.',
