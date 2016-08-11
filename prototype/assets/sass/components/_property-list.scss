@@ -26,6 +26,16 @@
     // scss-lint:disable EmptyRule
 }
 
+// Content
+// ==========================================================================
+.listed-property__content {
+    
+    @include mq(xlarge) {
+        @include container("left");
+        @include two-third-container;
+    }
+}
+
 // Title + description
 // ==========================================================================
 .listed-property__title-desc { @include mq(xlarge) { padding-right: rem(40); }}
