@@ -28,7 +28,7 @@
                         '/_dummy/properties/room-ss2.jpg',
                         '/_dummy/properties/room-ss3.jpg'
                     ]
-                ]/*,
+                ],
                 [
                     'title' =>  'Large studio room',
                     'status' => [
@@ -56,7 +56,7 @@
                         '/_dummy/properties/room-ss2.jpg',
                         '/_dummy/properties/room-ss3.jpg'
                     ]
-                ]*/
+                ]
             ]
         ]);
 
