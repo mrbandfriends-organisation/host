@@ -33,7 +33,7 @@ class Post_Types {
 	 */
 	private function register_post_types() {
 
-		// LOCATIONS
+		    // LOCATIONS
         $locations = new CPT(
             array(
                 'post_type_name' => 'locations',
@@ -52,8 +52,51 @@ class Post_Types {
                 )
             )
         );
-        
         $locations->menu_icon("dashicons-location");
+
+
+        // BUILDINGS
+        $buildings = new CPT(
+            array(
+                'post_type_name' => 'buildings',
+                'singular' => __( 'Building', 'host'),
+                'plural' => __( 'Buildings', 'host'),
+                'slug' => __( 'buildings', 'host'),
+            ),
+            array(
+                'show_in_nav_menus' => true,
+                'hierarchical' => true,
+                'supports' => array(
+                    'title',
+                    'editor',
+                    'thumbnail',
+                    'page-attributes'
+                )
+            )
+        );
+        $buildings->menu_icon("dashicons-building");
+
+
+        // ROOMS
+        $rooms = new CPT(
+            array(
+                'post_type_name' => 'Rooms',
+                'singular' => __( 'Room', 'host'),
+                'plural' => __( 'Rooms', 'host'),
+                'slug' => __( 'rooms', 'host'),
+            ),
+            array(
+                'show_in_nav_menus' => true,
+                'hierarchical' => true,
+                'supports' => array(
+                    'title',
+                    'editor',
+                    'thumbnail',
+                    'page-attributes'
+                )
+            )
+        );
+        $rooms->menu_icon("dashicons-admin-home");
 
 	}
 }
