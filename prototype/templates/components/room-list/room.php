@@ -25,7 +25,7 @@
             <ul class="slideshow__list js-slideshow__list">
             <?php foreach ($images AS $sImg): ?>
                 <li class="slideshow__item js-slideshow__item" style="background-image:url(<?=$sImg; ?>);">
-                    <img src="<?=$sImg; ?>" class="slideshow__image js-slideshow__image" alt="">
+                    <img src="/_dummy/properties/room-ss2.th.jpg" class="slideshow__image js-slideshow__image" alt="">
                 </li>
             <?php endforeach; ?>
             </ul>
