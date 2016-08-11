@@ -58,6 +58,10 @@ button {
     & + & { margin-top: rem(20); }
 }
 
+// Special case for links, otherwise they get snarfed by boxes
+// ==========================================================================
+a.btn { color: #fff; }
+
 // ==========================================================================
 // # COLOUR VARIENCE
 //

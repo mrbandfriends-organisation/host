@@ -20,6 +20,8 @@
     background: #fff;
     color: brand(ink);
 
+    a { color: currentColor; }
+
     .inherit-fg { color: #fff; }
 
     @include headings(1, 4) {
