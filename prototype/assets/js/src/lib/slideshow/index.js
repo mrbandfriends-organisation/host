@@ -1,7 +1,7 @@
 
 var debounce = require('lodash.debounce');
 
-function Carousel()
+function Slideshow()
 {
     "use strict";
 
@@ -13,6 +13,8 @@ function Carousel()
     var iToShow      = 0;
     var sPagination  = (this.getAttribute('data-pagination') || "").toLowerCase();
     var aoPagination = [];
+    var aoMirrors    = [];
+    var iMirrorOff   = 0;
 
     /**
      * Repositions all the slides in the slideshow.
@@ -22,13 +24,13 @@ function Carousel()
         // 1. work out the first item we need to show within the viewport
         var iFirst  = Math.max(0, Math.min(iCurrent - (Math.ceil(iToShow / 2) - 1), aElItems.length - iToShow));
         var iLast   = iFirst + iToShow - 1;
-        var iOffset = (elCarousel.scrollWidth - (Math.min(iToShow, aElItems.length) * iItemWidth)) / 2;
+        var iOffset = 0 - (iFirst * iItemWidth);
 
         // 2. position everything
         aElItems.forEach(function(elSlide, idx)
         {
             // a. transform attr
-            elSlide.style.transform = 'translateX('+(((idx - iFirst) * iItemWidth) + iOffset)+'px)';
+            elSlide.style.transform = 'translateX('+((idx * iItemWidth) + iOffset)+'px)';
 
             // b. toggle ‘outside’ class
             if ((idx < iFirst || idx > iLast))
@@ -58,6 +60,12 @@ function Carousel()
 
         // 2. slew
         reposition();
+
+        // 3. push to mirrors
+        aoMirrors.forEach(function(oMirror)
+        {
+            oMirror.go(iPage + iMirrorOff);
+        });
     }
 
     /**
@@ -93,7 +101,7 @@ function Carousel()
         aElItems.forEach(function(el) { el.style.height = ""; });
 
         // 3. get the new height
-        var iNewHeight = 0;
+        var iNewHeight = elCarousel.scrollHeight;
         aElItems.forEach(function(el)
         {
             iNewHeight = Math.max(iNewHeight, el.scrollHeight);
@@ -113,29 +121,73 @@ function Carousel()
         });
     }
 
+    /**
+     * Set up any configured mirrors
+     */
+    function initMirrors()
+    {
+        // 1. get mirror configuration
+        var oMirrorConfig = JSON.parse(el.getAttribute('data-mirror-to'));
+        if (oMirrorConfig === false)
+        {
+            return;
+        }
+
+        // 2. get some DOMs and init them
+        document.querySelectorAll(oMirrorConfig.selector).each(function(elTarget)
+        {
+            // a. clone the current node + strip the mirror + pagination attrs
+            var elClone = el.cloneNode(true);
+            elClone.removeAttribute('data-mirror-to');
+            if (elClone.hasAttribute('data-pagination'))
+            {
+                elClone.removeAttribute('data-pagination');
+            }
+
+            // b. mark as a mirror (think a big ‘H’ on its forehead…)
+            elClone.classList.add('js-slideshow__mirror');
+
+            // c. append it to the target DOM
+            elTarget.appendChild(elClone);
+
+            // d. enhance!
+            aoMirrors.push(Slideshow.call(elClone));
+
+        });
+    }
 
     /**
      * Constructor
      */
     return (function()
     {
-        // 1. build pagination
+        // 1. if we’re mirroring…
+        if (el.hasAttribute('data-mirror-to'))
+        {
+            initMirrors();
+        }
+
+        // 2. build pagination
         if (sPagination !== "")
         {
             buildPagination();
         }
 
-        // 2. bind to debounced resize
+        // 3. bind to debounced resize
         window.addEventListener('resize', debounce(assessDimensions, 100));
 
-        // 3. set everything up
+        // 4. set everything up
         assessDimensions();
 
-        // 4. and a class, if it pleases thee
+        // 6. and a class, if it pleases thee
         el.classList.add('js-carousel--active');
 
+        // 7. return some hooks for mirrors
+        return {
+            go: go
+        };
     })();
 }
 
 
-module.exports = Carousel;
+module.exports = Slideshow;

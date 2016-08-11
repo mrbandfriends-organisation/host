@@ -32,7 +32,7 @@
 // ==========================================================================
 .split-feature__content {
     padding:   rem(40) rem(30);
-    max-width: rem($container-width / 2);
+    @include half-container;
 
     @include mq(medium) { padding: rem(70); }
 }
