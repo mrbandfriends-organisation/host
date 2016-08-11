@@ -69,6 +69,7 @@ $is-oldie: false !default;
 @import "objects/overlayed-media";
 @import "objects/box";
 @import "objects/flyout";
+@import "objects/slideshow";
 
 
 // # COMPONENTS - http://sass-guidelin.es/#components-folder
@@ -84,6 +85,7 @@ $is-oldie: false !default;
 @import "components/bleed-image";
 @import "components/map";
 @import "components/property-list";
+@import "components/room-list";
 
 
 // # SITE LAYOUT STRUCTURE

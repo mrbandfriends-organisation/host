@@ -4,42 +4,50 @@
 //
 // Description: standard structures for dividing pages into "sections"
 //
+// Note—a lot of this is mixins for a reason—the various non full-width
+// container setups should not be used directly in the HTML because they
+// break responsivity.
+//
 // ==========================================================================
+
+@mixin container($align: "") {
+    width: 100%;
+
+    margin-right: if(($align == "left"),  0, auto);
+    margin-left:  if(($align == "right"), 0, auto);
+}
+
 
 // ==========================================================================
 // # BASE
 // ==========================================================================
 
 .container {
-    width: 100%;
-    max-width: rem(1075);
-    margin-right: auto;
-    margin-left: auto;
+    @include container;
 
+    max-width: rem(1075);
 }
 
 // ==========================================================================
 // # HALF-SIZED used in various content
 // ==========================================================================
-.half-container {
-    width: 100%;
-    max-width: rem(537.5);
-    margin-right: auto;
-    margin-left:  auto;
-
-    &.-left { margin-right: 0; }
-    &.-right { margin-left: 0; }
-}
+@mixin half-container { max-width: rem(537.5); }
 
 // ==========================================================================
-// # TWO-THIRD sized
+// # TWO-THIRDS WIDTH
 // ==========================================================================
-.two-third-container {
-    width: 100%;
-    max-width: rem(716.6667);
-    margin-right: auto;
-    margin-left:  auto;
+@mixin two-third-container { max-width: rem(716.6667); }
 
-    &.-left { margin-right: 0; }
-    &.-right { margin-left: 0; }
+// ==========================================================================
+// # THIRTY-PERCENT WIDTH
+// ==========================================================================
+@mixin thirty-container { max-width: rem(322.5); }
+
+// ==========================================================================
+// # Old, deprecated stuff
+// ==========================================================================
+.half-container,
+.two-third-container,
+.thirty-container {
+    transform: scaleX(-1);
 }

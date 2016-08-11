@@ -79,5 +79,7 @@ require('./ext/NodeList');
 
     require('flyouts')();
 
+    require('slideshows')();
+
     // require('bind-inview')();
 })();

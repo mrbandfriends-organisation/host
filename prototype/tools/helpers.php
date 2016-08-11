@@ -5,7 +5,7 @@ function esc_html( $text ) {
 }
 
 function esc_attr( $text ) {
-	return $text;
+	return str_replace('"', "&quot;", $text);
 }
 
 // https://codex.wordpress.org/Function_Reference/_e
