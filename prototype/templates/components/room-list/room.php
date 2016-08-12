@@ -24,8 +24,8 @@
         <aside class="listed-room__slideshow slideshow js-slideshow" data-pagination="pn dots" data-mirror-to="<?=esc_attr(json_encode($aSlideshowConf)); ?>">
             <ul class="slideshow__list js-slideshow__list">
             <?php foreach ($images AS $sImg): ?>
-                <li class="slideshow__item js-slideshow__item">
-                    <img src="<?=$sImg; ?>" class="slideshow__item js-slideshow__image" alt="">
+                <li class="slideshow__item js-slideshow__item" style="background-image:url(<?=$sImg; ?>);">
+                    <img src="/_dummy/properties/room-ss2.th.jpg" class="slideshow__image js-slideshow__image" alt="">
                 </li>
             <?php endforeach; ?>
             </ul>

@@ -20,12 +20,15 @@
     background: #fff;
     color: brand(ink);
 
+    a { color: currentColor; }
+
     .inherit-fg { color: #fff; }
 
     @include headings(1, 4) {
         color: brand(ink);
 
-        &:first-line { color: #fff; }
+        &:first-line,
+        &.plain span { color: #fff; }
     }
 }
 
@@ -72,7 +75,8 @@
         @include headings(1, 4) {
             color: #fff;
 
-            &:first-line { color: brand(orange); }
+            &:first-line,
+            &.plain span { color: brand(orange); }
         }
 
         .btn { @include button(white); }
@@ -121,7 +125,8 @@
         @include headings(1, 4) {
             color: #fff;
 
-            &:first-line { color: brand(sky); }
+            &:first-line,
+            &.plain span { color: brand(sky); }
         }
     }
 }
@@ -151,7 +156,8 @@
         @include headings(1, 4) {
             color: #fff;
 
-            &:first-line { color: brand(sky); }
+            &:first-line,
+            &.plain span { color: brand(sky); }
         }
 
         .inherit-fg { color: brand(sky); }
@@ -166,7 +172,8 @@
     .inherit-fg { color: brand(red); }
 
     @include headings(1, 4) {
-        &:first-line { color: brand(red); }
+        &:first-line,
+        &.plain span { color: brand(red); }
     }
 }
 
@@ -176,7 +183,8 @@
     .inherit-fg { color: brand(orange); }
 
     @include headings(1, 4) {
-        &:first-line { color: brand(orange); }
+        &:first-line,
+        &.plain span { color: brand(orange); }
     }
 }
 
@@ -186,7 +194,8 @@
     .inherit-fg { color: brand(mint); }
 
     @include headings(1, 4) {
-        &:first-line { color: brand(mint); }
+        &:first-line,
+        &.plain span { color: brand(mint); }
     }
 }
 
@@ -196,7 +205,8 @@
     .inherit-fg { color: brand(sky); }
 
     @include headings(1, 4) {
-        &:first-line { color: brand(sky); }
+        &:first-line,
+        &.plain span { color: brand(sky); }
     }
 }
 
@@ -206,6 +216,7 @@
     .inherit-fg { color: brand(grape); }
 
     @include headings(1, 4) {
-        &:first-line { color: brand(grape); }
+        &:first-line,
+        &.plain span { color: brand(grape); }
     }
 }

@@ -4,8 +4,8 @@
 
 ?>
 <article class="listed-property grid">
-    <div class="listed-property__content gc l1-2 xl2-3 box box--fg-<?=$fg; ?> box--padded">
-        <div class="two-third-container -left grid">
+    <div class="listed-property__main gc l1-2 xl2-3 box box--fg-<?=$fg; ?> box--padded">
+        <div class="listed-property__content grid">
             <div class="listed-property__title-desc gc xxl3-5">
                 <h3 class="listed-property__title"><?=$title;?><br><?=$status; ?></h3>
                 <h4 class="h3"><?=$subtitle; ?></h4>

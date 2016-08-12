@@ -32,9 +32,13 @@
 // ==========================================================================
 .split-feature__content {
     padding:   rem(40) rem(30);
-    max-width: rem($container-width / 2);
 
-    @include mq(medium) { padding: rem(70); }
+    @include mq(medium) {
+        @include container("left");
+        @include half-container;
+
+        padding: rem(70);
+    }
 }
 
 // # Secondary pane

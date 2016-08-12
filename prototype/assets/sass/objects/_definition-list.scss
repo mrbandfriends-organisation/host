@@ -105,3 +105,20 @@
         margin-bottom: $half-spacing-unit;
     }
 }
+
+// ==========================================================================
+// # MODIFIER: possibly a clone of (‘stacked’, I dunno…)
+// ==========================================================================
+dl.-horizontal {
+    padding-left: rem(75);
+
+    dt {
+        width: rem(70);
+        margin-left: rem(-75);
+        clear: left;
+        float: left;
+    }
+
+    dd + dt,
+    dd ~ dd { margin-top: rem(10); }
+}

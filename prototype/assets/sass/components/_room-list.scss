@@ -63,7 +63,8 @@
 // # ACTUAL ROOM
 // ==========================================================================
 .listed-room {
-    display: flex;
+    position: relative;
+    display:  flex;
     justify-content: flex-end;
 
     background: brand(ink) none no-repeat center center/cover;
@@ -85,9 +86,31 @@
     display: flex;
     flex-direction: column;
 
+    z-index: 2;
+
     @include mq(small) {
         @include grid-column(3, 10);
         min-width: rem(300);
+    }
+
+    // Tweak appearance of slideshow a little
+    // ======================================================================
+    .slideshow__item {
+        padding-top: 82.5%;
+
+        height: auto !important; // scss-lint:disable ImportantRule
+    }
+
+    .slideshow__image {
+        position: absolute;
+
+        top:  50%;
+        left: 50%;
+
+        min-width:  100%;
+        min-height: 100%;
+
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -115,6 +138,8 @@
 
     color: #fff;
     white-space: nowrap;
+
+    z-index: 10;
 }
 
 // Slideshow
@@ -122,4 +147,34 @@
 .listed-room__slideshow {
     order: 1;
     background: tint(grape);
+
+    // mirrored version
+    // ======================================================================
+    &.js-slideshow__mirror {
+        position: absolute;
+
+        top:  0;
+        left: 0;
+
+        height: 100%;
+        width:  100%;
+
+        z-index: 1;
+
+        // scss-lint:disable ImportantRule
+
+        .slideshow__list {
+            position: absolute;
+
+            top:  0;
+            left: 0;
+
+            height: 100% !important;
+            width:  100%;
+        }
+
+        .slideshow__item { height: 100% !important; }
+
+        .slideshow__image { display: none; }
+    }
 }
