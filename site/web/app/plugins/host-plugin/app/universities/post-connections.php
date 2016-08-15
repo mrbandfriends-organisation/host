@@ -36,6 +36,11 @@ class Post_Connections
 
         // EXAMPLE p2p connection
         // https://github.com/scribu/wp-posts-to-posts/wiki/p2p_register_connection_type
-        //p2p_register_connection_type( array() );
+        p2p_register_connection_type( array(
+            'name' => 'uni_to_location',
+            'from' => 'university',
+            'to' => 'locations',
+            'cardinality' => 'many-to-one'
+        ) );
     }
 }

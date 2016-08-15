@@ -4,7 +4,7 @@ namespace Roots\Sage\ThemeOptions;
 
 
 if( function_exists('acf_add_options_page') ) {
-	
+
 	acf_add_options_page(array(
 		'page_title' 	=> 'Site Options',
 		'menu_title'	=> 'Site Options',
@@ -12,7 +12,7 @@ if( function_exists('acf_add_options_page') ) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false
 	));
-	
+
 	// SUB PAGES
 	acf_add_options_sub_page(array(
 		'page_title' 	=> 'Contact Settings',
@@ -27,5 +27,12 @@ if( function_exists('acf_add_options_page') ) {
 		'parent_slug'	=> 'site-options',
 		'autoload' 		=> false,
 	));
-	
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Awards',
+		'menu_title'	=> 'Awards Settings',
+		'parent_slug'	=> 'site-options',
+		'autoload' 		=> false,
+	));
+
 }

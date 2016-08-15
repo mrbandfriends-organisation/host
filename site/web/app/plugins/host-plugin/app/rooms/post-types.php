@@ -39,7 +39,7 @@ class Post_Types
          */
          $rooms = new CPT(
              array(
-                 'post_type_name' => 'Rooms',
+                 'post_type_name' => 'rooms',
                  'singular' => __( 'Room', 'host'),
                  'plural' => __( 'Rooms', 'host'),
                  'slug' => __( 'rooms', 'host'),
@@ -47,6 +47,9 @@ class Post_Types
              array(
                  'show_in_nav_menus' => true,
                  'hierarchical' => true,
+                 'taxonomies' => array(
+                   'category'
+                 ),
                  'supports' => array(
                      'title',
                      'editor',

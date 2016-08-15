@@ -39,7 +39,7 @@ class Post_Types
          */
          $universities = new CPT(
              array(
-                 'post_type_name' => 'Universities',
+                 'post_type_name' => 'university',
                  'singular' => __( 'University', 'host'),
                  'plural' => __( 'Universities', 'host'),
                  'slug' => __( 'university', 'host'),
