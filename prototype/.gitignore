@@ -7,7 +7,6 @@ npm-debug.log.*
 .env.json
 /dist/*
 !/dist/.gitkeep
-/vendor/*
 !/vendor/.gitkeep
 
 # Miscellaneous
