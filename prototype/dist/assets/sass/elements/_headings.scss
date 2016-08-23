@@ -1,0 +1,50 @@
+// ==========================================================================
+//
+// HEADINGS
+//
+// Description: standard styles for headings
+//
+// ==========================================================================
+
+
+@include headings(1, 6) {
+    margin: 1em 0;
+    font-weight: bold;
+    line-height: 1;
+
+    // for plain headings, disable the :first-line magic, use SPAN element instead
+    &.plain {
+        span { display: block; }
+
+        &:first-line { color: currentColor !important; } //scss-lint:disable ImportantRule
+    }
+}
+
+
+// Heading 1
+@include headings(1, 1) {
+    font-size: rem(32);
+
+    @include mq(medium) { font-size: rem(52); }
+}
+
+@include headings(2, 2) {
+    font-size: rem(32);
+
+    @include mq(medium) { font-size: rem(45); }
+}
+
+@include headings(3, 3) {
+    font-size: rem(25);
+    line-height: 1.04;
+
+    @include mq(medium) {
+        font-size:   rem(26);
+        line-height: 1.15;
+    }
+}
+
+@include headings(4, 4) {
+    font-size: rem(20);
+    line-height: 1;
+}

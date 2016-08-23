@@ -1,0 +1,160 @@
+// ==========================================================================
+//
+// FOOTER
+//
+// Description: layout and styling for site footer
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+.footer {
+    padding:    rem(70) rem(30);
+    background: tint(ink);
+    color:      #fff;
+
+    font-size:   rem(13);
+    line-height: rem(24);
+
+    ul {
+        margin: 0;
+        list-style: none outside;
+    }
+
+    a { color: #fff; }
+}
+
+.footer__section {
+
+    & + & { margin-top: rem(50); }
+}
+
+// ==========================================================================
+// # BRANDING
+// ==========================================================================
+.footer__brand {
+    svg {
+        height: rem(45);
+        width:  rem(100);
+
+        fill: #fff;
+    }
+}
+
+// ==========================================================================
+// # BIG NAVIGATION
+// ==========================================================================
+.nav-footer {
+    // scss-lint:disable EmptyRule
+}
+
+.nav-footer__section:first-child .nav-footer__sublist {
+
+    @include mq(tiny) {
+        columns: 2;
+        column-gap: 0;
+
+        .nav-footer__item { padding-right: 1em; }
+    }
+
+    @include mq(small)  { columns: 4; }
+
+    @include mq(medium) { columns: 3; }
+
+    @include mq(large) {
+        padding-right: 10%;
+        columns: 5;
+    }
+}
+
+.nav-footer__section:nth-child(n+2) {
+    @include mq(large) {
+        display:        flex;
+        flex-direction: column;
+        align-items:    flex-end;
+    }
+}
+
+.nav-footer__section-header a { color: brand(sky); }
+
+// ==========================================================================
+// # FOOTER SECTION
+// ==========================================================================
+.footer__final {
+    @include mq(xlarge) {
+        display: flex;
+        justify-content: space-between;
+        align-items:     flex-end;
+    }
+}
+
+// ==========================================================================
+// # UTILITY NAV
+// ==========================================================================
+.nav-footer-utilities[class] {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -1em;
+
+    font-size: rem(10);
+    line-height: 1;
+}
+
+.nav-footer-utilities__item {
+    margin-bottom: 1em;
+    border-left: 1px solid #fff;
+
+    &:first-child {
+        padding-right: rem(10);
+        border-left: 0;
+    }
+}
+
+.nav-footer-utilities__link {
+    display: block;
+
+    padding: 0 rem(10);
+}
+
+// ==========================================================================
+// # SOCIAL + MARKS
+// ==========================================================================
+.footer-marks {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: rem(50);
+
+    @include mq(xlarge) {
+        margin: 0;
+    }
+
+    .svg-icon {
+        height: rem(24);
+        width:  rem(24);
+        fill: brand(sky);
+
+        &.larger {
+            height: rem(67);
+            width:  rem(107);
+
+            fill:   #fff;
+        }
+    }
+
+    a { display: block; }
+}
+
+.footer-marks__list {
+    display:     flex;
+    align-items: flex-end;
+}
+
+.footer-marks__item {
+    margin-right: rem(10);
+    line-height:  0;
+
+    &.-large {
+        margin: 0 0 0 rem(30);
+    }
+}
