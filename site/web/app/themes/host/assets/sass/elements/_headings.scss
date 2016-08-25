@@ -12,7 +12,12 @@
     font-weight: bold;
     line-height: 1;
 
-    &.plain:first-line { color: currentColor !important; }
+    // for plain headings, disable the :first-line magic, use SPAN element instead
+    &.plain {
+        span { display: block; }
+
+        &:first-line { color: currentColor !important; } //scss-lint:disable ImportantRule
+    }
 }
 
 
@@ -37,4 +42,9 @@
         font-size:   rem(26);
         line-height: 1.15;
     }
+}
+
+@include headings(4, 4) {
+    font-size: rem(20);
+    line-height: 1;
 }

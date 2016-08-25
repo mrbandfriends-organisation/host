@@ -15,8 +15,28 @@
 // Inner element (.container)
 // ==========================================================================
 .billboard__inner {
-    padding: rem(80) 0;
+    padding: rem(50) 0;
     background: transparent none no-repeat bottom right/auto 90%;
+
+    @include mq(large) {
+        justify-content: space-between;
+
+        padding: rem(80) 0;
+    }
+}
+
+// Main panel
+// ==========================================================================
+.billboard__main {
+    // scss-lint:disable EmptyRule
+}
+
+// Secondary panel
+// ==========================================================================
+.billboard__secondary {
+    margin-top: rem(40);
+
+    @include mq(large) { margin: 0; }
 }
 
 // ==========================================================================

@@ -5,7 +5,9 @@
 // ==========================================================================
 
 // gulp
-var gulp   = require('gulp');
+var gulp         = require('gulp');
+var errorHandler = require('./assets/gulp/errorHandler');
+//var php2html     = require('gulp-php2html');
 require('frontend-boilerplate-assets');
 
 // ==========================================================================
@@ -31,3 +33,39 @@ gulp.task('watch', function()
 });
 
 gulp.task('default', ['watch']);
+
+// # Clean
+// ==========================================================================
+gulp.task('clean', function()
+{
+    require('del')( 'dist/**/*' );
+});
+
+
+// # BUILD
+// ==========================================================================
+gulp.task('build', function() {
+    isBuild = true;
+
+    // Run each task in sync (supposedly...not perfect but...)
+    require('run-sequence')(
+        'clean',
+        'sass',
+        'javascripts',
+        'imagemin',
+        'svg-watch',
+        'php2html',
+        function()
+        {
+            // copy assets
+            gulp.src([
+                'assets/css/**/*',
+                'assets/js/dist/**/*',
+                'assets/fonts/**/*',
+                'assets/images/**/*',
+                'assets/svg/**/*'
+            ], { base: 'assets' })
+                .pipe(gulp.dest('./dist/assets'));
+        }
+    );
+});

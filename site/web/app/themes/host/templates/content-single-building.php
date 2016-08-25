@@ -8,7 +8,7 @@
 <?php endwhile; ?>
 
 
-<?php //echo Utils\ob_load_template_part('templates/partials/building/'); ?>
+<?php echo Utils\ob_load_template_part('templates/partials/building/building-carousel'); ?>
 
 <?php //echo Utils\ob_load_template_part('templates/partials/awards'); ?>
 

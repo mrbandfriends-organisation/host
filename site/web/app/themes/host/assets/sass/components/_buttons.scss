@@ -41,9 +41,10 @@ button {
     }
 
     .svg-icon {
-        height: rem(18);
-        width:  auto;
-        fill:   currentColor;
+        display: inline-block;
+        height:  rem(18);
+        width:   rem(18);
+        vertical-align: middle;
     }
 
     @include mq(medium) {
@@ -57,6 +58,10 @@ button {
     & + & { margin-top: rem(20); }
 }
 
+// Special case for links, otherwise they get snarfed by boxes
+// ==========================================================================
+a.btn { color: #fff; }
+
 // ==========================================================================
 // # COLOUR VARIENCE
 //
@@ -64,48 +69,8 @@ button {
 // randomly without any real meaning…
 // ==========================================================================
 
-.btn--white {
-    background: #fff;
-    color:      brand(ink);
-
-    &:hover { background: #eee; }
-}
-
-.btn--orange {
-    background: brand(orange);
-
-    &:hover { background: darken(brand(orange), 10%); }
-}
-
-.btn--mint {
-    background: brand(mint);
-
-    &:hover { background: darken(brand(mint), 10%); }
-}
-
-.btn--sky {
-    background: brand(sky);
-
-    &:hover { background: darken(brand(sky), 10%); }
-}
-
-.btn--grape {
-    background: brand(grape);
-
-    &:hover { background: darken(brand(grape), 10%); }
-}
-
-.btn--ink {
-    background: brand(ink);
-
-    &:hover { background: lighten(brand(ink), 15%); }
-}
-
-.btn--outline-only {
-    border-color: #fff;
-    background:   rgba(255, 255, 255, 0);
-
-    &:hover { background: rgba(255, 255, 255, 0.2); }
+@each $colour, $way in $button-colours {
+    .btn--#{$colour}[class] { @include button($colour); }
 }
 
 // ==========================================================================

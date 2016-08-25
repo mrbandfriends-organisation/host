@@ -1,0 +1,115 @@
+// ==========================================================================
+// # SLIDESHOW
+// ==========================================================================
+
+.slideshow {
+    position: relative;
+    overflow: hidden;
+
+    ul,
+    ol {
+        margin: 0;
+        list-style: none inside;
+    }
+}
+
+// Slideshow list container
+// ==========================================================================
+.slideshow__list {
+    overflow: hidden;
+}
+
+// Slideshow item: by default, hide all but the first
+// ==========================================================================
+.slideshow__item {
+    background: transparent none no-repeat center center/cover;
+
+    & + & { display: none; }
+
+    // if we’re in JS-enhanced mode, show things
+    .js-carousel--active & {
+        position:  absolute;
+        display:   block;
+
+        top:       0;
+        left:      0;
+
+        width:   100%;
+
+        transform: translateX(0);
+
+        transition: transform 350ms;
+    }
+}
+
+// ==========================================================================
+// # PAGINATION: DOTS
+// ==========================================================================
+.slideshow-pagination--dots {
+    position:  absolute;
+    bottom:    rem(15);
+    left:      50%;
+
+    transform: translateX(-50%);
+
+    li {
+        display: inline-block;
+        margin:  0 rem(4);
+    }
+
+    button[class] {
+        height: rem(13);
+        width:  rem(13);
+        min-width: 0;
+        padding:   0;
+
+        transition: background 350ms;
+
+        border: 2px solid #fff;
+        background: rgba(255, 255, 255, 1);
+
+
+
+        &.-current { background: rgba(255, 255, 255, 0); }
+    }
+
+}
+
+// ==========================================================================
+// # PAGINATION: Prev/next
+// ==========================================================================
+.slideshow-pagination--pn .slideshow-pagination__button {
+    position: absolute;
+    top:       0;
+
+    height:    100%;
+    min-width: 0;
+    margin:    0;
+
+    padding:   rem(10);
+
+    transition: background 200ms,
+                opacity    350ms;
+
+    background: rgba(255, 255, 255, 0);
+    opacity:    0;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.15);
+
+        .svg-icon { opacity: 1; }
+    }
+
+    &.-show { opacity: 1; }
+
+    .svg-icon {
+        transition: opacity 200ms;
+        opacity:    0.8;
+    }
+}
+
+.slideshow-pagination--pn .slideshow-pagination__button--next {
+    right: 0;
+
+    .svg-icon { transform: scaleX(-1); }
+}

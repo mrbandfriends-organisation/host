@@ -30,15 +30,28 @@ function InviewChecker(selector)
         aoBound.each(function()
         {
             // a. grab and check
-            var oCurr   = $(this);
-            var bInview = $.inViewport(this, 0 - options.tolerance);
+            var oCurr      = $(this);
+            var bInview    = $.inViewport(this, 0 - options.tolerance);
+            var bWasInView = oCurr.hasClass(options.classes.inview);
 
-            // b. bounce classes
+            // b. set classes
             if (bInview)
             {
                 oCurr.addClass(options.classes.first);
             }
             oCurr.toggleClass(options.classes.inview, bInview);
+
+            // c. trigger events
+            if (bInview !== bWasInView)
+            {
+                if (bInview)
+                {
+                    oCurr.trigger('scrollenter');
+                }
+                else {
+                    oCurr.trigger('scrollleave');
+                }
+            }
         });
 
     }

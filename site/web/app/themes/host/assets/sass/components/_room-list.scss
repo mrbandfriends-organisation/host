@@ -1,74 +1,180 @@
 // ==========================================================================
-// # Module: ROOM LIST
+// # Room list module
 // ==========================================================================
 
 .room-list {
     // scss-lint:disable EmptyRule
 }
 
-// # LIST
+// ==========================================================================
+// # HEADER
+// ==========================================================================
+.room-list__header {
+    background: #fff;
+
+    @include mq(large) {
+        padding: 0 rem(60);
+        background: #fff url("/assets/images/grape-30pc.svg") repeat-y center center/rem(3000);
+    }
+
+}
+
+.room-list__header-inner {
+    @include mq(large) { justify-content: space-between; }
+}
+
+// Title container
+// ==========================================================================
+.room-list__title-info {
+    padding: rem(30);
+
+    @include mq(large) {
+        padding: rem(60);
+        padding-left: 0;
+    }
+}
+
+// Navigation
+// ==========================================================================
+.room-list__nav {
+    margin-top: rem(30);
+    padding:    rem(30);
+
+    @include mq(large) {
+        margin: 0;
+        padding: rem(50);
+        padding-right: 0;
+    }
+}
+
+// ==========================================================================
+// # CONTENT
 // ==========================================================================
 .room-list__list {
-    margin: 0;
+    margin: rem(20) 0 0;
     list-style: none outside;
 }
 
-// # LIST ITEM
-// ==========================================================================
 .room-list__item {
-    & + & { margin-top: rem(20); }
+    margin-top: rem(20);
 }
 
 // ==========================================================================
-// # Actual Room
+// # ACTUAL ROOM
 // ==========================================================================
 .listed-room {
-    // scss-lint:disable EmptyRule
-}
+    position: relative;
+    display:  flex;
+    justify-content: flex-end;
 
-// Title + description
-// ==========================================================================
-.listed-room__title-desc { @include mq(xlarge) { padding-right: rem(40); }}
+    background: brand(ink) none no-repeat center center/cover;
 
-.listed-room__title {
-    font-size: rem(35);
-}
-
-// Address + contact
-// ==========================================================================
-.listed-room__address-contact {
-    margin-top: rem(30);
-
-    .btn { min-width: 0; }
-
-    .svg-icon--marker {
-        position: relative;
-
-        top: 0.25em;
-        height: rem(18);
-        width:  rem(14);
-        margin-left: rem(-25);
-
-        float: left;
-
+    @include mq(small) {
+        padding: rem(20);
     }
 
-    @include mq(xlarge) {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
-
-    @include mq(xxlarge) {
-        flex-direction: column;
-        align-items:    flex-start;
-        padding-left:   rem(40);
-        margin: 0;
+    @include mq(medium) {
+        padding: rem(40);
     }
 }
 
-// Image
+// Content
 // ==========================================================================
-.listed-room__image {
-    background: brand(sky) none no-repeat bottom center/cover;
+.listed-room__content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 2;
+
+    @include mq(small) {
+        @include grid-column(3, 10);
+        min-width: rem(300);
+    }
+
+    // Tweak appearance of slideshow a little
+    // ======================================================================
+    .slideshow__item {
+        padding-top: 82.5%;
+
+        height: auto !important; // scss-lint:disable ImportantRule
+    }
+
+    .slideshow__image {
+        position: absolute;
+
+        top:  50%;
+        left: 50%;
+
+        min-width:  100%;
+        min-height: 100%;
+
+        transform: translate(-50%, -50%);
+    }
+}
+
+// Info panel
+// ==========================================================================
+.listed-room__info {
+    order: 2;
+}
+
+// Title
+// ==========================================================================
+.listed-room__title { margin: 0; }
+.listed-room__price { margin: 0 0 2em; }
+
+// Availability slug
+// ==========================================================================
+.listed-room__avail[class] {
+    position: absolute;
+
+    top: 0;
+    left: 50%;
+    margin: 0;
+
+    transform: translateX(-50%);
+
+    color: #fff;
+    white-space: nowrap;
+
+    z-index: 10;
+}
+
+// Slideshow
+// ==========================================================================
+.listed-room__slideshow {
+    order: 1;
+    background: tint(grape);
+
+    // mirrored version
+    // ======================================================================
+    &.js-slideshow__mirror {
+        position: absolute;
+
+        top:  0;
+        left: 0;
+
+        height: 100%;
+        width:  100%;
+
+        z-index: 1;
+
+        // scss-lint:disable ImportantRule
+
+        .slideshow__list {
+            position: absolute;
+
+            top:  0;
+            left: 0;
+
+            height: 100% !important;
+            width:  100%;
+        }
+
+        .slideshow__item { height: 100% !important; }
+
+        .slideshow__image { display: none; }
+    }
 }

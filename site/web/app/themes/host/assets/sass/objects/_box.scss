@@ -20,10 +20,15 @@
     background: #fff;
     color: brand(ink);
 
+    a { color: currentColor; }
+
+    .inherit-fg { color: #fff; }
+
     @include headings(1, 4) {
         color: brand(ink);
 
-        &:first-line { color: #fff; }
+        &:first-line,
+        &.plain span { color: #fff; }
     }
 }
 
@@ -34,6 +39,12 @@
     padding: rem(20);
 
     @include mq(medium) { padding: rem(50) rem(40); }
+}
+
+.box--little-padding {
+    padding: rem(10);
+
+    @include mq(medium) { padding: rem(10) rem(20); }
 }
 
 .box--less-padding {
@@ -55,7 +66,7 @@
     background: brand(red);
     color:      #fff;
 
-    .btn { @extend .btn--white; }
+    .btn { @include button(white); }
 
     &-alt {
         background: tint(red);
@@ -64,10 +75,11 @@
         @include headings(1, 4) {
             color: #fff;
 
-            &:first-line { color: brand(orange); }
+            &:first-line,
+            &.plain span { color: brand(orange); }
         }
 
-        .btn { @extend .btn--white; }
+        .btn { @include button(white); }
         .inherit-fg { color: brand(orange); }
     }
 }
@@ -75,19 +87,19 @@
 .box--orange {
     background: brand(orange);
 
-    .btn { @extend .btn--white; }
+    .btn { @include button(white); }
 }
 
 .box--mint {
     background: brand(mint);
     color:      #fff;
 
-    .btn { @extend .btn--white; }
+    .btn { @include button(white); }
 
     &-alt {
         background: brand(mint);
 
-        .btn { @extend .btn--white; }
+        .btn { @include button(white); }
     }
 }
 
@@ -95,26 +107,26 @@
     background: brand(sky);
     color:      #fff;
 
-    .btn { @extend .btn--white; }
+    .btn { @include button(white); }
 
     &-alt {
         background: brand(sky);
+
+        @include headings(1, 4) { color: #fff; }
     }
 
     &-dark {
         background: tint(sky);
         color:      #fff;
-    }
 
-    &-alt,
-    &-dark {
-        .btn { @extend .btn--sky; }
+        .btn { @include button(sky); }
         .inherit-fg { color: brand(sky); }
 
         @include headings(1, 4) {
             color: #fff;
 
-            &:first-line { color: brand(sky); }
+            &:first-line,
+            &.plain span { color: brand(sky); }
         }
     }
 }
@@ -123,20 +135,20 @@
     background: brand(grape);
     color:      #fff;
 
-    .btn { @extend .btn--ink; }
+    .btn { @include button(ink); }
 }
 
 .box--ink {
     background: brand(ink);
     color:      #fff;
 
-    .btn { @extend .btn--white; }
+    .btn { @include button(white); }
 
     &-dark {
         background: tint(ink);
         color:      #fff;
 
-        .btn { @extend .btn--white; }
+        .btn { @include button(white); }
     }
 
     &,
@@ -144,7 +156,8 @@
         @include headings(1, 4) {
             color: #fff;
 
-            &:first-line { color: brand(sky); }
+            &:first-line,
+            &.plain span { color: brand(sky); }
         }
 
         .inherit-fg { color: brand(sky); }
@@ -159,46 +172,51 @@
     .inherit-fg { color: brand(red); }
 
     @include headings(1, 4) {
-        &:first-line { color: brand(red); }
+        &:first-line,
+        &.plain span { color: brand(red); }
     }
 }
 
 .box--fg-orange {
-    .btn { @extend .btn--orange; }
+    .btn { @include button(orange); }
 
     .inherit-fg { color: brand(orange); }
 
     @include headings(1, 4) {
-        &:first-line { color: brand(orange); }
+        &:first-line,
+        &.plain span { color: brand(orange); }
     }
 }
 
 .box--fg-mint {
-    .btn { @extend .btn--mint; }
+    .btn { @include button(mint); }
 
     .inherit-fg { color: brand(mint); }
 
     @include headings(1, 4) {
-        &:first-line { color: brand(mint); }
+        &:first-line,
+        &.plain span { color: brand(mint); }
     }
 }
 
 .box--fg-sky {
-    .btn { @extend .btn--sky; }
+    .btn { @include button(sky); }
 
     .inherit-fg { color: brand(sky); }
 
     @include headings(1, 4) {
-        &:first-line { color: brand(sky); }
+        &:first-line,
+        &.plain span { color: brand(sky); }
     }
 }
 
 .box--fg-grape {
-    .btn { @extend .btn--grape; }
+    .btn { @include button(grape); }
 
     .inherit-fg { color: brand(grape); }
 
     @include headings(1, 4) {
-        &:first-line { color: brand(grape); }
+        &:first-line,
+        &.plain span { color: brand(grape); }
     }
 }
