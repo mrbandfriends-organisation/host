@@ -1,0 +1,113 @@
+// scss-lint:disable MergeableSelector
+
+// ==========================================================================
+// # BOX SIZING
+// ==========================================================================
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+
+
+// ==========================================================================
+// # FONT ALIASING
+// ==========================================================================
+html,
+body,
+button {
+  // -moz-osx-font-smoothing: grayscale;
+  // -webkit-font-smoothing: antialiased;
+  // font-smoothing: antialiased;
+}
+
+// ==========================================================================
+// # BROWSER UPGRADE NOTICE
+// ==========================================================================
+
+.browserupgrade {
+    margin: $half-spacing-unit 0;
+    padding: $half-spacing-unit 0;
+    background-color: #ccc;
+    color: #000;
+}
+
+// ==========================================================================
+// # FONTFACE FOUT PROTECTION
+// ==========================================================================
+body {
+    transition: opacity 0.1s linear;
+    opacity: 0;
+
+    .no-cuts-the-mustard &,
+    .no-webfonts &,
+    .wf-inactive &,
+    .wf-active &,
+    .no-js & {
+        // scss-lint:disable ImportantRule
+        opacity: 1 !important;
+    }
+
+
+}
+
+// ==========================================================================
+// # BORDERS!
+// ==========================================================================
+html,
+body {
+    &::before,
+    &::after {
+        position: fixed;
+        background: #fff;
+        content:  "";
+        z-index:  10001;
+    }
+}
+
+html {
+    &::before,
+    &::after {
+        left:   0;
+        height: rem(15);
+        width:  100%;
+
+        @include mq(medium) { height: rem(30); }
+    }
+
+    &::before { top: 0; }
+    &::after  { bottom: 0; }
+}
+
+body {
+    padding: rem(15);
+
+    @include mq(medium) { padding: rem(30); }
+
+    &::before,
+    &::after {
+        top:    0;
+        height: 100%;
+        width:  rem(15);
+
+        @include mq(medium) { width: rem(30); }
+    }
+
+    &::before { left:  0; }
+    &::after  { right: 0; }
+}
+
+// ==========================================================================
+// # GENERAL
+// ==========================================================================
+// scss-lint:disable ImportantRule
+*:first-child { margin-top:    0 !important; }
+*:last-child  { margin-bottom: 0 !important; }

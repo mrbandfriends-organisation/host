@@ -5,9 +5,8 @@ npm-debug.log
 npm-debug.log.*
 .sass-cache
 .env.json
-/dist/*
+#/dist/*
 !/dist/.gitkeep
-/vendor/*
 !/vendor/.gitkeep
 
 # Miscellaneous

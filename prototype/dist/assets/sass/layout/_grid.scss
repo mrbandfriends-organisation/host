@@ -1,0 +1,342 @@
+// ==========================================================================
+// GRID
+//
+// Fluid, mobile-first grid framework based on Griddle by @necolas
+// ==========================================================================
+
+
+// ==========================================================================
+// GRID WRAP
+// unit which wraps a grid "row"
+// ==========================================================================
+
+@mixin gw() {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 0 1 auto;
+
+    margin:      0;
+    padding:     0;
+    list-style:  none;
+    text-rendering: optimizespeed;
+}
+
+.grid,
+%grid,
+.grid-wrap {
+    @include gw();
+}
+
+// # Vertical grids, per breakpoint
+// ==========================================================================
+@mixin gw-v() {
+    flex-direction: column;
+}
+
+.grid--vertical {
+
+    @if ($use-standard-breakpoints == true) {
+
+        @include mq(tiny)    { &-t   { @include gw-v; }}
+        @include mq(small)   { &-s   { @include gw-v; }}
+        @include mq(medium)  { &-m   { @include gw-v; }}
+        @include mq(large)   { &-l   { @include gw-v; }}
+        @include mq(xlarge)  { &-xl  { @include gw-v; }}
+        @include mq(xxlarge) { &-xxl { @include gw-v; }}
+
+    }
+}
+
+
+
+
+// ==========================================================================
+// GRID COLUMN/UNIT
+// ==========================================================================
+
+@mixin gc() {
+    // scss-lint:disable PropertySpelling
+    flex: 0 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    text-rendering: auto; // Reset text defaults.
+}
+
+.gc,
+%gc {
+    @include gc();
+}
+
+@if ($use-standard-breakpoints == true) {
+    // Tiny
+    @include mq(tiny) { @include griddle-build($grids, "t");  }
+
+    // Small
+    @include mq(small) { @include griddle-build($grids, "s"); }
+
+    // Medium
+    @include mq(medium) {
+        @include griddle-build($grids, "m");
+
+        // special 30% grid at medium breakpoint. This is a kludge, but the alternative is defining a 10% grid
+        // at every breakpoint or defining it across all the components it uses
+        // Grr@designers
+        .m-30pc { @include grid-column(3, 10); }
+    }
+
+    // Large
+    @include mq(large) {
+        @include griddle-build($grids, "l");
+
+        // let’s hook it on the large breakpoint as well, because why not…
+        .l-30pc { @include grid-column(3, 10); }
+    }
+
+    // Extra Large
+    @include mq(xlarge) { @include griddle-build($grids, "xl"); }
+
+    @include mq(xxlarge) { @include griddle-build($grids, "xxl"); }
+}
+
+
+// ==========================================================================
+// # COLUMN MODIFIERS
+// ==========================================================================
+
+// VERITCAL ALIGN: TOP
+// ==========================================================================
+.gc--vtop {
+    align-self: flex-start;
+}
+
+// VERITCAL ALIGN: MIDDLE
+// ==========================================================================
+.gc--vmiddle {
+    align-self: center;
+}
+
+// VERITCAL ALIGN: BOTTOM
+// ==========================================================================
+.gc--vbottom {
+    align-self: flex-end;
+}
+
+
+
+
+// ==========================================================================
+// ROW MODIFIERS
+// ==========================================================================
+
+// Some gutter
+// ==========================================================================
+.grid--gutter {
+    #{$margin-left}: rem(-$gutter);
+
+    > .gc { #{$padding-left}: rem($gutter); }
+}
+
+// DOUBLE GUTTER
+// ==========================================================================
+
+.grid--double-gutter,
+%grid--double-gutter {
+    #{$margin-left}: rem(-$double-gutter-width);
+
+    > .gc,
+    > %gc--double-gutter {
+        #{$padding-left}: rem($double-gutter-width);
+    }
+}
+
+// HALF GUTTER
+// ==========================================================================
+
+.grid--half-gutter,
+%grid--half-gutter {
+    #{$margin-left}: rem(-$half-gutter-width);
+
+    > .gc,
+    > %gc--half-gutter {
+        #{$padding-left}: rem($half-gutter-width);
+    }
+}
+
+// QUARTER GUTTER
+// ==========================================================================
+
+.grid--quarter-gutter,
+%grid--quarter-gutter {
+    #{$margin-left}: rem(-$quarter-gutter-width);
+
+    > .gc,
+    > %gc--quarter-gutter {
+        #{$padding-left}: rem($quarter-gutter-width);
+    }
+}
+
+// INLINE BLOCK
+// ==========================================================================
+
+.grid--ib,
+%grid--ib,
+.grid-ib {
+    letter-spacing: -0.31em; // Remove inter-unit whitespace that appears between `inline-block` child
+    word-spacing: -0.43em; //  Remove inter-unit whitespace that appears between `inline-block` child
+
+    > .gc,
+    > %gc--ib {
+        @include inline-block;
+        float: none;
+        letter-spacing: normal; // Reset text defaults.
+        word-spacing: normal; // Reset text defaults.
+        vertical-align: top;
+    }
+}
+
+// CENTERED
+// ==========================================================================
+
+.grid--center,
+%grid--center {
+    justify-content: center;
+}
+
+// LEFT
+// ==========================================================================
+
+.grid--left,
+%grid--left {
+    justify-content: left;
+}
+
+
+// RIGHT
+// ==========================================================================
+
+.grid--right,
+%grid--right {
+    justify-content: right;
+}
+
+
+// DIVIDED
+// ==========================================================================
+
+.grid--divided,
+%grid--divided {
+    margin-bottom: -$gutter;
+
+    > .gc,
+    > %gc--divided {
+        margin-bottom: $gutter;
+    }
+}
+
+
+// VERITCAL ALIGN: MIDDLE
+// ==========================================================================
+
+.grid--vmiddle,
+%grid--vmiddle {
+    align-items: center;
+
+    > .gc,
+    > %gc--vmiddle {
+        vertical-align: inherit;
+    }
+}
+
+// VERITCAL ALIGN: BOTTOM
+// ==========================================================================
+
+.grid--vbottom,
+%grid--vbottom {
+    align-items: flex-end;
+
+    > .gc,
+    > %gc--vbottom {
+        vertical-align: inherit;
+    }
+}
+
+// REVERSE (Flexbox only)
+// ==========================================================================
+
+.grid--reversed,
+%grid--reversed {
+    flex-direction: row-reverse;
+}
+
+// # SEPARATED content
+// ==========================================================================
+.grid--separated {
+    transform:  translateX(rem(-1));
+    overflow-x: hidden;
+
+    .gc {
+        position:  relative;
+        transform: translateX(rem(1));
+
+        &:not(:last-child)::after {
+            position: absolute;
+
+            top:    0;
+            right: -$half-gutter-width;
+            bottom: 0;
+
+            width:  rem(1);
+
+            // background: darken($light-grey, 15%);
+            content:  "";
+        }
+    }
+}
+
+// # FIXED ASPECT RATIO
+// ==========================================================================
+.gc--fixed-ratio {
+    @include mq($until: medium) {
+        &.m-ar0:before   { padding-top: 0; }
+        &.m-ar25:before  { padding-top: 25%; }
+        &.m-ar50:before  { padding-top: 50%; }
+        &.m-ar100:before { padding-top: 100%; }
+    }
+
+    @include mq($until: small) {
+        &.s-ar0:before   { padding-top: 0; }
+        &.s-ar25:before  { padding-top: 25%; }
+        &.s-ar50:before  { padding-top: 50%; }
+        &.s-ar100:before { padding-top: 100%; }
+        &.s-ar150:before { padding-top: 150%; }
+        &.s-ar200:before { padding-top: 200%; }
+    }
+
+    @include mq($until: tiny) {
+        &.t-ar0:before   { padding-top: 0; }
+        &.t-ar25:before  { padding-top: 25%; }
+        &.t-ar50:before  { padding-top: 50%; }
+        &.t-ar100:before { padding-top: 100%; }
+        &.t-ar150:before { padding-top: 150%; }
+        &.t-ar200:before { padding-top: 200%; }
+    }
+
+    &:before {
+        width:   1px;
+        margin-left: -1px;
+        float:   left;
+        content: "";
+
+    }
+
+    &:after {
+        display: table;
+        clear:   both;
+        content: "";
+    }
+
+    &.ar25:before  { padding-top:  25%; }
+    &.ar50:before  { padding-top:  50%; }
+    &.ar100:before { padding-top: 100%; }
+}

@@ -1,0 +1,123 @@
+// ==========================================================================
+// INLINE LIST
+//
+// Description: create horizontally laid-out lists with
+// optional spacing and dividers
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.inline-list,
+%inline-list {
+    @include clearfix;
+    margin: 0 0 $spacing-unit (-$spacing-unit);
+    zoom: 1;
+}
+
+.inline-list__item,
+%inline-list__item,
+.inline-list > li {
+    display: block;
+    margin-left: $spacing-unit;
+    float: left;
+    list-style: none;
+}
+
+// ==========================================================================
+// # MODIFIER: DIVIDED
+// ==========================================================================
+
+.inline-list--divided,
+%inline-list--divided {
+    margin-left: (-$half-spacing-unit);
+
+    .inline-list__item,
+    %inline-list__item--divided,
+    > li {
+        margin-left: $half-spacing-unit;
+
+        &:after {
+            @include inline-block;
+            margin-left: $half-spacing-unit;
+            content: "|";
+        }
+    }
+}
+
+
+// ==========================================================================
+// # MODIFIER: CENTERED
+// ==========================================================================
+
+.inline-list--centered,
+%inline-list--centered {
+    margin-left: 0;
+    letter-spacing: -4px;
+    text-align: center;
+
+    > li,
+    .inline-list__item,
+    %inline-list__item--centered {
+        @include inline-block;
+        margin-right: $half-spacing-unit;
+        margin-left: $half-spacing-unit;
+        float: none;
+        letter-spacing: normal;
+    }
+}
+
+// ==========================================================================
+// # MODIFIER: INLINE BLOCK
+// ==========================================================================
+
+.inline-list--ib,
+%inline-list--ib {
+    letter-spacing: rsize(-4px);
+
+    .inline-list__item,
+    %inline-list__item--ib,
+    > li {
+        @include inline-block;
+        float: none;
+        letter-spacing: normal;
+        vertical-align: middle;
+    }
+}
+
+// ==========================================================================
+// # MODIFIER: SPACED
+// ==========================================================================
+
+.inline-list--spaced,
+%inline-list--spaced {
+    margin-left: -#{$spacing-unit*2};
+
+    .inline-list__item,
+    %inline-list__item--spaced,
+    > li {
+        margin-left: $spacing-unit*2;
+    }
+}
+
+
+// ==========================================================================
+// # MODIFIER: CONTRACTED
+// ==========================================================================
+
+.inline-list--contracted,
+%inline-list--contracted {
+    margin-left: -#{$half-spacing-unit};
+
+    .inline-list__item,
+    %inline-list__item--reduced,
+    > li {
+        margin-left: $half-spacing-unit;
+    }
+}
+
+.inline-list--reduced,
+%inline-list--reduced {
+    @extend %inline-list--contracted;
+}
