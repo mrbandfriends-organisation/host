@@ -137,51 +137,6 @@
             ]
         },
         {
-            "key": "field_57b5925345123",
-            "label": "Carousel images",
-            "name": "carousel_images",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "collapsed": "",
-            "min": "",
-            "max": "",
-            "layout": "table",
-            "button_label": "Add Row",
-            "sub_fields": [
-                {
-                    "key": "field_57b5926945124",
-                    "label": "Image",
-                    "name": "image",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "thumbnail",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                }
-            ]
-        },
-        {
             "key": "field_57b309047a9ce",
             "label": "Address",
             "name": "address",
@@ -343,6 +298,78 @@
             "maxlength": "",
             "readonly": 0,
             "disabled": 0
+        },
+        {
+            "key": "field_57c015a4bd610",
+            "label": "Rooms",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_57c015bcbd611",
+            "label": "Rooms title 1",
+            "name": "rooms_title_1",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_57c015dcbd612",
+            "label": "Rooms title 2",
+            "name": "rooms_title_2",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_57c015f0bd613",
+            "label": "Rooms description",
+            "name": "rooms_description",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
         },
         {
             "key": "field_57b30befbdda6",
@@ -764,5 +791,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1471517238
+    "modified": 1472206377
 }
