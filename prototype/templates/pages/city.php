@@ -36,6 +36,7 @@
                     'address'     => '16 Paul Street<br>London<br>EC2A 4JH',
                     'phone'       => '020 3475 5980',
                     'cta'         => 'Show me this property',
+					'url'		  => '/building.php',
                     'price'       => 285,
                     'photo'       => '/_dummy/properties/paul-st.jpg'
                 ],
@@ -48,6 +49,7 @@
                     'address'     => 'North End Road<br>Wembley<br>Middlesex<br>HA9 0UU',
                     'phone'       => '020 3475 5980',
                     'cta'         => 'Show me this property',
+					'url'		  => '/building.php',
                     'price'       => 277,
                     'photo'       => '/_dummy/properties/wembley.jpg'
                 ],

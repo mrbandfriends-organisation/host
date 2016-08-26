@@ -26,7 +26,7 @@
                     </p>
                 </address>
                 <p>
-                    <a href="#" class="btn"><?=$cta; ?></a>
+                    <a href="<?=(empty($url) ? '#' : $url); ?>" class="btn"><?=$cta; ?></a>
                 </p>
             </div>
         </div>
