@@ -5,8 +5,8 @@
 // ==========================================================================
 
 //scss-lint:disable SpaceAfterComma (no idea: it’s set to at_least_one_space)
-@include font-face('CircularWeb', '../fonts/circular/std',        $file-formats: woff2 woff);
-@include font-face('CircularWeb', '../fonts/circular/bold', bold, $file-formats: woff2 woff);
+@include font-face('CircularWeb', '../fonts/circular/book',  400,      $file-formats: woff2 woff);
+@include font-face('CircularWeb', '../fonts/circular/std',  bold,     $file-formats: woff2 woff);
 
 // ==========================================================================
 // GLOBAL
