@@ -81,5 +81,7 @@ require('./ext/NodeList');
 
     require('slideshows')();
 
+    require('scrollable')();
+
     // require('bind-inview')();
 })();

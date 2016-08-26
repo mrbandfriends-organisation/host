@@ -1,10 +1,9 @@
-<h2>London<br>What’s it like?</h2>
+<h2>The location.<br>What’s it like?</h2>
 
 <p>
-    <strong>London:</strong>
+    <strong>Address:</strong><br>
+    Host King’s Cross, 25-27, Canal Reach, London, N1C 4DD
 </p>
 <p>
-    Lorem ipsum dolor sit amet, consectetura dipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    Duis aute irure dolor in reprehenderit.
+    Situated near the city centre within easy walking distance of the uni's as well as the shopping areas and nightlife of CamdenTown. It's close to the river and King's Cross train station.
 </p>

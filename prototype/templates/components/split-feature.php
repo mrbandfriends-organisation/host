@@ -1,7 +1,8 @@
 <?php
-    $align   = (empty($align))   ? 'left' : $align;
-    $color   = (empty($color))   ? ''     : " box--{$color}";
-    $band    = (empty($band))    ? ''     : " band--{$band}";
+    $align       = (empty($align))   ? 'left' : $align;
+    $color       = (empty($color))   ? ''     : " box--{$color}";
+    $band        = (empty($band))    ? ''     : " band--{$band}";
+    $modifier    = (empty($modifier))    ? ''     : "$modifier";
 
 
     if (empty($content))
