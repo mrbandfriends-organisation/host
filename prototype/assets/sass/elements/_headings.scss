@@ -9,7 +9,7 @@
 
 @include headings(1, 6) {
     margin: 1em 0;
-    font-weight: bold;
+    font-weight: 500;
     line-height: 1;
 
     // for plain headings, disable the :first-line magic, use SPAN element instead
