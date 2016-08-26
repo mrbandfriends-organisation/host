@@ -1,7 +1,13 @@
 <?php
     $aNav = [
-        [ 'text' => '<span>Locations</span> around the UK.' ],
-        [ 'text' => '<span>About</span> Host Students.' ],
+        [
+            'text' => '<span>Locations</span> around the UK.',
+            'url'  => '/city.php'
+        ],
+        [
+            'text' => '<span>About</span> Host Students.',
+            'url'  => '/about.php'
+        ],
         [ 'text' => '<span>News</span> and views.' ],
         [ 'text' => '<span>Contact</span> Host here.' ]
     ];

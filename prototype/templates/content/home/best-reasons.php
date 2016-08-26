@@ -27,5 +27,5 @@
 </ul>
 
 <p>
-    <a href="#" class="btn">More about Host living</a>
+    <a href="/about.php" class="btn">More about Host living</a>
 </p>

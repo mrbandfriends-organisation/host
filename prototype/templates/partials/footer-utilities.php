@@ -1,13 +1,29 @@
 <?php
     $aNav = [
-        [ 'text' => 'Home' ],
-        [ 'text' => 'Terms and Conditions' ],
-        [ 'text' => 'Partners' ],
-        [ 'text' => 'Privacy policy'],
-        [ 'text' => 'Acceptable use policy' ],
-        [ 'text' => 'Careers' ],
-        [ 'text' => 'Agents' ],
-        [ 'text' => 'Sitemap' ]
+        [ 'text' => 'Home',
+          'url'  => '/'
+        ],
+        [ 'text' => 'Terms and Conditions',
+          'url'  => '/about.php'
+        ],
+        [ 'text' => 'Partners',
+          'url'  => '/about.php'
+        ],
+        [ 'text' => 'Privacy policy',
+          'url'  => '/about.php'
+        ],
+        [ 'text' => 'Acceptable use policy',
+          'url'  => '/about.php'
+        ],
+        [ 'text' => 'Careers',
+          'url'  => '/about.php'
+        ],
+        [ 'text' => 'Agents',
+          'url'  => '/about.php'
+        ],
+        [ 'text' => 'Sitemap',
+          'url'  => '/about.php'
+        ]
     ];
 ?>
 <nav class="menu-footer-utilities">

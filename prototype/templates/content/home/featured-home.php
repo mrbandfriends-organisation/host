@@ -10,5 +10,5 @@
 </p>
 
 <p>
-    <a href="#" class="btn">Show me this property</a>
+    <a href="/building.php" class="btn">Show me this property</a>
 </p>

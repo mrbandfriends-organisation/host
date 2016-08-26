@@ -7,5 +7,5 @@
 </p>
 
 <p>
-    <a href="#" class="btn">More about investors</a>
+    <a href="/about.php" class="btn">More about investors</a>
 </p>

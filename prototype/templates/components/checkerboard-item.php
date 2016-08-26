@@ -9,16 +9,16 @@
 ?>
 <article class="checkerboard-item js-checkerboard__item">
     <header class="checkerboard-item__title"<?=$sAttr;?>>
-        <a href="#" class="checkerboard-item__link js-checkerboard__trigger"><?=$label; ?></a>
+        <a href="/city.php" class="checkerboard-item__link js-checkerboard__trigger"><?=$label; ?></a>
     </header>
     <div class="checkerboard-item__content">
         <p class="checkerboard-item__availability">
             <?=mt_rand(1, 20); ?> properties available
-            <a href="#" class="btn btn--very-small btn--narrow">Show me homes</a>
+            <a href="/city.php" class="btn btn--very-small btn--narrow">Show me homes</a>
         </p>
         <p class="checkerboard-item__feeling-lucky">
             I’m feeling lucky:
-            <a href="#" class="btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
+            <a href="/building.php" class="btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
         </p>
     </div>
 </article>
