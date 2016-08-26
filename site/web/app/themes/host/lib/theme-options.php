@@ -29,8 +29,15 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 	acf_add_options_sub_page(array(
-		'page_title' 	=> 'Awards',
+		'page_title' 	=> 'Awards Settings',
 		'menu_title'	=> 'Awards Settings',
+		'parent_slug'	=> 'site-options',
+		'autoload' 		=> false,
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Room Prices Settings',
+		'menu_title'	=> 'Room Prices Settings',
 		'parent_slug'	=> 'site-options',
 		'autoload' 		=> false,
 	));
