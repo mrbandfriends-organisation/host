@@ -61,9 +61,10 @@
         ]);
 
         $this->insert('component::split-feature', [
-            'color'   => 'ink',
-            'content' => 'content::city/whats-it-like-left',
-            'second'  => 'content::city/whats-it-like-right'
+			'color'   	 => 'ink',
+            'scrollable' => true,
+            'content' 	 => 'content::building/whats-it-like-left',
+            'second'  	 => 'content::building/whats-it-like-right'
         ]);
 
         $this->insert('component::map', [
