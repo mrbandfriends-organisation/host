@@ -32,36 +32,6 @@
 
             <dt class="inherit-fg">No 10</dt>
             <dd>The London Eye</dd>
-
-            <dt class="inherit-fg">No 1</dt>
-            <dd>A guided tour of London</dd>
-
-            <dt class="inherit-fg">No 2</dt>
-            <dd>British Museum</dd>
-
-            <dt class="inherit-fg">No 3</dt>
-            <dd>National Gallery</dd>
-
-            <dt class="inherit-fg">No 4</dt>
-            <dd>V&amp;A - Victoria and Albert Museum</dd>
-
-            <dt class="inherit-fg">No 5</dt>
-            <dd>Tower of London</dd>
-
-            <dt class="inherit-fg">No 6</dt>
-            <dd>Big Ben</dd>
-
-            <dt class="inherit-fg">No 7</dt>
-            <dd>St. James's Park</dd>
-
-            <dt class="inherit-fg">No 8</dt>
-            <dd>Natural History Museum</dd>
-
-            <dt class="inherit-fg">No 9</dt>
-            <dd>Hyde Park</dd>
-
-            <dt class="inherit-fg">No 10</dt>
-            <dd>The London Eye</dd>
         </dl>
     </div>
     <div class="gc s1-3">
