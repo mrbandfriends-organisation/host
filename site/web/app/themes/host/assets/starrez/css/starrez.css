@@ -1,0 +1,51 @@
+body {
+  background: #f5f5f5;
+  color: #21293c;
+  font: normal 16px CircularWeb, Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+
+/*////// HEADING STYLING ///////*/
+h1,
+h2,
+#modulemenu a {
+    font: normal 1.125rem CircularWeb, Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: #21293c; /* DARK */
+    font-size: 34px;
+    line-height: 1.15;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 34px;
+}
+h2 {
+    font-size: 26px;
+}
+
+#modulemenu a {
+    font-size: 18px;
+    color: #da1e48; /* RED */
+}
+
+
+/*////// PARAGRAPH STYLING ///////*/
+.text-block-line-height {
+  margin: 0 0 1em;
+  line-height: 22px;
+  font-size: 16px;
+}
+
+
+
+
+/*////// CONTAINER STYLING ///////*/
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+    background-color: #FFF;
+    position: relative;
+    height: inherit;
+    border: none;
+}

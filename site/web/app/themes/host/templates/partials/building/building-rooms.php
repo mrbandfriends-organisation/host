@@ -19,8 +19,6 @@
   <?php echo $rooms_description; ?>
 
 
-
-
 <?php
 // Find connected pages
 $connected_rooms = new WP_Query( array(
@@ -33,7 +31,18 @@ $connected_rooms = new WP_Query( array(
   if ( $connected_rooms->have_posts() ) :
   ?>
 
-    <h3>Rooms:</h3>
+
+  <h3>
+    Take a look at<br />
+    our room types.
+  </h3>
+  <pre>[INSERT ROOM CATEGORY LIST HERE]</pre>
+
+
+
+
+
+
     <?php while ( $connected_rooms->have_posts() ) : $connected_rooms->the_post();
 
         $room_category = get_the_category();
