@@ -2,6 +2,8 @@ var path = require('path');
 var root = path.resolve(__dirname+'/..');
 var fs   = require('fs');
 
+console.log(root);
+
 // load local file if there’s one to load
 var localFile  = path.resolve('./paths.js');
 var localPaths = (fs.existsSync(localFile)) ? require(localFile) : {};
@@ -18,7 +20,8 @@ module.exports = require('deep-assign')({
         watch:  root+'/js/src/**/*.js',
         source: root+'/js/src/app.js',
         output: root+'/js/dist/',
-        root:   root+'/js/'
+        root:   root+'/js/',
+        public: '/assets/js/dist/'
     },
     images: {
         watch:  root+'/images/**/*',
