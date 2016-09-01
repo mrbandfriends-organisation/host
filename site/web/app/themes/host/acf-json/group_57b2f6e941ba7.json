@@ -61,6 +61,51 @@
             "disabled": 0
         },
         {
+            "key": "field_57c83af56a8ab",
+            "label": "Availability",
+            "name": "availability",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "available": "Rooms available",
+                "limited": "Limited availability",
+                "sold_out": "Sold out"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_57c83bca4bd33",
+            "label": "Prices from",
+            "name": "prices_from",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_57b590b1da7ac",
             "label": "Description",
             "name": "description",
@@ -791,5 +836,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1472206377
+    "modified": 1472739857
 }

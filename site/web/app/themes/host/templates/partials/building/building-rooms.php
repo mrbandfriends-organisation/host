@@ -3,6 +3,7 @@
   * BUILDING ROOMS
   **/
     use Roots\Sage\Utils;
+    use Roots\Sage\RoomsBuildings;
 ?>
 
 <?php
@@ -52,7 +53,7 @@ $connected_rooms = new WP_Query( array(
         $from_amount = get_field('from_amount');
       ?>
 
-          <?php echo esc_html($availability); ?>
+          <?php RoomsBuildings\availability_status($availability); ?>
 
           <h3>
             <?php echo $room_category->cat_name; ?><br />
