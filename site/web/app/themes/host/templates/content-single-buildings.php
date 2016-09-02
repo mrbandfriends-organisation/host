@@ -8,6 +8,9 @@
 <main id="main-content" role="main" class="main-content">
 
 
+  <?php echo Utils\ob_load_template_part('templates/partials/header-carousel.php'); ?>
+
+
   <?php echo Utils\ob_load_template_part('templates/partials/building/building-intro'); ?>
 
 
@@ -22,6 +25,7 @@
 
   <?php echo Utils\ob_load_template_part('templates/partials/building/building-facilities'); ?>
 
+  <?php echo Utils\ob_load_template_part('templates/partials/map'); ?>
 
   <?php echo Utils\ob_load_template_part('templates/partials/building/building-people'); ?>
 
