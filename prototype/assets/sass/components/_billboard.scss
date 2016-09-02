@@ -9,7 +9,11 @@
 // Wrapper
 // ==========================================================================
 .billboard {
-    padding: 0 rem(30);
+    padding: 0 rem(20);
+
+    @include mq($from: large) {
+        padding: 0 rem(30);
+    }
 }
 
 // Inner element (.container)
@@ -17,6 +21,10 @@
 .billboard__inner {
     padding: rem(50) 0;
     background: transparent none no-repeat bottom right/auto 90%;
+
+    @include mq($until: large) {
+        background-image: none !important;
+    }
 
     @include mq(large) {
         justify-content: space-between;

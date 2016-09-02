@@ -18,7 +18,6 @@ button {
     margin:    0;
     padding:   rem(13) rem(15);
     width:     auto;
-    min-width: rem(280);
 
     transition: all 200ms;
 
@@ -49,8 +48,10 @@ button {
 
     @include mq(medium) {
         padding:     rem(15) rem(25);
+        min-width: rem(280);
         font-size:   rem(18);
         line-height: rem(21);
+
 
         .svg-icon { height: rem(21); }
     }
