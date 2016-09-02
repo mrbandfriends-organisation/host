@@ -13,7 +13,12 @@
 
   <?php echo Utils\ob_load_template_part('templates/partials/room/room-prices.php'); ?>
 
+  <?php echo Utils\ob_load_template_part('templates/partials/room/room-price-settings.php'); ?>
+
   <?php echo Utils\ob_load_template_part('templates/partials/room/room-location.php'); ?>
+
+
+  <?php echo Utils\ob_load_template_part('templates/partials/map'); ?>
 
   <?php echo Utils\ob_load_template_part('templates/partials/awards'); ?>
 

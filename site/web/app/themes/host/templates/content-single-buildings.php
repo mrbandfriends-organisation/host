@@ -22,6 +22,7 @@
 
   <?php echo Utils\ob_load_template_part('templates/partials/building/building-facilities'); ?>
 
+  <?php echo Utils\ob_load_template_part('templates/partials/map'); ?>
 
   <?php echo Utils\ob_load_template_part('templates/partials/building/building-people'); ?>
 

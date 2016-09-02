@@ -19,10 +19,7 @@
 
     <?php echo Utils\ob_load_template_part('templates/partials/location/location-attractions.php'); ?>
 
-
-
-
-
+    <?php echo Utils\ob_load_template_part('templates/partials/map'); ?>
 
 
 
