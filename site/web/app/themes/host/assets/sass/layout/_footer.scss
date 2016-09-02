@@ -105,9 +105,19 @@
     margin-bottom: 1em;
     border-left: 1px solid #fff;
 
+    @include mq($until: medium) {
+        width: 50%;
+        margin-bottom: 1.1rem;
+        border: 0;
+    }
+
     &:first-child {
         padding-right: rem(10);
         border-left: 0;
+
+        @include mq($until: medium) {
+            width: 100%;
+        }
     }
 }
 
@@ -115,6 +125,13 @@
     display: block;
 
     padding: 0 rem(10);
+
+    @include mq($until: medium) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    line-height: 1.5;
 }
 
 // ==========================================================================

@@ -15,7 +15,7 @@ $is-oldie: false !default;
 
 // # SETTINGS
 // ==========================================================================
-@import "settings/config"; 
+@import "settings/config";
 
 
 // # PACKAGES
@@ -76,7 +76,7 @@ $is-oldie: false !default;
 // ==========================================================================
 @import "components/buttons";
 @import "components/primary-offcanvas";
-// @import "components/transformicons";
+@import "components/transformicons";
 @import "components/checkerboard";
 @import "components/split-feature";
 @import "components/billboard";
@@ -86,6 +86,7 @@ $is-oldie: false !default;
 @import "components/map";
 @import "components/property-list";
 @import "components/room-list";
+@import "components/scrollable";
 
 
 // # SITE LAYOUT STRUCTURE
@@ -105,7 +106,7 @@ $is-oldie: false !default;
 // # VENDORS
 // # CSS files from external libraries and frameworks
 // ==========================================================================
-//@import "vendors/EXAMPLE";
+@import "vendors/perfect-scrollbar";
 
 
 // # VENDORS EXTENSIONS

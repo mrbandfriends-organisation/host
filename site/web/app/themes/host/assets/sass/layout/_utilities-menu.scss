@@ -12,6 +12,10 @@
 .nav-utilities {
     margin: 0;
     list-style: none outside;
+
+    @include mq($until: medium) {
+        display: none;
+    }
 }
 
 .nav-utilities__item {
@@ -26,7 +30,11 @@
 // # VARIANT: BANNER
 // ==========================================================================
 .nav-utilities--banner {
-    margin-right: rem(-15);
+
+    @include mq($from: medium) {
+        margin-right: rem(-15);
+    }
+
 
     .nav-utilities__item {
         display: inline-block;
