@@ -384,7 +384,7 @@ input[type="checkbox"] + label {
         margin-top: rem(-3px);
         margin-right: 1em;
 
-        border: 4px solid $base-grey;
+        border: 4px solid brand(grey);
 
         color: #fff;
         font-size: rem(10px);
@@ -406,7 +406,7 @@ input[type="checkbox"] + label {
     &:focus {
         &:before {
             // border-color: $p-color;
-            background-color: $base-grey;
+            background-color: brand(grey);
         }
     }
 
