@@ -33,3 +33,10 @@ t=e.document.getElementsByTagName("link"),n=0;n<t.length;n++){var r=t[n];"preloa
 &&(e.loadCSS(r.href,r),r.rel=null)}},!t.support()){t.poly();var n=e.setInterval(t.poly,300);e.addEventListener&&
 e.addEventListener("load",function(){e.clearInterval(n)})}}}(this);
 </script>
+
+<script>
+// Google maps
+var GOOGLE_MAPS_KEY = '<?=GMAPS_API_KEY;?>';
+var WEB_ROOT        = 'http://hostdev/';
+</script>
+<script async src="/app/themes/host/assets/js/dist/app.js">

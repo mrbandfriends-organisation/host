@@ -6,7 +6,7 @@
 
     if ( has_nav_menu('primary_navigation') ):
 		$menu = wp_nav_menu( array(
-			'menu'				=>'primary-navigation',
+			'menu'				=>'6',
 			'menu_class' 		=> $menu_class,
 			'container' 		=> 'nav',
 			'container_class' 	=> $container_class,

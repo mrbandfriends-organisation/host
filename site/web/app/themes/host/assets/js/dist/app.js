@@ -85,7 +85,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/assets/js/dist/";
+/******/ 	__webpack_require__.p = "/app/themes/ssetelecoms/assets/js/dist/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -130,7 +130,7 @@
 
 	    var SVGSpritemapLoader = __webpack_require__(18);
 
-	    new SVGSpritemapLoader('assets/svg/sprites/output/spritesheet.svg');
+	    new SVGSpritemapLoader('/app/themes/host/assets/svg/sprites/output/spritesheet.svg');
 	}());
 
 

@@ -13,13 +13,14 @@ module.exports = require('deep-assign')({
         watch:   root+'/sass/**/*.scss',
         source: [root+'/sass/*.scss', '!'+root+'/sass/_*.scss'],
         output:  root+'/css'
+
     },
     js: {
         watch:  root+'/js/src/**/*.js',
         source: root+'/js/src/app.js',
         output: root+'/js/dist/',
         root:   root+'/js/',
-        public: '/assets/js/dist'
+        public: '/app/themes/host/assets/js/dist'
     },
     images: {
         watch:  root+'/images/**/*',

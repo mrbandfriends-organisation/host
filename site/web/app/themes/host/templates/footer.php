@@ -5,7 +5,7 @@
 
     <br /><br />
 
-    <?php wp_nav_menu( array( 'menu' => 'footer_utilities' ) ); ?>
+    <?php wp_nav_menu( array( 'menu' => '7' ) ); ?>
 
   </div>
 </footer>
