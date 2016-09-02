@@ -8,6 +8,9 @@
 <main id="main-content" role="main" class="main-content">
 
 
+    <?php echo Utils\ob_load_template_part('templates/partials/header-carousel.php'); ?>
+
+
     <?php echo Utils\ob_load_template_part('templates/partials/location/location-intro.php'); ?>
 
     <?php while (have_posts()) : the_post(); ?>
