@@ -1884,11 +1884,12 @@ dl.-horizontal dd ~ dd {
 
 .js-flyout__button[class] {
   position: absolute;
-  top: 0;
-  height: 100%;
+  top: 50%;
+  height: 50%;
   width: auto;
   min-width: 0;
-  padding: 2.1875rem;
+  padding: 0.625rem;
+  transform: translateY(-50%);
   border-radius: 0;
   background: #27bdbe;
 }
@@ -2172,7 +2173,7 @@ a.btn {
   width: 100%;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
-  background-color: #f0f;
+  background-color: #999;
 }
 
 .offcanvas__wrapper .offcanvas__body {
@@ -2231,7 +2232,7 @@ a.btn {
 }
 
 .primary-offcanvas {
-  background-color: #f0f;
+  background-color: #999;
   color: #fff;
   box-shadow: inset 7px 0 15px -5px rgba(0, 0, 0, 0.4);
   z-index: 10;
@@ -2723,6 +2724,10 @@ a.btn {
 .nav-primary--banner .nav-primary__link span {
   display: block;
   font-weight: bold;
+}
+
+.nav-primary--offcanvas {
+  display: block;
 }
 
 .nav-utilities {
@@ -3943,6 +3948,11 @@ a.btn {
   .box--more-padding{
     padding: 3.125rem 5rem;
   }
+  .js-flyout__button[class]{
+    top: 0;
+    height: 100%;
+    padding: 2.1875rem;
+  }
   .btn,
   button{
     padding: 0.9375rem 1.5625rem;
@@ -4756,6 +4766,9 @@ a.btn {
   }
   .offcanvas__wrapper.is-active-left .offcanvas__offscreen-left{
     opacity: 1;
+  }
+  .nav-primary{
+    display: none;
   }
   .social-media-icons-list{
     float: left;
