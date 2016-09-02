@@ -12,6 +12,10 @@
 .nav-primary {
     margin: 0;
     list-style: none outside;
+
+    @include mq($until: nav-break-2) {
+        display: none;
+    }
 }
 
 .nav-primary__item {
@@ -46,5 +50,6 @@
 // # VARIANT: OFFCANVAS
 // ==========================================================================
 .nav-primary--offcanvas {
-    // scss-lint:disable EmptyRule
+    // scss-lint:disable ImportantRule
+    display: block !important;
 }

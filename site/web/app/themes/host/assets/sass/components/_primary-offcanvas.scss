@@ -13,13 +13,13 @@
 
 .offcanvas__wrapper {
     @include ui-offcanvas();
-    background-color: $dark-grey;
+    background-color: brand(grey);
 }
 
 
 // Show offcanvas navigation on all viewports
 .primary-offcanvas {
-    background-color: $dark-grey;
+    background-color: brand(grey);
     color: #fff;
     box-shadow: inset 7px 0 15px -5px black(0.4);
     z-index: 10;
@@ -86,7 +86,7 @@
     .tcon-menu__lines {
         &:before,
         &:after {
-            background: #fff;
+            background: #000;
         }
     }
 }

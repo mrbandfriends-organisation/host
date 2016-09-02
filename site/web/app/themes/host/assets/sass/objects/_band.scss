@@ -31,7 +31,7 @@
 // # ALTERNATIVE INSET BAND (needs you to use boxes inside it)
 // ==========================================================================
 .band--inset-alt {
-    border: rem(30) solid brand(white);
+    border: rem(10) solid brand(white);
     background: brand(white);
 
     @include mq(medium) { border-width: rem(60); }
