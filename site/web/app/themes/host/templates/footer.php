@@ -1,14 +1,41 @@
-<footer class="content-info">
-  <div class="container">
+<?php
+    use Roots\Sage\Utils;
+?>
 
-    <?php wp_nav_menu( array( 'menu' => 'footer_about' ) ); ?>
+<footer role="contentinfo" class="footer">
+	<div class="container">
+		<div class="footer__section footer__brand">
+		    <a href="/" class="footer__brand-link"><?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'host-logo' ]); ?></a>
+		</div>
+        <div class="footer__section footer__nav">
+            <?php get_template_part('templates/partials/footer-nav'); ?>
+        </div>
+        <div class="footer__section footer__final">
+            <?php get_template_part('templates/partials/footer-utilities'); ?>
 
-    <br /><br />
-
-    <?php wp_nav_menu( array( 'menu' => '7' ) ); ?>
-
-  </div>
+            <nav class="footer-marks">
+                <ul class="footer-marks__list">
+                    <li class="footer-marks__item">
+                        <a href="#" class="footer-marks__link">
+                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'facebook' ]); ?>
+                        </a>
+                    </li>
+                    <li class="footer-marks__item">
+                        <a href="#" class="footer-marks__link">
+                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'twitter' ]); ?>
+                        </a>
+                    </li>
+                    <li class="footer-marks__item -large">
+                        <a href="#" class="footer-marks__link -large">
+                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'national-code', 'classnames' => 'larger' ]); ?>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+	</div>
 </footer>
+
 
 <?php get_template_part('templates/partials/corejs'); ?>
 
