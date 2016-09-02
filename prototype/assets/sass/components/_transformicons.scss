@@ -5,7 +5,7 @@ $tcon-transition: 0.3s !default;
 $tcon-jstransform: "tcon-transform" !default;
 
 $tcon-menu-radius: ($tcon-size / 14) !default;
-$tcon-menu-color: #000 !default;
+$tcon-menu-color: brand(grey) !default;
 $tcon-menu-arrowleft-transformation: (
   transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg)
 ) !default;
@@ -16,6 +16,7 @@ $tcon-menu-arrow360left-transformation: (
 .tcon {
     display: flex;
     width: $tcon-size;
+    min-width: 0;
     height: $tcon-size;
     border: 0;
     background: transparent;
@@ -34,6 +35,7 @@ $tcon-menu-arrow360left-transformation: (
     &:hover,
     &:focus {
         outline: none; // see issue #36 https://github.com/grayghostvisuals/transformicons/issues/36
+        background: none;
     }
 
     &::-moz-focus-inner {
