@@ -22,7 +22,8 @@ $sage_includes = [
   'lib/tracking.php',
   'lib/theme-options.php',
   'lib/utils.php',
-  'lib/shortcodes.php'
+  'lib/shortcodes.php',
+  'lib/availability.php'
 ];
 
 foreach ($sage_includes as $file) {
