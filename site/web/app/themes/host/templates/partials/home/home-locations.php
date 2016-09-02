@@ -35,5 +35,5 @@
       </a>
     </li>
 
-    <?php endwhile; ?>
+    <?php endwhile; wp_reset_postdata(); ?>
 </ul>
