@@ -12,4 +12,6 @@
 
   <?php echo Utils\ob_load_template_part('templates/partials/awards'); ?>
 
+  <?php echo Utils\ob_load_template_part('templates/partials/home/home-investors'); ?>
+
 </main>
