@@ -2054,7 +2054,6 @@ button {
   margin: 0;
   padding: 0.8125rem 0.9375rem;
   width: auto;
-  min-width: 17.5rem;
   transition: all 200ms;
   border: 1px solid transparent;
   border-radius: 0.375rem;
@@ -2565,7 +2564,7 @@ a.btn {
 }
 
 .billboard {
-  padding: 0 1.875rem;
+  padding: 0 1.25rem;
 }
 
 .billboard__inner {
@@ -4107,6 +4106,7 @@ a.btn {
   .btn,
   button{
     padding: 0.9375rem 1.5625rem;
+    min-width: 17.5rem;
     font-size: 1.125rem;
     line-height: 1.3125rem;
   }
@@ -4365,6 +4365,9 @@ a.btn {
   }
   .split-feature.-right .split-feature__content{
     padding-right: 0;
+  }
+  .billboard{
+    padding: 0 1.875rem;
   }
   .billboard__inner{
     -ms-flex-pack: justify;
@@ -4923,6 +4926,9 @@ a.btn {
   }
   .offcanvas__wrapper.is-active-left .offcanvas__offscreen-left{
     opacity: 1;
+  }
+  .billboard__inner{
+    background-image: none !important;
   }
   .nav-primary{
     display: none;
