@@ -73,7 +73,7 @@
 /******/ 			script.charset = 'utf-8';
 /******/ 			script.async = true;
 
-/******/ 			script.src = __webpack_require__.p + "chunk-" + ({"1":"offcanvas-toggle"}[chunkId]||chunkId) + "." + {"1":"6698773d2452fca6ad9e"}[chunkId] + ".js";
+/******/ 			script.src = __webpack_require__.p + "chunk-" + ({"1":"offcanvas-toggle"}[chunkId]||chunkId) + "." + {"1":"d480b6d971cf6b11564a"}[chunkId] + ".js";
 /******/ 			head.appendChild(script);
 /******/ 		}
 /******/ 	};
@@ -85,7 +85,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/app/themes/ssetelecoms/assets/js/dist/";
+/******/ 	__webpack_require__.p = "/assets/js/dist/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -95,7 +95,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {/**
+	/**
 	 * APPLICATION JAVASCRIPT
 	 *
 	 * base JavaScript entry point
@@ -141,7 +141,8 @@
 	(function() {
 	    "use strict";
 
-	    if ( $('.js-offcanvas-toggle').is(':visible') ) {
+	    // Async load
+	    if ( window.innerWidth < 992 ) {
 	        // Async load
 	        __webpack_require__.e/* nsure */(1, function() {
 	            var OffCanvasToggler = __webpack_require__(9);
@@ -183,7 +184,6 @@
 	    // require('bind-inview')();
 	})();
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ },
 /* 1 */

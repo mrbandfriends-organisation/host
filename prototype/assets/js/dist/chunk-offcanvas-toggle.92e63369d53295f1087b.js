@@ -1,6 +1,6 @@
 webpackJsonp([1],{
 
-/***/ 3:
+/***/ 9:
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/* jshint strict: false */
@@ -9,7 +9,7 @@ webpackJsonp([1],{
 	 * manages toggling of offcanvas elements
 	 */
 
-	var EventBus = __webpack_require__(21);
+	var EventBus = __webpack_require__(44);
 
 	var OffCanvasToggler = function(options) {
 	    "use strict";
@@ -42,7 +42,8 @@ webpackJsonp([1],{
 	 */
 	OffCanvasToggler.prototype._init = function() {
 	    "use strict";
-
+	    debugger;
+	    
 	    this._addListeners();
 	};
 
@@ -53,6 +54,8 @@ webpackJsonp([1],{
 	 */
 	OffCanvasToggler.prototype._addListeners = function() {
 	    "use strict";
+
+	    debugger;
 
 	    //
 	    this.$root.on('click', this.settings.toggleElements, this._handleToggle.bind(this) );
@@ -141,11 +144,11 @@ webpackJsonp([1],{
 	// Export
 	module.exports = OffCanvasToggler;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ },
 
-/***/ 21:
+/***/ 44:
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*

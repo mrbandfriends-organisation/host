@@ -44,7 +44,8 @@ require('./ext/NodeList');
 (function() {
     "use strict";
 
-    if ( $('.js-offcanvas-toggle').is(':visible') ) {
+    // Async load
+    if ( window.innerWidth < 992 ) {
         // Async load
         require.ensure(['offcanvas-toggler'], function() {
             var OffCanvasToggler = require('offcanvas-toggler');

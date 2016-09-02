@@ -18,9 +18,8 @@ gulp.task('javascripts', function() {
                 }))
                 .pipe(gulpWebpack({ // webpack-stream for using Webpack with Gulp streams
                     output: {
-                        //path: "./assets/js/",
-                        publicPath: "/app/themes/ssetelecoms/assets/js/dist/",
-                        filename: "app.js",
+                        publicPath:    paths.js.public,
+                        filename:      "app.js",
                         chunkFilename: "chunk-[name].[chunkhash].js" // generate one hash per chunk to enable cache busting on change
                     },
                     plugins: [

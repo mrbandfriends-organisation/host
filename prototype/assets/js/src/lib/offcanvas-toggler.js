@@ -1,9 +1,9 @@
-/* jshint strict: false */
 /**
  * OFFCANVAS TOGGLER
  * manages toggling of offcanvas elements
  */
 
+require('jquery');
 var EventBus = require('pubsub-js');
 
 var OffCanvasToggler = function(options) {
@@ -102,12 +102,12 @@ OffCanvasToggler.prototype._updateDisplay = function(command) {
 
     if (command === 'open') {
         this.$wrapper.addClass( this.settings.activeRightClass );
-        this.$menu.setAttribute('aria-hidden', 'false');
-        this.$toggleElements.setAttribute('aria-expanded');
+        this.$menu[0].setAttribute('aria-hidden', 'false');
+        this.$toggleElements[0].setAttribute('aria-expanded', true);
     } else if (command === 'close') {
         this.$wrapper.removeClass( this.settings.activeRightClass );
-        this.$menu.setAttribute('aria-hidden', 'true');
-        this.$toggleElements.removeAttribute('aria-expanded');
+        this.$menu[0].setAttribute('aria-hidden', 'true');
+        this.$toggleElements[0].removeAttribute('aria-expanded');
     }
 };
 

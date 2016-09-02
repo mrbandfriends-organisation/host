@@ -27,9 +27,6 @@ $brand-tints: (
 $base-background-color: map-get($brand-palette, white);
 $base-border-color:     map-get($brand-palette, ink);
 
-$dark-grey:  #f0f;  // shouldn't be used
-$base-grey:  #f0f;  // shouldn’t be used, either
-$light-grey: #f0f;  // also…
 
 // Social Colors
 // ====================================================================
@@ -305,11 +302,6 @@ $base-border-radius:			5px;
 $form-box-shadow:				0;
 $form-box-shadow-focus: 		0;
 
-
-// # ICONS
-// ==========================================================================
-
-$tcon-menu-color:				$dark-grey;
 
 
 // STACKING
