@@ -2958,17 +2958,17 @@ a.btn {
   line-height: 1;
 }
 
-.nav-footer-utilities__item {
+.nav-footer-utilities[class] li {
   margin-bottom: 1em;
   border-left: 1px solid #fff;
 }
 
-.nav-footer-utilities__item:first-child {
+.nav-footer-utilities[class] li:first-child {
   padding-right: 0.625rem;
   border-left: 0;
 }
 
-.nav-footer-utilities__link {
+.nav-footer-utilities[class] li a {
   display: block;
   padding: 0 0.625rem;
   line-height: 1.5;
@@ -4882,15 +4882,15 @@ a.btn {
   .nav-utilities{
     display: none;
   }
-  .nav-footer-utilities__item{
+  .nav-footer-utilities[class] li{
     width: 50%;
     margin-bottom: 1.1rem;
     border: 0;
   }
-  .nav-footer-utilities__item:first-child{
+  .nav-footer-utilities[class] li:first-child{
     width: 100%;
   }
-  .nav-footer-utilities__link{
+  .nav-footer-utilities[class] li a{
     padding-left: 0;
     padding-right: 0;
   }
