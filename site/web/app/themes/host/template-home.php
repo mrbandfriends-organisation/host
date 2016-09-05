@@ -10,6 +10,10 @@
 
   <?php echo Utils\ob_load_template_part('templates/partials/home/home-locations'); ?>
 
+
+  <?php echo Utils\ob_load_template_part('templates/partials/home/home-featured'); ?>
+
+
   <?php echo Utils\ob_load_template_part('templates/partials/awards'); ?>
 
   <?php echo Utils\ob_load_template_part('templates/partials/home/home-investors'); ?>
