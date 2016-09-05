@@ -21,8 +21,8 @@
       <?php endwhile; ?>
 
 
-      <?php echo Utils\ob_load_template_part('templates/partials/university/featured-building'); ?>
+      <?php echo Utils\ob_load_template_part('templates/partials/shared/featured-building'); ?>
 
-      <?php echo Utils\ob_load_template_part('templates/partials/awards'); ?>
+      <?php echo Utils\ob_load_template_part('templates/partials/shared/awards'); ?>
 
   </main>

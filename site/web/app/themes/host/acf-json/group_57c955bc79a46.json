@@ -249,44 +249,6 @@
             "mime_types": ""
         },
         {
-            "key": "field_57c957d0f011a",
-            "label": "Featured",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_57c95879061d1",
-            "label": "Featured buiding",
-            "name": "featured_buiding",
-            "type": "post_object",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [
-                "buildings"
-            ],
-            "taxonomy": [],
-            "allow_null": 0,
-            "multiple": 0,
-            "return_format": "object",
-            "ui": 1
-        },
-        {
             "key": "field_57c957dbf011b",
             "label": "Investors",
             "name": "",
@@ -442,5 +404,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1472827649
+    "modified": 1473071186
 }
