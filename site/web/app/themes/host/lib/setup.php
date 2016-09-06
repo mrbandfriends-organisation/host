@@ -28,8 +28,10 @@ function setup() {
   // http://codex.wordpress.org/Function_Reference/register_nav_menus
   register_nav_menus([
     'primary_navigation' => __('Primary Navigation', 'sage'),
+    'header_utilities' => __('Header Utilities', 'sage'),
     'footer_utilities' => __('Footer Utilities', 'sage'),
-    'footer_about' => __('Footer About', 'sage')
+    'footer_about' => __('Footer About', 'sage'),
+    'footer_contact' => __('Footer Contact', 'sage')
   ]);
 
   // Enable post thumbnails
