@@ -8,32 +8,44 @@
 <?php
   $header_title_1 = get_field('header_title_1');
   $header_title_2 = get_field('header_title_2');
-?>
+  $locations = host_locations_find_all(); ?>
 
-<h2>
-  <?php echo esc_html($header_title_1); ?><br />
-  <?php echo esc_html($header_title_2); ?>
-</h2>
+<?php if ( $locations->have_posts() ) : ?>
 
+    <section class="band checkerboard js-checkerboard" data-checkerboard-selector=".checkerboard-item">
+        <header class="box box--red checkerboard__header">
+            <h1><?php echo esc_html($header_title_1); ?><br />
+            <?php echo esc_html($header_title_2); ?></h1>
+        </header>
 
-<ul style="overflow:hidden;">
-  <?php
-    $location_query = new WP_Query( array(
-      'post_type' => array( 'locations' )
-    ) );
+        <ul class="checkerboard__list grid">
+            <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
+                <?php
+                    $carousel_images = get_field('carousel_images');
+                    $carousel_image = $carousel_images[0]['sizes']['medium'];
+                 ?>
+                <li class="checkerboard__item gc">
+                    <?php echo Utils\ob_load_template_part('templates/partials/home/home-locations-item.php', array(
+                        'label'                 => get_the_title(),
+                        'url'                   => get_permalink(),
+                        'tile_image'            => $carousel_image,
+                        'available_properties'  => 2
+                    )); ?>
+                </li>
+            <?php endwhile; ?>
+            <?php wp_reset_postdata(); ?>
 
-    while ( $location_query->have_posts() ) : $location_query->the_post();
+            <li class="checkerboard__sell gc">
+                <div class="box box--ink">
+                    <h3>Featured home<br>Our latest or greatest</h3>
 
-      $carousel_images = get_field('carousel_images');
-      $carousel_image = $carousel_images[0]['sizes']['medium'];
-  ?>
+                    <p>
+                        <a href="/building.php" class="btn btn--white btn--small">Show me featured homes</a>
+                    </p>
+                </div>
+            </li>
+        </ul>
 
-    <li style="width:15%;border:solid 1px red;float:left;height:100px;">
-      <a href="<?php echo the_permalink(); ?>">
-        <?php echo the_title(); ?>
-        <img src="<?php echo esc_html($carousel_image); ?>" />
-      </a>
-    </li>
+    </section>
 
-    <?php endwhile; wp_reset_postdata(); ?>
-</ul>
+<?php endif; ?>

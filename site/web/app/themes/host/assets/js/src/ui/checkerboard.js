@@ -28,7 +28,7 @@ function Checkerboard()
     /**
      * Click handler
      */
-    function fnHandleClick()
+    function fnHandleClick(event)
     {
         // 1. get the victim
         var oVictim = $(this).parents('.js-checkerboard__item'); // jshint ignore:line
@@ -42,6 +42,9 @@ function Checkerboard()
 
         // 3. toggle class
         oVictim.toggleClass('-active');
+
+        event.preventDefault();
+        event.stopPropagation();
 
         return false;
     }

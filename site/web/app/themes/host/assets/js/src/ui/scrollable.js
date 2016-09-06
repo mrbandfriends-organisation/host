@@ -1,10 +1,10 @@
 var $ = require('jquery');
 
-require('perfect-scrollbar/jquery')($);
+// require('perfect-scrollbar/jquery')($);
 
 module.exports = function()
 {
     "use strict";
 
-    $('.js-scrollable').perfectScrollbar();
+    // $('.js-scrollable').perfectScrollbar();
 };
