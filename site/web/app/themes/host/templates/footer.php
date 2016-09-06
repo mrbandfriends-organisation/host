@@ -7,6 +7,7 @@
 		<div class="footer__section footer__brand">
 		    <a href="/" class="footer__brand-link"><?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'host-logo' ]); ?></a>
 		</div>
+
         <div class="footer__section footer__nav">
             <?php get_template_part('templates/partials/footer-nav'); ?>
         </div>

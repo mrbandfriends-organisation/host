@@ -23,7 +23,8 @@ $sage_includes = [
   'lib/theme-options.php',
   'lib/utils.php',
   'lib/shortcodes.php',
-  'lib/availability.php'
+  'lib/availability.php',
+  'lib/walkers.php'
 ];
 
 foreach ($sage_includes as $file) {
