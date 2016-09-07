@@ -11,6 +11,7 @@
         <div class="footer__section footer__nav">
             <?php get_template_part('templates/partials/footer-nav'); ?>
         </div>
+
         <div class="footer__section footer__final">
             <?php get_template_part('templates/partials/footer-utilities'); ?>
 

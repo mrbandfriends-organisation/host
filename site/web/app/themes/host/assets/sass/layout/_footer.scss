@@ -76,7 +76,17 @@
     }
 }
 
-.nav-footer__section-header a { color: brand(sky); }
+.nav-footer__section-header {
+    margin-right: auto;
+
+    a {
+        color: brand(sky);
+    }
+}
+
+.nav-footer-secondary-container {
+    margin-right: auto;
+}
 
 // ==========================================================================
 // # FOOTER SECTION
@@ -92,7 +102,7 @@
 // ==========================================================================
 // # UTILITY NAV
 // ==========================================================================
-.nav-footer-utilities[class] {
+#menu-footer-utilities.nav-footer-utilities {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: -1em;
@@ -116,6 +126,12 @@
 
             @include mq($until: medium) {
                 width: 100%;
+            }
+        }
+
+        &:last-child {
+            @include mq(medium) {
+                margin-bottom: 1em!important;
             }
         }
 
