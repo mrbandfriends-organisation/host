@@ -14,7 +14,7 @@
     <div class="checkerboard-item__content">
         <p class="checkerboard-item__availability">
             <?=esc_html($no_of_props); ?> properties available
-            <a href="<?php esc_url($url); ?>" class="btn btn--very-small btn--narrow">Show me homes</a>
+            <a href="<?php echo esc_url($url); ?>" class="btn btn--very-small btn--narrow">Show me homes</a>
         </p>
         <p class="checkerboard-item__feeling-lucky">
             I’m feeling lucky:
