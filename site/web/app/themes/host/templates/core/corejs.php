@@ -39,4 +39,3 @@ e.addEventListener("load",function(){e.clearInterval(n)})}}}(this);
 var GOOGLE_MAPS_KEY = '<?=GMAPS_API_KEY;?>';
 var WEB_ROOT        = 'http://hostdev/';
 </script>
-<script async src="/app/themes/host/assets/js/dist/app.js">
