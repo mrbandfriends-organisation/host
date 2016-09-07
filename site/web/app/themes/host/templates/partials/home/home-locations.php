@@ -8,7 +8,8 @@
 <?php
   $header_title_1 = get_field('header_title_1');
   $header_title_2 = get_field('header_title_2');
-  $locations = host_locations_find_all(); ?>
+  $locations = host_locations_find_all();
+  $count = 0;?>
 
 <?php if ( $locations->have_posts() ) : ?>
 
@@ -21,8 +22,12 @@
         <ul class="checkerboard__list grid">
             <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
                 <?php
-                    $carousel_images = get_field('carousel_images');
-                    $carousel_image = $carousel_images[0]['sizes']['medium'];
+                    if ( $count%2 == 0 ):
+                        $carousel_images = get_field('carousel_images');
+                        $carousel_image = $carousel_images[0]['sizes']['medium'];
+                    else:
+                        $carousel_image = '';
+                    endif;
                  ?>
                 <li class="checkerboard__item gc">
                     <?php echo Utils\ob_load_template_part('templates/partials/home/home-locations-item.php', array(
@@ -32,6 +37,7 @@
                         'available_properties'  => 2
                     )); ?>
                 </li>
+                <?php $count++; ?>
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
 
