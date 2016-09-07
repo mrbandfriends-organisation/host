@@ -278,11 +278,11 @@ body::after {
 }
 
 *:first-child {
-  margin-top: 0 !important;
+  margin-top: 0;
 }
 
 *:last-child {
-  margin-bottom: 0 !important;
+  margin-bottom: 0;
 }
 
 @font-face {
@@ -3019,6 +3019,7 @@ a.btn {
 }
 
 .footer-marks__item.-large {
+  display: block;
   margin: 0 0 0 1.875rem;
 }
 
@@ -3419,13 +3420,6 @@ a.btn {
   display: flex;
 }
 
-@media screen and (min-width: 320px){
-  .offcanvas__wrapper .offcanvas__offscreen-left,
-  .offcanvas__wrapper .offcanvas__offscreen-right{
-    width: 260px;
-  }
-}
-
 @media (min-width: 20em){
   .grid--vertical-t{
     -ms-flex-direction: column;
@@ -3629,6 +3623,19 @@ a.btn {
   }
 }
 
+@media screen and (min-width: 320px){
+  .offcanvas__wrapper .offcanvas__offscreen-left,
+  .offcanvas__wrapper .offcanvas__offscreen-right{
+    width: 260px;
+  }
+}
+
+@media (min-width: 28.125em) and (max-width: 37.49em){
+  #menu-footer-utilities.nav-footer-utilities li{
+    width: 33.33%;
+  }
+}
+
 @media (min-width: 28.75rem){
   .checkerboard__item{
     -ms-flex-preferred-size: 50%;
@@ -3656,6 +3663,12 @@ a.btn {
   .-active .checkerboard-item__content{
     display: -ms-flexbox;
     display: flex;
+  }
+}
+
+@media (min-width: 37.5em) and (max-width: 47.99em){
+  #menu-footer-utilities.nav-footer-utilities li{
+    width: 25%;
   }
 }
 
@@ -4877,6 +4890,63 @@ a.btn {
   }
 }
 
+@media (max-width: 37.49em){
+  .gc--fixed-ratio.s-ar0:before{
+    padding-top: 0;
+  }
+  .gc--fixed-ratio.s-ar25:before{
+    padding-top: 25%;
+  }
+  .gc--fixed-ratio.s-ar50:before{
+    padding-top: 50%;
+  }
+  .gc--fixed-ratio.s-ar100:before{
+    padding-top: 100%;
+  }
+  .gc--fixed-ratio.s-ar150:before{
+    padding-top: 150%;
+  }
+  .gc--fixed-ratio.s-ar200:before{
+    padding-top: 200%;
+  }
+  .footer-marks__item{
+    display: none;
+  }
+}
+
+@media (max-width: 19.99em){
+  .gc--fixed-ratio.t-ar0:before{
+    padding-top: 0;
+  }
+  .gc--fixed-ratio.t-ar25:before{
+    padding-top: 25%;
+  }
+  .gc--fixed-ratio.t-ar50:before{
+    padding-top: 50%;
+  }
+  .gc--fixed-ratio.t-ar100:before{
+    padding-top: 100%;
+  }
+  .gc--fixed-ratio.t-ar150:before{
+    padding-top: 150%;
+  }
+  .gc--fixed-ratio.t-ar200:before{
+    padding-top: 200%;
+  }
+}
+
+@media (max-width: 28.0625em){
+  #menu-footer-utilities.nav-footer-utilities li{
+    width: 50%;
+  }
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
+  .ps-container{
+    overflow: auto !important;
+  }
+}
+
 @media (max-width: 47.99em){
   .gc--fixed-ratio.m-ar0:before{
     padding-top: 0;
@@ -4893,9 +4963,11 @@ a.btn {
   .nav-utilities{
     display: none;
   }
+  .footer__section + .footer__section:last-of-type{
+    margin-top: 0;
+  }
   #menu-footer-utilities.nav-footer-utilities li{
-    width: 50%;
-    margin-bottom: 1.1rem;
+    margin-bottom: 0;
     border: 0;
   }
   #menu-footer-utilities.nav-footer-utilities li:first-child{
@@ -4904,6 +4976,7 @@ a.btn {
   #menu-footer-utilities.nav-footer-utilities li a{
     padding-left: 0;
     padding-right: 0;
+    line-height: 1.5rem;
   }
 }
 
@@ -4951,53 +5024,5 @@ a.btn {
   }
   .social-media-icons-list{
     float: left;
-  }
-}
-
-@media (max-width: 19.99em){
-  .gc--fixed-ratio.t-ar0:before{
-    padding-top: 0;
-  }
-  .gc--fixed-ratio.t-ar25:before{
-    padding-top: 25%;
-  }
-  .gc--fixed-ratio.t-ar50:before{
-    padding-top: 50%;
-  }
-  .gc--fixed-ratio.t-ar100:before{
-    padding-top: 100%;
-  }
-  .gc--fixed-ratio.t-ar150:before{
-    padding-top: 150%;
-  }
-  .gc--fixed-ratio.t-ar200:before{
-    padding-top: 200%;
-  }
-}
-
-@media (max-width: 37.49em){
-  .gc--fixed-ratio.s-ar0:before{
-    padding-top: 0;
-  }
-  .gc--fixed-ratio.s-ar25:before{
-    padding-top: 25%;
-  }
-  .gc--fixed-ratio.s-ar50:before{
-    padding-top: 50%;
-  }
-  .gc--fixed-ratio.s-ar100:before{
-    padding-top: 100%;
-  }
-  .gc--fixed-ratio.s-ar150:before{
-    padding-top: 150%;
-  }
-  .gc--fixed-ratio.s-ar200:before{
-    padding-top: 200%;
-  }
-}
-
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
-  .ps-container{
-    overflow: auto !important;
   }
 }

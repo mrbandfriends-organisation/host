@@ -27,7 +27,15 @@
 
 .footer__section {
 
-    & + & { margin-top: rem(50); }
+    & + & {
+        margin-top: rem(50);
+
+        &:last-of-type {
+            @include mq($until: medium) {
+                margin-top: 0;
+            }
+        }
+    }
 }
 
 // ==========================================================================
@@ -114,9 +122,20 @@
         margin-bottom: 1em;
         border-left: 1px solid #fff;
 
-        @include mq($until: medium) {
+        @include mq($until: 449px) {
             width: 50%;
-            margin-bottom: 1.1rem;
+        }
+
+        @include mq($from: 450px, $until: small) {
+            width: 33.33%;
+        }
+
+        @include mq($from: small, $until: medium) {
+            width: 25%;
+        }
+
+        @include mq($until: medium) {
+            margin-bottom: 0;
             border: 0;
         }
 
@@ -143,6 +162,8 @@
             @include mq($until: medium) {
                 padding-left: 0;
                 padding-right: 0;
+                // Added to match other footer menu items
+                line-height: rem(24);
             }
 
             line-height: 1.5;
@@ -187,7 +208,12 @@
     margin-right: rem(10);
     line-height:  0;
 
+    @include mq($until: small) {
+        display: none;
+    }
+
     &.-large {
+        display: block;
         margin: 0 0 0 rem(30);
     }
 }
