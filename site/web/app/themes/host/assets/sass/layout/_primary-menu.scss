@@ -34,12 +34,22 @@
 
         padding: rem(8) rem(15);
         color:   tint(ink);
-        line-height: 1.25;
+        font-size:rem(16);
+        line-height: rem(20);
 
-        span {
-            display: block;
-            font-weight: bold;
+        &:hover,
+        &:focus {
+            text-decoration: none;
+
+            & > strong {
+                text-decoration: underline;
+            }
         }
+
+        strong {
+            display: block;
+        }
+
     }
 
     .btn {

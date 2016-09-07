@@ -2873,12 +2873,20 @@ a.btn {
   display: block;
   padding: 0.5rem 0.9375rem;
   color: #1c222d;
-  line-height: 1.25;
+  font-size: 1rem;
+  line-height: 1.25rem;
 }
 
-.nav-primary--banner a span {
+.nav-primary--banner a:hover, .nav-primary--banner a:focus {
+  text-decoration: none;
+}
+
+.nav-primary--banner a:hover > strong, .nav-primary--banner a:focus > strong {
+  text-decoration: underline;
+}
+
+.nav-primary--banner a strong {
   display: block;
-  font-weight: bold;
 }
 
 .nav-primary--banner .btn {
