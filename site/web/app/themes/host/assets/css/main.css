@@ -2976,7 +2976,8 @@ a.btn {
   border-left: 0;
 }
 
-#menu-footer-utilities.nav-footer-utilities li a {
+#menu-footer-utilities.nav-footer-utilities li a,
+#menu-footer-utilities.nav-footer-utilities li small {
   display: block;
   padding: 0 0.625rem;
   line-height: 1.5;
@@ -4973,7 +4974,8 @@ a.btn {
   #menu-footer-utilities.nav-footer-utilities li:first-child{
     width: 100%;
   }
-  #menu-footer-utilities.nav-footer-utilities li a{
+  #menu-footer-utilities.nav-footer-utilities li a,
+  #menu-footer-utilities.nav-footer-utilities li small{
     padding-left: 0;
     padding-right: 0;
     line-height: 1.5rem;

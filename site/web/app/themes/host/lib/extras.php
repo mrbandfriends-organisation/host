@@ -63,3 +63,20 @@ function upload_svg_media_library($mimes) {
     return $mimes;
 }
 add_action('upload_mimes', __NAMESPACE__ . '\\upload_svg_media_library');
+
+
+/**
+ *  Add Copyright to start of footer utils menu
+ *
+ */
+
+add_filter('wp_nav_menu_items', __NAMESPACE__ . '\\search_box_function', 10, 2);
+function search_box_function( $nav, $args ) {
+
+    // Currently footer utils menu doesnt have a string name just it's ID
+    if( $args->menu == 7 ) {
+        return $nav.'<li class="menu-item"><small>&#169; Host Students ' . esc_html(date("Y")) . '</small></li>';
+    }
+
+    return $nav;
+}
