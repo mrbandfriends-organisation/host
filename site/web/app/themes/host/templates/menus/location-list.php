@@ -1,11 +1,11 @@
 <?php $locations = host_locations_find_all(); ?>
 
 <?php if ( $locations->have_posts() ) : ?>
-    <ul class="nav-footer__sublist">
         <strong class="nav-footer__section-header">
             <a href="" class="nav-footer__link">Locations</a>
         </strong>
 
+        <ul class="nav-footer__sublist">
         <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
 
         <?php
@@ -18,6 +18,6 @@
             </li>
 
         <?php endwhile; ?>
-    </ul>
+        </ul>
 
 <?php endif; ?>
