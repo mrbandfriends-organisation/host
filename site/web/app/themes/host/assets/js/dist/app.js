@@ -1,34 +1,6 @@
 /******/ (function(modules) { // webpackBootstrap
-/******/ 	// install a JSONP callback for chunk loading
-/******/ 	var parentJsonpFunction = window["webpackJsonp"];
-/******/ 	window["webpackJsonp"] = function webpackJsonpCallback(chunkIds, moreModules) {
-/******/ 		// add "moreModules" to the modules object,
-/******/ 		// then flag all "chunkIds" as loaded and fire callback
-/******/ 		var moduleId, chunkId, i = 0, callbacks = [];
-/******/ 		for(;i < chunkIds.length; i++) {
-/******/ 			chunkId = chunkIds[i];
-/******/ 			if(installedChunks[chunkId])
-/******/ 				callbacks.push.apply(callbacks, installedChunks[chunkId]);
-/******/ 			installedChunks[chunkId] = 0;
-/******/ 		}
-/******/ 		for(moduleId in moreModules) {
-/******/ 			modules[moduleId] = moreModules[moduleId];
-/******/ 		}
-/******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules);
-/******/ 		while(callbacks.length)
-/******/ 			callbacks.shift().call(null, __webpack_require__);
-
-/******/ 	};
-
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
-
-/******/ 	// object to store loaded and loading chunks
-/******/ 	// "0" means "already loaded"
-/******/ 	// Array means "loading", array contains callbacks
-/******/ 	var installedChunks = {
-/******/ 		0:0
-/******/ 	};
 
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -54,29 +26,6 @@
 /******/ 		return module.exports;
 /******/ 	}
 
-/******/ 	// This file contains only the entry chunk.
-/******/ 	// The chunk loading function for additional chunks
-/******/ 	__webpack_require__.e = function requireEnsure(chunkId, callback) {
-/******/ 		// "0" is the signal for "already loaded"
-/******/ 		if(installedChunks[chunkId] === 0)
-/******/ 			return callback.call(null, __webpack_require__);
-
-/******/ 		// an array means "currently loading".
-/******/ 		if(installedChunks[chunkId] !== undefined) {
-/******/ 			installedChunks[chunkId].push(callback);
-/******/ 		} else {
-/******/ 			// start chunk loading
-/******/ 			installedChunks[chunkId] = [callback];
-/******/ 			var head = document.getElementsByTagName('head')[0];
-/******/ 			var script = document.createElement('script');
-/******/ 			script.type = 'text/javascript';
-/******/ 			script.charset = 'utf-8';
-/******/ 			script.async = true;
-
-/******/ 			script.src = __webpack_require__.p + "chunk-" + ({"1":"offcanvas-toggle"}[chunkId]||chunkId) + "." + {"1":"b277ef3d55dd4c6459bf"}[chunkId] + ".js";
-/******/ 			head.appendChild(script);
-/******/ 		}
-/******/ 	};
 
 /******/ 	// expose the modules object (__webpack_modules__)
 /******/ 	__webpack_require__.m = modules;
@@ -106,7 +55,7 @@
 	__webpack_require__(18);
 
 	// extend things
-	__webpack_require__(5);
+	__webpack_require__(4);
 
 	/**
 	 * GOGGLE EVENT TRACKING
@@ -144,10 +93,10 @@
 	    // Async load
 	    if ( window.innerWidth < 992 ) {
 	        // Async load
-	        __webpack_require__.e/* nsure */(1, function() {
-	            var OffCanvasToggler = __webpack_require__(3);
+	        //require.ensure(['offcanvas-toggler'], function() {
+	            var OffCanvasToggler = __webpack_require__(6);
 	            new OffCanvasToggler();
-	        });
+	        //},'offcanvas-toggle');
 	    }
 
 	}());
@@ -10293,8 +10242,7 @@
 
 
 /***/ },
-/* 3 */,
-/* 4 */
+/* 3 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -10319,7 +10267,7 @@
 
 
 /***/ },
-/* 5 */
+/* 4 */
 /***/ function(module, exports) {
 
 	module.exports = (function()
@@ -10347,7 +10295,7 @@
 
 
 /***/ },
-/* 6 */
+/* 5 */
 /***/ function(module, exports) {
 
 	/**
@@ -10618,6 +10566,151 @@
 
 
 /***/ },
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {/**
+	 * OFFCANVAS TOGGLER
+	 * manages toggling of offcanvas elements
+	 */
+
+	__webpack_require__(1);
+	var EventBus = __webpack_require__(22);
+
+	var OffCanvasToggler = function(options) {
+	    "use strict";
+
+
+	    // Defaults
+	    var defaults = {
+	        wrapper: '.js-offcanvas__wrapper',
+	        menu: '.js-primary-offcanvas',
+	        toggleElements: '.js-offcanvas-toggle',
+	        activeClass: 'is-active',
+	        //activeLeftClass: 'is-active-left',
+	        //activeRightClass: 'is-active-right'
+	    };
+
+	    this.settings = $.extend( {}, defaults, options );
+
+	    this.$root              = $(':root');
+	    this.$menu              = $(this.settings.menu);
+	    this.$wrapper           = $(this.settings.wrapper);
+	    this.$toggleElements    = $(this.settings.toggleElements);
+
+	    this.state              = 'closed';
+
+	    this._init();
+	};
+
+	/**
+	 * Init
+	 * kicks things off...
+	 */
+	OffCanvasToggler.prototype._init = function() {
+	    "use strict";
+
+	    this._addListeners();
+	};
+
+
+	/**
+	 * Add Listners
+	 * handles attaching of event listeners
+	 */
+	OffCanvasToggler.prototype._addListeners = function() {
+	    "use strict";
+
+	    //
+	    this.$root.on('click', this.settings.toggleElements, this._handleToggle.bind(this) );
+
+	    EventBus.subscribe('offcanvasToggle', function(eventMsg, eventData) {
+	        this._updateDisplay(eventData.command);
+	    }.bind(this));
+	};
+
+	/**
+	 * Handle Toggle
+	 * evaluates current offcanvas state and delegates to
+	 * handler methods to open/close as required
+	 */
+	OffCanvasToggler.prototype._handleToggle = function(event) {
+	    "use strict";
+
+
+	    if (this.state === 'closed') {
+	        this.open();
+	    } else if (this.state === 'open') {
+	        this.close();
+	    }
+	};
+
+
+	/**
+	 * Toggle
+	 * utility function to set 'state' and publish events
+	 * relating to toggling of offcanvas
+	 */
+	OffCanvasToggler.prototype._toggle = function(command) {
+	    "use strict";
+
+
+
+	    EventBus.publish('offcanvasToggle', {
+	        command: command
+	    });
+
+	    this.state = (command === 'open') ? 'open' : 'closed';
+	};
+
+
+	/**
+	 * Update Display
+	 * manages show and hiding of offcanvas via add/remove
+	 * of trigger className to wrapper element
+	 */
+	OffCanvasToggler.prototype._updateDisplay = function(command) {
+	    "use strict";
+
+	    if (command === 'open') {
+	        this.$wrapper.addClass( this.settings.activeClass );
+	        this.$menu[0].setAttribute('aria-hidden', 'false');
+	        this.$toggleElements[0].setAttribute('aria-expanded', true);
+	    } else if (command === 'close') {
+	        this.$wrapper.removeClass( this.settings.activeClass );
+	        this.$menu[0].setAttribute('aria-hidden', 'true');
+	        this.$toggleElements[0].removeAttribute('aria-expanded');
+	    }
+	};
+
+
+	/**
+	 * Open
+	 * triggers opening of offcanvas
+	 */
+	OffCanvasToggler.prototype.open = function() {
+	    "use strict";
+
+	    this._toggle('open');
+	};
+
+
+	/**
+	 * Close
+	 * triggers close of offcanvas
+	 */
+	OffCanvasToggler.prototype.close = function() {
+	    "use strict";
+
+	    this._toggle('close');
+	};
+
+	// Export
+	module.exports = OffCanvasToggler;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ },
 /* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10707,7 +10800,7 @@
 /* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var util = __webpack_require__(4);
+	var util = __webpack_require__(3);
 	var icon = __webpack_require__(2);
 
 	function DotsPagination(elParent, aElItems, fnGo)
@@ -11000,7 +11093,7 @@
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var util = __webpack_require__(4);
+	var util = __webpack_require__(3);
 	var icon = __webpack_require__(2);
 
 	function PnPagination(elParent, aElItems, fnGo)
@@ -11266,7 +11359,7 @@
 	/**
 	 *
 	 */
-	var GMaps        = __webpack_require__(6);
+	var GMaps        = __webpack_require__(5);
 	var maps_loading = false;
 	var maps_loaded  = false;
 
@@ -11763,6 +11856,257 @@
 	module.exports = debounce;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
+	Copyright (c) 2010,2011,2012,2013,2014 Morgan Roderick http://roderick.dk
+	License: MIT - http://mrgnrdrck.mit-license.org
+
+	https://github.com/mroderick/PubSubJS
+	*/
+	(function (root, factory){
+		'use strict';
+
+	    if (true){
+	        // AMD. Register as an anonymous module.
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+
+	    } else if (typeof exports === 'object'){
+	        // CommonJS
+	        factory(exports);
+
+	    }
+
+	    // Browser globals
+	    var PubSub = {};
+	    root.PubSub = PubSub;
+	    factory(PubSub);
+	    
+	}(( typeof window === 'object' && window ) || this, function (PubSub){
+		'use strict';
+
+		var messages = {},
+			lastUid = -1;
+
+		function hasKeys(obj){
+			var key;
+
+			for (key in obj){
+				if ( obj.hasOwnProperty(key) ){
+					return true;
+				}
+			}
+			return false;
+		}
+
+		/**
+		 *	Returns a function that throws the passed exception, for use as argument for setTimeout
+		 *	@param { Object } ex An Error object
+		 */
+		function throwException( ex ){
+			return function reThrowException(){
+				throw ex;
+			};
+		}
+
+		function callSubscriberWithDelayedExceptions( subscriber, message, data ){
+			try {
+				subscriber( message, data );
+			} catch( ex ){
+				setTimeout( throwException( ex ), 0);
+			}
+		}
+
+		function callSubscriberWithImmediateExceptions( subscriber, message, data ){
+			subscriber( message, data );
+		}
+
+		function deliverMessage( originalMessage, matchedMessage, data, immediateExceptions ){
+			var subscribers = messages[matchedMessage],
+				callSubscriber = immediateExceptions ? callSubscriberWithImmediateExceptions : callSubscriberWithDelayedExceptions,
+				s;
+
+			if ( !messages.hasOwnProperty( matchedMessage ) ) {
+				return;
+			}
+
+			for (s in subscribers){
+				if ( subscribers.hasOwnProperty(s)){
+					callSubscriber( subscribers[s], originalMessage, data );
+				}
+			}
+		}
+
+		function createDeliveryFunction( message, data, immediateExceptions ){
+			return function deliverNamespaced(){
+				var topic = String( message ),
+					position = topic.lastIndexOf( '.' );
+
+				// deliver the message as it is now
+				deliverMessage(message, message, data, immediateExceptions);
+
+				// trim the hierarchy and deliver message to each level
+				while( position !== -1 ){
+					topic = topic.substr( 0, position );
+					position = topic.lastIndexOf('.');
+					deliverMessage( message, topic, data, immediateExceptions );
+				}
+			};
+		}
+
+		function messageHasSubscribers( message ){
+			var topic = String( message ),
+				found = Boolean(messages.hasOwnProperty( topic ) && hasKeys(messages[topic])),
+				position = topic.lastIndexOf( '.' );
+
+			while ( !found && position !== -1 ){
+				topic = topic.substr( 0, position );
+				position = topic.lastIndexOf( '.' );
+				found = Boolean(messages.hasOwnProperty( topic ) && hasKeys(messages[topic]));
+			}
+
+			return found;
+		}
+
+		function publish( message, data, sync, immediateExceptions ){
+			var deliver = createDeliveryFunction( message, data, immediateExceptions ),
+				hasSubscribers = messageHasSubscribers( message );
+
+			if ( !hasSubscribers ){
+				return false;
+			}
+
+			if ( sync === true ){
+				deliver();
+			} else {
+				setTimeout( deliver, 0 );
+			}
+			return true;
+		}
+
+		/**
+		 *	PubSub.publish( message[, data] ) -> Boolean
+		 *	- message (String): The message to publish
+		 *	- data: The data to pass to subscribers
+		 *	Publishes the the message, passing the data to it's subscribers
+		**/
+		PubSub.publish = function( message, data ){
+			return publish( message, data, false, PubSub.immediateExceptions );
+		};
+
+		/**
+		 *	PubSub.publishSync( message[, data] ) -> Boolean
+		 *	- message (String): The message to publish
+		 *	- data: The data to pass to subscribers
+		 *	Publishes the the message synchronously, passing the data to it's subscribers
+		**/
+		PubSub.publishSync = function( message, data ){
+			return publish( message, data, true, PubSub.immediateExceptions );
+		};
+
+		/**
+		 *	PubSub.subscribe( message, func ) -> String
+		 *	- message (String): The message to subscribe to
+		 *	- func (Function): The function to call when a new message is published
+		 *	Subscribes the passed function to the passed message. Every returned token is unique and should be stored if
+		 *	you need to unsubscribe
+		**/
+		PubSub.subscribe = function( message, func ){
+			if ( typeof func !== 'function'){
+				return false;
+			}
+
+			// message is not registered yet
+			if ( !messages.hasOwnProperty( message ) ){
+				messages[message] = {};
+			}
+
+			// forcing token as String, to allow for future expansions without breaking usage
+			// and allow for easy use as key names for the 'messages' object
+			var token = 'uid_' + String(++lastUid);
+			messages[message][token] = func;
+
+			// return token for unsubscribing
+			return token;
+		};
+
+		/* Public: Clears all subscriptions
+		 */
+		PubSub.clearAllSubscriptions = function clearAllSubscriptions(){
+			messages = {};
+		};
+
+		/*Public: Clear subscriptions by the topic
+		*/
+		PubSub.clearSubscriptions = function clearSubscriptions(topic){
+			var m; 
+			for (m in messages){
+				if (messages.hasOwnProperty(m) && m.indexOf(topic) === 0){
+					delete messages[m];
+				}
+			}
+		};
+
+		/* Public: removes subscriptions.
+		 * When passed a token, removes a specific subscription.
+		 * When passed a function, removes all subscriptions for that function
+		 * When passed a topic, removes all subscriptions for that topic (hierarchy)
+		 *
+		 * value - A token, function or topic to unsubscribe.
+		 *
+		 * Examples
+		 *
+		 *		// Example 1 - unsubscribing with a token
+		 *		var token = PubSub.subscribe('mytopic', myFunc);
+		 *		PubSub.unsubscribe(token);
+		 *
+		 *		// Example 2 - unsubscribing with a function
+		 *		PubSub.unsubscribe(myFunc);
+		 *
+		 *		// Example 3 - unsubscribing a topic
+		 *		PubSub.unsubscribe('mytopic');
+		 */
+		PubSub.unsubscribe = function(value){
+			var isTopic    = typeof value === 'string' && messages.hasOwnProperty(value),
+				isToken    = !isTopic && typeof value === 'string',
+				isFunction = typeof value === 'function',
+				result = false,
+				m, message, t;
+
+			if (isTopic){
+				delete messages[value];
+				return;
+			}
+
+			for ( m in messages ){
+				if ( messages.hasOwnProperty( m ) ){
+					message = messages[m];
+
+					if ( isToken && message[value] ){
+						delete message[value];
+						result = value;
+						// tokens are unique, so we can just stop here
+						break;
+					}
+
+					if (isFunction) {
+						for ( t in message ){
+							if (message.hasOwnProperty(t) && message[t] === value){
+								delete message[t];
+								result = true;
+							}
+						}
+					}
+				}
+			}
+
+			return result;
+		};
+	}));
+
 
 /***/ }
 /******/ ]);

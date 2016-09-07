@@ -64,4 +64,20 @@
 .nav-primary--offcanvas {
     // scss-lint:disable ImportantRule
     display: block !important;
+
+    // <li>
+    .menu-item {
+        padding: ($quarter-spacing-unit / 2) 5%;
+        border-bottom: $base-border;
+        border-color: #fff;
+
+        a {
+            color: #fff;
+        }
+
+        // description desktop only
+        .menu-item__description {
+            display: none;
+        }
+    }
 }

@@ -2230,15 +2230,56 @@ a.btn {
   left: auto;
 }
 
-.primary-offcanvas {
-  background-color: #999;
-  color: #fff;
-  box-shadow: inset 7px 0 15px -5px rgba(0, 0, 0, 0.4);
-  z-index: 10;
+.offcanvas__body {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  min-height: 100vh;
+  background: #fff;
 }
 
-.primary-offcanvas__section {
-  padding: 0.9375rem 1.5625rem;
+.offcanvas__body:after {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: all 0s 0.5s, opacity 0.5s;
+  pointer-events: none;
+  content: "";
+}
+
+.is-active .offcanvas__body:after {
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+  transition: all 0s 0s, opacity 0.5s;
+}
+
+.primary-offcanvas {
+  position: fixed;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  padding: 1.25rem 5%;
+  background-color: #21293c;
+  box-shadow: none;
+  transform: translate3d(0, -100%, 0);
+  transition: all 0.5s ease;
+}
+
+.is-active .primary-offcanvas {
+  transform: translate3d(0, 0, 0);
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0.625rem 0.625rem 0;
 }
 
 .no-js .offcanvas-toggle {
@@ -2274,7 +2315,7 @@ a.btn {
 }
 
 .offcanvas-toggle--close .tcon-menu__lines:before, .offcanvas-toggle--close .tcon-menu__lines:after {
-  background: #000;
+  background: #fff;
 }
 
 .tcon {
@@ -2895,6 +2936,20 @@ a.btn {
 
 .nav-primary--offcanvas {
   display: block !important;
+}
+
+.nav-primary--offcanvas .menu-item {
+  padding: 0.375em 5%;
+  border-bottom: 1px solid #21293c;
+  border-color: #fff;
+}
+
+.nav-primary--offcanvas .menu-item a {
+  color: #fff;
+}
+
+.nav-primary--offcanvas .menu-item .menu-item__description {
+  display: none;
 }
 
 .nav-utilities {
@@ -4148,9 +4203,6 @@ a.btn {
   .btn .svg-icon,
   button .svg-icon{
     height: 1.3125rem;
-  }
-  .primary-offcanvas__section{
-    padding: 1.5625rem 3.75rem 1.5625rem 1.875rem;
   }
   .split-feature__content{
     width: 100%;

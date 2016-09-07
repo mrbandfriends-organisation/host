@@ -47,10 +47,10 @@ require('./ext/NodeList');
     // Async load
     if ( window.innerWidth < 992 ) {
         // Async load
-        require.ensure(['offcanvas-toggler'], function() {
+        //require.ensure(['offcanvas-toggler'], function() {
             var OffCanvasToggler = require('offcanvas-toggler');
             new OffCanvasToggler();
-        },'offcanvas-toggle');
+        //},'offcanvas-toggle');
     }
 
 }());

@@ -16,23 +16,120 @@
     background-color: brand(grey);
 }
 
+// ==========================================================================
+// # BODY ELEMENT
+// ==========================================================================
+.offcanvas__body {
+    position: relative;
+    overflow: hidden;
 
-// Show offcanvas navigation on all viewports
-.primary-offcanvas {
-    background-color: brand(grey);
-    color: #fff;
-    box-shadow: inset 7px 0 15px -5px black(0.4);
-    z-index: 10;
-}
+    z-index:    1;
+    min-height: 100vh;
 
-.primary-offcanvas__section {
-    padding: rem(15px) rem(25px);
+    background: #fff;
 
+    // mask overlay that appears when the menu is open
+    &:after {
+        position: absolute;
+        z-index:  9999;
 
-    @include mq($from: medium) {
-        padding: rem(25px) rem(60px) rem(25px) rem(30px);
+        top:    0;
+        left:   0;
+        width:  0;
+        height: 0;
+
+        background: rgba(0, 0, 0, 0.5);
+        opacity:    0;
+        transition: all 0s 0.5s, opacity 0.5s;
+
+        pointer-events: none;
+        content: "";
+    }
+
+    // active state
+    .is-active &:after {
+        height:  100%;
+        width:   100%;
+        opacity: 1;
+
+        transition: all 0s 0s, opacity 0.5s;
     }
 }
+
+
+// Show offcanvas navigation on all viewports
+//.primary-offcanvas {
+//    background-color: brand(grey);
+//    color: #fff;
+//    box-shadow: inset 7px 0 15px -5px black(0.4);
+//    z-index: 10;
+//}
+
+//.primary-offcanvas__section {
+//    padding: rem(15px) rem(25px);
+//
+//
+//    @include mq($from: medium) {
+//        padding: rem(25px) rem(60px) rem(25px) rem(30px);
+//    }
+//}
+
+// ==========================================================================
+// # OFFCANVAS (NAVIGATION) DOM
+// ==========================================================================
+.primary-offcanvas {
+    position:       fixed;
+    display:        flex;
+    flex-direction: column;
+    z-index:  10000;
+
+    top:     0;
+    left:    0;
+    width:   100%;
+    min-height:  100vh;
+    padding: rem(20) 5%;
+
+    background-color: map-get($brand-palette, ink);
+    box-shadow: none;
+
+    transform:  translate3d(0, -100%, 0);
+    transition: all 0.5s ease;
+
+    .is-active & {
+        transform: translate3d(0, 0, 0);
+        box-shadow: rgba(0, 0, 0, 0.2) 0 rem(10) rem(10) 0;
+    }
+}
+
+// # Offcanvas header section
+// ==========================================================================
+//.primary-offcanvas__header {
+//    display: flex;
+//    justify-content: space-between;
+//}
+
+// .primary-offcanvas__brand-image {
+//     height: rem(45);
+//     width:  rem(50);
+// }
+
+// # Offcanvas nav section
+// ==========================================================================
+//.primary-offcanvas__section {
+//    width: 100%;
+//    margin: rem(30) 0 0;
+//
+//    &:last-child {
+//        display: flex;
+//        flex: 1;
+//
+//        width: 100%;
+//    }
+//
+//    &.-util {
+//        margin: 0;
+//    }
+//}
 
 
 // ==========================================================================
@@ -86,7 +183,7 @@
     .tcon-menu__lines {
         &:before,
         &:after {
-            background: #000;
+            background: #fff;
         }
     }
 }

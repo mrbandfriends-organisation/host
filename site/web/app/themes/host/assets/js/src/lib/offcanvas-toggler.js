@@ -15,8 +15,9 @@ var OffCanvasToggler = function(options) {
         wrapper: '.js-offcanvas__wrapper',
         menu: '.js-primary-offcanvas',
         toggleElements: '.js-offcanvas-toggle',
-        activeLeftClass: 'is-active-left',
-        activeRightClass: 'is-active-right'
+        activeClass: 'is-active',
+        //activeLeftClass: 'is-active-left',
+        //activeRightClass: 'is-active-right'
     };
 
     this.settings = $.extend( {}, defaults, options );
@@ -101,11 +102,11 @@ OffCanvasToggler.prototype._updateDisplay = function(command) {
     "use strict";
 
     if (command === 'open') {
-        this.$wrapper.addClass( this.settings.activeRightClass );
+        this.$wrapper.addClass( this.settings.activeClass );
         this.$menu[0].setAttribute('aria-hidden', 'false');
         this.$toggleElements[0].setAttribute('aria-expanded', true);
     } else if (command === 'close') {
-        this.$wrapper.removeClass( this.settings.activeRightClass );
+        this.$wrapper.removeClass( this.settings.activeClass );
         this.$menu[0].setAttribute('aria-hidden', 'true');
         this.$toggleElements[0].removeAttribute('aria-expanded');
     }
