@@ -242,7 +242,7 @@ body::after {
   position: fixed;
   background: #fff;
   content: "";
-  z-index: 10001;
+  z-index: 8000;
 }
 
 html::before, html::after {
@@ -2265,7 +2265,7 @@ a.btn {
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
-  z-index: 10000;
+  z-index: 9000;
   top: 0;
   left: 0;
   width: 100%;

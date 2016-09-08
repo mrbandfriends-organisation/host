@@ -81,7 +81,7 @@
     position:       fixed;
     display:        flex;
     flex-direction: column;
-    z-index:  10000;
+    z-index:  $zindex-tier-9;
 
     top:     0;
     left:    0;
