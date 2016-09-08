@@ -19,17 +19,17 @@
                 <ul class="footer-marks__list">
                     <li class="footer-marks__item">
                         <a href="#" class="footer-marks__link">
-                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'facebook' ]); ?>
+                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'facebook', 'classnames' => 'svg-icon--sky' ]); ?>
                         </a>
                     </li>
                     <li class="footer-marks__item">
                         <a href="#" class="footer-marks__link">
-                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'twitter' ]); ?>
+                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'twitter', 'classnames' => 'svg-icon--sky' ]); ?>
                         </a>
                     </li>
                     <li class="footer-marks__item -large">
                         <a href="#" class="footer-marks__link -large">
-                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'national-code', 'classnames' => 'larger' ]); ?>
+                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'national-code', 'classnames' => 'svg-icon--mark svg-icon--white' ]); ?>
                         </a>
                     </li>
                 </ul>

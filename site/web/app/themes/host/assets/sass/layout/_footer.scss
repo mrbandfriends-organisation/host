@@ -185,15 +185,10 @@
     }
 
     .svg-icon {
-        height: rem(24);
-        width:  rem(24);
-        fill: brand(sky);
 
-        &.larger {
+        &.svg-icon--mark {
             height: rem(67);
             width:  rem(107);
-
-            fill:   #fff;
         }
     }
 
