@@ -123,11 +123,7 @@
 // ==========================================================================
 .primary-offcanvas__section {
     width: 100%;
-    margin: $half-spacing-unit rem(25) 0 0;
-
-    @include mq(small) {
-        margin: $spacing-unit rem(25) 0 0;
-    }
+    margin: spacing-unit rem(25) 0 0;
 
     &:last-child {
         display: flex;

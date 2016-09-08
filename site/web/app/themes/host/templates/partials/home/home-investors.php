@@ -15,13 +15,20 @@
   $investors_image = $investors_image['url'];
 ?>
 
-<img src="<?php echo esc_html($investors_image); ?>" />
+<img src="<?php //echo esc_html($investors_image); ?>" />
 
 <h2>
-  <?php echo esc_html($investors_title_1); ?><br />
-  <?php echo esc_html($investors_title_2); ?>
+  <?php //echo esc_html($investors_title_1); ?><br />
+  <?php //echo esc_html($investors_title_2); ?>
 </h2>
 
-<?php echo $investors_content; ?>
+<?php //echo $investors_content; ?>
 
-<a href="<?php echo $investors_button_link; ?>" class="btn"><?php echo $investors_button_text; ?></a>
+<a href="<?php //echo $investors_button_link; ?>" class="btn"><?php //echo $investors_button_text; ?></a>
+
+<?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
+    'align' => 'right',
+    'color' => 'grape',
+    
+
+)); ?>
