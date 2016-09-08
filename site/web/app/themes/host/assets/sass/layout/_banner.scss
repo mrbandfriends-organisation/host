@@ -13,7 +13,7 @@
 .banner {
     position: relative;
     width: 100%;
-    padding: 0 0 rem(25);
+    padding: 0 0 rem($half-spacing-unit);
 }
 
 .banner__inner {
@@ -56,4 +56,18 @@
     display:        flex;
     flex-direction: column;
     align-items:    flex-end;
+}
+
+// <li> that wraps the language switcher btn
+.menu-item--banner-language-switcher {
+    display: none;
+
+    @include mq(medium) {
+        display: block;
+        margin-left: $half-spacing-unit;
+
+        .btn {
+            min-width: rem(180);
+        }
+    }
 }

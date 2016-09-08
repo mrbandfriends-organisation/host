@@ -2301,7 +2301,7 @@ a.btn {
 
 .primary-offcanvas__section {
   width: 100%;
-  margin: spacing-unit 1.5625rem 0 0;
+  margin: 40px 1.5625rem 0 0;
 }
 
 .primary-offcanvas__section:last-child {
@@ -2954,7 +2954,7 @@ a.btn {
 .banner {
   position: relative;
   width: 100%;
-  padding: 0 0 1.5625rem;
+  padding: 0 0 1.25rem;
 }
 
 .banner__inner {
@@ -2977,6 +2977,10 @@ a.btn {
       flex-direction: column;
   -ms-flex-align: end;
       align-items: flex-end;
+}
+
+.menu-item--banner-language-switcher {
+  display: none;
 }
 
 .nav-primary {
@@ -3044,6 +3048,19 @@ a.btn {
 .nav-utilities--banner li {
   display: inline-block;
   margin-left: -0.2em;
+}
+
+.nav-utilities--banner li:last-of-type {
+  position: relative;
+  padding-right: 1.875rem;
+}
+
+.nav-utilities--banner li:last-of-type::after {
+  content: url(../images/favourite-heart.png);
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  right: 20px;
 }
 
 .nav-utilities--banner a {
@@ -4300,6 +4317,13 @@ a.btn {
   }
   .listed-room{
     padding: 2.5rem;
+  }
+  .menu-item--banner-language-switcher{
+    display: block;
+    margin-left: 20px;
+  }
+  .menu-item--banner-language-switcher .btn{
+    min-width: 11.25rem;
   }
   .nav-utilities--banner{
     margin-right: -0.9375rem;
