@@ -3115,7 +3115,6 @@ a.btn {
 }
 
 #menu-footer-utilities.nav-footer-utilities li:first-child {
-  padding-right: 0.625rem;
   border-left: 0;
 }
 
@@ -4308,6 +4307,9 @@ a.btn {
   }
   #menu-footer-utilities.nav-footer-utilities li:last-child{
     margin-bottom: 1em !important;
+  }
+  .footer-up-arrow-container{
+    display: none;
   }
 }
 
