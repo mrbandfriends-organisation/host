@@ -1,6 +1,6 @@
 // scss-lint:disable GroupedPropertyOrder
 
-$tcon-size: 40px !default;
+$tcon-size: 25px !default;
 $tcon-transition: 0.3s !default;
 $tcon-jstransform: "tcon-transform" !default;
 
@@ -17,7 +17,7 @@ $tcon-menu-arrow360left-transformation: (
     display: flex;
     width: $tcon-size;
     min-width: 0;
-    height: $tcon-size;
+    //height: $tcon-size;
     border: 0;
     background: transparent;
     outline: none;
@@ -47,7 +47,7 @@ $tcon-menu-arrow360left-transformation: (
     display: inline-block;
     height: ($tcon-size / 7);
     width: $tcon-size;
-    border-radius: $tcon-menu-radius;
+    //border-radius: $tcon-menu-radius;
     transition: $tcon-transition;
     background: $tcon-menu-color;
 }

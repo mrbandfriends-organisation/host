@@ -185,15 +185,10 @@
     }
 
     .svg-icon {
-        height: rem(24);
-        width:  rem(24);
-        fill: brand(sky);
 
-        &.larger {
+        &.svg-icon--mark {
             height: rem(67);
             width:  rem(107);
-
-            fill:   #fff;
         }
     }
 
@@ -217,4 +212,22 @@
         display: block;
         margin: 0 0 0 rem(30);
     }
+}
+
+
+// ==========================================================================
+// # MOBILE UP ARROW
+// ==========================================================================
+
+.footer-up-arrow-container {
+    position: relative;
+    top: rem(-40);
+    justify-content: center;
+}
+
+// .footer-up-arrow__link {}
+
+.footer-up-arrow__icon {
+    display: block;
+    transform: rotate(90deg);
 }

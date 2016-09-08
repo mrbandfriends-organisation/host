@@ -19,7 +19,7 @@
 .banner__inner {
     display:         flex;
     justify-content: space-between;
-    align-items:     flex-end;
+    align-items:     center;
 }
 
 // ==========================================================================
@@ -45,16 +45,7 @@
 // ==========================================================================
 
 .banner__brand {
-
     display: block;
-
-    svg {
-        height: rem(60);
-        width:  rem(140);
-
-        fill:   brand(red);
-    }
-
 }
 
 // ==========================================================================

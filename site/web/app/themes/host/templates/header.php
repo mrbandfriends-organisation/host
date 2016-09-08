@@ -5,7 +5,7 @@
 <header class="banner js-banner" role="banner">
 	<div class="banner__inner container">
 		<div class="banner__section banner__brand">
-            <a href="/" class="banner__home-link"><?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'site-logo' ]); ?></a>
+            <a href="/" class="banner__home-link"><?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'site-logo', 'classnames' => 'svg-icon--site-logo svg-icon--red' ]); ?></a>
 		</div>
 
 		<div class="banner__section banner__nav">

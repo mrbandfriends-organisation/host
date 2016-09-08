@@ -85,4 +85,6 @@ require('./ext/NodeList');
     require('scrollable')();
 
     // require('bind-inview')();
+
+    // require('onpage-smooth-scroll')();
 })();
