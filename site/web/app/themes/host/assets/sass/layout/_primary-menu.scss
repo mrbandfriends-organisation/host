@@ -46,8 +46,12 @@
             }
         }
 
-        strong {
+        .menu-item__name {
             display: block;
+
+            @include mq(nav-break-2) {
+                font-weight: bold;
+            }
         }
 
     }
@@ -68,9 +72,8 @@
     // <li>
     .menu-item {
         //margin: 0 5%;
-        padding: ($quarter-spacing-unit / 2) 0;
-        border-bottom: $base-border;
-        border-color: tint(mint);
+        padding: ($quarter-spacing-unit) 0;
+        border-bottom: solid rem(1) tint(mint);
         //border-color: map-get( $brand-tints, mint);
 
         a {

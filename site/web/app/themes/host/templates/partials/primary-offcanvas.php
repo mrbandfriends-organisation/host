@@ -16,6 +16,16 @@
         </button>
     </div>
 
+    <div class="primary-offcanvas__section primary-offcanvas__language-changer">
+        <select class="mobile-language-changer">
+            <option value="" disabled selected>Choose language</option>
+            <option value="volvo">French</option>
+            <option value="saab">Spanish</option>
+            <option value="opel">Mandarin</option>
+            <option value="audi">Cantonese</option>
+        </select>
+    </div>
+
     <div class="primary-offcanvas__section">
         <?php
             $offcanvas_nav_args = array(
