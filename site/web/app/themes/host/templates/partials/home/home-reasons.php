@@ -18,8 +18,11 @@
   $reasons_button_link = esc_html(get_field('reasons_button_link'));
 ?>
 
-<?php $content_stuff = "<h2>{$reasons_title_1}<br>{$reasons_title_2}</h2>
+<?php $content_stuff = "
+<h2>{$reasons_title_1}<br>{$reasons_title_2}</h2>
+
 {$reasons_content}
+
 <ul class=\"divided-list\">
     <li class=\"divided-list__item\">
         <svg class=\"svg-icon svg-icon--id-card\" role=\"img\">
