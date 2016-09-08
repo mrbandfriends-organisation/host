@@ -4,7 +4,6 @@
     $band        = (empty($band))    ? ''     : " band--{$band}";
     $modifier    = (empty($modifier))    ? ''     : "$modifier";
 
-
     if (empty($content))
     {
         $content = '';
