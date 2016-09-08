@@ -31,19 +31,12 @@ $featured_building_carousel_images  = get_field('carousel_images', $featured_bui
   "
 ?>
 
-<?php //var_dump($content_stuff); ?>
-
-  <?php
-  if( $featured_building_carousel_images ): ?>
-    <?php //$images =   ?>
-      <ul>
-          <?php foreach( $featured_building_carousel_images as $image ): ?>
-              "<a href="<?php echo $image['url']; ?>">
-                   <img src="<?php echo $image['sizes']['medium']; ?>" alt="<?php echo $image['alt']; ?>" />
-              </a>"
-          <?php endforeach; ?>
-      </ul>
-  <?php endif; ?>
+<?php if( $featured_building_carousel_images ): ?>
+    <?php
+        $image_1 = $featured_building_carousel_images[0]['url'];
+        $image_2 = $featured_building_carousel_images[1]['url'];
+    ?>
+<?php endif; ?>
 
 
 <?php
@@ -52,7 +45,11 @@ $featured_building_carousel_images  = get_field('carousel_images', $featured_bui
 ?>
 
 <?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
-    //'second' => "<img src=\"{$reasons_image}\" />",
+    'color'   => "sky",
     'content' => $content_stuff,
-    'color'   => "sky"
+    'second'  => Utils\ob_load_template_part('templates/content-featured-home-image', array(
+        'image_1' => $image_1,
+        'image_2' => $image_2,
+    ))
+    //'second' => "<img src=\"{$reasons_image}\" />",
 )); ?>
