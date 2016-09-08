@@ -160,8 +160,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "file_location": "",
-                    "file_glob": ""
+                    "file_location": "assets\/svg\/sprites",
+                    "file_glob": "*.svg"
                 },
                 {
                     "key": "field_57c9611b4083c",
@@ -404,5 +404,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1473071186
+    "modified": 1473257726
 }
