@@ -131,6 +131,8 @@
 	    __webpack_require__(16)();
 
 	    // require('bind-inview')();
+
+	    // require('onpage-smooth-scroll')();
 	})();
 
 

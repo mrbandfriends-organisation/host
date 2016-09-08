@@ -4,6 +4,12 @@
 
 <footer role="contentinfo" class="footer">
 	<div class="container">
+        <div class="footer-up-arrow-container flex">
+            <a href="#" class="footer-up-arrow__link flex">
+                <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'arrow-left', 'classnames' => 'footer-up-arrow__icon svg-icon--sky' ]); ?>
+            </a>
+        </div>
+
 		<div class="footer__section footer__brand">
 		    <a href="/" class="footer__brand-link"><?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'host-logo' ]); ?></a>
 		</div>

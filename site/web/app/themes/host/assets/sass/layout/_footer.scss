@@ -213,3 +213,21 @@
         margin: 0 0 0 rem(30);
     }
 }
+
+
+// ==========================================================================
+// # MOBILE UP ARROW
+// ==========================================================================
+
+.footer-up-arrow-container {
+    position: relative;
+    top: rem(-40);
+    justify-content: center;
+}
+
+// .footer-up-arrow__link {}
+
+.footer-up-arrow__icon {
+    display: block;
+    transform: rotate(90deg);
+}
