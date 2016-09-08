@@ -91,4 +91,8 @@ a.btn { color: #fff; }
 
 .btn--narrow {
     min-width: 0;
+
+    @include mq(medium) {
+        min-width: 0;
+    }
 }
