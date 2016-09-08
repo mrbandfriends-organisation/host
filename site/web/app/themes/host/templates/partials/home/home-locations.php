@@ -22,6 +22,7 @@
         <ul class="checkerboard__list grid">
             <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
                 <?php
+                    // Image should only show every two items
                     if ( $count%2 == 0 ):
                         $carousel_images = get_field('carousel_images');
                         $carousel_image = $carousel_images[0]['sizes']['medium'];
