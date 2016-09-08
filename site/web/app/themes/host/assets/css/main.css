@@ -2721,7 +2721,7 @@ a.btn {
 .awards__item {
   -ms-flex: 33%;
       flex: 33%;
-  padding: 0.3125rem;
+  padding: 20px 10px;
 }
 
 .hero {
