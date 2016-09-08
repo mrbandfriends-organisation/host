@@ -14,7 +14,7 @@
   <?php echo Utils\ob_load_template_part('templates/partials/home/home-reasons'); ?>
 
 
-  <?php echo Utils\ob_load_template_part('templates/partials/shared/featured-building'); ?>
+  <?php //echo Utils\ob_load_template_part('templates/partials/shared/featured-building'); ?>
 
 
   <?php echo Utils\ob_load_template_part('templates/partials/shared/awards'); ?>

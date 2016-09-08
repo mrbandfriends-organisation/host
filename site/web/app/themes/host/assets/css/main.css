@@ -3309,6 +3309,12 @@ a.btn {
   fill: #ff944d;
 }
 
+.homepage-investors-image-hack {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .ps-container {
   -ms-touch-action: none;
   touch-action: none;
