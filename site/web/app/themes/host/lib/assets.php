@@ -138,13 +138,12 @@ function bust_caching($sUri)
     $sStamp = file_exists($sPath) ? ".".filemtime($sPath) : "";
 
     // 3. min file
-    $sSuff = (defined('WP_ENV') && (WP_ENV !== 'development')) ? 'min.' : '';
+    $sSuff = (defined('WP_ENV') && (WP_ENV !== 'development' && WP_ENV !== 'staging')) ? 'min.' : '';
 
     // 4. create a new URL
     return preg_replace('/\.(\w+)$/', "{$sSuff}{$sStamp}.$1", $sUri).(empty($sQs) ? '' : "?{$sQs}");
 }
 add_filter('script_loader_src', __NAMESPACE__.'\\bust_caching');
-add_filter('style_loader_src', __NAMESPACE__.'\\bust_caching');
 
 /**
  * Works in a similar way to wp_get_attachment_image, only returns an IMG with a srcset attribute
