@@ -11370,6 +11370,12 @@
 	        type: 'image',
 	        gallery:{
 	            enabled:true
+	        },
+
+	        callbacks: {
+	           markupParse: function(template, values, item) {
+	               template.find('.mfp-content').addClass('bad-site-class');
+	           }
 	        }
 	    });
 	};

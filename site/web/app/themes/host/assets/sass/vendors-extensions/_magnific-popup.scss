@@ -9,8 +9,50 @@
 // ==========================================================================
 // # BASE
 // ==========================================================================
+.mfp-bg {
+    background-color: rgba(  map-get($brand-tints, ink), 0.975 );
+    background-blend-mode: multiply;
+}
 
+// .mfp-image-holder .mfp-content {}
 
+.mfp-arrow-left {
+    &::after,
+    &:before {
+        right: auto;
+        left: $quarter-spacing-unit;
+
+        @include mq(medium) {
+            right: auto;
+            left: $half-spacing-unit;
+        }
+
+        @include mq(xxlarge) {
+            right: $spacing-unit;
+            left: auto;
+        }
+    }
+}
+
+.mfp-arrow-right {
+    &::after,
+    &:before {
+        margin-left: auto;
+        margin-right: rem(35);
+        right: $quarter-spacing-unit;
+        left: auto;
+
+        @include mq(medium) {
+            right: $half-spacing-unit;
+            left: auto;
+        }
+
+        @include mq(xxlarge) {
+            right: auto;
+            left: $spacing-unit;
+        }
+    }
+}
 
 // ==========================================================================
 // # MODIFIER: %%MODIFIER_NAME%%

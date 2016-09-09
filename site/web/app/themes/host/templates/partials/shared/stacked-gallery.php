@@ -12,7 +12,16 @@
         <?php  ?>
         <?php foreach ($images as $image): ?>
             <div class="stacked-gallery gc t1-2 l1-2">
-                <a href="<?php echo esc_url($image['image']) ?>" class="stacked-gallery__link flex js-popup-gallery-trigger">
+                <a href="<?php echo
+                    wpthumb(
+                        esc_url($image['image']),
+                        array(
+                            'width'  => 1000,
+                            'crop'   => true,
+                            'resize' => true
+                        )
+                    ); ?>"
+                    class="stacked-gallery__link flex js-popup-gallery-trigger">
                     <div class="stacked-gallery__inner flex">
                         <strong class="stacked-gallery__label">See all <?php echo esc_html($image_counter); ?> photos</strong>
                         <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
