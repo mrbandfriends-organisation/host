@@ -43,7 +43,7 @@ $featured_building_carousel_images  = get_field('carousel_images', $featured_bui
 <?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
     'color'   => "sky",
     'content' => $main_content,
-    'second'  => Utils\ob_load_template_part('templates/content-featured-home-image', array(
+    'second'  => Utils\ob_load_template_part('templates/partials/shared/stacked-gallery', array(
         'images' => array(
             array(
                 'image' => $image_1,
