@@ -49,15 +49,22 @@ if( function_exists('acf_add_options_page') ) {
 
 			// SUB PAGES
 			acf_add_options_sub_page(array(
-				'page_title' 	=> 'Awards Settings',
-				'menu_title'	=> 'Awards Settings',
+				'page_title' 	=> 'Awards',
+				'menu_title'	=> 'Awards',
 				'parent_slug'	=> 'content-slices',
 				'autoload' 		=> false,
 			));
 
 			acf_add_options_sub_page(array(
-				'page_title' 	=> 'Room Prices Settings',
-				'menu_title'	=> 'Room Prices Settings',
+				'page_title' 	=> 'Testimonials',
+				'menu_title'	=> 'Testimonials',
+				'parent_slug'	=> 'content-slices',
+				'autoload' 		=> false,
+			));
+
+			acf_add_options_sub_page(array(
+				'page_title' 	=> 'Room Prices',
+				'menu_title'	=> 'Room Prices',
 				'parent_slug'	=> 'content-slices',
 				'autoload' 		=> false,
 			));
