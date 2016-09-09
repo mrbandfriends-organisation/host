@@ -43,7 +43,7 @@ h2 {
 }
 #modulemenu a:hover {
   text-decoration: none;
-  color: #00c0f3; /* BLUE */
+  color: #1c222d; /* DARK BLUE */
 }
 
 
@@ -54,6 +54,26 @@ h2 {
   font-size: 16px;
 }
 
+
+
+/*////// FORM STYLING ///////*/
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="number"],
+select,
+textarea {
+		width: auto;
+		min-width: 200px;
+    border: 1px solid #DADADA;
+    background-color: #F8F8F8;
+    padding: 5px;
+    margin: 0;
+    border-radius: 0;
+    font-family: inherit;
+    font-size: inherit;
+		font-family: "CircularWeb", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
 
 
 
@@ -75,27 +95,12 @@ h2 {
 	background-color: white;
 	background-image: url("../img/host_logo.png");
 	background-repeat: no-repeat;
-	background-position: left center;
+	background-position: 30px 25px;
 }
 .header-container {
 	border-bottom: none;
 }
 
-
-
-/*////// FORM ELEMENT STYLING ///////*/
-input[type=text], select {
-	border: 1px solid #F5F5F5;
-	background-color: #F5F5F5;
-  font-family: "CircularWeb", Arial, "Helvetica Neue", Helvetica, sans-serif;
-  padding: 5px;
-	border-radius: 0;
-	color: #21293C;
-	font-size: 14px;
-}
-label {
-	font-weight: bold;
-}
 
 
 /*////// FOOTER STYLING ///////*/
