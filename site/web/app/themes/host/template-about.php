@@ -5,9 +5,6 @@
  use Roots\Sage\Utils;
 ?>
 
-
-<main id="main-content" role="main" class="main-content">
-
-  About Page Here
-
-</main>
+<?php echo Utils\ob_load_template_part('templates/components/hero.php', array(
+    'post_id'     => get_the_id()
+)); ?>
