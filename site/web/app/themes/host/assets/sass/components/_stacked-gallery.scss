@@ -27,31 +27,13 @@ $transition: all ease-in-out 0.5s;
     display: block;
     width: 100%;
     height: 100%;
-
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     color: #fff;
-
-    &::after {
-        position: absolute;
-        content: "";
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-
-        background: rgba(red, 0.3);
-        opacity: 0;
-        transition: $transition;
-    }
 
     &:hover,
     &:focus {
-        &::after {
-            opacity: 1;
-        }
 
         .stacked-gallery__inner {
             opacity: 1;
@@ -61,10 +43,15 @@ $transition: all ease-in-out 0.5s;
                 transform: translate3d(0, 0, 0);
             }
         }
+
+        .stacked-gallery__bleed-image {
+            background-color: rgba( brand(sky), 0.3 );
+        }
     }
 
 }
 
+// COntainer for label and icon
 .stacked-gallery__inner {
     position: absolute;
     flex-direction: column;
@@ -86,6 +73,24 @@ $transition: all ease-in-out 0.5s;
     transition: $transition;
 }
 
+// Controlling the colour overlay
+.stacked-gallery__bleed-image {
+    background-blend-mode: multiply;
+    background-color: transparent;
+    transition: $transition;
+}
+
 // ==========================================================================
-// # MODIFIER: %%MODIFIER_NAME%%
+// # MODIFIER: ORANGE
 // ==========================================================================
+
+.stacked-gallery__link {
+    &:hover,
+    &:focus {
+
+        .stacked-gallery__bleed-image--orange {
+            background-color: rgba( brand(orange), 0.3);
+        }
+    }
+
+}

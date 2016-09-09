@@ -108,12 +108,14 @@ $is-oldie: false !default;
 // # CSS files from external libraries and frameworks
 // ==========================================================================
 @import "vendors/perfect-scrollbar";
+@import "vendors/_magnific-popup.scss";
 
 
 // # VENDORS EXTENSIONS
 // # contains any overides to vendor extensions (see above)
 // ==========================================================================
 //@import "vendors-extensions/EXAMPLE";
+@import "vendors-extensions/_magnific-popup.scss";
 
 
 // # SHAME FILE
