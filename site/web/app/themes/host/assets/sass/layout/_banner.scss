@@ -62,7 +62,7 @@
 .menu-item--banner-language-switcher {
     display: none;
 
-    @include mq(medium) {
+    @include mq(nav-break-2) {
         display: block;
         margin-left: $half-spacing-unit;
 
