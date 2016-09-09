@@ -113,7 +113,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "acf-options-awards-settings"
+                "value": "acf-options-awards"
             }
         ]
     ],
@@ -125,5 +125,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1471266726
+    "modified": 1473434877
 }

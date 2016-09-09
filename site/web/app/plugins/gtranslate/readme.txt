@@ -4,7 +4,7 @@ Author: Edvard Ananyan
 Tags: translation proxy, localization, translate, translation, localization, google translate, language, multilingual, multilanguage, bilingual, tradurre, traducir, traduire, traduzione, ubersetzung, mehrsprachig, oversette, oversatta, vertaling, vertaler, meertalig
 Requires at least: 2.8
 Tested up to: 4.6
-Stable tag: 2.0.17
+Stable tag: 2.0.18
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: https://gtranslate.io/?xyz=998#pricing
@@ -394,6 +394,9 @@ You need to go to the language you want to edit, for instance, French: http://do
 3. Nice dropdown with flags (open)
 
 == Changelog ==
+
+= 2.0.18 =
+* Alternative flags added: USA flag, Brazil flag, Mexico flag
 
 = 2.0.17 =
 * GTranslate settings logo moved to localhost

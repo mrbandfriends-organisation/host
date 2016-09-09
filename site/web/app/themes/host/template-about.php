@@ -8,3 +8,6 @@
 <?php echo Utils\ob_load_template_part('templates/components/hero.php', array(
     'post_id'     => get_the_id()
 )); ?>
+
+
+<?php echo Utils\ob_load_template_part('templates/partials/shared/testimonials'); ?>

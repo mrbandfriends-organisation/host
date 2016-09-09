@@ -19,16 +19,12 @@ $featured_building_url              = $featured_building->guid;
 $featured_building_description      = get_field('description', $featured_building_id);
 $featured_building_carousel_images  = get_field('carousel_images', $featured_building_id); ?>
 
-<?php $content_stuff = "
-  <h2>
-    {$featured_building_title}<br />
-    {$featured_building_name}
-  </h2>
-
-  {$featured_building_description}
-
-  <a href=\"{$featured_building_url}\" class=\"btn split-feature__btn\">Show me this property</a>
-  "
+<?php $main_content = Utils\ob_load_template_part('templates/snippets/home/building', array(
+    'featured_building_title'           => $featured_building_title,
+    'featured_building_name'            => $featured_building_name,
+    'featured_building_description'     => $featured_building_description,
+    'featured_building_url'             => $featured_building_url
+));
 ?>
 
 <?php if( $featured_building_carousel_images ): ?>
@@ -46,8 +42,8 @@ $featured_building_carousel_images  = get_field('carousel_images', $featured_bui
 
 <?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
     'color'   => "sky",
-    'content' => $content_stuff,
-    'second'  => Utils\ob_load_template_part('templates/partials/shared/stacked-gallery', array(
+    'content' => $main_content,
+    'second'  => Utils\ob_load_template_part('templates/content-featured-home-image', array(
         'images' => array(
             array(
                 'image' => $image_1,
