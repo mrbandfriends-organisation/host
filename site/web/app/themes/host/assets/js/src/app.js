@@ -87,4 +87,6 @@ require('./ext/NodeList');
     // require('bind-inview')();
 
     // require('onpage-smooth-scroll')();
+
+    require('lightbox')();
 })();
