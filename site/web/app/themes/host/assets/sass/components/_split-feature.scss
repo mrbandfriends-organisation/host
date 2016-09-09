@@ -37,7 +37,15 @@
         @include container("left");
         @include half-container;
 
-        padding: rem(70);
+        padding: rem(80);
+    }
+}
+
+.split-feature__btn {
+    margin-top: $half-spacing-unit;
+
+    @include mq(medium) {
+        margin-top: $spacing-unit;
     }
 }
 
@@ -74,6 +82,9 @@
             padding-right: rem(30);
         }
 
-        .split-feature__content { padding-right: 0; }
+        .split-feature__content {
+            @include container("right");
+            padding-right: 0;
+        }
     }
 }

@@ -23,7 +23,7 @@
 
 {$investors_content}
 
-<a href=\"{$investors_button_link}\" class=\"btn\">{$investors_button_text}</a>
+<a href=\"{$investors_button_link}\" class=\"btn split-feature__btn\">{$investors_button_text}</a>
 "
 ?>
 

@@ -27,7 +27,7 @@ $featured_building_carousel_images  = get_field('carousel_images', $featured_bui
 
   {$featured_building_description}
 
-  <a href=\"{$featured_building_url}\" class=\"btn\">Show me this property</a>
+  <a href=\"{$featured_building_url}\" class=\"btn split-feature__btn\">Show me this property</a>
   "
 ?>
 
