@@ -1,5 +1,4 @@
-require('magnific-popup');
-
+var magnificPopup = require('magnific-popup');
 
 module.exports = function()
 {
@@ -11,5 +10,4 @@ module.exports = function()
             enabled:true
         }
     });
-
-}();
+};

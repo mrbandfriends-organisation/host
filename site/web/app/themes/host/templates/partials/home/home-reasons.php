@@ -25,33 +25,38 @@
 
 <ul class=\"separated-list\">
     <li class=\"separated-list__item\">
-        <svg class=\"separated-list__icon svg-icon svg-icon--id-card\" role=\"img\">
-            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#icon-id-card\"></use>
-        </svg>
+        " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
+            "icon"          => "security-1",
+            "classnames"    => "separated-list__icon svg-icon--id-card"
+        )) . "
         Feature about Host here
     </li>
     <li class=\"separated-list__item\">
-        <svg class=\"separated-list__icon svg-icon svg-icon--imac\" role=\"img\">
-            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#icon-imac\"></use>
-        </svg>
+    " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
+        "icon"          => "computer",
+        "classnames"    => "separated-list__icon svg-icon--id-card"
+    )) . "
         Feature about Host here
     </li>
     <li class=\"separated-list__item\">
-        <svg class=\"separated-list__icon svg-icon svg-icon--id-card\" role=\"img\">
-            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#icon-id-card\"></use>
-        </svg>
+    " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
+        "icon"          => "security-1",
+        "classnames"    => "separated-list__icon svg-icon--id-card"
+    )) . "
         Feature about Host here
     </li>
     <li class=\"separated-list__item\">
-        <svg class=\"separated-list__icon svg-icon svg-icon--imac\" role=\"img\">
-            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#icon-imac\"></use>
-        </svg>
+    " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
+        "icon"          => "computer",
+        "classnames"    => "separated-list__icon svg-icon--id-card"
+    )) . "
         Feature about Host here
     </li>
     <li class=\"separated-list__item\">
-        <svg class=\"separated-list__icon svg-icon svg-icon--id-card\" role=\"img\">
-            <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#icon-id-card\"></use>
-        </svg>
+    " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
+        "icon"          => "security-1",
+        "classnames"    => "separated-list__icon svg-icon--id-card"
+    )) . "
         Feature about Host here
     </li>
 </ul>

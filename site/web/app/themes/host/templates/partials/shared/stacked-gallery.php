@@ -16,7 +16,7 @@
                     <div class="stacked-gallery__inner flex">
                         <strong class="stacked-gallery__label">See all <?php echo esc_html($image_counter); ?> photos</strong>
                         <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
-                            'icon'          => 'twitter',
+                            'icon'          => 'camera',
                             'classnames'    => 'stacked-gallery__icon svg-icon--white'
                         )); ?>
                     </div>
