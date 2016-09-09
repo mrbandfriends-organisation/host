@@ -27,6 +27,15 @@
 "
 ?>
 
+<?php $main_content = Utils\ob_load_template_part('templates/snippets/' . $snippet, array(
+    'investors_title_1' => $investors_title_1,
+    'investors_title_2' => $investors_title_2,
+    'investors_content' => $investors_content,
+    'investors_button_link' => $investors_button_link,
+    'investors_button_text' => $investors_button_text
+));
+?>
+
 <?php //echo $investors_content; ?>
 
 
@@ -34,5 +43,5 @@
     'align' => 'right',
     'color' => 'grape',
     'second' => "<img class=\"homepage-investors-image-hack\" src=\"{$investors_image}\" />",
-    'content' => $content_stuff,
+    'content' => $main_content,
 )); ?>
