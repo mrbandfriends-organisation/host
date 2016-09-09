@@ -1,4 +1,4 @@
-<?php
+    <?php
   /**
   * FEATURED BUILING
   **/
@@ -47,9 +47,15 @@ $featured_building_carousel_images  = get_field('carousel_images', $featured_bui
 <?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
     'color'   => "sky",
     'content' => $content_stuff,
-    'second'  => Utils\ob_load_template_part('templates/content-featured-home-image', array(
-        'image_1' => $image_1,
-        'image_2' => $image_2,
+    'second'  => Utils\ob_load_template_part('templates/partials/shared/stacked-gallery', array(
+        'images' => array(
+            array(
+                'image' => $image_1,
+            ),
+            array(
+                'image' => $image_2,
+            )
+        )
     ))
     //'second' => "<img src=\"{$reasons_image}\" />",
 )); ?>

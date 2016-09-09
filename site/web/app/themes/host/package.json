@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "del": "^2.2.1",
+    "featherlight": "^1.4.1",
     "fg-loadjs": "^1.0.0",
     "gulp-php2html": "^0.3.2",
     "perfect-scrollbar": "^0.6.12",

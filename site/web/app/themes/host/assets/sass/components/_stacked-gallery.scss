@@ -1,0 +1,91 @@
+// ==========================================================================
+//
+// STACKED GALLERY
+//
+// Description: A gallery which when hovering on image a colour overlay appears
+//              as well as a label and icon. Opens into a Magnific lightbox
+//
+// ==========================================================================
+
+// ==========================================================================
+// # VARIABLES & MIXIN
+// ==========================================================================
+$transition: all ease-in-out 0.5s;
+
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+// .stacked-gallery-container {}
+
+.stacked-gallery {
+    position: relative;
+}
+
+.stacked-gallery__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+
+    &::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+
+        background: rgba(red, 0.3);
+        opacity: 0;
+        transition: $transition;
+    }
+
+    &:hover,
+    &:focus {
+        &::after {
+            opacity: 1;
+        }
+
+        .stacked-gallery__inner {
+            opacity: 1;
+
+            .stacked-gallery__label,
+            .stacked-gallery__icon {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    }
+
+}
+
+.stacked-gallery__inner {
+    position: absolute;
+    flex-direction: column;
+    opacity: 0;
+    z-index: $zindex-tier-1;
+    transition: $transition;
+}
+
+.stacked-gallery__label {
+    margin-bottom: $quarter-spacing-unit;
+    transform: translate3d(0, -50%, 0);
+    transition: $transition;
+}
+
+.stacked-gallery__icon {
+    display: block;
+    margin: 0 auto;
+    transform: translate3d(0, 50%, 0);
+    transition: $transition;
+}
+
+// ==========================================================================
+// # MODIFIER: %%MODIFIER_NAME%%
+// ==========================================================================

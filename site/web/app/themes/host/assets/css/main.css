@@ -2959,6 +2959,72 @@ a.btn {
   height: 100%;
 }
 
+.stacked-gallery {
+  position: relative;
+}
+
+.stacked-gallery__link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      -ms-grid-row-align: center;
+      align-items: center;
+  color: #fff;
+}
+
+.stacked-gallery__link::after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 0, 0, 0.3);
+  opacity: 0;
+  transition: all ease-in-out 0.5s;
+}
+
+.stacked-gallery__link:hover::after, .stacked-gallery__link:focus::after {
+  opacity: 1;
+}
+
+.stacked-gallery__link:hover .stacked-gallery__inner, .stacked-gallery__link:focus .stacked-gallery__inner {
+  opacity: 1;
+}
+
+.stacked-gallery__link:hover .stacked-gallery__inner .stacked-gallery__label,
+.stacked-gallery__link:hover .stacked-gallery__inner .stacked-gallery__icon, .stacked-gallery__link:focus .stacked-gallery__inner .stacked-gallery__label,
+.stacked-gallery__link:focus .stacked-gallery__inner .stacked-gallery__icon {
+  transform: translate3d(0, 0, 0);
+}
+
+.stacked-gallery__inner {
+  position: absolute;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  opacity: 0;
+  z-index: 1000;
+  transition: all ease-in-out 0.5s;
+}
+
+.stacked-gallery__label {
+  margin-bottom: 10px;
+  transform: translate3d(0, -50%, 0);
+  transition: all ease-in-out 0.5s;
+}
+
+.stacked-gallery__icon {
+  display: block;
+  margin: 0 auto;
+  transform: translate3d(0, 50%, 0);
+  transition: all ease-in-out 0.5s;
+}
+
 .banner {
   position: relative;
   width: 100%;
