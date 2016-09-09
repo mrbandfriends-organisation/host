@@ -3,7 +3,7 @@
 Plugin Name: GTranslate
 Plugin URI: https://gtranslate.io/?xyz=998
 Description: Makes your website <strong>multilingual</strong> and available to the world using Google Translate. For support visit <a href="https://gtranslate.io/forum/">GTranslate Forum</a>.
-Version: 2.0.17
+Version: 2.0.18
 Author: Edvard Ananyan
 Author URI: https://gtranslate.io
 
@@ -252,7 +252,14 @@ function RefreshDoWidgetCode() {
                     else if(enterprise_version)
                         href = (lang == default_language) ? '$site_url' : '$site_url'.replace('$site_url'.split('/').slice(2, 3)[0].replace('www.', ''), lang + '.' + '$site_url'.split('/').slice(2, 3)[0].replace('www.', '')).replace('://www.', '://');
 
-                    widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl" style="background-position:-'+flag_x+'px -'+flag_y+'px;"><img src="{$site_url}/wp-content/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
+                    if(lang == 'en' && jQuery('#alt_us:checked').length)
+                    	widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl alt_flag us_flag"><img src="{$site_url}/wp-content/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
+                    else if(lang == 'pt' && jQuery('#alt_br:checked').length)
+                    	widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl alt_flag br_flag"><img src="{$site_url}/wp-content/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
+                    else if(lang == 'es' && jQuery('#alt_mx:checked').length)
+                    	widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl alt_flag mx_flag"><img src="{$site_url}/wp-content/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
+                    else
+                        widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl" style="background-position:-'+flag_x+'px -'+flag_y+'px;"><img src="{$site_url}/wp-content/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
                 }
             });
         }
@@ -305,7 +312,14 @@ function RefreshDoWidgetCode() {
             // Adding slider html
             widget_preview += '<div class="switcher notranslate">'+new_line;
             widget_preview += '<div class="selected">'+new_line;
-            widget_preview += '<a href="#" onclick="return false;"><span class="gflag" style="background-position:-'+languages_map[default_language.replace('-', '')+'_x']+'px -'+languages_map[default_language.replace('-', '')+'_y']+'px;"><img src="$wp_plugin_url/blank.png" height="'+16+'" width="'+16+'" alt="'+default_language+'" /></span>'+languages[language_codes.indexOf(default_language)]+'</a>'+new_line;
+            if(default_language == 'en' && jQuery('#alt_us:checked').length)
+               	widget_preview += '<a href="#" onclick="return false;"><span class="gflag" style="background-image:url($wp_plugin_url/alt_flags.png);background-position:-0px -0px;"><img src="$wp_plugin_url/blank.png" height="'+16+'" width="'+16+'" alt="'+default_language+'" /></span>'+languages[language_codes.indexOf(default_language)]+'</a>'+new_line;
+            else if(default_language == 'pt' && jQuery('#alt_br:checked').length)
+              	widget_preview += '<a href="#" onclick="return false;"><span class="gflag" style="background-image:url($wp_plugin_url/alt_flags.png);background-position:-100px -0px;"><img src="$wp_plugin_url/blank.png" height="'+16+'" width="'+16+'" alt="'+default_language+'" /></span>'+languages[language_codes.indexOf(default_language)]+'</a>'+new_line;
+            else if(default_language == 'es' && jQuery('#alt_mx:checked').length)
+              	widget_preview += '<a href="#" onclick="return false;"><span class="gflag" style="background-image:url($wp_plugin_url/alt_flags.png);background-position:-200px -0px;"><img src="$wp_plugin_url/blank.png" height="'+16+'" width="'+16+'" alt="'+default_language+'" /></span>'+languages[language_codes.indexOf(default_language)]+'</a>'+new_line;
+            else
+            	widget_preview += '<a href="#" onclick="return false;"><span class="gflag" style="background-position:-'+languages_map[default_language.replace('-', '')+'_x']+'px -'+languages_map[default_language.replace('-', '')+'_y']+'px;"><img src="$wp_plugin_url/blank.png" height="'+16+'" width="'+16+'" alt="'+default_language+'" /></span>'+languages[language_codes.indexOf(default_language)]+'</a>'+new_line;
             widget_preview += '</div>'+new_line;
             widget_preview += '<div class="option">'+new_line;
             jQuery.each(languages, function(i, val) {
@@ -321,7 +335,14 @@ function RefreshDoWidgetCode() {
                     else if(enterprise_version)
                         href = (lang == default_language) ? '$site_url' : '$site_url'.replace('$site_url'.split('/').slice(2, 3)[0].replace('www.', ''), lang + '.' + '$site_url'.split('/').slice(2, 3)[0].replace('www.', '')).replace('://www.', '://');
 
-                    widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');jQuery(this).parent().parent().find(\'div.selected a\').html(jQuery(this).html());return false;" title="'+lang_name+'" class="nturl'+(default_language == lang ? ' selected' : '')+'"><span class="gflag" style="background-position:-'+flag_x+'px -'+flag_y+'px;"><img src="$wp_plugin_url/blank.png" height="'+16+'" width="'+16+'" alt="'+lang+'" /></span>'+lang_name+'</a>';
+                    if(lang == 'en' && jQuery('#alt_us:checked').length)
+                    	widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');jQuery(this).parent().parent().find(\'div.selected a\').html(jQuery(this).html());return false;" title="'+lang_name+'" class="nturl'+(default_language == lang ? ' selected' : '')+'"><span class="gflag" style="background-image:url($wp_plugin_url/alt_flags.png);background-position:-0px -0px;"><img src="$wp_plugin_url/blank.png" height="'+16+'" width="'+16+'" alt="'+lang+'" /></span>'+lang_name+'</a>';
+                    else if(lang == 'pt' && jQuery('#alt_br:checked').length)
+                    	widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');jQuery(this).parent().parent().find(\'div.selected a\').html(jQuery(this).html());return false;" title="'+lang_name+'" class="nturl'+(default_language == lang ? ' selected' : '')+'"><span class="gflag" style="background-image:url($wp_plugin_url/alt_flags.png);background-position:-100px -0px;"><img src="$wp_plugin_url/blank.png" height="'+16+'" width="'+16+'" alt="'+lang+'" /></span>'+lang_name+'</a>';
+                    else if(lang == 'es' && jQuery('#alt_mx:checked').length)
+                    	widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');jQuery(this).parent().parent().find(\'div.selected a\').html(jQuery(this).html());return false;" title="'+lang_name+'" class="nturl'+(default_language == lang ? ' selected' : '')+'"><span class="gflag" style="background-image:url($wp_plugin_url/alt_flags.png);background-position:-200px -0px;"><img src="$wp_plugin_url/blank.png" height="'+16+'" width="'+16+'" alt="'+lang+'" /></span>'+lang_name+'</a>';
+                    else
+                        widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');jQuery(this).parent().parent().find(\'div.selected a\').html(jQuery(this).html());return false;" title="'+lang_name+'" class="nturl'+(default_language == lang ? ' selected' : '')+'"><span class="gflag" style="background-position:-'+flag_x+'px -'+flag_y+'px;"><img src="$wp_plugin_url/blank.png" height="'+16+'" width="'+16+'" alt="'+lang+'" /></span>'+lang_name+'</a>';
                 }
             });
 
@@ -482,6 +503,10 @@ foreach($incl_langs as $lang)
     $script .= "jQuery('#incl_langs$lang').attr('checked', true);\n";
 foreach($fincl_langs as $lang)
     $script .= "jQuery('#fincl_langs$lang').attr('checked', true);\n";
+
+// alt flags
+foreach($alt_flags as $flag)
+    $script .= "jQuery('#alt_$flag').attr('checked', true);\n";
 ?>
 
         <form id="gtranslate" name="form1" method="post" action="<?php echo admin_url('options-general.php?page=gtranslate_options'); ?>">
@@ -659,7 +684,7 @@ foreach($fincl_langs as $lang)
                     <tr id="flag_languages_option" style="display:none;">
                         <td class="option_name" colspan="2">Flag languages:<br /><br />
 
-                        <div>
+                        <div style="overflow:hidden;">
                         <div style="width:25%;float:left;">
                         <input type="checkbox" onclick="RefreshDoWidgetCode()" onchange="RefreshDoWidgetCode()" id="fincl_langsaf" name="fincl_langs[]" value="af"><label for="fincl_langsaf">Afrikaans</label><br />
                         <input type="checkbox" onclick="RefreshDoWidgetCode()" onchange="RefreshDoWidgetCode()" id="fincl_langssq" name="fincl_langs[]" value="sq"><label for="fincl_langssq">Albanian</label><br />
@@ -727,6 +752,11 @@ foreach($fincl_langs as $lang)
                         <input type="checkbox" onclick="RefreshDoWidgetCode()" onchange="RefreshDoWidgetCode()" id="fincl_langsyi" name="fincl_langs[]" value="yi"><label for="fincl_langsyi">Yiddish</label><br />
                         </div>
                         </div>
+                        <br /><br />
+                        Alternative flags:<br /><br />
+                        <input type="checkbox" onclick="RefreshDoWidgetCode()" onchange="RefreshDoWidgetCode()" id="alt_us" name="alt_flags[]" value="us"><label for="alt_us">USA flag</label><br />
+                        <input type="checkbox" onclick="RefreshDoWidgetCode()" onchange="RefreshDoWidgetCode()" id="alt_br" name="alt_flags[]" value="br"><label for="alt_br">Brazil flag</label><br />
+                        <input type="checkbox" onclick="RefreshDoWidgetCode()" onchange="RefreshDoWidgetCode()" id="alt_mx" name="alt_flags[]" value="mx"><label for="alt_mx">Mexico flag</label><br />
                         <br /><br />
                         </td>
                     </tr>
@@ -987,6 +1017,7 @@ foreach($fincl_langs as $lang)
         $data['widget_code'] = isset($_POST['widget_code']) ? stripslashes($_POST['widget_code']) : '';
         $data['incl_langs'] = (isset($_POST['incl_langs']) and is_array($_POST['incl_langs'])) ? $_POST['incl_langs'] : array('en');
         $data['fincl_langs'] = (isset($_POST['fincl_langs']) and is_array($_POST['fincl_langs'])) ? $_POST['fincl_langs'] : array('en');
+        $data['alt_flags'] = (isset($_POST['alt_flags']) and is_array($_POST['alt_flags'])) ? $_POST['alt_flags'] : array();
 
         echo '<p style="color:red;">Changes Saved</p>';
         update_option('GTranslate', $data);
@@ -1009,6 +1040,7 @@ foreach($fincl_langs as $lang)
         $data['widget_code'] = isset($data['widget_code']) ? $data['widget_code'] : '';
         $data['incl_langs'] = isset($data['incl_langs']) ? $data['incl_langs'] : array();
         $data['fincl_langs'] = isset($data['fincl_langs']) ? $data['fincl_langs'] : array();
+        $data['alt_flags'] = isset($data['alt_flags']) ? $data['alt_flags'] : array();
     }
 }
 
