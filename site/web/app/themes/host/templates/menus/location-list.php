@@ -2,7 +2,7 @@
 
 <?php if ( $locations->have_posts() ) : ?>
         <strong class="nav-footer__section-header">
-            <a href="" class="nav-footer__link">Locations</a>
+            Locations
         </strong>
 
         <ul class="nav-footer__sublist">
@@ -14,7 +14,7 @@
         ?>
 
             <li class="nav-footer__item">
-                <a href="<?php echo esc_url($url); ?>" class="nav-footer__link"><?php echo esc_html($title); ?></a>
+                <?php echo esc_html($title); ?>
             </li>
 
         <?php endwhile; ?>
