@@ -9,4 +9,4 @@ use Roots\Sage\Utils;
 
 <?php echo Utils\esc_textarea__($featured_building_description); ?>
 
-<a href="<?php echo esc_html($featured_building_url) ?>" class="btn">Show me this property</a>
+<a href="<?php echo esc_html($featured_building_url) ?>" class="btn split-feature__btn">Show me this property</a>
