@@ -23,42 +23,40 @@
 
 {$reasons_content}
 
-<ul class=\"divided-list\">
-    <li class=\"divided-list__item\">
-        <svg class=\"svg-icon svg-icon--id-card\" role=\"img\">
+<ul class=\"separated-list\">
+    <li class=\"separated-list__item\">
+        <svg class=\"separated-list__icon svg-icon svg-icon--id-card\" role=\"img\">
             <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#icon-id-card\"></use>
         </svg>
         Feature about Host here
     </li>
-    <li class=\"divided-list__item\">
-        <svg class=\"svg-icon svg-icon--imac\" role=\"img\">
+    <li class=\"separated-list__item\">
+        <svg class=\"separated-list__icon svg-icon svg-icon--imac\" role=\"img\">
             <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#icon-imac\"></use>
         </svg>
         Feature about Host here
     </li>
-    <li class=\"divided-list__item\">
-        <svg class=\"svg-icon svg-icon--id-card\" role=\"img\">
+    <li class=\"separated-list__item\">
+        <svg class=\"separated-list__icon svg-icon svg-icon--id-card\" role=\"img\">
             <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#icon-id-card\"></use>
         </svg>
         Feature about Host here
     </li>
-    <li class=\"divided-list__item\">
-        <svg class=\"svg-icon svg-icon--imac\" role=\"img\">
+    <li class=\"separated-list__item\">
+        <svg class=\"separated-list__icon svg-icon svg-icon--imac\" role=\"img\">
             <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#icon-imac\"></use>
         </svg>
         Feature about Host here
     </li>
-    <li class=\"divided-list__item\">
-        <svg class=\"svg-icon svg-icon--id-card\" role=\"img\">
+    <li class=\"separated-list__item\">
+        <svg class=\"separated-list__icon svg-icon svg-icon--id-card\" role=\"img\">
             <use xmlns:xlink=\"http://www.w3.org/1999/xlink\" xlink:href=\"#icon-id-card\"></use>
         </svg>
         Feature about Host here
     </li>
 </ul>
 
-<p>
-    <a href=\"{$reasons_button_link}\" class=\"btn\">{$reasons_button_text}</a>
-</p>
+<a href=\"{$reasons_button_link}\" class=\"btn split-feature__btn\">{$reasons_button_text}</a>
 "
 ?>
 

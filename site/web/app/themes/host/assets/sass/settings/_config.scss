@@ -25,7 +25,7 @@ $brand-tints: (
 // ====================================================================
 
 $base-background-color: map-get($brand-palette, white);
-$base-border-color:     map-get($brand-palette, ink);
+$base-border-color:     rgba(map-get($brand-palette, ink), 0.3);
 
 
 // Social Colors

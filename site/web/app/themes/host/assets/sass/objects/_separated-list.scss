@@ -9,5 +9,16 @@
 
 .separated-list__item {
     padding: rem(10) 0;
-    border-bottom: 1px solid brand(grey);
+    border-bottom: $base-border;
 }
+
+.separated-list__icon {
+    margin-right: $half-spacing-unit;
+
+    @include mq(medium) {
+        margin-right: $spacing-unit;    
+    }
+}
+
+// # MODIFIER:
+// ==========================================================================
