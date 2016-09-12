@@ -108,5 +108,6 @@ body {
 // ==========================================================================
 // # GENERAL
 // ==========================================================================
-*:first-child { margin-top:    0}
-*:last-child  { margin-bottom: 0}
+// scss-lint:disable ImportantRule
+*:first-child { margin-top:    0 !important; }
+*:last-child  { margin-bottom: 0 !important; }
