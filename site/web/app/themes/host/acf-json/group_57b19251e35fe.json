@@ -4,14 +4,14 @@
     "fields": [
         {
             "key": "field_57b19630ada62",
-            "label": "Awards title",
-            "name": "awards_title",
+            "label": "Awards title 1",
+            "name": "awards_title_1",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -19,9 +19,26 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
+        },
+        {
+            "key": "field_57d6c63a6e32d",
+            "label": "Awards title 2",
+            "name": "awards_title_2",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_57b19643f86e0",
@@ -125,5 +142,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1473434877
+    "modified": 1473693791
 }
