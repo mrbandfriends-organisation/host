@@ -2663,6 +2663,11 @@ a.btn {
   background: #c80b35;
 }
 
+.checkerboard-item__title {
+  background-blend-mode: multiply;
+  background-color: rgba(176, 25, 59, 0.85) !important;
+}
+
 .checkerboard__sell {
   display: -ms-flexbox;
   display: flex;
@@ -2737,7 +2742,7 @@ a.btn {
 
 .checkerboard-item__content .btn {
   display: block;
-  margin-top: 0.625rem;
+  margin-top: 0.625rem !important;
   white-space: nowrap;
 }
 
@@ -4369,6 +4374,10 @@ img.mfp-img {
     width: auto;
     max-width: 50%;
   }
+  .checkerboard__item:nth-of-type(2) .checkerboard-item__title, .checkerboard__item:nth-of-type(3) .checkerboard-item__title, .checkerboard__item:nth-of-type(6) .checkerboard-item__title, .checkerboard__item:nth-of-type(7) .checkerboard-item__title, .checkerboard__item:nth-of-type(10) .checkerboard-item__title, .checkerboard__item:nth-of-type(11) .checkerboard-item__title, .checkerboard__item:nth-of-type(14) .checkerboard-item__title, .checkerboard__item:nth-of-type(15) .checkerboard-item__title, .checkerboard__item:nth-of-type(17) .checkerboard-item__title{
+    background-image: none !important;
+    background-color: transparent !important;
+  }
   .checkerboard__item:nth-of-type(2n) .checkerboard-item__content{
     left: calc(-100% + -5px);
   }
@@ -4597,6 +4606,10 @@ img.mfp-img {
     flex-basis: 33.33333%;
     width: auto;
     max-width: 33.33333%;
+  }
+  .checkerboard__item:nth-of-type(2n) .checkerboard-item__title{
+    background-image: none !important;
+    background-color: transparent !important;
   }
   .checkerboard__item:nth-of-type(3n) .checkerboard-item__content{
     left: calc(-100% + -5px);
@@ -4900,6 +4913,10 @@ img.mfp-img {
     flex-basis: 25%;
     width: auto;
     max-width: 25%;
+  }
+  .checkerboard__item:nth-of-type(2) .checkerboard-item__title, .checkerboard__item:nth-of-type(4) .checkerboard-item__title, .checkerboard__item:nth-of-type(5) .checkerboard-item__title, .checkerboard__item:nth-of-type(7) .checkerboard-item__title, .checkerboard__item:nth-of-type(10) .checkerboard-item__title, .checkerboard__item:nth-of-type(12) .checkerboard-item__title, .checkerboard__item:nth-of-type(13) .checkerboard-item__title, .checkerboard__item:nth-of-type(15) .checkerboard-item__title, .checkerboard__item:nth-of-type(17) .checkerboard-item__title, .checkerboard__item:nth-of-type(19) .checkerboard-item__title{
+    background-image: none !important;
+    background-color: transparent !important;
   }
   .checkerboard__item:nth-of-type(4n) .checkerboard-item__content{
     left: calc(-100% + -5px);
@@ -5420,6 +5437,13 @@ img.mfp-img {
     width: auto;
     max-width: 20%;
   }
+  .checkerboard__item:nth-of-type(2) .checkerboard-item__title, .checkerboard__item:nth-of-type(4) .checkerboard-item__title, .checkerboard__item:nth-of-type(6) .checkerboard-item__title, .checkerboard__item:nth-of-type(8) .checkerboard-item__title, .checkerboard__item:nth-of-type(10) .checkerboard-item__title, .checkerboard__item:nth-of-type(12) .checkerboard-item__title, .checkerboard__item:nth-of-type(14) .checkerboard-item__title, .checkerboard__item:nth-of-type(16) .checkerboard-item__title, .checkerboard__item:nth-of-type(18) .checkerboard-item__title{
+    background-image: none !important;
+    background-color: transparent !important;
+  }
+  .checkerboard__item:nth-of-type(4n) .checkerboard-item__content{
+    left: calc(-100% + -5px);
+  }
   .checkerboard__item:nth-of-type(5n) .checkerboard-item__content{
     left: calc(-100% + -5px);
   }
@@ -5642,6 +5666,10 @@ img.mfp-img {
     flex-basis: 16.66667%;
     width: auto;
     max-width: 16.66667%;
+  }
+  .checkerboard__item:nth-of-type(2) .checkerboard-item__title, .checkerboard__item:nth-of-type(4) .checkerboard-item__title, .checkerboard__item:nth-of-type(4) .checkerboard-item__title, .checkerboard__item:nth-of-type(6) .checkerboard-item__title, .checkerboard__item:nth-of-type(7) .checkerboard-item__title, .checkerboard__item:nth-of-type(9) .checkerboard-item__title, .checkerboard__item:nth-of-type(11) .checkerboard-item__title, .checkerboard__item:nth-of-type(14) .checkerboard-item__title, .checkerboard__item:nth-of-type(16) .checkerboard-item__title, .checkerboard__item:nth-of-type(18) .checkerboard-item__title, .checkerboard__item:nth-of-type(19) .checkerboard-item__title{
+    background-image: none !important;
+    background-color: transparent !important;
   }
   .checkerboard__item:nth-of-type(6n) .checkerboard-item__content{
     left: calc(-100% + -5px);

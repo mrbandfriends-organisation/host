@@ -25,12 +25,13 @@
             <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
                 <?php
                     // Image should only show every two items
-                    if ( $count%2 == 0 ):
-                        $carousel_images = get_field('carousel_images');
-                        $carousel_image = $carousel_images[0]['sizes']['medium'];
-                    else:
-                        $carousel_image = '';
-                    endif;
+                    //if ( $count%2 == 0 ):
+                        //$carousel_images = (get_field('carousel_images') ? get_field('carousel_images') : null);
+                        //$carousel_image = $carousel_images[0]['sizes']['medium'];
+                    //else:
+                    //$carousel_image = '';
+                    //endif;
+                    $carousel_image = get_template_directory_uri() . '/assets/images/london.jpg';
                  ?>
                 <li class="checkerboard__item gc">
                     <?php echo Utils\ob_load_template_part('templates/partials/home/home-locations-item.php', array(
