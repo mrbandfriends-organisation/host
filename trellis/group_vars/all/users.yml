@@ -7,14 +7,19 @@ users:
     groups:
       - "{{ web_group }}"
     keys:
-      - "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-      # - https://github.com/username.keys
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_david_smith_rsa.pub # Dave Smith
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_cliff_williams_rsa.pub # Cliff Williams
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_george_putnam_rsa.pub # George Putnam
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_stuart_nelson_rsa.pub # Stuart Nelson
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_jon_pearse_rsa.pub # Jon Pearse (Freelancer)
   - name: "{{ admin_user }}"
     groups:
       - sudo
     keys:
-      - "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-      # - https://github.com/username.keys
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_david_smith_rsa.pub # Dave Smith
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_cliff_williams_rsa.pub # Cliff Williams
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_stuart_nelson_rsa.pub # Stuart Nelson
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_george_putnam_rsa.pub # George Putnam
 
 web_user: web
 web_group: www-data
