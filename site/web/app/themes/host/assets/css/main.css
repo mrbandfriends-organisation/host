@@ -3140,6 +3140,14 @@ a.btn {
   list-style: none outside;
 }
 
+.nav-primary__link {
+  transition: color ease-in-out 0.25s;
+}
+
+.nav-primary__link:hover, .nav-primary__link:focus {
+  color: #d50e3c;
+}
+
 .nav-primary--banner {
   display: -ms-flexbox;
   display: flex;
@@ -3147,24 +3155,30 @@ a.btn {
       align-items: center;
 }
 
-.nav-primary--banner a {
+.nav-primary--banner .menu-item .nav-primary__link {
   display: block;
   padding: 0.5rem 0.9375rem;
   color: #1c222d;
   font-size: 1rem;
   line-height: 1.25rem;
+  transition: color ease-in-out 0.25s;
 }
 
-.nav-primary--banner a:hover, .nav-primary--banner a:focus {
+.nav-primary--banner .menu-item .nav-primary__link:hover, .nav-primary--banner .menu-item .nav-primary__link:focus {
   text-decoration: none;
+  color: #d50e3c;
 }
 
-.nav-primary--banner a:hover > strong, .nav-primary--banner a:focus > strong {
+.nav-primary--banner .menu-item .nav-primary__link:hover > strong, .nav-primary--banner .menu-item .nav-primary__link:focus > strong {
   text-decoration: underline;
 }
 
-.nav-primary--banner a .menu-item__name {
+.nav-primary--banner .menu-item .nav-primary__link .menu-item__name {
   display: block;
+}
+
+.nav-primary--banner .menu-item.current-menu-item .nav-primary__link {
+  color: #d50e3c;
 }
 
 .nav-primary--banner .btn {
@@ -3180,12 +3194,22 @@ a.btn {
   border-bottom: solid 0.0625rem #1e9b9b;
 }
 
-.nav-primary--offcanvas .menu-item a {
+.nav-primary--offcanvas .menu-item .nav-primary__link {
   color: #fff;
+  transition: color ease-in-out 0.25s;
+}
+
+.nav-primary--offcanvas .menu-item .nav-primary__link:hover, .nav-primary--offcanvas .menu-item .nav-primary__link:focus {
+  color: #00c0f3;
+  text-decoration: none;
 }
 
 .nav-primary--offcanvas .menu-item .menu-item__description {
   display: none;
+}
+
+.nav-primary--offcanvas .menu-item.current-menu-item .nav-primary__link {
+  color: #00c0f3;
 }
 
 .nav-utilities {
@@ -5191,7 +5215,7 @@ img.mfp-img {
   .menu-item--banner-language-switcher .btn{
     min-width: 11.25rem;
   }
-  .nav-primary--banner a .menu-item__name{
+  .nav-primary--banner .menu-item .nav-primary__link .menu-item__name{
     font-weight: bold;
   }
   .nav-footer__section:first-child .nav-footer__sublist{
