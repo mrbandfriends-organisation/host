@@ -5673,14 +5673,14 @@ img.mfp-img {
   .offcanvas__wrapper.is-active-left .offcanvas__offscreen-left{
     opacity: 1;
   }
-  .split-feature__secondary{
-    min-height: 50vh;
-  }
   .billboard__inner{
     background-image: none !important;
   }
   .awards{
     padding-bottom: 40px;
+  }
+  .stacked-gallery{
+    min-height: 40vh;
   }
   .nav-primary{
     display: none;

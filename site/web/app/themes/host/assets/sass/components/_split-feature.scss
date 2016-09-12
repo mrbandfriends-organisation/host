@@ -56,10 +56,6 @@
 // ==========================================================================
 .split-feature__secondary {
 
-    @include mq($until: large) {
-        min-height: 50vh;
-    }
-
     .grid { height: 100%; width: 100%; }
 
 }
