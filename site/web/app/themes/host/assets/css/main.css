@@ -2056,6 +2056,10 @@ dl.-horizontal dd ~ dd {
   transition: transform 350ms;
 }
 
+.slideshow__image {
+  opacity: 0.000001;
+}
+
 .slideshow-pagination--dots {
   position: absolute;
   bottom: 0.9375rem;
@@ -2084,12 +2088,14 @@ dl.-horizontal dd ~ dd {
 
 .slideshow-pagination--pn .slideshow-pagination__button {
   position: absolute;
-  top: 0;
+  top: 50%;
+  padding: 0.625rem;
   height: 100%;
   min-width: 0;
   margin: 0;
-  padding: 0.625rem;
+  transform: translateY(-50%);
   transition: background 200ms, opacity    350ms;
+  border-radius: 0;
   background: rgba(255, 255, 255, 0);
   opacity: 0;
 }
@@ -2117,6 +2123,16 @@ dl.-horizontal dd ~ dd {
 
 .slideshow-pagination--pn .slideshow-pagination__button--next .svg-icon {
   transform: scaleX(-1);
+}
+
+.slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button {
+  height: 65%;
+  background: rgba(255, 255, 255, 0.8);
+  color: #1c222d;
+}
+
+.slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button:hover {
+  background: white;
 }
 
 .btn,

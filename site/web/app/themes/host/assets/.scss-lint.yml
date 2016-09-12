@@ -1,7 +1,7 @@
 exclude:
-  - assets/sass/base/_normalize.scss
-  - assets/sass/components/_transformicons.scss
-  - assets/sass/vendors/*
+  - sass/base/_normalize.scss
+  - sass/components/_transformicons.scss
+  - sass/vendors/*
 
 plugin_gems: ['grouped_property_scss_linter']
 linters:
