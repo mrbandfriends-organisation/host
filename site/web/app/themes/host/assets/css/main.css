@@ -3973,8 +3973,9 @@ img.mfp-img {
 }
 
 .mfp-bg {
-  background-color: rgba(28, 34, 45, 0.975);
+  background-color: rgba(33, 41, 60, 0.94);
   background-blend-mode: multiply;
+  opacity: 1;
 }
 
 .mfp-arrow-left::after, .mfp-arrow-left:before {

@@ -10,8 +10,9 @@
 // # BASE
 // ==========================================================================
 .mfp-bg {
-    background-color: rgba(  map-get($brand-tints, ink), 0.975 );
+    background-color: rgba(  brand(ink), 0.94 );
     background-blend-mode: multiply;
+    opacity: 1;
 }
 
 // .mfp-image-holder .mfp-content {}
