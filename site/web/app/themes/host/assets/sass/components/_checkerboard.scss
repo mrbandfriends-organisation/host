@@ -3,6 +3,18 @@
 // ==========================================================================
 
 // ==========================================================================
+// # VARIABLES & MIXIN
+// ==========================================================================
+
+// Breakpoints
+$col-2-bp: 460px;
+$col-3-bp: 675px;
+$col-4-bp: 920px;
+$col-5-bp: 1135px;
+$col-6-bp: 1350px;
+$col-7-bp: 1565px;
+
+// ==========================================================================
 // # CHECKERBOARD
 // ==========================================================================
 
@@ -28,16 +40,53 @@
     // standard breakpoints.
     // These are all based on an absolute minimum width of 215px per grid square, and take the site border into account
     // (30px below 768px, 60 above…)
-    @media (min-width: rem(460))  { @include grid-column(1, 2); }
-    @media (min-width: rem(675))  { @include grid-column(1, 3); }
-    @media (min-width: rem(920))  { @include grid-column(1, 4); }
-    @media (min-width: rem(1135)) { @include grid-column(1, 5); }
-    @media (min-width: rem(1350)) { @include grid-column(1, 6); }
-    //@media (min-width: rem(1565)) { @include grid-column(1, 7); }
+    @include mq($col-2-bp)  { @include grid-column(1, 2); }
+    @include mq($col-3-bp)  { @include grid-column(1, 3); }
+    @include mq($col-4-bp)  { @include grid-column(1, 4); }
+    @include mq($col-5-bp) { @include grid-column(1, 5); }
+    @include mq($col-6-bp) { @include grid-column(1, 6); }
+    //@media (min-width: rem($col-7-bp)) { @include grid-column(1, 7); }
 
     &:nth-child(3n)   { background: #b0193b; }
     &:nth-child(3n+1) { background: #f42352; }
     &:nth-child(3n+2) { background: #c80b35; }
+
+
+    //@media (min-width: $col-2-bp, max-width: $col-3-bp)  {
+    //    &:nth-of-type(2n) {
+    //        .checkerboard-item__content {
+    //            left: -100%;
+    //        }
+    //    }
+    //}
+    @media ($from: $col-3-bp, $until: $col-4-bp {
+
+    }
+    @media ($from: $col-4-bp, $until: $col-5-bp {
+
+    }
+    @media ($from: $col-5-bp, $until: $col-6-bp {
+
+    }
+    @media ($from: $col-6-bp, $until: $col-7-bp {
+
+    }
+    // Getting flip in the correct direction
+    // @media (min-width: rem(675))  {
+    //
+    //     &:nth-of-type(3n) {
+    //         .checkerboard-item__content {
+    //             left: -100%;
+    //         }
+    //     }
+    // }
+    // @media (min-width: rem(920))  {
+    //     &:nth-of-type(4n) {
+    //         .checkerboard-item__content {
+    //             left: -100%;
+    //         }
+    //     }
+    // }
 }
 
 // Final item
