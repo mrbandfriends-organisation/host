@@ -11,4 +11,4 @@ use Roots\Sage\Utils;
 
 <?php echo Utils\esc_textarea__($investors_content);?>
 
-<a href="<?php echo esc_url($investors_button_link); ?>" class="btn"><?php echo esc_html($investors_button_text); ?></a>
+<a href="<?php echo esc_url($investors_button_link); ?>" class="btn split-feature__btn"><?php echo esc_html($investors_button_text); ?></a>
