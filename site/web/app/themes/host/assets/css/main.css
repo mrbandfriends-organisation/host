@@ -2741,7 +2741,7 @@ a.btn {
 
 .checkerboard-item__content .btn {
   display: block;
-  margin-top: 0.625rem;
+  margin-top: 0.625rem !important;
   white-space: nowrap;
 }
 
