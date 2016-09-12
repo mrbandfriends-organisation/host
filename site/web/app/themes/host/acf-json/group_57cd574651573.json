@@ -352,42 +352,41 @@
             "maxlength": ""
         },
         {
-            "key": "field_57cd77ce8c3d5",
-            "label": "Button Text",
-            "name": "section_2_button_text",
-            "type": "text",
+            "key": "field_57d6b290f37f6",
+            "label": "Description",
+            "name": "section_2_description",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0
+        },
+        {
+            "key": "field_57d6b3522713a",
+            "label": "Disclaimer",
+            "name": "section_2_disclaimer",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_57cd77d78c3d6",
-            "label": "Button Link",
-            "name": "section_2_button_link",
-            "type": "page_link",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "post_type": [],
-            "taxonomy": [],
-            "allow_null": 0,
-            "allow_archives": 1,
-            "multiple": 0
+            "maxlength": "",
+            "rows": "",
+            "new_lines": "br"
         },
         {
             "key": "field_57cd77dd8c3d7",
@@ -434,5 +433,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1473681359
+    "modified": 1473688049
 }
