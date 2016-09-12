@@ -16,7 +16,8 @@
 )); ?>
 
 <?php echo Utils\ob_load_template_part('templates/partials/shared/awards', array(
-    'snippet' => '/home/awards'
+    'snippet'               => '/home/awards',
+    'awards_logos_modifier' => '-left'
 )); ?>
 
 <?php echo Utils\ob_load_template_part('templates/partials/home/home-investors', array(

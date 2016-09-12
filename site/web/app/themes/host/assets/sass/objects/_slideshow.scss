@@ -42,6 +42,12 @@
     }
 }
 
+// # Image within a slideshow: should probably be hidden
+// ==========================================================================
+.slideshow__image {
+    opacity: 0.000001;
+}
+
 // ==========================================================================
 // # PAGINATION: DOTS
 // ==========================================================================
@@ -79,17 +85,19 @@
 // # PAGINATION: Prev/next
 // ==========================================================================
 .slideshow-pagination--pn .slideshow-pagination__button {
-    position: absolute;
-    top:       0;
+    position:  absolute;
+    top:       50%;
 
+    padding:   rem(10);
     height:    100%;
     min-width: 0;
     margin:    0;
 
-    padding:   rem(10);
-
+    transform: translateY(-50%);
     transition: background 200ms,
                 opacity    350ms;
+
+    border-radius: 0;
 
     background: rgba(255, 255, 255, 0);
     opacity:    0;
@@ -112,4 +120,18 @@
     right: 0;
 
     .svg-icon { transform: scaleX(-1); }
+}
+
+// ==========================================================================
+// # Slideshow variant: lighter pagination
+// ==========================================================================
+.slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button {
+    height:     65%;
+
+    background: rgba(255, 255, 255, 0.8);
+    color:      tint(ink);
+
+    &:hover {
+        background: rgba(255, 255, 255, 1);
+    }
 }

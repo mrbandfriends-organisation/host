@@ -3,19 +3,22 @@
     * GLOABL - HEADER CAROUSEL PARTIAL
     **/
     use Roots\Sage\Utils;
+
+    $carousel_images = get_field('carousel_images');
+
+    // If there are no images, don’t bother doing anything
+    if (!$carousel_images)
+    {
+        return;
+    }
 ?>
 
-<?php
-$carousel_images = get_field('carousel_images');
-
-if( $carousel_images ): ?>
-    <ul>
-        <?php foreach( $carousel_images as $image ): ?>
-            <li>
-                <a href="<?php echo $image['url']; ?>">
-                     <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
-                </a>
-            </li>
-        <?php endforeach; ?>
+<section class="band slideshow js-slideshow slideshow--light-pagination" data-pagination="pn dots">
+    <ul class="slideshow__list js-slideshow__list">
+    <?php foreach ( $carousel_images AS $image): ?>
+        <li class="slideshow__item js-slideshow__item" style="background-image:url(<?=$image['sizes']['large'];?>);">
+            <img src="<?php echo $image['sizes']['large']; ?>" class="slideshow__image js-slideshow__image" alt="<?=$image['alt']; ?>">
+        </li>
+    <?php endforeach; ?>
     </ul>
-<?php endif; ?>
+</section>

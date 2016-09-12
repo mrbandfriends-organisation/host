@@ -21,6 +21,10 @@ $transition: all ease-in-out 0.5s;
 
 .stacked-gallery {
     position: relative;
+
+    @include mq($until: large) {
+        min-height: 40vh;
+    }
 }
 
 .stacked-gallery__link {

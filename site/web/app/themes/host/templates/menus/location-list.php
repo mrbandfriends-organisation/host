@@ -14,7 +14,9 @@
         ?>
 
             <li class="nav-footer__item">
-                <?php echo esc_html($title); ?>
+                <a href="<?php echo esc_url($url); ?>" class="nav-footer__link">
+                    <?php echo esc_html($title); ?>
+                </a>
             </li>
 
         <?php endwhile; ?>

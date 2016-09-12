@@ -93,6 +93,10 @@
     margin-right: auto;
 }
 
+//.nav-footer__link {
+//    @include link-hover();
+//}
+
 // ==========================================================================
 // # FOOTER SECTION
 // ==========================================================================
@@ -118,6 +122,7 @@
     li {
         margin-bottom: 1em;
         border-left: 1px solid #fff;
+        padding: 0 rem(10);
 
         @include mq($until: 449px) {
             width: 50%;
@@ -133,11 +138,13 @@
 
         @include mq($until: medium) {
             margin-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
             border: 0;
         }
 
         &:first-child {
-            //padding-right: rem(10);
+            padding-left: 0;
             border-left: 0;
 
             @include mq($until: medium) {
@@ -155,11 +162,7 @@
         small {
             display: block;
 
-            padding: 0 rem(10);
-
             @include mq($until: medium) {
-                padding-left: 0;
-                padding-right: 0;
                 // Added to match other footer menu items
                 line-height: rem(24);
             }

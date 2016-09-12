@@ -35,9 +35,12 @@
 
     @include mq(medium) {
         @include container("left");
-        @include half-container;
 
         padding: rem(80);
+    }
+
+    @include mq(large) {
+        @include half-container;
     }
 }
 
@@ -52,10 +55,6 @@
 // # Secondary pane
 // ==========================================================================
 .split-feature__secondary {
-
-    @include mq($until: large) {
-        min-height: 50vh;
-    }
 
     .grid { height: 100%; width: 100%; }
 
