@@ -19,7 +19,7 @@
                 <?=get_field('title_2'); ?>
             </h2>
 
-            <?=get_field('description'); ?>
+            <?=apply_filters('the_content', get_field('description')); ?>
         </div>
     </div>
 </section>

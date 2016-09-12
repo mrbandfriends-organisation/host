@@ -51,7 +51,7 @@
                             <h3 class="listed-property__title"><?=the_title(); ?></h3>
                             <h4 class="h3"><?php RoomsBuildings\availability_status(get_field('availability')); ?></h4>
 
-                            <?=get_field('description'); ?>
+                            <?=apply_filters('the_content', get_field('description')); ?>
                         </div>
                         <div class="listed-property__address-contact gc xxl2-5">
                             <address class="listed-property__address">

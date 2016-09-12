@@ -1,49 +1,39 @@
 <?php
-  /**
-  * LOCATION ATTRACTIONS
-  **/
+    /**
+     * LOCATION ATTRACTIONS
+     **/
     use Roots\Sage\Utils;
+
+    $sRemainCols = '';
+
 ?>
+<section class="band split-feature -left grid">
+    <div class="split-feature__main box box--ink gc l1-2">
+        <div class="split-feature__content">
+            <h2><?=get_field('location_title'); ?></h2>
 
+            <?=apply_filters('the_content', get_field('location_description')); ?>
+        </div>
+    </div>
+    <aside class="split-feature__secondary gc l1-2">
+        <div class="grid">
+        <?php if( have_rows('things_to_do') ): $sRemainCols = ' s1-3'; ?>
+            <div class="gc s2-3 box box--ink-dark box--padded">
+                <h3 class="plain"><?=get_field('things_to_do_title'); ?></h3>
 
-<?php
-    $location_title = get_field('location_title');
-    $location_description = get_field('location_description');
-
-    $things_to_do_title = get_field('things_to_do_title');
-    $things_to_do_image = get_field('things_to_do_image');
-?>
-
-
-<h2>
-  <?php echo esc_html($location_title); ?>
-</h2>
-
-<?php echo $location_description; ?>
-
-
-<?php
-  // Facilities List with icons
-  if( have_rows('things_to_do') ):
-
-    echo "<ul>";
-
-      while ( have_rows('things_to_do') ) : the_row();
-
-          $item_number = get_sub_field('item_number');
-          $item_name = get_sub_field('item_name');
-?>
-          <li>
-            <?php echo esc_html($item_number); ?>
-            <?php echo esc_html($item_name); ?>
-          </li>
-<?php
-      endwhile;
-  else :
-      // no rows found
-      echo "</ul>";
-  endif;
-?>
-
-
-<img src="<?php echo $things_to_do_image['url']; ?>" alt="<?php echo $things_to_do_image['title']; ?>" />
+                <dl class="-horizontal">
+                <?php while (have_rows('things_to_do')): the_row(); ?>
+                    <dt class="inherit-fg"><?=get_sub_field('item_number'); ?></dt>
+                    <dd><?=get_sub_field('item_name'); ?></dd>
+                <?php endwhile; ?>
+                </dl>
+            </div>
+        <?php endif; ?>
+            <div class="gc<?=$sRemainCols; ?>">
+                <div class="box bleed-image" style="background-image:url(<?=get_field('things_to_do_image')['url']; ?>)">
+                    <img src="/_dummy/london-eye.jpg" alt="" class="bleed-image__image">
+                </div>
+            </div>
+        </div>
+    </aside>
+</section>
