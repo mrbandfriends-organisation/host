@@ -322,11 +322,11 @@ a {
   text-decoration: none;
 }
 
-a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link) {
+a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link) {
   position: relative;
 }
 
-a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):after {
+a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):after {
   content: "";
   position: absolute;
   width: 0;
@@ -338,12 +338,12 @@ a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-ma
   transition: width ease-in-out 0.5s;
 }
 
-a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):hover, a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):focus {
+a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):hover, a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):focus {
   text-decoration: none;
   transition: color ease-in-out 0.5s;
 }
 
-a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):hover:after, a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):focus:after {
+a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):hover:after, a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):focus:after {
   width: 100%;
 }
 
@@ -1193,6 +1193,35 @@ thead tr:last-child th {
   width: 1.5rem;
   height: 1.5rem;
   fill: currentColor;
+}
+
+.svg-icon--hover {
+  opacity: 1;
+  animation: 0.5s ease-in-out icon_bob 1 paused;
+  transition: opacity ease-in-out 0.5s;
+}
+
+.svg-icon--hover:hover, .svg-icon--hover:focus {
+  animation-play-state: running;
+  opacity: 0.8;
+}
+
+@keyframes icon_bob {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(0, -3px, 0);
+  }
+  50% {
+    transform: translate3d(0, 1px, 0);
+  }
+  75% {
+    transform: translate3d(0, -3px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
 .svg-icon--white {
@@ -3231,6 +3260,7 @@ a.btn {
 }
 
 #menu-footer-utilities.nav-footer-utilities li:first-child {
+  padding-left: 0;
   border-left: 0;
 }
 

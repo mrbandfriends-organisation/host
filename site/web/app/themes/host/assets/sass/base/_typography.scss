@@ -41,7 +41,7 @@ a {
     text-decoration: none;
 
     // List of everywhere where this needs NOT to happen
-    &:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link ) {
+    &:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link ):not(.banner__home-link) {
         @include link-hover();
     }
 
