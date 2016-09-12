@@ -4776,7 +4776,6 @@ img.mfp-img {
     width: 100%;
     margin-right: 0;
     margin-left: auto;
-    max-width: 33.59375rem;
     padding: 5rem;
   }
   .split-feature__btn{
@@ -5017,6 +5016,9 @@ img.mfp-img {
   }
   .offcanvas-toggle{
     display: none !important;
+  }
+  .split-feature__content{
+    max-width: 33.59375rem;
   }
   .split-feature.-left .split-feature__main{
     -ms-flex-align: end;
@@ -5676,6 +5678,9 @@ img.mfp-img {
   }
   .billboard__inner{
     background-image: none !important;
+  }
+  .awards{
+    padding-bottom: 40px;
   }
   .nav-primary{
     display: none;

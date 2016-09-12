@@ -9,6 +9,10 @@
     max-width: rem(405);
     margin: 0;
     list-style: none outside;
+
+    @include mq($until: large) {
+        padding-bottom: $spacing-unit;
+    }
 }
 
 .awards__item {
