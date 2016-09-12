@@ -37,5 +37,5 @@ e.addEventListener("load",function(){e.clearInterval(n)})}}}(this);
 <script>
 // Google maps
 var GOOGLE_MAPS_KEY = '<?=GMAPS_API_KEY;?>';
-var WEB_ROOT        = 'http://hostdev/';
+var WEB_ROOT        = '<?=get_template_directory_uri(); ?>/';
 </script>

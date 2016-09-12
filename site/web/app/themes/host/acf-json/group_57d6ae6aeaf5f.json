@@ -1,0 +1,244 @@
+{
+    "key": "group_57d6ae6aeaf5f",
+    "title": "Map \/ Nearby",
+    "fields": [
+        {
+            "key": "field_57d6b1d4cc626",
+            "label": "Default view",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_57d6b1fc343c1",
+            "label": "Label",
+            "name": "map_label",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_57d6ae88529a4",
+            "label": "Centre point",
+            "name": "map_centre",
+            "type": "google_map",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "center_lat": "51.515419",
+            "center_lng": "-0.141",
+            "zoom": 9,
+            "height": 200
+        },
+        {
+            "key": "field_57d6b210343c2",
+            "label": "Show filters",
+            "name": "map_filters",
+            "type": "true_false",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0
+        },
+        {
+            "key": "field_57d6b24a343c3",
+            "label": "Foreground colour",
+            "name": "map_foreground_colour",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "mint": "Mint",
+                "red": "Red",
+                "orange": "Orange",
+                "sky": "Sky",
+                "grape": "Grape",
+                "ink": "Ink"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "return_format": "value",
+            "placeholder": ""
+        },
+        {
+            "key": "field_57d6b5a584c8b",
+            "label": "Zoom level",
+            "name": "map_zoom",
+            "type": "number",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 11,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 10,
+            "max": 15,
+            "step": 1
+        },
+        {
+            "key": "field_57d6b1cccc625",
+            "label": "Features",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_57d6aeae529a5",
+            "label": "Features",
+            "name": "map_features",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_57d6af16529a9",
+            "min": "",
+            "max": "",
+            "layout": "block",
+            "button_label": "Add feature",
+            "sub_fields": [
+                {
+                    "key": "field_57d6af16529a9",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "66",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_57d6aedd529a8",
+                    "label": "Type",
+                    "name": "type",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "transport": "Transport",
+                        "shops": "Shops",
+                        "food": "Food",
+                        "unis": "Universities"
+                    },
+                    "default_value": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
+                },
+                {
+                    "key": "field_57d6aec6529a6",
+                    "label": "Location",
+                    "name": "location",
+                    "type": "google_map",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "center_lat": "51.515419",
+                    "center_lng": "-0.141",
+                    "zoom": 9,
+                    "height": 200
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "locations"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1473689535
+}
