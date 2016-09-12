@@ -5052,6 +5052,11 @@ img.mfp-img {
   .billboard__secondary{
     margin: 0;
   }
+  .-left .awards{
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+    margin: 80px 1.875rem 80px 80px;
+  }
   .room-list__header{
     padding: 0 3.75rem;
     background: #fff url("/assets/images/grape-30pc.svg") repeat-y center center/187.5rem;

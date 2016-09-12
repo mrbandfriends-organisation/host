@@ -4,9 +4,10 @@
     **/
     use Roots\Sage\Utils;
 
-    $awards_title       = get_field('awards_title','option');
-    $awards_description = get_field('awards_description','option');
-    $award_logos        = get_field('award_logos','option');
+    $awards_title           = get_field('awards_title','option');
+    $awards_description     = get_field('awards_description','option');
+    $award_logos            = get_field('award_logos','option');
+    $awards_logos_modifier  = ( !empty($awards_logos_modifier) ? $awards_logos_modifier : null );
 ?>
 
 
@@ -26,7 +27,7 @@
 
         <?php if ( !empty($award_logos) ): ?>
             <aside class="split-feature__secondary gc l1-2">
-                <ul class="awards">
+                <ul class="awards <?php echo esc_attr($awards_logos_modifier); ?>">
                     <?php foreach ($award_logos as $logo_item) : ?>
                         <li class="awards__item">
                             <img src="<?php echo esc_html( $logo_item['logo']['url'] ); ?>" alt="<?php echo esc_html( $logo_item['title'] ); ?>" class="awards__image" />

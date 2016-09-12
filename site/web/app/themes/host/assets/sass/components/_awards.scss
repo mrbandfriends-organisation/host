@@ -15,3 +15,16 @@
     flex: 33%;
     padding: $half-spacing-unit $quarter-spacing-unit;
 }
+
+
+// ==========================================================================
+// # MODIFIER: AWARDS LEFT - text is on the left, images on right
+// ==========================================================================
+.awards {
+    .-left & {
+        @include mq(large) {
+            align-self: flex-start;
+            margin: $double-spacing-unit rem(30) $double-spacing-unit $double-spacing-unit;
+        }
+    }
+}
