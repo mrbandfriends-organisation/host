@@ -335,12 +335,12 @@ a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-ma
   left: 50%;
   background-color: currentColor;
   transform: translateX(-50%);
-  transition: width ease-in-out 0.5s;
+  transition: width ease-in-out 0.25s;
 }
 
 a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):hover, a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):focus {
   text-decoration: none;
-  transition: color ease-in-out 0.5s;
+  transition: color ease-in-out 0.25s;
 }
 
 a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):hover:after, a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):focus:after {

@@ -8,8 +8,10 @@
 <?php
   $header_title_1 = get_field('header_title_1');
   $header_title_2 = get_field('header_title_2');
-  $locations = host_locations_find_all();
-  $count = 0;?>
+  $locations = host_locations_find_all( ['order' => 'ASC', 'orderby' => 'title'] );
+
+  $count = 0;
+?>
 
 <?php if ( $locations->have_posts() ) : ?>
 

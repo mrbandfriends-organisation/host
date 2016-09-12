@@ -14,6 +14,8 @@
 
   $reasons_items = get_field('reason_item');
 
+  //var_dump($reasons_items);
+
   $reasons_button_text = esc_html(get_field('reasons_button_text'));
   $reasons_button_link = esc_html(get_field('reasons_button_link'));
 ?>
@@ -26,38 +28,31 @@
 <ul class=\"separated-list\">
     <li class=\"separated-list__item\">
         " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
-            "icon"          => "security-1",
+            "icon"          => "bills-1",
             "classnames"    => "separated-list__icon svg-icon--id-card"
         )) . "
-        Feature about Host here
+        All bills included
     </li>
     <li class=\"separated-list__item\">
     " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
-        "icon"          => "computer",
+        "icon"          => "travel-location-2",
         "classnames"    => "separated-list__icon svg-icon--id-card"
     )) . "
-        Feature about Host here
-    </li>
-    <li class=\"separated-list__item\">
-    " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
-        "icon"          => "security-1",
-        "classnames"    => "separated-list__icon svg-icon--id-card"
-    )) . "
-        Feature about Host here
-    </li>
-    <li class=\"separated-list__item\">
-    " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
-        "icon"          => "computer",
-        "classnames"    => "separated-list__icon svg-icon--id-card"
-    )) . "
-        Feature about Host here
+        24 hour security and CCTV
     </li>
     <li class=\"separated-list__item\">
     " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
         "icon"          => "security-1",
         "classnames"    => "separated-list__icon svg-icon--id-card"
     )) . "
-        Feature about Host here
+        Close to campuses and city centres
+    </li>
+    <li class=\"separated-list__item\">
+    " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
+        "icon"          => "insurance-1",
+        "classnames"    => "separated-list__icon svg-icon--id-card"
+    )) . "
+        Award-winning value
     </li>
 </ul>
 
