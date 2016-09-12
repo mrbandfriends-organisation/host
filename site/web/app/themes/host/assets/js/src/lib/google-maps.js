@@ -19,6 +19,7 @@ function GMaps()
     var aoMarker = {};
     var aoFilter = [];
     var oWin     = null;
+    var oBounds  = null;
 
     // config
     var defaults = {
@@ -124,8 +125,9 @@ function GMaps()
             oDefinition.icon = WEB_ROOT+'assets/svg/standalone/output/marker-'+oIconMap[oPlace.type]+'.svg';
         }
 
-        // 5. draw the marker
+        // 5. draw the marker and place it in bounds
         var oMarker = new google.maps.Marker(oDefinition);
+        oBounds.extend(oMarker.position);
 
         // 7. if it’s a default marker, bail
         if (oPlace.type === undefined)
@@ -180,7 +182,6 @@ function GMaps()
                 // ii. plot
                 plotPlace(oMarker);
             });
-
         }
     }
 
@@ -228,12 +229,13 @@ function GMaps()
         }
 
         // 2. draw map
-        oMap = new google.maps.Map(el, defaults);
+        oMap    = new google.maps.Map(el, defaults);
+        oBounds = new google.maps.LatLngBounds();
 
         // 3. re-centre, because weirdness
         setTimeout(function()
         {
-            oMap.setCenter(defaults.center);
+            oMap.fitBounds(oBounds);
         }, 1000);
 
         // 4. if we have a place, point at it
@@ -255,7 +257,7 @@ function GMaps()
             el.addEventListener('change', updateFilters);
         });
 
-        // 7. flag things
+        // 7. flag things and recentre on bounds
         el.classList.add('js-enhanced');
     }
 
