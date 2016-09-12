@@ -3223,7 +3223,7 @@ a.btn {
 
 .nav-utilities--banner li {
   display: inline-block;
-  margin-left: -0.2em;
+  margin: 0 0 10px -0.2em;
   padding: 0 0.9375rem;
 }
 
