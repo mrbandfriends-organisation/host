@@ -14,7 +14,7 @@
 
   $reasons_items = get_field('reason_item');
 
-  var_dump($reasons_items);
+  //var_dump($reasons_items);
 
   $reasons_button_text = esc_html(get_field('reasons_button_text'));
   $reasons_button_link = esc_html(get_field('reasons_button_link'));
