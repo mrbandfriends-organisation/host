@@ -303,7 +303,7 @@ function get_id_by_slug($page_slug, $slug_page_type = 'page') {
  * @param   sTag            the name of the tag to create
  * @param   aAttr           a key/value array of attributes and values
  */
-function tag($sTag, $aAttr = [], $sContent = null)
+function tag($sTag, $aAttr = [], $sContent = null, $bTrustContent = false)
 {
     // 0. sanitise tag: can have any letter or numbers 1–6
     $sTag = preg_replace('/[^a-z1-6]/', '', $sTag);
@@ -314,11 +314,24 @@ function tag($sTag, $aAttr = [], $sContent = null)
     // 3. attributes
     foreach ($aAttr AS $sName => $sValue)
     {
-        // a. sanitise
+        // a. if it’s an empty, non-true value
+        if (trim($sValue) === '')
+        {
+            continue;
+        }
+
+        // b. sanitise
         $sName = preg_replace('/[^a-z1-6\-]/', '', str_replace('_', '-', $sName));
 
-        // b. output
-        $sReturn .= " {$sName}=\"".esc_attr($sValue).'"';
+        // c. output
+        if ($sValue === true)
+        {
+            $sReturn .= " {$sName}";
+        }
+        else
+        {
+            $sReturn .= " {$sName}=\"".esc_attr($sValue).'"';
+        }
     }
 
     // 3. finish opening element
@@ -327,7 +340,13 @@ function tag($sTag, $aAttr = [], $sContent = null)
     // 4. if there’s content
     if ($sContent !== null)
     {
-        $sReturn .= esc_html($sContent)."</{$sTag}>";
+        // make the content safe, if not trusted
+        if (!$bTrustContent)
+        {
+            $sContent = esc_html($sContent);
+        }
+
+        $sReturn .= "{$sContent}</{$sTag}>";
     }
 
     return $sReturn;
