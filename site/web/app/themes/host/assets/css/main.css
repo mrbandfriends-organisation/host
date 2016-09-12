@@ -4323,7 +4323,7 @@ img.mfp-img {
     max-width: 50%;
   }
   .checkerboard__item:nth-of-type(2n) .checkerboard-item__content{
-    left: -100%;
+    left: calc(-100% + -5px);
   }
 }
 
@@ -4552,7 +4552,7 @@ img.mfp-img {
     max-width: 33.33333%;
   }
   .checkerboard__item:nth-of-type(3n) .checkerboard-item__content{
-    left: -100%;
+    left: calc(-100% + -5px);
   }
 }
 
@@ -4856,7 +4856,7 @@ img.mfp-img {
     max-width: 25%;
   }
   .checkerboard__item:nth-of-type(4n) .checkerboard-item__content{
-    left: -100%;
+    left: calc(-100% + -5px);
   }
 }
 
@@ -5375,7 +5375,7 @@ img.mfp-img {
     max-width: 20%;
   }
   .checkerboard__item:nth-of-type(5n) .checkerboard-item__content{
-    left: -100%;
+    left: calc(-100% + -5px);
   }
 }
 
@@ -5598,7 +5598,7 @@ img.mfp-img {
     max-width: 16.66667%;
   }
   .checkerboard__item:nth-of-type(6n) .checkerboard-item__content{
-    left: -100%;
+    left: calc(-100% + -5px);
   }
 }
 

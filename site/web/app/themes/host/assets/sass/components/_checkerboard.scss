@@ -42,41 +42,46 @@ $col-7-bp: 1565px;
     // (30px below 768px, 60 above…)
     @include mq($from: $col-2-bp, $until:$col-3-bp)  {
         @include grid-column(1, 2);
+
         &:nth-of-type(2n) {
             .checkerboard-item__content {
-                left: -100%;
+                left: calc(-100% + -5px);
             }
         }
     }
     @include mq($from: $col-3-bp, $until:$col-4-bp)  {
         @include grid-column(1, 3);
+
         &:nth-of-type(3n) {
             .checkerboard-item__content {
-                left: -100%;
+                left: calc(-100% + -5px);
             }
         }
     }
     @include mq($from: $col-4-bp, $until:$col-5-bp)  {
         @include grid-column(1, 4);
+
         &:nth-of-type(4n) {
             .checkerboard-item__content {
-                left: -100%;
+                left: calc(-100% + -5px);
             }
         }
     }
     @include mq($from: $col-5-bp, $until:$col-6-bp) {
         @include grid-column(1, 5);
+
         &:nth-of-type(5n) {
             .checkerboard-item__content {
-                left: -100%;
+                left: calc(-100% + -5px);
             }
         }
     }
     @include mq($from: $col-6-bp) {
         @include grid-column(1, 6);
+
         &:nth-of-type(6n) {
             .checkerboard-item__content {
-                left: -100%;
+                left: calc(-100% + -5px);
             }
         }
     }
