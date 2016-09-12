@@ -18,7 +18,7 @@
         </p>
         <p class="checkerboard-item__feeling-lucky">
             I’m feeling lucky:
-            <a href="/building.php" class="checkerboard-item__btn btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
+            <a href="/building.php" class="btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
         </p>
     </div>
 </article>
