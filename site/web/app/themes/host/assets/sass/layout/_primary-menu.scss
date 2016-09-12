@@ -18,8 +18,17 @@
     }
 }
 
-.nav-primary__item {
-    // scss-lint:disable EmptyRule
+//.nav-primary__item {
+//    // scss-lint:disable EmptyRule
+//}
+
+.nav-primary__link {
+    transition: color ease-in-out 0.25s;
+
+    &:hover,
+    &:focus {
+        color: brand(red);
+    }
 }
 
 // ==========================================================================
@@ -29,31 +38,42 @@
     display:      flex;
     align-items:  center;
 
-    a {
-        display: block;
-
-        padding: rem(8) rem(15);
-        color:   tint(ink);
-        font-size:rem(16);
-        line-height: rem(20);
-
-        &:hover,
-        &:focus {
-            text-decoration: none;
-
-            & > strong {
-                text-decoration: underline;
-            }
-        }
-
-        .menu-item__name {
+    .menu-item {
+        .nav-primary__link {
             display: block;
 
-            @include mq(nav-break-2) {
-                font-weight: bold;
+            padding: rem(8) rem(15);
+            color:   tint(ink);
+            font-size:rem(16);
+            line-height: rem(20);
+            transition: color ease-in-out 0.25s;
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+                color: brand(red);
+
+                & > strong {
+                    text-decoration: underline;
+                }
+            }
+
+            .menu-item__name {
+                display: block;
+
+                @include mq(nav-break-2) {
+                    font-weight: bold;
+                }
             }
         }
 
+        // Current menu item
+        &.current-menu-item {
+
+            .nav-primary__link {
+                color: brand(red);
+            }
+        }
     }
 
     .btn {
@@ -76,13 +96,31 @@
         border-bottom: solid rem(1) tint(mint);
         //border-color: map-get( $brand-tints, mint);
 
-        a {
+        .nav-primary__link {
             color: #fff;
+            transition: color ease-in-out 0.25s;
+
+            &:hover,
+            &:focus {
+                color: brand(sky);
+                text-decoration: none;
+            }
         }
 
         // description desktop only
         .menu-item__description {
             display: none;
         }
+
+        // Current menu item
+        &.current-menu-item {
+
+            .nav-primary__link {
+                color: brand(sky);
+            }
+        }
     }
+
+
+
 }
