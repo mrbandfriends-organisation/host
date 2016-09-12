@@ -39,7 +39,19 @@ p {
 
 a {
     text-decoration: none;
+
+    // List of everywhere where this needs NOT to happen
+    &:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link ):not(.banner__home-link) {
+        @include link-hover();
+    }
+
+    // Items that need to be tweaked
+    //&:hover::after {
+    //    width: calc(100% - 20px);
+    //}
 }
+
+
 
 a:hover,
 a:focus {

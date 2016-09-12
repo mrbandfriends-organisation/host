@@ -25,12 +25,12 @@
                 <ul class="footer-marks__list">
                     <li class="footer-marks__item">
                         <a href="#" class="footer-marks__link">
-                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'facebook', 'classnames' => 'svg-icon--sky' ]); ?>
+                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'facebook', 'classnames' => 'svg-icon--sky svg-icon--hover' ]); ?>
                         </a>
                     </li>
                     <li class="footer-marks__item">
                         <a href="#" class="footer-marks__link">
-                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'twitter', 'classnames' => 'svg-icon--sky' ]); ?>
+                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'twitter', 'classnames' => 'svg-icon--sky svg-icon--hover' ]); ?>
                         </a>
                     </li>
                     <li class="footer-marks__item -large">
