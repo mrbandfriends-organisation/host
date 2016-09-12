@@ -122,6 +122,13 @@ $col-7-bp: 1565px;
     &.-active {
         z-index:    2;
         box-shadow: #fff 0 0 0 5px;
+
+        // removing focus for active item on title
+        .checkerboard-item__title .checkerboard-item__link {
+            &:focus {
+                outline: none;
+            }
+        }
     }
 }
 

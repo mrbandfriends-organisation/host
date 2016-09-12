@@ -2647,6 +2647,10 @@ a.btn {
   box-shadow: #fff 0 0 0 5px;
 }
 
+.checkerboard-item.-active .checkerboard-item__title .checkerboard-item__link:focus {
+  outline: none;
+}
+
 .checkerboard-item__title {
   background: transparent none no-repeat center center/cover;
 }
