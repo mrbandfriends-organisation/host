@@ -46,10 +46,10 @@ $featured_building_carousel_images  = get_field('carousel_images', $featured_bui
     'second'  => Utils\ob_load_template_part('templates/partials/shared/stacked-gallery', array(
         'images' => array(
             array(
-                'image' => $image_1,
+                'image' => $image_1
             ),
             array(
-                'image' => $image_2,
+                'image' => $image_2
             )
         )
     ))
