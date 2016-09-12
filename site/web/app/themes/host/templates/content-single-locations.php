@@ -7,7 +7,6 @@
 
 <main id="main-content" role="main" class="main-content">
 
-
     <?php echo Utils\ob_load_template_part('templates/partials/shared/header-carousel.php'); ?>
 
 
