@@ -217,6 +217,24 @@
             "maxlength": ""
         },
         {
+            "key": "field_57d697c8d9cff",
+            "label": "Description",
+            "name": "section_1_description",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0
+        },
+        {
             "key": "field_57cd773507f88",
             "label": "Button Text",
             "name": "section_1_button_text",
@@ -416,5 +434,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1473676608
+    "modified": 1473681359
 }
