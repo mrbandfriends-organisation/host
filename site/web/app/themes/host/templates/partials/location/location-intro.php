@@ -3,6 +3,7 @@
      * BUILDING INTRO
      **/
     use Roots\Sage\Utils;
+    use Roots\Sage\Titles;
 
     $sStyle = '';
     if (has_post_thumbnail())
@@ -14,10 +15,7 @@
 <section class="band billboard -left box box--red -bg-actual-size">
     <div class="container billboard__inner grid"<?=$sStyle; ?>>
         <div class="billboard__main l3-5">
-            <h2>
-                <?=get_field('title_1'); ?>
-                <?=get_field('title_2'); ?>
-            </h2>
+            <?=Titles\split_line_header('h2', get_field('title')); ?>
 
             <?=apply_filters('the_content', get_field('description')); ?>
         </div>
