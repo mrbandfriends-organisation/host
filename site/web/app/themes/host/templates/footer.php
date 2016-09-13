@@ -30,7 +30,7 @@
                 <ul class="footer-marks__list">
                     <?php if ( !empty($facebook_link) ): ?>
                         <li class="footer-marks__item">
-                            <a href="<?php echo esc_url($facebook_link) ?>" class="footer-marks__link">
+                            <a href="<?php echo esc_url($facebook_link) ?>" class="footer-marks__link" <?php Extras\link_open_new_tab_attrs() ?>>
                                 <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'facebook', 'classnames' => 'svg-icon--sky svg-icon--hover' ]); ?>
                             </a>
                         </li>
@@ -38,7 +38,7 @@
 
                     <?php if ( !empty($twitter_link) ): ?>
                         <li class="footer-marks__item">
-                            <a href="<?php echo esc_url($twitter_link) ?>" class="footer-marks__link">
+                            <a href="<?php echo esc_url($twitter_link) ?>" class="footer-marks__link" <?php Extras\link_open_new_tab_attrs() ?>>
                                 <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'twitter', 'classnames' => 'svg-icon--sky svg-icon--hover' ]); ?>
                             </a>
                         </li>
@@ -46,7 +46,7 @@
 
                     <?php if ( !empty($instagram_link) ): ?>
                         <li class="footer-marks__item">
-                            <a href="<?php echo esc_url($instagram_link) ?>" class="footer-marks__link">
+                            <a href="<?php echo esc_url($instagram_link) ?>" class="footer-marks__link" <?php Extras\link_open_new_tab_attrs() ?>>
                                 <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'instagram', 'classnames' => 'svg-icon--sky svg-icon--hover' ]); ?>
                             </a>
                         </li>
