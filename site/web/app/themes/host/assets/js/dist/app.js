@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/app/themes/ssetelecoms/assets/js/dist/";
+/******/ 	__webpack_require__.p = "/app/themes/host/assets/js/dist/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -52,7 +52,7 @@
 	 */
 
 	// NPM Modules
-	__webpack_require__(20);
+	__webpack_require__(21);
 
 	// extend things
 	__webpack_require__(4);
@@ -122,19 +122,21 @@
 
 	    __webpack_require__(13);
 
-	    __webpack_require__(16)();
+	    __webpack_require__(17)();
 
-	    __webpack_require__(14)();
+	    __webpack_require__(15)();
+
+	    __webpack_require__(19)();
 
 	    __webpack_require__(18)();
-
-	    __webpack_require__(17)();
 
 	    // require('bind-inview')();
 
 	    // require('onpage-smooth-scroll')();
 
-	    __webpack_require__(15)();
+	    __webpack_require__(16)();
+
+	    __webpack_require__(14)();
 	})();
 
 
@@ -10581,7 +10583,7 @@
 	 */
 
 	__webpack_require__(1);
-	var EventBus = __webpack_require__(24);
+	var EventBus = __webpack_require__(25);
 
 	var OffCanvasToggler = function(options) {
 	    "use strict";
@@ -10901,7 +10903,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var debounce = __webpack_require__(19);
+	var debounce = __webpack_require__(20);
 
 	function Slideshow()
 	{
@@ -11416,6 +11418,148 @@
 
 /***/ },
 /* 14 */
+/***/ function(module, exports) {
+
+	function Equality()
+	{
+	    "use strict";
+
+	    var elRoot   = this;
+	    var aElPanel = [];
+
+
+	    /**
+	     * Works out the content height of a given panel.
+	     */
+	    function getContentHeight(el)
+	    {
+	        // 0. setup
+	        var iHeight = 0;
+	        var iLastMg = 0;
+
+	        // 1. go through children
+	        var elChild = el.firstElementChild;
+	        var oStyle, iCurrMg;
+	        while (elChild !== null)
+	        {
+	            // a. get style object
+	            oStyle = window.getComputedStyle(elChild);
+
+	            // b. add the height of the container plus padding
+	            iHeight += parseInt(oStyle.height, 10);
+
+	            // c. add margin, based on previous bottom or current top and update the stat
+	            iCurrMg = (oStyle.marginTop !== undefined) ? parseInt(oStyle.marginTop, 10) : 0;
+	            iHeight += (iCurrMg > iLastMg) ? iCurrMg : iLastMg
+	            iLastMg = (oStyle.marginBottom !== undefined) ? parseInt(oStyle.marginBottom, 10) : 0;
+
+	            // d. proceed onward
+	            elChild = elChild.nextElementSibling;
+	        }
+
+	        // 2. if we’re a border-box, we need to add our own padding
+	        oStyle = window.getComputedStyle(el);
+	        if (oStyle.boxSizing === 'border-box')
+	        {
+	            iHeight += (oStyle.paddingTop    !== undefined) ? parseInt(oStyle.paddingTop, 10)    : 0;
+	            iHeight += (oStyle.paddingBottom !== undefined) ? parseInt(oStyle.paddingBottom, 10) : 0;
+	        }
+
+	        // 3. job done
+	        return iHeight;
+	    }
+
+	    /**
+	     * Window resize handle: resizes panes to fit content
+	     */
+	    function fnResize()
+	    {
+	        // 0. zero our height
+	        var iMaxHeight = 0;
+
+	        // 1. first pass: reset the height
+	        aElPanel.forEach(function(el)
+	        {
+	            el.style.height = null;
+	        });
+
+	        // 2. second pass, get a height
+	        aElPanel.forEach(function(el)
+	        {
+	            // b. work out a proportion
+	            var iProp = parseInt(el.dataset.equalityPane.trim(), 10);
+
+	            // c. acquire the height
+	            iMaxHeight = Math.max(iMaxHeight, getContentHeight(el) / iProp);
+	        });
+
+	        // 3. third pass: apply it
+	        aElPanel.forEach(function(el)
+	        {
+	            // a. work out a proportion
+	            var iProp = parseInt(el.dataset.equalityPane.trim(), 10);
+
+	            // b. set the height
+	            el.style.height = (iMaxHeight * iProp)+'px';
+
+	        });
+	    }
+
+	    function init()
+	    {
+	        // 1. get panels and default their proportion
+	        aElPanel = elRoot.querySelectorAll('[data-equality-pane]').toArray();
+	        aElPanel.forEach(function(el)
+	        {
+	            var iTmp = parseInt(el.dataset.equalityPane, 10);
+	            if (iTmp != iTmp)
+	                el.dataset.equalityPane = 1;
+	        });
+
+	        // 2. bind to window resize
+	        var bBlock = false;
+	        window.addEventListener('resize', function()
+	        {
+	            // 1. if we’re blocked
+	            if (bBlock)
+	            {
+	                return;
+	            }
+
+	            // 2. if not, trigger things
+	            bBlock = true;
+	            setTimeout(function()
+	            {
+	                // a. reindex and reposition
+	                fnResize();
+
+	                // b. remove the lock
+	                bBlock = false;
+
+	            }, 100);
+	        });
+
+	        // 3. trigger a handler
+	        fnResize();
+	    }
+
+
+	    return init();
+	}
+
+	module.exports = function()
+	{
+	    "use strict";
+
+	    document.querySelectorAll('[data-equality]').each(function(el)
+	    {
+	        Equality.call(el);
+	    });
+	};
+
+
+/***/ },
+/* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -11473,10 +11617,10 @@
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(23);
+	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(24);
 
 	module.exports = function()
 	{
@@ -11499,7 +11643,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -11532,7 +11676,7 @@
 	    if (!maps_loaded && !maps_loading)
 	    {
 	        maps_loading = true;
-	        __webpack_require__(22)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+	        __webpack_require__(23)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
 	    }
 	    else if (maps_loaded)
 	    {
@@ -11544,7 +11688,7 @@
 
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);
@@ -11560,7 +11704,7 @@
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var slideshow = __webpack_require__(10);
@@ -11577,7 +11721,7 @@
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports) {
 
 	/**
@@ -11974,21 +12118,21 @@
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(21);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(22);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(1);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
@@ -12017,7 +12161,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Magnific Popup - v1.1.0 - 2016-02-20
@@ -13882,7 +14026,7 @@
 	 _checkInstance(); }));
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*

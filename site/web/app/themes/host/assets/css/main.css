@@ -3116,6 +3116,20 @@ a.btn {
   background-color: rgba(247, 148, 51, 0.3);
 }
 
+.testimonial-wall__content {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  width: 100%;
+}
+
+.testimonial-wall__content p {
+  margin: 0;
+}
+
 .banner {
   position: relative;
   width: 100%;

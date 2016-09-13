@@ -11,7 +11,7 @@
 
 <?php if ( !empty($student_testimonials) ): ?>
 
-<section class="band testimonial-wall">
+<section class="band testimonial-wall" data-equality>
     <h2 class="vh">What our residents say</h2>
 
     <div class="grid">

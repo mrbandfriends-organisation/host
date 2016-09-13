@@ -89,4 +89,6 @@ require('./ext/NodeList');
     // require('onpage-smooth-scroll')();
 
     require('lightbox')();
+
+    require('equality')();
 })();

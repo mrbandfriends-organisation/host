@@ -10,5 +10,5 @@ use Roots\Sage\Utils;
 <div class="testimonial-wall__content gc t1-2 xxl2-5 box box--ink box--less-padding">
     <h3><?=esc_html($name); ?><br><?=esc_html($location); ?></h3>
 
-    <?=Utils\esc_textarea__($testimonial);?>
+    <p><?=Utils\esc_textarea__($testimonial);?></p>
 </div>
