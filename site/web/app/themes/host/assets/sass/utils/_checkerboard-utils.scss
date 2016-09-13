@@ -18,7 +18,7 @@
             .checkerboard-item__title { background-image: none !important; } // scss-lint:disable ImportantRule
         }
 
-        // z. content
+        // c. other content
         @content;
     }
 }

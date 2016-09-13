@@ -39,7 +39,11 @@ $checkerboard-conf: (
 .checkerboard__item {
 
     @for $i from 1 through map-get($checkerboard-conf, cols) {
+
         @include checkerboard-breakpoint($i);
+
+        .checkerboard-item__title { background-color: inherit; }
+
     }
 
     &:nth-child(3n)   { background: #b0193b; }
@@ -84,9 +88,8 @@ $checkerboard-conf: (
 // Tile
 // ==========================================================================
 .checkerboard-item__title {
-    background: none no-repeat center center/cover;
+    background: tint(red) none no-repeat center center/cover;
     background-blend-mode: multiply;
-    background-color: inherit;
 
     &:before {
         display: inline-block;

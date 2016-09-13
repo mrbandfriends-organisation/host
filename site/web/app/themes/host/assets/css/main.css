@@ -2651,6 +2651,34 @@ a.btn {
       align-items: stretch;
 }
 
+.checkerboard__item .checkerboard-item__title {
+  background-color: inherit;
+}
+
+.checkerboard__item .checkerboard-item__title {
+  background-color: inherit;
+}
+
+.checkerboard__item .checkerboard-item__title {
+  background-color: inherit;
+}
+
+.checkerboard__item .checkerboard-item__title {
+  background-color: inherit;
+}
+
+.checkerboard__item .checkerboard-item__title {
+  background-color: inherit;
+}
+
+.checkerboard__item .checkerboard-item__title {
+  background-color: inherit;
+}
+
+.checkerboard__item .checkerboard-item__title {
+  background-color: inherit;
+}
+
 .checkerboard__item:nth-child(3n) {
   background: #b0193b;
 }
@@ -2695,9 +2723,8 @@ a.btn {
 }
 
 .checkerboard-item__title {
-  background: none no-repeat center center/cover;
+  background: #b71539 none no-repeat center center/cover;
   background-blend-mode: multiply;
-  background-color: inherit;
 }
 
 .checkerboard-item__title:before {
