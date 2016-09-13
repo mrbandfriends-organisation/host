@@ -42,15 +42,20 @@
     @include mq(large) {
         @include half-container;
     }
-}
 
-.split-feature__btn {
-    margin-top: $half-spacing-unit;
 
-    @include mq(medium) {
-        margin-top: $spacing-unit;
+    // Stopped using this class as its causing issues
+    // against my preference modifing .btn for this usage
+    //.split-feature__btn {
+    & .btn {
+        margin-top: $half-spacing-unit;
+
+        @include mq(medium) {
+            margin-top: $spacing-unit;
+        }
     }
 }
+
 
 // # Secondary pane
 // ==========================================================================
