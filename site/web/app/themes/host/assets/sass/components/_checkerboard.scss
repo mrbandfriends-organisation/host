@@ -1,18 +1,20 @@
 // ==========================================================================
 // # MODULE: CHECKERBOARD
 // ==========================================================================
+@import "../utils/checkerboard-utils";
 
 // ==========================================================================
 // # VARIABLES & MIXIN
 // ==========================================================================
 
-// Breakpoints
-$col-2-bp: 460px;
-$col-3-bp: 675px;
-$col-4-bp: 920px;
-$col-5-bp: 1135px;
-$col-6-bp: 1350px;
-$col-7-bp: 1565px;
+$checkerboard-conf: (
+    grid-width:     215px,  // base column width
+    cols:           7,      // maximum number of columns to work with
+    padding:        (       // paddings at various (min) breakpoints
+        (30px, false),
+        (60px, 768px)
+    )
+);
 
 // ==========================================================================
 // # CHECKERBOARD
@@ -36,148 +38,17 @@ $col-7-bp: 1565px;
 // ==========================================================================
 .checkerboard__item {
 
-    // Using custom break points here, because this is a very designed component that doesn’t necessarily mesh with the
-    // standard breakpoints.
-    // These are all based on an absolute minimum width of 215px per grid square, and take the site border into account
-    // (30px below 768px, 60 above…)
-    @include mq($from: $col-2-bp, $until:$col-3-bp)  {
-        @include grid-column(1, 2);
+    @for $i from 1 through map-get($checkerboard-conf, cols) {
 
-        &:nth-of-type(2),
-        &:nth-of-type(3),
-        &:nth-of-type(6),
-        &:nth-of-type(7),
-        &:nth-of-type(10),
-        &:nth-of-type(11),
-        &:nth-of-type(14),
-        &:nth-of-type(15),
-        &:nth-of-type(17) {
-            .checkerboard-item__title {
-                background-image: none!important;
-                background-color: transparent!important;
-            }
-        }
+        @include checkerboard-breakpoint($i);
 
-        &:nth-of-type(2n) {
-            .checkerboard-item__content {
-                left: calc(-100% + -5px);
-            }
-        }
+        .checkerboard-item__title { background-color: inherit; }
+
     }
-    @include mq($from: $col-3-bp, $until:$col-4-bp)  {
-        @include grid-column(1, 3);
-
-        &:nth-of-type(2n) {
-            .checkerboard-item__title {
-                background-image: none!important;
-                background-color: transparent!important;
-            }
-        }
-
-        &:nth-of-type(3n) {
-            .checkerboard-item__content {
-                left: calc(-100% + -5px);
-            }
-        }
-    }
-    @include mq($from: $col-4-bp, $until:$col-5-bp)  {
-        @include grid-column(1, 4);
-
-        &:nth-of-type(2),
-        &:nth-of-type(4),
-        &:nth-of-type(5),
-        &:nth-of-type(7),
-        &:nth-of-type(10),
-        &:nth-of-type(12),
-        &:nth-of-type(13),
-        &:nth-of-type(15),
-        &:nth-of-type(17),
-        &:nth-of-type(19) {
-            .checkerboard-item__title {
-                background-image: none!important;
-                background-color: transparent!important;
-            }
-        }
-
-        &:nth-of-type(4n) {
-            .checkerboard-item__content {
-                left: calc(-100% + -5px);
-            }
-        }
-    }
-
-    @include mq($from: $col-5-bp, $until:$col-6-bp) {
-        @include grid-column(1, 5);
-
-        &:nth-of-type(2),
-        &:nth-of-type(4),
-        &:nth-of-type(6),
-        &:nth-of-type(8),
-        &:nth-of-type(10),
-        &:nth-of-type(12),
-        &:nth-of-type(14),
-        &:nth-of-type(16),
-        &:nth-of-type(18) {
-            .checkerboard-item__title {
-                background-image: none!important;
-                background-color: transparent!important;
-            }
-        }
-
-        &:nth-of-type(4n) {
-            .checkerboard-item__content {
-                left: calc(-100% + -5px);
-            }
-        }
-
-        &:nth-of-type(5n) {
-            .checkerboard-item__content {
-                left: calc(-100% + -5px);
-            }
-        }
-    }
-
-    @include mq($from: $col-6-bp) {
-        @include grid-column(1, 6);
-
-        &:nth-of-type(2),
-        &:nth-of-type(4),
-        &:nth-of-type(4),
-        &:nth-of-type(6),
-        &:nth-of-type(7),
-        &:nth-of-type(9),
-        &:nth-of-type(11),
-        &:nth-of-type(14),
-        &:nth-of-type(16),
-        &:nth-of-type(18),
-        &:nth-of-type(19) {
-            .checkerboard-item__title {
-                background-image: none!important;
-                background-color: transparent!important;
-            }
-        }
-
-        &:nth-of-type(6n) {
-
-            .checkerboard-item__content {
-                left: calc(-100% + -5px);
-            }
-        }
-    }
-    //@media (min-width: rem($col-7-bp)) { @include grid-column(1, 7); }
 
     &:nth-child(3n)   { background: #b0193b; }
     &:nth-child(3n+1) { background: #f42352; }
     &:nth-child(3n+2) { background: #c80b35; }
-}
-
-
-.checkerboard-item__title {
-    background-blend-mode: multiply;
-
-    background-color: rgba(#b0193b, 0.85)!important;
-    //&:nth-child(3n+1) { background-color: rgba(#f42352, 0.5); }
-    //&:nth-child(3n+2) { background-color: rgba(#c80b35, 0.5); }
 }
 
 // Final item
@@ -196,10 +67,6 @@ $col-7-bp: 1565px;
         @include mq(small) {
             padding: $spacing-unit;
         }
-
-        @include mq($until: $col-3-bp) {
-            text-align: center;
-        }
     }
 
     p { margin: 0; }
@@ -210,26 +77,19 @@ $col-7-bp: 1565px;
 // ==========================================================================
 .checkerboard-item {
     position: relative;
+    background: inherit;
 
     &.-active {
         z-index:    2;
         box-shadow: #fff 0 0 0 5px;
-
-        // removing focus for active item on title
-        .checkerboard-item__title .checkerboard-item__link {
-            &:focus {
-                outline: none;
-            }
-        }
     }
 }
 
 // Tile
 // ==========================================================================
 .checkerboard-item__title {
-    background: transparent none no-repeat center center/cover;
-
-
+    background: tint(red) none no-repeat center center/cover;
+    background-blend-mode: multiply;
 
     &:before {
         display: inline-block;
@@ -259,6 +119,8 @@ $col-7-bp: 1565px;
     font-size:      rem(21);
     text-align:     center;
     vertical-align: middle;
+
+    .-active &:focus { outline: none; }
 }
 
 // Content
@@ -276,7 +138,7 @@ $col-7-bp: 1565px;
 
     .btn {
         display: block;
-        margin-top: rem(10)!important;
+        margin-top: rem(10) !important; //scss-lint:disable ImportantRule
         white-space: nowrap;
     }
 
@@ -301,7 +163,7 @@ $col-7-bp: 1565px;
 }
 
 .checkerboard-item__btn {
-
+    // scss-lint:disable EmptyRule
 }
 
 .checkerboard-item__feeling-lucky { color: brand(grape); }
