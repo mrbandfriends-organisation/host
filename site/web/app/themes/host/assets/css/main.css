@@ -324,11 +324,11 @@ a {
   text-decoration: none;
 }
 
-a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link) {
+a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):not(.footer-up-arrow__link) {
   position: relative;
 }
 
-a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):after {
+a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):not(.footer-up-arrow__link):after {
   content: "";
   position: absolute;
   width: 0;
@@ -340,12 +340,12 @@ a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-ma
   transition: width ease-in-out 0.25s;
 }
 
-a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):hover, a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):focus {
+a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):not(.footer-up-arrow__link):hover, a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):not(.footer-up-arrow__link):focus {
   text-decoration: none;
   transition: color ease-in-out 0.25s;
 }
 
-a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):hover:after, a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):focus:after {
+a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):not(.footer-up-arrow__link):hover:after, a:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):not(.footer-up-arrow__link):focus:after {
   width: 100%;
 }
 
@@ -3272,7 +3272,7 @@ a.btn {
 }
 
 .footer {
-  padding: 4.375rem 1.875rem;
+  padding: 2.5rem 1.875rem;
   background: #1c222d;
   color: #fff;
   font-size: 0.8125rem;
@@ -3370,9 +3370,19 @@ a.btn {
 
 .footer-up-arrow-container {
   position: relative;
-  top: -2.5rem;
+  top: -1.25rem;
   -ms-flex-pack: center;
       justify-content: center;
+}
+
+.footer-up-arrow__link {
+  position: relative;
+  transform: translate3d(0, 0, 0);
+  transition: all ease-in-out 0.25s;
+}
+
+.footer-up-arrow__link:hover, .footer-up-arrow__link:focus {
+  transform: translate3d(0, -0.1875rem, 0);
 }
 
 .footer-up-arrow__icon {
