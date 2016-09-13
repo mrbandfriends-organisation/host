@@ -15,11 +15,12 @@
 
         // b. checkerboarding images
         #{checkerboard-nth-children-for($num-cols)} {
-            .checkerboard-item__title { background-image: none !important; } // scss-lint:disable ImportantRule
-        }
+            .checkerboard-item__title {
+                background-image: none !important;  // scss-lint:disable ImportantRule
 
-        // c. other content
-        @content;
+                @content;
+            }
+        }
     }
 }
 
