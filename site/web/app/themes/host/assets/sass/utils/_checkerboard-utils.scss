@@ -1,0 +1,104 @@
+// ==========================================================================
+// # Builds custom CSS for a specific number of columns
+// ==========================================================================
+@mixin checkerboard-breakpoint($num-cols) {
+
+    // 1. get breakpoints for mq()
+    $bp-from: checkerboard-breakpoint-for($num-cols);
+    $bp-to:   if($num-cols == map-get($checkerboard-conf, cols), false, checkerboard-breakpoint-for($num-cols + 1));
+
+    // 2. output the breakpoint
+    @include mq($from: $bp-from, $until: $bp-to) {
+
+        // a. width stuff
+        @include grid-column(1, $num-cols);
+
+        // b. checkerboarding images
+        #{checkerboard-nth-children-for($num-cols)} {
+            .checkerboard-item__title { background-image: none !important; } // scss-lint:disable ImportantRule
+        }
+
+        // z. content
+        @content;
+    }
+}
+
+// ==========================================================================
+// # Calculates breakpoint dimension for a given number of columns
+// ==========================================================================
+@function checkerboard-breakpoint-for($num-cols) {
+
+    // 1. calculate base width
+    $width: $num-cols * map-get($checkerboard-conf, grid-width);
+
+    // 2. add padding and return
+    @return $width + checkerboard-padding-for($width);
+}
+
+// ==========================================================================
+// # Returns the additional space required at a given dimension
+// ==========================================================================
+@function checkerboard-padding-for($width) {
+
+    // 0. set up a return value
+    $ret: 0;
+
+    // 1. go through list of paddings
+    @each $padding, $wd in map-get($checkerboard-conf, padding) {
+
+        // a. if we’re larger than the width, or it’s false (default), update our inner var
+        @if (($wd == false) or ($width > $wd))
+        {
+            $ret: $padding;
+        }
+    }
+
+    // 2. return
+    @return $ret;
+}
+
+// ==========================================================================
+// # Calculates nth-children required for a given number of columns
+// ==========================================================================
+@function checkerboard-nth-children-for($num-cols) {
+
+    // 1. if it’s an odd number, it’s real simple
+    @if ($num-cols % 2 == 1)
+    {
+        @return "&:nth-child(even)";
+    }
+
+    // 2. for an even number of columns, things get a lot more Interesting.
+    //    We start by calcuting the nth-base: this is twice the number of columns, because the checkerboard alternates
+    //    between odd and even rows.
+    $nth-base: 2 * $num-cols;
+
+    // 3. start with the real simple stuff
+    $return: "&:nth-child(#{$nth-base}n)";
+
+    // 4. generate nth-child selectors for odd rows
+    $i: 1;
+    @while $i < $num-cols {
+
+        // a. generate additional selector
+        $return: "#{$return}, &:nth-child(#{$nth-base}n+#{$i})";
+
+        // b. increment
+        $i: $i + 2;
+    }
+
+    // 5. generate nth-child selectors for even rows
+    $i: $num-cols + 2;
+    @while $i < $nth-base {
+
+        // a. generate selector
+        $return: "#{$return}, &:nth-child(#{$nth-base}n+#{$i})";
+
+        // b. increment
+        $i: $i + 2;
+    }
+
+    // 6. and that’s it. Simple, right?
+    @return $return;
+
+}
