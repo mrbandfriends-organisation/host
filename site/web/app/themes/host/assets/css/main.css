@@ -296,7 +296,7 @@ html *:last-child {
   font-family: "CircularWeb";
   font-style: normal;
   font-weight: bold;
-  src: url("../fonts/circular/std.woff2") format("woff2"), url("../fonts/circular/std.woff") format("woff");
+  src: url("../fonts/circular/bold.woff2") format("woff2"), url("../fonts/circular/bold.woff") format("woff");
 }
 
 html {
