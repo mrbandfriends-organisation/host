@@ -10,7 +10,7 @@
 // # BASE
 // ==========================================================================
 .footer {
-    padding:    rem(70) rem(30);
+    padding:    rem(40) rem(30);
     background: tint(ink);
     color:      #fff;
 
@@ -222,7 +222,7 @@
 
 .footer-up-arrow-container {
     position: relative;
-    top: rem(-40);
+    top: rem(-20);
     justify-content: center;
 
     @include mq(medium) {
@@ -230,7 +230,16 @@
     }
 }
 
-// .footer-up-arrow__link {}
+.footer-up-arrow__link {
+    position: relative;
+    transform: translate3d(0,0,0);
+    transition: all ease-in-out 0.25s;
+
+    &:hover,
+    &:focus {
+        transform: translate3d(0, rem(-3), 0);
+    }
+}
 
 .footer-up-arrow__icon {
     display: block;
