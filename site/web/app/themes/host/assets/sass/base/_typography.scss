@@ -21,6 +21,8 @@ body {
     background: brand(white);
     color: brand(ink);
     font: normal rem(18) $base-font-family;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 // ==========================================================================

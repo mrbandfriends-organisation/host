@@ -25,7 +25,7 @@ $image = Utils\ob_load_template_part('templates/components/bleed-image', array(
  ?>
 
 <?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
-    'color'         => 'fg-red',
-    'content'       => $main_content,
-    'second'    => $image
+    'color'   => 'fg-red',
+    'content' => $main_content,
+    'second'  => $image
 )); ?>

@@ -95,3 +95,13 @@ function banner_nav_language_switcher( $nav, $args ) {
 
     return $nav;
 }
+
+
+/**
+ * Open link in new tab
+ *
+ * Safly opens link in a new tab
+ */
+function link_open_new_tab_attrs() {
+    echo esc_attr('target="_blank" rel="noopener" rel="noreferrer"');
+}

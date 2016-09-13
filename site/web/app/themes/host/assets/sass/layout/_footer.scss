@@ -28,13 +28,13 @@
 .footer__section {
 
     & + & {
-        margin-top: rem(50);
+        margin-top: rem(30);
 
-        &:last-of-type {
-            @include mq($until: medium) {
-                margin-top: 0;
-            }
-        }
+        //&:last-of-type {
+        //    @include mq($until: medium) {
+        //        margin-top: 0;
+        //    }
+        //}
     }
 }
 
@@ -160,7 +160,8 @@
 
         a,
         small {
-            display: block;
+            // Added to stop underlines on mobile being waaaaay to wide
+            display: inline;
 
             @include mq($until: medium) {
                 // Added to match other footer menu items

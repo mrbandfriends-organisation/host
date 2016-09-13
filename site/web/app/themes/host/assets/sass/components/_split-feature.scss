@@ -42,15 +42,20 @@
     @include mq(large) {
         @include half-container;
     }
-}
 
-.split-feature__btn {
-    margin-top: $half-spacing-unit;
 
-    @include mq(medium) {
-        margin-top: $spacing-unit;
+    // Stopped using this class as its causing issues
+    // against my preference modifing .btn for this usage
+    //.split-feature__btn {
+    & .btn {
+        margin-top: $half-spacing-unit;
+
+        @include mq(medium) {
+            margin-top: $spacing-unit;
+        }
     }
 }
+
 
 // # Secondary pane
 // ==========================================================================
@@ -61,7 +66,7 @@
 }
 
 // ==========================================================================
-// # ALIGNMENT
+// # MODIFIER: ALIGNMENT
 // ==========================================================================
 .split-feature.-left {
 
@@ -88,6 +93,36 @@
         .split-feature__content {
             @include container("right");
             padding-right: 0;
+        }
+    }
+}
+
+
+// ==========================================================================
+// # MODIFIER: TWIN CONTENT
+//
+// When both sides of the feature are content and one is not a fullbleed image
+// ==========================================================================
+.split-feature.-twin-content {
+    .split-feature__main  {
+        .split-feature__content {
+            padding-bottom: $spacing-unit;
+
+            @include mq(large) {
+                padding-bottom: $double-spacing-unit;
+            }
+        }
+    }
+
+    .split-feature__secondary {
+        padding-bottom: $spacing-unit;
+
+        @include mq(medium) {
+            padding-bottom: $double-spacing-unit;
+        }
+
+        @include mq(large) {
+            padding-bottom: 0;
         }
     }
 }
