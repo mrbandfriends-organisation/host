@@ -3192,7 +3192,7 @@ a.btn {
 
 .nav-primary--banner .menu-item .nav-primary__link {
   display: block;
-  padding: 0.5rem 0.9375rem;
+  padding: 0.5rem 0.9375rem 0;
   color: #1c222d;
   font-size: 1rem;
   line-height: 1.25rem;
@@ -5255,6 +5255,11 @@ img.mfp-img {
     padding: 3.125rem;
     padding-right: 0;
   }
+  .banner__inner{
+    -ms-flex-align: end;
+    -ms-grid-row-align: flex-end;
+    align-items: flex-end;
+  }
   .menu-item--banner-language-switcher{
     display: block;
     margin-left: 20px;
@@ -5818,6 +5823,9 @@ img.mfp-img {
   .nav-primary{
     display: none;
   }
+  .nav-utilities{
+    display: none;
+  }
   .social-media-icons-list{
     float: left;
   }
@@ -5865,9 +5873,6 @@ img.mfp-img {
   }
   .gc--fixed-ratio.m-ar100:before{
     padding-top: 100%;
-  }
-  .nav-utilities{
-    display: none;
   }
   #menu-footer-utilities.nav-footer-utilities li{
     margin-bottom: 0;

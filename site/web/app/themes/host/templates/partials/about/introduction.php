@@ -20,7 +20,7 @@ $image = $background_image['url'];
  ?>
 
 <?php echo Utils\ob_load_template_part('templates/components/billboard', array(
-    'color'         => 'mint-alt',
+    'color'         => 'mint',
     'content'       => $main_content,
     'background'    => $image
 )); ?>
