@@ -37,7 +37,7 @@
             align-self: flex-start;
             margin: $spacing-unit rem(30) (-$half-spacing-unit) $spacing-unit;
         }
-        
+
         @include mq(xlarge) {
             margin: $double-spacing-unit rem(30) ($double-spacing-unit - $half-spacing-unit) $double-spacing-unit;
         }
