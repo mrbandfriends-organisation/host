@@ -12,21 +12,10 @@
   $rooms_description = get_field('rooms_description');
 ?>
 
-  <h2>
-    <?php echo esc_html($rooms_title_1); ?><br />
-    <?php echo esc_html($rooms_title_2); ?>
-  </h2>
-
-  <?php echo $rooms_description; ?>
-
-
 <?php
 // Find connected pages
-$connected_rooms = new WP_Query( array(
-  'connected_type' => 'room_to_building',
-  'connected_items' => get_queried_object(),
-  'nopaging' => true,
-) );
+
+ $connected_rooms =  host_buildings_find_connected_rooms(get_the_id());
 
   // Display connected pages
   if ( $connected_rooms->have_posts() ) :
@@ -95,8 +84,6 @@ $connected_rooms = new WP_Query( array(
 
           <?php
                 endwhile;
-            else :
-                // no rows found
             endif;
           ?>
 
@@ -108,3 +95,11 @@ $connected_rooms = new WP_Query( array(
     wp_reset_postdata();
     endif;
   ?>
+  <?php $title = esc_html($rooms_title_1) . '<br />' . esc_html($rooms_title_2); ?>
+
+  <?php Utils\ob_load_template_part('templates/components/room-list/index', [
+      'id'    => 'dfjd',
+      'title' => $title,
+      'intro' => $rooms_description,
+      'rooms' => $connected_rooms
+  ]); ?>
