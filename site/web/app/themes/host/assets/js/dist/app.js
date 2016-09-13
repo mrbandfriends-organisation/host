@@ -52,7 +52,7 @@
 	 */
 
 	// NPM Modules
-	__webpack_require__(19);
+	__webpack_require__(20);
 
 	// extend things
 	__webpack_require__(4);
@@ -10901,7 +10901,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var debounce = __webpack_require__(22);
+	var debounce = __webpack_require__(19);
 
 	function Slideshow()
 	{
@@ -11234,9 +11234,9 @@
 
 /***/ },
 /* 13 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	/* WEBPACK VAR INJECTION */(function($) {// jshint latedef:nofunc
+	// jshint latedef:nofunc
 	/**
 	 * Checkerboard UI code.
 	 */
@@ -11245,47 +11245,162 @@
 	    "use strict";
 
 	    // ivars
-	    var oEl        = $(this);
-	    var aoChildren = oEl.find('.js-checkerboard__item');
+	    var elRoot   = this;
+	    var aElChild = this.querySelectorAll('.js-checkerboard__item').toArray();
+	    var aRow     = [];
 
-	    if (aoChildren.length > 0)
+	    /**
+	     * Reindexes the position of everything in the grid
+	     */
+	    function reindex()
 	    {
-	        init();
+	        // 0. refs
+	        var iLastTop = -1;
+	        var iRowPtr  = -1;
+
+	        // 1. zero everything
+	        aRow = [];
+
+	        // 2. go through all kids
+	        aElChild.forEach(function(el)
+	        {
+	            // a. get the offset
+	            var iOff = el.offsetTop;
+
+	            // b. if that’s not the current one
+	            if (iLastTop !== iOff)
+	            {
+	                // increment pointer and create new row
+	                aRow.push([]);
+	                iRowPtr++;
+
+	                // store last top
+	                iLastTop = iOff;
+	            }
+
+	            // c. add it
+	            aRow[iRowPtr].push(el);
+	        });
 	    }
-	    return true;
+
+	    /**
+	     * Repositions items in the grid
+	     */
+	    function reposition()
+	    {
+	        // 1. find the current changed item for later
+	        var elChangedItem = elRoot.querySelector('.js-checkerboard__item.-active');
+	        var iWidth        = (elChangedItem !== null) ? elChangedItem.querySelector('.js-checkerboard__content').scrollWidth : 0;
+
+	        // 2. iterate through our rows
+	        aRow.forEach(function(aEl)
+	        {
+	            // a. zero things
+	            var fLeft   = 0;
+	            var fRight  = 0;
+
+	            // b. look for things
+	            var iChangedIdx = aEl.indexOf(elChangedItem);
+
+	            // c. if it’s in this row
+	            if (iChangedIdx != -1)
+	            {
+	                // set offsets
+	                fLeft  = iWidth * (iChangedIdx / (aEl.length - 1));
+	                fRight = iWidth - fLeft;
+	            }
+
+	            // d. set things
+	            aEl.forEach(function(el, iCurrIdx)
+	            {
+	                el.style.transform = 'translateX('+(iCurrIdx <= iChangedIdx ? 0 - fLeft : fRight)+'px)'
+	            });
+	        });
+
+	        return true;
+	    }
+
+	    /**
+	     * Handles clicking on an item
+	     */
+	    function fnClick(ev)
+	    {
+	        // 1. stop normal stuff
+	        ev.stopPropagation();
+	        ev.preventDefault();
+
+	        // 2. get the item it belongs to
+	        var elItem = this;
+	        while ((elItem !== null) && !elItem.classList.contains('js-checkerboard__item'))
+	        {
+	            elItem = elItem.parentNode;
+	        }
+
+	        // 3. get any possible offender
+	        var elOffender = elRoot.querySelector('.js-checkerboard__item.-active');
+	        if ((elOffender !== null) && (elOffender != elItem))
+	        {
+	            elOffender.classList.remove('-active');
+	        }
+
+	        // 4. and add our new classes
+	        elItem.classList.toggle('-active');
+
+	        // 5. recalculate position
+	        reposition();
+
+	        return false;
+	    }
 
 	    /**
 	     * Constructor-esque logic
 	     */
 	    function init()
 	    {
-	        // 1. bind to clicking on trigger elements
-	        oEl.on('click', '.js-checkerboard__trigger', fnHandleClick);
-	    }
-
-	    /**
-	     * Click handler
-	     */
-	    function fnHandleClick(event)
-	    {
-	        // 1. get the victim
-	        var oVictim = $(this).parents('.js-checkerboard__item'); // jshint ignore:line
-
-	        // 2. if it’s closed, make sure all other children are closed
-	        if (!oVictim.hasClass('-active'))
+	        // 0. short-circuit
+	        if (aElChild.length === 0)
 	        {
-	            aoChildren.removeClass('-active');
-
+	            return false;
 	        }
 
-	        // 3. toggle class
-	        oVictim.toggleClass('-active');
+	        // 1. bind to triggers
+	        elRoot.querySelectorAll('.js-checkerboard__trigger').each(function(el)
+	        {
+	            el.addEventListener('click', fnClick);
+	        });
 
-	        event.preventDefault();
-	        event.stopPropagation();
+	        // 2. bind to resize on the window
+	        var bBlock = false;
+	        window.addEventListener('resize', function()
+	        {
+	            // 1. if we’re blocked
+	            if (bBlock)
+	            {
+	                return;
+	            }
 
-	        return false;
+	            // 2. if not, trigger things
+	            bBlock = true;
+	            setTimeout(function()
+	            {
+	                // a. reindex and reposition
+	                reindex();
+	                reposition();
+
+	                // b. remove the lock
+	                bBlock = false;
+
+	            }, 100);
+
+	        });
+
+	        // 3. reindex everything
+	        reindex();
+
 	    }
+
+	    /** Initer */
+	    return init();
 	}
 
 	module.exports = (function()
@@ -11298,7 +11413,6 @@
 	    });
 	})();
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
 /* 14 */
@@ -11418,7 +11532,7 @@
 	    if (!maps_loaded && !maps_loading)
 	    {
 	        maps_loading = true;
-	        __webpack_require__(21)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+	        __webpack_require__(22)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
 	    }
 	    else if (maps_loaded)
 	    {
@@ -11464,52 +11578,9 @@
 
 /***/ },
 /* 19 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(20);
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 20 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(1);
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 21 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
-	(function( w ){
-		var loadJS = function( src, cb ){
-			"use strict";
-			var ref = w.document.getElementsByTagName( "script" )[ 0 ];
-			var script = w.document.createElement( "script" );
-			script.src = src;
-			script.async = true;
-			ref.parentNode.insertBefore( script, ref );
-			if (cb && typeof(cb) === "function") {
-				script.onload = cb;
-			}
-			return script;
-		};
-		// commonjs
-		if( true ){
-			module.exports = loadJS;
-		}
-		else {
-			w.loadJS = loadJS;
-		}
-	}( typeof global !== "undefined" ? global : this ));
-
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 22 */
 /***/ function(module, exports) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {/**
+	/**
 	 * lodash (Custom Build) <https://lodash.com/>
 	 * Build: `lodash modularize exports="npm" -o ./`
 	 * Copyright jQuery Foundation and other contributors <https://jquery.org/>
@@ -11525,7 +11596,9 @@
 	var NAN = 0 / 0;
 
 	/** `Object#toString` result references. */
-	var symbolTag = '[object Symbol]';
+	var funcTag = '[object Function]',
+	    genTag = '[object GeneratorFunction]',
+	    symbolTag = '[object Symbol]';
 
 	/** Used to match leading and trailing whitespace. */
 	var reTrim = /^\s+|\s+$/g;
@@ -11542,21 +11615,12 @@
 	/** Built-in method references without a dependency on `root`. */
 	var freeParseInt = parseInt;
 
-	/** Detect free variable `global` from Node.js. */
-	var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
-
-	/** Detect free variable `self`. */
-	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
-
-	/** Used as a reference to the global object. */
-	var root = freeGlobal || freeSelf || Function('return this')();
-
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
 
 	/**
 	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
 	 * of values.
 	 */
 	var objectToString = objectProto.toString;
@@ -11581,27 +11645,23 @@
 	 * }, _.now());
 	 * // => Logs the number of milliseconds it took for the deferred invocation.
 	 */
-	var now = function() {
-	  return root.Date.now();
-	};
+	function now() {
+	  return Date.now();
+	}
 
 	/**
 	 * Creates a debounced function that delays invoking `func` until after `wait`
 	 * milliseconds have elapsed since the last time the debounced function was
 	 * invoked. The debounced function comes with a `cancel` method to cancel
 	 * delayed `func` invocations and a `flush` method to immediately invoke them.
-	 * Provide `options` to indicate whether `func` should be invoked on the
-	 * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
-	 * with the last arguments provided to the debounced function. Subsequent
-	 * calls to the debounced function return the result of the last `func`
-	 * invocation.
+	 * Provide an options object to indicate whether `func` should be invoked on
+	 * the leading and/or trailing edge of the `wait` timeout. The `func` is invoked
+	 * with the last arguments provided to the debounced function. Subsequent calls
+	 * to the debounced function return the result of the last `func` invocation.
 	 *
-	 * **Note:** If `leading` and `trailing` options are `true`, `func` is
-	 * invoked on the trailing edge of the timeout only if the debounced function
-	 * is invoked more than once during the `wait` timeout.
-	 *
-	 * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
-	 * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+	 * **Note:** If `leading` and `trailing` options are `true`, `func` is invoked
+	 * on the trailing edge of the timeout only if the debounced function is
+	 * invoked more than once during the `wait` timeout.
 	 *
 	 * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
 	 * for details over the differences between `_.debounce` and `_.throttle`.
@@ -11762,8 +11822,33 @@
 	}
 
 	/**
+	 * Checks if `value` is classified as a `Function` object.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 0.1.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+	 * @example
+	 *
+	 * _.isFunction(_);
+	 * // => true
+	 *
+	 * _.isFunction(/abc/);
+	 * // => false
+	 */
+	function isFunction(value) {
+	  // The use of `Object#toString` avoids issues with the `typeof` operator
+	  // in Safari 8 which returns 'object' for typed array and weak map constructors,
+	  // and PhantomJS 1.9 which returns 'function' for `NodeList` instances.
+	  var tag = isObject(value) ? objectToString.call(value) : '';
+	  return tag == funcTag || tag == genTag;
+	}
+
+	/**
 	 * Checks if `value` is the
-	 * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+	 * [language type](http://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-language-types)
 	 * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
 	 *
 	 * @static
@@ -11872,7 +11957,7 @@
 	    return NAN;
 	  }
 	  if (isObject(value)) {
-	    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+	    var other = isFunction(value.valueOf) ? value.valueOf() : value;
 	    value = isObject(other) ? (other + '') : other;
 	  }
 	  if (typeof value != 'string') {
@@ -11886,6 +11971,48 @@
 	}
 
 	module.exports = debounce;
+
+
+/***/ },
+/* 20 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(21);
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(1);
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 22 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
+	(function( w ){
+		var loadJS = function( src, cb ){
+			"use strict";
+			var ref = w.document.getElementsByTagName( "script" )[ 0 ];
+			var script = w.document.createElement( "script" );
+			script.src = src;
+			script.async = true;
+			ref.parentNode.insertBefore( script, ref );
+			if (cb && typeof(cb) === "function") {
+				script.onload = cb;
+			}
+			return script;
+		};
+		// commonjs
+		if( true ){
+			module.exports = loadJS;
+		}
+		else {
+			w.loadJS = loadJS;
+		}
+	}( typeof global !== "undefined" ? global : this ));
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 

@@ -24,15 +24,8 @@
         <ul class="checkerboard__list grid">
             <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
                 <?php
-                    // Image should only show every two items
-                    //if ( $count%2 == 0 ):
-                        //$carousel_images = (get_field('carousel_images') ? get_field('carousel_images') : null);
-                        //$carousel_image = $carousel_images[0]['sizes']['medium'];
-                    //else:
-                    //$carousel_image = '';
-                    //endif;
                     $carousel_image = get_template_directory_uri() . '/assets/images/london.jpg';
-                 ?>
+                ?>
                 <li class="checkerboard__item gc">
                     <?php echo Utils\ob_load_template_part('templates/partials/home/home-locations-item.php', array(
                         'label'                 => get_the_title(),
@@ -45,7 +38,7 @@
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
 
-            <li class="checkerboard__sell gc">
+            <li class="checkerboard__sell gc js-checkerboard__item">
                 <div class="box box--ink">
                     <h3>Featured home<br>Our latest or greatest</h3>
 
