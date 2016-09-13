@@ -20,14 +20,12 @@
 
 <?php echo Utils\esc_textarea__($reasons_content); ?>
 
-
 <?php if ( !empty($reasons) ): ?>
     <ul class="separated-list">
         <?php foreach ($reasons as $reason): ?>
             <li class="separated-list__item">
                 <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
-                    //"icon"       => "bills-1",
-                    'icon'       => $reason['icon'],
+                    'icon'       => Utils\strip_file_format($reason['icon']),
                     "classnames" => "separated-list__icon"
                 )); ?>
                 <?php echo esc_html($reason['reason_name']); ?>
@@ -35,27 +33,6 @@
         <?php endforeach; ?>
     </ul>
 <?php endif; ?>
-    <!-- <li class="separated-list__item">
-    " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
-        "icon"          => "travel-location-2",
-        "classnames"    => "separated-list__icon svg-icon--id-card"
-    )) . "
-        24 hour security and CCTV
-    </li>
-    <li class="separated-list__item">
-    " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
-        "icon"          => "security-1",
-        "classnames"    => "separated-list__icon svg-icon--id-card"
-    )) . "
-        Close to campuses and city centres
-    </li>
-    <li class="separated-list__item">
-    " . Utils\ob_load_template_part('templates/partials/shared/icon', array(
-        "icon"          => "insurance-1",
-        "classnames"    => "separated-list__icon svg-icon--id-card"
-    )) . "
-        Award-winning value
-    </li> -->
 
 <?php if ( !empty($reasons_button_text) && !empty($reasons_button_link) ): ?>
     <a href="<?php echo esc_url($reasons_button_link) ?>" class="btn split-feature__btn">
