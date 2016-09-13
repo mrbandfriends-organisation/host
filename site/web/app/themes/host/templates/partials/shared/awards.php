@@ -34,7 +34,7 @@
                 <ul class="awards <?php echo esc_attr($awards_logos_modifier); ?>">
                     <?php foreach ($award_logos as $logo_item) : ?>
                         <li class="awards__item">
-                            <img src="<?php echo esc_html( $logo_item['logo']['url'] ); ?>" alt="<?php echo esc_html( $logo_item['title'] ); ?>" class="awards__image" />
+                            <img class="awards__image" src="<?php echo esc_html( $logo_item['logo']['url'] ); ?>" alt="<?php echo esc_html( $logo_item['title'] ); ?>" class="awards__image" />
                         </li>
                     <?php endforeach; ?>
                 </ul>
