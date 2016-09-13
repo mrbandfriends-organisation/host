@@ -178,6 +178,33 @@
                     },
                     "default_value": "",
                     "placeholder": ""
+                },
+                {
+                    "key": "field_57d7ccda50127",
+                    "label": "Button type",
+                    "name": "button_type",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "default": "Default",
+                        "outline": "Outline"
+                    },
+                    "default_value": [
+                        "default"
+                    ],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "return_format": "value",
+                    "placeholder": ""
                 }
             ]
         },
@@ -836,5 +863,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1472739857
+    "modified": 1473760527
 }
