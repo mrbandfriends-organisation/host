@@ -3273,7 +3273,7 @@ a.btn {
 }
 
 .footer__section + .footer__section {
-  margin-top: 3.125rem;
+  margin-top: 1.875rem;
 }
 
 .footer__brand svg {
@@ -3314,7 +3314,7 @@ a.btn {
 
 #menu-footer-utilities.nav-footer-utilities li a,
 #menu-footer-utilities.nav-footer-utilities li small {
-  display: block;
+  display: inline;
   line-height: 1.5;
 }
 
@@ -5828,9 +5828,6 @@ img.mfp-img {
   }
   .nav-utilities{
     display: none;
-  }
-  .footer__section + .footer__section:last-of-type{
-    margin-top: 0;
   }
   #menu-footer-utilities.nav-footer-utilities li{
     margin-bottom: 0;
