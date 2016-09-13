@@ -7,17 +7,24 @@
     flex-wrap: wrap;
 
     max-width: rem(405);
-    margin: 0;
+    //margin: 0 0 -$half-spacing-unit 0;
+    margin: 0 0 (-$half-spacing-unit);
     list-style: none outside;
 
-    @include mq($until: large) {
-        padding-bottom: $spacing-unit;
+    @include mq(large) {
+        //padding-bottom: $spacing-unit;
+        margin: $spacing-unit 0 $half-spacing-unit;
     }
 }
 
 .awards__item {
-    flex: 33%;
-    padding: $half-spacing-unit $quarter-spacing-unit;
+    width: 33.33%;
+    padding: 0 $quarter-spacing-unit;
+    margin-bottom: $half-spacing-unit;
+
+    @include mq(large) {
+        //padding: $half-spacing-unit $quarter-spacing-unit;
+    }
 }
 
 
@@ -25,10 +32,14 @@
 // # MODIFIER: AWARDS LEFT - text is on the left, images on right
 // ==========================================================================
 .awards {
-    .-left & {
+    &.-left {
         @include mq(large) {
             align-self: flex-start;
-            margin: $double-spacing-unit rem(30) $double-spacing-unit $double-spacing-unit;
+            margin: $spacing-unit rem(30) (-$half-spacing-unit) $spacing-unit;
+        }
+        
+        @include mq(xlarge) {
+            margin: $double-spacing-unit rem(30) ($double-spacing-unit - $half-spacing-unit) $double-spacing-unit;
         }
     }
 }

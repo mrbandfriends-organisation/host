@@ -277,12 +277,12 @@ body::after {
   right: 0;
 }
 
-*:first-child {
-  margin-top: 0 !important;
+html *:first-child {
+  margin-top: 0;
 }
 
-*:last-child {
-  margin-bottom: 0 !important;
+html *:last-child {
+  margin-bottom: 0;
 }
 
 @font-face {
@@ -2804,6 +2804,14 @@ a.btn {
   width: 100%;
 }
 
+.split-feature.-twin-content .split-feature__main .split-feature__content {
+  padding-bottom: 40px;
+}
+
+.split-feature.-twin-content .split-feature__secondary {
+  padding-bottom: 40px;
+}
+
 .billboard {
   padding: 0 1.25rem;
 }
@@ -2827,14 +2835,14 @@ a.btn {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   max-width: 25.3125rem;
-  margin: 0;
+  margin: 0 0 -20px;
   list-style: none outside;
 }
 
 .awards__item {
-  -ms-flex: 33%;
-      flex: 33%;
-  padding: 20px 10px;
+  width: 33.33%;
+  padding: 0 10px;
+  margin-bottom: 20px;
 }
 
 .hero {
@@ -4935,6 +4943,9 @@ img.mfp-img {
   .split-feature__content .btn{
     margin-top: 40px;
   }
+  .split-feature.-twin-content .split-feature__secondary{
+    padding-bottom: 80px;
+  }
   .listed-room{
     padding: 2.5rem;
   }
@@ -5200,6 +5211,12 @@ img.mfp-img {
     margin-left: 0;
     padding-right: 0;
   }
+  .split-feature.-twin-content .split-feature__main .split-feature__content{
+    padding-bottom: 80px;
+  }
+  .split-feature.-twin-content .split-feature__secondary{
+    padding-bottom: 0;
+  }
   .billboard{
     padding: 0 1.875rem;
   }
@@ -5211,10 +5228,13 @@ img.mfp-img {
   .billboard__secondary{
     margin: 0;
   }
-  .-left .awards{
+  .awards{
+    margin: 40px 0 20px;
+  }
+  .awards.-left{
     -ms-flex-item-align: start;
     align-self: flex-start;
-    margin: 80px 1.875rem 80px 80px;
+    margin: 40px 1.875rem -20px 40px;
   }
   .room-list__header{
     padding: 0 3.75rem;
@@ -5449,6 +5469,9 @@ img.mfp-img {
     width: 100%;
     max-width: none;
     max-height: 100%;
+  }
+  .awards.-left{
+    margin: 80px 1.875rem 60px 80px;
   }
   .listed-property__content{
     width: 100%;
@@ -5786,9 +5809,6 @@ img.mfp-img {
   }
   .billboard__inner{
     background-image: none !important;
-  }
-  .awards{
-    padding-bottom: 40px;
   }
   .stacked-gallery{
     min-height: 40vh;

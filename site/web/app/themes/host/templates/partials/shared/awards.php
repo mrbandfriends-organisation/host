@@ -13,7 +13,7 @@
 
 
 <?php if ( !empty($awards_description) && !empty($award_logos) ): ?>
-    <section class="band band--inset split-feature -left grid">
+    <section class="band band--inset split-feature -left -twin-content grid">
         <div class="box box--fg-mint split-feature__main gc l1-2">
             <div class="split-feature__content">
                 <?php if ( !empty($awards_title_1) && !empty($awards_title_2) ): ?>
