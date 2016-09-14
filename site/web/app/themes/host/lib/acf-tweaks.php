@@ -21,7 +21,6 @@ function my_acf_hide_gui( $show ) {
 }
 add_filter('acf/settings/show_admin', __NAMESPACE__ . '\\my_acf_hide_gui');
 
-
 function acf_add_gmaps_key() {
 
 	acf_update_setting('google_api_key', GMAPS_API_KEY);
