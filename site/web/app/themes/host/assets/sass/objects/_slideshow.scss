@@ -27,7 +27,7 @@
     & + & { display: none; }
 
     // if we’re in JS-enhanced mode, show things
-    .js-carousel--active & {
+    .js-slideshow--active & {
         position:  absolute;
         display:   block;
 
@@ -93,9 +93,10 @@
     min-width: 0;
     margin:    0;
 
-    transform: translateY(-50%);
+    transform:  translateY(-50%) scale(0);
     transition: background 200ms,
-                opacity    350ms;
+                opacity    350ms,
+                transform  0ms 350ms;
 
     border-radius: 0;
 
@@ -108,7 +109,13 @@
         .svg-icon { opacity: 1; }
     }
 
-    &.-show { opacity: 1; }
+    &.-show {
+        opacity: 1;
+
+        transform: translateY(-50%) scale(1);
+
+        transition-delay: 0ms, 0ms, 0ms;
+    }
 
     .svg-icon {
         transition: opacity 200ms;
@@ -133,5 +140,78 @@
 
     &:hover {
         background: rgba(255, 255, 255, 1);
+    }
+}
+
+// ==========================================================================
+// # Animate the slideshow
+// ==========================================================================
+@keyframes slideshow-ai-before {
+    99% { opacity: 0; transform: scale(1); }
+    to  { opacity: 0; transform: scale(0); }
+}
+@keyframes slideshow-ai-after {
+    90% {
+        width: 100%;
+        opacity: 1;
+        border-left-width: rem(40);
+        border-right-width: rem(40);
+    }
+    99% {
+        width: 100%;
+        opacity: 0;
+        border-left-width: rem(40);
+        border-right-width: rem(40);
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to  { transform: scale(0); }
+}
+@keyframes slideshow-ai-pagination {
+    from { opacity: 0; }
+    90%  { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+.slideshow--animate-in {
+    &:before,
+    &:after {
+        position: absolute;
+        z-index:  20;
+        content:  "";
+    }
+
+    // before is a semi-mask
+    &:before {
+        top: 0;
+        left: 0;
+
+        height: 100%;
+        width:  100%;
+
+        background: rgba(255, 255, 255, .3);
+    }
+
+    &:after {
+        top:    50%;
+        left:   50%;
+        height: 65%;
+        width:  rem(260);
+
+        border-left:  rem(70) solid rgba(255, 255, 255, 0.8);
+        border-right: rem(70) solid rgba(255, 255, 255, 0.8);
+
+        transform: translate(-50%, -50%);
+    }
+
+    .slideshow-pagination { opacity: 0; }
+
+    &.js-slideshow--active {
+
+        &:before { animation: slideshow-ai-before 1s .5s 1 forwards; }
+        &:after  { animation: slideshow-ai-after  1s .5s ease-out 1 forwards; }
+
+        .slideshow-pagination {
+            animation: slideshow-ai-pagination 1s .5s 1 forwards;
+        }
     }
 }
