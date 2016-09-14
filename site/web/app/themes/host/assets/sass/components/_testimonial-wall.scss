@@ -1,6 +1,8 @@
 // ==========================================================================
 // # Testimonial wall overrides
 // ==========================================================================
+// .testimonial-wall__testimonial {}
+
 .testimonial-wall__content {
     display: flex;
     flex-direction: column;
@@ -9,4 +11,21 @@
     width: 100%;
 
     p { margin: 0; }
+}
+
+.testimonial-wall__image {
+    display: flex;
+
+    @include mq($until: medium) {
+        display: none;
+    }
+}
+
+// ==========================================================================
+// # Testimonial wall overrides
+// ==========================================================================
+.testimonial-wall__testimonial--until-xxlarge-flip {
+    @include mq($until: xxlarge) {
+        flex-direction: row-reverse;
+    }
 }
