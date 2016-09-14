@@ -230,6 +230,13 @@
                 "operator": "==",
                 "value": "locations"
             }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "buildings"
+            }
         ]
     ],
     "menu_order": 10,
@@ -240,5 +247,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1473695151
+    "modified": 1473868148
 }
