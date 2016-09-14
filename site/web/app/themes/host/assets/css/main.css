@@ -2855,6 +2855,10 @@ a.btn {
   opacity: 0.000001;
 }
 
+.bleed-image--top {
+  background-position: top center;
+}
+
 .map__map {
   position: relative;
   padding-top: 50%;
