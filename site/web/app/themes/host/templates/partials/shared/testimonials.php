@@ -20,7 +20,7 @@
                 'location'  => $student_testimonials[0]['location']->post_title,
                 'name'  => $student_testimonials[0]['name'],
                 'testimonial'  => $student_testimonials[0]['testimonial'],
-                'image'     => $testimonial_feature['url']
+                'image'        => $student_testimonials[0]['image']['url']
             )); ?>
 
             <?php echo Utils\ob_load_template_part('templates/snippets/shared/testimonial-grid-2', array(
