@@ -18,14 +18,16 @@ $main_content = Utils\ob_load_template_part('templates/snippets/about/hassle-fre
     'section_1_button_link'         => $section_1_button_link
 ));
 
-$image = Utils\ob_load_template_part('templates/components/bleed-image', array(
-    'image'  => $section_1_image_gallery[0]['url']
-));
+// $image = Utils\ob_load_template_part('templates/components/bleed-image', array(
+//     'image'  => $section_1_image_gallery[0]['url']
+// ));
 
  ?>
 
 <?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
     'color'   => 'fg-red',
     'content' => $main_content,
-    'second'  => $image
+    'second'  => Utils\ob_load_template_part('templates/partials/about/hassle-free-carousel', array(
+        'carousel_images' => $section_1_image_gallery
+    ))
 )); ?>

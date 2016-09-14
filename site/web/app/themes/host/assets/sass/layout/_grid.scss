@@ -48,6 +48,12 @@
     }
 }
 
+.grid--vertical-small-flip {
+    @include mq($until: small) {
+        flex-direction: column-reverse;
+    }
+}
+
 
 
 

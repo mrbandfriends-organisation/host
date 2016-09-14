@@ -1,4 +1,4 @@
-<?php $locations = host_locations_find_all(); ?>
+<?php $locations = host_locations_find_all(['order' => 'ASC', 'orderby' => 'title']); ?>
 
 <?php if ( $locations->have_posts() ) : ?>
         <strong class="nav-footer__section-header">

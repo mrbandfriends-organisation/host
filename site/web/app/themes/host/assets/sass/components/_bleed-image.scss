@@ -1,5 +1,13 @@
 // ==========================================================================
-// # Full-bleed image
+//
+// Full-bleed image
+//
+// Description: describe your component here
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
 // ==========================================================================
 
 .bleed-image {
@@ -18,6 +26,14 @@
 
 // # Variation: top alignment
 // ==========================================================================
+// # MODIFIER: ALIGNMENT
+// ==========================================================================
 .bleed-image--top {
-    background-position: top center;
+    background-position-y: top;
+}
+
+.bleed-image--until-xxlarge-top {
+    @include mq($until: xxlarge) {
+        background-position: top center;
+    }
 }
