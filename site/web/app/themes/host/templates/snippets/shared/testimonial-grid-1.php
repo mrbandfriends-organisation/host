@@ -3,7 +3,7 @@ use Roots\Sage\Utils;
  ?>
 
 <article class="testimonial-wall__testimonial grid gc m2-3 xxl1-2">
-    <aside class="testimonial-wall__image gc t1-2 box box--red" data-equality-pane>
+    <aside class="testimonial-wall__image gc t1-2 box box--red-alt" data-equality-pane>
         <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
             'image'    => $image,
             'modifier' => 'bleed-image--top'
