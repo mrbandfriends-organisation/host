@@ -2,18 +2,28 @@
     use Roots\Sage\Utils;
     use Roots\Sage\Titles;
 
-    // 0. base params
+    // 1. get things
+    $sTitle   = get_field('news_title');
+    $sContent = get_field('news_content');
+
+    // 2. if there’s nothing, bail
+    if (empty($sTitle) || empty($sContent))
+    {
+        return;
+    }
+
+    // 3. base params
     $aParam = [ 'color' => 'grape' ];
 
-    // 1. build content
-    $aParam['content'] = Titles\split_line_header('h2', get_field('news_title'))."\n\n"
-                        .apply_filters('the_content', get_field('news_content'));
+    // 4. build content
+    $aParam['content'] = Titles\split_line_header('h2', $sTitle)."\n\n"
+                        .apply_filters('the_content', $sContent);
 
-    // 2. background image
+    // 5. background image
     if (($iImageId = get_field('news_image')) !== null)
     {
         $aParam['background'] = wp_get_attachment_image_url($iImageId, 'full');
     }
 
-    // 3. output
+    // 6. output
     echo Utils\ob_load_template_part('templates/components/billboard', $aParam);
