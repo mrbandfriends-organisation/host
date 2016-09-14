@@ -2784,6 +2784,14 @@ a.btn {
   width: 100%;
 }
 
+.split-feature__secondary .slideshow {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex: 1;
+      flex: 1;
+  width: 100%;
+}
+
 .split-feature.-twin-content .split-feature__main .split-feature__content {
   padding-bottom: 40px;
 }
