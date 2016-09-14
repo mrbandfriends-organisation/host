@@ -6,9 +6,9 @@
 ?>
 
 <?php
-  $header_title_1 = get_field('header_title_1');
-  $header_title_2 = get_field('header_title_2');
-  $locations = host_locations_find_all( ['order' => 'ASC', 'orderby' => 'title'] );
+  $header_title_1 = (!empty($header_title_1)) ? $header_title_1 : get_field('header_title_1');
+  $header_title_2 = (!empty($header_title_2)) ? $header_title_2 : get_field('header_title_2');
+  $locations = (!empty($locations)) ? $locations : host_locations_find_all( ['order' => 'ASC', 'orderby' => 'title'] );
 
   $count = 0;
 ?>
