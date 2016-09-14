@@ -180,7 +180,7 @@ function Slideshow()
         assessDimensions();
 
         // 6. and a class, if it pleases thee
-        el.classList.add('js-carousel--active');
+        el.classList.add('js-slideshow--active');
 
         // 7. return some hooks for mirrors
         return {

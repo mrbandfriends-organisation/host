@@ -10,6 +10,12 @@
     $aPoi    = get_field('map_features');
     $id      = 'map'.substr(uniqid(), 0, 8);
 
+    // if there’re no centre points or main marker
+    if (!is_array($aCentre) || empty($sLabel))
+    {
+        return;
+    }
+
     // format centre point
     $sCentre  = "{$aCentre['lat']},{$aCentre['lng']}";
 
