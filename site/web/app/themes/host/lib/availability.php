@@ -9,17 +9,14 @@ use Roots\Sage\Setup;
 function availability_status($availability) {
 
     switch ($availability) {
-        case "available":
-            echo "Rooms available";
-            break;
         case "limited":
-            echo "Limited availability";
+            return ['text' => "Limited availability", 'colour' => 'orange'];
             break;
         case "sold_out":
-            echo "Sold out";
+            return ['text' => "Sold out", 'colour' => 'red'];
             break;
         default:
-            echo "Available";
+            return ['text' => "Available", 'colour' => 'mint'];
     }
 
 }
