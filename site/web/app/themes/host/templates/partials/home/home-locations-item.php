@@ -11,7 +11,7 @@
     <header class="checkerboard-item__title"<?=$image;?>>
         <a href="/city.php" class="checkerboard-item__link js-checkerboard__trigger"><?=$label; ?></a>
     </header>
-    <div class="checkerboard-item__content">
+    <div class="checkerboard-item__content js-checkerboard__content">
         <p class="checkerboard-item__availability">
             <?=esc_html($no_of_props); ?> properties available
             <a href="<?php echo esc_url($url); ?>" class="btn btn--very-small btn--narrow">Show me homes</a>

@@ -31,7 +31,10 @@
 @include headings(2, 2) {
     font-size: rem(32);
 
-    @include mq(medium) { font-size: rem(45); }
+    @include mq(medium) {
+        font-size: rem(45);
+        margin-bottom: $spacing-unit;
+    }
 }
 
 @include headings(3, 3) {

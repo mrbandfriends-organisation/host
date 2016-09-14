@@ -13,7 +13,7 @@
     margin: 0;
     list-style: none outside;
 
-    @include mq($until: medium) {
+    @include mq($until: nav-break-2) {
         display: none;
     }
 }

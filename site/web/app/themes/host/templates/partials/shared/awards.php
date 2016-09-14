@@ -13,7 +13,7 @@
 
 
 <?php if ( !empty($awards_description) && !empty($award_logos) ): ?>
-    <section class="band band--inset split-feature -left grid">
+    <section class="band band--inset split-feature -left -twin-content grid">
         <div class="box box--fg-mint split-feature__main gc l1-2">
             <div class="split-feature__content">
                 <?php if ( !empty($awards_title_1) && !empty($awards_title_2) ): ?>
@@ -34,7 +34,7 @@
                 <ul class="awards <?php echo esc_attr($awards_logos_modifier); ?>">
                     <?php foreach ($award_logos as $logo_item) : ?>
                         <li class="awards__item">
-                            <img src="<?php echo esc_html( $logo_item['logo']['url'] ); ?>" alt="<?php echo esc_html( $logo_item['title'] ); ?>" class="awards__image" />
+                            <img class="awards__image" src="<?php echo esc_html( $logo_item['logo']['url'] ); ?>" alt="<?php echo esc_html( $logo_item['title'] ); ?>" class="awards__image" />
                         </li>
                     <?php endforeach; ?>
                 </ul>
