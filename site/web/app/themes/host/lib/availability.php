@@ -6,20 +6,33 @@ use Roots\Sage\Setup;
 /**
  * Makes Building and Room availability friendly
 **/
-function availability_status($availability) {
+function availability_status($availability)
+{
 
-    switch ($availability) {
-        case "available":
-            echo "Rooms available";
-            break;
+    switch ($availability)
+    {
         case "limited":
-            echo "Limited availability";
+            return [
+                'text' => "Limited availability",
+                'colour' => 'orange',
+                'foreground' => 'orange'
+            ];
             break;
+
         case "sold_out":
-            echo "Sold out";
+            return [
+                'text' => "Sold out",
+                'colour' => 'red',
+                'foreground' => 'orange'
+            ];
             break;
+
         default:
-            echo "Available";
+            return [
+                'text' => "Available",
+                'colour' => 'mint',
+                'foreground' => 'sky'
+            ];
     }
 
 }

@@ -9,10 +9,12 @@
 
             <ul class="separated-list">
             <?php while ( $rooms->have_posts() ) : $rooms->the_post(); ?>
-                <?php var_dump($rooms->the_post()); ?>
-              <li class="separated-list__item">
-                  <a href="#<?="r{$id}-{$idx}"; ?>"><?=get_the_title(); ?></a>
-              </li>
+                <?php $id = get_the_id(); ?>
+                <?php $idx = substr(uniqid(), 0, 6); ?>
+
+                <li class="separated-list__item">
+                    <a href="#<?="r{$id}"; ?>"><?=get_the_title(); ?></a>
+                </li>
             <?php endwhile; ?>
             </ul>
         </nav>
