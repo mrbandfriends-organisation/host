@@ -83,7 +83,7 @@
 
                             <?php if (get_field('external_website')): ?>
                             <p>
-                                <a href="<?=get_field('website_url'); ?>" class="btn">Take me to the website</a>
+                                <a href="<?=get_field('website_url'); ?>" class="btn" target="_blank" rel="noopener noreferrer">Take me to the website</a>
                             </p>
                             <?php else: ?>
                             <p>
