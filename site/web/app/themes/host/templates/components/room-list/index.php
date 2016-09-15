@@ -12,6 +12,7 @@
                 <?php echo Utils\ob_load_template_part('templates/components/room-list/room'); ?>
             </li>
         <?php endwhile; ?>
+        <?php wp_reset_postdata(); ?>
 
     </ul>
 </section>
