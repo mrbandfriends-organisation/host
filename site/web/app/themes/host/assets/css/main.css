@@ -2234,15 +2234,15 @@ dl.-horizontal dd ~ dd {
 }
 
 .slideshow--animate-in.js-slideshow--active:before {
-  animation: slideshow-ai-before 1s .5s 1 forwards;
+  animation: slideshow-ai-before 1.5s 1s 1 forwards;
 }
 
 .slideshow--animate-in.js-slideshow--active:after {
-  animation: slideshow-ai-after  1s .5s ease-out 1 forwards;
+  animation: slideshow-ai-after  1.5s 1s ease-out 1 forwards;
 }
 
 .slideshow--animate-in.js-slideshow--active .slideshow-pagination {
-  animation: slideshow-ai-pagination 1s .5s 1 forwards;
+  animation: slideshow-ai-pagination 1.5s 1s 1 forwards;
 }
 
 .btn,

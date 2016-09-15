@@ -8,7 +8,7 @@ function Slideshow()
 	var el           = this;
 	var elCarousel   = this.querySelector('.js-slideshow__list');
     var aElItems     = this.querySelectorAll('.js-slideshow__item').toArray();
-    var iCurrent     = 0;
+    var iCurrent     = (aElItems.length > 2) ? 1 : 0;
     var iItemWidth   = -1;
     var iToShow      = 0;
     var sPagination  = (this.getAttribute('data-pagination') || "").toLowerCase();
