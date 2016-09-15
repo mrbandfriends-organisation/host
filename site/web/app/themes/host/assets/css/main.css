@@ -2072,14 +2072,6 @@ dl.-horizontal dd ~ dd {
   display: none;
 }
 
-.slideshow--3-items .slideshow__item {
-  display: none;
-}
-
-.slideshow--3-items .slideshow__item:nth-child(2) {
-  display: block;
-}
-
 .js-slideshow--active .slideshow__item {
   position: absolute;
   display: block;
@@ -2088,6 +2080,10 @@ dl.-horizontal dd ~ dd {
   width: 100%;
   transform: translateX(0);
   transition: transform 350ms;
+}
+
+.slideshow__item.js-slideshow--outside {
+  transition: none;
 }
 
 .slideshow__image {

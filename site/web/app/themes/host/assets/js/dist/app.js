@@ -10887,12 +10887,18 @@
 	var util = __webpack_require__(3);
 	var icon = __webpack_require__(2);
 
-	function DotsPagination(elParent, aElItems, fnGo)
+	function DotsPagination(oApi)
 	{
 	    "use strict";
 
 	    var elDom;
 	    var aElPages = [];
+
+	    function fnClick(ev)
+	    {
+	        oApi.fnGo(parseInt(ev.currentTarget.dataset.id));
+	        return false;
+	    }
 
 	    function buildDom()
 	    {
@@ -10900,7 +10906,7 @@
 	        elDom = document.createElement('nav');
 	        elDom.classList.add('slideshow-pagination');
 	        elDom.classList.add('slideshow-pagination--dots');
-	        elParent.appendChild(elDom);
+	        oApi.elRoot.appendChild(elDom);
 
 	        // 2. create list
 	        var elList = document.createElement('ol');
@@ -10908,7 +10914,7 @@
 	        elDom.appendChild(elList);
 
 	        // 3. start creating nodes
-	        aElItems.forEach(function(el, idx)
+	        for (var i = 0; i < oApi.iNumItems; i++)
 	        {
 	            // a. LI
 	            var elLi = document.createElement('li');
@@ -10918,19 +10924,16 @@
 	            // b. button
 	            var elButton = document.createElement('button');
 	            elButton.setAttribute('type', 'button');
+	            elButton.dataset.id = i;
 	            elButton.classList.add('slideshow-pagination__page');
 	            elLi.appendChild(elButton);
 
 	            // c. event handler
-	            elButton.addEventListener('click', function()
-	            {
-	                fnGo(idx);
-	                return false;
-	            });
+	            elButton.addEventListener('click', fnClick);
 
 	            // d. push
 	            aElPages.push(elButton);
-	        });
+	        }
 	    }
 
 	    function update(iCurrent, iWindowStart, iWindowSize)
@@ -10988,7 +10991,8 @@
 		var el           = this;
 		var elCarousel   = this.querySelector('.js-slideshow__list');
 	    var aElItems     = this.querySelectorAll('.js-slideshow__item').toArray();
-	    var iCurrent     = (aElItems.length > 2) ? 1 : 0;
+	    var iCurrent     = 0;
+	    var iNumSlides   = aElItems.length;
 	    var iItemWidth   = -1;
 	    var iToShow      = 0;
 	    var sPagination  = (this.getAttribute('data-pagination') || "").toLowerCase();
@@ -10997,36 +11001,86 @@
 	    var iMirrorOff   = 0;
 
 	    /**
+	     * Gets the closest index to the requested page.
+	     */
+	    function getDistanceToClosestPage(iPage)
+	    {
+	        // 1. work out the distance from where we are to where we want to be
+	        var iDistance = iPage - (iCurrent % iNumSlides);
+
+	        // 2. if the magnitude is greater than half the number of slides (ie, it’s closer to ‘wrap’)
+	        if (Math.abs(iDistance) > (iNumSlides / 2))
+	        {
+	            // a. if it’s positive, subtract the number of slides
+	            if (iDistance > 0)
+	            {
+	                iDistance -= iNumSlides;
+	            }
+	            // b. otherwise, add
+	            else
+	            {
+	                iDistance += iNumSlides;
+	            }
+	        }
+
+	        return iDistance;
+	    }
+
+	    function offsetToIndex(iOff)
+	    {
+	        return (iOff + aElItems.length) % aElItems.length;
+	    }
+
+	    /**
 	     * Repositions all the slides in the slideshow.
 	     */
 	    function reposition()
 	    {
 	        // 1. work out the first item we need to show within the viewport
-	        var iFirst  = Math.max(0, Math.min(iCurrent - (Math.ceil(iToShow / 2) - 1), aElItems.length - iToShow));
-	        var iLast   = iFirst + iToShow - 1;
-	        var iOffset = 0 - (iFirst * iItemWidth);
+	        var iFirst  = iCurrent - Math.floor((aElItems.length - 1) / 2);
+	        var iLast   = iFirst + aElItems.length;
 
 	        // 2. position everything
-	        aElItems.forEach(function(elSlide, idx)
+	        var sTranslate = '0';
+	        var iIndex = 0;
+	        for (var i = iFirst; i < iLast; i++)
 	        {
-	            // a. transform attr
-	            elSlide.style.transform = 'translateX('+((idx * iItemWidth) + iOffset)+'px)';
-
-	            // b. toggle ‘outside’ class
-	            if ((idx < iFirst || idx > iLast))
+	            // a. calculate translation offset
+	            if (i < iCurrent)
 	            {
-	                elSlide.classList.add('js-slideshow--outside');
+	                sTranslate = (0 - iItemWidth)+'px';
+	            }
+	            else if (i > iCurrent)
+	            {
+	                sTranslate = iItemWidth+'px';
 	            }
 	            else
 	            {
-	                elSlide.classList.remove('js-slideshow--outside');
+	                sTranslate = 0;
 	            }
-	        });
 
-	        // 3. update the pagination modules
+	            // b. get the index of the DOM
+	            iIndex = offsetToIndex(i);
+
+	            // b. set it
+	            aElItems[iIndex].style.transform = 'translateX('+sTranslate+')';
+
+	            // c. also set windowed class
+	            if (Math.abs(i - iCurrent) > 1)
+	            {
+	                aElItems[iIndex].classList.add('js-slideshow--outside');
+	            }
+	            else
+	            {
+	                aElItems[iIndex].classList.remove('js-slideshow--outside');
+	            }
+	        }
+
+	        // 3. poke the pagination
+	        var iActualPage  = iCurrent % iNumSlides;
 	        aoPagination.forEach(function(oPagination)
 	        {
-	            oPagination.update(iCurrent, iFirst, iToShow);
+	            oPagination.update(iActualPage, iActualPage, 1);
 	        });
 	    }
 
@@ -11036,7 +11090,7 @@
 	    function go(iPage)
 	    {
 	        // 1. update our pointer
-	        iCurrent = Math.max(0, Math.min(iPage, aElItems.length));
+	        iCurrent = (iCurrent + getDistanceToClosestPage(iPage) + aElItems.length) % aElItems.length;
 
 	        // 2. slew
 	        reposition();
@@ -11045,6 +11099,24 @@
 	        aoMirrors.forEach(function(oMirror)
 	        {
 	            oMirror.go(iPage + iMirrorOff);
+	        });
+	    }
+
+	    /**
+	     * Similar to go(), but performs an incremental step
+	     */
+	    function step(iDistance)
+	    {
+	        // 1. update our pointer
+	        iCurrent = (iCurrent + iDistance) % aElItems.length;
+
+	        // 2. slew
+	        reposition();
+
+	        // 3. push to mirrors
+	        aoMirrors.forEach(function(oMirror)
+	        {
+	            oMirror.step(iDistance);
 	        });
 	    }
 
@@ -11060,7 +11132,12 @@
 	        aPagination.forEach(function(sPagination)
 	        {
 	            // a. load the pagination
-	            var oPagination = __webpack_require__(10)("./"+sPagination+'-pagination')(el, aElItems, go);
+	            var oPagination = __webpack_require__(10)("./"+sPagination+'-pagination')({
+	                elRoot:    el,
+	                iNumItems: iNumSlides,
+	                fnGo:      go,
+	                fnStep:    step
+	            });
 
 	            // b. push it onto the array
 	            aoPagination.push(oPagination);
@@ -11132,8 +11209,34 @@
 
 	            // d. enhance!
 	            aoMirrors.push(Slideshow.call(elClone));
-
 	        });
+
+	        // 3. get an offset
+	        if (oMirrorConfig.offset !== undefined)
+	        {
+	            iMirrorOff = parseInt(oMirrorConfig.offset, 10);
+	        }
+	    }
+
+	    /**
+	     * Duplicates slides
+	     */
+	    function duplicateSlides()
+	    {
+	        // 1. work out how many times we need to run
+	        var iDupesRequired = Math.floor(5 / iNumSlides);
+
+	        // 2. duplicate
+	        while (iDupesRequired-- > 0)
+	        {
+	            aElItems.forEach(function(el)
+	            {
+	                el.parentNode.appendChild(el.cloneNode(true));
+	            });
+	        }
+
+	        // 3. reindex
+	        aElItems = el.querySelectorAll('.js-slideshow__item').toArray();
 	    }
 
 	    /**
@@ -11141,6 +11244,12 @@
 	     */
 	    return (function()
 	    {
+	        // 0. if there’s nothing doing…
+	        if (iNumSlides < 2)
+	        {
+	            return null;
+	        }
+
 	        // 1. if we’re mirroring…
 	        if (el.hasAttribute('data-mirror-to'))
 	        {
@@ -11153,18 +11262,31 @@
 	            buildPagination();
 	        }
 
+	        // 3. if we need to duplicate things, do so
+	        if (iNumSlides < 5)
+	        {
+	            duplicateSlides();
+	        }
+
 	        // 3. bind to debounced resize
 	        window.addEventListener('resize', debounce(assessDimensions, 100));
 
 	        // 4. set everything up
 	        assessDimensions();
 
+	        // 5. go places
+	        go(0);
+
 	        // 6. and a class, if it pleases thee
-	        el.classList.add('js-slideshow--active');
+	        setTimeout(function()
+	        {
+	            el.classList.add('js-slideshow--active');
+	        }, 10);
 
 	        // 7. return some hooks for mirrors
 	        return {
-	            go: go
+	            go:   go,
+	            step: step
 	        };
 	    })();
 	}
@@ -11180,7 +11302,7 @@
 	var util = __webpack_require__(3);
 	var icon = __webpack_require__(2);
 
-	function PnPagination(elParent, aElItems, fnGo)
+	function PnPagination(oApi)
 	{
 	    "use strict";
 
@@ -11196,7 +11318,7 @@
 	        elDom = document.createElement('nav');
 	        elDom.classList.add('slideshow-pagination');
 	        elDom.classList.add('slideshow-pagination--pn');
-	        elParent.appendChild(elDom);
+	        oApi.elRoot.appendChild(elDom);
 
 	        // 2. create a previous button
 	        elPrev = document.createElement('button');
@@ -11217,12 +11339,12 @@
 	        // 4. bind some events
 	        elPrev.addEventListener('click', function()
 	        {
-	            fnGo(util.sequentialPrev(iWinStart, iWinSize));
+	            oApi.fnStep(-1);
 	            return false;
 	        });
 	        elNext.addEventListener('click', function()
 	        {
-	            fnGo(util.sequentialNext(iWinStart, iWinSize));
+	            oApi.fnStep(1);
 	            return false;
 	        });
 	    }
@@ -11234,8 +11356,8 @@
 	        iWinStart = iWindowStart;
 
 	        // 2. show/hide buttons
-	        util.toggleClass(elPrev, '-show', (iWindowStart > 0));
-	        util.toggleClass(elNext, '-show', ((iWindowStart+iWindowSize) < aElItems.length));
+	        elPrev.classList.add('-show');
+	        elNext.classList.add('-show');
 	    }
 
 	    function toggle(bHide)

@@ -1,7 +1,7 @@
 var util = require('slideshow/pagination-common');
 var icon = require('svg-icons');
 
-function PnPagination(elParent, aElItems, fnGo)
+function PnPagination(oApi)
 {
     "use strict";
 
@@ -17,7 +17,7 @@ function PnPagination(elParent, aElItems, fnGo)
         elDom = document.createElement('nav');
         elDom.classList.add('slideshow-pagination');
         elDom.classList.add('slideshow-pagination--pn');
-        elParent.appendChild(elDom);
+        oApi.elRoot.appendChild(elDom);
 
         // 2. create a previous button
         elPrev = document.createElement('button');
@@ -38,12 +38,12 @@ function PnPagination(elParent, aElItems, fnGo)
         // 4. bind some events
         elPrev.addEventListener('click', function()
         {
-            fnGo(util.sequentialPrev(iWinStart, iWinSize));
+            oApi.fnStep(-1);
             return false;
         });
         elNext.addEventListener('click', function()
         {
-            fnGo(util.sequentialNext(iWinStart, iWinSize));
+            oApi.fnStep(1);
             return false;
         });
     }
@@ -55,8 +55,8 @@ function PnPagination(elParent, aElItems, fnGo)
         iWinStart = iWindowStart;
 
         // 2. show/hide buttons
-        util.toggleClass(elPrev, '-show', (iWindowStart > 0));
-        util.toggleClass(elNext, '-show', ((iWindowStart+iWindowSize) < aElItems.length));
+        elPrev.classList.add('-show');
+        elNext.classList.add('-show');
     }
 
     function toggle(bHide)
