@@ -34,12 +34,13 @@
 
             // strip unneeded newlines
             $address = trim(preg_replace("/\n\n+/", "\n", $address));
-
+            $phone   = trim(get_field('building_address_phone_no'));
+            
             // thumbnail
             $sStyle = '';
             if (has_post_thumbnail())
             {
-                $sUrl   = wp_get_attachment_image_url(get_post_thumbnail_id(), 'width=360');
+                $sUrl   = wp_get_attachment_image_url(get_post_thumbnail_id(), 'width=500');
                 $sStyle = sprintf(' style="background-image: url(%s)"', $sUrl);
             }
 
@@ -64,10 +65,12 @@
                                     <?=str_replace("\n", '<br>', esc_html($address)); ?>
                                 </p>
                                 <?php endif; ?>
+                                <?php if (!empty($phone)): ?>
                                 <p>
                                     <strong>Call:</strong>
-                                    <?=esc_html(get_field('building_address_phone_no')); ?>
+                                    <?=esc_html($phone); ?>
                                 </p>
+                                <?php endif; ?>
                             </address>
 
                             <?php if (get_field('external_website')): ?>
