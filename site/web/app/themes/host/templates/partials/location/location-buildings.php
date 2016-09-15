@@ -35,7 +35,7 @@
             // strip unneeded newlines
             $address = trim(preg_replace("/\n\n+/", "\n", $address));
             $phone   = trim(get_field('building_address_phone_no'));
-            
+
             // thumbnail
             $sStyle = '';
             if (has_post_thumbnail())
@@ -46,14 +46,30 @@
 
             // availability stuff
             $aAvailabilityDefinition = RoomsBuildings\availability_status(get_field('availability'));
+            $iNumberTypes = get_field('room_types');
+
+            // link stuff
+            $bExternal = (get_field('external_website') === true);
+            $sUrl      = $bExternal ? get_field('website_url') : get_the_permalink();
+            $sText     = $bExternal ? 'Take me to the website' : 'Show me this property';
+            $sAtts     = $bExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
         ?>
         <li class="property-list__item">
             <article class="listed-property grid">
                 <div class="listed-property__main gc l1-2 xl2-3 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded">
                     <div class="listed-property__content grid">
                         <div class="listed-property__title-desc gc xxl3-5">
-                            <h3 class="listed-property__title plain"><?=get_field('title_1'); ?></h3>
+                            <h3 class="listed-property__title plain">
+                                <?php if (!empty($sUrl)): ?><a href="<?=$sUrl;?>"<?=$sAtts; ?>><?php endif; ?>
+                                <?=get_field('title_1'); ?></h3>
+                                <?php if (!empty($sUrl)): ?></a><?php endif; ?>
                             <h4 class="listed-property__availability"><?=$aAvailabilityDefinition['text']; ?></h4>
+
+                            <?php if ($iNumberTypes !== null): ?>
+                            <p class="listed-property__number-types inherit-fg">
+                                <?=($iNumberTypes === '0') ? 'No' : $iNumberTypes; ?> room type<?=($iNumberTypes === '1') ? '' : 's'; ?> available.
+                            </p>
+                            <?php endif; ?>
 
                             <?=apply_filters('the_content', get_field('description')); ?>
                         </div>
@@ -73,13 +89,9 @@
                                 <?php endif; ?>
                             </address>
 
-                            <?php if (get_field('external_website')): ?>
+                            <?php if (!empty($sUrl)): ?>
                             <p>
-                                <a href="<?=get_field('website_url'); ?>" class="btn">Take me to the website</a>
-                            </p>
-                            <?php else: ?>
-                            <p>
-                                <a href="<?=get_the_permalink(); ?>" class="btn">Show me this property</a>
+                                <a href="<?=$sUrl; ?>" class="btn"<?=$sAtts; ?>><?=$sText; ?></a>
                             </p>
                             <?php endif; ?>
                         </div>
