@@ -42,14 +42,17 @@
                 $sUrl   = wp_get_attachment_image_url(get_post_thumbnail_id(), 'width=360');
                 $sStyle = sprintf(' style="background-image: url(%s)"', $sUrl);
             }
+
+            // availability stuff
+            $aAvailabilityDefinition = RoomsBuildings\availability_status(get_field('availability'));
         ?>
         <li class="property-list__item">
             <article class="listed-property grid">
-                <div class="listed-property__main gc l1-2 xl2-3 box box--fg-sky box--padded">
+                <div class="listed-property__main gc l1-2 xl2-3 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded">
                     <div class="listed-property__content grid">
                         <div class="listed-property__title-desc gc xxl3-5">
                             <h3 class="listed-property__title"><?=the_title(); ?></h3>
-                            <h4 class="h3"><?php RoomsBuildings\availability_status(get_field('availability')); ?></h4>
+                            <h4 class="h3"><?=$aAvailabilityDefinition['text']; ?></h4>
 
                             <?=apply_filters('the_content', get_field('description')); ?>
                         </div>
@@ -73,7 +76,7 @@
                     </div>
                 </div>
                 <aside class="listed-property__image gc l1-2 xl1-3"<?=$sStyle; ?>>
-                    <p class="listed-property__price box box--ink box--less-padding h3">
+                    <p class="listed-property__price box box--ink box--less-padding box--fg-<?=$aAvailabilityDefinition['foreground']; ?> h3">
                         Rooms from <span class="inherit-fg"><?=esc_html(get_field('prices_from')); ?></span>
                     </p>
                 </aside>
