@@ -13,7 +13,7 @@
     }
 ?>
 
-<section class="band slideshow js-slideshow slideshow--light-pagination slideshow--animate-in slideshow--<?=count($carousel_images);?>-items" data-pagination="pn dots">
+<section class="band slideshow js-slideshow slideshow--light-pagination slideshow--animate-in" data-pagination="pn dots">
     <ul class="slideshow__list js-slideshow__list">
     <?php foreach ( $carousel_images AS $image): ?>
         <li class="slideshow__item js-slideshow__item" style="background-image:url(<?=$image['sizes']['large'];?>);">
