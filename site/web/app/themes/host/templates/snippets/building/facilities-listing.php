@@ -23,8 +23,25 @@
             <?php endwhile; ?>
         </dl>
     </div>
+
+    <?php
+      // Facilities Gallery
+      if( have_rows('facilities_photos') ):
+
+          while ( have_rows('facilities_photos') ) : the_row();
+
+              $photo = get_sub_field('photo');
+              $photo_title = $photo['title'];
+              $photo_url = $photo['url'];
+    ?>
+
+    <?php
+          endwhile;
+      endif;
+    ?>
+
     <div class="gc s1-3">
-        <?php echo Utils\ob_load_template_part('templates/components/bleed-image', [ 'image' => '/_dummy/london-eye.jpg' ]); ?>
+        <?php echo Utils\ob_load_template_part('templates/components/bleed-image', [ 'image' => $photo_url ]); ?>
     </div>
 
 </div>
