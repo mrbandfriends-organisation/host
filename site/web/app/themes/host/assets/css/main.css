@@ -1478,7 +1478,7 @@ dl.-horizontal dd ~ dd {
 }
 
 .box--red {
-  background: #d50e3c;
+  background-color: #d50e3c;
   color: #fff;
 }
 
@@ -1492,7 +1492,7 @@ dl.-horizontal dd ~ dd {
 }
 
 .box--red-alt {
-  background: #b71539;
+  background-color: #b71539;
   color: #fff;
 }
 
@@ -1550,7 +1550,7 @@ dl.-horizontal dd ~ dd {
 }
 
 .box--orange {
-  background: #f79433;
+  background-color: #f79433;
 }
 
 .box--orange .btn {
@@ -1563,7 +1563,7 @@ dl.-horizontal dd ~ dd {
 }
 
 .box--mint {
-  background: #00b9b5;
+  background-color: #00b9b5;
   color: #fff;
 }
 
@@ -1577,7 +1577,7 @@ dl.-horizontal dd ~ dd {
 }
 
 .box--mint-alt {
-  background: #00b9b5;
+  background-color: #00b9b5;
 }
 
 .box--mint-alt .btn {
@@ -1590,7 +1590,7 @@ dl.-horizontal dd ~ dd {
 }
 
 .box--sky {
-  background: #00c0f3;
+  background-color: #00c0f3;
   color: #fff;
 }
 
@@ -1604,7 +1604,7 @@ dl.-horizontal dd ~ dd {
 }
 
 .box--sky-alt {
-  background: #00c0f3;
+  background-color: #00c0f3;
 }
 
 .box--sky-alt h1, .box--sky-alt .h1 {
@@ -1624,7 +1624,7 @@ dl.-horizontal dd ~ dd {
 }
 
 .box--sky-dark {
-  background: #314265;
+  background-color: #314265;
   color: #fff;
 }
 
@@ -1681,8 +1681,21 @@ dl.-horizontal dd ~ dd {
 }
 
 .box--grape {
-  background: #b455a0;
+  background-color: #b455a0;
   color: #fff;
+}
+
+.box--grape-dark {
+  background-color: #a43d8e;
+  color: #fff;
+}
+
+.box--grape-dark .btn {
+  background: #21293c;
+}
+
+.box--grape-dark .btn:hover {
+  background: #3c4b6d;
 }
 
 .box--grape .btn {
@@ -1694,7 +1707,7 @@ dl.-horizontal dd ~ dd {
 }
 
 .box--ink {
-  background: #21293c;
+  background-color: #21293c;
   color: #fff;
 }
 
@@ -1708,7 +1721,7 @@ dl.-horizontal dd ~ dd {
 }
 
 .box--ink-dark {
-  background: #1c222d;
+  background-color: #1c222d;
   color: #fff;
 }
 
@@ -2954,7 +2967,9 @@ a.btn {
 .bleed-image {
   width: 100%;
   height: 100%;
-  background: transparent none no-repeat center center/cover;
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .bleed-image__image {

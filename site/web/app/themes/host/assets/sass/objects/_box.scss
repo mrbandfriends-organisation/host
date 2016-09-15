@@ -63,13 +63,13 @@
 // # COLOUR VARIANCE - backgrounds
 // ==========================================================================
 .box--red {
-    background: brand(red);
+    background-color: brand(red);
     color:      #fff;
 
     .btn { @include button(white); }
 
     &-alt {
-        background: tint(red);
+        background-color: tint(red);
         color:      #fff;
 
         @include headings(1, 4) {
@@ -85,38 +85,38 @@
 }
 
 .box--orange {
-    background: brand(orange);
+    background-color: brand(orange);
 
     .btn { @include button(white); }
 }
 
 .box--mint {
-    background: brand(mint);
+    background-color: brand(mint);
     color:      #fff;
 
     .btn { @include button(white); }
 
     &-alt {
-        background: brand(mint);
+        background-color: brand(mint);
 
         .btn { @include button(white); }
     }
 }
 
 .box--sky {
-    background: brand(sky);
+    background-color: brand(sky);
     color:      #fff;
 
     .btn { @include button(white); }
 
     &-alt {
-        background: brand(sky);
+        background-color: brand(sky);
 
         @include headings(1, 4) { color: #fff; }
     }
 
     &-dark {
-        background: tint(sky);
+        background-color: tint(sky);
         color:      #fff;
 
         .btn { @include button(sky); }
@@ -132,20 +132,27 @@
 }
 
 .box--grape {
-    background: brand(grape);
+    background-color: brand(grape);
     color:      #fff;
+
+    &-dark {
+        background-color: tint(grape);
+        color:      #fff;
+
+        .btn { @include button(ink); }
+    }
 
     .btn { @include button(ink); }
 }
 
 .box--ink {
-    background: brand(ink);
+    background-color: brand(ink);
     color:      #fff;
 
     .btn { @include button(white); }
 
     &-dark {
-        background: tint(ink);
+        background-color: tint(ink);
         color:      #fff;
 
         .btn { @include button(white); }
