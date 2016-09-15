@@ -21,7 +21,7 @@
 // # INSET BAND
 // ==========================================================================
 .band--inset {
-    border: rem(30) solid brand(white);
+    border: rem(15) solid brand(white);
     background: #fff;
 
     @include mq(medium) { border-width: rem(60); }
