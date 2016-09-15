@@ -69,9 +69,16 @@
                                     <?=esc_html(get_field('building_address_phone_no')); ?>
                                 </p>
                             </address>
+
+                            <?php if (get_field('external_website')): ?>
                             <p>
-                                <a href="<?=get_the_permalink(); ?>" class="btn">Show me this website</a>
+                                <a href="<?=get_field('website_url'); ?>" class="btn">Take me to the website</a>
                             </p>
+                            <?php else: ?>
+                            <p>
+                                <a href="<?=get_the_permalink(); ?>" class="btn">Show me this property</a>
+                            </p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
