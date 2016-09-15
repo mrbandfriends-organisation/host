@@ -29,7 +29,7 @@
 // Content
 // ==========================================================================
 .listed-property__content {
-    
+
     @include mq(xlarge) {
         @include container("left");
         @include two-third-container;
@@ -40,9 +40,15 @@
 // ==========================================================================
 .listed-property__title-desc { @include mq(xlarge) { padding-right: rem(40); }}
 
-.listed-property__title {
+.listed-property__title,
+.listed-property__availability {
+    margin: 0;
+
     font-size: rem(35);
+    line-height: 1.2; 
 }
+
+.listed-property__availability { margin-bottom: rem(70); }
 
 // Address + contact
 // ==========================================================================

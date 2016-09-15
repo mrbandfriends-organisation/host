@@ -2953,7 +2953,7 @@ a.btn {
 
 .map__map {
   position: relative;
-  padding-top: 50%;
+  padding-top: 33%;
   background: transparent none no-repeat center center/cover;
   overflow: hidden;
 }
@@ -3015,8 +3015,15 @@ a.btn {
   margin-top: 1.25rem;
 }
 
-.listed-property__title {
+.listed-property__title,
+.listed-property__availability {
+  margin: 0;
   font-size: 2.1875rem;
+  line-height: 1.2;
+}
+
+.listed-property__availability {
+  margin-bottom: 4.375rem;
 }
 
 .listed-property__address-contact {
