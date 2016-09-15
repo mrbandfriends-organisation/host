@@ -2953,7 +2953,7 @@ a.btn {
 
 .map__map {
   position: relative;
-  padding-top: 50%;
+  padding-top: 33%;
   background: transparent none no-repeat center center/cover;
   overflow: hidden;
 }

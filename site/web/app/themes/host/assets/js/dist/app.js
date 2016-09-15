@@ -10332,7 +10332,8 @@
 	        zoom:               15,
 	        center:             { lat: 0, lng: 0 },
 	        mapTypeControl:     false,
-	        streetViewControl:  false
+	        streetViewControl:  false,
+	        scrollwheel:        false
 	    };
 
 	    /** Function definitions */
