@@ -6,42 +6,32 @@
   // Facilities List with icons
   if( have_rows('points_of_interest') ):?>
   <?php
-    $location = get_field_object('points_of_interest');
-    $location_count = (count($location['value']));
+    $locations = get_field_object('points_of_interest');
+    $locations_count = (count($locations['value']));
    ?>
 <div class="grid">
     <div class="gc s2-3 box box--ink-dark box--padded scrollable js-scrollable">
 
-        <h3 class="plain">Top <?=esc_html($location_count); ?> things to do for students in <?=esc_html($location_location); ?></h3>
-
-        <dl class="-horizontal">
-            <?php $count = 1; ?>
-            <?php while ( have_rows('points_of_interest') ) : the_row(); ?>
-                <dt class="inherit-fg">No <?=esc_html($count); ?></dt>
-                <dd><?=esc_html(get_sub_field('description')); ?></dd>
-                <?php $count++ ?>
-            <?php endwhile; ?>
-        </dl>
+        <ul class="transport-list">
+            <?php foreach($locations['value'] as $location): ?>
+                <li class="transport-list__item">
+                    <h3><?= esc_html($location['title']); ?></h3>
+                    <p>
+                        <?= esc_html($location['transport_time']); ?>
+                        <?= esc_html($location['walking_time']); ?>
+                    </p>
+                </li>
+            <?php endforeach; ?>
+        </ul>
     </div>
 
     <?php
-      // Facilities Gallery
-      if( have_rows('location_photos') ):
-
-          while ( have_rows('location_photos') ) : the_row();
-
-              $photo = get_sub_field('photo');
-              $photo_title = $photo['title'];
-              $photo_url = $photo['url'];
+        $photo = get_field('location_image');
     ?>
 
-    <?php
-          endwhile;
-      endif;
-    ?>
 
     <div class="gc s1-3">
-        <?php echo Utils\ob_load_template_part('templates/components/bleed-image', [ 'image' => $photo_url ]); ?>
+        <?php echo Utils\ob_load_template_part('templates/components/bleed-image', [ 'image' => $photo['url'] ]); ?>
     </div>
 
 </div>
