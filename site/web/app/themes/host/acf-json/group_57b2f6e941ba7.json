@@ -550,12 +550,12 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": 30,
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
-                    "file_location": "",
-                    "file_glob": ""
+                    "file_location": "assets\/svg\/sprites\/",
+                    "file_glob": "*.svg"
                 },
                 {
                     "key": "field_57b30ce5bddaa",
@@ -908,5 +908,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1473946621
+    "modified": 1473950444
 }
