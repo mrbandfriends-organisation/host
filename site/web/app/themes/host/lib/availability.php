@@ -23,7 +23,7 @@ function availability_status($availability)
             return [
                 'text' => "Sold out",
                 'colour' => 'red',
-                'foreground' => 'orange'
+                'foreground' => 'red'
             ];
             break;
 

@@ -35,7 +35,7 @@
             // strip unneeded newlines
             $address = trim(preg_replace("/\n\n+/", "\n", $address));
             $phone   = trim(get_field('building_address_phone_no'));
-            
+
             // thumbnail
             $sStyle = '';
             if (has_post_thumbnail())
@@ -46,6 +46,8 @@
 
             // availability stuff
             $aAvailabilityDefinition = RoomsBuildings\availability_status(get_field('availability'));
+
+            $iNumberTypes = get_field('room_types');
         ?>
         <li class="property-list__item">
             <article class="listed-property grid">
@@ -54,6 +56,12 @@
                         <div class="listed-property__title-desc gc xxl3-5">
                             <h3 class="listed-property__title plain"><?=get_field('title_1'); ?></h3>
                             <h4 class="listed-property__availability"><?=$aAvailabilityDefinition['text']; ?></h4>
+
+                            <?php if ($iNumberTypes !== null): ?>
+                            <p class="listed-property__number-types inherit-fg">
+                                <?=($iNumberTypes === '0') ? 'No' : $iNumberTypes; ?> room type<?=($iNumberTypes === '1') ? '' : 's'; ?> available.
+                            </p>
+                            <?php endif; ?>
 
                             <?=apply_filters('the_content', get_field('description')); ?>
                         </div>
