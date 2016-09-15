@@ -10345,6 +10345,8 @@
 	 */
 	function largerThanBreakpoint(sBreakpoint)
 	{
+	    "use strict";
+
 	    // 1. cast current and required breakpoints
 	    var iCurr = aBreakpoint.indexOf(getCurrentBreakpoint());
 	    var iTest = aBreakpoint.indexOf(sBreakpoint);
@@ -10358,6 +10360,8 @@
 	 */
 	function smallerThanBreakpoint(sBreakpoint)
 	{
+	    "use strict";
+
 	    // 1. cast current and required breakpoints
 	    var iCurr = aBreakpoint.indexOf(getCurrentBreakpoint());
 	    var iTest = aBreakpoint.indexOf(sBreakpoint);
@@ -11503,7 +11507,7 @@
 	            var iChangedIdx = aEl.indexOf(elChangedItem);
 
 	            // c. if it’s in this row
-	            if (iChangedIdx != -1)
+	            if (iChangedIdx !== -1)
 	            {
 	                // set offsets
 	                fLeft  = iWidth * (iChangedIdx / (aEl.length - 1));
@@ -11513,7 +11517,7 @@
 	            // d. set things
 	            aEl.forEach(function(el, iCurrIdx)
 	            {
-	                el.style.transform = 'translateX('+(iCurrIdx <= iChangedIdx ? 0 - fLeft : fRight)+'px)'
+	                el.style.transform = 'translateX('+(iCurrIdx <= iChangedIdx ? 0 - fLeft : fRight)+'px)';
 	            });
 	        });
 
@@ -11530,7 +11534,7 @@
 	        ev.preventDefault();
 
 	        // 2. get the item it belongs to
-	        var elItem = this;
+	        var elItem = ev.currentTarget;
 	        while ((elItem !== null) && !elItem.classList.contains('js-checkerboard__item'))
 	        {
 	            elItem = elItem.parentNode;
@@ -11538,7 +11542,7 @@
 
 	        // 3. get any possible offender
 	        var elOffender = elRoot.querySelector('.js-checkerboard__item.-active');
-	        if ((elOffender !== null) && (elOffender != elItem))
+	        if ((elOffender !== null) && (elOffender !== elItem))
 	        {
 	            elOffender.classList.remove('-active');
 	        }
@@ -11650,7 +11654,7 @@
 
 	            // c. add margin, based on previous bottom or current top and update the stat
 	            iCurrMg = (oStyle.marginTop !== undefined) ? parseInt(oStyle.marginTop, 10) : 0;
-	            iHeight += (iCurrMg > iLastMg) ? iCurrMg : iLastMg
+	            iHeight += (iCurrMg > iLastMg) ? iCurrMg : iLastMg;
 	            iLastMg = (oStyle.marginBottom !== undefined) ? parseInt(oStyle.marginBottom, 10) : 0;
 
 	            // d. proceed onward
@@ -11721,8 +11725,10 @@
 	        aElPanel.forEach(function(el)
 	        {
 	            var iTmp = parseInt(el.dataset.equalityPane, 10);
-	            if (iTmp != iTmp)
+	            if (iTmp !== iTmp)
+	            {
 	                el.dataset.equalityPane = 1;
+	            }
 	        });
 
 	        // 2. bind to window resize

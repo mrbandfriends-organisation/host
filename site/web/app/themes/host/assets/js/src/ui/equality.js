@@ -30,7 +30,7 @@ function Equality()
 
             // c. add margin, based on previous bottom or current top and update the stat
             iCurrMg = (oStyle.marginTop !== undefined) ? parseInt(oStyle.marginTop, 10) : 0;
-            iHeight += (iCurrMg > iLastMg) ? iCurrMg : iLastMg
+            iHeight += (iCurrMg > iLastMg) ? iCurrMg : iLastMg;
             iLastMg = (oStyle.marginBottom !== undefined) ? parseInt(oStyle.marginBottom, 10) : 0;
 
             // d. proceed onward
@@ -101,8 +101,10 @@ function Equality()
         aElPanel.forEach(function(el)
         {
             var iTmp = parseInt(el.dataset.equalityPane, 10);
-            if (iTmp != iTmp)
+            if (iTmp !== iTmp)
+            {
                 el.dataset.equalityPane = 1;
+            }
         });
 
         // 2. bind to window resize

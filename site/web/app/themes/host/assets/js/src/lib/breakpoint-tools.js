@@ -25,6 +25,8 @@ function matchesCurrentBreakpoint(sBreakpoint)
  */
 function largerThanBreakpoint(sBreakpoint)
 {
+    "use strict";
+
     // 1. cast current and required breakpoints
     var iCurr = aBreakpoint.indexOf(getCurrentBreakpoint());
     var iTest = aBreakpoint.indexOf(sBreakpoint);
@@ -38,6 +40,8 @@ function largerThanBreakpoint(sBreakpoint)
  */
 function smallerThanBreakpoint(sBreakpoint)
 {
+    "use strict";
+
     // 1. cast current and required breakpoints
     var iCurr = aBreakpoint.indexOf(getCurrentBreakpoint());
     var iTest = aBreakpoint.indexOf(sBreakpoint);

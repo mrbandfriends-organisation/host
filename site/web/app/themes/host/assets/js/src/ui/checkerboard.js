@@ -65,7 +65,7 @@ function Checkerboard()
             var iChangedIdx = aEl.indexOf(elChangedItem);
 
             // c. if it’s in this row
-            if (iChangedIdx != -1)
+            if (iChangedIdx !== -1)
             {
                 // set offsets
                 fLeft  = iWidth * (iChangedIdx / (aEl.length - 1));
@@ -75,7 +75,7 @@ function Checkerboard()
             // d. set things
             aEl.forEach(function(el, iCurrIdx)
             {
-                el.style.transform = 'translateX('+(iCurrIdx <= iChangedIdx ? 0 - fLeft : fRight)+'px)'
+                el.style.transform = 'translateX('+(iCurrIdx <= iChangedIdx ? 0 - fLeft : fRight)+'px)';
             });
         });
 
@@ -92,7 +92,7 @@ function Checkerboard()
         ev.preventDefault();
 
         // 2. get the item it belongs to
-        var elItem = this;
+        var elItem = ev.currentTarget;
         while ((elItem !== null) && !elItem.classList.contains('js-checkerboard__item'))
         {
             elItem = elItem.parentNode;
@@ -100,7 +100,7 @@ function Checkerboard()
 
         // 3. get any possible offender
         var elOffender = elRoot.querySelector('.js-checkerboard__item.-active');
-        if ((elOffender !== null) && (elOffender != elItem))
+        if ((elOffender !== null) && (elOffender !== elItem))
         {
             elOffender.classList.remove('-active');
         }

@@ -2139,9 +2139,9 @@ dl.-horizontal dd ~ dd {
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button.-show {
-  opacity: 1;
   transform: translateY(-50%) scale(1);
   transition-delay: 0ms, 0ms, 0ms;
+  opacity: 1;
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button .svg-icon {
@@ -2169,28 +2169,28 @@ dl.-horizontal dd ~ dd {
 
 @keyframes slideshow-ai-before {
   99% {
-    opacity: 0;
     transform: scale(1);
+    opacity: 0;
   }
   to {
-    opacity: 0;
     transform: scale(0);
+    opacity: 0;
   }
 }
 
 @keyframes slideshow-ai-after {
   90% {
     width: 100%;
-    opacity: 1;
     border-left-width: 2.5rem;
     border-right-width: 2.5rem;
+    opacity: 1;
   }
   99% {
     width: 100%;
-    opacity: 0;
+    transform: translate(-50%, -50%) scale(1);
     border-left-width: 2.5rem;
     border-right-width: 2.5rem;
-    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
   }
   to {
     transform: scale(0);
@@ -2228,9 +2228,9 @@ dl.-horizontal dd ~ dd {
   left: 50%;
   height: 65%;
   width: 16.25rem;
+  transform: translate(-50%, -50%);
   border-left: 4.375rem solid rgba(255, 255, 255, 0.8);
   border-right: 4.375rem solid rgba(255, 255, 255, 0.8);
-  transform: translate(-50%, -50%);
 }
 
 .slideshow--animate-in .slideshow-pagination {
@@ -2803,19 +2803,19 @@ a.btn {
 
 .checkerboard-item {
   position: relative;
-  z-index: 0;
   transform: translateX(0);
   transition: transform 500ms;
   perspective: 500px;
   perspective-origin: right center;
   background: inherit;
+  z-index: 0;
 }
 
 .checkerboard-item__title {
+  transition: box-shadow 500ms, t;
   background: #b71539 none no-repeat center center/cover;
   background-blend-mode: multiply;
   box-shadow: inset #fff 0 0 0 0;
-  transition: box-shadow 500ms, t;
 }
 
 .-active .checkerboard-item__title {
@@ -2847,14 +2847,14 @@ a.btn {
 
 .checkerboard-item__content {
   padding: 1.25rem;
+  transform: rotateY(90deg);
+  transform-origin: left center;
+  transition: transform 500ms, opacity 0ms 500ms;
   background: #fff;
   color: #d50e3c;
   font-size: 0.9375rem;
   z-index: 2;
   opacity: 0;
-  transform: rotateY(90deg);
-  transform-origin: left center;
-  transition: transform 500ms, opacity 0ms 500ms;
 }
 
 .checkerboard-item__content .btn {
@@ -2865,8 +2865,8 @@ a.btn {
 
 .-active .checkerboard-item__content {
   transform: rotateY(0);
-  opacity: 1;
   transition-delay: 0ms, 0ms;
+  opacity: 1;
 }
 
 .checkerboard-item__feeling-lucky {
@@ -4620,8 +4620,6 @@ img.mfp-img {
     position: absolute;
     top: 0;
     left: 100%;
-    height: 100%;
-    width: 100%;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: column;
@@ -4630,6 +4628,8 @@ img.mfp-img {
     justify-content: space-around;
     -ms-flex-align: start;
     align-items: flex-start;
+    height: 100%;
+    width: 100%;
   }
   .checkerboard-item__content p{
     margin: 0;
