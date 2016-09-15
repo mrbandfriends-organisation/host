@@ -26,6 +26,13 @@
 
     & + & { display: none; }
 
+    // hack!
+    .slideshow--3-items & {
+        display: none;
+
+        &:nth-child(2) { display: block; }
+    }
+
     // if we’re in JS-enhanced mode, show things
     .js-slideshow--active & {
         position:  absolute;

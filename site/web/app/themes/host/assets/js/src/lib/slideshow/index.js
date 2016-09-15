@@ -93,7 +93,7 @@ function Slideshow()
     function assessDimensions()
     {
         // 1. update the viewable width and number of items we can show
-        iItemWidth = aElItems[0].scrollWidth;
+        iItemWidth = aElItems[iCurrent].scrollWidth;
         iToShow    = Math.floor(( elCarousel.scrollWidth / iItemWidth ) + 0.01);
 
         // 2. reset the heights

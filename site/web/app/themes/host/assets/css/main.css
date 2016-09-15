@@ -2072,6 +2072,14 @@ dl.-horizontal dd ~ dd {
   display: none;
 }
 
+.slideshow--3-items .slideshow__item {
+  display: none;
+}
+
+.slideshow--3-items .slideshow__item:nth-child(2) {
+  display: block;
+}
+
 .js-slideshow--active .slideshow__item {
   position: absolute;
   display: block;
