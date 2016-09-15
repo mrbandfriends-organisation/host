@@ -8,7 +8,7 @@ function Slideshow()
 	var el           = this;
 	var elCarousel   = this.querySelector('.js-slideshow__list');
     var aElItems     = this.querySelectorAll('.js-slideshow__item').toArray();
-    var iCurrent     = 0;
+    var iCurrent     = (aElItems.length > 2) ? 1 : 0;
     var iItemWidth   = -1;
     var iToShow      = 0;
     var sPagination  = (this.getAttribute('data-pagination') || "").toLowerCase();
@@ -93,7 +93,7 @@ function Slideshow()
     function assessDimensions()
     {
         // 1. update the viewable width and number of items we can show
-        iItemWidth = aElItems[0].scrollWidth;
+        iItemWidth = aElItems[iCurrent].scrollWidth;
         iToShow    = Math.floor(( elCarousel.scrollWidth / iItemWidth ) + 0.01);
 
         // 2. reset the heights

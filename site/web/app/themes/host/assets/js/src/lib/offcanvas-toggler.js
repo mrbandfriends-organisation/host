@@ -22,7 +22,7 @@ var OffCanvasToggler = function(options) {
 
     this.settings = $.extend( {}, defaults, options );
 
-    this.$root              = $(':root');
+    this.$root              = $(':root').addClass('js-offcanvas--bound');
     this.$menu              = $(this.settings.menu);
     this.$wrapper           = $(this.settings.wrapper);
     this.$toggleElements    = $(this.settings.toggleElements);

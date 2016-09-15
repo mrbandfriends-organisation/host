@@ -2,7 +2,7 @@
     use Roots\Sage\Utils;
 ?>
 
-<section class="band news-feed" data-equality="from:medium">
+<section class="band news-feed" data-equality="medium">
     <h2 class="vh">Latest news</h2>
     <div class="grid news-feed__grid">
         <div class="gc m1-3 xxl1-5">
