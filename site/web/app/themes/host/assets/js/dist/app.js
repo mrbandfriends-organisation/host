@@ -52,7 +52,7 @@
 	 */
 
 	// NPM Modules
-	__webpack_require__(21);
+	__webpack_require__(23);
 
 	// extend things
 	__webpack_require__(4);
@@ -77,7 +77,7 @@
 	(function() {
 	    "use strict";
 
-	    var SVGSpritemapLoader = __webpack_require__(12);
+	    var SVGSpritemapLoader = __webpack_require__(13);
 
 	    new SVGSpritemapLoader('/app/themes/host/assets/svg/sprites/output/spritesheet.svg');
 	}());
@@ -94,7 +94,7 @@
 	    if ( window.innerWidth < 992 ) {
 	        // Async load
 	        //require.ensure(['offcanvas-toggler'], function() {
-	            var OffCanvasToggler = __webpack_require__(6);
+	            var OffCanvasToggler = __webpack_require__(7);
 	            new OffCanvasToggler();
 	        //},'offcanvas-toggle');
 	    }
@@ -106,7 +106,7 @@
 	 */
 	(function() {
 	    'use strict';
-	    var RImgBg = __webpack_require__(7);
+	    var RImgBg = __webpack_require__(8);
 	    new RImgBg('.js-rimgbg');
 	}());
 
@@ -120,23 +120,25 @@
 	{
 	    "use strict";
 
-	    __webpack_require__(13);
-
-	    __webpack_require__(17)();
-
-	    __webpack_require__(15)();
-
-	    __webpack_require__(19)();
+	    __webpack_require__(14);
 
 	    __webpack_require__(18)();
+
+	    __webpack_require__(16)();
+
+	    __webpack_require__(20)();
+
+	    __webpack_require__(19)();
 
 	    // require('bind-inview')();
 
 	    // require('onpage-smooth-scroll')();
 
-	    __webpack_require__(16)();
+	    __webpack_require__(17)();
 
-	    __webpack_require__(14)();
+	    __webpack_require__(15)();
+
+	    __webpack_require__(5);
 	})();
 
 
@@ -10302,6 +10304,341 @@
 
 /***/ },
 /* 5 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var cookies = __webpack_require__(21);
+	var icon    = __webpack_require__(2);
+
+	var sFavouriteTemplate =
+	'<article class="box box--fg-{{colourway}} favourites__favourite" data-id="{{id}}">'+
+	    '<aside class="favourites__favourite__image"><img src="{{thumbnail}}" alt=""></aside>'+
+	    '<header class="favourites__favourite__header">'+
+	        '<h3 class="favourites__favourite__title">'+
+	            '{{city}}<br>{{title}}'+
+	        '</h3>'+
+	    '</header>'+
+	    '<p><strong>Availability:</strong> {{availability}}</p>'+
+	    '<footer class="favourites__favourite__footer">'+
+	        '<a href="{{url}}" class="btn btn--small">Show me this property</a>'
+	    '</footer>'+
+	'</article>';
+
+	var aColorway = {
+	    'available': 'sky',
+	    'limited':   'orange'
+	};
+
+	function FavouriteDom()
+	{
+	    "use strict";
+
+	    var elDom    = null;
+	    var elList   = null;
+	    var elButton = null;
+	    var aIds     = [];
+	    var bLoaded  = false;
+
+	    /**
+	     * Constructor
+	     */
+	    function init()
+	    {
+	        // 1. build DOM
+	        buildInitialDom();
+
+	        // 2. bind events
+	        bindEvents();
+
+	    }
+
+	    /** - Process functions - */
+	    function loadData()
+	    {
+	        // 1. set class
+	        elDom.classList.add('-loading');
+	        elList.innerHTML = '';
+
+	        // 2. create some data
+	        var sRequestParms = '?action=buildings_load_favourites&'+aIds.map(function(iD)
+	        {
+	            return 'id[]='+iD;
+	        }).join('&');
+
+	        // 3. XHR time
+	        var oXhr = new XMLHttpRequest();
+	        oXhr.onreadystatechange = function()
+	        {
+	            if (this.readyState === 4)
+	            {
+	                fnLoaded(this);
+	            }
+	        }
+	        oXhr.open('get', LOCALISED_VARS.ajaxurl+sRequestParms);
+	        oXhr.send();
+
+	    }
+
+	    /** - Event handlers */
+	    function fnToggleClick()
+	    {
+	        // 1. set a flag
+	        elDom.classList.toggle('-open');
+
+	        // 2. if we’ve not loaded anything
+	        if (!bLoaded && elDom.classList.contains('-open'))
+	        {
+	            loadData();
+	        }
+	    }
+
+	    function fnLoaded(oXhr)
+	    {
+	        // 0. check for failure
+	        if (oXhr.status !== 200)
+	        {
+	            return;
+	        }
+
+	        // 1. try parsing
+	        var aoReturn = JSON.parse(oXhr.response);
+	        if (aoReturn === null)
+	        {
+	            return;
+	        }
+
+	        // 2. go through and sort things out
+	        aoReturn.forEach(function(oFav)
+	        {
+	            // a. create LI
+	            var elLi = document.createElement('li');
+	            elLi.classList.add('favourites__item');
+	            elList.appendChild(elLi);
+
+	            // b. colourway
+	            oFav.colourway = aColorway[oFav.shortAvailability];
+
+	            // c. populate template
+	            elLi.innerHTML = sFavouriteTemplate.replace(/\{\{(.*?)\}\}/g, function(sM, sField)
+	            {
+	                return oFav.hasOwnProperty(sField) ? oFav[sField] : '[error]';
+	            });
+
+	            // d. throw a button in
+	            var elButton = document.createElement('button');
+	            elButton.classList.add('favourites__favourite__remove');
+	            elButton.classList.add('btn--small');
+	            elButton.classList.add('btn--ink');
+	            elButton.innerHTML = 'Remove from favourites';
+	            elButton.appendChild(icon('cross'));
+
+	            // e. add it
+	            elLi.querySelector('.favourites__favourite__footer').appendChild(elButton);
+	        });
+
+	        // 3. update the class
+	        elDom.classList.remove('-loading');
+	        bLoaded = true;
+	    }
+
+	    /** - DOM CONSTRUCTION */
+	    function buildInitialDom()
+	    {
+	        // 1. find a parent node
+	        var elParent = document.querySelector('.js-favouritemanager li:last-child');
+	        if (elParent === null)
+	        {
+	            return false;
+	        }
+
+	        // 2. create new LI
+	        var elLi = document.createElement('li');
+	        elLi.classList.add('favourites');
+	        elParent.parentNode.appendChild(elLi);
+
+	        // 3. create our new button
+	        elButton = document.createElement('button');
+	        elButton.classList.add('favourites__button');
+	        elButton.innerHTML = 'My favourites';
+	        elButton.appendChild(icon('heart'));
+	        elLi.appendChild(elButton);
+
+	        // 4. create favourite DOM and list
+	        elDom = document.createElement('aside');
+	        elDom.classList.add('favourites__flyout');
+	        elLi.appendChild(elDom);
+
+	        elList = document.createElement('ul');
+	        elList.classList.add('favourites__list');
+	        elDom.appendChild(elList);
+	    }
+
+	    function bindEvents()
+	    {
+	        // 1. bind on clicking the button
+	        elButton.addEventListener('click', fnToggleClick);
+	    }
+
+	    /** Constructor logic */
+	    init();
+	    return {
+	        setIds: function(aId)
+	        {
+	            // a. set IDs
+	            aIds = aId;
+
+	            // b. mark dirty
+	            bLoaded = false;
+	        },
+	        addEventListener: function(sEvent, fCallback)
+	        {
+	            return elDom.addEventListener(sEvent, fCallback);
+	        }
+	    };
+	}
+
+	function FavouriteManager()
+	{
+	    "use strict";
+
+	    var aiFavourites = [];
+	    var oHeaderDom   = null;
+
+	    /** Persistence functions */
+	    /**
+	     * Load from the cookie
+	     */
+	    function loadFromCookie()
+	    {
+	        // 1. read, but default to an empty string
+	        var sCookieValue = ""+cookies('favourites') || "";
+
+	        // 2. parse out
+	        aiFavourites = sCookieValue.split(/,\s*/g).map(function(item)
+	        {
+	            item = parseInt(item, 10);
+	            return (item === item) ? item : null;
+
+	        }).filter(function(item)
+	        {
+	            return (item !== null);
+	        });
+	    }
+
+	    /**
+	     * Save to cookie
+	     */
+	    function saveToCookie()
+	    {
+	        // 1. join
+	        var sCookieValue = aiFavourites.join(',');
+
+	        // 2. store for a year
+	        cookies({ favourites: sCookieValue }, {
+	            expires: 365 * 86400
+	        });
+	    }
+
+	    /**
+	     * Adds the favourites button to the header DOM
+	     */
+	    function setupHeaderDom()
+	    {
+	        // 1. create the object
+	        oHeaderDom = new FavouriteDom();
+
+	        // 2. bind an event
+	        oHeaderDom.addEventListener('remove', function(ev)
+	        {
+	            console.debug(ev);
+	        });
+
+	        // 3. update the dom
+	        oHeaderDom.setIds(aiFavourites);
+	    }
+
+	    /**
+	     * Sets up “favourite” buttons for all favouritable stuff
+	     */
+	    function createFavouritableDom(elFavouritable)
+	    {
+	        // 0. get + check ID
+	        var iId = parseInt(elFavouritable.dataset.favouritable, 10);
+	        if (iId !== iId)
+	        {
+	            return;
+	        }
+
+	        // 1. create a wee container
+	        var elContainer = document.createElement('aside');
+	        elContainer.classList.add('favouritable');
+	        elFavouritable.appendChild(elContainer);
+
+	        // 2. button
+	        var elButton = document.createElement('button');
+	        elButton.classList.add('favouritable__button');
+	        elButton.appendChild(icon('heart'));
+	        elFavouritable.appendChild(elButton);
+
+	        // 3. mark current
+	        if (aiFavourites.includes(iId))
+	        {
+	            elContainer.classList.add('-favourite');
+	        }
+
+	        // 4. bind to clicking on the button
+	        elButton.addEventListener('click', function()
+	        {
+	            // a. if it contains it, remove
+	            if (aiFavourites.includes(iId))
+	            {
+	                aiFavourites = aiFavourites.filter(function(iCurr)
+	                {
+	                    return (iCurr !== iId);
+	                });
+	                elContainer.classList.remove('-favourite');
+	            }
+	            // b. otherwise, add it
+	            else
+	            {
+	                aiFavourites.push(iId);
+	                elContainer.classList.add('-favourite');
+	            }
+
+	            // c. poke the DOM
+	            oHeaderDom.setIds(aiFavourites);
+
+	            // d. save
+	            saveToCookie(aiFavourites);
+	            return false;
+	        });
+	    }
+
+	    function init()
+	    {
+	        // 0. load from the cookie
+	        loadFromCookie();
+
+	        // 1. set up header DOM
+	        setupHeaderDom();
+
+	        // 2. bind favouritable stuff
+	        document.querySelectorAll('[data-favouritable]').each(createFavouritableDom);
+	    }
+
+	    /**
+	     * Init function
+	     */
+	    return init();
+	}
+
+	module.exports = (function()
+	{
+	    new FavouriteManager();
+	})();
+
+
+/***/ },
+/* 6 */
 /***/ function(module, exports) {
 
 	/**
@@ -10574,7 +10911,7 @@
 
 
 /***/ },
-/* 6 */
+/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/**
@@ -10583,7 +10920,7 @@
 	 */
 
 	__webpack_require__(1);
-	var EventBus = __webpack_require__(25);
+	var EventBus = __webpack_require__(27);
 
 	var OffCanvasToggler = function(options) {
 	    "use strict";
@@ -10719,7 +11056,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/* jshint strict: false */
@@ -10783,12 +11120,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./dots-pagination": 9,
-		"./pn-pagination": 11
+		"./dots-pagination": 10,
+		"./pn-pagination": 12
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -10801,11 +11138,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 8;
+	webpackContext.id = 9;
 
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var util = __webpack_require__(3);
@@ -10899,11 +11236,11 @@
 
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var debounce = __webpack_require__(20);
+	var debounce = __webpack_require__(22);
 
 	function Slideshow()
 	{
@@ -10984,7 +11321,7 @@
 	        aPagination.forEach(function(sPagination)
 	        {
 	            // a. load the pagination
-	            var oPagination = __webpack_require__(8)("./"+sPagination+'-pagination')(el, aElItems, go);
+	            var oPagination = __webpack_require__(9)("./"+sPagination+'-pagination')(el, aElItems, go);
 
 	            // b. push it onto the array
 	            aoPagination.push(oPagination);
@@ -11098,7 +11435,7 @@
 
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var util = __webpack_require__(3);
@@ -11186,7 +11523,7 @@
 
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports) {
 
 	/**
@@ -11235,7 +11572,7 @@
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports) {
 
 	// jshint latedef:nofunc
@@ -11417,7 +11754,7 @@
 
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	function Equality()
@@ -11559,7 +11896,7 @@
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -11617,10 +11954,10 @@
 
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(24);
+	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(26);
 
 	module.exports = function()
 	{
@@ -11643,13 +11980,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 *
 	 */
-	var GMaps        = __webpack_require__(5);
+	var GMaps        = __webpack_require__(6);
 	var maps_loading = false;
 	var maps_loaded  = false;
 
@@ -11676,7 +12013,7 @@
 	    if (!maps_loaded && !maps_loading)
 	    {
 	        maps_loading = true;
-	        __webpack_require__(23)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+	        __webpack_require__(25)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
 	    }
 	    else if (maps_loaded)
 	    {
@@ -11688,7 +12025,7 @@
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);
@@ -11704,10 +12041,10 @@
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var slideshow = __webpack_require__(10);
+	var slideshow = __webpack_require__(11);
 
 	module.exports = function()
 	{
@@ -11721,7 +12058,96 @@
 
 
 /***/ },
-/* 20 */
+/* 21 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var cookies = function (data, opt) {
+	  function defaults (obj, defs) {
+	    obj = obj || {};
+	    for (var key in defs) {
+	      if (obj[key] === undefined) {
+	        obj[key] = defs[key];
+	      }
+	    }
+	    return obj;
+	  }
+
+	  defaults(cookies, {
+	    expires: 365 * 24 * 3600,
+	    path: '/',
+	    secure: window.location.protocol === 'https:',
+
+	    // Advanced
+	    nulltoremove: true,
+	    autojson: true,
+	    autoencode: true,
+	    encode: function (val) {
+	      return encodeURIComponent(val);
+	    },
+	    decode: function (val) {
+	      return decodeURIComponent(val);
+	    }
+	  });
+
+	  opt = defaults(opt, cookies);
+
+	  function expires (time) {
+	    var expires = time;
+	    if (!(expires instanceof Date)) {
+	      expires = new Date();
+	      expires.setTime(expires.getTime() + (time * 1000));
+	    }
+	    return expires.toUTCString();
+	  }
+
+	  if (typeof data === 'string') {
+	    var value = document.cookie.split(/;\s*/)
+	      .map(opt.autoencode ? opt.decode : function (d) { return d; })
+	      .map(function (part) { return part.split('='); })
+	      .reduce(function (parts, part) {
+	        parts[part[0]] = part[1];
+	        return parts;
+	      }, {})[data];
+	    if (!opt.autojson) return value;
+	    try {
+	      return JSON.parse(value);
+	    } catch (e) {
+	      return value;
+	    }
+	  }
+
+	  // Set each of the cookies
+	  for (var key in data) {
+	    var expired = data[key] === undefined || (opt.nulltoremove && data[key] === null);
+	    var str = opt.autojson ? JSON.stringify(data[key]) : data[key];
+	    var encoded = opt.autoencode ? opt.encode(str) : str;
+	    if (expired) encoded = '';
+	    var res = opt.encode(key) + '=' + encoded +
+	      (opt.expires ? (';expires=' + expires(expired ? -10000 : opt.expires)) : '') +
+	      ';path=' + opt.path +
+	      (opt.domain ? (';domain=' + opt.domain) : '') +
+	      (opt.secure ? ';secure' : '');
+	    if (opt.test) opt.test(res);
+	    document.cookie = res;
+	  }
+	  return cookies;
+	};
+
+	(function webpackUniversalModuleDefinition (root) {
+	  if (true) {
+	    module.exports = cookies;
+	  } else if (typeof define === 'function' && define.amd) {
+	    define('cookies', [], cookies);
+	  } else if (typeof exports === 'object') {
+	    exports['cookies'] = cookies;
+	  } else {
+	    root['cookies'] = cookies;
+	  }
+	})(this);
+
+
+/***/ },
+/* 22 */
 /***/ function(module, exports) {
 
 	/**
@@ -12118,21 +12544,21 @@
 
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(22);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(24);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(1);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
@@ -12161,7 +12587,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Magnific Popup - v1.1.0 - 2016-02-20
@@ -14026,7 +14452,7 @@
 	 _checkInstance(); }));
 
 /***/ },
-/* 25 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*

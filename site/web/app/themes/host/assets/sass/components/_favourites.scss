@@ -1,0 +1,105 @@
+// ==========================================================================
+// # FAVOURITES FUNCTIONALITY
+// ==========================================================================
+.favourites {
+    // position: relative;
+}
+
+.favourites__button {
+    padding: 0;
+    min-width: 0;
+
+    background: transparent none;
+    color: brand(grey);
+
+    font-size:   rem(14);
+    line-height: rem(20);
+
+    .svg-icon {
+        height:      rem(20);
+        width:       rem(20);
+        margin-left: rem(15);
+    }
+
+    &:hover {
+        background: transparent none;
+    }
+}
+
+// # Flyout
+// ==========================================================================
+.favourites__flyout {
+    display:  none;
+    position: absolute;
+    z-index:  100;
+
+    top:   calc(100% + #{rem($half-spacing-unit)});
+    right: 0;
+    width: rem(675);
+    padding: rem(40) 0 rem(40) rem(40);
+
+    background: brand(white);
+
+    &.-open { display: block; }
+
+    &:before {
+        position: absolute;
+
+        top: 0;
+        left: 100%;
+        bottom: 0;
+        width: 100%;
+
+        background-color: inherit;
+
+        content: "";
+    }
+
+    .btn,
+    button {
+        height: auto;
+        min-width: 0;
+
+        font-size: rem(15);
+        line-height: 1;
+
+        color: #fff;
+    }
+}
+
+.favourites__list[class],
+.favourites__item[class] {
+    display: block;
+    margin:  0;
+    padding: 0;
+}
+
+.favourites__item + .favourites__item {
+    margin-top: rem(40);
+}
+
+// ==========================================================================
+// # Favourite
+// ==========================================================================
+.favourites__favourite {
+    padding-left: rem(180);
+    background: transparent;
+
+    &:after {
+        content: "";
+        display: table;
+        clear:   left;
+    }
+}
+
+.favourites__favourite__image {
+    float: left;
+    margin-left: rem(-180);
+
+    height: rem(150);
+    width:  rem(150);
+
+    background: brand(grey);
+
+    img { display: block; }
+}

@@ -11,12 +11,12 @@
 // ==========================================================================
 
 .banner {
-    position: relative;
     width: 100%;
     padding: 0 0 rem($half-spacing-unit);
 }
 
 .banner__inner {
+    position:        relative;
     display:         flex;
     justify-content: space-between;
     align-items:     center;

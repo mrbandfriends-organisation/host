@@ -40,20 +40,6 @@
         display: inline-block;
         margin: 0 0 $quarter-spacing-unit -0.2em;
         padding: 0 rem(15);
-
-        // Favourite menu item
-        &:last-of-type {
-            position: relative;
-            padding-right: rem(45);
-
-            &::after {
-                content: url(../images/favourite-heart.png);
-                position: absolute;
-                width: $half-spacing-unit;
-                height: $half-spacing-unit;
-                right: $half-spacing-unit;
-            }
-        }
     }
 
     a {

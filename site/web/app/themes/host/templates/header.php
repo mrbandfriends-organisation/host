@@ -9,14 +9,9 @@
 		</div>
 
 		<div class="banner__section banner__nav">
-            <?php echo Utils\ob_load_template_part('templates/partials/utility-nav', [ 'modifier' => 'banner' ]); ?>
-
             <?php
-                $banner_nav_args = array(
-                    'modifier' => 'banner'
-                );
-
-                echo Utils\ob_load_template_part('templates/menus/primary-nav', $banner_nav_args);
+                echo Utils\ob_load_template_part('templates/partials/utility-nav', [ 'modifier' => 'banner' ]);
+                echo Utils\ob_load_template_part('templates/menus/primary-nav',    [ 'modifier' => 'banner' ]);
             ?>
 
             <button id="menu-button" type="button" class="offcanvas-toggle offcanvas-toggle--open tcon tcon-menu--xcross js-offcanvas-toggle" aria-label="toggle menu" aria-expanded="false" aria-controls="menu">

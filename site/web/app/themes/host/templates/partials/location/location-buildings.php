@@ -44,12 +44,12 @@
             }
         ?>
         <li class="property-list__item">
-            <article class="listed-property grid">
+            <article class="listed-property grid" data-favouritable="<?=get_the_id(); ?>">
                 <div class="listed-property__main gc l1-2 xl2-3 box box--fg-sky box--padded">
                     <div class="listed-property__content grid">
                         <div class="listed-property__title-desc gc xxl3-5">
                             <h3 class="listed-property__title"><?=the_title(); ?></h3>
-                            <h4 class="h3"><?php RoomsBuildings\availability_status(get_field('availability')); ?></h4>
+                            <h4 class="h3"><?=RoomsBuildings\availability_status(get_field('availability')); ?></h4>
 
                             <?=apply_filters('the_content', get_field('description')); ?>
                         </div>
