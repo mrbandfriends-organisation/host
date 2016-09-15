@@ -103,6 +103,25 @@ body {
 
     &::before { left:  0; }
     &::after  { right: 0; }
+
+    // breakpoint-fu
+    &::before {
+        overflow: hidden;
+
+        font-size: 0;
+        text-indent: -5000em;
+
+        @each $break, $dim in $mq-breakpoints
+        {
+            @if (str-index($break, 'nav-') == null)
+            {
+                @include mq($break)
+                {
+                    content: quote($break);
+                }
+            }
+        }
+    }
 }
 
 // ==========================================================================

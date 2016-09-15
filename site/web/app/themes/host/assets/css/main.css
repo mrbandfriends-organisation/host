@@ -277,6 +277,12 @@ body::after {
   right: 0;
 }
 
+body::before {
+  overflow: hidden;
+  font-size: 0;
+  text-indent: -5000em;
+}
+
 html *:first-child {
   margin-top: 0;
 }
@@ -4377,6 +4383,9 @@ img.mfp-img {
 }
 
 @media (min-width: 20em){
+  body::before{
+    content: "tiny";
+  }
   .grid--vertical-t{
     -ms-flex-direction: column;
     flex-direction: column;
@@ -4630,6 +4639,9 @@ img.mfp-img {
 }
 
 @media (min-width: 37.5em){
+  body::before{
+    content: "small";
+  }
   .grid--vertical-s{
     -ms-flex-direction: column;
     flex-direction: column;
@@ -4871,6 +4883,9 @@ img.mfp-img {
   }
   body::before, body::after{
     width: 1.875rem;
+  }
+  body::before{
+    content: "medium";
   }
   .grid--vertical-m{
     -ms-flex-direction: column;
@@ -5180,6 +5195,9 @@ img.mfp-img {
 }
 
 @media (min-width: 62em){
+  body::before{
+    content: "large";
+  }
   .grid--vertical-l{
     -ms-flex-direction: column;
     flex-direction: column;
@@ -5491,6 +5509,9 @@ img.mfp-img {
 }
 
 @media (min-width: 68.75em){
+  body::before{
+    content: "xlarge";
+  }
   .grid--vertical-xl{
     -ms-flex-direction: column;
     flex-direction: column;
@@ -5732,6 +5753,9 @@ img.mfp-img {
 }
 
 @media (min-width: 81.25em){
+  body::before{
+    content: "xxlarge";
+  }
   .grid--vertical-xxl{
     -ms-flex-direction: column;
     flex-direction: column;

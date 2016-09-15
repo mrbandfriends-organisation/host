@@ -52,10 +52,10 @@
 	 */
 
 	// NPM Modules
-	__webpack_require__(21);
+	__webpack_require__(23);
 
 	// extend things
-	__webpack_require__(4);
+	__webpack_require__(5);
 
 	/**
 	 * GOGGLE EVENT TRACKING
@@ -77,7 +77,7 @@
 	(function() {
 	    "use strict";
 
-	    var SVGSpritemapLoader = __webpack_require__(12);
+	    var SVGSpritemapLoader = __webpack_require__(14);
 
 	    new SVGSpritemapLoader('/app/themes/host/assets/svg/sprites/output/spritesheet.svg');
 	}());
@@ -94,7 +94,7 @@
 	    if ( window.innerWidth < 992 ) {
 	        // Async load
 	        //require.ensure(['offcanvas-toggler'], function() {
-	            var OffCanvasToggler = __webpack_require__(6);
+	            var OffCanvasToggler = __webpack_require__(8);
 	            new OffCanvasToggler();
 	        //},'offcanvas-toggle');
 	    }
@@ -106,7 +106,7 @@
 	 */
 	(function() {
 	    'use strict';
-	    var RImgBg = __webpack_require__(7);
+	    var RImgBg = __webpack_require__(9);
 	    new RImgBg('.js-rimgbg');
 	}());
 
@@ -120,23 +120,23 @@
 	{
 	    "use strict";
 
-	    __webpack_require__(13);
-
-	    __webpack_require__(17)();
-
-	    __webpack_require__(15)();
+	    __webpack_require__(15);
 
 	    __webpack_require__(19)();
 
-	    __webpack_require__(18)();
+	    __webpack_require__(17)();
+
+	    __webpack_require__(21)();
+
+	    __webpack_require__(20)();
 
 	    // require('bind-inview')();
 
 	    // require('onpage-smooth-scroll')();
 
-	    __webpack_require__(16)();
+	    __webpack_require__(18)();
 
-	    __webpack_require__(14)();
+	    __webpack_require__(16)();
 	})();
 
 
@@ -10276,6 +10276,20 @@
 /* 4 */
 /***/ function(module, exports) {
 
+	module.exports = [
+	    'tiny',
+	    'small',
+	    'medium',
+	    'large',
+	    'xlarge',
+	    'xxlarge'
+	];
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
 	module.exports = (function()
 	{
 	    "use strict";
@@ -10301,7 +10315,68 @@
 
 
 /***/ },
-/* 5 */
+/* 6 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var aBreakpoint = __webpack_require__(4);
+
+	/**
+	 * Returns the current breakpoint
+	 */
+	function getCurrentBreakpoint()
+	{
+	    "use strict";
+
+	    return window.getComputedStyle(document.body, ':before').content.replace(/[^a-z]/g, '');
+	}
+
+	/**
+	 * Returns true if the current browser state matches the given viewport
+	 */
+	function matchesCurrentBreakpoint(sBreakpoint)
+	{
+	    "use strict";
+
+	    return (sBreakpoint === getCurrentBreakpoint());
+	}
+
+	/**
+	 * Returns true if the browser window is larger than the given viewport.
+	 */
+	function largerThanBreakpoint(sBreakpoint)
+	{
+	    // 1. cast current and required breakpoints
+	    var iCurr = aBreakpoint.indexOf(getCurrentBreakpoint());
+	    var iTest = aBreakpoint.indexOf(sBreakpoint);
+
+	    // 2. return
+	    return (iCurr >= iTest);
+	}
+
+	/**
+	 * Returns true if the browser window is smaller than the given viewport.
+	 */
+	function smallerThanBreakpoint(sBreakpoint)
+	{
+	    // 1. cast current and required breakpoints
+	    var iCurr = aBreakpoint.indexOf(getCurrentBreakpoint());
+	    var iTest = aBreakpoint.indexOf(sBreakpoint);
+
+	    // 2. return
+	    return (iCurr <= iTest);
+	}
+
+	module.exports = {
+	    breakpoints:  aBreakpoint,
+	    current:      getCurrentBreakpoint,
+	    match:        matchesCurrentBreakpoint,
+	    matchLarger:  largerThanBreakpoint,
+	    matchSmaller: smallerThanBreakpoint
+	};
+
+
+/***/ },
+/* 7 */
 /***/ function(module, exports) {
 
 	/**
@@ -10575,7 +10650,7 @@
 
 
 /***/ },
-/* 6 */
+/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/**
@@ -10584,7 +10659,7 @@
 	 */
 
 	__webpack_require__(1);
-	var EventBus = __webpack_require__(25);
+	var EventBus = __webpack_require__(27);
 
 	var OffCanvasToggler = function(options) {
 	    "use strict";
@@ -10720,7 +10795,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 7 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/* jshint strict: false */
@@ -10784,12 +10859,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 8 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./dots-pagination": 9,
-		"./pn-pagination": 11
+		"./dots-pagination": 11,
+		"./pn-pagination": 13
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -10802,11 +10877,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 8;
+	webpackContext.id = 10;
 
 
 /***/ },
-/* 9 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var util = __webpack_require__(3);
@@ -10900,11 +10975,11 @@
 
 
 /***/ },
-/* 10 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var debounce = __webpack_require__(20);
+	var debounce = __webpack_require__(22);
 
 	function Slideshow()
 	{
@@ -10985,7 +11060,7 @@
 	        aPagination.forEach(function(sPagination)
 	        {
 	            // a. load the pagination
-	            var oPagination = __webpack_require__(8)("./"+sPagination+'-pagination')(el, aElItems, go);
+	            var oPagination = __webpack_require__(10)("./"+sPagination+'-pagination')(el, aElItems, go);
 
 	            // b. push it onto the array
 	            aoPagination.push(oPagination);
@@ -11099,7 +11174,7 @@
 
 
 /***/ },
-/* 11 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var util = __webpack_require__(3);
@@ -11187,7 +11262,7 @@
 
 
 /***/ },
-/* 12 */
+/* 14 */
 /***/ function(module, exports) {
 
 	/**
@@ -11236,7 +11311,7 @@
 
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports) {
 
 	// jshint latedef:nofunc
@@ -11418,16 +11493,18 @@
 
 
 /***/ },
-/* 14 */
-/***/ function(module, exports) {
+/* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var bp = __webpack_require__(6);
 
 	function Equality()
 	{
 	    "use strict";
 
-	    var elRoot   = this;
-	    var aElPanel = [];
-
+	    var elRoot      = this;
+	    var aElPanel    = [];
+	    var sBreakpoint = '';
 
 	    /**
 	     * Works out the content height of a given panel.
@@ -11484,7 +11561,13 @@
 	            el.style.height = null;
 	        });
 
-	        // 2. second pass, get a height
+	        // 2. check the current breakpoint
+	        if (!bp.matchLarger(sBreakpoint))
+	        {
+	            return;
+	        }
+
+	        // 3. second pass, get a height
 	        aElPanel.forEach(function(el)
 	        {
 	            // b. work out a proportion
@@ -11494,7 +11577,7 @@
 	            iMaxHeight = Math.max(iMaxHeight, getContentHeight(el) / iProp);
 	        });
 
-	        // 3. third pass: apply it
+	        // 4. third pass: apply it
 	        aElPanel.forEach(function(el)
 	        {
 	            // a. work out a proportion
@@ -11508,6 +11591,9 @@
 
 	    function init()
 	    {
+	        // 0. get a trigger point
+	        sBreakpoint = elRoot.dataset.equality.trim();
+
 	        // 1. get panels and default their proportion
 	        aElPanel = elRoot.querySelectorAll('[data-equality-pane]').toArray();
 	        aElPanel.forEach(function(el)
@@ -11560,7 +11646,7 @@
 
 
 /***/ },
-/* 15 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -11618,10 +11704,10 @@
 
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(24);
+	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(26);
 
 	module.exports = function()
 	{
@@ -11644,13 +11730,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 *
 	 */
-	var GMaps        = __webpack_require__(5);
+	var GMaps        = __webpack_require__(7);
 	var maps_loading = false;
 	var maps_loaded  = false;
 
@@ -11677,7 +11763,7 @@
 	    if (!maps_loaded && !maps_loading)
 	    {
 	        maps_loading = true;
-	        __webpack_require__(23)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+	        __webpack_require__(25)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
 	    }
 	    else if (maps_loaded)
 	    {
@@ -11689,7 +11775,7 @@
 
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);
@@ -11705,10 +11791,10 @@
 
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var slideshow = __webpack_require__(10);
+	var slideshow = __webpack_require__(12);
 
 	module.exports = function()
 	{
@@ -11722,7 +11808,7 @@
 
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports) {
 
 	/**
@@ -12119,21 +12205,21 @@
 
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(22);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(24);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(1);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
@@ -12162,7 +12248,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Magnific Popup - v1.1.0 - 2016-02-20
@@ -14027,7 +14113,7 @@
 	 _checkInstance(); }));
 
 /***/ },
-/* 25 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
