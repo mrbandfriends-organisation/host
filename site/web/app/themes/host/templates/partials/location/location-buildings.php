@@ -51,8 +51,8 @@
                 <div class="listed-property__main gc l1-2 xl2-3 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded">
                     <div class="listed-property__content grid">
                         <div class="listed-property__title-desc gc xxl3-5">
-                            <h3 class="listed-property__title"><?=the_title(); ?></h3>
-                            <h4 class="h3"><?=$aAvailabilityDefinition['text']; ?></h4>
+                            <h3 class="listed-property__title plain"><?=the_title(); ?></h3>
+                            <h4 class="listed-property__availability"><?=$aAvailabilityDefinition['text']; ?></h4>
 
                             <?=apply_filters('the_content', get_field('description')); ?>
                         </div>
