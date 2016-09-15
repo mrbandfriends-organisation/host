@@ -206,8 +206,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "file_location": "",
-                    "file_glob": ""
+                    "file_location": "assets\/svg\/sprites\/",
+                    "file_glob": "*.svg"
                 },
                 {
                     "key": "field_57bedd26f0eed",
@@ -281,8 +281,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "file_location": "",
-                    "file_glob": ""
+                    "file_location": "assets\/svg\/sprites\/",
+                    "file_glob": "*.svg"
                 },
                 {
                     "key": "field_57bedd500a7a7",
@@ -676,5 +676,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1472743803
+    "modified": 1473867186
 }
