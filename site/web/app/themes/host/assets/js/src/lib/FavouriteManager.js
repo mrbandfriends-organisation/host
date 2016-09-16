@@ -1,3 +1,4 @@
+// jshint latedef:nofunc
 var cookies = require('cookies');
 var icon    = require('svg-icons');
 
@@ -11,7 +12,7 @@ var sFavouriteTemplate =
     '</header>'+
     '<p><strong>Availability:</strong> {{availability.text}}</p>'+
     '<footer class="favourites__favourite__footer">'+
-        '<a href="{{url}}" class="btn btn--small">Show me this property</a>'
+        '<a href="{{url}}" class="btn btn--small">Show me this property</a>'+
     '</footer>'+
 '</article>';
 
@@ -59,7 +60,8 @@ function FavouriteList()
             {
                 fnLoaded(this);
             }
-        }
+        };
+
         oXhr.open('get', LOCALISED_VARS.ajaxurl+sRequestParms);
         oXhr.send();
 
@@ -92,13 +94,14 @@ function FavouriteList()
         }
 
         // 2. fire an event
+        var oEvt;
         if (window.CustomEvent)
         {
-            var oEvt = new CustomEvent('remove', { detail: { id: iBuildingId }});
+            oEvt = new CustomEvent('remove', { detail: { id: iBuildingId }});
         }
         else
         {
-            var oEvt = document.createEvent('CustomEvent');
+            oEvt = document.createEvent('CustomEvent');
             oEvt.initCustomEvent('remove', true, true, { id: iBuildingId });
         }
         elDom.dispatchEvent(oEvt);
@@ -435,5 +438,7 @@ function FavouriteManager()
 
 module.exports = (function()
 {
+    "use strict";
+    
     new FavouriteManager();
 })();

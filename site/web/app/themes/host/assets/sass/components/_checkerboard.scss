@@ -81,8 +81,7 @@ $checkerboard-conf: (
 .checkerboard__mobile {
     padding: rem(0) rem(20) rem(40);
 
-    @include mq($from: checkerboard-breakpoint-for(2))
-    {
+    @include mq($from: checkerboard-breakpoint-for(2)) {
         display: none;
     }
 }

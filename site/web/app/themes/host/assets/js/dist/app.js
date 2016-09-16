@@ -10320,6 +10320,7 @@
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
+	// jshint latedef:nofunc
 	var cookies = __webpack_require__(23);
 	var icon    = __webpack_require__(2);
 
@@ -10333,7 +10334,7 @@
 	    '</header>'+
 	    '<p><strong>Availability:</strong> {{availability.text}}</p>'+
 	    '<footer class="favourites__favourite__footer">'+
-	        '<a href="{{url}}" class="btn btn--small">Show me this property</a>'
+	        '<a href="{{url}}" class="btn btn--small">Show me this property</a>'+
 	    '</footer>'+
 	'</article>';
 
@@ -10381,7 +10382,8 @@
 	            {
 	                fnLoaded(this);
 	            }
-	        }
+	        };
+
 	        oXhr.open('get', LOCALISED_VARS.ajaxurl+sRequestParms);
 	        oXhr.send();
 
@@ -10414,13 +10416,14 @@
 	        }
 
 	        // 2. fire an event
+	        var oEvt;
 	        if (window.CustomEvent)
 	        {
-	            var oEvt = new CustomEvent('remove', { detail: { id: iBuildingId }});
+	            oEvt = new CustomEvent('remove', { detail: { id: iBuildingId }});
 	        }
 	        else
 	        {
-	            var oEvt = document.createEvent('CustomEvent');
+	            oEvt = document.createEvent('CustomEvent');
 	            oEvt.initCustomEvent('remove', true, true, { id: iBuildingId });
 	        }
 	        elDom.dispatchEvent(oEvt);
@@ -10757,6 +10760,8 @@
 
 	module.exports = (function()
 	{
+	    "use strict";
+	    
 	    new FavouriteManager();
 	})();
 
