@@ -11896,9 +11896,69 @@
 	    "use strict";
 
 	    // ivars
-	    var elRoot   = this;
-	    var aElChild = this.querySelectorAll('.js-checkerboard__item').toArray();
-	    var aRow     = [];
+	    var elRoot    = this;
+	    var aElChild  = this.querySelectorAll('.js-checkerboard__item').toArray();
+	    var aRow      = [];
+	    var bMobBuilt = false;
+
+	    /**
+	     *
+	     */
+	    function buildMobileVersion()
+	    {
+	        // 0. get a reference marker
+	        var elMarker = elRoot.querySelector('.js-checkerboard__sell');
+	        if (elMarker === null)
+	        {
+	            bMobBuilt = true;
+	            return false;
+	        }
+
+	        // 1. build containing LI
+	        var elMobileDom = document.createElement('li');
+	        elMobileDom.classList.add('checkerboard__mobile');
+	        elMobileDom.classList.add('gc');
+	        elMarker.parentNode.insertBefore(elMobileDom, elMarker);
+
+	        // 2. build label for select box
+	        var elLabel = document.createElement('label');
+	        elLabel.for = 'checkerboard_mobile_selector';
+	        elLabel.innerHTML = 'Select city';
+	        elLabel.classList.add('vh');
+	        elMobileDom.appendChild(elLabel);
+
+	        // 3. select box
+	        var elSelect = document.createElement('select');
+	        elSelect.id = 'checkerboard_mobile_selector';
+	        elSelect.classList.add('checkboard__mobile-selector');
+	        elMobileDom.appendChild(elSelect);
+	        elSelect.innerHTML = '<option>Select a city</option>';
+
+	        // 4. populate
+	        elRoot.querySelectorAll('.js-checkerboard__trigger').each(function(el)
+	        {
+	            var elOpt = document.createElement('option');
+	            elOpt.value = el.getAttribute('href');
+	            elOpt.innerHTML = el.innerHTML;
+
+	            elSelect.appendChild(elOpt);
+	        });
+
+	        // 5. bind to change
+	        elSelect.addEventListener('change', function()
+	        {
+	            if (elSelect.selectedIndex > 0)
+	            {
+	                document.location.href = elSelect.options[elSelect.selectedIndex].value;
+	                return false;
+	            }
+	            return true;
+	        });
+
+	        // 6. set a flag
+	        bMobBuilt = true;
+
+	    }
 
 	    /**
 	     * Reindexes the position of everything in the grid
@@ -12003,6 +12063,19 @@
 	        return false;
 	    }
 
+	    function fnResize()
+	    {
+	        // 1. if there’s nothing to look at
+	        if ((aElChild[0].scrollWidth === 0) && !bMobBuilt)
+	        {
+	            buildMobileVersion();
+	        }
+
+	        // 2. reindex and reposition
+	        reindex();
+	        reposition();
+	    }
+
 	    /**
 	     * Constructor-esque logic
 	     */
@@ -12034,19 +12107,13 @@
 	            bBlock = true;
 	            setTimeout(function()
 	            {
-	                // a. reindex and reposition
-	                reindex();
-	                reposition();
-
-	                // b. remove the lock
+	                fnResize();
 	                bBlock = false;
-
-	            }, 100);
-
+	            }, 10);
 	        });
 
 	        // 3. reindex everything
-	        reindex();
+	        fnResize();
 
 	    }
 
