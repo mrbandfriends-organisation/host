@@ -10,16 +10,13 @@
     $connected_location_id         = $connected_location->post->ID;
     $location_conncected_buildings = host_locations_find_connected_building($connected_location_id);
 
-    $snippet                       = "building/connected-building";
+    $main_snippet                  = "building/connected-building-main";
+    $secondary_snippet             = "building/connected-building-aside";
 ?>
 
-<h2>
-    <?php echo get_the_title($connected_location_id); ?>
-</h2>
-<?php
-    $location_link          = get_the_permalink($connected_location_id);
-?>
-<a href="<?php echo esc_url($location_link); ?>" class="btn">Look at this location</a>
+<?php $main_content = Utils\ob_load_template_part('templates/snippets/' . $main_snippet, array(
+    'location_id' => $connected_location_id,
+)); ?>
 
 
 <?php if ( $location_conncected_buildings->have_posts() ) : ?>
@@ -50,13 +47,12 @@
             $address = trim(preg_replace("/\n\n+/", "\n", $address));
         ?>
 
-        <?php $second = Utils\ob_load_template_part('templates/snippets/' . $snippet, array(
+        <?php $secondary_content = Utils\ob_load_template_part('templates/snippets/' . $secondary_snippet, array(
             'title'   => $title,
             'image'   => $image,
             'url'     => $url,
             'address' => $address
-        ));
-        ?>
+        )); ?>
     <?php endwhile; ?>
 <?php endif; ?>
 <?php wp_reset_postdata(); ?>
@@ -64,7 +60,7 @@
 <?php
     echo Utils\ob_load_template_part('templates/components/split-feature', array(
     'color'   => "sky",
-    //'content' => $main_content
-    'second' => $second
+    'content' => $main_content,
+    'second'  => $secondary_content
 ));
 ?>
