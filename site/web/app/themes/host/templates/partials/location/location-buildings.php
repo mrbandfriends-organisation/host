@@ -56,7 +56,7 @@
         ?>
         <li class="property-list__item">
             <article class="listed-property grid">
-                <div class="listed-property__main gc l1-2 xl2-3 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded">
+                <div class="listed-property__main gc l1-2 xl2-3 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded" data-favouritable="<?=get_the_id(); ?>">
                     <div class="listed-property__content grid">
                         <div class="listed-property__title-desc gc xxl3-5">
                             <h3 class="listed-property__title plain">

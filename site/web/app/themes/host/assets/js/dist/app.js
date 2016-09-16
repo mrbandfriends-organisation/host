@@ -52,7 +52,7 @@
 	 */
 
 	// NPM Modules
-	__webpack_require__(23);
+	__webpack_require__(25);
 
 	// extend things
 	__webpack_require__(5);
@@ -77,7 +77,7 @@
 	(function() {
 	    "use strict";
 
-	    var SVGSpritemapLoader = __webpack_require__(14);
+	    var SVGSpritemapLoader = __webpack_require__(15);
 
 	    new SVGSpritemapLoader('/app/themes/host/assets/svg/sprites/output/spritesheet.svg');
 	}());
@@ -94,7 +94,7 @@
 	    if ( window.innerWidth < 992 ) {
 	        // Async load
 	        //require.ensure(['offcanvas-toggler'], function() {
-	            var OffCanvasToggler = __webpack_require__(8);
+	            var OffCanvasToggler = __webpack_require__(9);
 	            new OffCanvasToggler();
 	        //},'offcanvas-toggle');
 	    }
@@ -106,7 +106,7 @@
 	 */
 	(function() {
 	    'use strict';
-	    var RImgBg = __webpack_require__(9);
+	    var RImgBg = __webpack_require__(10);
 	    new RImgBg('.js-rimgbg');
 	}());
 
@@ -120,23 +120,25 @@
 	{
 	    "use strict";
 
-	    __webpack_require__(15);
-
-	    __webpack_require__(19)();
-
-	    __webpack_require__(17)();
-
-	    __webpack_require__(21)();
+	    __webpack_require__(16);
 
 	    __webpack_require__(20)();
+
+	    __webpack_require__(18)();
+
+	    __webpack_require__(22)();
+
+	    __webpack_require__(21)();
 
 	    // require('bind-inview')();
 
 	    // require('onpage-smooth-scroll')();
 
-	    __webpack_require__(18)();
+	    __webpack_require__(19)();
 
-	    __webpack_require__(16)();
+	    __webpack_require__(17)();
+
+	    __webpack_require__(6);
 	})();
 
 
@@ -10318,6 +10320,451 @@
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var cookies = __webpack_require__(23);
+	var icon    = __webpack_require__(2);
+
+	var sFavouriteTemplate =
+	'<article class="box box--fg-{{availability.foreground}} favourites__favourite" data-id="{{id}}">'+
+	    '<aside class="favourites__favourite__image"><img src="{{thumbnail}}" alt=""></aside>'+
+	    '<header class="favourites__favourite__header">'+
+	        '<h3 class="favourites__favourite__title">'+
+	            '{{city}}<br>{{title}}'+
+	        '</h3>'+
+	    '</header>'+
+	    '<p><strong>Availability:</strong> {{availability.text}}</p>'+
+	    '<footer class="favourites__favourite__footer">'+
+	        '<a href="{{url}}" class="btn btn--small">Show me this property</a>'
+	    '</footer>'+
+	'</article>';
+
+	function FavouriteList()
+	{
+	    "use strict";
+
+	    var elDom    = null;
+	    var elList   = null;
+	    var elButton = null;
+	    var aIds     = [];
+	    var bLoaded  = false;
+	    var elCount  = null;
+
+	    /**
+	     * Constructor
+	     */
+	    function init()
+	    {
+	        // 1. build DOM
+	        buildInitialDom();
+
+	        // 2. bind events
+	        bindEvents();
+	    }
+
+	    /** - Process functions - */
+	    function loadData()
+	    {
+	        // 1. set class
+	        elDom.classList.add('-loading');
+	        elList.innerHTML = '';
+
+	        // 2. create some data
+	        var sRequestParms = '?action=buildings_load_favourites&'+aIds.map(function(iD)
+	        {
+	            return 'id[]='+iD;
+	        }).join('&');
+
+	        // 3. XHR time
+	        var oXhr = new XMLHttpRequest();
+	        oXhr.onreadystatechange = function()
+	        {
+	            if (this.readyState === 4)
+	            {
+	                fnLoaded(this);
+	            }
+	        }
+	        oXhr.open('get', LOCALISED_VARS.ajaxurl+sRequestParms);
+	        oXhr.send();
+
+	    }
+
+	    /** - Event handlers */
+	    function fnToggleClick()
+	    {
+	        // 1. set a flag
+	        elDom.classList.toggle('-open');
+	        elButton.classList.toggle('-open');
+
+	        // 2. if we’ve not loaded anything
+	        if (!bLoaded && elDom.classList.contains('-open'))
+	        {
+	            loadData();
+	        }
+	    }
+
+	    /**
+	     * Called when clicking on a ‘remove’ button.
+	     */
+	    function fnRemove(ev)
+	    {
+	        // 1. get the ID
+	        var iBuildingId = parseInt(ev.currentTarget.dataset.id, 10);
+	        if (iBuildingId !== iBuildingId)
+	        {
+	            return false;
+	        }
+
+	        // 2. fire an event
+	        if (window.CustomEvent)
+	        {
+	            var oEvt = new CustomEvent('remove', { detail: { id: iBuildingId }});
+	        }
+	        else
+	        {
+	            var oEvt = document.createEvent('CustomEvent');
+	            oEvt.initCustomEvent('remove', true, true, { id: iBuildingId });
+	        }
+	        elDom.dispatchEvent(oEvt);
+
+	        // 3. remove us from the list
+	        var elToRemove = elDom.querySelector('[data-id="'+iBuildingId+'"]').parentNode;
+	        elToRemove.parentNode.removeChild(elToRemove);
+
+	        // 4. update the count
+	        aIds = aIds.filter(function(iCurr) { return (iCurr !== iBuildingId); });
+	        elCount.innerHTML = '('+aIds.length+')';
+	    }
+
+	    function fnLoaded(oXhr)
+	    {
+	        // 0. check for failure
+	        if (oXhr.status !== 200)
+	        {
+	            return;
+	        }
+
+	        // 1. try parsing
+	        var aoReturn = JSON.parse(oXhr.response);
+	        if (aoReturn === null)
+	        {
+	            return;
+	        }
+
+	        // 2. go through and sort things out
+	        aoReturn.forEach(function(oFav)
+	        {
+	            // a. create LI
+	            var elLi = document.createElement('li');
+	            elLi.classList.add('favourites__item');
+	            elList.appendChild(elLi);
+
+	            // b. populate template
+	            elLi.innerHTML = sFavouriteTemplate.replace(/\{\{(.*?)\}\}/g, function(sM, sField)
+	            {
+	                var aField = sField.split('.');
+	                var ret    = oFav;
+
+	                while (aField.length > 0)
+	                {
+	                    if (!ret.hasOwnProperty(aField[0]))
+	                    {
+	                        return '[ ‘'+sField+'’ not found ]';
+	                    }
+	                    ret = ret[aField.shift()];
+	                }
+
+	                return ret;
+	            });
+
+	            // c. throw a button in
+	            var elButton = document.createElement('button');
+	            elButton.dataset.id = oFav.id;
+	            elButton.classList.add('favourites__favourite__remove');
+	            elButton.classList.add('btn--small');
+	            elButton.classList.add('btn--ink');
+	            elButton.innerHTML = 'Remove from favourites';
+	            elButton.appendChild(icon('cross'));
+	            elButton.addEventListener('click', fnRemove);
+
+	            // d. add it
+	            elLi.querySelector('.favourites__favourite__footer').appendChild(elButton);
+	        });
+
+	        // 3. update the class
+	        elDom.classList.remove('-loading');
+	        bLoaded = true;
+	    }
+
+	    /** - DOM CONSTRUCTION */
+	    function buildInitialDom()
+	    {
+	        // 1. find a parent node
+	        var elParent = document.querySelector('.js-favouritemanager li:last-child');
+	        if (elParent === null)
+	        {
+	            return false;
+	        }
+
+	        // 2. create new LI
+	        var elLi = document.createElement('li');
+	        elLi.classList.add('favourites');
+	        elParent.parentNode.appendChild(elLi);
+
+	        // 3. counter DOM
+	        elCount = document.createElement('span');
+	        elCount.classList.add('favourites__count');
+
+	        // 4. create our new button
+	        elButton = document.createElement('button');
+	        elButton.classList.add('favourites__button');
+	        elButton.innerHTML = 'My favourites ';
+	        elButton.appendChild(elCount);
+	        elButton.appendChild(icon('heart'));
+	        elLi.appendChild(elButton);
+
+	        // 5. create favourite DOM and list
+	        elDom = document.createElement('aside');
+	        elDom.classList.add('favourites__flyout');
+	        elLi.appendChild(elDom);
+
+	        elList = document.createElement('ul');
+	        elList.classList.add('favourites__list');
+	        elDom.appendChild(elList);
+
+	        // 6. empty and loading DOMs
+	        var elEmpty = document.createElement('p');
+	        elEmpty.classList.add('favourites__empty');
+	        elEmpty.classList.add('favourites__message');
+	        elDom.appendChild(elEmpty);
+	        elEmpty.innerHTML = 'Start adding buildings to your favourites';
+
+	        var elLoading = document.createElement('p');
+	        elLoading.classList.add('favourites__loading');
+	        elLoading.classList.add('favourites__message');
+	        elDom.appendChild(elLoading);
+	        elLoading.innerHTML = 'Loading…';
+
+	        // 7. close button
+	        var elClose = document.createElement('button');
+	        elClose.classList.add('favourites__close');
+	        elClose.appendChild(icon('cross'));
+	        elDom.appendChild(elClose);
+	        elClose.addEventListener('click', function(ev)
+	        {
+	            elDom.classList.remove('-open');
+	            elButton.classList.remove('-open');
+	        });
+	    }
+
+	    function bindEvents()
+	    {
+	        // 1. bind on clicking the button
+	        elButton.addEventListener('click', fnToggleClick);
+	    }
+
+	    /** Constructor logic */
+	    init();
+	    return {
+	        setIds: function(aId)
+	        {
+	            // a. set IDs
+	            aIds = aId;
+
+	            // b. mark dirty
+	            bLoaded = false;
+
+	            // c. stuff
+	            elCount.innerHTML = '('+aId.length+')';
+
+	            // d. if we’re already open…
+	            if (elDom.classList.contains('-open'))
+	            {
+	                loadData();
+	            }
+	        },
+	        addEventListener: function(sEvent, fCallback)
+	        {
+	            return elDom.addEventListener(sEvent, fCallback);
+	        }
+	    };
+	}
+
+	function FavouriteManager()
+	{
+	    "use strict";
+
+	    var aiFavourites = [];
+	    var oHeaderDom   = null;
+
+	    /** Persistence functions */
+	    /**
+	     * Load from the cookie
+	     */
+	    function loadFromCookie()
+	    {
+	        // 1. read, but default to an empty string
+	        var sCookieValue = ""+cookies('favourites') || "";
+
+	        // 2. parse out
+	        aiFavourites = sCookieValue.split(/,\s*/g).map(function(item)
+	        {
+	            item = parseInt(item, 10);
+	            return (item === item) ? item : null;
+
+	        }).filter(function(item)
+	        {
+	            return (item !== null);
+	        });
+	    }
+
+	    /**
+	     * Save to cookie
+	     */
+	    function saveToCookie()
+	    {
+	        // 1. join
+	        var sCookieValue = aiFavourites.join(',');
+
+	        // 2. store for a year
+	        cookies({ favourites: sCookieValue }, {
+	            expires: 365 * 86400
+	        });
+	    }
+
+	    /**
+	     * Callback from the header DOM when a ‘remove’ button is pressed
+	     */
+	    function fnRemove(ev)
+	    {
+	        // 1. get our ID
+	        var iToRemove = parseInt(ev.detail.id, 10);
+	        if (iToRemove !== iToRemove)
+	        {
+	            return;
+	        }
+
+	        // 2. remove that ID and save
+	        aiFavourites = aiFavourites.filter(function(iCurr)
+	        {
+	            return (iCurr !== iToRemove);
+	        });
+	        saveToCookie();
+
+	        // 3. find the appropriate element in the list
+	        document.querySelectorAll('[data-favouritable="'+iToRemove+'"]').each(function(el)
+	        {
+	            el.classList.remove('-favourite');
+	            el.classList.remove('-added');
+	        });
+	    }
+
+	    /**
+	     * Adds the favourites button to the header DOM
+	     */
+	    function setupHeaderDom()
+	    {
+	        // 1. create the object
+	        oHeaderDom = new FavouriteList();
+
+	        // 2. bind an event
+	        oHeaderDom.addEventListener('remove', fnRemove);
+
+	        // 3. update the dom
+	        oHeaderDom.setIds(aiFavourites);
+	    }
+
+	    /**
+	     * Sets up “favourite” buttons for all favouritable stuff
+	     */
+	    function createFavouritableDom(elFavouritable)
+	    {
+	        // 0. get + check ID
+	        var iId = parseInt(elFavouritable.dataset.favouritable, 10);
+	        if (iId !== iId)
+	        {
+	            return;
+	        }
+
+	        // 1. create a wee container
+	        var elContainer = document.createElement('aside');
+	        elContainer.classList.add('favouritable');
+	        elFavouritable.appendChild(elContainer);
+
+	        // 2. button
+	        var elButton = document.createElement('button');
+	        elButton.classList.add('favouritable__button');
+	        elButton.appendChild(icon('heart', 'favouritable__icon'));
+	        elContainer.appendChild(elButton);
+
+	        // 3. boom icon
+	        elContainer.appendChild(icon('heart', 'favouritable__boom'));
+
+	        // 4. mark current
+	        if (aiFavourites.includes(iId))
+	        {
+	            elFavouritable.classList.add('-favourite');
+	        }
+
+	        // 5. bind to clicking on the button
+	        elButton.addEventListener('click', function()
+	        {
+	            // a. if it contains it, remove
+	            if (aiFavourites.includes(iId))
+	            {
+	                aiFavourites = aiFavourites.filter(function(iCurr)
+	                {
+	                    return (iCurr !== iId);
+	                });
+	                elFavouritable.classList.remove('-favourite');
+	                elFavouritable.classList.remove('-added');
+	            }
+	            // b. otherwise, add it
+	            else
+	            {
+	                aiFavourites.push(iId);
+	                elFavouritable.classList.add('-favourite');
+	                elFavouritable.classList.add('-added');
+	            }
+
+	            // c. poke the DOM
+	            oHeaderDom.setIds(aiFavourites);
+
+	            // d. save
+	            saveToCookie(aiFavourites);
+	            return false;
+	        });
+
+	        // 6. add a class
+	        elFavouritable.classList.add('favouritable__container');
+	    }
+
+	    function init()
+	    {
+	        // 0. load from the cookie
+	        loadFromCookie();
+
+	        // 1. set up header DOM
+	        setupHeaderDom();
+
+	        // 2. bind favouritable stuff
+	        document.querySelectorAll('[data-favouritable]').each(createFavouritableDom);
+	    }
+
+	    /**
+	     * Init function
+	     */
+	    return init();
+	}
+
+	module.exports = (function()
+	{
+	    new FavouriteManager();
+	})();
+
+
+/***/ },
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var aBreakpoint = __webpack_require__(4);
 
 	/**
@@ -10380,7 +10827,7 @@
 
 
 /***/ },
-/* 7 */
+/* 8 */
 /***/ function(module, exports) {
 
 	/**
@@ -10654,7 +11101,7 @@
 
 
 /***/ },
-/* 8 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/**
@@ -10663,7 +11110,7 @@
 	 */
 
 	__webpack_require__(1);
-	var EventBus = __webpack_require__(27);
+	var EventBus = __webpack_require__(29);
 
 	var OffCanvasToggler = function(options) {
 	    "use strict";
@@ -10799,7 +11246,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 9 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/* jshint strict: false */
@@ -10863,12 +11310,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 10 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./dots-pagination": 11,
-		"./pn-pagination": 13
+		"./dots-pagination": 12,
+		"./pn-pagination": 14
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -10881,11 +11328,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 10;
+	webpackContext.id = 11;
 
 
 /***/ },
-/* 11 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var util = __webpack_require__(3);
@@ -10982,11 +11429,11 @@
 
 
 /***/ },
-/* 12 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var debounce = __webpack_require__(22);
+	var debounce = __webpack_require__(24);
 
 	function Slideshow()
 	{
@@ -11136,7 +11583,7 @@
 	        aPagination.forEach(function(sPagination)
 	        {
 	            // a. load the pagination
-	            var oPagination = __webpack_require__(10)("./"+sPagination+'-pagination')({
+	            var oPagination = __webpack_require__(11)("./"+sPagination+'-pagination')({
 	                elRoot:    el,
 	                iNumItems: iNumSlides,
 	                fnGo:      go,
@@ -11300,7 +11747,7 @@
 
 
 /***/ },
-/* 13 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var util = __webpack_require__(3);
@@ -11388,7 +11835,7 @@
 
 
 /***/ },
-/* 14 */
+/* 15 */
 /***/ function(module, exports) {
 
 	/**
@@ -11437,7 +11884,7 @@
 
 
 /***/ },
-/* 15 */
+/* 16 */
 /***/ function(module, exports) {
 
 	// jshint latedef:nofunc
@@ -11619,10 +12066,10 @@
 
 
 /***/ },
-/* 16 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var bp = __webpack_require__(6);
+	var bp = __webpack_require__(7);
 
 	function Equality()
 	{
@@ -11774,7 +12221,7 @@
 
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -11832,10 +12279,10 @@
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(26);
+	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(28);
 
 	module.exports = function()
 	{
@@ -11858,13 +12305,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 *
 	 */
-	var GMaps        = __webpack_require__(7);
+	var GMaps        = __webpack_require__(8);
 	var maps_loading = false;
 	var maps_loaded  = false;
 
@@ -11891,7 +12338,7 @@
 	    if (!maps_loaded && !maps_loading)
 	    {
 	        maps_loading = true;
-	        __webpack_require__(25)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+	        __webpack_require__(27)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
 	    }
 	    else if (maps_loaded)
 	    {
@@ -11903,7 +12350,7 @@
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);
@@ -11919,10 +12366,10 @@
 
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var slideshow = __webpack_require__(12);
+	var slideshow = __webpack_require__(13);
 
 	module.exports = function()
 	{
@@ -11936,7 +12383,96 @@
 
 
 /***/ },
-/* 22 */
+/* 23 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var cookies = function (data, opt) {
+	  function defaults (obj, defs) {
+	    obj = obj || {};
+	    for (var key in defs) {
+	      if (obj[key] === undefined) {
+	        obj[key] = defs[key];
+	      }
+	    }
+	    return obj;
+	  }
+
+	  defaults(cookies, {
+	    expires: 365 * 24 * 3600,
+	    path: '/',
+	    secure: window.location.protocol === 'https:',
+
+	    // Advanced
+	    nulltoremove: true,
+	    autojson: true,
+	    autoencode: true,
+	    encode: function (val) {
+	      return encodeURIComponent(val);
+	    },
+	    decode: function (val) {
+	      return decodeURIComponent(val);
+	    }
+	  });
+
+	  opt = defaults(opt, cookies);
+
+	  function expires (time) {
+	    var expires = time;
+	    if (!(expires instanceof Date)) {
+	      expires = new Date();
+	      expires.setTime(expires.getTime() + (time * 1000));
+	    }
+	    return expires.toUTCString();
+	  }
+
+	  if (typeof data === 'string') {
+	    var value = document.cookie.split(/;\s*/)
+	      .map(opt.autoencode ? opt.decode : function (d) { return d; })
+	      .map(function (part) { return part.split('='); })
+	      .reduce(function (parts, part) {
+	        parts[part[0]] = part[1];
+	        return parts;
+	      }, {})[data];
+	    if (!opt.autojson) return value;
+	    try {
+	      return JSON.parse(value);
+	    } catch (e) {
+	      return value;
+	    }
+	  }
+
+	  // Set each of the cookies
+	  for (var key in data) {
+	    var expired = data[key] === undefined || (opt.nulltoremove && data[key] === null);
+	    var str = opt.autojson ? JSON.stringify(data[key]) : data[key];
+	    var encoded = opt.autoencode ? opt.encode(str) : str;
+	    if (expired) encoded = '';
+	    var res = opt.encode(key) + '=' + encoded +
+	      (opt.expires ? (';expires=' + expires(expired ? -10000 : opt.expires)) : '') +
+	      ';path=' + opt.path +
+	      (opt.domain ? (';domain=' + opt.domain) : '') +
+	      (opt.secure ? ';secure' : '');
+	    if (opt.test) opt.test(res);
+	    document.cookie = res;
+	  }
+	  return cookies;
+	};
+
+	(function webpackUniversalModuleDefinition (root) {
+	  if (true) {
+	    module.exports = cookies;
+	  } else if (typeof define === 'function' && define.amd) {
+	    define('cookies', [], cookies);
+	  } else if (typeof exports === 'object') {
+	    exports['cookies'] = cookies;
+	  } else {
+	    root['cookies'] = cookies;
+	  }
+	})(this);
+
+
+/***/ },
+/* 24 */
 /***/ function(module, exports) {
 
 	/**
@@ -12333,21 +12869,21 @@
 
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(24);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(26);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(1);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 25 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
@@ -12376,7 +12912,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 26 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Magnific Popup - v1.1.0 - 2016-02-20
@@ -14241,7 +14777,7 @@
 	 _checkInstance(); }));
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
