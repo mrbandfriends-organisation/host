@@ -52,10 +52,10 @@
 	 */
 
 	// NPM Modules
-	__webpack_require__(23);
+	__webpack_require__(25);
 
 	// extend things
-	__webpack_require__(4);
+	__webpack_require__(5);
 
 	/**
 	 * GOGGLE EVENT TRACKING
@@ -77,7 +77,7 @@
 	(function() {
 	    "use strict";
 
-	    var SVGSpritemapLoader = __webpack_require__(13);
+	    var SVGSpritemapLoader = __webpack_require__(15);
 
 	    new SVGSpritemapLoader('/app/themes/host/assets/svg/sprites/output/spritesheet.svg');
 	}());
@@ -94,7 +94,7 @@
 	    if ( window.innerWidth < 992 ) {
 	        // Async load
 	        //require.ensure(['offcanvas-toggler'], function() {
-	            var OffCanvasToggler = __webpack_require__(7);
+	            var OffCanvasToggler = __webpack_require__(9);
 	            new OffCanvasToggler();
 	        //},'offcanvas-toggle');
 	    }
@@ -106,7 +106,7 @@
 	 */
 	(function() {
 	    'use strict';
-	    var RImgBg = __webpack_require__(8);
+	    var RImgBg = __webpack_require__(10);
 	    new RImgBg('.js-rimgbg');
 	}());
 
@@ -120,25 +120,25 @@
 	{
 	    "use strict";
 
-	    __webpack_require__(14);
-
-	    __webpack_require__(18)();
-
-	    __webpack_require__(16)();
+	    __webpack_require__(16);
 
 	    __webpack_require__(20)();
 
-	    __webpack_require__(19)();
+	    __webpack_require__(18)();
+
+	    __webpack_require__(22)();
+
+	    __webpack_require__(21)();
 
 	    // require('bind-inview')();
 
 	    // require('onpage-smooth-scroll')();
 
+	    __webpack_require__(19)();
+
 	    __webpack_require__(17)();
 
-	    __webpack_require__(15)();
-
-	    __webpack_require__(5);
+	    __webpack_require__(6);
 	})();
 
 
@@ -10278,6 +10278,20 @@
 /* 4 */
 /***/ function(module, exports) {
 
+	module.exports = [
+	    'tiny',
+	    'small',
+	    'medium',
+	    'large',
+	    'xlarge',
+	    'xxlarge'
+	];
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
 	module.exports = (function()
 	{
 	    "use strict";
@@ -10303,10 +10317,10 @@
 
 
 /***/ },
-/* 5 */
+/* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var cookies = __webpack_require__(21);
+	var cookies = __webpack_require__(23);
 	var icon    = __webpack_require__(2);
 
 	var sFavouriteTemplate =
@@ -10638,7 +10652,72 @@
 
 
 /***/ },
-/* 6 */
+/* 7 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var aBreakpoint = __webpack_require__(4);
+
+	/**
+	 * Returns the current breakpoint
+	 */
+	function getCurrentBreakpoint()
+	{
+	    "use strict";
+
+	    return window.getComputedStyle(document.body, ':before').content.replace(/[^a-z]/g, '');
+	}
+
+	/**
+	 * Returns true if the current browser state matches the given viewport
+	 */
+	function matchesCurrentBreakpoint(sBreakpoint)
+	{
+	    "use strict";
+
+	    return (sBreakpoint === getCurrentBreakpoint());
+	}
+
+	/**
+	 * Returns true if the browser window is larger than the given viewport.
+	 */
+	function largerThanBreakpoint(sBreakpoint)
+	{
+	    "use strict";
+
+	    // 1. cast current and required breakpoints
+	    var iCurr = aBreakpoint.indexOf(getCurrentBreakpoint());
+	    var iTest = aBreakpoint.indexOf(sBreakpoint);
+
+	    // 2. return
+	    return (iCurr >= iTest);
+	}
+
+	/**
+	 * Returns true if the browser window is smaller than the given viewport.
+	 */
+	function smallerThanBreakpoint(sBreakpoint)
+	{
+	    "use strict";
+
+	    // 1. cast current and required breakpoints
+	    var iCurr = aBreakpoint.indexOf(getCurrentBreakpoint());
+	    var iTest = aBreakpoint.indexOf(sBreakpoint);
+
+	    // 2. return
+	    return (iCurr <= iTest);
+	}
+
+	module.exports = {
+	    breakpoints:  aBreakpoint,
+	    current:      getCurrentBreakpoint,
+	    match:        matchesCurrentBreakpoint,
+	    matchLarger:  largerThanBreakpoint,
+	    matchSmaller: smallerThanBreakpoint
+	};
+
+
+/***/ },
+/* 8 */
 /***/ function(module, exports) {
 
 	/**
@@ -10669,7 +10748,8 @@
 	        zoom:               15,
 	        center:             { lat: 0, lng: 0 },
 	        mapTypeControl:     false,
-	        streetViewControl:  false
+	        streetViewControl:  false,
+	        scrollwheel:        false
 	    };
 
 	    /** Function definitions */
@@ -10911,7 +10991,7 @@
 
 
 /***/ },
-/* 7 */
+/* 9 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/**
@@ -10920,7 +11000,7 @@
 	 */
 
 	__webpack_require__(1);
-	var EventBus = __webpack_require__(27);
+	var EventBus = __webpack_require__(29);
 
 	var OffCanvasToggler = function(options) {
 	    "use strict";
@@ -10938,7 +11018,7 @@
 
 	    this.settings = $.extend( {}, defaults, options );
 
-	    this.$root              = $(':root');
+	    this.$root              = $(':root').addClass('js-offcanvas--bound');
 	    this.$menu              = $(this.settings.menu);
 	    this.$wrapper           = $(this.settings.wrapper);
 	    this.$toggleElements    = $(this.settings.toggleElements);
@@ -11056,7 +11136,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 8 */
+/* 10 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/* jshint strict: false */
@@ -11120,12 +11200,12 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 9 */
+/* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./dots-pagination": 10,
-		"./pn-pagination": 12
+		"./dots-pagination": 12,
+		"./pn-pagination": 14
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -11138,22 +11218,28 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 9;
+	webpackContext.id = 11;
 
 
 /***/ },
-/* 10 */
+/* 12 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var util = __webpack_require__(3);
 	var icon = __webpack_require__(2);
 
-	function DotsPagination(elParent, aElItems, fnGo)
+	function DotsPagination(oApi)
 	{
 	    "use strict";
 
 	    var elDom;
 	    var aElPages = [];
+
+	    function fnClick(ev)
+	    {
+	        oApi.fnGo(parseInt(ev.currentTarget.dataset.id));
+	        return false;
+	    }
 
 	    function buildDom()
 	    {
@@ -11161,7 +11247,7 @@
 	        elDom = document.createElement('nav');
 	        elDom.classList.add('slideshow-pagination');
 	        elDom.classList.add('slideshow-pagination--dots');
-	        elParent.appendChild(elDom);
+	        oApi.elRoot.appendChild(elDom);
 
 	        // 2. create list
 	        var elList = document.createElement('ol');
@@ -11169,7 +11255,7 @@
 	        elDom.appendChild(elList);
 
 	        // 3. start creating nodes
-	        aElItems.forEach(function(el, idx)
+	        for (var i = 0; i < oApi.iNumItems; i++)
 	        {
 	            // a. LI
 	            var elLi = document.createElement('li');
@@ -11179,19 +11265,16 @@
 	            // b. button
 	            var elButton = document.createElement('button');
 	            elButton.setAttribute('type', 'button');
+	            elButton.dataset.id = i;
 	            elButton.classList.add('slideshow-pagination__page');
 	            elLi.appendChild(elButton);
 
 	            // c. event handler
-	            elButton.addEventListener('click', function()
-	            {
-	                fnGo(idx);
-	                return false;
-	            });
+	            elButton.addEventListener('click', fnClick);
 
 	            // d. push
 	            aElPages.push(elButton);
-	        });
+	        }
 	    }
 
 	    function update(iCurrent, iWindowStart, iWindowSize)
@@ -11236,11 +11319,11 @@
 
 
 /***/ },
-/* 11 */
+/* 13 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var debounce = __webpack_require__(22);
+	var debounce = __webpack_require__(24);
 
 	function Slideshow()
 	{
@@ -11250,6 +11333,7 @@
 		var elCarousel   = this.querySelector('.js-slideshow__list');
 	    var aElItems     = this.querySelectorAll('.js-slideshow__item').toArray();
 	    var iCurrent     = 0;
+	    var iNumSlides   = aElItems.length;
 	    var iItemWidth   = -1;
 	    var iToShow      = 0;
 	    var sPagination  = (this.getAttribute('data-pagination') || "").toLowerCase();
@@ -11258,36 +11342,86 @@
 	    var iMirrorOff   = 0;
 
 	    /**
+	     * Gets the closest index to the requested page.
+	     */
+	    function getDistanceToClosestPage(iPage)
+	    {
+	        // 1. work out the distance from where we are to where we want to be
+	        var iDistance = iPage - (iCurrent % iNumSlides);
+
+	        // 2. if the magnitude is greater than half the number of slides (ie, it’s closer to ‘wrap’)
+	        if (Math.abs(iDistance) > (iNumSlides / 2))
+	        {
+	            // a. if it’s positive, subtract the number of slides
+	            if (iDistance > 0)
+	            {
+	                iDistance -= iNumSlides;
+	            }
+	            // b. otherwise, add
+	            else
+	            {
+	                iDistance += iNumSlides;
+	            }
+	        }
+
+	        return iDistance;
+	    }
+
+	    function offsetToIndex(iOff)
+	    {
+	        return (iOff + aElItems.length) % aElItems.length;
+	    }
+
+	    /**
 	     * Repositions all the slides in the slideshow.
 	     */
 	    function reposition()
 	    {
 	        // 1. work out the first item we need to show within the viewport
-	        var iFirst  = Math.max(0, Math.min(iCurrent - (Math.ceil(iToShow / 2) - 1), aElItems.length - iToShow));
-	        var iLast   = iFirst + iToShow - 1;
-	        var iOffset = 0 - (iFirst * iItemWidth);
+	        var iFirst  = iCurrent - Math.floor((aElItems.length - 1) / 2);
+	        var iLast   = iFirst + aElItems.length;
 
 	        // 2. position everything
-	        aElItems.forEach(function(elSlide, idx)
+	        var sTranslate = '0';
+	        var iIndex = 0;
+	        for (var i = iFirst; i < iLast; i++)
 	        {
-	            // a. transform attr
-	            elSlide.style.transform = 'translateX('+((idx * iItemWidth) + iOffset)+'px)';
-
-	            // b. toggle ‘outside’ class
-	            if ((idx < iFirst || idx > iLast))
+	            // a. calculate translation offset
+	            if (i < iCurrent)
 	            {
-	                elSlide.classList.add('js-slideshow--outside');
+	                sTranslate = (0 - iItemWidth)+'px';
+	            }
+	            else if (i > iCurrent)
+	            {
+	                sTranslate = iItemWidth+'px';
 	            }
 	            else
 	            {
-	                elSlide.classList.remove('js-slideshow--outside');
+	                sTranslate = 0;
 	            }
-	        });
 
-	        // 3. update the pagination modules
+	            // b. get the index of the DOM
+	            iIndex = offsetToIndex(i);
+
+	            // b. set it
+	            aElItems[iIndex].style.transform = 'translateX('+sTranslate+')';
+
+	            // c. also set windowed class
+	            if (Math.abs(i - iCurrent) > 1)
+	            {
+	                aElItems[iIndex].classList.add('js-slideshow--outside');
+	            }
+	            else
+	            {
+	                aElItems[iIndex].classList.remove('js-slideshow--outside');
+	            }
+	        }
+
+	        // 3. poke the pagination
+	        var iActualPage  = iCurrent % iNumSlides;
 	        aoPagination.forEach(function(oPagination)
 	        {
-	            oPagination.update(iCurrent, iFirst, iToShow);
+	            oPagination.update(iActualPage, iActualPage, 1);
 	        });
 	    }
 
@@ -11297,7 +11431,7 @@
 	    function go(iPage)
 	    {
 	        // 1. update our pointer
-	        iCurrent = Math.max(0, Math.min(iPage, aElItems.length));
+	        iCurrent = (iCurrent + getDistanceToClosestPage(iPage) + aElItems.length) % aElItems.length;
 
 	        // 2. slew
 	        reposition();
@@ -11306,6 +11440,24 @@
 	        aoMirrors.forEach(function(oMirror)
 	        {
 	            oMirror.go(iPage + iMirrorOff);
+	        });
+	    }
+
+	    /**
+	     * Similar to go(), but performs an incremental step
+	     */
+	    function step(iDistance)
+	    {
+	        // 1. update our pointer
+	        iCurrent = (iCurrent + iDistance + aElItems.length) % aElItems.length;
+
+	        // 2. slew
+	        reposition();
+
+	        // 3. push to mirrors
+	        aoMirrors.forEach(function(oMirror)
+	        {
+	            oMirror.step(iDistance);
 	        });
 	    }
 
@@ -11321,7 +11473,12 @@
 	        aPagination.forEach(function(sPagination)
 	        {
 	            // a. load the pagination
-	            var oPagination = __webpack_require__(9)("./"+sPagination+'-pagination')(el, aElItems, go);
+	            var oPagination = __webpack_require__(11)("./"+sPagination+'-pagination')({
+	                elRoot:    el,
+	                iNumItems: iNumSlides,
+	                fnGo:      go,
+	                fnStep:    step
+	            });
 
 	            // b. push it onto the array
 	            aoPagination.push(oPagination);
@@ -11334,7 +11491,7 @@
 	    function assessDimensions()
 	    {
 	        // 1. update the viewable width and number of items we can show
-	        iItemWidth = aElItems[0].scrollWidth;
+	        iItemWidth = aElItems[iCurrent].scrollWidth;
 	        iToShow    = Math.floor(( elCarousel.scrollWidth / iItemWidth ) + 0.01);
 
 	        // 2. reset the heights
@@ -11393,8 +11550,34 @@
 
 	            // d. enhance!
 	            aoMirrors.push(Slideshow.call(elClone));
-
 	        });
+
+	        // 3. get an offset
+	        if (oMirrorConfig.offset !== undefined)
+	        {
+	            iMirrorOff = parseInt(oMirrorConfig.offset, 10);
+	        }
+	    }
+
+	    /**
+	     * Duplicates slides
+	     */
+	    function duplicateSlides()
+	    {
+	        // 1. work out how many times we need to run
+	        var iDupesRequired = Math.floor(5 / iNumSlides);
+
+	        // 2. duplicate
+	        while (iDupesRequired-- > 0)
+	        {
+	            aElItems.forEach(function(el)
+	            {
+	                el.parentNode.appendChild(el.cloneNode(true));
+	            });
+	        }
+
+	        // 3. reindex
+	        aElItems = el.querySelectorAll('.js-slideshow__item').toArray();
 	    }
 
 	    /**
@@ -11402,6 +11585,12 @@
 	     */
 	    return (function()
 	    {
+	        // 0. if there’s nothing doing…
+	        if (iNumSlides < 2)
+	        {
+	            return null;
+	        }
+
 	        // 1. if we’re mirroring…
 	        if (el.hasAttribute('data-mirror-to'))
 	        {
@@ -11414,18 +11603,31 @@
 	            buildPagination();
 	        }
 
+	        // 3. if we need to duplicate things, do so
+	        if (iNumSlides < 5)
+	        {
+	            duplicateSlides();
+	        }
+
 	        // 3. bind to debounced resize
 	        window.addEventListener('resize', debounce(assessDimensions, 100));
 
 	        // 4. set everything up
 	        assessDimensions();
 
+	        // 5. go places
+	        go(0);
+
 	        // 6. and a class, if it pleases thee
-	        el.classList.add('js-slideshow--active');
+	        setTimeout(function()
+	        {
+	            el.classList.add('js-slideshow--active');
+	        }, 10);
 
 	        // 7. return some hooks for mirrors
 	        return {
-	            go: go
+	            go:   go,
+	            step: step
 	        };
 	    })();
 	}
@@ -11435,13 +11637,13 @@
 
 
 /***/ },
-/* 12 */
+/* 14 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var util = __webpack_require__(3);
 	var icon = __webpack_require__(2);
 
-	function PnPagination(elParent, aElItems, fnGo)
+	function PnPagination(oApi)
 	{
 	    "use strict";
 
@@ -11457,7 +11659,7 @@
 	        elDom = document.createElement('nav');
 	        elDom.classList.add('slideshow-pagination');
 	        elDom.classList.add('slideshow-pagination--pn');
-	        elParent.appendChild(elDom);
+	        oApi.elRoot.appendChild(elDom);
 
 	        // 2. create a previous button
 	        elPrev = document.createElement('button');
@@ -11478,12 +11680,12 @@
 	        // 4. bind some events
 	        elPrev.addEventListener('click', function()
 	        {
-	            fnGo(util.sequentialPrev(iWinStart, iWinSize));
+	            oApi.fnStep(-1);
 	            return false;
 	        });
 	        elNext.addEventListener('click', function()
 	        {
-	            fnGo(util.sequentialNext(iWinStart, iWinSize));
+	            oApi.fnStep(1);
 	            return false;
 	        });
 	    }
@@ -11495,8 +11697,8 @@
 	        iWinStart = iWindowStart;
 
 	        // 2. show/hide buttons
-	        util.toggleClass(elPrev, '-show', (iWindowStart > 0));
-	        util.toggleClass(elNext, '-show', ((iWindowStart+iWindowSize) < aElItems.length));
+	        elPrev.classList.add('-show');
+	        elNext.classList.add('-show');
 	    }
 
 	    function toggle(bHide)
@@ -11523,7 +11725,7 @@
 
 
 /***/ },
-/* 13 */
+/* 15 */
 /***/ function(module, exports) {
 
 	/**
@@ -11572,7 +11774,7 @@
 
 
 /***/ },
-/* 14 */
+/* 16 */
 /***/ function(module, exports) {
 
 	// jshint latedef:nofunc
@@ -11642,7 +11844,7 @@
 	            var iChangedIdx = aEl.indexOf(elChangedItem);
 
 	            // c. if it’s in this row
-	            if (iChangedIdx != -1)
+	            if (iChangedIdx !== -1)
 	            {
 	                // set offsets
 	                fLeft  = iWidth * (iChangedIdx / (aEl.length - 1));
@@ -11652,7 +11854,7 @@
 	            // d. set things
 	            aEl.forEach(function(el, iCurrIdx)
 	            {
-	                el.style.transform = 'translateX('+(iCurrIdx <= iChangedIdx ? 0 - fLeft : fRight)+'px)'
+	                el.style.transform = 'translateX('+(iCurrIdx <= iChangedIdx ? 0 - fLeft : fRight)+'px)';
 	            });
 	        });
 
@@ -11669,7 +11871,7 @@
 	        ev.preventDefault();
 
 	        // 2. get the item it belongs to
-	        var elItem = this;
+	        var elItem = ev.currentTarget;
 	        while ((elItem !== null) && !elItem.classList.contains('js-checkerboard__item'))
 	        {
 	            elItem = elItem.parentNode;
@@ -11677,7 +11879,7 @@
 
 	        // 3. get any possible offender
 	        var elOffender = elRoot.querySelector('.js-checkerboard__item.-active');
-	        if ((elOffender !== null) && (elOffender != elItem))
+	        if ((elOffender !== null) && (elOffender !== elItem))
 	        {
 	            elOffender.classList.remove('-active');
 	        }
@@ -11754,16 +11956,18 @@
 
 
 /***/ },
-/* 15 */
-/***/ function(module, exports) {
+/* 17 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var bp = __webpack_require__(7);
 
 	function Equality()
 	{
 	    "use strict";
 
-	    var elRoot   = this;
-	    var aElPanel = [];
-
+	    var elRoot      = this;
+	    var aElPanel    = [];
+	    var sBreakpoint = '';
 
 	    /**
 	     * Works out the content height of a given panel.
@@ -11787,7 +11991,7 @@
 
 	            // c. add margin, based on previous bottom or current top and update the stat
 	            iCurrMg = (oStyle.marginTop !== undefined) ? parseInt(oStyle.marginTop, 10) : 0;
-	            iHeight += (iCurrMg > iLastMg) ? iCurrMg : iLastMg
+	            iHeight += (iCurrMg > iLastMg) ? iCurrMg : iLastMg;
 	            iLastMg = (oStyle.marginBottom !== undefined) ? parseInt(oStyle.marginBottom, 10) : 0;
 
 	            // d. proceed onward
@@ -11820,7 +12024,13 @@
 	            el.style.height = null;
 	        });
 
-	        // 2. second pass, get a height
+	        // 2. check the current breakpoint
+	        if (!bp.matchLarger(sBreakpoint))
+	        {
+	            return;
+	        }
+
+	        // 3. second pass, get a height
 	        aElPanel.forEach(function(el)
 	        {
 	            // b. work out a proportion
@@ -11830,7 +12040,7 @@
 	            iMaxHeight = Math.max(iMaxHeight, getContentHeight(el) / iProp);
 	        });
 
-	        // 3. third pass: apply it
+	        // 4. third pass: apply it
 	        aElPanel.forEach(function(el)
 	        {
 	            // a. work out a proportion
@@ -11844,13 +12054,18 @@
 
 	    function init()
 	    {
+	        // 0. get a trigger point
+	        sBreakpoint = elRoot.dataset.equality.trim();
+
 	        // 1. get panels and default their proportion
 	        aElPanel = elRoot.querySelectorAll('[data-equality-pane]').toArray();
 	        aElPanel.forEach(function(el)
 	        {
 	            var iTmp = parseInt(el.dataset.equalityPane, 10);
-	            if (iTmp != iTmp)
+	            if (iTmp !== iTmp)
+	            {
 	                el.dataset.equalityPane = 1;
+	            }
 	        });
 
 	        // 2. bind to window resize
@@ -11896,7 +12111,7 @@
 
 
 /***/ },
-/* 16 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -11954,10 +12169,10 @@
 
 
 /***/ },
-/* 17 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(26);
+	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(28);
 
 	module.exports = function()
 	{
@@ -11980,13 +12195,13 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 18 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
 	 *
 	 */
-	var GMaps        = __webpack_require__(6);
+	var GMaps        = __webpack_require__(8);
 	var maps_loading = false;
 	var maps_loaded  = false;
 
@@ -12013,7 +12228,7 @@
 	    if (!maps_loaded && !maps_loading)
 	    {
 	        maps_loading = true;
-	        __webpack_require__(25)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+	        __webpack_require__(27)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
 	    }
 	    else if (maps_loaded)
 	    {
@@ -12025,7 +12240,7 @@
 
 
 /***/ },
-/* 19 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);
@@ -12041,10 +12256,10 @@
 
 
 /***/ },
-/* 20 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var slideshow = __webpack_require__(11);
+	var slideshow = __webpack_require__(13);
 
 	module.exports = function()
 	{
@@ -12058,7 +12273,7 @@
 
 
 /***/ },
-/* 21 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var cookies = function (data, opt) {
@@ -12147,7 +12362,7 @@
 
 
 /***/ },
-/* 22 */
+/* 24 */
 /***/ function(module, exports) {
 
 	/**
@@ -12544,21 +12759,21 @@
 
 
 /***/ },
-/* 23 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(24);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(26);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 24 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(1);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 25 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
@@ -12587,7 +12802,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 26 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Magnific Popup - v1.1.0 - 2016-02-20
@@ -14452,7 +14667,7 @@
 	 _checkInstance(); }));
 
 /***/ },
-/* 27 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*

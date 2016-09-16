@@ -16,7 +16,7 @@
 // ==========================================================================
 .map__map {
     position: relative;
-    padding-top: 50%;
+    padding-top: 33%;
     background: transparent none no-repeat center center/cover;
     overflow: hidden;
 
@@ -41,7 +41,7 @@
 .map__filters {
     width: 33.333%;
     min-width: rem(250);
-    
+
     .form-filter {
         padding-left: rem(40);
     }

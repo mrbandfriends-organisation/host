@@ -1,12 +1,18 @@
 var util = require('slideshow/pagination-common');
 var icon = require('svg-icons');
 
-function DotsPagination(elParent, aElItems, fnGo)
+function DotsPagination(oApi)
 {
     "use strict";
 
     var elDom;
     var aElPages = [];
+
+    function fnClick(ev)
+    {
+        oApi.fnGo(parseInt(ev.currentTarget.dataset.id));
+        return false;
+    }
 
     function buildDom()
     {
@@ -14,7 +20,7 @@ function DotsPagination(elParent, aElItems, fnGo)
         elDom = document.createElement('nav');
         elDom.classList.add('slideshow-pagination');
         elDom.classList.add('slideshow-pagination--dots');
-        elParent.appendChild(elDom);
+        oApi.elRoot.appendChild(elDom);
 
         // 2. create list
         var elList = document.createElement('ol');
@@ -22,7 +28,7 @@ function DotsPagination(elParent, aElItems, fnGo)
         elDom.appendChild(elList);
 
         // 3. start creating nodes
-        aElItems.forEach(function(el, idx)
+        for (var i = 0; i < oApi.iNumItems; i++)
         {
             // a. LI
             var elLi = document.createElement('li');
@@ -32,19 +38,16 @@ function DotsPagination(elParent, aElItems, fnGo)
             // b. button
             var elButton = document.createElement('button');
             elButton.setAttribute('type', 'button');
+            elButton.dataset.id = i;
             elButton.classList.add('slideshow-pagination__page');
             elLi.appendChild(elButton);
 
             // c. event handler
-            elButton.addEventListener('click', function()
-            {
-                fnGo(idx);
-                return false;
-            });
+            elButton.addEventListener('click', fnClick);
 
             // d. push
             aElPages.push(elButton);
-        });
+        }
     }
 
     function update(iCurrent, iWindowStart, iWindowSize)

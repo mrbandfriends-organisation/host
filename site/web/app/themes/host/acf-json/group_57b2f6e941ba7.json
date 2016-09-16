@@ -24,7 +24,7 @@
             "name": "title_1",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": 50,
@@ -66,10 +66,10 @@
             "name": "availability",
             "type": "select",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -87,15 +87,36 @@
             "placeholder": ""
         },
         {
+            "key": "field_57daa20b70868",
+            "label": "Room types",
+            "name": "room_types",
+            "type": "number",
+            "instructions": "Number of room types available in this property.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_57c83bca4bd33",
             "label": "Prices from",
             "name": "prices_from",
             "type": "text",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "33",
                 "class": "",
                 "id": ""
             },
@@ -211,7 +232,7 @@
         {
             "key": "field_57b309047a9ce",
             "label": "Address",
-            "name": "address",
+            "name": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -446,7 +467,7 @@
         {
             "key": "field_57b30befbdda6",
             "label": "Facilities",
-            "name": "facilities_",
+            "name": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -529,12 +550,12 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": 30,
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
-                    "file_location": "",
-                    "file_glob": ""
+                    "file_location": "assets\/svg\/sprites\/",
+                    "file_glob": "*.svg"
                 },
                 {
                     "key": "field_57b30ce5bddaa",
@@ -563,7 +584,7 @@
             "key": "field_57b5741b7f431",
             "label": "Facilities photos",
             "name": "facilities_photos",
-            "type": "repeater",
+            "type": "gallery",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -572,37 +593,17 @@
                 "class": "",
                 "id": ""
             },
-            "collapsed": "",
             "min": "",
             "max": "",
-            "layout": "table",
-            "button_label": "Add Row",
-            "sub_fields": [
-                {
-                    "key": "field_57b574287f432",
-                    "label": "Photo",
-                    "name": "photo",
-                    "type": "image",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "return_format": "array",
-                    "preview_size": "thumbnail",
-                    "library": "all",
-                    "min_width": "",
-                    "min_height": "",
-                    "min_size": "",
-                    "max_width": "",
-                    "max_height": "",
-                    "max_size": "",
-                    "mime_types": ""
-                }
-            ]
+            "insert": "append",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
         },
         {
             "key": "field_57b577e3299ac",
@@ -744,6 +745,30 @@
             ]
         },
         {
+            "key": "field_57da9fed0864e",
+            "label": "Location image",
+            "name": "location_image",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_57b575bcc8ea1",
             "label": "People",
             "name": "",
@@ -863,5 +888,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1473760637
+    "modified": 1473958666
 }

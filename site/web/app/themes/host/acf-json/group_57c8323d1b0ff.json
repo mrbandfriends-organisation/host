@@ -6,7 +6,7 @@
             "key": "field_57c8342cd2812",
             "label": "External website",
             "name": "external_website",
-            "type": "checkbox",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -15,13 +15,8 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "external": "External website"
-            },
-            "default_value": [],
-            "layout": "vertical",
-            "toggle": 0,
-            "return_format": "value"
+            "message": "",
+            "default_value": 0
         },
         {
             "key": "field_57c83463d2813",
@@ -35,7 +30,7 @@
                     {
                         "field": "field_57c8342cd2812",
                         "operator": "==",
-                        "value": "external"
+                        "value": "1"
                     }
                 ]
             ],
@@ -65,5 +60,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1472738640
+    "modified": 1473934584
 }

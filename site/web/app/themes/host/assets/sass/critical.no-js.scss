@@ -1,0 +1,6 @@
+// ==========================================================================
+// # Undo overflow/opacity stuff in prep for webfonts (they won’t happen)
+// ==========================================================================
+html { overflow: show; }
+
+body { opacity: 1; }

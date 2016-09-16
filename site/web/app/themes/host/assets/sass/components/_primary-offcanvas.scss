@@ -93,7 +93,8 @@
     box-shadow: none;
 
     transform:  translate3d(0, -100%, 0);
-    transition: all 0.5s ease;
+
+    .js-offcanvas--bound & { transition: all 0.5s ease; }
 
     .is-active & {
         transform: translate3d(0, 0, 0);
