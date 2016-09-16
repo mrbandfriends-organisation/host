@@ -3327,19 +3327,21 @@ a.btn {
   position: absolute;
   z-index: 100;
   top: calc(100% + 1.25rem);
-  right: 0;
+  right: 10000%;
   width: 42.1875rem;
   padding: 2.5rem 0 2.5rem 2.5rem;
-  transform: translateY(calc(-100% - 6.25rem));
+  transform: translateX(100%);
   transform-origin: top center;
   opacity: 0;
-  transition: opacity 1s, transform 1s;
+  transition: opacity 1s, transform 1s, right 0ms 1s;
   background: #f5f5f5;
 }
 
 .favourites__flyout.-open {
-  transform: translateY(0);
+  right: 0;
+  transform: translateX(0);
   opacity: 1;
+  transition-delay: 0ms, 0ms, 0ms;
 }
 
 .favourites__flyout:before {

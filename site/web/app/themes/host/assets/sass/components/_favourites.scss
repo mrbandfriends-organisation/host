@@ -37,22 +37,24 @@
     position: absolute;
     z-index:  100;
 
-    top:   calc(100% + #{rem($half-spacing-unit)});
-    right: 0;
+    top:   calc(100% + #{rem(20)});
+    right: 10000%;  // move it way out of the way
     width: rem(675);
     padding: rem(40) 0 rem(40) rem(40);
 
-    transform: translateY(calc(-100% - #{rem(100)}));
+    transform: translateX(100%);
     transform-origin: top center;
 
     opacity: 0;
-    transition: opacity 1s, transform 1s;
+    transition: opacity 1s, transform 1s, right 0ms 1s;
 
     background: brand(white);
 
     &.-open {
-        transform: translateY(0);
-        opacity: 1;
+        right:     0;
+        transform: translateX(0);
+        opacity:   1;
+        transition-delay: 0ms, 0ms, 0ms;
     }
 
     &:before {
