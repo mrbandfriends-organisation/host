@@ -38,7 +38,11 @@ $checkerboard-conf: (
 // ==========================================================================
 .checkerboard__item {
 
-    @for $i from 1 through map-get($checkerboard-conf, cols) {
+    @include mq($until: checkerboard-breakpoint-for(2)) {
+        display: none;
+    }
+
+    @for $i from 2 through map-get($checkerboard-conf, cols) {
 
         @include checkerboard-breakpoint($i) { background-color: inherit; }
 
@@ -70,6 +74,30 @@ $checkerboard-conf: (
     }
 
     p { margin: 0; }
+}
+
+// # Mobile version
+// ==========================================================================
+.checkerboard__mobile {
+    padding: rem(0) rem(20) rem(40);
+
+    @include mq($from: checkerboard-breakpoint-for(2))
+    {
+        display: none;
+    }
+}
+
+.checkboard__mobile-selector {
+    border: 2px solid #fff;
+
+    background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="56" height="28" viewBox="0 0 56 28"><path fill="%23FFF" d="M26.297 12.625l-11.594 11.578q-0.297 0.297-0.703 0.297t-0.703-0.297l-11.594-11.578q-0.297-0.297-0.297-0.711t0.297-0.711l2.594-2.578q0.297-0.297 0.703-0.297t0.703 0.297l8.297 8.297 8.297-8.297q0.297-0.297 0.703-0.297t0.703 0.297l2.594 2.578q0.297 0.297 0.297 0.711t-0.297 0.711z"/></svg>') no-repeat center right/rem(28);
+    color: #fff;
+
+    &:focus,
+    &:hover {
+        border-color: #fff;
+        background-color:   rgba(255, 255, 255, 0.1);
+    }
 }
 
 // ==========================================================================
