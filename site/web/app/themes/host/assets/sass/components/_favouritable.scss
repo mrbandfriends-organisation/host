@@ -20,6 +20,20 @@
         width:   rem(20);
         fill:    none;
     }
+
+    &:after {
+        position: absolute;
+        display: block;
+
+        top: calc(100% + #{rem(5)});
+        left: 50%;
+
+        transform: translateX(-50%);
+
+        font-size: rem(14);
+        color: brand(grey);
+        content: "Favourite";
+    }
 }
 
 // # Button itself
@@ -47,16 +61,13 @@
 
         &:hover { background: tint(red); }
     }
+
 }
 
 // # Icon
 // ==========================================================================
 .favouritable__icon {
     stroke: #fff;
-
-    .-favourite & {
-        fill: #fff;
-    }
 }
 
 // # Boom!

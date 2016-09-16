@@ -2,6 +2,16 @@
 // # SLIDESHOW
 // ==========================================================================
 
+// ==========================================================================
+// # Config for animation in
+// ==========================================================================
+$slideshow-animate-delay: 0.5s;
+$slideshow-animate-speed: 3s;
+
+
+// ==========================================================================
+// # Main delay
+// ==========================================================================
 .slideshow {
     position: relative;
     overflow: hidden;
@@ -133,14 +143,11 @@
 // # Slideshow variant: lighter pagination
 // ==========================================================================
 .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button {
-    height:     65%;
+    height:     rem(315);
+    width:      rem(70);
 
-    background: rgba(255, 255, 255, 0.8);
+    background: #fff;
     color:      tint(ink);
-
-    &:hover {
-        background: rgba(255, 255, 255, 1);
-    }
 }
 
 // ==========================================================================
@@ -152,18 +159,18 @@
 }
 
 @keyframes slideshow-ai-after {
-    90% {
+    50% {
         width: 100%;
-        border-left-width: rem(40);
-        border-right-width: rem(40);
+        opacity: 1;
+    }
+
+    80% {
         opacity: 1;
     }
 
     99% {
         width: 100%;
         transform: translate(-50%, -50%) scale(1);
-        border-left-width: rem(40);
-        border-right-width: rem(40);
         opacity: 0;
     }
 
@@ -172,7 +179,7 @@
 
 @keyframes slideshow-ai-pagination {
     from { opacity: 0; }
-    90%  { opacity: 0; }
+    50%  { opacity: 0; }
     to   { opacity: 1; }
 }
 
@@ -192,30 +199,30 @@
         height: 100%;
         width:  100%;
 
-        background: rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0);
     }
 
     &:after {
         top:    50%;
         left:   50%;
-        height: 65%;
+        height: rem(315);
         width:  rem(260);
 
         transform: translate(-50%, -50%);
 
-        border-left:  rem(70) solid rgba(255, 255, 255, 0.8);
-        border-right: rem(70) solid rgba(255, 255, 255, 0.8);
+        border-left:  rem(70) solid #fff;
+        border-right: rem(70) solid #fff;
     }
 
     .slideshow-pagination { opacity: 0; }
 
     &.js-slideshow--active {
 
-        &:before { animation: slideshow-ai-before 1.5s 1s 1 forwards; }
-        &:after  { animation: slideshow-ai-after  1.5s 1s ease-out 1 forwards; }
+        &:before { animation: slideshow-ai-before $slideshow-animate-speed $slideshow-animate-delay 1 forwards; }
+        &:after  { animation: slideshow-ai-after  $slideshow-animate-speed $slideshow-animate-delay ease-out 1 forwards; }
 
         .slideshow-pagination {
-            animation: slideshow-ai-pagination 1.5s 1s 1 forwards;
+            animation: slideshow-ai-pagination $slideshow-animate-speed $slideshow-animate-delay 1 forwards;
         }
     }
 }

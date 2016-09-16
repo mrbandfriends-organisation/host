@@ -33,6 +33,7 @@
 // # Flyout
 // ==========================================================================
 .favourites__flyout {
+    z-index: -1;
     position: absolute;
     z-index:  100;
 
@@ -41,7 +42,7 @@
     width: rem(675);
     padding: rem(40) 0 rem(40) rem(40);
 
-    transform: scaleY(0);
+    transform: translateY(calc(-100% - #{rem(100)}));
     transform-origin: top center;
 
     opacity: 0;
@@ -50,7 +51,7 @@
     background: brand(white);
 
     &.-open {
-        transform: scaleY(1);
+        transform: translateY(0);
         opacity: 1;
     }
 
