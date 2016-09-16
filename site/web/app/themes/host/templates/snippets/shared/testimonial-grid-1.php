@@ -6,7 +6,7 @@ use Roots\Sage\Utils;
     <aside class="testimonial-wall__image gc t1-2 box box--red-alt" data-equality-pane>
         <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
             'image'    => $image,
-            'modifier' => 'bleed-image--top'
+            'modifier' => 'bleed-image--top box--red'
         )); ?>
     </aside>
     <div class="testimonial-wall__content gc m1-2 box box--red-alt box--less-padding" data-equality-pane>
