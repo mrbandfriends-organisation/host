@@ -11,7 +11,11 @@
 <?php  ?>
 <div class="grid">
     <div class="gc t1-1 s1-2 m2-3 l3-4">
-        <img src="<?php echo esc_url($image) ?>" alt="<?php echo esc_html($title); ?>" />
+        <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
+            'image'    => $image,
+            'alt'      => $title
+            //'modifier' => 'bleed-image--top box--red'
+        )); ?>
     </div>
     <div class="gc t1-1 s1-2 m1-3 l1-4">
         <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
