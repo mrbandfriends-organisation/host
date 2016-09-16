@@ -1,0 +1,38 @@
+// ==========================================================================
+//
+// RELATED BUILDINGS
+//
+// Description: Component that contains all buildings that are connected
+//              to the same location.
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+
+// ==========================================================================
+// # MAIN
+// ==========================================================================
+
+
+// ==========================================================================
+// # ASIDE
+// ==========================================================================
+
+// .related-building-aside {}
+
+// .related-building-aside-image {}
+
+.related-building-aside-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.related-building-aside-content__icon {
+    display: block;
+    margin: 0 auto $half-spacing-unit;
+}
