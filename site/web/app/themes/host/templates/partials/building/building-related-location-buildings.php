@@ -19,48 +19,43 @@
 )); ?>
 
 
-<?php if ( $location_conncected_buildings->have_posts() ) : ?>
-    <?php while ( $location_conncected_buildings->have_posts() ) : $location_conncected_buildings->the_post(); ?>
-        <?php
-            // image
-            //$sStyle = '';
-            if ( has_post_thumbnail() ) {
-                $image   = wp_get_attachment_image_url(get_post_thumbnail_id(), 'width=500');
-                //$sStyle = sprintf(' style="background-image: url(%s)"', $sUrl);
-            } else {
-                $location_gallery       = get_field('carousel_images', $connected_location_id);
-                $image = $location_gallery[0]['url'];
-            }
+<?php foreach ($location_conncected_buildings->posts as $building) {
+    // var_dump($building->ID);
 
-            $title = get_the_title();
-            $url   = get_the_permalink();
+    // image
+    //$sStyle = '';
+    if ( has_post_thumbnail() ) {
+        $image   = wp_get_attachment_image_url(get_post_thumbnail_id(), 'width=500');
+        //$sStyle = sprintf(' style="background-image: url(%s)"', $sUrl);
+    } else {
+        $location_gallery       = get_field('carousel_images', $connected_location_id);
+        $image = $location_gallery[0]['url'];
+    }
 
-            // build addresses
-            $address = join("\n", [
-                get_field('building_address_1'),
-                get_field('building_address_2'),
-                get_field('building_address_town_city'),
-                get_field('building_address_post_code')
-            ]);
+    $title = get_the_title();
+    $url   = get_the_permalink();
 
-            // strip unneeded newlines
-            $address = trim(preg_replace("/\n\n+/", "\n", $address));
-        ?>
+    // build addresses
+    $address = join("\n", [
+        get_field('building_address_1'),
+        get_field('building_address_2'),
+        get_field('building_address_town_city'),
+        get_field('building_address_post_code')
+    ]);
 
-        <?php $secondary_content = Utils\ob_load_template_part('templates/snippets/' . $secondary_snippet, array(
-            'title'   => $title,
-            'image'   => $image,
-            'url'     => $url,
-            'address' => $address
-        )); ?>
-    <?php endwhile; ?>
-<?php endif; ?>
-<?php wp_reset_postdata(); ?>
+    // strip unneeded newlines
+    $address = trim(preg_replace("/\n\n+/", "\n", $address));
 
-<?php
+    $secondary_content = Utils\ob_load_template_part('templates/snippets/' . $secondary_snippet, array(
+        'title'   => $title,
+        'image'   => $image,
+        'url'     => $url,
+        'address' => $address
+    ));
+
     echo Utils\ob_load_template_part('templates/components/split-feature', array(
-    'color'   => "sky",
-    'content' => $main_content,
-    'second'  => $secondary_content
-));
-?>
+        'color'   => "sky",
+        'content' => $main_content,
+        'second'  => $secondary_content
+    ));
+} ?>
