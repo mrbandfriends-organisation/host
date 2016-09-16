@@ -1,0 +1,82 @@
+// ==========================================================================
+// # Favourite button on buildings
+// ==========================================================================
+
+// # Class applied to outer container—gives us something to put position on
+// ==========================================================================
+.favouritable__container { position: relative; }
+
+// # Button container
+// ==========================================================================
+.favouritable {
+    position: absolute;
+
+    top:   rem(30);
+    right: rem(30);
+
+    .svg-icon {
+        display: block;
+        height:  rem(20);
+        width:   rem(20);
+        fill:    none;
+    }
+}
+
+// # Button itself
+// ==========================================================================
+.favouritable__button {
+    display: block;
+
+    height:  rem(40);
+    width:   rem(40);
+    min-width: 0;
+    border:  0;
+    padding: rem(11) rem(10) rem(9);
+
+    background: #ccc;
+    color:      #fff;
+
+    &:hover {
+        background: brand(red);
+        color:      #fff;
+    }
+
+    // if it’s already been favourited
+    .-favourite & {
+        background: brand(red);
+
+        &:hover { background: tint(red); }
+    }
+}
+
+// # Icon
+// ==========================================================================
+.favouritable__icon {
+    stroke: #fff;
+
+    .-favourite & {
+        fill: #fff;
+    }
+}
+
+// # Boom!
+// ==========================================================================
+@keyframes favouritable-boom {
+    from { transform: scale(1.2); opacity: 1; }
+    to   { transform: scale(7.5); opacity: 0; }
+}
+
+.favouritable__boom {
+    position: absolute;
+    z-index:  1;
+
+    top:  rem(11);
+    left: rem(10);
+
+    transform: scale(0);
+    transform-origin: 50% 50%;
+
+    stroke: brand(red);
+
+    .-favourite.-added & { animation: favouritable-boom 2s 1; }
+}

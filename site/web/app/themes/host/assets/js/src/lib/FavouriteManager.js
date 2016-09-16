@@ -2,25 +2,20 @@ var cookies = require('cookies');
 var icon    = require('svg-icons');
 
 var sFavouriteTemplate =
-'<article class="box box--fg-{{colourway}} favourites__favourite" data-id="{{id}}">'+
+'<article class="box box--fg-{{availability.foreground}} favourites__favourite" data-id="{{id}}">'+
     '<aside class="favourites__favourite__image"><img src="{{thumbnail}}" alt=""></aside>'+
     '<header class="favourites__favourite__header">'+
         '<h3 class="favourites__favourite__title">'+
             '{{city}}<br>{{title}}'+
         '</h3>'+
     '</header>'+
-    '<p><strong>Availability:</strong> {{availability}}</p>'+
+    '<p><strong>Availability:</strong> {{availability.text}}</p>'+
     '<footer class="favourites__favourite__footer">'+
         '<a href="{{url}}" class="btn btn--small">Show me this property</a>'
     '</footer>'+
 '</article>';
 
-var aColorway = {
-    'available': 'sky',
-    'limited':   'orange'
-};
-
-function FavouriteDom()
+function FavouriteList()
 {
     "use strict";
 
@@ -29,6 +24,7 @@ function FavouriteDom()
     var elButton = null;
     var aIds     = [];
     var bLoaded  = false;
+    var elCount  = null;
 
     /**
      * Constructor
@@ -40,7 +36,6 @@ function FavouriteDom()
 
         // 2. bind events
         bindEvents();
-
     }
 
     /** - Process functions - */
@@ -75,12 +70,46 @@ function FavouriteDom()
     {
         // 1. set a flag
         elDom.classList.toggle('-open');
+        elButton.classList.toggle('-open');
 
         // 2. if we’ve not loaded anything
         if (!bLoaded && elDom.classList.contains('-open'))
         {
             loadData();
         }
+    }
+
+    /**
+     * Called when clicking on a ‘remove’ button.
+     */
+    function fnRemove(ev)
+    {
+        // 1. get the ID
+        var iBuildingId = parseInt(ev.currentTarget.dataset.id, 10);
+        if (iBuildingId !== iBuildingId)
+        {
+            return false;
+        }
+
+        // 2. fire an event
+        if (window.CustomEvent)
+        {
+            var oEvt = new CustomEvent('remove', { detail: { id: iBuildingId }});
+        }
+        else
+        {
+            var oEvt = document.createEvent('CustomEvent');
+            oEvt.initCustomEvent('remove', true, true, { id: iBuildingId });
+        }
+        elDom.dispatchEvent(oEvt);
+
+        // 3. remove us from the list
+        var elToRemove = elDom.querySelector('[data-id="'+iBuildingId+'"]').parentNode;
+        elToRemove.parentNode.removeChild(elToRemove);
+
+        // 4. update the count
+        aIds = aIds.filter(function(iCurr) { return (iCurr !== iBuildingId); });
+        elCount.innerHTML = '('+aIds.length+')';
     }
 
     function fnLoaded(oXhr)
@@ -106,24 +135,35 @@ function FavouriteDom()
             elLi.classList.add('favourites__item');
             elList.appendChild(elLi);
 
-            // b. colourway
-            oFav.colourway = aColorway[oFav.shortAvailability];
-
-            // c. populate template
+            // b. populate template
             elLi.innerHTML = sFavouriteTemplate.replace(/\{\{(.*?)\}\}/g, function(sM, sField)
             {
-                return oFav.hasOwnProperty(sField) ? oFav[sField] : '[error]';
+                var aField = sField.split('.');
+                var ret    = oFav;
+
+                while (aField.length > 0)
+                {
+                    if (!ret.hasOwnProperty(aField[0]))
+                    {
+                        return '[ ‘'+sField+'’ not found ]';
+                    }
+                    ret = ret[aField.shift()];
+                }
+
+                return ret;
             });
 
-            // d. throw a button in
+            // c. throw a button in
             var elButton = document.createElement('button');
+            elButton.dataset.id = oFav.id;
             elButton.classList.add('favourites__favourite__remove');
             elButton.classList.add('btn--small');
             elButton.classList.add('btn--ink');
             elButton.innerHTML = 'Remove from favourites';
             elButton.appendChild(icon('cross'));
+            elButton.addEventListener('click', fnRemove);
 
-            // e. add it
+            // d. add it
             elLi.querySelector('.favourites__favourite__footer').appendChild(elButton);
         });
 
@@ -147,14 +187,19 @@ function FavouriteDom()
         elLi.classList.add('favourites');
         elParent.parentNode.appendChild(elLi);
 
-        // 3. create our new button
+        // 3. counter DOM
+        elCount = document.createElement('span');
+        elCount.classList.add('favourites__count');
+
+        // 4. create our new button
         elButton = document.createElement('button');
         elButton.classList.add('favourites__button');
-        elButton.innerHTML = 'My favourites';
+        elButton.innerHTML = 'My favourites ';
+        elButton.appendChild(elCount);
         elButton.appendChild(icon('heart'));
         elLi.appendChild(elButton);
 
-        // 4. create favourite DOM and list
+        // 5. create favourite DOM and list
         elDom = document.createElement('aside');
         elDom.classList.add('favourites__flyout');
         elLi.appendChild(elDom);
@@ -162,6 +207,30 @@ function FavouriteDom()
         elList = document.createElement('ul');
         elList.classList.add('favourites__list');
         elDom.appendChild(elList);
+
+        // 6. empty and loading DOMs
+        var elEmpty = document.createElement('p');
+        elEmpty.classList.add('favourites__empty');
+        elEmpty.classList.add('favourites__message');
+        elDom.appendChild(elEmpty);
+        elEmpty.innerHTML = 'Start adding buildings to your favourites';
+
+        var elLoading = document.createElement('p');
+        elLoading.classList.add('favourites__loading');
+        elLoading.classList.add('favourites__message');
+        elDom.appendChild(elLoading);
+        elLoading.innerHTML = 'Loading…';
+
+        // 7. close button
+        var elClose = document.createElement('button');
+        elClose.classList.add('favourites__close');
+        elClose.appendChild(icon('cross'));
+        elDom.appendChild(elClose);
+        elClose.addEventListener('click', function(ev)
+        {
+            elDom.classList.remove('-open');
+            elButton.classList.remove('-open');
+        });
     }
 
     function bindEvents()
@@ -180,6 +249,15 @@ function FavouriteDom()
 
             // b. mark dirty
             bLoaded = false;
+
+            // c. stuff
+            elCount.innerHTML = '('+aId.length+')';
+
+            // d. if we’re already open…
+            if (elDom.classList.contains('-open'))
+            {
+                loadData();
+            }
         },
         addEventListener: function(sEvent, fCallback)
         {
@@ -231,18 +309,42 @@ function FavouriteManager()
     }
 
     /**
+     * Callback from the header DOM when a ‘remove’ button is pressed
+     */
+    function fnRemove(ev)
+    {
+        // 1. get our ID
+        var iToRemove = parseInt(ev.detail.id, 10);
+        if (iToRemove !== iToRemove)
+        {
+            return;
+        }
+
+        // 2. remove that ID and save
+        aiFavourites = aiFavourites.filter(function(iCurr)
+        {
+            return (iCurr !== iToRemove);
+        });
+        saveToCookie();
+
+        // 3. find the appropriate element in the list
+        document.querySelectorAll('[data-favouritable="'+iToRemove+'"]').each(function(el)
+        {
+            el.classList.remove('-favourite');
+            el.classList.remove('-added');
+        });
+    }
+
+    /**
      * Adds the favourites button to the header DOM
      */
     function setupHeaderDom()
     {
         // 1. create the object
-        oHeaderDom = new FavouriteDom();
+        oHeaderDom = new FavouriteList();
 
         // 2. bind an event
-        oHeaderDom.addEventListener('remove', function(ev)
-        {
-            console.debug(ev);
-        });
+        oHeaderDom.addEventListener('remove', fnRemove);
 
         // 3. update the dom
         oHeaderDom.setIds(aiFavourites);
@@ -268,16 +370,19 @@ function FavouriteManager()
         // 2. button
         var elButton = document.createElement('button');
         elButton.classList.add('favouritable__button');
-        elButton.appendChild(icon('heart'));
-        elFavouritable.appendChild(elButton);
+        elButton.appendChild(icon('heart', 'favouritable__icon'));
+        elContainer.appendChild(elButton);
 
-        // 3. mark current
+        // 3. boom icon
+        elContainer.appendChild(icon('heart', 'favouritable__boom'));
+
+        // 4. mark current
         if (aiFavourites.includes(iId))
         {
-            elContainer.classList.add('-favourite');
+            elFavouritable.classList.add('-favourite');
         }
 
-        // 4. bind to clicking on the button
+        // 5. bind to clicking on the button
         elButton.addEventListener('click', function()
         {
             // a. if it contains it, remove
@@ -287,13 +392,15 @@ function FavouriteManager()
                 {
                     return (iCurr !== iId);
                 });
-                elContainer.classList.remove('-favourite');
+                elFavouritable.classList.remove('-favourite');
+                elFavouritable.classList.remove('-added');
             }
             // b. otherwise, add it
             else
             {
                 aiFavourites.push(iId);
-                elContainer.classList.add('-favourite');
+                elFavouritable.classList.add('-favourite');
+                elFavouritable.classList.add('-added');
             }
 
             // c. poke the DOM
@@ -303,6 +410,9 @@ function FavouriteManager()
             saveToCookie(aiFavourites);
             return false;
         });
+
+        // 6. add a class
+        elFavouritable.classList.add('favouritable__container');
     }
 
     function init()

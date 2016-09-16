@@ -125,8 +125,7 @@ class container
                 'id'                => get_the_ID(),
                 'title'             => get_the_title(),
                 'url'               => get_the_permalink(),
-                'availability'      => RoomsBuildings\availability_status(get_field('availability')),
-                'shortAvailability' => get_field('availability')
+                'availability'      => RoomsBuildings\availability_status(get_field('availability'))
             ];
 
             // b. acquire a thumbnail

@@ -2,7 +2,7 @@
 // # FAVOURITES FUNCTIONALITY
 // ==========================================================================
 .favourites {
-    // position: relative;
+    // perspective: rem(2000);
 }
 
 .favourites__button {
@@ -19,17 +19,20 @@
         height:      rem(20);
         width:       rem(20);
         margin-left: rem(15);
+        fill:        none;
+        stroke:      currentColor;
     }
 
     &:hover {
         background: transparent none;
     }
+
+    &.-open { color: brand(red); }
 }
 
 // # Flyout
 // ==========================================================================
 .favourites__flyout {
-    display:  none;
     position: absolute;
     z-index:  100;
 
@@ -38,9 +41,18 @@
     width: rem(675);
     padding: rem(40) 0 rem(40) rem(40);
 
+    transform: scaleY(0);
+    transform-origin: top center;
+
+    opacity: 0;
+    transition: opacity 1s, transform 1s;
+
     background: brand(white);
 
-    &.-open { display: block; }
+    &.-open {
+        transform: scaleY(1);
+        opacity: 1;
+    }
 
     &:before {
         position: absolute;
@@ -64,7 +76,11 @@
         line-height: 1;
 
         color: #fff;
+
+        .svg-icon { height: rem(14); width: rem(14); }
     }
+
+    button { margin-left: rem(20); }
 }
 
 .favourites__list[class],
@@ -76,6 +92,48 @@
 
 .favourites__item + .favourites__item {
     margin-top: rem(40);
+}
+
+.favourites__message[class] {
+    display: none;
+    margin: rem(40) 0;
+
+    text-align: center;
+    font-size: rem(26);
+
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.favourites__loading[class] {
+    margin: rem(80) 0;
+
+    .-loading & { display: block; }
+}
+
+.favourites__empty {
+    .favourites__list:empty ~ & { display: block; }
+}
+
+.favourites__close[class][class] {
+    position: absolute;
+
+    top:    rem(30);
+    right:  rem(30);
+    width:  rem(40);
+    height: rem(40);
+
+    padding:    rem(10);
+    border:     0;
+
+    background: transparent;
+    color:      rgba(0, 0, 0, 0.3);
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.1);
+        color:      rgba(0, 0, 0, 0.6);
+    }
+
+    .svg-icon { margin: 0; }
 }
 
 // ==========================================================================
