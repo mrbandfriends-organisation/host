@@ -52,7 +52,7 @@
 	 */
 
 	// NPM Modules
-	__webpack_require__(25);
+	__webpack_require__(24);
 
 	// extend things
 	__webpack_require__(5);
@@ -10320,6 +10320,7 @@
 /* 6 */
 /***/ function(module, exports, __webpack_require__) {
 
+	// jshint latedef:nofunc
 	var cookies = __webpack_require__(23);
 	var icon    = __webpack_require__(2);
 
@@ -10333,7 +10334,7 @@
 	    '</header>'+
 	    '<p><strong>Availability:</strong> {{availability.text}}</p>'+
 	    '<footer class="favourites__favourite__footer">'+
-	        '<a href="{{url}}" class="btn btn--small">Show me this property</a>'
+	        '<a href="{{url}}" class="btn btn--small">Show me this property</a>'+
 	    '</footer>'+
 	'</article>';
 
@@ -10381,7 +10382,8 @@
 	            {
 	                fnLoaded(this);
 	            }
-	        }
+	        };
+
 	        oXhr.open('get', LOCALISED_VARS.ajaxurl+sRequestParms);
 	        oXhr.send();
 
@@ -10414,13 +10416,14 @@
 	        }
 
 	        // 2. fire an event
+	        var oEvt;
 	        if (window.CustomEvent)
 	        {
-	            var oEvt = new CustomEvent('remove', { detail: { id: iBuildingId }});
+	            oEvt = new CustomEvent('remove', { detail: { id: iBuildingId }});
 	        }
 	        else
 	        {
-	            var oEvt = document.createEvent('CustomEvent');
+	            oEvt = document.createEvent('CustomEvent');
 	            oEvt.initCustomEvent('remove', true, true, { id: iBuildingId });
 	        }
 	        elDom.dispatchEvent(oEvt);
@@ -10757,6 +10760,8 @@
 
 	module.exports = (function()
 	{
+	    "use strict";
+	    
 	    new FavouriteManager();
 	})();
 
@@ -11433,7 +11438,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var debounce = __webpack_require__(24);
+	var debounce = __webpack_require__(27);
 
 	function Slideshow()
 	{
@@ -11896,9 +11901,69 @@
 	    "use strict";
 
 	    // ivars
-	    var elRoot   = this;
-	    var aElChild = this.querySelectorAll('.js-checkerboard__item').toArray();
-	    var aRow     = [];
+	    var elRoot    = this;
+	    var aElChild  = this.querySelectorAll('.js-checkerboard__item').toArray();
+	    var aRow      = [];
+	    var bMobBuilt = false;
+
+	    /**
+	     *
+	     */
+	    function buildMobileVersion()
+	    {
+	        // 0. get a reference marker
+	        var elMarker = elRoot.querySelector('.js-checkerboard__sell');
+	        if (elMarker === null)
+	        {
+	            bMobBuilt = true;
+	            return false;
+	        }
+
+	        // 1. build containing LI
+	        var elMobileDom = document.createElement('li');
+	        elMobileDom.classList.add('checkerboard__mobile');
+	        elMobileDom.classList.add('gc');
+	        elMarker.parentNode.insertBefore(elMobileDom, elMarker);
+
+	        // 2. build label for select box
+	        var elLabel = document.createElement('label');
+	        elLabel.for = 'checkerboard_mobile_selector';
+	        elLabel.innerHTML = 'Select city';
+	        elLabel.classList.add('vh');
+	        elMobileDom.appendChild(elLabel);
+
+	        // 3. select box
+	        var elSelect = document.createElement('select');
+	        elSelect.id = 'checkerboard_mobile_selector';
+	        elSelect.classList.add('checkboard__mobile-selector');
+	        elMobileDom.appendChild(elSelect);
+	        elSelect.innerHTML = '<option>Select a city</option>';
+
+	        // 4. populate
+	        elRoot.querySelectorAll('.js-checkerboard__trigger').each(function(el)
+	        {
+	            var elOpt = document.createElement('option');
+	            elOpt.value = el.getAttribute('href');
+	            elOpt.innerHTML = el.innerHTML;
+
+	            elSelect.appendChild(elOpt);
+	        });
+
+	        // 5. bind to change
+	        elSelect.addEventListener('change', function()
+	        {
+	            if (elSelect.selectedIndex > 0)
+	            {
+	                document.location.href = elSelect.options[elSelect.selectedIndex].value;
+	                return false;
+	            }
+	            return true;
+	        });
+
+	        // 6. set a flag
+	        bMobBuilt = true;
+
+	    }
 
 	    /**
 	     * Reindexes the position of everything in the grid
@@ -12003,6 +12068,19 @@
 	        return false;
 	    }
 
+	    function fnResize()
+	    {
+	        // 1. if there’s nothing to look at
+	        if ((aElChild[0].scrollWidth === 0) && !bMobBuilt)
+	        {
+	            buildMobileVersion();
+	        }
+
+	        // 2. reindex and reposition
+	        reindex();
+	        reposition();
+	    }
+
 	    /**
 	     * Constructor-esque logic
 	     */
@@ -12034,19 +12112,13 @@
 	            bBlock = true;
 	            setTimeout(function()
 	            {
-	                // a. reindex and reposition
-	                reindex();
-	                reposition();
-
-	                // b. remove the lock
+	                fnResize();
 	                bBlock = false;
-
-	            }, 100);
-
+	            }, 10);
 	        });
 
 	        // 3. reindex everything
-	        reindex();
+	        fnResize();
 
 	    }
 
@@ -12338,7 +12410,7 @@
 	    if (!maps_loaded && !maps_loading)
 	    {
 	        maps_loading = true;
-	        __webpack_require__(27)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+	        __webpack_require__(26)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
 	    }
 	    else if (maps_loaded)
 	    {
@@ -12473,9 +12545,52 @@
 
 /***/ },
 /* 24 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(25);
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 25 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(1);
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 26 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
+	(function( w ){
+		var loadJS = function( src, cb ){
+			"use strict";
+			var ref = w.document.getElementsByTagName( "script" )[ 0 ];
+			var script = w.document.createElement( "script" );
+			script.src = src;
+			script.async = true;
+			ref.parentNode.insertBefore( script, ref );
+			if (cb && typeof(cb) === "function") {
+				script.onload = cb;
+			}
+			return script;
+		};
+		// commonjs
+		if( true ){
+			module.exports = loadJS;
+		}
+		else {
+			w.loadJS = loadJS;
+		}
+	}( typeof global !== "undefined" ? global : this ));
+
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 27 */
 /***/ function(module, exports) {
 
-	/**
+	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * lodash (Custom Build) <https://lodash.com/>
 	 * Build: `lodash modularize exports="npm" -o ./`
 	 * Copyright jQuery Foundation and other contributors <https://jquery.org/>
@@ -12491,9 +12606,7 @@
 	var NAN = 0 / 0;
 
 	/** `Object#toString` result references. */
-	var funcTag = '[object Function]',
-	    genTag = '[object GeneratorFunction]',
-	    symbolTag = '[object Symbol]';
+	var symbolTag = '[object Symbol]';
 
 	/** Used to match leading and trailing whitespace. */
 	var reTrim = /^\s+|\s+$/g;
@@ -12510,12 +12623,21 @@
 	/** Built-in method references without a dependency on `root`. */
 	var freeParseInt = parseInt;
 
+	/** Detect free variable `global` from Node.js. */
+	var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+
+	/** Detect free variable `self`. */
+	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+	/** Used as a reference to the global object. */
+	var root = freeGlobal || freeSelf || Function('return this')();
+
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
 
 	/**
 	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
 	 * of values.
 	 */
 	var objectToString = objectProto.toString;
@@ -12540,23 +12662,27 @@
 	 * }, _.now());
 	 * // => Logs the number of milliseconds it took for the deferred invocation.
 	 */
-	function now() {
-	  return Date.now();
-	}
+	var now = function() {
+	  return root.Date.now();
+	};
 
 	/**
 	 * Creates a debounced function that delays invoking `func` until after `wait`
 	 * milliseconds have elapsed since the last time the debounced function was
 	 * invoked. The debounced function comes with a `cancel` method to cancel
 	 * delayed `func` invocations and a `flush` method to immediately invoke them.
-	 * Provide an options object to indicate whether `func` should be invoked on
-	 * the leading and/or trailing edge of the `wait` timeout. The `func` is invoked
-	 * with the last arguments provided to the debounced function. Subsequent calls
-	 * to the debounced function return the result of the last `func` invocation.
+	 * Provide `options` to indicate whether `func` should be invoked on the
+	 * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
+	 * with the last arguments provided to the debounced function. Subsequent
+	 * calls to the debounced function return the result of the last `func`
+	 * invocation.
 	 *
-	 * **Note:** If `leading` and `trailing` options are `true`, `func` is invoked
-	 * on the trailing edge of the timeout only if the debounced function is
-	 * invoked more than once during the `wait` timeout.
+	 * **Note:** If `leading` and `trailing` options are `true`, `func` is
+	 * invoked on the trailing edge of the timeout only if the debounced function
+	 * is invoked more than once during the `wait` timeout.
+	 *
+	 * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+	 * until to the next tick, similar to `setTimeout` with a timeout of `0`.
 	 *
 	 * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
 	 * for details over the differences between `_.debounce` and `_.throttle`.
@@ -12717,33 +12843,8 @@
 	}
 
 	/**
-	 * Checks if `value` is classified as a `Function` object.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 0.1.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a function, else `false`.
-	 * @example
-	 *
-	 * _.isFunction(_);
-	 * // => true
-	 *
-	 * _.isFunction(/abc/);
-	 * // => false
-	 */
-	function isFunction(value) {
-	  // The use of `Object#toString` avoids issues with the `typeof` operator
-	  // in Safari 8 which returns 'object' for typed array and weak map constructors,
-	  // and PhantomJS 1.9 which returns 'function' for `NodeList` instances.
-	  var tag = isObject(value) ? objectToString.call(value) : '';
-	  return tag == funcTag || tag == genTag;
-	}
-
-	/**
 	 * Checks if `value` is the
-	 * [language type](http://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-language-types)
+	 * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
 	 * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
 	 *
 	 * @static
@@ -12852,7 +12953,7 @@
 	    return NAN;
 	  }
 	  if (isObject(value)) {
-	    var other = isFunction(value.valueOf) ? value.valueOf() : value;
+	    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
 	    value = isObject(other) ? (other + '') : other;
 	  }
 	  if (typeof value != 'string') {
@@ -12866,48 +12967,6 @@
 	}
 
 	module.exports = debounce;
-
-
-/***/ },
-/* 25 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(26);
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 26 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(1);
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 27 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
-	(function( w ){
-		var loadJS = function( src, cb ){
-			"use strict";
-			var ref = w.document.getElementsByTagName( "script" )[ 0 ];
-			var script = w.document.createElement( "script" );
-			script.src = src;
-			script.async = true;
-			ref.parentNode.insertBefore( script, ref );
-			if (cb && typeof(cb) === "function") {
-				script.onload = cb;
-			}
-			return script;
-		};
-		// commonjs
-		if( true ){
-			module.exports = loadJS;
-		}
-		else {
-			w.loadJS = loadJS;
-		}
-	}( typeof global !== "undefined" ? global : this ));
 
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 

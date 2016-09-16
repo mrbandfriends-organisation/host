@@ -15,11 +15,34 @@
         <ul class="transport-list">
             <?php foreach($locations['value'] as $location): ?>
                 <li class="transport-list__item">
-                    <h3><?= esc_html($location['title']); ?></h3>
-                    <p>
-                        <?= esc_html($location['transport_time']); ?>
-                        <?= esc_html($location['walking_time']); ?>
-                    </p>
+                    <h3 class="transport-list__heading h3"><?= esc_html($location['title']); ?></h3>
+                    <ul class="transport-list__listing">
+                        <li class="transport-list__listing-item">
+                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
+                                'icon'       => 'wifi',
+                                "classnames" => "transport-list__icon"
+                            )); ?>
+
+                            <div class="transport-list__content">
+                                <?= esc_html($location['transport_time']); ?> <br>
+
+                                public transport
+                            </div>
+
+                        </li>
+                        <li class="transport-list__listing-item">
+                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
+                                'icon'       => 'wifi',
+                                "classnames" => "transport-list__icon"
+                            )); ?>
+
+                            <div class="transport-list__content">
+                                <?= esc_html($location['walking_time']); ?><br>
+
+                                Walking time
+                            </div>
+                        </li>
+                    </ul>
                 </li>
             <?php endforeach; ?>
         </ul>

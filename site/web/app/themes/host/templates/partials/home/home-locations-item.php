@@ -9,7 +9,7 @@
 ?>
 <article class="checkerboard-item js-checkerboard__item">
     <header class="checkerboard-item__title"<?=$image;?>>
-        <a href="/city.php" class="checkerboard-item__link js-checkerboard__trigger"><?=$label; ?></a>
+        <a href="<?=esc_url($url); ?>" class="checkerboard-item__link js-checkerboard__trigger"><?=$label; ?></a>
     </header>
     <div class="checkerboard-item__content js-checkerboard__content">
         <p class="checkerboard-item__availability">
@@ -18,7 +18,7 @@
         </p>
         <p class="checkerboard-item__feeling-lucky">
             I’m feeling lucky:
-            <a href="/building.php" class="btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
+            <a href="#" class="btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
         </p>
     </div>
 </article>

@@ -44,8 +44,9 @@
     height:  rem(40);
     width:   rem(40);
     min-width: 0;
-    border:  0;
     padding: rem(11) rem(10) rem(9);
+
+    border:  0;
 
     background: #ccc;
     color:      #fff;
@@ -79,13 +80,14 @@
 
 .favouritable__boom {
     position: absolute;
-    z-index:  1;
 
     top:  rem(11);
     left: rem(10);
 
     transform: scale(0);
     transform-origin: 50% 50%;
+
+    z-index:  1;
 
     stroke: brand(red);
 

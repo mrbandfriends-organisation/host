@@ -38,7 +38,7 @@
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
 
-            <li class="checkerboard__sell gc js-checkerboard__item">
+            <li class="checkerboard__sell gc js-checkerboard__item js-checkerboard__sell">
                 <div class="box box--ink">
                     <h3>Featured home<br>Our latest or greatest</h3>
 

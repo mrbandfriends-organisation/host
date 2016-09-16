@@ -82,6 +82,7 @@
         @include griddle-build($grids, "t");
 
         .gc--above-t { display: block; }
+        .gc--below-t { display: none; }
     }
 
     // Small
@@ -89,6 +90,7 @@
         @include griddle-build($grids, "s");
 
         .gc--above-s { display: block; }
+        .gc--below-s { display: none; }
     }
 
     // Medium
@@ -101,6 +103,7 @@
         .m-30pc { @include grid-column(3, 10); }
 
         .gc--above-m { display: block; }
+        .gc--below-m { display: none; }
     }
 
     // Large
@@ -111,6 +114,7 @@
         .l-30pc { @include grid-column(3, 10); }
 
         .gc--above-l { display: block; }
+        .gc--below-l { display: none; }
     }
 
     // Extra Large
@@ -118,12 +122,14 @@
         @include griddle-build($grids, "xl");
 
         .gc--above-xl { display: block; }
+        .gc--below-xl { display: none; }
     }
 
     @include mq(xxlarge) {
         @include griddle-build($grids, "xxl");
 
         .gc--above-xxl { display: block; }
+        .gc--below-xxl { display: none; }
     }
 }
 
