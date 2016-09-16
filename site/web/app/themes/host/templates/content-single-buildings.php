@@ -14,4 +14,6 @@
 
     <?php echo Utils\ob_load_template_part('templates/partials/shared/map'); ?>
 
+    <?php echo Utils\ob_load_template_part('templates/partials/building/building-related-location-buildings'); ?>
+
     <?php echo Utils\ob_load_template_part('templates/partials/building/building-people'); ?>
