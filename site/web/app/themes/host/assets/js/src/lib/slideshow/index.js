@@ -125,7 +125,7 @@ function Slideshow()
     function step(iDistance)
     {
         // 1. update our pointer
-        iCurrent = (iCurrent + iDistance) % aElItems.length;
+        iCurrent = (iCurrent + iDistance + aElItems.length) % aElItems.length;
 
         // 2. slew
         reposition();
