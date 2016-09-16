@@ -45,14 +45,13 @@
                         $photo_title = $photo['title'];
                         $photo_url = $photo['url'];
                         $photo_2_url = $photos[$index]['url'];?>
-                        <li class="slideshow__item js-slideshow__item" style="background-image:url(<?=esc_url($photo_2_url); ?>);">
+                        <li class="slideshow__item js-slideshow__item box--blue" style="background-image:url(<?=esc_url($photo_2_url); ?>);">
                             <img src="<?php echo esc_url($photo_url); ?>" alt="<?php echo esc_attr($photo_title); ?>" title ="<?php echo esc_attr($photo_title); ?>" class="slideshow__image js-slideshow__image" />
                         </li>
                     <?php
                     endforeach;
                     ?>
             </ul>
-
         </aside>
     </div>
 </article>

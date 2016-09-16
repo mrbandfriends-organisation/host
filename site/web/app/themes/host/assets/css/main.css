@@ -3529,6 +3529,50 @@ a.btn {
   animation: favouritable-boom 2s 1;
 }
 
+.transport-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transport-list__item {
+  margin-bottom: 1.25rem;
+}
+
+.transport-list__icon {
+  width: 3.4375rem;
+  height: 2.5rem;
+  stroke: #00c0f3;
+}
+
+.transport-list__listing {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.transport-list__listing-item {
+  margin-bottom: 0.625rem;
+}
+
+.transport-list__content {
+  width: calc(100% - rem(55px));
+  padding-left: 0.625rem;
+  display: inline-block;
+}
+
+.transport-list__content:first-line {
+  color: #00c0f3;
+}
+
+.transport-list__heading {
+  color: #fff !important;
+}
+
+.transport-list__heading:first-line {
+  color: #fff !important;
+}
+
 .banner {
   width: 100%;
   padding: 0 0 1.25rem;
