@@ -91,4 +91,8 @@ require('./ext/NodeList');
     require('lightbox')();
 
     require('equality')();
+
+    require('FavouriteManager');
+
+    require('slick')();
 })();

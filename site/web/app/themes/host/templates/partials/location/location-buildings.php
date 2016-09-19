@@ -34,25 +34,42 @@
 
             // strip unneeded newlines
             $address = trim(preg_replace("/\n\n+/", "\n", $address));
+            $phone   = trim(get_field('building_address_phone_no'));
 
             // thumbnail
             $sStyle = '';
             if (has_post_thumbnail())
             {
-                $sUrl   = wp_get_attachment_image_url(get_post_thumbnail_id(), 'width=360');
+                $sUrl   = wp_get_attachment_image_url(get_post_thumbnail_id(), 'width=500');
                 $sStyle = sprintf(' style="background-image: url(%s)"', $sUrl);
             }
 
             // availability stuff
             $aAvailabilityDefinition = RoomsBuildings\availability_status(get_field('availability'));
+            $iNumberTypes = get_field('room_types');
+
+            // link stuff
+            $bExternal = (get_field('external_website') === true);
+            $sUrl      = $bExternal ? get_field('website_url') : get_the_permalink();
+            $sText     = $bExternal ? 'Take me to the website' : 'Show me this property';
+            $sAtts     = $bExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
         ?>
         <li class="property-list__item">
             <article class="listed-property grid">
-                <div class="listed-property__main gc l1-2 xl2-3 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded">
+                <div class="listed-property__main gc l1-2 xl2-3 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded" data-favouritable="<?=get_the_id(); ?>">
                     <div class="listed-property__content grid">
                         <div class="listed-property__title-desc gc xxl3-5">
-                            <h3 class="listed-property__title plain"><?=the_title(); ?></h3>
+                            <h3 class="listed-property__title plain">
+                                <?php if (!empty($sUrl)): ?><a href="<?=$sUrl;?>"<?=$sAtts; ?>><?php endif; ?>
+                                <?=get_field('title_1'); ?></h3>
+                                <?php if (!empty($sUrl)): ?></a><?php endif; ?>
                             <h4 class="listed-property__availability"><?=$aAvailabilityDefinition['text']; ?></h4>
+
+                            <?php if ($iNumberTypes !== null): ?>
+                            <p class="listed-property__number-types inherit-fg">
+                                <?=($iNumberTypes === '0') ? 'No' : $iNumberTypes; ?> room type<?=($iNumberTypes === '1') ? '' : 's'; ?> available.
+                            </p>
+                            <?php endif; ?>
 
                             <?=apply_filters('the_content', get_field('description')); ?>
                         </div>
@@ -64,14 +81,19 @@
                                     <?=str_replace("\n", '<br>', esc_html($address)); ?>
                                 </p>
                                 <?php endif; ?>
+                                <?php if (!empty($phone)): ?>
                                 <p>
                                     <strong>Call:</strong>
-                                    <?=esc_html(get_field('building_address_phone_no')); ?>
+                                    <?=esc_html($phone); ?>
                                 </p>
+                                <?php endif; ?>
                             </address>
+
+                            <?php if (!empty($sUrl)): ?>
                             <p>
-                                <a href="<?=get_the_permalink(); ?>" class="btn">Show me this website</a>
+                                <a href="<?=$sUrl; ?>" class="btn"<?=$sAtts; ?>><?=$sText; ?></a>
                             </p>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

@@ -1,3 +1,23 @@
 .scrollable {
+    @include ps-container(map-merge($ps-theme-default, (
+       border-radius: 10px,
+       scrollbar-x-rail-height: 3px,
+       scrollbar-x-height: 3px,
+       scrollbar-y-rail-width: 10px,
+       scrollbar-y-width: 5px,
+       bar-bg: #fff
+     )));
+
+    position: relative;
     height: 100%;
+    max-height: 400px;
+
+    .ps-scrollbar-y-rail:hover > .ps-scrollbar-y,
+    .ps-scrollbar-y-rail:active > .ps-scrollbar-y {
+        width: rem(5px);
+    }
+
+    .ps-scrollbar-y-rail {
+        border-radius: rem(5px);
+    }
 }

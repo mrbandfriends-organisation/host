@@ -1,10 +1,12 @@
+var bp = require('breakpoint-tools');
+
 function Equality()
 {
     "use strict";
 
-    var elRoot   = this;
-    var aElPanel = [];
-
+    var elRoot      = this;
+    var aElPanel    = [];
+    var sBreakpoint = '';
 
     /**
      * Works out the content height of a given panel.
@@ -28,7 +30,7 @@ function Equality()
 
             // c. add margin, based on previous bottom or current top and update the stat
             iCurrMg = (oStyle.marginTop !== undefined) ? parseInt(oStyle.marginTop, 10) : 0;
-            iHeight += (iCurrMg > iLastMg) ? iCurrMg : iLastMg
+            iHeight += (iCurrMg > iLastMg) ? iCurrMg : iLastMg;
             iLastMg = (oStyle.marginBottom !== undefined) ? parseInt(oStyle.marginBottom, 10) : 0;
 
             // d. proceed onward
@@ -61,7 +63,13 @@ function Equality()
             el.style.height = null;
         });
 
-        // 2. second pass, get a height
+        // 2. check the current breakpoint
+        if (!bp.matchLarger(sBreakpoint))
+        {
+            return;
+        }
+
+        // 3. second pass, get a height
         aElPanel.forEach(function(el)
         {
             // b. work out a proportion
@@ -71,7 +79,7 @@ function Equality()
             iMaxHeight = Math.max(iMaxHeight, getContentHeight(el) / iProp);
         });
 
-        // 3. third pass: apply it
+        // 4. third pass: apply it
         aElPanel.forEach(function(el)
         {
             // a. work out a proportion
@@ -85,13 +93,18 @@ function Equality()
 
     function init()
     {
+        // 0. get a trigger point
+        sBreakpoint = elRoot.dataset.equality.trim();
+
         // 1. get panels and default their proportion
         aElPanel = elRoot.querySelectorAll('[data-equality-pane]').toArray();
         aElPanel.forEach(function(el)
         {
             var iTmp = parseInt(el.dataset.equalityPane, 10);
-            if (iTmp != iTmp)
+            if (iTmp !== iTmp)
+            {
                 el.dataset.equalityPane = 1;
+            }
         });
 
         // 2. bind to window resize

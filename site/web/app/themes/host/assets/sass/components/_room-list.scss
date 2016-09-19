@@ -36,7 +36,7 @@
 
 // Navigation
 // ==========================================================================
-.room-list__nav {
+.room-list-nav {
     margin-top: rem(30);
     padding:    rem(30);
 
@@ -44,6 +44,16 @@
         margin: 0;
         padding: rem(50);
         padding-right: 0;
+    }
+}
+
+// .room-list-nav__list {}
+
+// .room-list-nav__item {}
+
+.room-list-nav__link {
+    &:hover {
+        text-decoration: none;
     }
 }
 

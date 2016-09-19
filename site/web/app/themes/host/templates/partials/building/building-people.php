@@ -11,14 +11,6 @@
     $people_description = get_field('people_description');
 ?>
 
-
-<h2>
-  <?php echo esc_html($people_title); ?>
-</h2>
-
-<?php echo $people_description; ?>
-
-
 <?php
   // People Gallery
   if( have_rows('people_photos') ):
@@ -30,11 +22,25 @@
           $photo_url = $photo['url'];
 ?>
 
-  <img src="<?php echo esc_html($photo_url); ?>" alt="<?php echo esc_html($photo_title); ?>" title ="<?php echo esc_html($photo_title); ?>" />
-
 <?php
       endwhile;
   else :
       // no rows found
   endif;
 ?>
+
+<?php
+$main_content = Utils\ob_load_template_part('templates/snippets/building/our-people-introduction', compact('people_title', 'people_description'));
+
+$aside_content = Utils\ob_load_template_part('templates/components/bleed-image', array(
+    'image'  => $photo_url
+));
+ ?>
+
+<?php
+echo Utils\ob_load_template_part('templates/components/split-feature', [
+    'color'   	 => 'red',
+    'content' 	 => $main_content,
+    'second'  	 => $aside_content
+]);
+ ?>

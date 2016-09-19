@@ -74,12 +74,24 @@
     @include gc();
 }
 
+*[class*=gc--above-] { display: none; }
+
 @if ($use-standard-breakpoints == true) {
     // Tiny
-    @include mq(tiny) { @include griddle-build($grids, "t");  }
+    @include mq(tiny) {
+        @include griddle-build($grids, "t");
+
+        .gc--above-t { display: block; }
+        .gc--below-t { display: none; }
+    }
 
     // Small
-    @include mq(small) { @include griddle-build($grids, "s"); }
+    @include mq(small) {
+        @include griddle-build($grids, "s");
+
+        .gc--above-s { display: block; }
+        .gc--below-s { display: none; }
+    }
 
     // Medium
     @include mq(medium) {
@@ -89,6 +101,9 @@
         // at every breakpoint or defining it across all the components it uses
         // Grr@designers
         .m-30pc { @include grid-column(3, 10); }
+
+        .gc--above-m { display: block; }
+        .gc--below-m { display: none; }
     }
 
     // Large
@@ -97,12 +112,25 @@
 
         // let’s hook it on the large breakpoint as well, because why not…
         .l-30pc { @include grid-column(3, 10); }
+
+        .gc--above-l { display: block; }
+        .gc--below-l { display: none; }
     }
 
     // Extra Large
-    @include mq(xlarge) { @include griddle-build($grids, "xl"); }
+    @include mq(xlarge) {
+        @include griddle-build($grids, "xl");
 
-    @include mq(xxlarge) { @include griddle-build($grids, "xxl"); }
+        .gc--above-xl { display: block; }
+        .gc--below-xl { display: none; }
+    }
+
+    @include mq(xxlarge) {
+        @include griddle-build($grids, "xxl");
+
+        .gc--above-xxl { display: block; }
+        .gc--below-xxl { display: none; }
+    }
 }
 
 
