@@ -33,13 +33,19 @@
 
 // .related-building-aside {}
 
-// .related-building-aside-image {}
+.related-building-aside-image {
+    min-height: 40vh;
+}
 
 .related-building-aside-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
+
+    @include mq($until: medium) {
+        padding: $half-spacing-unit 0;
+    }
 }
 
 .related-building-aside-content__icon {

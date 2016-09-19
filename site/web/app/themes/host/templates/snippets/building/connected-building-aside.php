@@ -11,7 +11,7 @@
 <?php  ?>
 <div class="grid related-building-aside">
     <?php if ( !empty($image) ): ?>
-        <div class="gc t1-1 s1-2 m2-3 l3-4">
+        <div class="related-building-aside-image gc t1-1 s1-2 m2-3 l3-4">
             <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
                 'image'    => $image,
                 'alt'      => $title,
@@ -23,7 +23,7 @@
     <?php if ( !empty($address) ): ?>
         <div class="related-building-aside-content gc t1-1 s1-2 m1-3 l1-4">
             <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
-                'icon'       => "twitter",
+                'icon'       => "travel-location-2",
                 "classnames" => "related-building-aside-content__icon svg-icon--sky"
             )); ?>
 
