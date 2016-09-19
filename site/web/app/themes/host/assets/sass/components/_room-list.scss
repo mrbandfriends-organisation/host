@@ -13,7 +13,7 @@
     background: #fff;
 
     @include mq(large) {
-        padding: 0 rem(60);
+        padding: 0 0 0 rem(60);
         background: #fff url("/assets/images/grape-30pc.svg") repeat-y center center/rem(3000);
     }
 

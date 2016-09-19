@@ -3,6 +3,7 @@
   * HOME LOCATIONS
   **/
     use Roots\Sage\Utils;
+    use Roots\Sage\RoomsBuildings;
 ?>
 
 <?php
@@ -27,12 +28,20 @@
                     $carousel_image = get_template_directory_uri() . '/assets/images/london.jpg';
                 ?>
                 <li class="checkerboard__item gc">
+
+                    <?php
+                      $connected_buildings_array = host_location_find_connected_buildings(get_the_id());
+                      $connected_buildings = $connected_buildings_array->posts;
+                      $connected_buildings_count = count($connected_buildings);
+                    ?>
+
                     <?php echo Utils\ob_load_template_part('templates/partials/home/home-locations-item.php', array(
                         'label'                 => get_the_title(),
                         'url'                   => get_permalink(),
                         'tile_image'            => $carousel_image,
-                        'available_properties'  => 2
+                        'available_properties'  => $connected_buildings_count
                     )); ?>
+                    
                 </li>
                 <?php $count++; ?>
             <?php endwhile; ?>
