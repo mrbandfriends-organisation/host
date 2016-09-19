@@ -115,6 +115,8 @@ $is-oldie: false !default;
 // ==========================================================================
 @import "vendors/perfect-scrollbar";
 @import "vendors/_magnific-popup.scss";
+@import "vendors/_slick.scss";
+@import "vendors/_slick-theme.scss";
 
 
 // # VENDORS EXTENSIONS
@@ -122,6 +124,7 @@ $is-oldie: false !default;
 // ==========================================================================
 //@import "vendors-extensions/EXAMPLE";
 @import "vendors-extensions/_magnific-popup.scss";
+@import "vendors-extensions/_slick.scss";
 
 
 // # SHAME FILE

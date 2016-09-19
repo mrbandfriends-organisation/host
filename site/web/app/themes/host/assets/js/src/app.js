@@ -93,4 +93,6 @@ require('./ext/NodeList');
     require('equality')();
 
     require('FavouriteManager');
+
+    require('slick')();
 })();
