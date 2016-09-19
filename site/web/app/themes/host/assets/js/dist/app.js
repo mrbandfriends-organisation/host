@@ -52,7 +52,7 @@
 	 */
 
 	// NPM Modules
-	__webpack_require__(25);
+	__webpack_require__(26);
 
 	// extend things
 	__webpack_require__(5);
@@ -120,23 +120,23 @@
 	{
 	    "use strict";
 
-	    __webpack_require__(16);
-
-	    __webpack_require__(20)();
-
-	    __webpack_require__(18)();
-
-	    __webpack_require__(22)();
+	    __webpack_require__(17);
 
 	    __webpack_require__(21)();
+
+	    __webpack_require__(19)();
+
+	    __webpack_require__(23)();
+
+	    __webpack_require__(22)();
 
 	    // require('bind-inview')();
 
 	    // require('onpage-smooth-scroll')();
 
-	    __webpack_require__(19)();
+	    __webpack_require__(20)();
 
-	    __webpack_require__(17)();
+	    __webpack_require__(18)();
 
 	    __webpack_require__(6);
 	})();
@@ -10321,7 +10321,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// jshint latedef:nofunc
-	var cookies = __webpack_require__(23);
+	var cookies = __webpack_require__(24);
 	var icon    = __webpack_require__(2);
 
 	var sFavouriteTemplate =
@@ -11115,7 +11115,7 @@
 	 */
 
 	__webpack_require__(1);
-	var EventBus = __webpack_require__(29);
+	var EventBus = __webpack_require__(30);
 
 	var OffCanvasToggler = function(options) {
 	    "use strict";
@@ -11438,7 +11438,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var debounce = __webpack_require__(24);
+	var debounce = __webpack_require__(25);
 
 	function Slideshow()
 	{
@@ -11695,6 +11695,22 @@
 	        aElItems = el.querySelectorAll('.js-slideshow__item').toArray();
 	    }
 
+	    function bindSwipes()
+	    {
+	        // 1. enable swiping
+	        __webpack_require__(16)(el);
+
+	        // 2. event handler
+	        el.addEventListener('swipeleft', function()
+	        {
+	            step(1);
+	        });
+	        el.addEventListener('swiperight', function()
+	        {
+	            step(-1);
+	        })
+	    }
+
 	    /**
 	     * Constructor
 	     */
@@ -11739,7 +11755,10 @@
 	            el.classList.add('js-slideshow--active');
 	        }, 10);
 
-	        // 7. return some hooks for mirrors
+	        // 7. bind to swipe
+	        bindSwipes();
+
+	        // 8. return some hooks for mirrors
 	        return {
 	            go:   go,
 	            step: step
@@ -11890,6 +11909,154 @@
 
 /***/ },
 /* 16 */
+/***/ function(module, exports) {
+
+	var defaultOptions = {
+	    iSuppressScrollAfter: 10,       // Vertical pixels before scrolling is blocked
+	    iMaximumTime:         1000,     // time in microseconds before swipe is declared invalid
+	    iMinHorizontalAmount: 30,       // minimum horizontal distance before a swipe is triggered
+	    iMaxVerticalAmount:   75        // maximum vertical distance below which we trigger a swipe
+	};
+
+
+	function enableSwipe(el, options)
+	{
+	    "use strict";
+
+	    var oStart = null;
+	    var oEnd   = null;
+
+	    /**
+	     * Fires a custom event on the current element.
+	     */
+	    function fireEvent(sEvent)
+	    {
+	        // 1. create custom event object
+	        var oEvt;
+	        if (window.CustomEvent)
+	        {
+	            oEvt = new CustomEvent(sEvent);
+	        }
+	        else
+	        {
+	            oEvt = document.createEvent('CustomEvent');
+	            oEvt.initCustomEvent(sEvent, true, true);
+	        }
+
+	        // 2. and fire it
+	        el.dispatchEvent(oEvt);
+	    }
+
+	    /**
+	     * TouchEnd handler
+	     */
+	    function fnTouchEnd(ev)
+	    {
+	        // 1. unbind everything
+	        el.removeEventListener('touchmove', fnTouchMove);
+	        el.removeEventListener('touchend',  fnTouchEnd);
+
+	        // 2. if it was quick enough, and is was more than the threshhold(s)
+	        if (((oEnd.time - oStart.time) < options.iMaximumTime) &&
+	            (Math.abs(oStart.position.x - oEnd.position.x) > options.iMinHorizontalAmount) &&
+	            (Math.abs(oStart.position.y - oEnd.position.y) < options.iMaxVerticalAmount))
+	        {
+	            // a. base swipe event
+	            fireEvent('swipe');
+
+	            // b. swipe left/right
+	            if (oEnd.position.x > oStart.position.x)
+	            {
+	                fireEvent('swiperight');
+	            }
+	            else
+	            {
+	                fireEvent('swipeleft');
+	            }
+	        }
+
+	        // 3. clear everything
+	        oStart = null;
+	        oEnd   = null;
+	    }
+
+	    /**
+	     * TouchMove handler
+	     */
+	    function fnTouchMove(ev)
+	    {
+	        // 1. get touch position
+	        var oTouch = ev.touches[0];
+
+	        // 2. store current position
+	        oEnd = {
+	            position: { x: oTouch.pageX, y: oTouch.pageY },
+	            time:     new Date().getTime()
+	        };
+
+	        // 3. if we’ve moved far enough, cancel any scrolling
+	        if (Math.abs(oStart.position.x - oEnd.position.x) > options.iSuppressScrollAfter)
+	        {
+	            ev.preventDefault();
+	            return false;
+	        }
+
+	        return true;
+	    }
+
+	    /**
+	     * TouchStart handler
+	     */
+	    function fnTouchStart(ev)
+	    {
+	        // 1. get the current touch
+	        var oTouch = ev.touches[0];
+
+	        // 2. store the start of the touch
+	        oStart = {
+	            position: { x: oTouch.pageX, y: oTouch.pageY },
+	            time:     new Date().getTime()
+	        };
+	        oEnd = null;
+
+	        // 3. bind move and stop
+	        el.addEventListener('touchmove', fnTouchMove);
+	        el.addEventListener('touchend',  fnTouchEnd);
+	    }
+
+	    // bind everything
+	    el.addEventListener('touchstart', fnTouchStart);
+
+	    // pass back
+	    return;
+	}
+
+	module.exports = function(el)
+	{
+	    "use strict";
+
+	    // 0. get default options
+	    var options = defaultOptions;
+
+	    // 1. if there’re options being passed in…
+	    if (arguments.length === 2)
+	    {
+	        for (var k in arguments[1])
+	        {
+	            if (arguments[1].hasOwnProperty(k))
+	            {
+	                options[k] = arguments[1][k];
+	            }
+	        }
+	    }
+
+	    // 2. call
+	    return enableSwipe(el, options);
+	};
+
+
+/***/ },
+/* 17 */
 /***/ function(module, exports) {
 
 	// jshint latedef:nofunc
@@ -12138,7 +12305,7 @@
 
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var bp = __webpack_require__(7);
@@ -12293,7 +12460,7 @@
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -12351,10 +12518,10 @@
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(28);
+	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(29);
 
 	module.exports = function()
 	{
@@ -12377,7 +12544,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -12410,7 +12577,7 @@
 	    if (!maps_loaded && !maps_loading)
 	    {
 	        maps_loading = true;
-	        __webpack_require__(27)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+	        __webpack_require__(28)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
 	    }
 	    else if (maps_loaded)
 	    {
@@ -12422,7 +12589,7 @@
 
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var $ = __webpack_require__(1);
@@ -12438,7 +12605,7 @@
 
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var slideshow = __webpack_require__(13);
@@ -12455,7 +12622,7 @@
 
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var cookies = function (data, opt) {
@@ -12544,7 +12711,7 @@
 
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports) {
 
 	/**
@@ -12941,21 +13108,21 @@
 
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(26);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(27);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(1);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
@@ -12984,7 +13151,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Magnific Popup - v1.1.0 - 2016-02-20
@@ -14849,7 +15016,7 @@
 	 _checkInstance(); }));
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
