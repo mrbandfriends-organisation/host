@@ -2117,11 +2117,11 @@ dl.-horizontal dd ~ dd {
   padding: 0;
   transition: background 350ms;
   border: 2px solid #fff;
-  background: white;
+  background: rgba(255, 255, 255, 0);
 }
 
 .slideshow-pagination--dots button[class].-current {
-  background: rgba(255, 255, 255, 0);
+  background: white;
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button {

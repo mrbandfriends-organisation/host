@@ -84,11 +84,13 @@ $slideshow-animate-speed: 3s;
         transition: background 350ms;
 
         border: 2px solid #fff;
-        background: rgba(255, 255, 255, 1);
+        background: rgba(255, 255, 255, 0);
 
 
 
-        &.-current { background: rgba(255, 255, 255, 0); }
+        &.-current {
+            background: rgba(255, 255, 255, 1);
+        }
     }
 
 }
