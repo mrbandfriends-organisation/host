@@ -1,12 +1,12 @@
 @font-face {
 	font-family: "CircularWeb";
-	src: url('../fonts/circular/std.woff2') format('woff2'), url('../fonts/circular/std.woff') format('woff');
+	src: url('Fonts/circular/std.woff2') format('woff2'), url('Fonts/circular/std.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }
 @font-face {
 	font-family: "CircularWebBold";
-	src: url('../fonts/circular/bold.woff2') format('woff2'), url('../fonts/circular/bold.woff') format('woff');
+	src: url('Fonts/circular/bold.woff2') format('woff2'), url('Fonts/circular/bold.woff') format('woff');
 	font-style: normal;
 }
 
@@ -99,6 +99,7 @@ textarea {
 }
 .header-container {
 	border-bottom: none;
+	padding-left: 20px;
 }
 
 

@@ -1,0 +1,11 @@
+<svg id="12f0dbe2-7549-4d0d-907c-3ad025fa85b7" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50.16 46.63">
+  <title>room-occupancy-group-2</title>
+  <g>
+    <circle cx="9.64" cy="7.73" r="6.48" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <path d="M14.32,45.38V33A10.56,10.56,0,0,0,18,24.69c0-5.5-3.76-10-8.39-10s-8.39,4.46-8.39,10a10.56,10.56,0,0,0,3.7,8.26V45.38" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <circle cx="26.42" cy="7.73" r="6.48" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <path d="M31.1,45.38V33a10.56,10.56,0,0,0,3.72-8.27c0-5.5-3.76-10-8.39-10S18,19.19,18,24.69a10.56,10.56,0,0,0,3.7,8.26V45.38" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <line x1="44.24" y1="1.25" x2="44.24" y2="10.58" fill="none" stroke="#231f20" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.5"/>
+    <line x1="48.91" y1="5.91" x2="39.58" y2="5.91" fill="none" stroke="#231f20" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2.5"/>
+  </g>
+</svg>

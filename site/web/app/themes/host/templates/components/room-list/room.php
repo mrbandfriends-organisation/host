@@ -32,7 +32,7 @@
                 <?=Utils\esc_textarea__(get_the_content()); ?>
             </p>
             <p>
-                <a href="#" class="btn btn--small btn--narrow">More information</a>
+                <a href="<?= esc_url(get_permalink()); ?>" class="btn btn--small btn--narrow">More information</a>
             </p>
         </div>
         <aside class="listed-room__slideshow slideshow js-slideshow" data-pagination="pn dots" data-mirror-to="<?=esc_attr(json_encode($aSlideshowConf)); ?>">
@@ -45,14 +45,13 @@
                         $photo_title = $photo['title'];
                         $photo_url = $photo['url'];
                         $photo_2_url = $photos[$index]['url'];?>
-                        <li class="slideshow__item js-slideshow__item" style="background-image:url(<?=esc_url($photo_2_url); ?>);">
+                        <li class="slideshow__item js-slideshow__item box--blue" style="background-image:url(<?=esc_url($photo_2_url); ?>);">
                             <img src="<?php echo esc_url($photo_url); ?>" alt="<?php echo esc_attr($photo_title); ?>" title ="<?php echo esc_attr($photo_title); ?>" class="slideshow__image js-slideshow__image" />
                         </li>
                     <?php
                     endforeach;
                     ?>
             </ul>
-
         </aside>
     </div>
 </article>

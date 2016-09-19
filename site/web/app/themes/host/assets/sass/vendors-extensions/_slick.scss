@@ -1,0 +1,86 @@
+// ==========================================================================
+//
+// SLICK SLIDER
+//
+// Description: Slick carousel specific styles
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+.slick-dots {
+    //position:  absolute;
+    //bottom:    rem(15);
+    //left:      50%;
+    //transform: translateX(-50%);
+
+    li {
+        //display: inline-block;
+        //margin:  0 rem(4);
+
+        button {
+            height: rem(13);
+            width:  rem(13);
+            min-width: 0;
+            //padding:   0;
+            border: 2px solid #fff;
+            background: rgba(255, 255, 255, 0);
+            transition: background 350ms;
+
+            &:hover,
+            &:focus {
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+
+            &:before {
+                color: transparent;
+            }
+        }
+
+        &.slick-active {
+            button {
+                background: rgba(255, 255, 255, 1);
+
+                &:hover,
+                &:focus {
+                    background-color: rgba(255, 255, 255, 0.5);
+                }
+
+                &:before {
+                    color: transparent;
+                    //background: rgba(255, 255, 255, 1);
+                }
+            }
+        }
+    }
+}
+
+// ==========================================================================
+// # MODIFIER: LOCATION REALTED BUILDING SLIDER
+// ==========================================================================
+.location-realted-building-slider.slick-slider {
+    @include list-reset;
+    margin-bottom: 0;
+
+    .slick-dots {
+        right: -25%;
+        bottom: calc(50vh + (#{$spacing-unit} + 15px));
+
+        @include mq(medium) {
+            bottom: calc(50vh + (#{$double-spacing-unit} + 15px));
+        }
+
+        @include mq(large) {
+            right: auto;
+            bottom: rem(25);
+            left: calc(-50% + 100px);
+        }
+
+        @include mq(xlarge) {
+            right: rem(140);
+            bottom: rem(95);
+            left: auto;
+        }
+    }
+}

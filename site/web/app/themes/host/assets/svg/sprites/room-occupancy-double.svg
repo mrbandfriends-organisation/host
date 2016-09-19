@@ -1,0 +1,9 @@
+<svg id="667cff70-3038-4090-9c72-ae039bb60aa5" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.07 46.63">
+  <title>room-occupancy-double</title>
+  <g>
+    <circle cx="9.64" cy="7.73" r="6.48" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <path d="M14.32,45.38V33A10.56,10.56,0,0,0,18,24.69c0-5.5-3.76-10-8.39-10s-8.39,4.46-8.39,10a10.56,10.56,0,0,0,3.7,8.26V45.38" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <circle cx="26.42" cy="7.73" r="6.48" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <path d="M31.1,45.38V33a10.56,10.56,0,0,0,3.72-8.27c0-5.5-3.76-10-8.39-10S18,19.19,18,24.69a10.56,10.56,0,0,0,3.7,8.26V45.38" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+  </g>
+</svg>
