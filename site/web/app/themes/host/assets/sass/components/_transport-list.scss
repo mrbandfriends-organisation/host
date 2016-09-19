@@ -7,7 +7,7 @@
 }
 
 .transport-list__item {
-    margin-bottom: rem($half-spacing-unit);
+    margin-bottom: rem($spacing-unit);
 }
 
 .transport-list__icon {
@@ -31,6 +31,7 @@
     display: inline-block;
 
     &:first-line {
+        font-weight: bold;
         color: brand(sky);
     }
 }

@@ -4519,7 +4519,7 @@ a.btn {
 }
 
 .transport-list__item {
-  margin-bottom: 1.25rem;
+  margin-bottom: 2.5rem;
 }
 
 .transport-list__icon {
@@ -4545,6 +4545,7 @@ a.btn {
 }
 
 .transport-list__content:first-line {
+  font-weight: bold;
   color: #00c0f3;
 }
 
