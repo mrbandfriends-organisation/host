@@ -8,15 +8,20 @@
 }
 
 .separated-list__item {
+    display: flex;
     padding: rem(10) 0;
+    justify-content: flex-start;
+    align-items: center;
     border-bottom: $base-border;
 }
 
 .separated-list__icon {
+    min-width: rem(24px);
+    min-height: rem(24px);
     margin-right: $half-spacing-unit;
 
     @include mq(medium) {
-        margin-right: $spacing-unit;    
+        margin-right: $spacing-unit;
     }
 }
 
