@@ -9,23 +9,62 @@
 // ==========================================================================
 // # BASE
 // ==========================================================================
+.slick-dots {
+    //position:  absolute;
+    //bottom:    rem(15);
+    //left:      50%;
+    //transform: translateX(-50%);
 
+    li {
+        //display: inline-block;
+        //margin:  0 rem(4);
+
+        button {
+            height: rem(13);
+            width:  rem(13);
+            min-width: 0;
+            //padding:   0;
+            border: 2px solid #fff;
+            background: rgba(255, 255, 255, 0);
+            transition: background 350ms;
+
+            &:before {
+                color: transparent;
+            }
+        }
+
+        &.slick-active {
+            button {
+                background: rgba(255, 255, 255, 1);
+
+                &:before {
+                    color: transparent;
+                    //background: rgba(255, 255, 255, 1);
+                }
+            }
+        }
+    }
+}
 
 // ==========================================================================
 // # MODIFIER: LOCATION REALTED BUILDING SLIDER
 // ==========================================================================
 .location-realted-building-slider.slick-slider {
+    @include list-reset;
     margin-bottom: 0;
-}
 
-.location-related-building-dots {
     .slick-dots {
         // This is calculated by 50% of the margin-top of the btn
-        top: calc(50% - 10px);
+        //top: calc(50% - 10px);
+        right: -25%;
+        bottom: calc(50vh + 55px);
 
-        @include mq(medium) {
-            top: auto;
-            bottom: calc(50% - 30px);
+        @include mq(large) {
+            //top: auto;
+            //bottom: calc(50% - 30px);
+            bottom: 95px;
+            right: 140px;
+
         }
     }
 }

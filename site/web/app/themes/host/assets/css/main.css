@@ -4813,12 +4813,37 @@ img.mfp-img {
   left: auto;
 }
 
+.slick-dots li button {
+  height: 0.8125rem;
+  width: 0.8125rem;
+  min-width: 0;
+  border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0);
+  transition: background 350ms;
+}
+
+.slick-dots li button:before {
+  color: transparent;
+}
+
+.slick-dots li.slick-active button {
+  background: white;
+}
+
+.slick-dots li.slick-active button:before {
+  color: transparent;
+}
+
 .location-realted-building-slider.slick-slider {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   margin-bottom: 0;
 }
 
-.location-related-building-dots .slick-dots {
-  top: calc(50% - 10px);
+.location-realted-building-slider.slick-slider .slick-dots {
+  right: -25%;
+  bottom: calc(50vh + 55px);
 }
 
 .clear {
@@ -5771,10 +5796,6 @@ img.mfp-img {
     right: 20px;
     left: auto;
   }
-  .location-related-building-dots .slick-dots{
-    top: auto;
-    bottom: calc(50% - 30px);
-  }
 }
 
 @media (min-width: 57.5em) and (max-width: 70.9375em){
@@ -6104,6 +6125,10 @@ img.mfp-img {
   }
   .generic-content-page__inner p{
     margin: 40px 0;
+  }
+  .location-realted-building-slider.slick-slider .slick-dots{
+    bottom: 95px;
+    right: 140px;
   }
 }
 

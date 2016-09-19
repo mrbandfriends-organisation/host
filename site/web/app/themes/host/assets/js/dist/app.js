@@ -12446,12 +12446,13 @@
 	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(31);
 
 	$('.js-slick-fade').slick({
+	    arrows: false,
 	    dots: true,
 	    infinite: true,
 	    speed: 500,
 	    fade: true,
-	    cssEase: 'ease-in-out',
-	    appendDots: '.js-location-related-building-dots'
+	    cssEase: 'ease-in-out'
+	    //appendDots: '.js-location-related-building-dots'
 	});
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
