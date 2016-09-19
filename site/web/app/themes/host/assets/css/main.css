@@ -3101,7 +3101,7 @@ img.mfp-img {
 
 .location-realted-building-slider.slick-slider .slick-dots {
   right: -25%;
-  bottom: calc(50vh + 55px);
+  bottom: calc(50vh + (40px + 15px));
 }
 
 .btn,
@@ -4609,6 +4609,10 @@ a.btn {
       flex: 1;
 }
 
+.related-building-aside-image {
+  min-height: 40vh;
+}
+
 .related-building-aside-content {
   display: -ms-flexbox;
   display: flex;
@@ -5930,6 +5934,9 @@ a.btn {
     right: 20px;
     left: auto;
   }
+  .location-realted-building-slider.slick-slider .slick-dots{
+    bottom: calc(50vh + (80px + 15px));
+  }
   .btn,
   button{
     padding: 0.9375rem 1.5625rem;
@@ -6201,8 +6208,9 @@ a.btn {
     display: none;
   }
   .location-realted-building-slider.slick-slider .slick-dots{
-    bottom: 95px;
-    right: 140px;
+    right: auto;
+    bottom: 1.5625rem;
+    left: calc(-50% + 100px);
   }
   .offcanvas-toggle{
     display: none !important;
@@ -6514,6 +6522,11 @@ a.btn {
   }
   .gc--below-xl{
     display: none;
+  }
+  .location-realted-building-slider.slick-slider .slick-dots{
+    right: 8.75rem;
+    bottom: 5.9375rem;
+    left: auto;
   }
   .awards.-left{
     margin: 80px 1.875rem 60px 80px;
@@ -6922,6 +6935,9 @@ a.btn {
   }
   .testimonial-wall__image{
     display: none;
+  }
+  .related-building-aside-content{
+    padding: 20px 0;
   }
   #menu-footer-utilities.nav-footer-utilities li{
     margin-bottom: 0;
