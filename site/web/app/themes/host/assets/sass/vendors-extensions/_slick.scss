@@ -1,0 +1,31 @@
+// ==========================================================================
+//
+// SLICK SLIDER
+//
+// Description: Slick carousel specific styles
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+
+// ==========================================================================
+// # MODIFIER: LOCATION REALTED BUILDING SLIDER
+// ==========================================================================
+.location-realted-building-slider.slick-slider {
+    margin-bottom: 0;
+}
+
+.location-related-building-dots {
+    .slick-dots {
+        // This is calculated by 50% of the margin-top of the btn
+        top: calc(50% - 10px);
+
+        @include mq(medium) {
+            top: auto;
+            bottom: calc(50% - 30px);
+        }
+    }
+}

@@ -23,7 +23,7 @@
 $query = $location_conncected_buildings;
 if ( $query->have_posts() ) : ?>
 <!-- js-slick-fade -->
-<ul class="js-slick-fade">
+<ul class="location-realted-building-slider js-slick-fade">
         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
             <li class="location-realted-building">
             <?php

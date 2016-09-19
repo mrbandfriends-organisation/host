@@ -25,16 +25,6 @@
     display: flex;
     position: relative;
     flex: 1;
-
-    .slick-dots {
-        // This is calculated by 50% of the margin-top of the btn
-        top: calc(50% - 10px);
-
-        @include mq(medium) {
-            top: auto;
-            bottom: calc(50% - 30px);
-        }
-    }
 }
 
 // ==========================================================================
