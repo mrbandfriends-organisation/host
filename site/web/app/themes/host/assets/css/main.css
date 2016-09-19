@@ -4555,7 +4555,7 @@ a.btn {
 }
 
 .transport-list__item {
-  margin-bottom: 1.25rem;
+  margin-bottom: 2.5rem;
 }
 
 .transport-list__icon {
@@ -4581,6 +4581,7 @@ a.btn {
 }
 
 .transport-list__content:first-line {
+  font-weight: bold;
   color: #00c0f3;
 }
 
@@ -6267,7 +6268,7 @@ a.btn {
     margin: 40px 1.875rem -20px 40px;
   }
   .room-list__header{
-    padding: 0 3.75rem;
+    padding: 0 0 0 3.75rem;
     background: #fff url("/assets/images/grape-30pc.svg") repeat-y center center/187.5rem;
   }
   .room-list__header-inner{
