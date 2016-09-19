@@ -32,7 +32,7 @@
                 <?=Utils\esc_textarea__(get_the_content()); ?>
             </p>
             <p>
-                <a href="#" class="btn btn--small btn--narrow">More information</a>
+                <a href="<?= esc_url(get_permalink()); ?>" class="btn btn--small btn--narrow">More information</a>
             </p>
         </div>
         <aside class="listed-room__slideshow slideshow js-slideshow" data-pagination="pn dots" data-mirror-to="<?=esc_attr(json_encode($aSlideshowConf)); ?>">
