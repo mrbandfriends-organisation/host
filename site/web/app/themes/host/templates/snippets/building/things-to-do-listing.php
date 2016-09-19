@@ -10,16 +10,16 @@
     $locations_count = (count($locations['value']));
    ?>
 <div class="grid">
-    <div class="gc s2-3 box box--ink-dark box--padded scrollable js-scrollable">
+    <div class="gc s2-3 box box--ink-dark box--padded">
 
-        <ul class="transport-list">
+        <ul class="transport-list scrollable js-scrollable">
             <?php foreach($locations['value'] as $location): ?>
                 <li class="transport-list__item">
                     <h3 class="transport-list__heading h3"><?= esc_html($location['title']); ?></h3>
                     <ul class="transport-list__listing">
                         <li class="transport-list__listing-item">
                             <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
-                                'icon'       => 'wifi',
+                                'icon'       => 'travel-public',
                                 "classnames" => "transport-list__icon"
                             )); ?>
 
@@ -32,7 +32,7 @@
                         </li>
                         <li class="transport-list__listing-item">
                             <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
-                                'icon'       => 'wifi',
+                                'icon'       => 'travel-walking',
                                 "classnames" => "transport-list__icon"
                             )); ?>
 
