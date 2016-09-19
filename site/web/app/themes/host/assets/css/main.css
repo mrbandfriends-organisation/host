@@ -3769,7 +3769,7 @@ a.btn {
 .scrollable.ps-active-x > .ps-scrollbar-x-rail,
 .scrollable.ps-active-y > .ps-scrollbar-y-rail {
   display: block;
-  background-color: white;
+  background-color: #fff;
 }
 
 .scrollable.ps-in-scrolling {
