@@ -28,6 +28,11 @@
             background: rgba(255, 255, 255, 0);
             transition: background 350ms;
 
+            &:hover,
+            &:focus {
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+
             &:before {
                 color: transparent;
             }
@@ -36,6 +41,11 @@
         &.slick-active {
             button {
                 background: rgba(255, 255, 255, 1);
+
+                &:hover,
+                &:focus {
+                    background-color: rgba(255, 255, 255, 0.5);
+                }
 
                 &:before {
                     color: transparent;

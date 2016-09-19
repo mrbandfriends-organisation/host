@@ -2120,8 +2120,18 @@ dl.-horizontal dd ~ dd {
   background: rgba(255, 255, 255, 0);
 }
 
+.slideshow-pagination--dots button[class]:hover, .slideshow-pagination--dots button[class]:focus {
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
+}
+
 .slideshow-pagination--dots button[class].-current {
   background: white;
+}
+
+.slideshow-pagination--dots button[class].-current:hover, .slideshow-pagination--dots button[class].-current:focus {
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button {
@@ -2138,12 +2148,13 @@ dl.-horizontal dd ~ dd {
   opacity: 0;
 }
 
-.slideshow-pagination--pn .slideshow-pagination__button:hover {
+.slideshow-pagination--pn .slideshow-pagination__button:hover, .slideshow-pagination--pn .slideshow-pagination__button:focus {
   background: rgba(255, 255, 255, 0.15);
 }
 
-.slideshow-pagination--pn .slideshow-pagination__button:hover .svg-icon {
+.slideshow-pagination--pn .slideshow-pagination__button:hover .svg-icon, .slideshow-pagination--pn .slideshow-pagination__button:focus .svg-icon {
   opacity: 1;
+  transform: translateX(-0.1875rem);
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button.-show {
@@ -2153,8 +2164,8 @@ dl.-horizontal dd ~ dd {
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button .svg-icon {
-  transition: opacity 200ms;
-  opacity: 0.8;
+  transition: all 200ms;
+  opacity: 0.75;
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button--next {
@@ -2165,11 +2176,20 @@ dl.-horizontal dd ~ dd {
   transform: scaleX(-1);
 }
 
+.slideshow-pagination--pn .slideshow-pagination__button--next:hover .svg-icon, .slideshow-pagination--pn .slideshow-pagination__button--next:focus .svg-icon {
+  transform: scaleX(-1) translateX(-0.1875rem);
+}
+
 .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button {
   height: 19.6875rem;
   width: 4.375rem;
   background: #fff;
   color: #1c222d;
+}
+
+.slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button:hover, .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button:focus {
+  background-color: rgba(255, 255, 255, 0.75);
+  outline: none;
 }
 
 @keyframes slideshow-ai-before {
@@ -3052,12 +3072,20 @@ img.mfp-img {
   transition: background 350ms;
 }
 
+.slick-dots li button:hover, .slick-dots li button:focus {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .slick-dots li button:before {
   color: transparent;
 }
 
 .slick-dots li.slick-active button {
   background: white;
+}
+
+.slick-dots li.slick-active button:hover, .slick-dots li.slick-active button:focus {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .slick-dots li.slick-active button:before {
