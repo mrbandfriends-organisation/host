@@ -3556,7 +3556,7 @@ a.btn {
 .transport-list__icon {
   width: 3.4375rem;
   height: 2.5rem;
-  stroke: #00c0f3;
+  fill: #00c0f3;
 }
 
 .transport-list__listing {
