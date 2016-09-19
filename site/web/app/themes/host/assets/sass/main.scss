@@ -72,6 +72,20 @@ $is-oldie: false !default;
 @import "objects/slideshow";
 
 
+// # VENDORS
+// # CSS files from external libraries and frameworks
+// ==========================================================================
+@import "vendors/perfect-scrollbar";
+@import "vendors/_magnific-popup.scss";
+
+
+// # VENDORS EXTENSIONS
+// # contains any overides to vendor extensions (see above)
+// ==========================================================================
+//@import "vendors-extensions/EXAMPLE";
+@import "vendors-extensions/_magnific-popup.scss";
+
+
 // # COMPONENTS - http://sass-guidelin.es/#components-folder
 // ==========================================================================
 @import "components/buttons";
@@ -107,21 +121,6 @@ $is-oldie: false !default;
 // ==========================================================================
 @import "pages/home";
 @import "pages/_generic-page-template";
-
-
-
-// # VENDORS
-// # CSS files from external libraries and frameworks
-// ==========================================================================
-@import "vendors/perfect-scrollbar";
-@import "vendors/_magnific-popup.scss";
-
-
-// # VENDORS EXTENSIONS
-// # contains any overides to vendor extensions (see above)
-// ==========================================================================
-//@import "vendors-extensions/EXAMPLE";
-@import "vendors-extensions/_magnific-popup.scss";
 
 
 // # SHAME FILE
