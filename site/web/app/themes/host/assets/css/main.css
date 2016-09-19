@@ -4582,7 +4582,7 @@ a.btn {
 .transport-list__icon {
   width: 3.4375rem;
   height: 2.5rem;
-  fill: #00c0f3;
+  margin-right: 10px;
 }
 
 .transport-list__listing {
@@ -4592,6 +4592,12 @@ a.btn {
 }
 
 .transport-list__listing-item {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-align: center;
+      align-items: center;
   margin-bottom: 0.625rem;
 }
 
