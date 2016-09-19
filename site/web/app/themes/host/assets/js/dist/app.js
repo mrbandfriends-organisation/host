@@ -12450,7 +12450,8 @@
 	    infinite: true,
 	    speed: 500,
 	    fade: true,
-	    cssEase: 'linear'
+	    cssEase: 'ease-in-out',
+	    appendDots: '.js-location-related-building-dots'
 	});
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))

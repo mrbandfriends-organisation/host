@@ -3587,6 +3587,27 @@ a.btn {
   color: #fff !important;
 }
 
+.location-related-building-btn-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.location-related-building-dots {
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -ms-flex: 1;
+      flex: 1;
+}
+
+.location-related-building-dots .slick-dots {
+  top: calc(50% - 10px);
+}
+
 .related-building-aside-content {
   display: -ms-flexbox;
   display: flex;
@@ -5718,6 +5739,10 @@ img.mfp-img {
   }
   .listed-room{
     padding: 2.5rem;
+  }
+  .location-related-building-dots .slick-dots{
+    top: auto;
+    bottom: calc(50% - 30px);
   }
   .nav-utilities--banner{
     margin-right: -0.9375rem;

@@ -25,7 +25,7 @@ if ( $query->have_posts() ) : ?>
 <!-- js-slick-fade -->
 <ul class="js-slick-fade">
         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-            <li>
+            <li class="location-realted-building">
             <?php
                 $id = get_the_id();
 
@@ -66,9 +66,10 @@ if ( $query->have_posts() ) : ?>
                 ));
 
                 echo Utils\ob_load_template_part('templates/components/split-feature', array(
-                    'color'   => "sky",
-                    'content' => $main_content,
-                    'second'  => $secondary_content
+                    'color'         => "sky",
+                    'content'       => $main_content,
+                    'main_modifier' => 'location-related-building',
+                    'second'        => $secondary_content
                 ));
             ?>
         </li>

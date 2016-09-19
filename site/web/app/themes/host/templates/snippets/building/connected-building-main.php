@@ -22,5 +22,8 @@
         sed do eiusmod tempor. Sit amet, consectetur.
     </p>
 
-    <a href="<?php echo get_the_permalink($building_id) ?>" class="btn">Look at this building</a>
+    <div class="location-related-building-btn-container">
+        <a href="<?php echo get_the_permalink($building_id) ?>" class="btn">Look at this building</a>
+        <div class="location-related-building-dots js-location-related-building-dots"></div>
+    </div>
 <?php endif; ?>
