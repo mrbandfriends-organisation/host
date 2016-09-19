@@ -2181,14 +2181,25 @@ dl.-horizontal dd ~ dd {
 }
 
 .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button {
-  height: 19.6875rem;
-  width: 4.375rem;
-  background: #fff;
+  height: 12.5rem;
+  width: 3.125rem;
+  background-color: rgba(255, 255, 255, 0.75);
   color: #1c222d;
 }
 
 .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button:hover, .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button:focus {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.6);
+  outline: none;
+}
+
+.slideshow--large-pagination .slideshow-pagination--pn .slideshow-pagination__button {
+  height: 19.6875rem;
+  width: 4.375rem;
+  background: #fff;
+}
+
+.slideshow--large-pagination .slideshow-pagination--pn .slideshow-pagination__button:hover, .slideshow--large-pagination .slideshow-pagination--pn .slideshow-pagination__button:focus {
+  background-color: rgba(255, 255, 255, 0.85);
   outline: none;
 }
 
