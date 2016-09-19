@@ -4091,8 +4091,18 @@ a.btn {
   height: 100% !important;
 }
 
+.listed-room__slideshow.js-slideshow__mirror .slideshow__item.slideshow__list {
+  background-blend-mode: multiply;
+  background: #b455a0 !important;
+}
+
 .listed-room__slideshow.js-slideshow__mirror .slideshow__image {
   display: none;
+}
+
+.listed-room__content .slideshow__item {
+  background-blend-mode: multiply;
+  background-color: rgba(180, 85, 160, 0.95) !important;
 }
 
 .scrollable {

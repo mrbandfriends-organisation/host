@@ -183,8 +183,22 @@
             width:  100%;
         }
 
-        .slideshow__item { height: 100% !important; }
+        .slideshow__item {
+            height: 100% !important;
+
+            &.slideshow__list {
+                background-blend-mode: multiply;
+                background: brand(grape)!important;
+            }
+        }
 
         .slideshow__image { display: none; }
+    }
+}
+
+.listed-room__content {
+    .slideshow__item {
+        background-blend-mode: multiply;
+        background-color: rgba(brand(grape), 0.95)!important;
     }
 }
