@@ -4112,7 +4112,7 @@ a.btn {
   -ms-overflow-style: none;
   position: relative;
   height: 100%;
-  max-height: 400px;
+  max-height: 26.875rem;
 }
 
 @supports (-ms-overflow-style: none) {
