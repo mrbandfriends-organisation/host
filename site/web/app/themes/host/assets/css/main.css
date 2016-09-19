@@ -1321,11 +1321,19 @@ thead tr:last-child th {
 }
 
 .separated-list__item {
+  display: -ms-flexbox;
+  display: flex;
   padding: 0.625rem 0;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-align: center;
+      align-items: center;
   border-bottom: 1px solid rgba(33, 41, 60, 0.3);
 }
 
 .separated-list__icon {
+  min-width: 1.5rem;
+  min-height: 1.5rem;
   margin-right: 20px;
 }
 
@@ -2109,11 +2117,21 @@ dl.-horizontal dd ~ dd {
   padding: 0;
   transition: background 350ms;
   border: 2px solid #fff;
-  background: white;
+  background: rgba(255, 255, 255, 0);
+}
+
+.slideshow-pagination--dots button[class]:hover, .slideshow-pagination--dots button[class]:focus {
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
 }
 
 .slideshow-pagination--dots button[class].-current {
-  background: rgba(255, 255, 255, 0);
+  background: white;
+}
+
+.slideshow-pagination--dots button[class].-current:hover, .slideshow-pagination--dots button[class].-current:focus {
+  background-color: rgba(255, 255, 255, 0.5);
+  outline: none;
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button {
@@ -2130,12 +2148,13 @@ dl.-horizontal dd ~ dd {
   opacity: 0;
 }
 
-.slideshow-pagination--pn .slideshow-pagination__button:hover {
+.slideshow-pagination--pn .slideshow-pagination__button:hover, .slideshow-pagination--pn .slideshow-pagination__button:focus {
   background: rgba(255, 255, 255, 0.15);
 }
 
-.slideshow-pagination--pn .slideshow-pagination__button:hover .svg-icon {
+.slideshow-pagination--pn .slideshow-pagination__button:hover .svg-icon, .slideshow-pagination--pn .slideshow-pagination__button:focus .svg-icon {
   opacity: 1;
+  transform: translateX(-0.1875rem);
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button.-show {
@@ -2145,8 +2164,8 @@ dl.-horizontal dd ~ dd {
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button .svg-icon {
-  transition: opacity 200ms;
-  opacity: 0.8;
+  transition: all 200ms;
+  opacity: 0.75;
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button--next {
@@ -2157,11 +2176,20 @@ dl.-horizontal dd ~ dd {
   transform: scaleX(-1);
 }
 
+.slideshow-pagination--pn .slideshow-pagination__button--next:hover .svg-icon, .slideshow-pagination--pn .slideshow-pagination__button--next:focus .svg-icon {
+  transform: scaleX(-1) translateX(-0.1875rem);
+}
+
 .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button {
   height: 19.6875rem;
   width: 4.375rem;
   background: #fff;
   color: #1c222d;
+}
+
+.slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button:hover, .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button:focus {
+  background-color: rgba(255, 255, 255, 0.75);
+  outline: none;
 }
 
 @keyframes slideshow-ai-before {
@@ -3044,12 +3072,20 @@ img.mfp-img {
   transition: background 350ms;
 }
 
+.slick-dots li button:hover, .slick-dots li button:focus {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .slick-dots li button:before {
   color: transparent;
 }
 
 .slick-dots li.slick-active button {
   background: white;
+}
+
+.slick-dots li.slick-active button:hover, .slick-dots li.slick-active button:focus {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .slick-dots li.slick-active button:before {
@@ -3065,7 +3101,7 @@ img.mfp-img {
 
 .location-realted-building-slider.slick-slider .slick-dots {
   right: -25%;
-  bottom: calc(50vh + 55px);
+  bottom: calc(50vh + (40px + 15px));
 }
 
 .btn,
@@ -4584,6 +4620,10 @@ a.btn {
       flex: 1;
 }
 
+.related-building-aside-image {
+  min-height: 40vh;
+}
+
 .related-building-aside-content {
   display: -ms-flexbox;
   display: flex;
@@ -5905,6 +5945,9 @@ a.btn {
     right: 20px;
     left: auto;
   }
+  .location-realted-building-slider.slick-slider .slick-dots{
+    bottom: calc(50vh + (80px + 15px));
+  }
   .btn,
   button{
     padding: 0.9375rem 1.5625rem;
@@ -6176,8 +6219,9 @@ a.btn {
     display: none;
   }
   .location-realted-building-slider.slick-slider .slick-dots{
-    bottom: 95px;
-    right: 140px;
+    right: auto;
+    bottom: 1.5625rem;
+    left: calc(-50% + 100px);
   }
   .offcanvas-toggle{
     display: none !important;
@@ -6489,6 +6533,11 @@ a.btn {
   }
   .gc--below-xl{
     display: none;
+  }
+  .location-realted-building-slider.slick-slider .slick-dots{
+    right: 8.75rem;
+    bottom: 5.9375rem;
+    left: auto;
   }
   .awards.-left{
     margin: 80px 1.875rem 60px 80px;
@@ -6897,6 +6946,9 @@ a.btn {
   }
   .testimonial-wall__image{
     display: none;
+  }
+  .related-building-aside-content{
+    padding: 20px 0;
   }
   #menu-footer-utilities.nav-footer-utilities li{
     margin-bottom: 0;
