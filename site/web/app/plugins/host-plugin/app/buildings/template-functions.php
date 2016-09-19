@@ -22,3 +22,9 @@ function host_buildings_find_connected_rooms( $building_id ) {
 	return $repo->find_connected('room_to_building', $building_id, array(
 	));
 }
+
+function host_building_find_connected_location( $building_id ) {
+	$repo = Repo::init();
+	return $repo->find_connected('building_to_location', $building_id, array(
+	));
+}

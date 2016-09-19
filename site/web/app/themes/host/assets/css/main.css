@@ -3587,6 +3587,22 @@ a.btn {
   color: #fff !important;
 }
 
+.related-building-aside-content {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.related-building-aside-content__icon {
+  display: block;
+  margin: 0 auto 20px;
+}
+
 .banner {
   width: 100%;
   padding: 0 0 1.25rem;
