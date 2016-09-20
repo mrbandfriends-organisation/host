@@ -77,7 +77,7 @@ class GTranslate extends WP_Widget {
     public static function enqueue_scripts() {
         $data = get_option('GTranslate');
         GTranslate::load_defaults($data);
-        $wp_plugin_url = trailingslashit( get_bloginfo('wpurl') ).PLUGINDIR.'/'. dirname( plugin_basename(__FILE__) );
+        $wp_plugin_url = '/web/app/plugins/'. dirname( plugin_basename(__FILE__) );
 
         wp_enqueue_style('gtranslate-style', $wp_plugin_url.'/gtranslate-style'.$data['flag_size'].'.css');
         wp_enqueue_script('jquery');
@@ -119,7 +119,7 @@ class GTranslate extends WP_Widget {
         echo $args['after_widget'];
     }
 
-    function get_widget_code($atts) {
+    public static function get_widget_code($atts) {
         $data = get_option('GTranslate');
         GTranslate::load_defaults($data);
 
@@ -146,7 +146,7 @@ class GTranslate extends WP_Widget {
         ?>
         <div class="wrap">
         <div id="icon-options-general" class="icon32"><br/></div>
-        <h2><img src="<?php echo trailingslashit( get_bloginfo('wpurl') ).PLUGINDIR.'/'. dirname( plugin_basename(__FILE__) ); ?>/gt-logo.png" border="0" title="GTranslate - your window to the world" alt="GTranslate"></h2>
+        <h2><img src="<?php echo '/web/app/plugins/'. dirname( plugin_basename(__FILE__) ); ?>/gt-logo.png" border="0" title="GTranslate - your window to the world" alt="GTranslate"></h2>
         <?php
         if(isset($_POST['save']) and $_POST['save'])
             GTranslate::control_options();
@@ -154,7 +154,7 @@ class GTranslate extends WP_Widget {
         GTranslate::load_defaults($data);
 
         $site_url = site_url();
-        $wp_plugin_url = trailingslashit( get_bloginfo('wpurl') ).PLUGINDIR.'/'. dirname( plugin_basename(__FILE__) );
+        $wp_plugin_url = '/web/app/plugins/'. dirname( plugin_basename(__FILE__) );
 
         extract($data);
 
@@ -253,13 +253,13 @@ function RefreshDoWidgetCode() {
                         href = (lang == default_language) ? '$site_url' : '$site_url'.replace('$site_url'.split('/').slice(2, 3)[0].replace('www.', ''), lang + '.' + '$site_url'.split('/').slice(2, 3)[0].replace('www.', '')).replace('://www.', '://');
 
                     if(lang == 'en' && jQuery('#alt_us:checked').length)
-                    	widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl alt_flag us_flag"><img src="{$site_url}/wp-content/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
+                    	widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl alt_flag us_flag"><img src="{$site_url}/web/app/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
                     else if(lang == 'pt' && jQuery('#alt_br:checked').length)
-                    	widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl alt_flag br_flag"><img src="{$site_url}/wp-content/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
+                    	widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl alt_flag br_flag"><img src="{$site_url}/web/app/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
                     else if(lang == 'es' && jQuery('#alt_mx:checked').length)
-                    	widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl alt_flag mx_flag"><img src="{$site_url}/wp-content/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
+                    	widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl alt_flag mx_flag"><img src="{$site_url}/web/app/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
                     else
-                        widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl" style="background-position:-'+flag_x+'px -'+flag_y+'px;"><img src="{$site_url}/wp-content/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
+                        widget_preview += '<a href="'+href+'" onclick="doGTranslate(\''+default_language+'|'+lang+'\');return false;" title="'+lang_name+'" class="gflag nturl" style="background-position:-'+flag_x+'px -'+flag_y+'px;"><img src="{$site_url}/web/app/plugins/gtranslate/blank.png" height="'+flag_size+'" width="'+flag_size+'" alt="'+lang_name+'" /></a>';
                 }
             });
         }

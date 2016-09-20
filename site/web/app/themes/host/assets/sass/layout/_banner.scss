@@ -74,4 +74,10 @@
             min-width: rem(180);
         }
     }
+
+    select {
+        @extend .btn;
+
+        text-align: center;
+    }
 }
