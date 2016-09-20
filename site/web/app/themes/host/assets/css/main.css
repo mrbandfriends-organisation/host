@@ -2181,14 +2181,25 @@ dl.-horizontal dd ~ dd {
 }
 
 .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button {
-  height: 19.6875rem;
-  width: 4.375rem;
-  background: #fff;
+  height: 12.5rem;
+  width: 3.125rem;
+  background-color: rgba(255, 255, 255, 0.75);
   color: #1c222d;
 }
 
 .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button:hover, .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button:focus {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.6);
+  outline: none;
+}
+
+.slideshow--large-pagination .slideshow-pagination--pn .slideshow-pagination__button {
+  height: 19.6875rem;
+  width: 4.375rem;
+  background: #fff;
+}
+
+.slideshow--large-pagination .slideshow-pagination--pn .slideshow-pagination__button:hover, .slideshow--large-pagination .slideshow-pagination--pn .slideshow-pagination__button:focus {
+  background-color: rgba(255, 255, 255, 0.85);
   outline: none;
 }
 
@@ -4101,7 +4112,7 @@ a.btn {
   -ms-overflow-style: none;
   position: relative;
   height: 100%;
-  max-height: 400px;
+  max-height: 26.875rem;
 }
 
 @supports (-ms-overflow-style: none) {
@@ -4571,7 +4582,7 @@ a.btn {
 .transport-list__icon {
   width: 3.4375rem;
   height: 2.5rem;
-  fill: #00c0f3;
+  margin-right: 10px;
 }
 
 .transport-list__listing {
@@ -4581,6 +4592,12 @@ a.btn {
 }
 
 .transport-list__listing-item {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: start;
+      justify-content: flex-start;
+  -ms-flex-align: center;
+      align-items: center;
   margin-bottom: 0.625rem;
 }
 

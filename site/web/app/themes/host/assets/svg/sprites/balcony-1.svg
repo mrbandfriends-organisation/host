@@ -1,0 +1,15 @@
+<svg id="71e3a618-19e2-4a2e-a40b-81c6e24e4be6" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43.78 37.92">
+  <title>balcony-1</title>
+  <g>
+    <circle cx="10" cy="27.92" r="8.75" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="2.5"/>
+    <circle cx="10" cy="27.92" r="5.09" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="2.5"/>
+    <line x1="18.75" y1="15.5" x2="18.75" y2="27.92" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="2.5"/>
+    <path d="M4.1,21.19,10,3.92s4.58-6,8.75,0V6.16" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="2.5"/>
+    <circle cx="33.77" cy="27.92" r="8.75" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="2.5"/>
+    <line x1="25.02" y1="15.5" x2="25.02" y2="27.92" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="2.5"/>
+    <path d="M39.81,21.59l-6-17.67s-4.58-6-8.75,0V6.56" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="2.5"/>
+    <path d="M14.86,9.59s6-6.81,13.06,0v4.31L21.39,16l-6.53-2.22Z" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="2.5"/>
+    <path d="M27.92,13.89s-4.66-3.71-13.06-.14" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="2.5"/>
+    <circle cx="33.77" cy="27.92" r="5.09" fill="none" stroke="#231f20" stroke-miterlimit="10" stroke-width="2.5"/>
+  </g>
+</svg>

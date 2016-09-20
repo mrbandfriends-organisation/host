@@ -1,0 +1,13 @@
+<svg id="ba573fe8-f99a-440d-866c-26e02d1126b0" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.21 47.37">
+  <title>room-gender-mixed</title>
+  <g>
+    <circle cx="10.63" cy="7.73" r="6.48" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <line x1="5.94" y1="32.95" x2="5.94" y2="45.38" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <line x1="15.3" y1="45.38" x2="15.3" y2="32.96" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <polyline points="15.3 32.95 19.11 32.95 10.54 14.21 1.25 32.95 5.93 32.95" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <circle cx="32.22" cy="8.46" r="6.48" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <line x1="27.53" y1="33.68" x2="27.53" y2="46.12" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <line x1="36.89" y1="46.12" x2="36.89" y2="33.69" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <polyline points="27.52 33.72 21.49 15.85 42.96 15.85 36.89 33.72" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+  </g>
+</svg>
