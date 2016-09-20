@@ -4147,6 +4147,7 @@ a.btn {
   padding-top: 33%;
   background: transparent none no-repeat center center/cover;
   overflow: hidden;
+  min-height: 20rem;
 }
 
 .map__map.js-enhanced {
@@ -4164,6 +4165,8 @@ a.btn {
 .map__filters {
   width: 33.333%;
   min-width: 15.625rem;
+  max-width: 28.125rem;
+  padding: 20px;
 }
 
 .map__filters .form-filter {
@@ -6361,7 +6364,10 @@ a.btn {
     padding-bottom: 80px;
   }
   .bleed-image--hide-small{
-    display: none;
+    display: block;
+  }
+  .map__map{
+    min-height: 23.75rem;
   }
   .listed-room{
     padding: 2.5rem;
@@ -6688,6 +6694,9 @@ a.btn {
     align-self: flex-start;
     margin: 40px 1.875rem -20px 40px;
   }
+  .map__filters{
+    padding: 40px;
+  }
   .room-list__header{
     padding: 0 0 0 3.75rem;
     background: #fff url("/assets/images/grape-30pc.svg") repeat-y center center/187.5rem;
@@ -6954,6 +6963,9 @@ a.btn {
   }
   .awards.-left{
     margin: 80px 1.875rem 60px 80px;
+  }
+  .map__filters{
+    padding: 80px;
   }
   .listed-property__content{
     width: 100%;

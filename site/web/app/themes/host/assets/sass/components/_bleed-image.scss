@@ -43,6 +43,6 @@
     display: none;
 
     @include mq(medium) {
-        display: none;
+        display: block;
     }
 }

@@ -19,6 +19,12 @@
     padding-top: 33%;
     background: transparent none no-repeat center center/cover;
     overflow: hidden;
+    min-height: rem(320);
+
+    @include mq(medium) {
+        min-height: rem(380);
+    }
+
 
     &.js-enhanced {
         background: transparent none !important; //scss-lint:disable ImportantRule
@@ -41,6 +47,16 @@
 .map__filters {
     width: 33.333%;
     min-width: rem(250);
+    max-width: rem(450);
+    padding: $half-spacing-unit;
+
+    @include mq(large) {
+        padding: $spacing-unit;
+    }
+
+    @include mq(xlarge) {
+        padding: $double-spacing-unit;
+    }
 
     .form-filter {
         padding-left: rem(40);
