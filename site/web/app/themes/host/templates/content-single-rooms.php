@@ -29,7 +29,14 @@
 
   <?php echo Utils\ob_load_template_part('templates/partials/room/room-location.php'); ?>
 
-  <?php echo Utils\ob_load_template_part('templates/partials/shared/map'); ?>
+  <?php echo Utils\ob_load_template_part('templates/partials/shared/map', array(
+      'iZoom' => get_field('map_zoom', $parent_building_id),
+      'aCentre' => get_field('map_centre', $parent_building_id),
+      'bFilter' => get_field('map_filters', $parent_building_id),
+      'sFg' => get_field('map_foreground_colour', $parent_building_id),
+      'sLabel' => get_field('map_label', $parent_building_id),
+      'aPoi' => get_field('map_features', $parent_building_id)
+  )); ?>
 
   <?php echo Utils\ob_load_template_part('templates/partials/shared/awards'); ?>
 

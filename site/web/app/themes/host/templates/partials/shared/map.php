@@ -2,12 +2,12 @@
     namespace Roots\Sage\Utils;
 
     // 1. get parameters from the database
-    $iZoom   = get_field('map_zoom');
-    $aCentre = get_field('map_centre');
-    $bFilter = get_field('map_filters');
-    $sFg     = get_field('map_foreground_colour');
-    $sLabel  = get_field('map_label');
-    $aPoi    = get_field('map_features');
+    $iZoom   = ( !empty( $iZoom) ) ? $iZoom : get_field('map_zoom');
+    $aCentre = ( !empty( $aCentre) ) ? $aCentre : get_field('map_centre');
+    $bFilter = ( !empty( $bFilter) ) ? $bFilter : get_field('map_filters');
+    $sFg     = ( !empty( $sFg) ) ? $sFg : get_field('map_foreground_colour');
+    $sLabel  = ( !empty( $sLabel) ) ? $sLabel : get_field('map_label');
+    $aPoi    = ( !empty( $aPoi) ) ? $aPoi : get_field('map_features');
     $id      = 'map'.substr(uniqid(), 0, 8);
 
     // if there’re no centre points or main marker
