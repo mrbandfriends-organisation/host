@@ -242,25 +242,25 @@
             border-top-color: #fff;
         }
 
-        .mobile-language-changer {
+        .select {
             color: #fff;
 
         }
     }
-}
 
-.mobile-language-changer {
-    background: transparent;
-    color: brand(sky);
-    padding: $quarter-spacing-unit 0;
-    border: none;
-    border-bottom: $base-border;
-    border-color: brand(mint);
-    transition: all ease-in-out 0.2s;
+    select {
+        background: transparent;
+        color: brand(sky);
+        padding: $quarter-spacing-unit 0;
+        border: none;
+        border-bottom: $base-border;
+        border-color: brand(mint);
+        transition: all ease-in-out 0.2s;
 
-    &:hover,
-    &:focus {
-        background-color: transparent;
-        border-color: #fff;
+        &:hover,
+        &:focus {
+            background-color: transparent;
+            border-color: #fff;
+        }
     }
 }

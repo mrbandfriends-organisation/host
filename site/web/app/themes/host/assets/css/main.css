@@ -3460,11 +3460,11 @@ a.btn {
   border-top-color: #fff;
 }
 
-.primary-offcanvas__language-changer:hover .mobile-language-changer, .primary-offcanvas__language-changer:focus .mobile-language-changer {
+.primary-offcanvas__language-changer:hover .select, .primary-offcanvas__language-changer:focus .select {
   color: #fff;
 }
 
-.mobile-language-changer {
+.primary-offcanvas__language-changer select {
   background: transparent;
   color: #00c0f3;
   padding: 10px 0;
@@ -3474,7 +3474,7 @@ a.btn {
   transition: all ease-in-out 0.2s;
 }
 
-.mobile-language-changer:hover, .mobile-language-changer:focus {
+.primary-offcanvas__language-changer select:hover, .primary-offcanvas__language-changer select:focus {
   background-color: transparent;
   border-color: #fff;
 }
