@@ -21,9 +21,8 @@
         top: 50%;
         // 70px = width of arrow
         right: 70px + $half-spacing-unit;
-
         padding: $half-spacing-unit;
-
+        font-size: rem(16);
         color: brand(ink);
         transition: all 200ms;
         transform: translateY(-50%);
@@ -44,7 +43,47 @@
 
 // Strong elements
 .carousel-infobox__subheading {
-    margin: $half-spacing-unit 0 ($quarter-spacing-unit / 2);
+    margin-top: $half-spacing-unit;
+
+    & + :not(.carousel-infobox__subheading) {
+        margin-top: ($quarter-spacing-unit / 2);
+    }
+
+}
+
+.carousel-infobox__underlink-link {
+    position: relative;
+    transition: color ease-in-out 0.2s;
+
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+    }
+
+    &:before {
+        width: calc(100% + 15px);
+        height: rem(1);
+        left: 0;
+        background-color: brand(ink);
+        transition: background-color ease-in-out 0.2s;
+    }
+
+    &:after {
+        content: ">";
+        right: rem(-15);
+    }
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: #fff;
+
+        &:before {
+            background-color: #fff;
+        }
+    }
 }
 
 // ==========================================================================
