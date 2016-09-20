@@ -151,7 +151,7 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": 50,
+                        "width": "33",
                         "class": "",
                         "id": ""
                     },
@@ -159,9 +159,7 @@
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
+                    "maxlength": ""
                 },
                 {
                     "key": "field_57b59108da7af",
@@ -172,12 +170,28 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": 50,
+                        "width": "33",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
                     "placeholder": ""
+                },
+                {
+                    "key": "field_57e14345b400b",
+                    "label": "Button Icon",
+                    "name": "button_icon",
+                    "type": "file_picker",
+                    "instructions": "If you'd like your button to have an icon please select it here. If you do not select and icon then the button will be a default button.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "file_location": "assets\/svg\/sprites",
+                    "file_glob": ""
                 }
             ]
         },
@@ -857,5 +871,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1474365430
+    "modified": 1474380609
 }
