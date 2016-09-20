@@ -5,6 +5,21 @@
 // # Class applied to outer container—gives us something to put position on
 // ==========================================================================
 .favouritable__container { position: relative; }
+.favouritable__wrapper[class] {
+
+    margin-top: $double-spacing-unit * 2;
+
+    @include mq(large) {
+        margin-top: $double-spacing-unit;
+    }
+
+    .favouritable {
+        right: 55%;
+        transform: translateX(55%);
+        top: -$double-spacing-unit;
+    }
+
+}
 
 // # Button container
 // ==========================================================================

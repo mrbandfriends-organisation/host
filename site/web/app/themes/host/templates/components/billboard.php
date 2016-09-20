@@ -1,4 +1,5 @@
 <?php
+    $second_modifier  = (empty($second_modifier))  ? '' : $second_modifier;
     $align     = (empty($align))     ? 'left' : $align;
     $color     = (empty($color))     ? ''     : " box--{$color}";
     $add_class = (empty($add_class)) ? ''     : ' '.esc_attr($add_class);
@@ -29,7 +30,7 @@
             <?=$content; ?>
         </div>
         <?php if (!empty($second)): ?>
-        <aside class="billboard__secondary l-30pc">
+        <aside class="billboard__secondary l-30pc <?= esc_attr($second_modifier); ?>">
             <?=$second; ?>
         </aside>
         <?php endif; ?>
