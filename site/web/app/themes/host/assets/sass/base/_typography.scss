@@ -43,7 +43,7 @@ a {
     text-decoration: none;
 
     // List of everywhere where this needs NOT to happen
-    &:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link ):not(.banner__home-link):not(.footer-up-arrow__link):not(.separated-list__link) {
+    &:not(.nav-primary__link):not(.btn):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link ):not(.banner__home-link):not(.footer-up-arrow__link):not(.separated-list__link):not(.carousel-infobox__phone-number) {
         @include link-hover();
     }
 

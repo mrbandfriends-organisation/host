@@ -1,0 +1,52 @@
+// ==========================================================================
+//
+// CAROUSEL INFOBOX
+//
+// Description: A box that appears over the header carousel on medium up
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.carosel-infobox {
+    display: none;
+
+    @include mq(medium) {
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        justify-content: center;
+        top: 50%;
+        // 70px = width of arrow
+        right: 70px + $half-spacing-unit;
+
+        padding: $half-spacing-unit;
+
+        color: brand(ink);
+        transition: all 200ms;
+        transform: translateY(-50%);
+
+        @include mq(large) {
+            padding: $spacing-unit;
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.carousel-infobox__heading {
+    margin-bottom: $quarter-spacing-unit;
+}
+
+// Strong elements
+.carousel-infobox__subheading {
+    margin: $half-spacing-unit 0 ($quarter-spacing-unit / 2);
+}
+
+// ==========================================================================
+// # MODIFIER: %%MODIFIER_NAME%%
+// ==========================================================================

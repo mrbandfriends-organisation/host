@@ -8,22 +8,18 @@
     $post_id                       = get_the_id();
     $connected_location            = host_building_find_connected_location( $post_id );
     $connected_location_id         = $connected_location->post->ID;
-    $location_connected_buildings = host_locations_find_connected_building($connected_location_id, $post_id);
+    $location_conncected_buildings = host_locations_find_connected_building($connected_location_id, $post_id);
 
     $main_snippet                  = "building/connected-building-main";
     $secondary_snippet             = "building/connected-building-aside";
 ?>
 
 <?php
-// $main_content = Utils\ob_load_template_part('templates/snippets/' . $main_snippet, array(
-    // 'location_id' => $connected_location_id,
-// )); ?>
-
-<?php
-$query = $location_connected_buildings;
+$query = $location_conncected_buildings;
 if ( $query->have_posts() ) : ?>
     <ul class="location-realted-building-slider js-slick-fade">
         <?php while ( $query->have_posts() ) : $query->the_post(); ?>
+
             <li class="location-realted-building">
                 <?php
                     $id = get_the_id();
@@ -73,6 +69,7 @@ if ( $query->have_posts() ) : ?>
                     ));
                 ?>
             </li>
+
         <?php endwhile; ?>
     </ul>
 <?php endif; ?>
