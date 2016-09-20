@@ -12,10 +12,10 @@
     <?php echo Utils\ob_load_template_part('templates/partials/shared/header-carousel', array(
         'info_box' => Utils\ob_load_template_part('templates/snippets/shared/carousel-infobox', array(
             'building_name'     => $parent_building->post_title,
-            'address_1'         => get_field('building_address_1'),
-            'town'              => get_field('building_address_town_city'),
-            'post_code'         => get_field('building_address_post_code'),
-            'phone'             => get_field('building_address_phone_no'),
+            'address_1'         => get_field('building_address_1', $parent_building_id),
+            'town'              => get_field('building_address_town_city', $parent_building_id),
+            'post_code'         => get_field('building_address_post_code', $parent_building_id),
+            'phone'             => get_field('building_address_phone_no', $parent_building_id),
         ))
     )); ?>
 

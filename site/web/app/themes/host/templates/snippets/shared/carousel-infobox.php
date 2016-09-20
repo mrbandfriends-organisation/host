@@ -1,8 +1,6 @@
 <?php
     Use Roots\Sage\Extras;
 
-    $building_name  = ( get_the_title() );
-
     $address = join("\n", [
         $address_1,
         $town . $post_code
