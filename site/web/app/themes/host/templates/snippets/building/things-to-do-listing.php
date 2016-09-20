@@ -19,7 +19,7 @@
                     <ul class="transport-list__listing">
                         <li class="transport-list__listing-item">
                             <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
-                                'icon'       => 'travel-public',
+                                'icon'       => 'travel-public-bus',
                                 "classnames" => "transport-list__icon svg-icon--sky"
                             )); ?>
 
