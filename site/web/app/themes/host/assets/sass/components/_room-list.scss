@@ -43,7 +43,6 @@
     @include mq(large) {
         margin: 0;
         padding: rem(50);
-        padding-right: 0;
     }
 }
 
@@ -200,5 +199,20 @@
     .slideshow__item {
         background-blend-mode: multiply;
         background-color: rgba(brand(grape), 0.95)!important;
+    }
+}
+
+.listed-room__features {
+    @include list-reset;
+}
+
+.listed-room__features-item {
+    display: inline-block;
+    font-size: rem(15);
+
+    &:not(:last-child) {
+        &:after {
+            content: ' . '
+        }
     }
 }

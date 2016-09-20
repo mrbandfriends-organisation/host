@@ -90,7 +90,7 @@ function banner_nav_language_switcher( $nav, $args ) {
 
     // Currently footer utils menu doesnt have a string name just it's ID
     if( $args->menu == 6 ) {
-        return $nav . '<li class="menu-item menu-item--banner-language-switcher"><a class="btn btn--very-small">Choose language</a></li>';
+        return $nav . '<li class="menu-item menu-item--banner-language-switcher">' . do_shortcode('[GTranslate]')  . '</li>';
     }
 
     return $nav;

@@ -118,8 +118,21 @@
         }
 
         // hover state
-        &:hover { background: $hover; }
+        &:hover {
+            background: $hover;
 
+            .svg-icon {
+                fill: $background;
+            }
+        }
+
+        &.btn--outline {
+            &:hover {
+                background: transparent;
+                border: solid 1px $background;
+                color: $background;
+            }
+        }
 
     } @else {
         @warn "No colourway #{$colourway} found for buttons"

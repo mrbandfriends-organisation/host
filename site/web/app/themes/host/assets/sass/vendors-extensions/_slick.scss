@@ -63,6 +63,14 @@
     @include list-reset;
     margin-bottom: 0;
 
+    .slick-track {
+        display: flex;
+
+        .slick-slide {
+            display: flex;
+        }
+    }
+
     .slick-dots {
         right: -25%;
         bottom: calc(50vh + (#{$spacing-unit} + 15px));

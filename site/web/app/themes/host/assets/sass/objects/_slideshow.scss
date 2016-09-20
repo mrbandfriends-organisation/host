@@ -263,14 +263,16 @@ $slideshow-animate-speed: 3s;
         border-right: rem(70) solid #fff;
     }
 
-    .slideshow-pagination { opacity: 0; }
+    .slideshow-pagination,
+    .slideshow-infobox { opacity: 0; }
 
     &.js-slideshow--active {
 
         &:before { animation: slideshow-ai-before $slideshow-animate-speed $slideshow-animate-delay 1 forwards; }
         &:after  { animation: slideshow-ai-after  $slideshow-animate-speed $slideshow-animate-delay ease-out 1 forwards; }
 
-        .slideshow-pagination {
+        .slideshow-pagination,
+        .slideshow-infobox {
             animation: slideshow-ai-pagination $slideshow-animate-speed $slideshow-animate-delay 1 forwards;
         }
     }

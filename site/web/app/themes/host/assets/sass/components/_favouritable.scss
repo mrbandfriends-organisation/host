@@ -5,6 +5,21 @@
 // # Class applied to outer container—gives us something to put position on
 // ==========================================================================
 .favouritable__container { position: relative; }
+.favouritable__wrapper[class] {
+
+    margin-top: $double-spacing-unit * 2;
+
+    @include mq(large) {
+        margin-top: $double-spacing-unit;
+    }
+
+    .favouritable {
+        right: 55%;
+        transform: translateX(55%);
+        top: -$double-spacing-unit;
+    }
+
+}
 
 // # Button container
 // ==========================================================================
@@ -92,4 +107,47 @@
     stroke: brand(red);
 
     .-favourite.-added & { animation: favouritable-boom 2s 1; }
+}
+
+// ==========================================================================
+// # MODIFIER: DARK
+// ==========================================================================
+.favouritable__wrapper--dark {
+    .favouritable__container {
+
+        .favouritable {
+            &:after {
+                color: rgba(0,0,0,0.2);
+            }
+
+            .favouritable__button {
+                background: rgba(0,0,0,0.2);
+
+                &:hover,
+                &:focus {
+                    background: brand(red);
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.favouritable__container {
+    &.-favourite {
+        .favouritable {
+            &:after {
+                color: #fff;
+            }
+
+            .favouritable__button {
+                background: brand(red);
+
+                &:hover,
+                &:focus {
+                    background: tint(red);
+                }
+            }
+        }
+    }
 }

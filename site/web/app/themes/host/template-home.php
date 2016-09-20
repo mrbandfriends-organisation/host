@@ -6,7 +6,6 @@
 ?>
 
 
-
 <?php echo Utils\ob_load_template_part('templates/partials/home/home-locations'); ?>
 
 <?php echo Utils\ob_load_template_part('templates/partials/home/home-reasons', array(

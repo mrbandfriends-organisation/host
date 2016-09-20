@@ -19,7 +19,7 @@
                     <ul class="transport-list__listing">
                         <li class="transport-list__listing-item">
                             <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
-                                'icon'       => 'travel-public',
+                                'icon'       => 'travel-public-bus',
                                 "classnames" => "transport-list__icon svg-icon--sky"
                             )); ?>
 
@@ -49,12 +49,14 @@
     </div>
 
     <?php
+        // Photo section
         $photo = get_field('location_image');
     ?>
-
-
     <div class="gc s1-3">
-        <?php echo Utils\ob_load_template_part('templates/components/bleed-image', [ 'image' => $photo['url'] ]); ?>
+        <?php echo Utils\ob_load_template_part('templates/components/bleed-image', [
+            'image'     => $photo['url'],
+            'modifier'  => 'bleed-image--hide-small'
+        ]); ?>
     </div>
 
 </div>

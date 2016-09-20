@@ -25,7 +25,9 @@ $aside_content = Utils\ob_load_template_part('templates/snippets/building/introd
  ?>
 
 <?php echo Utils\ob_load_template_part('templates/components/billboard', array(
-    'color'         => 'sky',
-    'content'       => $main_content,
-    'second'        => $aside_content
+    'color'             => 'sky',
+    'content'           => $main_content,
+    'main_modifier'     => 'building-intro',
+    'second'            => $aside_content,
+    'second_modifier'   => 'favouritable__wrapper favouritable__wrapper--dark'
 )); ?>
