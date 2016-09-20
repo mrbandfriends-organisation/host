@@ -8,7 +8,7 @@
     $post_id                       = get_the_id();
     $connected_location            = host_building_find_connected_location( $post_id );
     $connected_location_id         = $connected_location->post->ID;
-    $location_conncected_buildings = host_locations_find_connected_building($connected_location_id);
+    $location_connected_buildings = host_locations_find_connected_building($connected_location_id, $post_id);
 
     $main_snippet                  = "building/connected-building-main";
     $secondary_snippet             = "building/connected-building-aside";
@@ -20,7 +20,7 @@
 // )); ?>
 
 <?php
-$query = $location_conncected_buildings;
+$query = $location_connected_buildings;
 if ( $query->have_posts() ) : ?>
 <!-- js-slick-fade -->
 <ul class="location-realted-building-slider js-slick-fade">

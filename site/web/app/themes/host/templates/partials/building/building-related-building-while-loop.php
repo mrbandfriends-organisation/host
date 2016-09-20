@@ -1,5 +1,5 @@
-<?php if ( $location_conncected_buildings->have_posts() ) : ?>
-    <?php while ( $location_conncected_buildings->have_posts() ) : $location_conncected_buildings->the_post(); ?>
+<?php if ( $location_connected_buildings->have_posts() ) : ?>
+    <?php while ( $location_connected_buildings->have_posts() ) : $location_connected_buildings->the_post(); ?>
         <?php
             // image
             //$sStyle = '';
@@ -27,8 +27,8 @@
         ?>
     <?php endwhile; ?>
 <?php endif; ?>
-<?php if ( $location_conncected_buildings->have_posts() ) : ?>
-    <?php while ( $location_conncected_buildings->have_posts() ) : $location_conncected_buildings->the_post(); ?>
+<?php if ( $location_connected_buildings->have_posts() ) : ?>
+    <?php while ( $location_connected_buildings->have_posts() ) : $location_connected_buildings->the_post(); ?>
         <?php
             // image
             //$sStyle = '';
@@ -56,8 +56,8 @@
         ?>
     <?php endwhile; ?>
 <?php endif; ?>
-<?php if ( $location_conncected_buildings->have_posts() ) : ?>
-    <?php while ( $location_conncected_buildings->have_posts() ) : $location_conncected_buildings->the_post(); ?>
+<?php if ( $location_connected_buildings->have_posts() ) : ?>
+    <?php while ( $location_connected_buildings->have_posts() ) : $location_connected_buildings->the_post(); ?>
         <?php
             // image
             //$sStyle = '';
