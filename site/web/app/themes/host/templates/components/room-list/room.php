@@ -29,7 +29,19 @@
                 <span class="vh">Availability:</span><?=$status['text']; ?>
             </strong>
             <p>
-                <?=Utils\esc_textarea__(get_the_content()); ?>
+                <?php
+                    if( have_rows('living_space') ):?>
+                        <ul class="listed-room__features">
+                            <?php while ( have_rows('living_space') ) : the_row();
+
+                                $item_name = get_sub_field('name');
+                            ?>
+                            <li class="listed-room__features-item">
+                                <?=esc_html($item_name); ?>
+                            </li>
+                            <?php endwhile; ?>
+                        </ul>
+                <?php endif; ?>
             </p>
             <p>
                 <a href="<?= esc_url(get_permalink()); ?>" class="btn btn--small btn--narrow">More information</a>

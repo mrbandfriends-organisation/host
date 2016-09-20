@@ -4119,6 +4119,21 @@ a.btn {
   background-color: rgba(180, 85, 160, 0.95) !important;
 }
 
+.listed-room__features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.listed-room__features-item {
+  display: inline-block;
+  font-size: 0.9375rem;
+}
+
+.listed-room__features-item:not(:last-child):after {
+  content: ' . ';
+}
+
 .scrollable {
   -ms-touch-action: none;
   touch-action: none;
