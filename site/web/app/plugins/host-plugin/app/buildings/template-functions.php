@@ -44,7 +44,7 @@ function host_building_find_connected_location( $building_id ) {
 
 
 /**
- * FIND ALL
+ * FIND
  * Connected buildings to location that are NOT external websites.
  */
 function host_location_find_internal_connected_buildings( $location_id ) {
@@ -71,7 +71,6 @@ function host_location_find_internal_connected_buildings( $location_id ) {
     }
 
   }
-
 
   if ( !empty($building_links) ) {
     $random_building_link = array_rand($building_links);

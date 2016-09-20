@@ -167,19 +167,37 @@ $slideshow-animate-speed: 3s;
 // # Slideshow variant: lighter pagination
 // ==========================================================================
 .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button {
-    height:     rem(315);
-    width:      rem(70);
+    height:     rem(200);
+    width:      rem(50);
+    background-color: rgba(255, 255, 255, 0.75);
 
-    background: #fff;
     color:      tint(ink);
 
     &:hover,
     &:focus {
-        background-color: rgba(255, 255, 255, 0.75);
+        background-color: rgba(255, 255, 255, 0.6);
         outline: none;
     }
 
 }
+
+
+// ==========================================================================
+// # Slideshow variant: lighter pagination
+// ==========================================================================
+.slideshow--large-pagination .slideshow-pagination--pn .slideshow-pagination__button {
+    height:     rem(315);
+    width:      rem(70);
+
+    background: #fff;
+
+    &:hover,
+    &:focus {
+        background-color: rgba(255, 255, 255, 0.85);
+        outline: none;
+    }
+}
+
 
 // ==========================================================================
 // # Animate the slideshow

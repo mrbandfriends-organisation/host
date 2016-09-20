@@ -20,7 +20,7 @@
                         <li class="transport-list__listing-item">
                             <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
                                 'icon'       => 'travel-public',
-                                "classnames" => "transport-list__icon"
+                                "classnames" => "transport-list__icon svg-icon--sky"
                             )); ?>
 
                             <div class="transport-list__content">
@@ -33,7 +33,7 @@
                         <li class="transport-list__listing-item">
                             <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
                                 'icon'       => 'travel-walking',
-                                "classnames" => "transport-list__icon"
+                                "classnames" => "transport-list__icon svg-icon--sky"
                             )); ?>
 
                             <div class="transport-list__content">

@@ -256,6 +256,22 @@ function Slideshow()
         aElItems = el.querySelectorAll('.js-slideshow__item').toArray();
     }
 
+    function bindSwipes()
+    {
+        // 1. enable swiping
+        require('swipe')(el);
+
+        // 2. event handler
+        el.addEventListener('swipeleft', function()
+        {
+            step(1);
+        });
+        el.addEventListener('swiperight', function()
+        {
+            step(-1);
+        })
+    }
+
     /**
      * Constructor
      */
@@ -300,7 +316,10 @@ function Slideshow()
             el.classList.add('js-slideshow--active');
         }, 10);
 
-        // 7. return some hooks for mirrors
+        // 7. bind to swipe
+        bindSwipes();
+
+        // 8. return some hooks for mirrors
         return {
             go:   go,
             step: step
