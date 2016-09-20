@@ -4071,6 +4071,10 @@ a.btn {
   background: transparent none no-repeat center right;
 }
 
+.billboard__main--building-intro h2 {
+  margin-top: 20px;
+}
+
 .awards {
   display: -ms-flexbox;
   display: flex;

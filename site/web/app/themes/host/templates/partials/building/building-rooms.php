@@ -13,9 +13,9 @@
 ?>
 
 <?php
-// Find connected pages
-
- $connected_rooms = host_buildings_find_connected_rooms(get_the_id());?>
+    // Find connected pages
+    $connected_rooms = host_buildings_find_connected_rooms(get_the_id());
+?>
 
 <?php $title = esc_html($rooms_title_1) . '<br />' . esc_html($rooms_title_2); ?>
 

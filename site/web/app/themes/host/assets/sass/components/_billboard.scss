@@ -58,3 +58,13 @@
 .-bg-actual-size > .billboard__inner {
     background: transparent none no-repeat center right;
 }
+
+
+// ==========================================================================
+// # MODIFIER: BUILDING INTRO BILLBOARD
+// ==========================================================================
+.billboard__main--building-intro {
+    h2 {
+        margin-top: $half-spacing-unit;
+    }
+}
