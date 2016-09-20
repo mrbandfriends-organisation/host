@@ -237,13 +237,6 @@
                 "operator": "==",
                 "value": "buildings"
             }
-        ],
-        [
-            {
-                "param": "post_type",
-                "operator": "==",
-                "value": "rooms"
-            }
         ]
     ],
     "menu_order": 10,
@@ -256,5 +249,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1474384493
+    "modified": 1474384938
 }
