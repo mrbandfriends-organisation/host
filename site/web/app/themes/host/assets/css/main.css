@@ -4138,6 +4138,10 @@ a.btn {
   background-position-y: top;
 }
 
+.bleed-image--hide-small {
+  display: none;
+}
+
 .map__map {
   position: relative;
   padding-top: 33%;
@@ -6355,6 +6359,9 @@ a.btn {
   }
   .split-feature.-twin-content .split-feature__secondary{
     padding-bottom: 80px;
+  }
+  .bleed-image--hide-small{
+    display: none;
   }
   .listed-room{
     padding: 2.5rem;
