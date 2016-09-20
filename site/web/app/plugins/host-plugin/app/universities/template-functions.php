@@ -5,7 +5,7 @@
  * template helper functions to allow WordPress templates
  * to access Examples data
  */
-use HostPluginNamespace\App\Universities\Repos\Examples as Repo;
+use HostPluginNamespace\App\Universities\Repos\Universities as Repo;
 
 /**
  * FIND ALL
