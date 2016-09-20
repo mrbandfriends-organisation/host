@@ -23,7 +23,7 @@
     <?php if ( !empty($address) ): ?>
         <div class="related-building-aside-content gc t1-1 s1-2 m1-3 l1-4">
             <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(
-                'icon'       => "travel-location-2",
+                'icon'       => "pin-filled",
                 "classnames" => "related-building-aside-content__icon svg-icon--sky"
             )); ?>
 
