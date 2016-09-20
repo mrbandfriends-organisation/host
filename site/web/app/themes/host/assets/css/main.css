@@ -1509,6 +1509,16 @@ dl.-horizontal dd ~ dd {
   background: #eee;
 }
 
+.box--red .btn:hover .svg-icon, .box--red .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--red select:hover .svg-icon {
+  fill: #fff;
+}
+
+.box--red .btn.btn--outline:hover, .box--red .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--red select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #fff;
+  color: #fff;
+}
+
 .box--red-alt {
   background-color: #b71539;
   color: #fff;
@@ -1563,6 +1573,16 @@ dl.-horizontal dd ~ dd {
   background: #eee;
 }
 
+.box--red-alt .btn:hover .svg-icon, .box--red-alt .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--red-alt select:hover .svg-icon {
+  fill: #fff;
+}
+
+.box--red-alt .btn.btn--outline:hover, .box--red-alt .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--red-alt select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #fff;
+  color: #fff;
+}
+
 .box--red-alt .inherit-fg {
   color: #f79433;
 }
@@ -1580,6 +1600,16 @@ dl.-horizontal dd ~ dd {
   background: #eee;
 }
 
+.box--orange .btn:hover .svg-icon, .box--orange .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--orange select:hover .svg-icon {
+  fill: #fff;
+}
+
+.box--orange .btn.btn--outline:hover, .box--orange .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--orange select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #fff;
+  color: #fff;
+}
+
 .box--mint {
   background-color: #00b9b5;
   color: #fff;
@@ -1592,6 +1622,16 @@ dl.-horizontal dd ~ dd {
 
 .box--mint .btn:hover, .box--mint .menu-item--banner-language-switcher select:hover, .menu-item--banner-language-switcher .box--mint select:hover {
   background: #eee;
+}
+
+.box--mint .btn:hover .svg-icon, .box--mint .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--mint select:hover .svg-icon {
+  fill: #fff;
+}
+
+.box--mint .btn.btn--outline:hover, .box--mint .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--mint select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #fff;
+  color: #fff;
 }
 
 .box--mint-alt {
@@ -1607,6 +1647,16 @@ dl.-horizontal dd ~ dd {
   background: #eee;
 }
 
+.box--mint-alt .btn:hover .svg-icon, .box--mint-alt .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--mint-alt select:hover .svg-icon {
+  fill: #fff;
+}
+
+.box--mint-alt .btn.btn--outline:hover, .box--mint-alt .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--mint-alt select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #fff;
+  color: #fff;
+}
+
 .box--sky {
   background-color: #00c0f3;
   color: #fff;
@@ -1619,6 +1669,20 @@ dl.-horizontal dd ~ dd {
 
 .box--sky .btn:hover, .box--sky .menu-item--banner-language-switcher select:hover, .menu-item--banner-language-switcher .box--sky select:hover {
   background: #eee;
+}
+
+.box--sky .btn:hover .svg-icon, .box--sky .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--sky select:hover .svg-icon {
+  fill: #fff;
+}
+
+.box--sky .btn.btn--outline:hover, .box--sky .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--sky select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #fff;
+  color: #fff;
+}
+
+.box--sky .btn .btn--outline, .box--sky .menu-item--banner-language-switcher select .btn--outline, .menu-item--banner-language-switcher .box--sky select .btn--outline {
+  border-color: #fff;
 }
 
 .box--sky-alt {
@@ -1652,6 +1716,16 @@ dl.-horizontal dd ~ dd {
 
 .box--sky-dark .btn:hover, .box--sky-dark .menu-item--banner-language-switcher select:hover, .menu-item--banner-language-switcher .box--sky-dark select:hover {
   background: #0098c0;
+}
+
+.box--sky-dark .btn:hover .svg-icon, .box--sky-dark .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--sky-dark select:hover .svg-icon {
+  fill: #00c0f3;
+}
+
+.box--sky-dark .btn.btn--outline:hover, .box--sky-dark .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--sky-dark select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #00c0f3;
+  color: #00c0f3;
 }
 
 .box--sky-dark .inherit-fg {
@@ -1716,12 +1790,32 @@ dl.-horizontal dd ~ dd {
   background: #3c4b6d;
 }
 
+.box--grape-dark .btn:hover .svg-icon, .box--grape-dark .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--grape-dark select:hover .svg-icon {
+  fill: #21293c;
+}
+
+.box--grape-dark .btn.btn--outline:hover, .box--grape-dark .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--grape-dark select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #21293c;
+  color: #21293c;
+}
+
 .box--grape .btn, .box--grape .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .box--grape select {
   background: #21293c;
 }
 
 .box--grape .btn:hover, .box--grape .menu-item--banner-language-switcher select:hover, .menu-item--banner-language-switcher .box--grape select:hover {
   background: #3c4b6d;
+}
+
+.box--grape .btn:hover .svg-icon, .box--grape .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--grape select:hover .svg-icon {
+  fill: #21293c;
+}
+
+.box--grape .btn.btn--outline:hover, .box--grape .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--grape select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #21293c;
+  color: #21293c;
 }
 
 .box--ink {
@@ -1738,6 +1832,16 @@ dl.-horizontal dd ~ dd {
   background: #eee;
 }
 
+.box--ink .btn:hover .svg-icon, .box--ink .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--ink select:hover .svg-icon {
+  fill: #fff;
+}
+
+.box--ink .btn.btn--outline:hover, .box--ink .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--ink select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #fff;
+  color: #fff;
+}
+
 .box--ink-dark {
   background-color: #1c222d;
   color: #fff;
@@ -1750,6 +1854,16 @@ dl.-horizontal dd ~ dd {
 
 .box--ink-dark .btn:hover, .box--ink-dark .menu-item--banner-language-switcher select:hover, .menu-item--banner-language-switcher .box--ink-dark select:hover {
   background: #eee;
+}
+
+.box--ink-dark .btn:hover .svg-icon, .box--ink-dark .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--ink-dark select:hover .svg-icon {
+  fill: #fff;
+}
+
+.box--ink-dark .btn.btn--outline:hover, .box--ink-dark .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--ink-dark select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #fff;
+  color: #fff;
 }
 
 .box--ink h1, .box--ink .h1, .box--ink-dark h1, .box--ink-dark .h1 {
@@ -1840,6 +1954,16 @@ dl.-horizontal dd ~ dd {
   background: #ee7a09;
 }
 
+.box--fg-orange .btn:hover .svg-icon, .box--fg-orange .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--fg-orange select:hover .svg-icon {
+  fill: #f79433;
+}
+
+.box--fg-orange .btn.btn--outline:hover, .box--fg-orange .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--fg-orange select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #f79433;
+  color: #f79433;
+}
+
 .box--fg-orange .inherit-fg {
   color: #f79433;
 }
@@ -1874,6 +1998,16 @@ dl.-horizontal dd ~ dd {
 
 .box--fg-mint .btn:hover, .box--fg-mint .menu-item--banner-language-switcher select:hover, .menu-item--banner-language-switcher .box--fg-mint select:hover {
   background: #008683;
+}
+
+.box--fg-mint .btn:hover .svg-icon, .box--fg-mint .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--fg-mint select:hover .svg-icon {
+  fill: #00b9b5;
+}
+
+.box--fg-mint .btn.btn--outline:hover, .box--fg-mint .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--fg-mint select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #00b9b5;
+  color: #00b9b5;
 }
 
 .box--fg-mint .inherit-fg {
@@ -1912,6 +2046,16 @@ dl.-horizontal dd ~ dd {
   background: #0098c0;
 }
 
+.box--fg-sky .btn:hover .svg-icon, .box--fg-sky .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--fg-sky select:hover .svg-icon {
+  fill: #00c0f3;
+}
+
+.box--fg-sky .btn.btn--outline:hover, .box--fg-sky .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--fg-sky select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #00c0f3;
+  color: #00c0f3;
+}
+
 .box--fg-sky .inherit-fg {
   color: #00c0f3;
 }
@@ -1946,6 +2090,16 @@ dl.-horizontal dd ~ dd {
 
 .box--fg-grape .btn:hover, .box--fg-grape .menu-item--banner-language-switcher select:hover, .menu-item--banner-language-switcher .box--fg-grape select:hover {
   background: #944283;
+}
+
+.box--fg-grape .btn:hover .svg-icon, .box--fg-grape .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .box--fg-grape select:hover .svg-icon {
+  fill: #b455a0;
+}
+
+.box--fg-grape .btn.btn--outline:hover, .box--fg-grape .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--fg-grape select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #b455a0;
+  color: #b455a0;
 }
 
 .box--fg-grape .inherit-fg {
@@ -2001,6 +2155,16 @@ dl.-horizontal dd ~ dd {
 
 .js-flyout__button[class]:hover {
   background: #008683;
+}
+
+.js-flyout__button[class]:hover .svg-icon {
+  fill: #00b9b5;
+}
+
+.js-flyout__button[class].btn--outline:hover {
+  background: transparent;
+  border: solid 1px #00b9b5;
+  color: #00b9b5;
 }
 
 .js-flyout__button[class] .svg-icon {
@@ -3184,12 +3348,32 @@ a.btn {
   background: #eee;
 }
 
+.btn--white[class]:hover .svg-icon {
+  fill: #fff;
+}
+
+.btn--white[class].btn--outline:hover {
+  background: transparent;
+  border: solid 1px #fff;
+  color: #fff;
+}
+
 .btn--orange[class] {
   background: #f79433;
 }
 
 .btn--orange[class]:hover {
   background: #ee7a09;
+}
+
+.btn--orange[class]:hover .svg-icon {
+  fill: #f79433;
+}
+
+.btn--orange[class].btn--outline:hover {
+  background: transparent;
+  border: solid 1px #f79433;
+  color: #f79433;
 }
 
 .btn--mint[class] {
@@ -3200,12 +3384,32 @@ a.btn {
   background: #008683;
 }
 
+.btn--mint[class]:hover .svg-icon {
+  fill: #00b9b5;
+}
+
+.btn--mint[class].btn--outline:hover {
+  background: transparent;
+  border: solid 1px #00b9b5;
+  color: #00b9b5;
+}
+
 .btn--sky[class] {
   background: #00c0f3;
 }
 
 .btn--sky[class]:hover {
   background: #0098c0;
+}
+
+.btn--sky[class]:hover .svg-icon {
+  fill: #00c0f3;
+}
+
+.btn--sky[class].btn--outline:hover {
+  background: transparent;
+  border: solid 1px #00c0f3;
+  color: #00c0f3;
 }
 
 .btn--grape[class] {
@@ -3216,12 +3420,32 @@ a.btn {
   background: #944283;
 }
 
+.btn--grape[class]:hover .svg-icon {
+  fill: #b455a0;
+}
+
+.btn--grape[class].btn--outline:hover {
+  background: transparent;
+  border: solid 1px #b455a0;
+  color: #b455a0;
+}
+
 .btn--ink[class] {
   background: #21293c;
 }
 
 .btn--ink[class]:hover {
   background: #3c4b6d;
+}
+
+.btn--ink[class]:hover .svg-icon {
+  fill: #21293c;
+}
+
+.btn--ink[class].btn--outline:hover {
+  background: transparent;
+  border: solid 1px #21293c;
+  color: #21293c;
 }
 
 .btn--outline-only[class] {
@@ -3232,6 +3456,16 @@ a.btn {
 
 .btn--outline-only[class]:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+.btn--outline-only[class]:hover .svg-icon {
+  fill: rgba(255, 255, 255, 0);
+}
+
+.btn--outline-only[class].btn--outline:hover {
+  background: transparent;
+  border: solid 1px rgba(255, 255, 255, 0);
+  color: rgba(255, 255, 255, 0);
 }
 
 .btn--small[class] {

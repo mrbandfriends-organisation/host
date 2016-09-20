@@ -107,7 +107,14 @@
     background-color: brand(sky);
     color:      #fff;
 
-    .btn { @include button(white); }
+    .btn {
+        @include button(white);
+
+        .btn--outline {
+            border-color: #fff;
+        }
+    }
+
 
     &-alt {
         background-color: brand(sky);
