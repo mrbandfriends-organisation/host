@@ -4506,6 +4506,16 @@ a.btn {
   position: relative;
 }
 
+.favouritable__wrapper[class] {
+  margin-top: 160px;
+}
+
+.favouritable__wrapper[class] .favouritable {
+  right: 55%;
+  transform: translateX(55%);
+  top: -80px;
+}
+
 .favouritable {
   position: absolute;
   top: 1.875rem;
@@ -6324,6 +6334,9 @@ a.btn {
     margin: 0;
     padding: 3.125rem;
     padding-right: 0;
+  }
+  .favouritable__wrapper[class]{
+    margin-top: 80px;
   }
   .banner__inner{
     -ms-flex-align: end;
