@@ -108,3 +108,46 @@
 
     .-favourite.-added & { animation: favouritable-boom 2s 1; }
 }
+
+// ==========================================================================
+// # MODIFIER: DARK
+// ==========================================================================
+.favouritable__wrapper--dark {
+    .favouritable__container {
+
+        .favouritable {
+            &:after {
+                color: rgba(0,0,0,0.2);
+            }
+
+            .favouritable__button {
+                background: rgba(0,0,0,0.2);
+
+                &:hover,
+                &:focus {
+                    background: brand(red);
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.favouritable__container {
+    &.-favourite {
+        .favouritable {
+            &:after {
+                color: #fff;
+            }
+
+            .favouritable__button {
+                background: brand(red);
+
+                &:hover,
+                &:focus {
+                    background: tint(red);
+                }
+            }
+        }
+    }
+}

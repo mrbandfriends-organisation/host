@@ -28,5 +28,5 @@ $aside_content = Utils\ob_load_template_part('templates/snippets/building/introd
     'color'             => 'sky',
     'content'           => $main_content,
     'second'            => $aside_content,
-    'second_modifier'   => 'favouritable__wrapper'
+    'second_modifier'   => 'favouritable__wrapper favouritable__wrapper--dark'
 )); ?>
