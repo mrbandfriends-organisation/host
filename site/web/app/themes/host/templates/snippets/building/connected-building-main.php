@@ -4,6 +4,7 @@
     // variables
     $location_id   = ( !empty($location_id) ? $location_id : null );
     $building_id   = ( !empty($building_id) ? $building_id : null );
+    $description   = ( !empty(get_field('description')) ? get_field('description') : null );
 ?>
 
 <?php if ( !empty($location_id) ): ?>
@@ -17,10 +18,11 @@
         <?php echo esc_html( get_the_title($building_id) ); ?>
     </h3>
 
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-        sed do eiusmod tempor. Sit amet, consectetur.
-    </p>
+    <?php if ( !empty($description) ): ?>
+        <p>
+            <?php echo Utils\limit_words( $description, 50 ); ?>
+        </p>
+    <?php endif; ?>
 
     <div class="location-related-building-btn-container">
         <a href="<?php echo get_the_permalink($building_id) ?>" class="btn">Look at this building</a>

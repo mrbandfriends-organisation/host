@@ -3110,6 +3110,16 @@ img.mfp-img {
   margin-bottom: 0;
 }
 
+.location-realted-building-slider.slick-slider .slick-track {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.location-realted-building-slider.slick-slider .slick-track .slick-slide {
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .location-realted-building-slider.slick-slider .slick-dots {
   right: -25%;
   bottom: calc(50vh + (40px + 15px));
@@ -3793,6 +3803,10 @@ a.btn {
 
 .split-feature.-twin-content .split-feature__secondary {
   padding-bottom: 40px;
+}
+
+.split-feature--location-realted-building {
+  width: 100%;
 }
 
 .billboard {
