@@ -76,6 +76,8 @@ require('./ext/NodeList');
 
     require('checkerboard');
 
+    require('contact-tabs');
+
     require('maps')();
 
     require('flyouts')();
