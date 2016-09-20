@@ -2,10 +2,6 @@
     Use Roots\Sage\Extras;
 
     $building_name  = ( get_the_title() );
-    $address_1      = ( !empty( get_field('building_address_1') ) ? get_field('building_address_1') : null );
-    $town           = ( !empty( get_field('building_address_town_city') ) ? get_field('building_address_town_city') . ', ' : null );
-    $post_code      = ( !empty( get_field('building_address_post_code') ) ? get_field('building_address_post_code') : null );
-    $phone          = ( !empty( get_field('building_address_phone_no') ) ?  get_field('building_address_phone_no')  : null );
 
     $address = join("\n", [
         $address_1,
@@ -22,6 +18,8 @@
     ]);
     $google_maps_address = str_replace(" ", '+', esc_html($address));
 ?>
+
+<div class="carosel-infobox carosel-infobox--building slideshow-infobox box box--mint text-left">
 
 <?php if ( !empty($building_name) ): ?>
     <h3 class="carousel-infobox__heading">
@@ -49,3 +47,4 @@
     <strong class="carousel-infobox__subheading">Call.</strong>
     <span><?php echo esc_html($phone); ?></span>
 <?php endif; ?>
+</div>
