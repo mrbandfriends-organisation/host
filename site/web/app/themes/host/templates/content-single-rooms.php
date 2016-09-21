@@ -27,7 +27,7 @@
 
   <?php echo Utils\ob_load_template_part('templates/partials/room/room-price-settings.php'); ?>
 
-  <?php echo Utils\ob_load_template_part('templates/partials/room/room-location.php'); ?>
+  <?php echo Utils\ob_load_template_part('templates/partials/room/room-location.php', compact('parent_building_id')); ?>
 
   <?php echo Utils\ob_load_template_part('templates/partials/shared/map', array(
       'iZoom' => get_field('map_zoom', $parent_building_id),
