@@ -92,7 +92,8 @@
     'tabNavigationLinks': '.c-tabs-nav__link',
     'tabContentContainers': '.c-tab'
   }
-
-  window.tabs(options).init();
+  if ($('.c-tabs').length > 0) {
+      window.tabs(options).init();
+  }
 
 })();
