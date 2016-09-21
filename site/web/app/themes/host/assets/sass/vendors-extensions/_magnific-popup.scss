@@ -15,6 +15,13 @@
     opacity: 1;
 }
 
+.mfp-container {
+    @include mq($until: large) {
+        width: 92%;
+        left: 4%;
+    }
+}
+
 // .mfp-image-holder .mfp-content {}
 
 .mfp-arrow-left {
@@ -54,6 +61,19 @@
         }
     }
 }
+
+.mfp-zoom-out-cur .mfp-image-holder .mfp-close {
+    cursor: pointer;
+}
+
+// Ensuring on hover navigation icons dont have coloured background
+.mfp-arrow,
+.mfp-close {
+    &:hover {
+        background: transparent;
+    }
+}
+
 
 // ==========================================================================
 // # MODIFIER: %%MODIFIER_NAME%%

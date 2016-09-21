@@ -1,21 +1,24 @@
 <?php
     use Roots\Sage\Utils;
 
-    $images         = ( !empty($images) ? $images : null );
-    $image_counter  = ( !empty($images) ? count($images) : null);
-    $modifier       = ( !empty($modifier) ? 'stacked-gallery__bleed-image--' . $modifier : 'stacked-gallery__bleed-image' );
+    $images                 = ( !empty($images) ? $images : null );
+    $image_counter          = ( !empty($images) ? count($images) : null);
+    $grid_modifier          = ( !empty($grid_modifier) ? $grid_modifier : null );
+    $number_thumbs          = ( !empty($number_thumbs) ? $number_thumbs : 2 );          // Number thumbsnails to show
+    $image_overlay_colour   = ( !empty($image_overlay_colour) ? 'stacked-gallery__bleed-image--' . $image_overlay_colour : null );
 ?>
 
 <?php if ( !empty($images) ): ?>
-    <div class="stacked-gallery-container grid grid--vertical-l">
+    <div class="stacked-gallery-container grid <?php echo esc_attr($grid_modifier); ?>">
 
         <?php $counter = 0; ?>
-        <?php foreach ($images as $image): ?>
-            <?php if ( $counter < 4 ): ?>
+        <?php for ($i=$counter; $i < $image_counter; $i++): ?>
+        <?php //foreach ($images as $image): ?>
+            <?php if ( $counter < $number_thumbs ): ?>
             <div class="stacked-gallery gc t1-2 l1-2">
                 <a href="<?php echo
                     wpthumb(
-                        esc_url($image['url']),
+                        esc_url($images[$i]['url']),
                         array(
                             'width'  => 1000,
                             'crop'   => true,
@@ -31,14 +34,14 @@
                         )); ?>
                     </div>
                     <?php echo Utils\ob_load_template_part('templates/components/bleed-image', [
-                        'image'     => $image['url'],
-                        'modifier'  => $modifier
+                        'image'     => esc_url($images[$i]['url']),
+                        'modifier'  => 'stacked-gallery__bleed-image ' . $image_overlay_colour
                     ] ); ?>
                 </a>
             </div>
             <?php $counter++; ?>
         <?php endif; ?>
-        <?php endforeach; ?>
+        <?php endfor; ?>
 
         <?php // temp soloution for popup gallery ?>
         <?php for ($i=$counter; $i < $image_counter; $i++): ?>

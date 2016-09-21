@@ -21,10 +21,12 @@ $transition: all ease-in-out 0.5s;
 
 .stacked-gallery {
     position: relative;
+    min-height: 40vh;
 
-    @include mq($until: large) {
-        min-height: 40vh;
+    @include mq(large) {
+        min-height: 25vh;
     }
+
 }
 
 .stacked-gallery__link {
@@ -49,7 +51,7 @@ $transition: all ease-in-out 0.5s;
         }
 
         .stacked-gallery__bleed-image {
-            background-color: rgba( brand(sky), 0.3 );
+            background-color: rgba( brand(sky), 0.65 );
         }
     }
 
@@ -93,7 +95,7 @@ $transition: all ease-in-out 0.5s;
     &:focus {
 
         .stacked-gallery__bleed-image--orange {
-            background-color: rgba( brand(orange), 0.3);
+            background-color: rgba( brand(orange), 0.65);
         }
     }
 

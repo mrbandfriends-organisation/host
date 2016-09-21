@@ -37,7 +37,7 @@ $featured_building_carousel_images  = get_field('carousel_images', $featured_bui
     'color'   => "sky",
     'content' => $main_content,
     'second'  => Utils\ob_load_template_part('templates/partials/shared/stacked-gallery', array(
-        'images' => $featured_building_carousel_images
+        'images'        => $featured_building_carousel_images,
+        'grid_modifier' => 'grid--vertical-l'
     ))
-    //'second' => "<img src=\"{$reasons_image}\" />",
 )); ?>
