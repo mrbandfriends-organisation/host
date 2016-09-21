@@ -70,7 +70,7 @@ $is-oldie: false !default;
 @import "objects/box";
 @import "objects/flyout";
 @import "objects/slideshow";
-@import "objects/contact-tabs"; 
+@import "objects/contact-tabs";
 
 
 // # VENDORS
@@ -125,6 +125,7 @@ $is-oldie: false !default;
 // ==========================================================================
 @import "pages/home";
 @import "pages/_generic-page-template";
+@import "pages/_room-page";
 
 
 // # SHAME FILE

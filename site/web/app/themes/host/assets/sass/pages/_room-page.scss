@@ -1,0 +1,92 @@
+// ============================================================
+
+// PAGE: ROOM PAGE
+
+// Description: This file contains styles that are specific to
+// a room page.
+
+// ============================================================
+
+// ============================================================
+//     BASE
+// ============================================================
+
+.room-details-container {
+    @include mq(large) {
+        display: block;
+        max-width: 80%;
+    }
+
+    @include mq(xlarge) {
+        max-width: 75%;
+    }
+
+    @include mq(xxlarge) {
+        max-width: 66.66%;
+    }
+}
+
+.room-details {
+    margin-bottom: $spacing-unit;
+
+    @include mq(medium) {
+        margin-bottom: $double-spacing-unit;
+    }
+}
+
+.room-detail-item {
+    @include mq(medium) {
+        &:nth-of-type(odd) {
+            padding-right: $gutter;
+            padding-left: 0;
+        }
+
+        &:nth-of-type(even) {
+            padding-right: 0;
+            padding-left: $gutter;
+        }
+    }
+
+    @include mq(xlarge) {
+        &:nth-of-type(odd) {
+            padding-right: $double-gutter-width;
+            padding-left: 0;
+        }
+
+        &:nth-of-type(even) {
+            padding-right: 0;
+            padding-left: $double-gutter-width;
+        }
+    }
+}
+
+.room-detail-item__inner {
+    flex-direction: row;
+    //justify-content: space-between;
+}
+
+.room-detail-item__icon {
+    display: none;
+
+    @include mq(small) {
+        display: block;
+    }
+
+    @include mq(large) {
+        margin-right: $half-spacing-unit;
+    }
+}
+
+.room-detail-item__label {
+    width: 21%;
+    min-width: rem(85);
+    margin-right: $quarter-gutter-width;
+
+    @include mq(large) {
+        margin-right: $half-spacing-unit;
+    }
+}
+
+.room-detail-item__value {
+    //margin-right: auto;
+}
