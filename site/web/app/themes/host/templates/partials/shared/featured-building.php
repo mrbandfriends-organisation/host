@@ -27,13 +27,6 @@ $featured_building_carousel_images  = get_field('carousel_images', $featured_bui
 ));
 ?>
 
-<?php if( $featured_building_carousel_images ): ?>
-    <?php
-        $image_1 = $featured_building_carousel_images[0]['url'];
-        $image_2 = $featured_building_carousel_images[1]['url'];
-    ?>
-<?php endif; ?>
-
 
 <?php
   wp_reset_postdata();
@@ -44,14 +37,7 @@ $featured_building_carousel_images  = get_field('carousel_images', $featured_bui
     'color'   => "sky",
     'content' => $main_content,
     'second'  => Utils\ob_load_template_part('templates/partials/shared/stacked-gallery', array(
-        'images' => array(
-            array(
-                'image' => $image_1
-            ),
-            array(
-                'image' => $image_2
-            )
-        )
+        'images' => $featured_building_carousel_images
     ))
     //'second' => "<img src=\"{$reasons_image}\" />",
 )); ?>
