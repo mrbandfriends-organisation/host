@@ -35,6 +35,7 @@ h1 {
 h2 {
     font-size: 26px;
     border-bottom: none;
+		margin-left: 20px;
 }
 
 #modulemenu a {
@@ -73,6 +74,15 @@ textarea {
     font-family: inherit;
     font-size: inherit;
 		font-family: "CircularWeb", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+div.MainTable input[type="text"],
+div.MainTable input[type="password"],
+div.MainTable input[type="file"],
+div.MainTable input[type="number"],
+div.MainTable select,
+div.MainTable textarea {
+		min-width: 420px;
 }
 
 
