@@ -12900,9 +12900,9 @@
 
 /***/ },
 /* 24 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	/**
+	/* WEBPACK VAR INJECTION */(function($) {/**
 	 * Contact Tabs UI code.
 	 */
 
@@ -12996,11 +12996,13 @@
 	    'tabNavigationLinks': '.c-tabs-nav__link',
 	    'tabContentContainers': '.c-tab'
 	  }
-
-	  window.tabs(options).init();
+	  if ($('.c-tabs').length > 0) {
+	      window.tabs(options).init();
+	  }
 
 	})();
 
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
 /* 25 */

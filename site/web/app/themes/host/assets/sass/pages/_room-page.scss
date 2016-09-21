@@ -90,3 +90,23 @@
 .room-detail-item__value {
     //margin-right: auto;
 }
+
+// ROOMS DETAILS ASIDE
+//
+// Deafult content for this is the "uni pack"
+// ======================================================
+
+.room-details-aside {
+    margin-top: $spacing-unit;
+
+    @include mq(large) {
+        margin-top: $double-spacing-unit;
+    }
+}
+
+.room-details-aside__logo {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: rem(200);
+}

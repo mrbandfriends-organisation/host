@@ -1918,6 +1918,10 @@ dl.-horizontal dd ~ dd {
   color: #00c0f3;
 }
 
+.box--off-white {
+  background-color: #f5f5f5;
+}
+
 .box--fg-red .inherit-fg {
   color: #d50e3c;
 }
@@ -5105,6 +5109,31 @@ a.btn {
   background-color: #fff;
 }
 
+.secondary-split-feature__main {
+  position: relative;
+}
+
+.secondary-split-feature__main .secondary-split-feature__content {
+  max-width: 45rem;
+}
+
+.secondary-split-feature__main .secondary-split-feature__content h2 {
+  z-index: 1000;
+}
+
+.secondary-split-feature__main .secondary-split-feature__content .btn, .secondary-split-feature__main .secondary-split-feature__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .secondary-split-feature__main .secondary-split-feature__content select {
+  margin-top: 20px;
+}
+
+.box--padded .room-details-aside__logo {
+  right: 20px;
+  top: 20px;
+}
+
+.room-details-aside__logo {
+  display: none;
+}
+
 .banner {
   width: 100%;
   padding: 0 0 1.25rem;
@@ -5529,6 +5558,17 @@ a.btn {
   width: 21%;
   min-width: 5.3125rem;
   margin-right: 7.5px;
+}
+
+.room-details-aside {
+  margin-top: 40px;
+}
+
+.room-details-aside__logo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  max-width: 12.5rem;
 }
 
 .clear {
@@ -6487,6 +6527,9 @@ a.btn {
     transition: all 200ms;
     transform: translateY(-50%);
   }
+  .secondary-split-feature__main .secondary-split-feature__content .btn, .secondary-split-feature__main .secondary-split-feature__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .secondary-split-feature__main .secondary-split-feature__content select{
+    margin-top: 40px;
+  }
   .nav-utilities--banner{
     margin-right: -0.9375rem;
   }
@@ -6876,6 +6919,9 @@ a.btn {
   .room-detail-item__label{
     margin-right: 20px;
   }
+  .room-details-aside{
+    margin-top: 80px;
+  }
 }
 
 @media (min-width: 68.75em){
@@ -7106,6 +7152,13 @@ a.btn {
     justify-content: space-between;
     -ms-flex-align: end;
     align-items: flex-end;
+  }
+  .room-details-aside__logo{
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 10rem;
   }
   .footer__final{
     display: -ms-flexbox;
@@ -7462,6 +7515,9 @@ a.btn {
   }
   .stacked-gallery{
     min-height: 40vh;
+  }
+  .secondary-split-feature__aside{
+    min-height: 30vh;
   }
   .nav-primary{
     display: none;

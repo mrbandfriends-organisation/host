@@ -59,4 +59,31 @@
             </ul>
         </div>
     <?php endif; ?>
+
+    <aside class="room-details-aside secondary-split-feature band grid">
+        <div class="secondary-split-feature__aside gc l1-3">
+            <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
+                'image' => 'http://host.dev/app/uploads/cache/2016/09/the-curve/1453799832.jpg'
+            )); ?>
+        </div>
+        <div class="secondary-split-feature__main box box--padded box--off-white gc l2-3">
+            <div class="room-details-aside__logo">
+                <img src="http://host.dev/app/uploads/cache/2016/09/the-curve/1453799832.jpg" alt="" />
+            </div>
+            <div class="secondary-split-feature__content">
+                <h2>
+                    Heading the first
+                    <br>
+                    heading two
+                </h2>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                </p>
+
+                <a href="" class="btn">Visit the website</a>
+            </div>
+        </div>
+    </aside>
+
 </section>
