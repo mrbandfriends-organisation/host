@@ -29,6 +29,10 @@
     &.js-enhanced {
         background: transparent none !important; //scss-lint:disable ImportantRule
     }
+
+    > div {
+        top: 0;
+    }
 }
 
 .map__static {

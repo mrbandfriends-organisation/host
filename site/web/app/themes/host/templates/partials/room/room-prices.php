@@ -5,7 +5,7 @@
     use Roots\Sage\Utils;
 ?>
 <?php if ( have_rows('pricing_options') ): ?>
-<div class="pricing band band--inset-alt box box--padded">
+<div class="pricing band band--inset-alt box box--less-padding js-ready-reckoner">
     <h2 class="pricing__title">Thinking of prices?<br>Let’s break it down.</h2>
 
     <div class="pricing__option">
@@ -19,39 +19,69 @@
             ?>
             <ul class="pricing__lisiting grid">
                 <li class="gc l1-3 pricing__lisiting-item">
-                    <?php echo esc_html($simple_weeks) . ' weeks'; ?>
+                    <div class="pricing-header box box--less-padding">
+                        <h4 class="pricing-header__heading">Room Type: <br >Premium Studio</h4>
+                    </div>
+                    <div class="pricing-body box box--less-padding">
+                    </div>
                 </li>
                 <li class="gc l1-3 pricing__lisiting-item">
-                    <?php echo esc_html($date_range);?>
+                    <div class="pricing-header box box--less-padding">
+                        <h4 class="pricing-header__heading plain">
+                            Number of weeks you would like to stay:
+                        </h4>
+                    </div>
+                    <div class="pricing-body box box--less-padding">
+                        <?php echo esc_html($simple_weeks); ?>
+
+                        <span class="pricing-body__smallprint">
+                            <?php echo esc_html($date_range);?>
+                        </span>
+                    </div>
                 </li>
                 <li class="gc l1-3 pricing__lisiting-item">
-                    <?php echo esc_html($price_per_week);?>
+                    <div class="pricing-header box box--less-padding">
+                        <h4 class="pricing-header__heading plain">
+                            Rent amount Per week:
+                        </h4>
+                    </div>
+                    <div class="pricing-body box box--less-padding">
+                        <?php echo esc_html($price_per_week);?>
+                    </div>
                 </li>
             </ul>
 
+            <?php if ( have_rows('payment_plans') ): ?>
             <h3 class="pricing__sub-heading plain h4">2. Payment &amp; installment plans</h4>
-            <ul class="pricing__lisiting grid">
-                <?php if ( have_rows('payment_plans') ): ?>
 
-                    <?php while ( have_rows('payment_plans') ) : the_row();?>
+            <ul class="pricing__lisiting grid flex">
+                <?php while ( have_rows('payment_plans') ) : the_row();?>
 
-                        <li class="gc l1-3 pricing__lisiting-item">
+                    <li class="gc l1-3 pricing__lisiting-item">
+                        <?php
+                            $title = get_sub_field('title');
+                            $subtitle = get_sub_field('subtitle');
+                            $content = get_sub_field('content');
+                        ?>
+                        <div class="pricing-header box box--less-padding">
+                            <h4 class="pricing-header__heading">
+                                <?php echo esc_html($title);?>
+                            </h4>
+                            <span class="pricing-header__smallprint">
+                                <?= esc_html($subtitle) ?>
+                            </span>
+                        </div>
+                        <div class="pricing-body box box--less-padding">
                             <?php
-                                $title = get_sub_field('title');
-                                $subtitle = get_sub_field('subtitle');
-                                $content = get_sub_field('content');
-                            ?>
-                            <?php
-                                echo esc_html($title) . '<br>';
-                                echo esc_html($subtitle) . '<br>';
                                 echo Utils\esc_textarea__($content);;
                             ?>
-                        </li>
+                        </div>
+                    </li>
 
-                    <?php endwhile; ?>
+                <?php endwhile; ?>
 
-                <?php endif; ?>
             </ul>
+        <?php endif; ?>
         <?php endwhile; ?>
     </div>
 

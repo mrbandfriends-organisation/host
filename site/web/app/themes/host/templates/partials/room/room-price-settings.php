@@ -31,21 +31,20 @@
 
 
 <h2>
-  <?php echo esc_html($price_title_1); ?><br />
-  <?php echo esc_html($price_title_2); ?>
+    <?php echo esc_html($price_title_1); ?><br />
+    <?php echo esc_html($price_title_2); ?>
 </h2>
 
-<ul style="overflow:hidden;clear:both;">
-  <li style="display:block;width:33%;float:left;border:solid 1px red;">
-    <?php echo $content_1; ?>
-  </li>
-  <li style="display:block;width:33%;float:left;border:solid 1px red;">
-    <?php echo $content_2; ?>
-  </li>
-  <li style="display:block;width:33%;float:left;border:solid 1px red;">
-    <?php echo $content_3; ?>
-  </li>
+<ul class="grid grid--gutter grid--double-gutter">
+    <li class="gc t1-1 m1-2 l1-3">
+        <?php echo $content_1; ?>
+    </li>
+    <li class="gc t1-1 m1-2 l1-3">
+        <?php echo $content_2; ?>
+    </li>
+    <li class="gc t1-1 m1-2 l1-3">
+        <?php echo $content_3; ?>
+    </li>
 </ul>
 
-
-<a href="<?php echo esc_html($cancellation_policy); ?>" class="btn"><?php echo the_title(); ?> cancellation policy ></a>
+<a href="<?php echo esc_html($cancellation_policy); ?>" class="pricing-section__btn btn btn--mint"><?php echo the_title(); ?> cancellation policy ></a>
