@@ -20,7 +20,7 @@
     min-height: rem(24px);
     margin-right: $half-spacing-unit;
 
-    @include mq(medium) {
+    @include mq(large) {
         margin-right: $spacing-unit;
     }
 }

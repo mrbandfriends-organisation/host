@@ -6,7 +6,7 @@
     $band                = (empty($band))    ? ''     : " band--{$band}";
     $modifier            = (empty($modifier))    ? ''     : "split-feature--{$modifier}";
     $main_modifier       = (empty($main_modifier) ? '' : "split-feature__main--{$main_modifier}" );
-    $secondary_modifier  = (empty($secondary_modifier) ? '' : "split-feature__secondary--{$secondary_modifier}" );
+    $second_modifier  = (empty($second_modifier) ? '' : "split-feature__secondary--{$second_modifier}" );
 
     if (empty($content))
     {
@@ -32,7 +32,7 @@
             <?= $content; ?>
         </div>
     </div>
-    <aside class="split-feature__secondary <?php echo esc_attr($secondary_modifier) ?> gc l1-2">
+    <aside class="split-feature__secondary <?php echo esc_attr($second_modifier) ?> gc l1-2">
         <?= $second; ?>
     </aside>
 </section>
