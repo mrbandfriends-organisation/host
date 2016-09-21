@@ -26,7 +26,6 @@
     opacity: 0.000001;
 }
 
-// # Variation: top alignment
 // ==========================================================================
 // # MODIFIER: ALIGNMENT
 // ==========================================================================
@@ -37,5 +36,13 @@
 .bleed-image--until-xxlarge-top {
     @include mq($until: xxlarge) {
         background-position: top center;
+    }
+}
+
+.bleed-image--hide-small {
+    display: none;
+
+    @include mq(medium) {
+        display: block;
     }
 }

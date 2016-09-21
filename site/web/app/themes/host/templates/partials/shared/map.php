@@ -84,7 +84,7 @@
         <img src="<?=$sStaticPath; ?>" class="map__static" alt="">
     </div>
     <?php if ($bFilter): ?>
-        <form action="#" method="post" class="map__filters box box--fg-<?=$sFg; ?> box--more-padding js-flyout js-flyout--left">
+        <form action="#" method="post" class="map__filters box box--fg-<?=$sFg; ?> js-flyout js-flyout--left">
             <h3>What’s around<br>the local area?</h3>
 
             <fieldset class="form-filter">

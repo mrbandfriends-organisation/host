@@ -52,7 +52,7 @@
 	 */
 
 	// NPM Modules
-	__webpack_require__(32);
+	__webpack_require__(33);
 
 	// extend things
 	__webpack_require__(11);
@@ -122,25 +122,27 @@
 
 	    __webpack_require__(23);
 
-	    __webpack_require__(27)();
-
-	    __webpack_require__(25)();
-
-	    __webpack_require__(30)();
+	    __webpack_require__(24);
 
 	    __webpack_require__(28)();
+
+	    __webpack_require__(26)();
+
+	    __webpack_require__(31)();
+
+	    __webpack_require__(29)();
 
 	    // require('bind-inview')();
 
 	    // require('onpage-smooth-scroll')();
 
-	    __webpack_require__(26)();
+	    __webpack_require__(27)();
 
-	    __webpack_require__(24)();
+	    __webpack_require__(25)();
 
 	    __webpack_require__(12);
 
-	    __webpack_require__(29)();
+	    __webpack_require__(30)();
 	})();
 
 
@@ -152,10 +154,10 @@
 
 	var _ = __webpack_require__(3);
 	var cls = __webpack_require__(8);
-	var defaultSettings = __webpack_require__(42);
+	var defaultSettings = __webpack_require__(43);
 	var dom = __webpack_require__(6);
-	var EventManager = __webpack_require__(39);
-	var guid = __webpack_require__(40);
+	var EventManager = __webpack_require__(40);
+	var guid = __webpack_require__(41);
 
 	var instances = {};
 
@@ -10913,7 +10915,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// jshint latedef:nofunc
-	var cookies = __webpack_require__(31);
+	var cookies = __webpack_require__(32);
 	var icon    = __webpack_require__(7);
 
 	var sFavouriteTemplate =
@@ -11707,7 +11709,7 @@
 	 */
 
 	__webpack_require__(2);
-	var EventBus = __webpack_require__(53);
+	var EventBus = __webpack_require__(54);
 
 	var OffCanvasToggler = function(options) {
 	    "use strict";
@@ -12030,7 +12032,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var debounce = __webpack_require__(35);
+	var debounce = __webpack_require__(36);
 
 	function Slideshow()
 	{
@@ -12898,6 +12900,110 @@
 
 /***/ },
 /* 24 */
+/***/ function(module, exports) {
+
+	/**
+	 * Contact Tabs UI code.
+	 */
+
+
+	(function() {
+
+	  'use strict';
+
+	  /**
+	   * tabs
+	   *
+	   * @description The Tabs component.
+	   * @param {Object} options The options hash
+	   */
+	  var tabs = function(options) {
+
+	    var el = document.querySelector(options.el);
+	    var tabNavigationLinks = el.querySelectorAll(options.tabNavigationLinks);
+	    var tabContentContainers = el.querySelectorAll(options.tabContentContainers);
+	    var activeIndex = 0;
+	    var initCalled = false;
+
+	    /**
+	     * init
+	     *
+	     * @description Initializes the component by removing the no-js class from
+	     *   the component, and attaching event listeners to each of the nav items.
+	     *   Returns nothing.
+	     */
+	    var init = function() {
+	      if (!initCalled) {
+	        initCalled = true;
+	        el.classList.remove('no-js');
+
+	        for (var i = 0; i < tabNavigationLinks.length; i++) {
+	          var link = tabNavigationLinks[i];
+	          handleClick(link, i);
+	        }
+	      }
+	    };
+
+	    /**
+	     * handleClick
+	     *
+	     * @description Handles click event listeners on each of the links in the
+	     *   tab navigation. Returns nothing.
+	     * @param {HTMLElement} link The link to listen for events on
+	     * @param {Number} index The index of that link
+	     */
+	    var handleClick = function(link, index) {
+	      link.addEventListener('click', function(e) {
+	        e.preventDefault();
+	        goToTab(index);
+	      });
+	    };
+
+	    /**
+	     * goToTab
+	     *
+	     * @description Goes to a specific tab based on index. Returns nothing.
+	     * @param {Number} index The index of the tab to go to
+	     */
+	    var goToTab = function(index) {
+
+	      if (index !== activeIndex && index >= 0 && index <= tabNavigationLinks.length) {
+	        tabNavigationLinks[activeIndex].classList.remove('is-active');
+	        tabNavigationLinks[index].classList.add('is-active');
+	        tabContentContainers[activeIndex].classList.remove('is-active');
+	        tabContentContainers[index].classList.add('is-active');
+	        activeIndex = index;
+	      }
+	    };
+
+	    /**
+	     * Returns init and goToTab
+	     */
+	    return {
+	      init: init,
+	      goToTab: goToTab
+	    };
+
+	  };
+
+	  /**
+	   * Attach to global namespace
+	   */
+	  window.tabs = tabs;
+
+	  var options = {
+	    'el': '.c-tabs',
+	    'tabNavigationLinks': '.c-tabs-nav__link',
+	    'tabContentContainers': '.c-tab'
+	  }
+
+	  window.tabs(options).init();
+
+	})();
+
+
+/***/ },
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var bp = __webpack_require__(13);
@@ -13052,7 +13158,7 @@
 
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13110,10 +13216,10 @@
 
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(36);
+	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(37);
 
 	module.exports = function()
 	{
@@ -13136,7 +13242,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13169,7 +13275,7 @@
 	    if (!maps_loaded && !maps_loading)
 	    {
 	        maps_loading = true;
-	        __webpack_require__(34)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+	        __webpack_require__(35)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
 	    }
 	    else if (maps_loaded)
 	    {
@@ -13181,10 +13287,10 @@
 
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(37)($);
+	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(38)($);
 
 	module.exports = function()
 	{
@@ -13196,10 +13302,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(54);
+	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(55);
 
 	$('.js-slick-fade').slick({
 	    arrows: false,
@@ -13226,7 +13332,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var slideshow = __webpack_require__(19);
@@ -13243,7 +13349,7 @@
 
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var cookies = function (data, opt) {
@@ -13332,21 +13438,21 @@
 
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(33);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(34);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(2);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
@@ -13375,10 +13481,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {/**
+	/**
 	 * lodash (Custom Build) <https://lodash.com/>
 	 * Build: `lodash modularize exports="npm" -o ./`
 	 * Copyright jQuery Foundation and other contributors <https://jquery.org/>
@@ -13394,7 +13500,9 @@
 	var NAN = 0 / 0;
 
 	/** `Object#toString` result references. */
-	var symbolTag = '[object Symbol]';
+	var funcTag = '[object Function]',
+	    genTag = '[object GeneratorFunction]',
+	    symbolTag = '[object Symbol]';
 
 	/** Used to match leading and trailing whitespace. */
 	var reTrim = /^\s+|\s+$/g;
@@ -13411,21 +13519,12 @@
 	/** Built-in method references without a dependency on `root`. */
 	var freeParseInt = parseInt;
 
-	/** Detect free variable `global` from Node.js. */
-	var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
-
-	/** Detect free variable `self`. */
-	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
-
-	/** Used as a reference to the global object. */
-	var root = freeGlobal || freeSelf || Function('return this')();
-
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
 
 	/**
 	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
 	 * of values.
 	 */
 	var objectToString = objectProto.toString;
@@ -13450,27 +13549,23 @@
 	 * }, _.now());
 	 * // => Logs the number of milliseconds it took for the deferred invocation.
 	 */
-	var now = function() {
-	  return root.Date.now();
-	};
+	function now() {
+	  return Date.now();
+	}
 
 	/**
 	 * Creates a debounced function that delays invoking `func` until after `wait`
 	 * milliseconds have elapsed since the last time the debounced function was
 	 * invoked. The debounced function comes with a `cancel` method to cancel
 	 * delayed `func` invocations and a `flush` method to immediately invoke them.
-	 * Provide `options` to indicate whether `func` should be invoked on the
-	 * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
-	 * with the last arguments provided to the debounced function. Subsequent
-	 * calls to the debounced function return the result of the last `func`
-	 * invocation.
+	 * Provide an options object to indicate whether `func` should be invoked on
+	 * the leading and/or trailing edge of the `wait` timeout. The `func` is invoked
+	 * with the last arguments provided to the debounced function. Subsequent calls
+	 * to the debounced function return the result of the last `func` invocation.
 	 *
-	 * **Note:** If `leading` and `trailing` options are `true`, `func` is
-	 * invoked on the trailing edge of the timeout only if the debounced function
-	 * is invoked more than once during the `wait` timeout.
-	 *
-	 * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
-	 * until to the next tick, similar to `setTimeout` with a timeout of `0`.
+	 * **Note:** If `leading` and `trailing` options are `true`, `func` is invoked
+	 * on the trailing edge of the timeout only if the debounced function is
+	 * invoked more than once during the `wait` timeout.
 	 *
 	 * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
 	 * for details over the differences between `_.debounce` and `_.throttle`.
@@ -13631,8 +13726,33 @@
 	}
 
 	/**
+	 * Checks if `value` is classified as a `Function` object.
+	 *
+	 * @static
+	 * @memberOf _
+	 * @since 0.1.0
+	 * @category Lang
+	 * @param {*} value The value to check.
+	 * @returns {boolean} Returns `true` if `value` is a function, else `false`.
+	 * @example
+	 *
+	 * _.isFunction(_);
+	 * // => true
+	 *
+	 * _.isFunction(/abc/);
+	 * // => false
+	 */
+	function isFunction(value) {
+	  // The use of `Object#toString` avoids issues with the `typeof` operator
+	  // in Safari 8 which returns 'object' for typed array and weak map constructors,
+	  // and PhantomJS 1.9 which returns 'function' for `NodeList` instances.
+	  var tag = isObject(value) ? objectToString.call(value) : '';
+	  return tag == funcTag || tag == genTag;
+	}
+
+	/**
 	 * Checks if `value` is the
-	 * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
+	 * [language type](http://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-language-types)
 	 * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
 	 *
 	 * @static
@@ -13741,7 +13861,7 @@
 	    return NAN;
 	  }
 	  if (isObject(value)) {
-	    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
+	    var other = isFunction(value.valueOf) ? value.valueOf() : value;
 	    value = isObject(other) ? (other + '') : other;
 	  }
 	  if (typeof value != 'string') {
@@ -13756,10 +13876,9 @@
 
 	module.exports = debounce;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Magnific Popup - v1.1.0 - 2016-02-20
@@ -15624,21 +15743,21 @@
 	 _checkInstance(); }));
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(38);
+	module.exports = __webpack_require__(39);
 
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 
-	var ps = __webpack_require__(41);
+	var ps = __webpack_require__(42);
 	var psInstances = __webpack_require__(1);
 
 	function mountJQuery(jQuery) {
@@ -15680,7 +15799,7 @@
 
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15757,7 +15876,7 @@
 
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15776,14 +15895,14 @@
 
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var destroy = __webpack_require__(43);
-	var initialize = __webpack_require__(51);
-	var update = __webpack_require__(52);
+	var destroy = __webpack_require__(44);
+	var initialize = __webpack_require__(52);
+	var update = __webpack_require__(53);
 
 	module.exports = {
 	  initialize: initialize,
@@ -15793,7 +15912,7 @@
 
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15816,7 +15935,7 @@
 
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15844,7 +15963,7 @@
 
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -15910,7 +16029,7 @@
 
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16019,7 +16138,7 @@
 
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16155,7 +16274,7 @@
 
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16297,7 +16416,7 @@
 
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16318,7 +16437,7 @@
 
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16433,7 +16552,7 @@
 
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16615,7 +16734,7 @@
 
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16627,14 +16746,14 @@
 
 	// Handlers
 	var handlers = {
-	  'click-rail': __webpack_require__(44),
-	  'drag-scrollbar': __webpack_require__(45),
-	  'keyboard': __webpack_require__(46),
-	  'wheel': __webpack_require__(47),
-	  'touch': __webpack_require__(50),
-	  'selection': __webpack_require__(49)
+	  'click-rail': __webpack_require__(45),
+	  'drag-scrollbar': __webpack_require__(46),
+	  'keyboard': __webpack_require__(47),
+	  'wheel': __webpack_require__(48),
+	  'touch': __webpack_require__(51),
+	  'selection': __webpack_require__(50)
 	};
-	var nativeScrollHandler = __webpack_require__(48);
+	var nativeScrollHandler = __webpack_require__(49);
 
 	module.exports = function (element, userSettings) {
 	  userSettings = typeof userSettings === 'object' ? userSettings : {};
@@ -16658,7 +16777,7 @@
 
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16701,7 +16820,7 @@
 
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -16952,7 +17071,7 @@
 
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
