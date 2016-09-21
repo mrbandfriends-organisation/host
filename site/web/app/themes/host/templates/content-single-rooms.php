@@ -22,7 +22,7 @@
 
 <?php echo Utils\ob_load_template_part('templates/partials/room/room-gallery.php'); ?>
 
-<section class="band band--inset box box--padded">
+<section class="band band--inset box box--padded box--fg-mint">
     <?php echo Utils\ob_load_template_part('templates/partials/room/room-prices.php'); ?>
 
     <?php echo Utils\ob_load_template_part('templates/partials/room/room-price-settings.php'); ?>

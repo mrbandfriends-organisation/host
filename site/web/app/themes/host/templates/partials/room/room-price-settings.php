@@ -31,8 +31,8 @@
 
 
 <h2>
-  <?php echo esc_html($price_title_1); ?><br />
-  <?php echo esc_html($price_title_2); ?>
+    <?php echo esc_html($price_title_1); ?><br />
+    <?php echo esc_html($price_title_2); ?>
 </h2>
 
 <ul class="grid grid--gutter grid--double-gutter">
@@ -46,6 +46,5 @@
         <?php echo $content_3; ?>
     </li>
 </ul>
-
 
 <a href="<?php echo esc_html($cancellation_policy); ?>" class="btn btn--full-width btn--mint"><?php echo the_title(); ?> cancellation policy ></a>
