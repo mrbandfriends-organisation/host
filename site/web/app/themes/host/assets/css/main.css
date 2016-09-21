@@ -4659,7 +4659,7 @@ a.btn {
 }
 
 .stacked-gallery__link:hover .stacked-gallery__bleed-image, .stacked-gallery__link:focus .stacked-gallery__bleed-image {
-  background-color: rgba(0, 192, 243, 0.63);
+  background-color: rgba(0, 192, 243, 0.65);
 }
 
 .stacked-gallery__inner {
@@ -5531,6 +5531,23 @@ a.btn {
   padding: 0;
 }
 
+.pricing-header {
+  background-color: #00b9b5;
+}
+
+.pricing-header__heading {
+  color: #fff !important;
+  margin-bottom: 0;
+}
+
+.pricing-body {
+  background-color: #f5f5f5;
+}
+
+.pricing-header__smallprint {
+  color: #fff;
+}
+
 .homepage-investors-image-hack {
   width: 100%;
   height: 100%;
@@ -5587,6 +5604,12 @@ a.btn {
 .box--padded .room-details-aside__logo {
   right: 20px;
   top: 20px;
+}
+
+.pricing-section__btn {
+  display: block;
+  width: 100%;
+  margin-top: 40px;
 }
 
 .clear {
@@ -6941,6 +6964,9 @@ a.btn {
     margin-right: 20px;
   }
   .room-details-aside{
+    margin-top: 80px;
+  }
+  .pricing-section__btn{
     margin-top: 80px;
   }
 }

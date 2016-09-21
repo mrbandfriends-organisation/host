@@ -42,9 +42,9 @@
     <li class="gc t1-1 m1-2 l1-3">
         <?php echo $content_2; ?>
     </li>
-    <li class="gc t1-1 m1-1 l1-3">
+    <li class="gc t1-1 m1-2 l1-3">
         <?php echo $content_3; ?>
     </li>
 </ul>
 
-<a href="<?php echo esc_html($cancellation_policy); ?>" class="btn btn--full-width btn--mint"><?php echo the_title(); ?> cancellation policy ></a>
+<a href="<?php echo esc_html($cancellation_policy); ?>" class="pricing-section__btn btn btn--mint"><?php echo the_title(); ?> cancellation policy ></a>

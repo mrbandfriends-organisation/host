@@ -8,9 +8,8 @@
 // ============================================================
 
 // ============================================================
-//     BASE
+// SECTION: ROOM DETAILS SECTION
 // ============================================================
-
 .room-details-container {
     @include mq(large) {
         display: block;
@@ -140,5 +139,19 @@
     .box--padded & {
         right: $half-spacing-unit;
         top: ($half-spacing-unit);
+    }
+}
+
+
+// ============================================================
+// SECTION: PRICINGING SETTINGS
+// ============================================================
+.pricing-section__btn {
+    display: block;
+    width: 100%;
+    margin-top: $spacing-unit;
+
+    @include mq(large) {
+        margin-top: $double-spacing-unit;
     }
 }
