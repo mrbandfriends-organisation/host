@@ -232,7 +232,7 @@
             "name": "news_title",
             "type": "textarea",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -251,7 +251,7 @@
             "name": "news_content",
             "type": "wysiwyg",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -364,5 +364,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1473933060
+    "modified": 1474465268
 }

@@ -1,0 +1,44 @@
+// ==========================================================================
+//
+// SECONDARY SPLIT FEATURE
+//
+// Description: Component that has a bleed image & content area
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+// .secondary-split-feature {}
+
+.secondary-split-feature__aside {
+    @include mq($until: large) {
+        min-height: 30vh;
+    }
+}
+
+.secondary-split-feature__main {
+    position: relative;
+
+    .secondary-split-feature__content {
+        max-width: rem(720);
+
+        h2 {
+            z-index: $zindex-tier-1;
+        }
+
+        .btn {
+            margin-top: $half-spacing-unit;
+
+            @include mq(medium) {
+                margin-top: $spacing-unit;
+            }
+        }
+
+    }
+}
+
+// ==========================================================================
+// # MODIFIER: %%MODIFIER_NAME%%
+// ==========================================================================

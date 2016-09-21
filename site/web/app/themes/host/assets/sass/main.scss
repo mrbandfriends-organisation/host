@@ -70,7 +70,7 @@ $is-oldie: false !default;
 @import "objects/box";
 @import "objects/flyout";
 @import "objects/slideshow";
-@import "objects/contact-tabs"; 
+@import "objects/contact-tabs";
 
 
 // # VENDORS
@@ -112,6 +112,7 @@ $is-oldie: false !default;
 @import "components/transport-list";
 @import "components/_location-related-buildings.scss";
 @import "components/_carousel-infobox.scss";
+@import "components/_secondary-split-feature";
 
 // # SITE LAYOUT STRUCTURE
 // ==========================================================================
@@ -120,11 +121,13 @@ $is-oldie: false !default;
 @import "layout/utilities-menu";
 @import "layout/footer";
 @import "layout/social-media-icons-list";
+@import "layout/pricing";
 
 // # SITE PAGES
 // ==========================================================================
 @import "pages/home";
 @import "pages/_generic-page-template";
+@import "pages/_room-page";
 
 
 // # SHAME FILE

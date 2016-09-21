@@ -325,6 +325,47 @@
             ]
         },
         {
+            "key": "field_57e2954c58bf9",
+            "label": "Gallery",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_57e2955358bfa",
+            "label": "Room Gallery",
+            "name": "room_gallery",
+            "type": "gallery",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": "",
+            "insert": "append",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_57befcd7e6dee",
             "label": "Price",
             "name": "",
@@ -341,66 +382,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_57befd73e6def",
-            "label": "Simple - Number of weeks",
-            "name": "number_of_weeks",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_57befe01e6df0",
-            "label": "Simple - Date range",
-            "name": "date_range",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_57befeafe6df1",
-            "label": "Simple - Price per week",
-            "name": "price_per_week",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_57beffb6e6df2",
-            "label": "Payment plans",
-            "name": "payment_plans",
+            "key": "field_57e258d9cc7af",
+            "label": "Pricing options",
+            "name": "pricing_options",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -413,13 +397,13 @@
             "collapsed": "",
             "min": "",
             "max": "",
-            "layout": "table",
+            "layout": "block",
             "button_label": "Add Row",
             "sub_fields": [
                 {
-                    "key": "field_57beffcee6df3",
-                    "label": "Title",
-                    "name": "title",
+                    "key": "field_57befd73e6def",
+                    "label": "Simple - Number of weeks",
+                    "name": "number_of_weeks",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -436,9 +420,9 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_57beffe2e6df4",
-                    "label": "Subtitle",
-                    "name": "subtitle",
+                    "key": "field_57befe01e6df0",
+                    "label": "Simple - Date range",
+                    "name": "date_range",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -455,22 +439,100 @@
                     "maxlength": ""
                 },
                 {
-                    "key": "field_57beffede6df5",
-                    "label": "Content",
-                    "name": "content",
-                    "type": "wysiwyg",
+                    "key": "field_57befeafe6df1",
+                    "label": "Simple - Price per week",
+                    "name": "price_per_week",
+                    "type": "text",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": "50",
+                        "width": "",
                         "class": "",
                         "id": ""
                     },
                     "default_value": "",
-                    "tabs": "all",
-                    "toolbar": "full",
-                    "media_upload": 0
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_57beffb6e6df2",
+                    "label": "Payment plans",
+                    "name": "payment_plans",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": "",
+                    "max": "",
+                    "layout": "row",
+                    "button_label": "Add Row",
+                    "sub_fields": [
+                        {
+                            "key": "field_57beffcee6df3",
+                            "label": "Title",
+                            "name": "title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_57beffe2e6df4",
+                            "label": "Subtitle",
+                            "name": "subtitle",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_57beffede6df5",
+                            "label": "Content",
+                            "name": "content",
+                            "type": "wysiwyg",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 0
+                        }
+                    ]
                 }
             ]
         },
@@ -676,5 +738,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1473867186
+    "modified": 1474467182
 }
