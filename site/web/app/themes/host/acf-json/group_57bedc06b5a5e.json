@@ -325,6 +325,47 @@
             ]
         },
         {
+            "key": "field_57e2954c58bf9",
+            "label": "Gallery",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_57e2955358bfa",
+            "label": "Room Gallery",
+            "name": "room_gallery",
+            "type": "gallery",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": "",
+            "insert": "append",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_57befcd7e6dee",
             "label": "Price",
             "name": "",
@@ -697,5 +738,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1474452946
+    "modified": 1474467182
 }
