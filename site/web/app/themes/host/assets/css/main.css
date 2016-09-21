@@ -5125,15 +5125,6 @@ a.btn {
   margin-top: 20px;
 }
 
-.box--padded .room-details-aside__logo {
-  right: 20px;
-  top: 20px;
-}
-
-.room-details-aside__logo {
-  display: none;
-}
-
 .banner {
   width: 100%;
   padding: 0 0 1.25rem;
@@ -5565,10 +5556,12 @@ a.btn {
 }
 
 .room-details-aside__logo {
-  position: absolute;
-  top: 0;
-  right: 0;
-  max-width: 12.5rem;
+  display: none;
+}
+
+.box--padded .room-details-aside__logo {
+  right: 20px;
+  top: 20px;
 }
 
 .clear {
@@ -7153,13 +7146,6 @@ a.btn {
     -ms-flex-align: end;
     align-items: flex-end;
   }
-  .room-details-aside__logo{
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    max-width: 10rem;
-  }
   .footer__final{
     display: -ms-flexbox;
     display: flex;
@@ -7181,6 +7167,29 @@ a.btn {
   .room-detail-item:nth-of-type(even){
     padding-right: 0;
     padding-left: 60px;
+  }
+  .room-details-aside__logo{
+    display: block;
+    position: absolute;
+    max-width: 6.875rem;
+    border-radius: 50%;
+    top: 0;
+    right: 0;
+    padding: 1.25rem;
+    background-color: #fff;
+  }
+  .room-details-aside__logo a{
+    display: block;
+  }
+  .room-details-aside__logo a:hover, .room-details-aside__logo a:focus{
+    cursor: pointer;
+  }
+  .room-details-aside__logo a:hover img, .room-details-aside__logo a:focus img{
+    transform: scale(1.1);
+  }
+  .room-details-aside__logo img{
+    transform: scale(1);
+    transition: all ease-in-out 0.25s;
   }
 }
 

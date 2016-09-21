@@ -69,4 +69,10 @@ if( function_exists('acf_add_options_page') ) {
 				'autoload' 		=> false,
 			));
 
+			acf_add_options_sub_page(array(
+				'page_title' 	=> 'Essential Student Kits',
+				'menu_title'	=> 'Essential Student Kits',
+				'parent_slug'	=> 'content-slices',
+				'autoload' 		=> false,
+			));
 }
