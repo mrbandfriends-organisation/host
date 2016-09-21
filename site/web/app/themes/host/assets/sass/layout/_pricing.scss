@@ -1,3 +1,21 @@
 .pricing {
     background-color: #fff;
 }
+
+.pricing__title {
+    &:first-line {
+        color: brand(mint)!important;
+    }
+}
+
+.pricing__option {
+    @include list-reset;
+}
+
+.pricing__heading {
+
+}
+
+.pricing__sub-heading {
+
+}

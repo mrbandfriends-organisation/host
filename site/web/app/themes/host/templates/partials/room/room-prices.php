@@ -5,10 +5,11 @@
     use Roots\Sage\Utils;
 ?>
 <?php if ( have_rows('pricing_options') ): ?>
-<div class="pricing band band--inset-alt box--padded">
-    <h2>Thinking of prices?<br>Let’s break it down.</h2>
-    <ul class="pricing__listing">
-        <h3 class="h4">1. The simple stuff:</h3>
+<div class="pricing band band--inset-alt box box--padded">
+    <h2 class="pricing__title">Thinking of prices?<br>Let’s break it down.</h2>
+
+    <div class="pricing__option">
+        <h3 class="pricing__heading plain h4">1. The simple stuff:</h3>
 
         <?php while ( have_rows('pricing_options') ) : the_row();?>
             <?php
@@ -16,18 +17,25 @@
                 $date_range = get_sub_field('date_range');
                 $price_per_week = get_sub_field('price_per_week');
             ?>
-            <li>
-                <?php
-                echo esc_html($simple_weeks) . ' weeks' . '<br>';
-                echo esc_html($date_range) . '<br>';
-                echo esc_html($price_per_week);
-                ?>
+            <ul class="pricing__lisiting grid">
+                <li class="gc l1-3 pricing__lisiting-item">
+                    <?php echo esc_html($simple_weeks) . ' weeks'; ?>
+                </li>
+                <li class="gc l1-3 pricing__lisiting-item">
+                    <?php echo esc_html($date_range);?>
+                </li>
+                <li class="gc l1-3 pricing__lisiting-item">
+                    <?php echo esc_html($price_per_week);?>
+                </li>
+            </ul>
+
+            <h3 class="pricing__sub-heading plain h4">2. Payment &amp; installment plans</h4>
+            <ul class="pricing__lisiting grid">
                 <?php if ( have_rows('payment_plans') ): ?>
-                    <ul>
-                        <h4 class="h5">2. Payment &amp; installment plans</h3>
+
                     <?php while ( have_rows('payment_plans') ) : the_row();?>
 
-                        <li>
+                        <li class="gc l1-3 pricing__lisiting-item">
                             <?php
                                 $title = get_sub_field('title');
                                 $subtitle = get_sub_field('subtitle');
@@ -41,11 +49,11 @@
                         </li>
 
                     <?php endwhile; ?>
-                    </ul>
 
                 <?php endif; ?>
-            </li>
+            </ul>
         <?php endwhile; ?>
-    </ul>
+    </div>
+
 </div>
 <?php endif; ?>
