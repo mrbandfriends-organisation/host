@@ -4248,6 +4248,10 @@ a.btn {
   background: transparent none !important;
 }
 
+.map__map > div {
+  top: 0;
+}
+
 .map__static {
   position: absolute;
   top: 50%;
@@ -4659,7 +4663,7 @@ a.btn {
 }
 
 .stacked-gallery__link:hover .stacked-gallery__bleed-image, .stacked-gallery__link:focus .stacked-gallery__bleed-image {
-  background-color: rgba(0, 192, 243, 0.63);
+  background-color: rgba(0, 192, 243, 0.65);
 }
 
 .stacked-gallery__inner {
@@ -5529,6 +5533,23 @@ a.btn {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.pricing-header {
+  background-color: #00b9b5;
+}
+
+.pricing-header__heading {
+  color: #fff !important;
+  margin-bottom: 0;
+}
+
+.pricing-body {
+  background-color: #f5f5f5;
+}
+
+.pricing-header__smallprint {
+  color: #fff;
 }
 
 .homepage-investors-image-hack {
