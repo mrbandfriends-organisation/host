@@ -19,3 +19,24 @@
 .pricing__sub-heading {
 
 }
+
+.pricing-header {
+    background-color: brand(mint);
+}
+
+.pricing-header__heading {
+    color:  #fff!important;
+    margin-bottom: 0;
+}
+
+.pricing-body {
+    background-color: brand(white);
+}
+
+.pricing-header__smallprint {
+    color:  #fff;
+}
+
+.pricing-body__smallprint {
+    // color:  #fff;
+}
