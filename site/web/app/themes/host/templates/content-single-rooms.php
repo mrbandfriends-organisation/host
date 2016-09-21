@@ -19,7 +19,7 @@
         ))
     )); ?>
 
-  <?php echo Utils\ob_load_template_part('templates/partials/room/room-intro.php'); ?>
+  <?php echo Utils\ob_load_template_part('templates/partials/room/room-intro.php', compact('parent_building_id')); ?>
 
   <?php echo Utils\ob_load_template_part('templates/partials/room/room-detail.php'); ?>
 
