@@ -2535,6 +2535,10 @@ dl.-horizontal dd ~ dd {
   margin-bottom: 0;
 }
 
+.multiply-bg {
+  background-blend-mode: multiply;
+}
+
 .ps-container {
   -ms-touch-action: none;
   touch-action: none;
