@@ -27,6 +27,14 @@ function availability_status($availability)
             ];
             break;
 
+            case "coming_soon":
+                return [
+                    'text' => "Coming soon",
+                    'colour' => 'orange',
+                    'foreground' => 'orange'
+                ];
+                break;
+
         default:
             return [
                 'text' => "Available",
