@@ -1332,8 +1332,8 @@ thead tr:last-child th {
 }
 
 .separated-list__icon {
-  min-width: 1.5rem;
-  min-height: 1.5rem;
+  min-width: 2rem;
+  min-height: 2rem;
   margin-right: 20px;
 }
 
