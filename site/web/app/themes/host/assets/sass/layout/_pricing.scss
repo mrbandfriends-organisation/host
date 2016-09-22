@@ -30,7 +30,12 @@
 }
 
 .pricing-body {
+    min-height: rem(200px);
     background-color: brand(white);
+
+    .bleed-image {
+        min-height: rem(200px);
+    }
 }
 
 .pricing-header__smallprint {

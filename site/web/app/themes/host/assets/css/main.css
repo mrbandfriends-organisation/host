@@ -5545,7 +5545,12 @@ a.btn {
 }
 
 .pricing-body {
+  min-height: 12.5rem;
   background-color: #f5f5f5;
+}
+
+.pricing-body .bleed-image {
+  min-height: 12.5rem;
 }
 
 .pricing-header__smallprint {
