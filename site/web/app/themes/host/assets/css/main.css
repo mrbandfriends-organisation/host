@@ -5539,22 +5539,49 @@ a.btn {
   background-color: #00b9b5;
 }
 
-.pricing-header__heading {
-  color: #fff !important;
+.pricing__lisiting {
+  margin-bottom: 40px;
+}
+
+.pricing-header .pricing-header__heading {
+  color: #fff;
   margin-bottom: 0;
-}
-
-.pricing-body {
-  min-height: 12.5rem;
-  background-color: #f5f5f5;
-}
-
-.pricing-body .bleed-image {
-  min-height: 12.5rem;
+  font-size: 25px;
 }
 
 .pricing-header__smallprint {
   color: #fff;
+}
+
+.pricing-body {
+  background-color: #f5f5f5;
+}
+
+.pricing-body h3,
+.pricing-body h4 {
+  margin: 0;
+  color: #21293c;
+}
+
+.pricing-body h3:first-line,
+.pricing-body h3.plain span,
+.pricing-body h4:first-line,
+.pricing-body h4.plain span {
+  color: #21293c;
+}
+
+.pricing-body p {
+  margin-top: 0;
+}
+
+.pricing-body__number {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.625rem;
+}
+
+.pricing-body__number--large {
+  font-size: 2rem;
 }
 
 .homepage-investors-image-hack {
@@ -6952,6 +6979,15 @@ a.btn {
     flex-direction: column;
     -ms-flex-align: end;
     align-items: flex-end;
+  }
+  .pricing__lisiting{
+    margin-bottom: 80px;
+  }
+  .pricing-header .pricing-header__heading{
+    font-size: 26px;
+  }
+  .pricing-body__number--large{
+    font-size: 3.25rem;
   }
   .generic-content-page{
     padding: 80px 0;

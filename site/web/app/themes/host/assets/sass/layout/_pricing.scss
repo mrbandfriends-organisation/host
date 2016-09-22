@@ -1,40 +1,63 @@
+// ==========================================================================
+//
+// ROOM PRICING
+//
+// Description: Room pricing
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
 .pricing {
     background-color: #fff;
 }
 
+// Main title for section
 .pricing__title {
     &:first-line {
         color: brand(mint)!important;
     }
 }
 
+// Container for collection of options
 .pricing__option {
     @include list-reset;
 }
 
-.pricing__heading {
-
-}
-
-.pricing__sub-heading {
-
-}
-
+// Heading for each block of options
 .pricing-header {
     background-color: brand(mint);
 }
 
-.pricing-header__heading {
-    color:  #fff!important;
-    margin-bottom: 0;
+
+// ==========================================================================
+// # PRICING STEP
+//
+// Each step has up to 3 listing items
+// ==========================================================================
+// .pricing__heading {}
+
+.pricing__lisiting {
+    margin-bottom: $spacing-unit;
+
+    @include mq(large) {
+        margin-bottom: $double-spacing-unit;
+    }
 }
 
-.pricing-body {
-    min-height: rem(200px);
-    background-color: brand(white);
+.pricing__lisiting-item {}
 
-    .bleed-image {
-        min-height: rem(200px);
+.pricing-header {
+    .pricing-header__heading {
+        color:  #fff;
+        margin-bottom: 0;
+        font-size: $h3-fsize;
+
+        @include mq(large) {
+            font-size: $h3-fsize-desktop;
+        }
     }
 }
 
@@ -42,6 +65,38 @@
     color:  #fff;
 }
 
-.pricing-body__smallprint {
-    // color:  #fff;
+.pricing-body {
+    background-color: brand(white);
+
+    // =========================================
+    h3,
+    h4 {
+        margin: 0;
+        color: brand(ink);
+
+        &:first-line,
+        &.plain span {
+            color: brand(ink);
+        }
+    }
+
+    p {
+        margin-top: 0;
+    }
+}
+
+// .pricing-body__smallprint {}
+
+.pricing-body__number {
+    display: block;
+    margin-bottom: $quarter-spacing-unit;
+    font-size: rem($h3-fsize-desktop);
+}
+
+.pricing-body__number--large {
+    font-size: rem($h1-fsize);
+
+    @include mq(large) {
+        font-size: rem($h1-fsize-desktop);
+    }
 }
