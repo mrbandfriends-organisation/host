@@ -4248,6 +4248,10 @@ a.btn {
   background: transparent none !important;
 }
 
+.map__map > div {
+  top: 0;
+}
+
 .map__static {
   position: absolute;
   top: 50%;
