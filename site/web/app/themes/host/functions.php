@@ -24,7 +24,8 @@ $sage_includes = [
   'lib/utils.php',
   'lib/shortcodes.php',
   'lib/availability.php',
-  'lib/walkers.php'
+  'lib/walkers.php',
+  'lib/ajax-load-posts.php'
 ];
 
 foreach ($sage_includes as $file) {

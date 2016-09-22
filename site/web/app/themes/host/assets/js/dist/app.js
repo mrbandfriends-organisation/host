@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/**
+	/* WEBPACK VAR INJECTION */(function($) {/**
 	 * APPLICATION JAVASCRIPT
 	 *
 	 * base JavaScript entry point
@@ -52,7 +52,7 @@
 	 */
 
 	// NPM Modules
-	__webpack_require__(33);
+	__webpack_require__(34);
 
 	// extend things
 	__webpack_require__(11);
@@ -77,7 +77,7 @@
 	(function() {
 	    "use strict";
 
-	    var SVGSpritemapLoader = __webpack_require__(21);
+	    var SVGSpritemapLoader = __webpack_require__(22);
 
 	    new SVGSpritemapLoader('/app/themes/host/assets/svg/sprites/output/spritesheet.svg');
 	}());
@@ -106,7 +106,7 @@
 	 */
 	(function() {
 	    'use strict';
-	    var RImgBg = __webpack_require__(16);
+	    var RImgBg = __webpack_require__(17);
 	    new RImgBg('.js-rimgbg');
 	}());
 
@@ -120,147 +120,57 @@
 	{
 	    "use strict";
 
-	    __webpack_require__(23);
-
 	    __webpack_require__(24);
 
-	    __webpack_require__(28)();
-
-	    __webpack_require__(26)();
-
-	    __webpack_require__(31)();
+	    __webpack_require__(25);
 
 	    __webpack_require__(29)();
+
+	    __webpack_require__(27)();
+
+	    __webpack_require__(32)();
+
+	    __webpack_require__(30)();
 
 	    // require('bind-inview')();
 
 	    // require('onpage-smooth-scroll')();
 
-	    __webpack_require__(27)();
+	    __webpack_require__(28)();
 
-	    __webpack_require__(25)();
+	    __webpack_require__(26)();
 
 	    __webpack_require__(12);
 
-	    __webpack_require__(30)();
+	    __webpack_require__(31)();
 	})();
 
 
+
+	/**
+	 * AJAX POSTS LOADING
+	 * initalise posts "load more" module
+	 */
+	(function() {
+	   'use strict';
+
+	    if ( $('.js-posts-loader-container').length ) {
+	        // Async load
+
+	        //require.ensure(['posts-loader'], function() {
+	            var PostsLoader = __webpack_require__(16);
+	            new PostsLoader({
+	                'dataEndpoint' : 'host_load_posts'
+	            });
+	        //},'posts-loader');
+	    }
+
+	}());
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
 /***/ },
 /* 1 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _ = __webpack_require__(3);
-	var cls = __webpack_require__(8);
-	var defaultSettings = __webpack_require__(43);
-	var dom = __webpack_require__(6);
-	var EventManager = __webpack_require__(40);
-	var guid = __webpack_require__(41);
-
-	var instances = {};
-
-	function Instance(element) {
-	  var i = this;
-
-	  i.settings = _.clone(defaultSettings);
-	  i.containerWidth = null;
-	  i.containerHeight = null;
-	  i.contentWidth = null;
-	  i.contentHeight = null;
-
-	  i.isRtl = dom.css(element, 'direction') === "rtl";
-	  i.isNegativeScroll = (function () {
-	    var originalScrollLeft = element.scrollLeft;
-	    var result = null;
-	    element.scrollLeft = -1;
-	    result = element.scrollLeft < 0;
-	    element.scrollLeft = originalScrollLeft;
-	    return result;
-	  })();
-	  i.negativeScrollAdjustment = i.isNegativeScroll ? element.scrollWidth - element.clientWidth : 0;
-	  i.event = new EventManager();
-	  i.ownerDocument = element.ownerDocument || document;
-
-	  function focus() {
-	    cls.add(element, 'ps-focus');
-	  }
-
-	  function blur() {
-	    cls.remove(element, 'ps-focus');
-	  }
-
-	  i.scrollbarXRail = dom.appendTo(dom.e('div', 'ps-scrollbar-x-rail'), element);
-	  i.scrollbarX = dom.appendTo(dom.e('div', 'ps-scrollbar-x'), i.scrollbarXRail);
-	  i.scrollbarX.setAttribute('tabindex', 0);
-	  i.event.bind(i.scrollbarX, 'focus', focus);
-	  i.event.bind(i.scrollbarX, 'blur', blur);
-	  i.scrollbarXActive = null;
-	  i.scrollbarXWidth = null;
-	  i.scrollbarXLeft = null;
-	  i.scrollbarXBottom = _.toInt(dom.css(i.scrollbarXRail, 'bottom'));
-	  i.isScrollbarXUsingBottom = i.scrollbarXBottom === i.scrollbarXBottom; // !isNaN
-	  i.scrollbarXTop = i.isScrollbarXUsingBottom ? null : _.toInt(dom.css(i.scrollbarXRail, 'top'));
-	  i.railBorderXWidth = _.toInt(dom.css(i.scrollbarXRail, 'borderLeftWidth')) + _.toInt(dom.css(i.scrollbarXRail, 'borderRightWidth'));
-	  // Set rail to display:block to calculate margins
-	  dom.css(i.scrollbarXRail, 'display', 'block');
-	  i.railXMarginWidth = _.toInt(dom.css(i.scrollbarXRail, 'marginLeft')) + _.toInt(dom.css(i.scrollbarXRail, 'marginRight'));
-	  dom.css(i.scrollbarXRail, 'display', '');
-	  i.railXWidth = null;
-	  i.railXRatio = null;
-
-	  i.scrollbarYRail = dom.appendTo(dom.e('div', 'ps-scrollbar-y-rail'), element);
-	  i.scrollbarY = dom.appendTo(dom.e('div', 'ps-scrollbar-y'), i.scrollbarYRail);
-	  i.scrollbarY.setAttribute('tabindex', 0);
-	  i.event.bind(i.scrollbarY, 'focus', focus);
-	  i.event.bind(i.scrollbarY, 'blur', blur);
-	  i.scrollbarYActive = null;
-	  i.scrollbarYHeight = null;
-	  i.scrollbarYTop = null;
-	  i.scrollbarYRight = _.toInt(dom.css(i.scrollbarYRail, 'right'));
-	  i.isScrollbarYUsingRight = i.scrollbarYRight === i.scrollbarYRight; // !isNaN
-	  i.scrollbarYLeft = i.isScrollbarYUsingRight ? null : _.toInt(dom.css(i.scrollbarYRail, 'left'));
-	  i.scrollbarYOuterWidth = i.isRtl ? _.outerWidth(i.scrollbarY) : null;
-	  i.railBorderYWidth = _.toInt(dom.css(i.scrollbarYRail, 'borderTopWidth')) + _.toInt(dom.css(i.scrollbarYRail, 'borderBottomWidth'));
-	  dom.css(i.scrollbarYRail, 'display', 'block');
-	  i.railYMarginHeight = _.toInt(dom.css(i.scrollbarYRail, 'marginTop')) + _.toInt(dom.css(i.scrollbarYRail, 'marginBottom'));
-	  dom.css(i.scrollbarYRail, 'display', '');
-	  i.railYHeight = null;
-	  i.railYRatio = null;
-	}
-
-	function getId(element) {
-	  return element.getAttribute('data-ps-id');
-	}
-
-	function setId(element, id) {
-	  element.setAttribute('data-ps-id', id);
-	}
-
-	function removeId(element) {
-	  element.removeAttribute('data-ps-id');
-	}
-
-	exports.add = function (element) {
-	  var newId = guid();
-	  setId(element, newId);
-	  instances[newId] = new Instance(element);
-	  return instances[newId];
-	};
-
-	exports.remove = function (element) {
-	  delete instances[getId(element)];
-	  removeId(element);
-	};
-
-	exports.get = function (element) {
-	  return instances[getId(element)];
-	};
-
-
-/***/ },
-/* 2 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*eslint-disable no-unused-vars*/
@@ -10340,6 +10250,119 @@
 
 
 /***/ },
+/* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var _ = __webpack_require__(3);
+	var cls = __webpack_require__(8);
+	var defaultSettings = __webpack_require__(44);
+	var dom = __webpack_require__(6);
+	var EventManager = __webpack_require__(41);
+	var guid = __webpack_require__(42);
+
+	var instances = {};
+
+	function Instance(element) {
+	  var i = this;
+
+	  i.settings = _.clone(defaultSettings);
+	  i.containerWidth = null;
+	  i.containerHeight = null;
+	  i.contentWidth = null;
+	  i.contentHeight = null;
+
+	  i.isRtl = dom.css(element, 'direction') === "rtl";
+	  i.isNegativeScroll = (function () {
+	    var originalScrollLeft = element.scrollLeft;
+	    var result = null;
+	    element.scrollLeft = -1;
+	    result = element.scrollLeft < 0;
+	    element.scrollLeft = originalScrollLeft;
+	    return result;
+	  })();
+	  i.negativeScrollAdjustment = i.isNegativeScroll ? element.scrollWidth - element.clientWidth : 0;
+	  i.event = new EventManager();
+	  i.ownerDocument = element.ownerDocument || document;
+
+	  function focus() {
+	    cls.add(element, 'ps-focus');
+	  }
+
+	  function blur() {
+	    cls.remove(element, 'ps-focus');
+	  }
+
+	  i.scrollbarXRail = dom.appendTo(dom.e('div', 'ps-scrollbar-x-rail'), element);
+	  i.scrollbarX = dom.appendTo(dom.e('div', 'ps-scrollbar-x'), i.scrollbarXRail);
+	  i.scrollbarX.setAttribute('tabindex', 0);
+	  i.event.bind(i.scrollbarX, 'focus', focus);
+	  i.event.bind(i.scrollbarX, 'blur', blur);
+	  i.scrollbarXActive = null;
+	  i.scrollbarXWidth = null;
+	  i.scrollbarXLeft = null;
+	  i.scrollbarXBottom = _.toInt(dom.css(i.scrollbarXRail, 'bottom'));
+	  i.isScrollbarXUsingBottom = i.scrollbarXBottom === i.scrollbarXBottom; // !isNaN
+	  i.scrollbarXTop = i.isScrollbarXUsingBottom ? null : _.toInt(dom.css(i.scrollbarXRail, 'top'));
+	  i.railBorderXWidth = _.toInt(dom.css(i.scrollbarXRail, 'borderLeftWidth')) + _.toInt(dom.css(i.scrollbarXRail, 'borderRightWidth'));
+	  // Set rail to display:block to calculate margins
+	  dom.css(i.scrollbarXRail, 'display', 'block');
+	  i.railXMarginWidth = _.toInt(dom.css(i.scrollbarXRail, 'marginLeft')) + _.toInt(dom.css(i.scrollbarXRail, 'marginRight'));
+	  dom.css(i.scrollbarXRail, 'display', '');
+	  i.railXWidth = null;
+	  i.railXRatio = null;
+
+	  i.scrollbarYRail = dom.appendTo(dom.e('div', 'ps-scrollbar-y-rail'), element);
+	  i.scrollbarY = dom.appendTo(dom.e('div', 'ps-scrollbar-y'), i.scrollbarYRail);
+	  i.scrollbarY.setAttribute('tabindex', 0);
+	  i.event.bind(i.scrollbarY, 'focus', focus);
+	  i.event.bind(i.scrollbarY, 'blur', blur);
+	  i.scrollbarYActive = null;
+	  i.scrollbarYHeight = null;
+	  i.scrollbarYTop = null;
+	  i.scrollbarYRight = _.toInt(dom.css(i.scrollbarYRail, 'right'));
+	  i.isScrollbarYUsingRight = i.scrollbarYRight === i.scrollbarYRight; // !isNaN
+	  i.scrollbarYLeft = i.isScrollbarYUsingRight ? null : _.toInt(dom.css(i.scrollbarYRail, 'left'));
+	  i.scrollbarYOuterWidth = i.isRtl ? _.outerWidth(i.scrollbarY) : null;
+	  i.railBorderYWidth = _.toInt(dom.css(i.scrollbarYRail, 'borderTopWidth')) + _.toInt(dom.css(i.scrollbarYRail, 'borderBottomWidth'));
+	  dom.css(i.scrollbarYRail, 'display', 'block');
+	  i.railYMarginHeight = _.toInt(dom.css(i.scrollbarYRail, 'marginTop')) + _.toInt(dom.css(i.scrollbarYRail, 'marginBottom'));
+	  dom.css(i.scrollbarYRail, 'display', '');
+	  i.railYHeight = null;
+	  i.railYRatio = null;
+	}
+
+	function getId(element) {
+	  return element.getAttribute('data-ps-id');
+	}
+
+	function setId(element, id) {
+	  element.setAttribute('data-ps-id', id);
+	}
+
+	function removeId(element) {
+	  element.removeAttribute('data-ps-id');
+	}
+
+	exports.add = function (element) {
+	  var newId = guid();
+	  setId(element, newId);
+	  instances[newId] = new Instance(element);
+	  return instances[newId];
+	};
+
+	exports.remove = function (element) {
+	  delete instances[getId(element)];
+	  removeId(element);
+	};
+
+	exports.get = function (element) {
+	  return instances[getId(element)];
+	};
+
+
+/***/ },
 /* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -10437,7 +10460,7 @@
 	var _ = __webpack_require__(3);
 	var cls = __webpack_require__(8);
 	var dom = __webpack_require__(6);
-	var instances = __webpack_require__(1);
+	var instances = __webpack_require__(2);
 	var updateScroll = __webpack_require__(5);
 
 	function getThumbSize(i, thumbSize) {
@@ -10566,7 +10589,7 @@
 
 	'use strict';
 
-	var instances = __webpack_require__(1);
+	var instances = __webpack_require__(2);
 
 	var upEvent = document.createEvent('Event');
 	var downEvent = document.createEvent('Event');
@@ -10915,7 +10938,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// jshint latedef:nofunc
-	var cookies = __webpack_require__(32);
+	var cookies = __webpack_require__(33);
 	var icon    = __webpack_require__(7);
 
 	var sFavouriteTemplate =
@@ -11708,8 +11731,8 @@
 	 * manages toggling of offcanvas elements
 	 */
 
-	__webpack_require__(2);
-	var EventBus = __webpack_require__(54);
+	__webpack_require__(1);
+	var EventBus = __webpack_require__(55);
 
 	var OffCanvasToggler = function(options) {
 	    "use strict";
@@ -11842,10 +11865,217 @@
 	// Export
 	module.exports = OffCanvasToggler;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
 /* 16 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {/**
+	 * POSTS LOADER
+	 *
+	 * a utility "class" the wraps the process of "lazy" loading Blog posts
+	 * over Ajax.
+	*/
+
+	var PostsLoader = function(options) {
+
+	    var defaults = {
+	        'dataEndpoint'          : false,
+	        'paginationUrl'         : '/blog/page/', // url format for pagination (eg: /blog/page/1/)
+	        'triggerEl'             : '.js-posts-loader-trigger', // element which initialising loading of new posts
+	        'containerEl'           : '.js-posts-loader-container', // element into which new posts should be inserted
+	        'loadingErrorMsg'       : '<p>Unfortunately, there was an error loading the additional posts. Please try again.</p>',
+	        'updateHistory'         : true, // whether or not to update the browser history on each page reload
+	        'triggerActiveClass'    : '-loading'
+	    };
+
+	    this.options = $.extend({}, defaults, options);
+
+
+
+	    // Derived selectors
+	    this.triggerEl              = $(this.options.triggerEl);
+	    this.containerEl            = $(this.options.containerEl);
+
+	    // Allow for custom max pages - defaults to grabbing from DOM
+	    this.maxPages               = ( this.options.maxPages ) ? this.options.maxPages : this.triggerEl.data('posts-loader-max-pages');
+
+	    // Allow for Custom Ajax endpoint...
+	    this.ajaxEndPoint           = ( this.options.customAjaxHandler ) ? this.options.customAjaxHandler : '/wp/wp-admin/admin-ajax.php';
+
+	    // State Properties
+	    this.loading                = false;
+	    this.locked                 = false;
+	    this.currentPage            = ( this.options.currentPage ) ? this.options.currentPage : this.triggerEl.data('posts-loader-curr-page');
+
+
+	    // if there’s a data URL, overwrite the pagination URL
+	    if ( this.triggerEl[0] !== undefined && this.triggerEl[0].hasAttribute('data-posts-loader-url'))
+	        this.options.paginationUrl = this.triggerEl[0].getAttribute('data-posts-loader-url').replace(/https?:\/\/(.*?)\//, '/');
+
+	    // if there’s an endpoint
+	    if ( this.triggerEl[0] !== undefined && this.triggerEl[0].hasAttribute('data-posts-loader-endpoint'))
+
+	        this.options.dataEndpoint = this.triggerEl.data('posts-loader-endpoint');
+
+	    // shuffle the history state
+	    if (this.options.paginationUrl.indexOf('%s') === -1)
+	        this.options.paginationUrl += '%s';
+
+	    // Exit if there is no endpoint provided to get the data from
+	    if ( !this.options.dataEndpoint ) {
+	        return false;
+	    }
+
+
+	    // Blast off!
+	    this.init();
+	};
+
+	PostsLoader.prototype.init = function() {
+
+	    this._handleTriggerVisibility();
+	    this._addListeners();
+	    // parse off a query string
+	    this._parseQueryString(this.options.paginationUrl);
+	};
+
+	PostsLoader.prototype._parseQueryString = function(sUri)
+	{
+	    // 0. init
+	    this.oData = {
+	        action: this.options.dataEndpoint
+	    };
+	    var self = this;
+
+	    // 1. if there’s nothing to do, bail
+	    if (sUri.indexOf('?') === -1)
+	        return;
+
+	    // 2. strip off unnecessary bits
+	    var sQs = sUri.replace(/^(.*?)\?/, '');
+
+	    // 3. the last bit is always going to be the pagination var, so strip that
+	    sQs = sQs.replace(/&?\w*=$/, '');
+
+	    // 4. iterate!
+	    sQs.split('&').forEach(function(sSub)
+	    {
+	        // a. explode on equals
+	        var aM = sSub.split('=');
+
+	        // b. set things
+	        self.oData[aM[0]] = (aM.length > 1) ? aM[1] : '';
+	    });
+	};
+
+	PostsLoader.prototype._addListeners = function() {
+	    var self = this;
+
+	    this.triggerEl.on('click', function(event){
+	        self._fetchPosts(event);
+	    });
+	};
+
+	PostsLoader.prototype._fetchPosts = function(event) {
+	    var self = this;
+
+	    event.preventDefault();
+
+	    // If currently handling an existing request then bail out...
+	    if ( this.loading )
+	        return;
+
+	    // set the current page
+	    this.oData.paged = self.currentPage + 1;
+
+
+	    $.ajax({
+	        type       : 'GET',
+	        data       : this.oData,
+	        dataType   : 'html',
+	        url        : self.ajaxEndPoint,
+	        beforeSend : function() {
+	            console.log("AJAX!");3
+	            self.loading = true;
+	            self.triggerEl.addClass(self.options.triggerActiveClass);
+	        },
+	        success    : function(data) {
+	            console.log("data log" , data);
+	            $data = $(data);
+	            self._handlePosts($data);
+	        },
+	        error     : function(jqXHR, textStatus, errorThrown) {
+	            self.containerEl.append( self.loadingErrorMsg );
+	        }
+	    });
+
+	};
+
+	PostsLoader.prototype._handleTriggerVisibility = function() {
+	    // If we're showing the final page then don't allow more to be loaded
+	    if ( this.currentPage >= this.maxPages ) {
+	        this.triggerEl.hide();
+	    }
+	};
+
+
+	PostsLoader.prototype._handlePosts = function(data) {
+	    var self = this;
+
+	    // Increment to reflect that we've now advanced to a new "page" of posts
+	    this.currentPage++;
+
+	    if ( $data.length ) {
+
+	        this._handleTriggerVisibility();
+
+	        this.triggerEl.removeClass( this.options.triggerActiveClass );
+
+	        // Append new posts after a short delay
+	        // setTimeout(function() {
+	        //
+	        //     if (self.containerEl[0].hasAttribute('data-columns') && (salvattore !== 'undefined')) {
+	        //         salvattore.appendElements(self.containerEl[0], $data);
+	        //     } else {
+	        //         self.containerEl.append($data);
+	        //     }
+	        // }, 100);
+
+	        setTimeout(function() {
+	            self.containerEl.append($data);
+	        }, 100);
+	    }
+
+	    // Update Browser history and address bar
+	    if ( this.options.updateHistory && this._supportsHistoryAPI() ) {
+	        this._updateHistory();
+	    }
+
+	    // Unset the flag which blocks repeated calling of this method
+	    this.loading = false;
+	};
+
+	PostsLoader.prototype._supportsHistoryAPI = function(){
+	    return !!(window.history && history.pushState);
+	};
+
+
+	PostsLoader.prototype._updateHistory = function() {
+	    // Update page url to reflect the paged posts
+	    var historyState = this.options.paginationUrl.replace('%s', this.currentPage);
+
+	    history.pushState(null, null, historyState);
+	};
+
+
+	module.exports = PostsLoader;
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ },
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/* jshint strict: false */
@@ -11906,15 +12136,15 @@
 	// Export
 	module.exports = RImgBg;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 17 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./dots-pagination": 18,
-		"./pn-pagination": 20
+		"./dots-pagination": 19,
+		"./pn-pagination": 21
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -11927,11 +12157,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 17;
+	webpackContext.id = 18;
 
 
 /***/ },
-/* 18 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var util = __webpack_require__(9);
@@ -12028,11 +12258,11 @@
 
 
 /***/ },
-/* 19 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var debounce = __webpack_require__(36);
+	var debounce = __webpack_require__(37);
 
 	function Slideshow()
 	{
@@ -12182,7 +12412,7 @@
 	        aPagination.forEach(function(sPagination)
 	        {
 	            // a. load the pagination
-	            var oPagination = __webpack_require__(17)("./"+sPagination+'-pagination')({
+	            var oPagination = __webpack_require__(18)("./"+sPagination+'-pagination')({
 	                elRoot:    el,
 	                iNumItems: iNumSlides,
 	                fnGo:      go,
@@ -12292,7 +12522,7 @@
 	    function bindSwipes()
 	    {
 	        // 1. enable swiping
-	        __webpack_require__(22)(el);
+	        __webpack_require__(23)(el);
 
 	        // 2. event handler
 	        el.addEventListener('swipeleft', function()
@@ -12365,7 +12595,7 @@
 
 
 /***/ },
-/* 20 */
+/* 21 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var util = __webpack_require__(9);
@@ -12453,7 +12683,7 @@
 
 
 /***/ },
-/* 21 */
+/* 22 */
 /***/ function(module, exports) {
 
 	/**
@@ -12502,7 +12732,7 @@
 
 
 /***/ },
-/* 22 */
+/* 23 */
 /***/ function(module, exports) {
 
 	var defaultOptions = {
@@ -12650,7 +12880,7 @@
 
 
 /***/ },
-/* 23 */
+/* 24 */
 /***/ function(module, exports) {
 
 	// jshint latedef:nofunc
@@ -12899,7 +13129,7 @@
 
 
 /***/ },
-/* 24 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/**
@@ -13002,10 +13232,10 @@
 
 	})();
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 25 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var bp = __webpack_require__(13);
@@ -13160,7 +13390,7 @@
 
 
 /***/ },
-/* 26 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13218,10 +13448,10 @@
 
 
 /***/ },
-/* 27 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(37);
+	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(38);
 
 	module.exports = function()
 	{
@@ -13241,10 +13471,10 @@
 	    });
 	};
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 28 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13277,7 +13507,7 @@
 	    if (!maps_loaded && !maps_loading)
 	    {
 	        maps_loading = true;
-	        __webpack_require__(35)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+	        __webpack_require__(36)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
 	    }
 	    else if (maps_loaded)
 	    {
@@ -13289,10 +13519,10 @@
 
 
 /***/ },
-/* 29 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(38)($);
+	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(39)($);
 
 	module.exports = function()
 	{
@@ -13301,13 +13531,13 @@
 	    $('.js-scrollable').perfectScrollbar();
 	};
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(55);
+	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(56);
 
 	$('.js-slick-fade').slick({
 	    arrows: false,
@@ -13331,13 +13561,13 @@
 	   ]
 	});
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var slideshow = __webpack_require__(19);
+	var slideshow = __webpack_require__(20);
 
 	module.exports = function()
 	{
@@ -13351,7 +13581,7 @@
 
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var cookies = function (data, opt) {
@@ -13440,21 +13670,21 @@
 
 
 /***/ },
-/* 33 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(34);
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
 /* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(2);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(35);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(1);
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
@@ -13483,10 +13713,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports) {
 
-	/**
+	/* WEBPACK VAR INJECTION */(function(global) {/**
 	 * lodash (Custom Build) <https://lodash.com/>
 	 * Build: `lodash modularize exports="npm" -o ./`
 	 * Copyright jQuery Foundation and other contributors <https://jquery.org/>
@@ -13502,9 +13732,7 @@
 	var NAN = 0 / 0;
 
 	/** `Object#toString` result references. */
-	var funcTag = '[object Function]',
-	    genTag = '[object GeneratorFunction]',
-	    symbolTag = '[object Symbol]';
+	var symbolTag = '[object Symbol]';
 
 	/** Used to match leading and trailing whitespace. */
 	var reTrim = /^\s+|\s+$/g;
@@ -13521,12 +13749,21 @@
 	/** Built-in method references without a dependency on `root`. */
 	var freeParseInt = parseInt;
 
+	/** Detect free variable `global` from Node.js. */
+	var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
+
+	/** Detect free variable `self`. */
+	var freeSelf = typeof self == 'object' && self && self.Object === Object && self;
+
+	/** Used as a reference to the global object. */
+	var root = freeGlobal || freeSelf || Function('return this')();
+
 	/** Used for built-in method references. */
 	var objectProto = Object.prototype;
 
 	/**
 	 * Used to resolve the
-	 * [`toStringTag`](http://ecma-international.org/ecma-262/6.0/#sec-object.prototype.tostring)
+	 * [`toStringTag`](http://ecma-international.org/ecma-262/7.0/#sec-object.prototype.tostring)
 	 * of values.
 	 */
 	var objectToString = objectProto.toString;
@@ -13551,23 +13788,27 @@
 	 * }, _.now());
 	 * // => Logs the number of milliseconds it took for the deferred invocation.
 	 */
-	function now() {
-	  return Date.now();
-	}
+	var now = function() {
+	  return root.Date.now();
+	};
 
 	/**
 	 * Creates a debounced function that delays invoking `func` until after `wait`
 	 * milliseconds have elapsed since the last time the debounced function was
 	 * invoked. The debounced function comes with a `cancel` method to cancel
 	 * delayed `func` invocations and a `flush` method to immediately invoke them.
-	 * Provide an options object to indicate whether `func` should be invoked on
-	 * the leading and/or trailing edge of the `wait` timeout. The `func` is invoked
-	 * with the last arguments provided to the debounced function. Subsequent calls
-	 * to the debounced function return the result of the last `func` invocation.
+	 * Provide `options` to indicate whether `func` should be invoked on the
+	 * leading and/or trailing edge of the `wait` timeout. The `func` is invoked
+	 * with the last arguments provided to the debounced function. Subsequent
+	 * calls to the debounced function return the result of the last `func`
+	 * invocation.
 	 *
-	 * **Note:** If `leading` and `trailing` options are `true`, `func` is invoked
-	 * on the trailing edge of the timeout only if the debounced function is
-	 * invoked more than once during the `wait` timeout.
+	 * **Note:** If `leading` and `trailing` options are `true`, `func` is
+	 * invoked on the trailing edge of the timeout only if the debounced function
+	 * is invoked more than once during the `wait` timeout.
+	 *
+	 * If `wait` is `0` and `leading` is `false`, `func` invocation is deferred
+	 * until to the next tick, similar to `setTimeout` with a timeout of `0`.
 	 *
 	 * See [David Corbacho's article](https://css-tricks.com/debouncing-throttling-explained-examples/)
 	 * for details over the differences between `_.debounce` and `_.throttle`.
@@ -13728,33 +13969,8 @@
 	}
 
 	/**
-	 * Checks if `value` is classified as a `Function` object.
-	 *
-	 * @static
-	 * @memberOf _
-	 * @since 0.1.0
-	 * @category Lang
-	 * @param {*} value The value to check.
-	 * @returns {boolean} Returns `true` if `value` is a function, else `false`.
-	 * @example
-	 *
-	 * _.isFunction(_);
-	 * // => true
-	 *
-	 * _.isFunction(/abc/);
-	 * // => false
-	 */
-	function isFunction(value) {
-	  // The use of `Object#toString` avoids issues with the `typeof` operator
-	  // in Safari 8 which returns 'object' for typed array and weak map constructors,
-	  // and PhantomJS 1.9 which returns 'function' for `NodeList` instances.
-	  var tag = isObject(value) ? objectToString.call(value) : '';
-	  return tag == funcTag || tag == genTag;
-	}
-
-	/**
 	 * Checks if `value` is the
-	 * [language type](http://www.ecma-international.org/ecma-262/6.0/#sec-ecmascript-language-types)
+	 * [language type](http://www.ecma-international.org/ecma-262/7.0/#sec-ecmascript-language-types)
 	 * of `Object`. (e.g. arrays, functions, objects, regexes, `new Number(0)`, and `new String('')`)
 	 *
 	 * @static
@@ -13863,7 +14079,7 @@
 	    return NAN;
 	  }
 	  if (isObject(value)) {
-	    var other = isFunction(value.valueOf) ? value.valueOf() : value;
+	    var other = typeof value.valueOf == 'function' ? value.valueOf() : value;
 	    value = isObject(other) ? (other + '') : other;
 	  }
 	  if (typeof value != 'string') {
@@ -13878,9 +14094,10 @@
 
 	module.exports = debounce;
 
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Magnific Popup - v1.1.0 - 2016-02-20
@@ -13889,7 +14106,7 @@
 	;(function (factory) { 
 	if (true) { 
 	 // AMD. Register as an anonymous module. 
-	 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)); 
+	 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)); 
 	 } else if (typeof exports === 'object') { 
 	 // Node/CommonJS 
 	 factory(require('jquery')); 
@@ -15745,22 +15962,22 @@
 	 _checkInstance(); }));
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(39);
+	module.exports = __webpack_require__(40);
 
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 
-	var ps = __webpack_require__(42);
-	var psInstances = __webpack_require__(1);
+	var ps = __webpack_require__(43);
+	var psInstances = __webpack_require__(2);
 
 	function mountJQuery(jQuery) {
 	  jQuery.fn.perfectScrollbar = function (settingOrCommand) {
@@ -15789,7 +16006,7 @@
 
 	if (true) {
 	  // AMD. Register as an anonymous module.
-	  !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (mountJQuery), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_FACTORY__ = (mountJQuery), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	} else {
 	  var jq = window.jQuery ? window.jQuery : window.$;
 	  if (typeof jq !== 'undefined') {
@@ -15801,7 +16018,7 @@
 
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15878,7 +16095,7 @@
 
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15897,14 +16114,14 @@
 
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var destroy = __webpack_require__(44);
-	var initialize = __webpack_require__(52);
-	var update = __webpack_require__(53);
+	var destroy = __webpack_require__(45);
+	var initialize = __webpack_require__(53);
+	var update = __webpack_require__(54);
 
 	module.exports = {
 	  initialize: initialize,
@@ -15914,7 +16131,7 @@
 
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -15937,14 +16154,14 @@
 
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _ = __webpack_require__(3);
 	var dom = __webpack_require__(6);
-	var instances = __webpack_require__(1);
+	var instances = __webpack_require__(2);
 
 	module.exports = function (element) {
 	  var i = instances.get(element);
@@ -15965,13 +16182,13 @@
 
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _ = __webpack_require__(3);
-	var instances = __webpack_require__(1);
+	var instances = __webpack_require__(2);
 	var updateGeometry = __webpack_require__(4);
 	var updateScroll = __webpack_require__(5);
 
@@ -16031,14 +16248,14 @@
 
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _ = __webpack_require__(3);
 	var dom = __webpack_require__(6);
-	var instances = __webpack_require__(1);
+	var instances = __webpack_require__(2);
 	var updateGeometry = __webpack_require__(4);
 	var updateScroll = __webpack_require__(5);
 
@@ -16140,14 +16357,14 @@
 
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _ = __webpack_require__(3);
 	var dom = __webpack_require__(6);
-	var instances = __webpack_require__(1);
+	var instances = __webpack_require__(2);
 	var updateGeometry = __webpack_require__(4);
 	var updateScroll = __webpack_require__(5);
 
@@ -16276,12 +16493,12 @@
 
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var instances = __webpack_require__(1);
+	var instances = __webpack_require__(2);
 	var updateGeometry = __webpack_require__(4);
 	var updateScroll = __webpack_require__(5);
 
@@ -16418,12 +16635,12 @@
 
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var instances = __webpack_require__(1);
+	var instances = __webpack_require__(2);
 	var updateGeometry = __webpack_require__(4);
 
 	function bindNativeScrollHandler(element, i) {
@@ -16439,13 +16656,13 @@
 
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _ = __webpack_require__(3);
-	var instances = __webpack_require__(1);
+	var instances = __webpack_require__(2);
 	var updateGeometry = __webpack_require__(4);
 	var updateScroll = __webpack_require__(5);
 
@@ -16554,13 +16771,13 @@
 
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _ = __webpack_require__(3);
-	var instances = __webpack_require__(1);
+	var instances = __webpack_require__(2);
 	var updateGeometry = __webpack_require__(4);
 	var updateScroll = __webpack_require__(5);
 
@@ -16736,26 +16953,26 @@
 
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _ = __webpack_require__(3);
 	var cls = __webpack_require__(8);
-	var instances = __webpack_require__(1);
+	var instances = __webpack_require__(2);
 	var updateGeometry = __webpack_require__(4);
 
 	// Handlers
 	var handlers = {
-	  'click-rail': __webpack_require__(45),
-	  'drag-scrollbar': __webpack_require__(46),
-	  'keyboard': __webpack_require__(47),
-	  'wheel': __webpack_require__(48),
-	  'touch': __webpack_require__(51),
-	  'selection': __webpack_require__(50)
+	  'click-rail': __webpack_require__(46),
+	  'drag-scrollbar': __webpack_require__(47),
+	  'keyboard': __webpack_require__(48),
+	  'wheel': __webpack_require__(49),
+	  'touch': __webpack_require__(52),
+	  'selection': __webpack_require__(51)
 	};
-	var nativeScrollHandler = __webpack_require__(49);
+	var nativeScrollHandler = __webpack_require__(50);
 
 	module.exports = function (element, userSettings) {
 	  userSettings = typeof userSettings === 'object' ? userSettings : {};
@@ -16779,14 +16996,14 @@
 
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _ = __webpack_require__(3);
 	var dom = __webpack_require__(6);
-	var instances = __webpack_require__(1);
+	var instances = __webpack_require__(2);
 	var updateGeometry = __webpack_require__(4);
 	var updateScroll = __webpack_require__(5);
 
@@ -16822,7 +17039,7 @@
 
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -17073,7 +17290,7 @@
 
 
 /***/ },
-/* 55 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -17096,7 +17313,7 @@
 	(function(factory) {
 	    'use strict';
 	    if (true) {
-	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	        !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(1)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	    } else if (typeof exports !== 'undefined') {
 	        module.exports = factory(require('jquery'));
 	    } else {
