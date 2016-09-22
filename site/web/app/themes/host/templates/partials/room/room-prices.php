@@ -6,7 +6,7 @@
 ?>
 <?php if ( have_rows('pricing_options') ): ?>
     <?php $pricing_options = get_field('pricing_options'); ?>
-    
+
     <div class="pricing box box--less-padding js-ready-reckoner">
         <h2 class="pricing__title">Thinking of prices?<br>Let’s break it down.</h2>
 
@@ -19,7 +19,7 @@
                     $date_range = get_sub_field('date_range');
                     $price_per_week = get_sub_field('price_per_week');
                 ?>
-                <ul class="pricing__lisiting grid">
+                <ul class="pricing__lisiting grid grid--gutter">
                     <li class="gc l1-3 pricing__lisiting-item">
                         <div class="pricing-header box box--less-padding">
                             <h4 class="pricing-header__heading">Room Type: <br >Premium Studio</h4>
@@ -34,10 +34,12 @@
                             </h4>
                         </div>
                         <div class="pricing-body box box--less-padding">
-                            <?php echo esc_html($simple_weeks); ?>
+                            <strong class="pricing-body__number pricing-body__number--large">
+                                <?php echo esc_html($simple_weeks); ?>
+                            </strong>
 
                             <span class="pricing-body__smallprint">
-                                <?php echo esc_html($date_range);?>
+                                (<?php echo esc_html($date_range);?>)
                             </span>
                         </div>
                     </li>
@@ -48,15 +50,17 @@
                             </h4>
                         </div>
                         <div class="pricing-body box box--less-padding">
-                            <?php echo esc_html($price_per_week);?>
+                            <strong class="pricing-body__number pricing-body__number--large">
+                                <?php echo esc_html($price_per_week);?>
+                            </strong>
                         </div>
                     </li>
                 </ul>
 
                 <?php if ( have_rows('payment_plans') ): ?>
-                    <h3 class="pricing__sub-heading plain h4">2. Payment &amp; installment plans</h3>
+                    <h3 class="pricing__heading plain h4">2. Payment &amp; installment plans</h3>
 
-                    <ul class="pricing__lisiting grid flex">
+                    <ul class="pricing__lisiting grid grid--gutter flex">
                         <?php while ( have_rows('payment_plans') ) : the_row();?>
 
                             <li class="gc l1-3 pricing__lisiting-item">
@@ -75,7 +79,8 @@
                                 </div>
                                 <div class="pricing-body box box--less-padding">
                                     <?php
-                                        echo Utils\esc_textarea__($content);;
+                                        echo Utils\esc_text_area__($content);
+                                        // var_dump($content);
                                     ?>
                                 </div>
                             </li>
