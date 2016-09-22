@@ -93,7 +93,7 @@
                     <li class="form-filter__item">
                         <label for="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" class="form-filter__filter map__filter -<?=esc_attr($sFilter); ?>">
                             <input type="checkbox" id="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" name="filter[]" value="<?=esc_attr($sFilter); ?>" checked>
-                            <?=icon('marker'); ?>
+                            <?=icon('pin-filled'); ?>
                             <?=$sLabel; ?>
                         </label>
                     </li>
