@@ -1513,10 +1513,19 @@ dl.-horizontal dd ~ dd {
   fill: #fff;
 }
 
-.box--red .btn.btn--outline:hover, .box--red .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--red select.btn--outline:hover {
+.box--red .btn.btn--outline, .box--red .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--red select.btn--outline {
   background: transparent;
+  border: solid 1px #21293c;
+}
+
+.box--red .btn.btn--outline:hover, .box--red .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--red select.btn--outline:hover {
+  background: #fff;
   border: solid 1px #fff;
-  color: #fff;
+}
+
+.box--red .btn.btn--outline-reverse:hover, .box--red .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--red select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px #21293c;
 }
 
 .box--red-alt {
@@ -1577,10 +1586,19 @@ dl.-horizontal dd ~ dd {
   fill: #fff;
 }
 
-.box--red-alt .btn.btn--outline:hover, .box--red-alt .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--red-alt select.btn--outline:hover {
+.box--red-alt .btn.btn--outline, .box--red-alt .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--red-alt select.btn--outline {
   background: transparent;
+  border: solid 1px #21293c;
+}
+
+.box--red-alt .btn.btn--outline:hover, .box--red-alt .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--red-alt select.btn--outline:hover {
+  background: #fff;
   border: solid 1px #fff;
-  color: #fff;
+}
+
+.box--red-alt .btn.btn--outline-reverse:hover, .box--red-alt .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--red-alt select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px #21293c;
 }
 
 .box--red-alt .inherit-fg {
@@ -1604,10 +1622,19 @@ dl.-horizontal dd ~ dd {
   fill: #fff;
 }
 
-.box--orange .btn.btn--outline:hover, .box--orange .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--orange select.btn--outline:hover {
+.box--orange .btn.btn--outline, .box--orange .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--orange select.btn--outline {
   background: transparent;
+  border: solid 1px #21293c;
+}
+
+.box--orange .btn.btn--outline:hover, .box--orange .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--orange select.btn--outline:hover {
+  background: #fff;
   border: solid 1px #fff;
-  color: #fff;
+}
+
+.box--orange .btn.btn--outline-reverse:hover, .box--orange .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--orange select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px #21293c;
 }
 
 .box--mint {
@@ -1628,10 +1655,19 @@ dl.-horizontal dd ~ dd {
   fill: #fff;
 }
 
-.box--mint .btn.btn--outline:hover, .box--mint .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--mint select.btn--outline:hover {
+.box--mint .btn.btn--outline, .box--mint .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--mint select.btn--outline {
   background: transparent;
+  border: solid 1px #21293c;
+}
+
+.box--mint .btn.btn--outline:hover, .box--mint .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--mint select.btn--outline:hover {
+  background: #fff;
   border: solid 1px #fff;
-  color: #fff;
+}
+
+.box--mint .btn.btn--outline-reverse:hover, .box--mint .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--mint select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px #21293c;
 }
 
 .box--mint-alt {
@@ -1651,10 +1687,19 @@ dl.-horizontal dd ~ dd {
   fill: #fff;
 }
 
-.box--mint-alt .btn.btn--outline:hover, .box--mint-alt .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--mint-alt select.btn--outline:hover {
+.box--mint-alt .btn.btn--outline, .box--mint-alt .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--mint-alt select.btn--outline {
   background: transparent;
+  border: solid 1px #21293c;
+}
+
+.box--mint-alt .btn.btn--outline:hover, .box--mint-alt .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--mint-alt select.btn--outline:hover {
+  background: #fff;
   border: solid 1px #fff;
-  color: #fff;
+}
+
+.box--mint-alt .btn.btn--outline-reverse:hover, .box--mint-alt .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--mint-alt select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px #21293c;
 }
 
 .box--sky {
@@ -1675,10 +1720,19 @@ dl.-horizontal dd ~ dd {
   fill: #fff;
 }
 
-.box--sky .btn.btn--outline:hover, .box--sky .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--sky select.btn--outline:hover {
+.box--sky .btn.btn--outline, .box--sky .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--sky select.btn--outline {
   background: transparent;
+  border: solid 1px #21293c;
+}
+
+.box--sky .btn.btn--outline:hover, .box--sky .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--sky select.btn--outline:hover {
+  background: #fff;
   border: solid 1px #fff;
-  color: #fff;
+}
+
+.box--sky .btn.btn--outline-reverse:hover, .box--sky .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--sky select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px #21293c;
 }
 
 .box--sky .btn .btn--outline, .box--sky .menu-item--banner-language-switcher select .btn--outline, .menu-item--banner-language-switcher .box--sky select .btn--outline {
@@ -1722,10 +1776,19 @@ dl.-horizontal dd ~ dd {
   fill: #00c0f3;
 }
 
-.box--sky-dark .btn.btn--outline:hover, .box--sky-dark .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--sky-dark select.btn--outline:hover {
+.box--sky-dark .btn.btn--outline, .box--sky-dark .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--sky-dark select.btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.box--sky-dark .btn.btn--outline:hover, .box--sky-dark .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--sky-dark select.btn--outline:hover {
+  background: #00c0f3;
   border: solid 1px #00c0f3;
-  color: #00c0f3;
+}
+
+.box--sky-dark .btn.btn--outline-reverse:hover, .box--sky-dark .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--sky-dark select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .box--sky-dark .inherit-fg {
@@ -1794,10 +1857,19 @@ dl.-horizontal dd ~ dd {
   fill: #21293c;
 }
 
-.box--grape-dark .btn.btn--outline:hover, .box--grape-dark .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--grape-dark select.btn--outline:hover {
+.box--grape-dark .btn.btn--outline, .box--grape-dark .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--grape-dark select.btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.box--grape-dark .btn.btn--outline:hover, .box--grape-dark .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--grape-dark select.btn--outline:hover {
+  background: #21293c;
   border: solid 1px #21293c;
-  color: #21293c;
+}
+
+.box--grape-dark .btn.btn--outline-reverse:hover, .box--grape-dark .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--grape-dark select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .box--grape .btn, .box--grape .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .box--grape select {
@@ -1812,10 +1884,19 @@ dl.-horizontal dd ~ dd {
   fill: #21293c;
 }
 
-.box--grape .btn.btn--outline:hover, .box--grape .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--grape select.btn--outline:hover {
+.box--grape .btn.btn--outline, .box--grape .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--grape select.btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.box--grape .btn.btn--outline:hover, .box--grape .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--grape select.btn--outline:hover {
+  background: #21293c;
   border: solid 1px #21293c;
-  color: #21293c;
+}
+
+.box--grape .btn.btn--outline-reverse:hover, .box--grape .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--grape select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .box--ink {
@@ -1836,10 +1917,19 @@ dl.-horizontal dd ~ dd {
   fill: #fff;
 }
 
-.box--ink .btn.btn--outline:hover, .box--ink .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--ink select.btn--outline:hover {
+.box--ink .btn.btn--outline, .box--ink .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--ink select.btn--outline {
   background: transparent;
+  border: solid 1px #21293c;
+}
+
+.box--ink .btn.btn--outline:hover, .box--ink .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--ink select.btn--outline:hover {
+  background: #fff;
   border: solid 1px #fff;
-  color: #fff;
+}
+
+.box--ink .btn.btn--outline-reverse:hover, .box--ink .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--ink select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px #21293c;
 }
 
 .box--ink-dark {
@@ -1860,10 +1950,19 @@ dl.-horizontal dd ~ dd {
   fill: #fff;
 }
 
-.box--ink-dark .btn.btn--outline:hover, .box--ink-dark .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--ink-dark select.btn--outline:hover {
+.box--ink-dark .btn.btn--outline, .box--ink-dark .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--ink-dark select.btn--outline {
   background: transparent;
+  border: solid 1px #21293c;
+}
+
+.box--ink-dark .btn.btn--outline:hover, .box--ink-dark .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--ink-dark select.btn--outline:hover {
+  background: #fff;
   border: solid 1px #fff;
-  color: #fff;
+}
+
+.box--ink-dark .btn.btn--outline-reverse:hover, .box--ink-dark .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--ink-dark select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px #21293c;
 }
 
 .box--ink h1, .box--ink .h1, .box--ink-dark h1, .box--ink-dark .h1 {
@@ -1962,10 +2061,19 @@ dl.-horizontal dd ~ dd {
   fill: #f79433;
 }
 
-.box--fg-orange .btn.btn--outline:hover, .box--fg-orange .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--fg-orange select.btn--outline:hover {
+.box--fg-orange .btn.btn--outline, .box--fg-orange .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--fg-orange select.btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.box--fg-orange .btn.btn--outline:hover, .box--fg-orange .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--fg-orange select.btn--outline:hover {
+  background: #f79433;
   border: solid 1px #f79433;
-  color: #f79433;
+}
+
+.box--fg-orange .btn.btn--outline-reverse:hover, .box--fg-orange .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--fg-orange select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .box--fg-orange .inherit-fg {
@@ -2008,10 +2116,19 @@ dl.-horizontal dd ~ dd {
   fill: #00b9b5;
 }
 
-.box--fg-mint .btn.btn--outline:hover, .box--fg-mint .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--fg-mint select.btn--outline:hover {
+.box--fg-mint .btn.btn--outline, .box--fg-mint .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--fg-mint select.btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.box--fg-mint .btn.btn--outline:hover, .box--fg-mint .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--fg-mint select.btn--outline:hover {
+  background: #00b9b5;
   border: solid 1px #00b9b5;
-  color: #00b9b5;
+}
+
+.box--fg-mint .btn.btn--outline-reverse:hover, .box--fg-mint .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--fg-mint select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .box--fg-mint .inherit-fg {
@@ -2054,10 +2171,19 @@ dl.-horizontal dd ~ dd {
   fill: #00c0f3;
 }
 
-.box--fg-sky .btn.btn--outline:hover, .box--fg-sky .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--fg-sky select.btn--outline:hover {
+.box--fg-sky .btn.btn--outline, .box--fg-sky .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--fg-sky select.btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.box--fg-sky .btn.btn--outline:hover, .box--fg-sky .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--fg-sky select.btn--outline:hover {
+  background: #00c0f3;
   border: solid 1px #00c0f3;
-  color: #00c0f3;
+}
+
+.box--fg-sky .btn.btn--outline-reverse:hover, .box--fg-sky .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--fg-sky select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .box--fg-sky .inherit-fg {
@@ -2100,10 +2226,19 @@ dl.-horizontal dd ~ dd {
   fill: #b455a0;
 }
 
-.box--fg-grape .btn.btn--outline:hover, .box--fg-grape .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--fg-grape select.btn--outline:hover {
+.box--fg-grape .btn.btn--outline, .box--fg-grape .menu-item--banner-language-switcher select.btn--outline, .menu-item--banner-language-switcher .box--fg-grape select.btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.box--fg-grape .btn.btn--outline:hover, .box--fg-grape .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .box--fg-grape select.btn--outline:hover {
+  background: #b455a0;
   border: solid 1px #b455a0;
-  color: #b455a0;
+}
+
+.box--fg-grape .btn.btn--outline-reverse:hover, .box--fg-grape .menu-item--banner-language-switcher select.btn--outline-reverse:hover, .menu-item--banner-language-switcher .box--fg-grape select.btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .box--fg-grape .inherit-fg {
@@ -2165,10 +2300,19 @@ dl.-horizontal dd ~ dd {
   fill: #00b9b5;
 }
 
-.js-flyout__button[class].btn--outline:hover {
+.js-flyout__button[class].btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.js-flyout__button[class].btn--outline:hover {
+  background: #00b9b5;
   border: solid 1px #00b9b5;
-  color: #00b9b5;
+}
+
+.js-flyout__button[class].btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .js-flyout__button[class] .svg-icon {
@@ -3450,10 +3594,19 @@ a.btn {
   fill: #fff;
 }
 
-.btn--white[class].btn--outline:hover {
+.btn--white[class].btn--outline {
   background: transparent;
+  border: solid 1px #21293c;
+}
+
+.btn--white[class].btn--outline:hover {
+  background: #fff;
   border: solid 1px #fff;
-  color: #fff;
+}
+
+.btn--white[class].btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px #21293c;
 }
 
 .btn--orange[class] {
@@ -3468,10 +3621,19 @@ a.btn {
   fill: #f79433;
 }
 
-.btn--orange[class].btn--outline:hover {
+.btn--orange[class].btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.btn--orange[class].btn--outline:hover {
+  background: #f79433;
   border: solid 1px #f79433;
-  color: #f79433;
+}
+
+.btn--orange[class].btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .btn--mint[class] {
@@ -3486,10 +3648,19 @@ a.btn {
   fill: #00b9b5;
 }
 
-.btn--mint[class].btn--outline:hover {
+.btn--mint[class].btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.btn--mint[class].btn--outline:hover {
+  background: #00b9b5;
   border: solid 1px #00b9b5;
-  color: #00b9b5;
+}
+
+.btn--mint[class].btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .btn--sky[class] {
@@ -3504,10 +3675,19 @@ a.btn {
   fill: #00c0f3;
 }
 
-.btn--sky[class].btn--outline:hover {
+.btn--sky[class].btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.btn--sky[class].btn--outline:hover {
+  background: #00c0f3;
   border: solid 1px #00c0f3;
-  color: #00c0f3;
+}
+
+.btn--sky[class].btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .btn--grape[class] {
@@ -3522,10 +3702,19 @@ a.btn {
   fill: #b455a0;
 }
 
-.btn--grape[class].btn--outline:hover {
+.btn--grape[class].btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.btn--grape[class].btn--outline:hover {
+  background: #b455a0;
   border: solid 1px #b455a0;
-  color: #b455a0;
+}
+
+.btn--grape[class].btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .btn--ink[class] {
@@ -3540,10 +3729,19 @@ a.btn {
   fill: #21293c;
 }
 
-.btn--ink[class].btn--outline:hover {
+.btn--ink[class].btn--outline {
   background: transparent;
+  border: solid 1px;
+}
+
+.btn--ink[class].btn--outline:hover {
+  background: #21293c;
   border: solid 1px #21293c;
-  color: #21293c;
+}
+
+.btn--ink[class].btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px;
 }
 
 .btn--outline-only[class] {
@@ -3560,10 +3758,19 @@ a.btn {
   fill: rgba(255, 255, 255, 0);
 }
 
-.btn--outline-only[class].btn--outline:hover {
+.btn--outline-only[class].btn--outline {
   background: transparent;
+  border: solid 1px #fff;
+}
+
+.btn--outline-only[class].btn--outline:hover {
+  background: rgba(255, 255, 255, 0);
   border: solid 1px rgba(255, 255, 255, 0);
-  color: rgba(255, 255, 255, 0);
+}
+
+.btn--outline-only[class].btn--outline-reverse:hover {
+  background: transparent;
+  border: solid 1px #fff;
 }
 
 .btn--small[class] {
@@ -4171,16 +4378,6 @@ a.btn {
 
 .billboard__main--building-intro h2 {
   margin-top: 20px;
-}
-
-.billboard.box--grape .btn:not(:last-child), .billboard.box--grape .menu-item--banner-language-switcher select:not(:last-child), .menu-item--banner-language-switcher .billboard.box--grape select:not(:last-child) {
-  background-color: #fff;
-  color: #b455a0;
-}
-
-.billboard.box--grape .btn:last-child, .billboard.box--grape .menu-item--banner-language-switcher select:last-child, .menu-item--banner-language-switcher .billboard.box--grape select:last-child {
-  background-color: transparent;
-  border: 2px solid #fff;
 }
 
 .awards {
@@ -5684,6 +5881,10 @@ a.btn {
   top: 20px;
 }
 
+.rent-cost p {
+  margin-bottom: 40px;
+}
+
 .pricing-section__btn {
   display: block;
   width: 100%;
@@ -7053,6 +7254,17 @@ a.btn {
   .room-details-aside{
     margin-top: 80px;
   }
+  .rent-cost{
+    -moz-columns: 2;
+    columns: 2;
+    -moz-column-width: 50%;
+    column-width: 50%;
+  }
+  .rent-cost div{
+    display: inline-block;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
   .pricing-section__btn{
     margin-top: 80px;
   }
@@ -7340,6 +7552,12 @@ a.btn {
   .room-details-aside__logo img{
     transform: scale(1);
     transition: all ease-in-out 0.25s;
+  }
+  .rent-cost{
+    -moz-columns: 3;
+    columns: 3;
+    -moz-column-width: 33.33%;
+    column-width: 33.33%;
   }
 }
 
