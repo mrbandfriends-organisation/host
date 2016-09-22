@@ -28,4 +28,4 @@ function move_yoast_to_botttom() {
 	return 'low';
 }
 
-add_filter( 'wpseo_metabox_prio', 'move_yoast_to_botttom');
+add_filter( 'wpseo_metabox_prio', __NAMESPACE__ . '\\move_yoast_to_botttom');

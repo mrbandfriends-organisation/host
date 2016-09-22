@@ -5543,14 +5543,36 @@ a.btn {
   margin-bottom: 40px;
 }
 
+.pricing__lisiting-item--photo {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+
+.pricing__lisiting-item--photo .pricing-body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+}
+
+.pricing-header {
+  padding: 1.25rem;
+}
+
 .pricing-header .pricing-header__heading {
   color: #fff;
   margin-bottom: 0;
-  font-size: 25px;
+  font-size: 1.1875rem;
 }
 
 .pricing-header__smallprint {
+  display: block;
   color: #fff;
+  margin-top: 10px;
 }
 
 .pricing-body {
@@ -5559,7 +5581,7 @@ a.btn {
 
 .pricing-body h3,
 .pricing-body h4 {
-  margin: 0;
+  margin: 0 0 20px;
   color: #21293c;
 }
 
@@ -5571,7 +5593,13 @@ a.btn {
 }
 
 .pricing-body p {
-  margin-top: 0;
+  margin: 0;
+}
+
+.pricing-body__image {
+  height: 100%;
+  -ms-flex: 1;
+      flex: 1;
 }
 
 .pricing-body__number {
@@ -6983,11 +7011,11 @@ a.btn {
   .pricing__lisiting{
     margin-bottom: 80px;
   }
-  .pricing-header .pricing-header__heading{
-    font-size: 26px;
+  .pricing-header__smallprint{
+    margin-top: 20px;
   }
   .pricing-body__number--large{
-    font-size: 3.25rem;
+    font-size: 2rem;
   }
   .generic-content-page{
     padding: 80px 0;
@@ -7255,6 +7283,15 @@ a.btn {
   }
   .footer-marks{
     margin: 0;
+  }
+  .pricing-header{
+    padding: 1.875rem 1.25rem;
+  }
+  .pricing-header .pricing-header__heading{
+    font-size: 26px;
+  }
+  .pricing-body__number--large{
+    font-size: 3.25rem;
   }
   .room-details-container{
     max-width: 75%;
@@ -7611,6 +7648,9 @@ a.btn {
   }
   .social-media-icons-list{
     float: left;
+  }
+  .pricing-body__image{
+    min-height: 22.5vh;
   }
 }
 
