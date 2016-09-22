@@ -2535,6 +2535,10 @@ dl.-horizontal dd ~ dd {
   margin-bottom: 0;
 }
 
+.multiply-bg {
+  background-blend-mode: multiply;
+}
+
 .ps-container {
   -ms-touch-action: none;
   touch-action: none;
@@ -4167,10 +4171,6 @@ a.btn {
 
 .billboard__main--building-intro h2 {
   margin-top: 20px;
-}
-
-.billboard.box--grape h2:first-child {
-  margin-bottom: -2.5rem;
 }
 
 .billboard.box--grape .btn:not(:last-child), .billboard.box--grape .menu-item--banner-language-switcher select:not(:last-child), .menu-item--banner-language-switcher .billboard.box--grape select:not(:last-child) {
