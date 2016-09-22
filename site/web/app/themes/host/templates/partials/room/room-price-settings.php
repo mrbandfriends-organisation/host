@@ -29,7 +29,7 @@
 
 ?>
 
-<div class="box box--fg-mint">
+<div class="box box--less-padding box--fg-mint">
     <h2>
         <?php echo esc_html($price_title_1); ?><br />
         <?php echo esc_html($price_title_2); ?>
@@ -49,5 +49,5 @@
 
     <a href="<?php echo esc_html($cancellation_policy); ?>" class="pricing-section__btn btn btn--mint">
         <?php echo the_title(); ?> cancellation policy >
-    </a>    
+    </a>
 </div>
