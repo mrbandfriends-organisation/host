@@ -47,22 +47,45 @@
     }
 }
 
-.pricing__lisiting-item {}
+// .pricing__lisiting-item {}
+
+.pricing__lisiting-item--photo {
+    display: flex;
+    flex-direction: column;
+
+    .pricing-body {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+}
 
 .pricing-header {
+    padding: rem(20);
+
+    @include mq(xlarge) {
+        padding: rem(30) rem(20);
+    }
+
     .pricing-header__heading {
         color:  #fff;
         margin-bottom: 0;
-        font-size: $h3-fsize;
+        font-size: rem(19);
 
-        @include mq(large) {
+        @include mq(xlarge) {
             font-size: $h3-fsize-desktop;
         }
     }
 }
 
 .pricing-header__smallprint {
+    display: block;
     color:  #fff;
+    margin-top: $quarter-spacing-unit;
+
+    @include mq(large) {
+        margin-top: $half-spacing-unit;
+    }
 }
 
 .pricing-body {
@@ -71,7 +94,7 @@
     // =========================================
     h3,
     h4 {
-        margin: 0;
+        margin: 0 0 $half-spacing-unit;
         color: brand(ink);
 
         &:first-line,
@@ -81,7 +104,16 @@
     }
 
     p {
-        margin-top: 0;
+        margin: 0;
+    }
+}
+
+.pricing-body__image {
+    height: 100%;
+    flex: 1;
+
+    @include mq($until: large) {
+        min-height: 22.5vh;
     }
 }
 
@@ -97,6 +129,10 @@
     font-size: rem($h1-fsize);
 
     @include mq(large) {
+        font-size: rem($h1-fsize-desktop - ($h1-fsize-desktop - $h1-fsize));
+    }
+
+    @include mq(xlarge) {
         font-size: rem($h1-fsize-desktop);
     }
 }

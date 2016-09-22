@@ -13,22 +13,30 @@
         <div class="pricing__option">
             <h3 class="pricing__heading plain h4">1. The simple stuff:</h3>
 
-            <?php while ( have_rows('pricing_options') ) : the_row();?>
                 <?php
-                    $simple_weeks = get_sub_field('number_of_weeks');
-                    $date_range = get_sub_field('date_range');
-                    $price_per_week = get_sub_field('price_per_week');
+                    $simple_weeks = $pricing_options[0]['number_of_weeks'];
+                    $date_range = $pricing_options[0]['date_range'];
+                    $price_per_week = $pricing_options[0]['price_per_week'];
                 ?>
                 <ul class="pricing__lisiting grid grid--gutter">
-                    <li class="gc l1-3 pricing__lisiting-item">
-                        <div class="pricing-header box box--less-padding">
+                    <li class="gc l1-3 pricing__lisiting-item pricing__lisiting-item--photo">
+                        <div class="pricing-header">
                             <h4 class="pricing-header__heading">Room Type: <br >Premium Studio</h4>
                         </div>
-                        <div class="pricing-body box box--less-padding">
+                        <div class="pricing-body box">
+                            <?php
+                                $thumb_id        = get_post_thumbnail_id();
+                                $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
+                                $thumb_url       = $thumb_url_array[0];
+                            ?>
+                            <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
+                                'image'     => $thumb_url,
+                                'modifier'  => 'pricing-body__image'
+                            )); ?>
                         </div>
                     </li>
                     <li class="gc l1-3 pricing__lisiting-item">
-                        <div class="pricing-header box box--less-padding">
+                        <div class="pricing-header">
                             <h4 class="pricing-header__heading plain">
                                 Number of weeks you would like to stay:
                             </h4>
@@ -44,7 +52,7 @@
                         </div>
                     </li>
                     <li class="gc l1-3 pricing__lisiting-item">
-                        <div class="pricing-header box box--less-padding">
+                        <div class="pricing-header">
                             <h4 class="pricing-header__heading plain">
                                 Rent amount Per week:
                             </h4>
@@ -57,19 +65,18 @@
                     </li>
                 </ul>
 
-                <?php if ( have_rows('payment_plans') ): ?>
                     <h3 class="pricing__heading plain h4">2. Payment &amp; installment plans</h3>
 
                     <ul class="pricing__lisiting grid grid--gutter flex">
-                        <?php while ( have_rows('payment_plans') ) : the_row();?>
+                        <?php foreach ($pricing_options[0]['payment_plans'] as $payment_plan):?>
 
                             <li class="gc l1-3 pricing__lisiting-item">
                                 <?php
-                                    $title = get_sub_field('title');
-                                    $subtitle = get_sub_field('subtitle');
-                                    $content = get_sub_field('content');
+                                    $title = $payment_plan['title'];
+                                    $subtitle = $payment_plan['subtitle'];
+                                    $content = $payment_plan['content'];
                                 ?>
-                                <div class="pricing-header box box--less-padding">
+                                <div class="pricing-header">
                                     <h4 class="pricing-header__heading">
                                         <?php echo esc_html($title);?>
                                     </h4>
@@ -85,11 +92,9 @@
                                 </div>
                             </li>
 
-                        <?php endwhile; ?>
+                        <?php endforeach; ?>
 
                     </ul>
-                <?php endif; ?>
-            <?php endwhile; ?>
         </div>
     </div>
 <?php endif; ?>
