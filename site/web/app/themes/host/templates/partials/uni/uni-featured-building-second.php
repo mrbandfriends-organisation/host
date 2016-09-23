@@ -6,9 +6,16 @@
 
 <div class="grid grid--vertical-l">
     <div class="gc l1-2">
-        <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
-            'image'   => "http://host.dev/app/uploads/cache/2016/08/room_placeholder/4012389868.jpg"
-        )); ?>
+        <?php
+            // Getting featured image form location
+            $thumb_id        = get_post_thumbnail_id($featuerd_building_id);
+            $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'full-size', true);
+            $thumb_url       = $thumb_url_array[0];
+
+            echo Utils\ob_load_template_part('templates/components/bleed-image', array(
+                'image' => $thumb_url
+            ));
+        ?>
     </div>
     <div class="gc l1-2">
         <?php echo Utils\ob_load_template_part('templates/partials/shared/map-static', array(
