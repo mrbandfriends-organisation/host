@@ -96,7 +96,8 @@ require('./ext/NodeList');
 
     require('FavouriteManager');
 
-    //require('slick')();
+    require('slick')();
+
 })();
 
 
