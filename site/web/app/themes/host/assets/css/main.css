@@ -5573,6 +5573,10 @@ a.btn {
       flex-grow: 1;
 }
 
+.pricing__lisiting-item--first h3:last-of-type {
+  margin: 0 0 20px;
+}
+
 .pricing-header {
   padding: 1.25rem;
 }

@@ -68,9 +68,11 @@
                     <h3 class="pricing__heading plain h4">2. Payment &amp; installment plans</h3>
 
                     <ul class="pricing__lisiting grid grid--gutter flex">
+                        <?php $counter = 1; ?>
                         <?php foreach ($pricing_options[0]['payment_plans'] as $payment_plan):?>
+                            <?php $listing_item_modifier = ($counter === 1 ? 'pricing__lisiting-item--first' : null); ?>
 
-                            <li class="gc l1-3 pricing__lisiting-item">
+                            <li class="gc l1-3 pricing__lisiting-item <?php echo esc_attr($listing_item_modifier); ?>">
                                 <?php
                                     $title = $payment_plan['title'];
                                     $subtitle = $payment_plan['subtitle'];
@@ -87,7 +89,6 @@
                                 <div class="pricing-body box box--less-padding">
                                     <?php
                                         echo Utils\esc_text_area__($content);
-                                        // var_dump($content);
                                     ?>
                                 </div>
                             </li>
