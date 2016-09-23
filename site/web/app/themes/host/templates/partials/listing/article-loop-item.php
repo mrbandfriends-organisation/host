@@ -3,9 +3,10 @@
 
     // Tech Ben Statements
     $modifier                 = ( !empty($modifier) ? $modifier : null );
-    $blog_page_id             = Utils\get_id_by_slug('blog');
-    //$featured_image           = ( has_post_thumbnail() === true ? Utils\post_thumb_url( get_the_ID() ) : get_field('post_fallback_image', $blog_page_id) );
-    //$featured_image__modifier = ( !empty( $featured_image__modifier ) ) ? $featured_image__modifier : null;
+    $blog_page_id             = get_option( 'page_for_posts' );
+    $fallback_featured_image  = ( !empty(get_field('post_fallback_image', $blog_page_id)) ? get_field('post_fallback_image', $blog_page_id) : null );
+    $featured_image           = ( has_post_thumbnail() === true ? Utils\post_thumb_url( get_the_ID() ) : $fallback_featured_image['url'] );
+    $featured_image__modifier = ( !empty( $featured_image__modifier ) ) ? $featured_image__modifier : null;
     $heading                  = ( !empty(get_the_title()) ? get_the_title() : null );
     $heading_modifier         = ( !empty($heading_modifier) ? $heading_modifier : null );
     $excerpt                  = ( !empty(get_the_excerpt()) ? get_the_excerpt() : null );

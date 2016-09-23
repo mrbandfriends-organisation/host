@@ -1,11 +1,10 @@
 <?php
     Use Roots\Sage\Utils;
     use Roots\Sage\ajaxLoadPosts;
-?>
 
-<?php get_template_part('templates/page', 'header'); ?>
+    $page_id = get_option( 'page_for_posts' );
 
-<?php
+
     // Getting the query
     $the_query = ajaxLoadPosts\blog_post_query(get_query_var('paged'), 5);
 
@@ -32,26 +31,28 @@
     $sBaseUrl = join('page/%s?', $aBaseUrl);
 ?>
 
+<?php echo Utils\ob_load_template_part('templates/components/hero', array(
+    'post_id'  => $page_id
+)); ?>
+
 <?php if ($blog_posts->have_posts()): ?>
-<section class="band">
-    <div class="container">
+    <section class="band box box--padded box--off-white">
+        <div class="container">
+            <ul class="article-list blog-features-list grid grid--gutter grid--double-gutter js-posts-loader-container">
+                <?php echo Utils\ob_load_template_part('templates/partials/listing/article-loop', [
+                    'query' => $blog_posts
+                ]); ?>
+            </ul>
+        </div>
 
-        <ul class="article-list blog-features-list grid grid--half-gutter js-posts-loader-container">
-            <?php echo Utils\ob_load_template_part('templates/partials/listing/article-loop', [
-                'query'         => $blog_posts
-            ]); ?>
-        </ul>
-
-    </div>
-
-    <?php if ($curr_page < $max_pages): ?>
-        <a href="<?=str_replace('%s', ($curr_page + 1), $sBaseUrl); ?>" class="btn btn--center btn--large btn--tertiary-reverse btn-ajax js-posts-loader-trigger"
-            data-posts-loader-max-pages="<?php echo esc_attr( $max_pages ); ?>"
-            data-posts-loader-curr-page="<?php echo esc_attr( $curr_page ); ?>">
-            Load more articles
-        </a>
-    <?php endif; ?>
-</section>
+        <?php if ($curr_page < $max_pages): ?>
+            <a href="<?=str_replace('%s', ($curr_page + 1), $sBaseUrl); ?>" class="btn btn--center btn--large btn--tertiary-reverse btn-ajax js-posts-loader-trigger"
+                data-posts-loader-max-pages="<?php echo esc_attr( $max_pages ); ?>"
+                data-posts-loader-curr-page="<?php echo esc_attr( $curr_page ); ?>">
+                Load more articles
+            </a>
+        <?php endif; ?>
+    </section>
 <?php endif; ?>
 
 

@@ -391,3 +391,20 @@ function get_post_by_slug($sSlug, $additional_args = [])
 
     return (count($qry->posts) === 0) ? null : $qry->posts[0];
 }
+
+/**
+ *  POST THUMB URL
+ *
+ *  Getting URL of posts featured image
+ *
+ *  @param      int     Post's ID that you want to get featured images URL
+ */
+function post_thumb_url($post_id = null) {
+    if ( !empty($post_id) ) {
+        $featured_img_id        = get_post_thumbnail_id($post_id);
+        $featured_img_url_array = wp_get_attachment_image_src($featured_img_id, 'thumbnail-size', true);
+        $featured_img_url       = $featured_img_url_array[0];
+    }
+
+    return $featured_img_url;
+}
