@@ -10,7 +10,6 @@
 
     $marker = array(
         //'color:' . $colour . '',
-        //'label:' . $label,
         $center
     );
 

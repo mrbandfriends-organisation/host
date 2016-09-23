@@ -4147,6 +4147,12 @@ a.btn {
   width: 100%;
 }
 
+.uni-information__logo-container {
+  max-width: 33.59375rem;
+  margin: 0 auto;
+  padding: 40px;
+}
+
 .billboard {
   padding: 0 1.25rem;
 }
@@ -6957,6 +6963,10 @@ a.btn {
   }
   .split-feature.-twin-content .split-feature__secondary{
     padding-bottom: 0;
+  }
+  .uni-information__logo-container{
+    padding: 80px 80px 80px 0;
+    margin-right: 0;
   }
   .billboard{
     padding: 0 1.875rem;
