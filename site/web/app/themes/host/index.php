@@ -38,7 +38,7 @@
 <?php if ($blog_posts->have_posts()): ?>
     <section class="band box box--padded box--off-white">
         <div class="container">
-            <ul class="article-list blog-features-list grid grid--gutter grid--double-gutter js-posts-loader-container">
+            <ul class="article-list js-posts-loader-container">
                 <?php echo Utils\ob_load_template_part('templates/partials/listing/article-loop', [
                     'query' => $blog_posts
                 ]); ?>

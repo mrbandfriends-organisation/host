@@ -13,25 +13,28 @@
     $excerpt_modifier         = ( !empty($excerpt_modifier) ? $excerpt_modifier : null );
 ?>
 
-<article class="blog-feature <?php echo esc_attr($modifier); ?>">
-    <a href="<?=esc_attr(get_the_permalink());?>" class="blog-feature__link">
+<article class="article-tile <?php echo esc_attr($modifier); ?>">
+    <a href="<?=esc_attr(get_the_permalink());?>" class="article-tile__link">
         <?php if ( !empty($featured_image) ): ?>
-              <div class="blog-feature__image-container">
-                  <img class="blog-feature__image <?php echo esc_attr($featured_image__modifier) ?>" src="<?php echo esc_url($featured_image); ?>" alt="" />
-              </div>
+            <div class="article-tile__image-container">
+                <img class="article-tile__image <?php echo esc_attr($featured_image__modifier) ?>" src="<?php echo esc_url($featured_image); ?>" alt="" />
+            </div>
         <?php endif; ?>
 
-        <?php if ( !empty($heading) ): ?>
-            <h2 class="blog-feature__heading heading-charlie heading-purple <?php echo esc_attr($heading_modifier); ?>">
-                <?=get_the_title(); ?>
-            </h2>
-        <?php endif; ?>
+        <div class="article-tile__inner box box--little-padding">
+            <?php if ( !empty($heading) ): ?>
+                <h2 class="article-tile__heading <?php echo esc_attr($heading_modifier); ?>">
+                    <?=get_the_title(); ?>
+                </h2>
+            <?php endif; ?>
 
-        <?php if ( !empty($excerpt) ): ?>
-            <p class="blog-feature__excerpt paragraph-small <?php echo esc_attr($excerpt_modifier); ?>">
-                <?php echo esc_html(get_the_excerpt()); ?>
-            </p>
-        <?php endif; ?>
+            <?php if ( !empty($excerpt) ): ?>
+                <p class="article-tile__excerpt <?php echo esc_attr($excerpt_modifier); ?>">
+                    <?php echo esc_html( Utils\limit_words(get_the_excerpt(), 20) ); ?>
+                </p>
+            <?php endif; ?>
+        </div>
+
     </a>
 
 </article>

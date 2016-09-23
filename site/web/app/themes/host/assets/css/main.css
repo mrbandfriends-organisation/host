@@ -5636,6 +5636,30 @@ a.btn {
   font-size: 2rem;
 }
 
+.article-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -moz-columns: 1;
+       columns: 1;
+}
+
+.article-list__item {
+  page-break-inside: avoid;
+  break-inside: avoid;
+  margin-bottom: 40px;
+}
+
+.article-tile__inner .article-tile__heading {
+  font-size: 1.5625rem;
+  line-height: 1.04;
+  color: #21293c;
+}
+
+.article-tile__inner .article-tile__heading:first-line {
+  color: #21293c;
+}
+
 .homepage-investors-image-hack {
   width: 100%;
   height: 100%;
@@ -6676,6 +6700,18 @@ a.btn {
   .footer-up-arrow-container{
     display: none;
   }
+  .article-list{
+    -moz-columns: 2;
+    columns: 2;
+    margin-left: -30px;
+  }
+  .article-list__item{
+    margin-left: 30px;
+  }
+  .article-tile__inner .article-tile__heading{
+    font-size: 1.625rem;
+    line-height: 1.15;
+  }
   .generic-content-page__inner{
     padding: 0 5%;
   }
@@ -7049,6 +7085,10 @@ a.btn {
   .pricing-body__number--large{
     font-size: 2rem;
   }
+  .article-list{
+    -moz-columns: 3;
+    columns: 3;
+  }
   .generic-content-page{
     padding: 80px 0;
   }
@@ -7335,6 +7375,10 @@ a.btn {
   }
   .pricing-body__number--large{
     font-size: 3.25rem;
+  }
+  .article-list{
+    -moz-columns: 4;
+    columns: 4;
   }
   .room-details-container{
     max-width: 75%;

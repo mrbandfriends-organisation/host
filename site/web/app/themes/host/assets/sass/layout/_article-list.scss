@@ -1,0 +1,76 @@
+// ==========================================================================
+//
+// ARTICLE LIST
+//
+// Description: Styles for a arhcive listing page
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.article-list {
+    @include list-reset;
+    columns: 1;
+
+    @include mq(medium) {
+        columns: 2;
+        margin-left: -$gutter;
+    }
+
+    @include mq(large) {
+        columns: 3;
+    }
+
+    @include mq(xlarge) {
+        columns: 4;
+    }
+}
+
+.article-list__item {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: $spacing-unit;
+
+    @include mq(medium) {
+        margin-left: $gutter;
+    }
+}
+
+
+// ==========================================================================
+// # ARTICLE TILE
+// ==========================================================================
+
+// .article-tile {}
+
+// .article-tile__image-container {}
+
+// .article-tile__image {}
+
+.article-tile__inner {
+    .article-tile__heading {
+        font-size: rem($h3-fsize);
+        line-height: 1.04;
+        color: $base-font-color;
+
+        &:first-line {
+            color: $base-font-color;
+        }
+
+        @include mq(medium) {
+            font-size: rem($h3-fsize-desktop);
+            line-height: 1.15;
+        }
+    }
+
+}
+
+
+// .article-tile__excerpt {}
+
+// ==========================================================================
+// # MODIFIER: %%MODIFIER_NAME%%
+// ==========================================================================
