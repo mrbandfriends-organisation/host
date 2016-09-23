@@ -1332,8 +1332,8 @@ thead tr:last-child th {
 }
 
 .separated-list__icon {
-  min-width: 1.5rem;
-  min-height: 1.5rem;
+  min-width: 2rem;
+  min-height: 2rem;
   margin-right: 20px;
 }
 
@@ -5684,6 +5684,10 @@ a.btn {
   top: 20px;
 }
 
+.rent-cost p {
+  margin-bottom: 40px;
+}
+
 .pricing-section__btn {
   display: block;
   width: 100%;
@@ -7053,6 +7057,17 @@ a.btn {
   .room-details-aside{
     margin-top: 80px;
   }
+  .rent-cost{
+    -moz-columns: 2;
+    columns: 2;
+    -moz-column-width: 50%;
+    column-width: 50%;
+  }
+  .rent-cost div{
+    display: inline-block;
+    page-break-inside: auto;
+    break-inside: auto;
+  }
   .pricing-section__btn{
     margin-top: 80px;
   }
@@ -7340,6 +7355,12 @@ a.btn {
   .room-details-aside__logo img{
     transform: scale(1);
     transition: all ease-in-out 0.25s;
+  }
+  .rent-cost{
+    -moz-columns: 3;
+    columns: 3;
+    -moz-column-width: 33.33%;
+    column-width: 33.33%;
   }
 }
 
