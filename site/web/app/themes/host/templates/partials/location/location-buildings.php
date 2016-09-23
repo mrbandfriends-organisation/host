@@ -53,6 +53,7 @@
             $sUrl      = $bExternal ? get_field('website_url') : get_the_permalink();
             $sText     = $bExternal ? 'Take me to the website' : 'Show me this property';
             $sAtts     = $bExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+            $sBtnText     = ($aAvailabilityDefinition['text'] === 'Coming soon') ? '' : $sText;
         ?>
         <li class="property-list__item">
             <article class="listed-property grid">
@@ -89,9 +90,9 @@
                                 <?php endif; ?>
                             </address>
 
-                            <?php if (!empty($sUrl)): ?>
+                            <?php if (!empty($sUrl) && !empty($sBtnText)): ?>
                             <p>
-                                <a href="<?=$sUrl; ?>" class="btn"<?=$sAtts; ?>><?=$sText; ?></a>
+                                <a href="<?=$sUrl; ?>" class="btn"<?=$sAtts; ?>><?=$sBtnText; ?></a>
                             </p>
                             <?php endif; ?>
                         </div>

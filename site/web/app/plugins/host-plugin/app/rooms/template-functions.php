@@ -1,6 +1,6 @@
 <?php
 /**
- * UNIVERSITIES TEMPLATE HELPERS.
+ * ROOMS TEMPLATE HELPERS.
  *
  * template helper functions to allow WordPress templates
  * to access Examples data
