@@ -2,27 +2,11 @@
     use Roots\Sage\Utils;
 ?>
 
+<?php echo Utils\ob_load_template_part('templates/components/hero', array(
+    'post_id' => get_the_id(),
+    'color'   => 'off-white'
+)); ?>
 
-  <main id="main-content" role="main" class="main-content">
+<?php //echo Utils\ob_load_template_part('templates/partials/shared/featured-building'); ?>
 
-      <?php while (have_posts()) : the_post(); ?>
-
-        <section class="band split-feature grid">
-          <div class="split-feature__main box--red gc l1-2">
-              <div class="split-feature__content">
-                  <?php the_content(); ?>
-              </div>
-          </div>
-          <aside class="split-feature__secondary gc l1-2">
-              <?php echo the_post_thumbnail(); ?>
-          </aside>
-        </section>
-
-      <?php endwhile; ?>
-
-
-      <?php echo Utils\ob_load_template_part('templates/partials/shared/featured-building'); ?>
-
-      <?php echo Utils\ob_load_template_part('templates/partials/shared/awards'); ?>
-
-  </main>
+<?php //echo Utils\ob_load_template_part('templates/partials/shared/awards'); ?>
