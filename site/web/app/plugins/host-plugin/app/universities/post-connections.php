@@ -40,7 +40,8 @@ class Post_Connections
             'name' => 'uni_to_location',
             'from' => 'university',
             'to' => 'locations',
-            'cardinality' => 'many-to-one'
+            'cardinality' => 'many-to-one',
+            'admin_column' => 'from'
         ) );
     }
 }
