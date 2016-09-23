@@ -23,7 +23,7 @@
     <h3 class="carousel-infobox__heading">
         <?php echo esc_html($building_name); ?> building.
         <br>
-        London.
+        <?=esc_html($town); ?>
     </h3>
 <?php endif; ?>
 
