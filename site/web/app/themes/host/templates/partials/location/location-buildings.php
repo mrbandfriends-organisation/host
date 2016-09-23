@@ -82,6 +82,7 @@
                                     <?=str_replace("\n", '<br>', esc_html($address)); ?>
                                 </p>
                                 <?php endif; ?>
+
                                 <?php if (!empty($phone)): ?>
                                 <p>
                                     <strong>Call:</strong>

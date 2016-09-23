@@ -76,8 +76,7 @@
             "choices": {
                 "available": "Rooms available",
                 "limited": "Limited availability",
-                "sold_out": "Sold out",
-                "coming_soon": "Coming soon"
+                "sold_out": "Sold out"
             },
             "default_value": [],
             "allow_null": 0,
@@ -534,11 +533,11 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": 30,
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
-                    "file_location": "",
+                    "file_location": "assets\/svg\/sprites",
                     "file_glob": ""
                 },
                 {
@@ -607,14 +606,14 @@
         },
         {
             "key": "field_57b577f6299ad",
-            "label": "Location title",
-            "name": "location_title",
+            "label": "Location title 1",
+            "name": "location_title_1",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -622,9 +621,26 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
+        },
+        {
+            "key": "field_57e404f44881f",
+            "label": "Location title 2",
+            "name": "location_title_2",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_57b57813299ae",
@@ -872,5 +888,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1474551492
+    "modified": 1474621613
 }

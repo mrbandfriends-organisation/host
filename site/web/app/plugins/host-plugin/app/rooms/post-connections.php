@@ -40,7 +40,8 @@ class Post_Connections
             'name' => 'room_to_building',
             'from' => 'rooms',
             'to' => 'buildings',
-            'cardinality' => 'many-to-one'
+            'cardinality' => 'many-to-one',
+            'admin_column' => 'from'
         ) );
     }
 }

@@ -60,6 +60,15 @@
     }
 }
 
+// First item in the Payment & Installment Plans
+.pricing__lisiting-item--first {
+    h3 {
+        &:last-of-type {
+            margin: 0 0 $half-spacing-unit;
+        }
+    }
+}
+
 .pricing-header {
     padding: rem(20);
 

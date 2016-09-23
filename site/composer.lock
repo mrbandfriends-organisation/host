@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "14fa2901a9f8f6caa8c6670f3608c9e3",
-    "content-hash": "7c379b23e2357c17fe51425e8ced1667",
+    "hash": "9fdd9444285a8aea1ccdf0fdfc73c416",
+    "content-hash": "3f5c4bcf5d2af63812c2ff34b8672e0c",
     "packages": [
         {
             "name": "composer/installers",
@@ -340,6 +340,26 @@
                 "environment"
             ],
             "time": "2016-09-01 10:05:43"
+        },
+        {
+            "name": "wpackagist-plugin/codepress-admin-columns",
+            "version": "2.5.6.3",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/codepress-admin-columns/",
+                "reference": "tags/2.5.6.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/codepress-admin-columns.2.5.6.3.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/codepress-admin-columns/"
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
