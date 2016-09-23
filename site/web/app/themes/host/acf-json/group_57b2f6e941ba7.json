@@ -533,11 +533,11 @@
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
-                        "width": 30,
+                        "width": "30",
                         "class": "",
                         "id": ""
                     },
-                    "file_location": "",
+                    "file_location": "assets\/svg\/sprites",
                     "file_glob": ""
                 },
                 {
@@ -888,5 +888,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1474621235
+    "modified": 1474621613
 }
