@@ -117,8 +117,8 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "min": 10,
-            "max": 15,
+            "min": 1,
+            "max": 20,
             "step": 1
         },
         {
@@ -249,5 +249,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1474384938
+    "modified": 1474619869
 }
