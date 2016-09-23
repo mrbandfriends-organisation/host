@@ -13,9 +13,7 @@
 )); ?>
 
 
-<?php echo Utils\ob_load_template_part('templates/partials/shared/featured-building', array(
-    'snippet' => 'shared/standard-content'
-)); ?>
+<?php echo Utils\ob_load_template_part('templates/partials/shared/featured-building'); ?>
 
 <?php echo Utils\ob_load_template_part('templates/partials/shared/awards', array(
     'snippet'               => '/home/awards',
