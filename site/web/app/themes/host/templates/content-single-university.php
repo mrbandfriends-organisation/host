@@ -7,6 +7,10 @@
     'color'   => 'off-white'
 )); ?>
 
+<?php echo Utils\ob_load_template_part('templates/partials/uni/uni-information', array(
+    'snippet' => 'uni/uni-information-main.php'
+)); ?>
+
 <?php //echo Utils\ob_load_template_part('templates/partials/shared/featured-building'); ?>
 
 <?php //echo Utils\ob_load_template_part('templates/partials/shared/awards'); ?>
