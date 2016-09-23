@@ -13,7 +13,7 @@
             $thumb_url       = $thumb_url_array[0];
 
             echo Utils\ob_load_template_part('templates/components/bleed-image', array(
-                'image' => "http://host.dev/app/uploads/cache/2016/08/room_placeholder/4012389868.jpg"
+                'image' => $thumb_url
             ));
         ?>
     </div>
