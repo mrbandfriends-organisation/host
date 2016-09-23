@@ -8,7 +8,7 @@
 <?php
     $location_title = get_field('location_title', $parent_building_id);
     $location_overview = get_field('location_description', $parent_building_id);
-    $location_city = 'London';
+    $location_city = $connected_location_name;
 ?>
 
 <?php
