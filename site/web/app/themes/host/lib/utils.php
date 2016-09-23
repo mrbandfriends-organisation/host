@@ -154,7 +154,10 @@ function esc_text_area__( $string_to_esc_and_translate, $text_domain='englishstu
 			'p' => array(),
 			'ul' => array(),
 			'ol' => array(),
-			'li' => array()
+			'li' => array(),
+            'h2' => array(),
+            'h3' => array(),
+            'h4' => array()
 	));
 }
 // Alias for above

@@ -140,5 +140,19 @@
 // # MODIFIER: LOCATION REALTED BUILDING
 // ==========================================================================
 .split-feature--location-realted-building {
-    width: 100%;    
+    width: 100%;
+}
+
+// ==========================================================================
+// # MODIFIER: UNI INFORMATION LOGO
+// ==========================================================================
+.uni-information__logo-container {
+    @include half-container;
+    margin: 0 auto;
+    padding: $spacing-unit;
+
+    @include mq(large) {
+        padding: $double-spacing-unit $double-spacing-unit $double-spacing-unit 0;
+        margin-right: 0;
+    }
 }

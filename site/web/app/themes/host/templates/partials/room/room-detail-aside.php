@@ -17,7 +17,7 @@
     <aside class="room-details-aside secondary-split-feature band grid">
         <div class="secondary-split-feature__aside box box--mint gc l1-3">
             <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
-                'image' => $featured_image['sizes']['thumbnail']
+                'image' => $featured_image['sizes']['large']
             )); ?>
         </div>
         <div class="secondary-split-feature__main box box--padded box--off-white gc l2-3">
@@ -25,7 +25,7 @@
                 <?php if ( !empty($button[0]['button_link']) ): ?>
                     <a href="<?php echo esc_url($button[0]['button_link']); ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
                 <?php endif; ?>
-                    <img src="<?php echo esc_url($logo['sizes']['large']); ?>" alt="" />
+                    <img src="<?php echo esc_url($logo['sizes']['thumbnail']); ?>" alt="" />
                 <?php if ( !empty($button[0]['button_link']) ): ?>
                     </a>
                 <?php endif; ?>
@@ -41,7 +41,7 @@
 
                 <?php if ( !empty($description) ): ?>
                     <p>
-                        <?php echo esc_html($description); ?>
+                        <?php echo Utils\esc_textarea__($description); ?>
                     </p>
                 <?php endif; ?>
 

@@ -1332,8 +1332,8 @@ thead tr:last-child th {
 }
 
 .separated-list__icon {
-  min-width: 1.5rem;
-  min-height: 1.5rem;
+  min-width: 2rem;
+  min-height: 2rem;
   margin-right: 20px;
 }
 
@@ -2533,6 +2533,10 @@ dl.-horizontal dd ~ dd {
 
 .c-tabs.no-js .c-tab:last-child {
   margin-bottom: 0;
+}
+
+.multiply-bg {
+  background-blend-mode: multiply;
 }
 
 .ps-container {
@@ -4143,6 +4147,12 @@ a.btn {
   width: 100%;
 }
 
+.uni-information__logo-container {
+  max-width: 33.59375rem;
+  margin: 0 auto;
+  padding: 40px;
+}
+
 .billboard {
   padding: 0 1.25rem;
 }
@@ -4167,6 +4177,16 @@ a.btn {
 
 .billboard__main--building-intro h2 {
   margin-top: 20px;
+}
+
+.billboard.box--grape .btn:not(:last-child), .billboard.box--grape .menu-item--banner-language-switcher select:not(:last-child), .menu-item--banner-language-switcher .billboard.box--grape select:not(:last-child) {
+  background-color: #fff;
+  color: #b455a0;
+}
+
+.billboard.box--grape .btn:last-child, .billboard.box--grape .menu-item--banner-language-switcher select:last-child, .menu-item--banner-language-switcher .billboard.box--grape select:last-child {
+  background-color: transparent;
+  border: 2px solid #fff;
 }
 
 .awards {
@@ -4246,6 +4266,10 @@ a.btn {
 
 .map__map.js-enhanced {
   background: transparent none !important;
+}
+
+.map__map > div {
+  top: 0;
 }
 
 .map__static {
@@ -5535,17 +5559,81 @@ a.btn {
   background-color: #00b9b5;
 }
 
-.pricing-header__heading {
-  color: #fff !important;
+.pricing__lisiting {
+  margin-bottom: 40px;
+}
+
+.pricing__lisiting-item--photo {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+
+.pricing__lisiting-item--photo .pricing-body {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+}
+
+.pricing__lisiting-item--first h3:last-of-type {
+  margin: 0 0 20px;
+}
+
+.pricing-header {
+  padding: 1.25rem;
+}
+
+.pricing-header .pricing-header__heading {
+  color: #fff;
   margin-bottom: 0;
+  font-size: 1.1875rem;
+}
+
+.pricing-header__smallprint {
+  display: block;
+  color: #fff;
+  margin-top: 10px;
 }
 
 .pricing-body {
   background-color: #f5f5f5;
 }
 
-.pricing-header__smallprint {
-  color: #fff;
+.pricing-body h3,
+.pricing-body h4 {
+  margin: 0 0 20px;
+  color: #21293c;
+}
+
+.pricing-body h3:first-line,
+.pricing-body h3.plain span,
+.pricing-body h4:first-line,
+.pricing-body h4.plain span {
+  color: #21293c;
+}
+
+.pricing-body p {
+  margin: 0;
+}
+
+.pricing-body__image {
+  height: 100%;
+  -ms-flex: 1;
+      flex: 1;
+}
+
+.pricing-body__number {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.625rem;
+}
+
+.pricing-body__number--large {
+  font-size: 2rem;
 }
 
 .homepage-investors-image-hack {
@@ -5604,6 +5692,10 @@ a.btn {
 .box--padded .room-details-aside__logo {
   right: 20px;
   top: 20px;
+}
+
+.rent-cost p {
+  margin-bottom: 40px;
 }
 
 .pricing-section__btn {
@@ -6872,6 +6964,10 @@ a.btn {
   .split-feature.-twin-content .split-feature__secondary{
     padding-bottom: 0;
   }
+  .uni-information__logo-container{
+    padding: 80px 80px 80px 0;
+    margin-right: 0;
+  }
   .billboard{
     padding: 0 1.875rem;
   }
@@ -6944,6 +7040,15 @@ a.btn {
     -ms-flex-align: end;
     align-items: flex-end;
   }
+  .pricing__lisiting{
+    margin-bottom: 80px;
+  }
+  .pricing-header__smallprint{
+    margin-top: 20px;
+  }
+  .pricing-body__number--large{
+    font-size: 2rem;
+  }
   .generic-content-page{
     padding: 80px 0;
   }
@@ -6965,6 +7070,17 @@ a.btn {
   }
   .room-details-aside{
     margin-top: 80px;
+  }
+  .rent-cost{
+    -moz-columns: 2;
+    columns: 2;
+    -moz-column-width: 50%;
+    column-width: 50%;
+  }
+  .rent-cost div{
+    display: inline-block;
+    page-break-inside: auto;
+    break-inside: auto;
   }
   .pricing-section__btn{
     margin-top: 80px;
@@ -7211,6 +7327,15 @@ a.btn {
   .footer-marks{
     margin: 0;
   }
+  .pricing-header{
+    padding: 1.875rem 1.25rem;
+  }
+  .pricing-header .pricing-header__heading{
+    font-size: 26px;
+  }
+  .pricing-body__number--large{
+    font-size: 3.25rem;
+  }
   .room-details-container{
     max-width: 75%;
   }
@@ -7244,6 +7369,12 @@ a.btn {
   .room-details-aside__logo img{
     transform: scale(1);
     transition: all ease-in-out 0.25s;
+  }
+  .rent-cost{
+    -moz-columns: 3;
+    columns: 3;
+    -moz-column-width: 33.33%;
+    column-width: 33.33%;
   }
 }
 
@@ -7566,6 +7697,9 @@ a.btn {
   }
   .social-media-icons-list{
     float: left;
+  }
+  .pricing-body__image{
+    min-height: 22.5vh;
   }
 }
 

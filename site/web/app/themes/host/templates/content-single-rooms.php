@@ -2,9 +2,11 @@
     use Roots\Sage\Utils;
 ?>
 
-<?php $parent_building = host_room_find_connected_building(get_the_id())->post ?>
-
-<?php $parent_building_id = host_room_find_connected_building(get_the_id())->post->ID ?>
+<?php
+$parent_building = host_room_find_connected_building(get_the_id())->post;
+$parent_building_id = $parent_building->ID;
+$connected_location_name = host_building_find_connected_location($parent_building_id)->post->post_title;
+ ?>
 
 <?php echo Utils\ob_load_template_part('templates/partials/shared/header-carousel', array(
     'info_box' => Utils\ob_load_template_part('templates/snippets/shared/carousel-infobox', array(
@@ -22,13 +24,13 @@
 
 <?php echo Utils\ob_load_template_part('templates/partials/room/room-gallery.php'); ?>
 
-<section class="band band--inset box box--padded box--fg-mint">
+<section class="band band--inset box box--padded">
     <?php echo Utils\ob_load_template_part('templates/partials/room/room-prices.php'); ?>
 
     <?php echo Utils\ob_load_template_part('templates/partials/room/room-price-settings.php'); ?>
 </section>
 
-<?php echo Utils\ob_load_template_part('templates/partials/room/room-location.php', compact('parent_building_id')); ?>
+<?php echo Utils\ob_load_template_part('templates/partials/room/room-location.php', compact('parent_building_id', 'connected_location_name')); ?>
 
 <?php echo Utils\ob_load_template_part('templates/partials/shared/map', array(
     'iZoom' => get_field('map_zoom', $parent_building_id),

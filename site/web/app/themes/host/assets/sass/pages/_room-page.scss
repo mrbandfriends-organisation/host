@@ -144,8 +144,29 @@
 
 
 // ============================================================
-// SECTION: PRICINGING SETTINGS
+// SECTION: PRICING SETTINGS
 // ============================================================
+.rent-cost {
+    @include mq(large) {
+        columns: 2;
+        column-width: 50%;
+
+        div {
+            display: inline-block;
+            break-inside: auto;
+        }
+    }
+
+    @include mq(xlarge) {
+        columns: 3;
+        column-width: 33.33%;
+    }
+
+    p {
+        margin-bottom: $spacing-unit;
+    }
+}
+
 .pricing-section__btn {
     display: block;
     width: 100%;

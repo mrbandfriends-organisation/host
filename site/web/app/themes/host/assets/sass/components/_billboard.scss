@@ -68,3 +68,19 @@
         margin-top: $half-spacing-unit;
     }
 }
+
+.billboard.box--grape {
+    h2:first-child {
+        // margin-bottom: - rem($spacing-unit);
+    }
+
+    .btn:not(:last-child) {
+        background-color: #fff;
+        color: brand(grape);
+    }
+
+    .btn:last-child {
+        background-color: transparent;
+        border: 2px solid #fff;
+    }
+}

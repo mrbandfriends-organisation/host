@@ -15,6 +15,8 @@
   $content_2 = get_field('content_2','option');
   $content_3 = get_field('content_3','option');
 
+  $rent_costs = ( !empty(get_field('room_information', 'option')) ? get_field('room_information', 'option') : null );
+
   $room_cancellation_policy = get_field('cancellation_policy');
   $room_cancellation_policy = $room_cancellation_policy['url'];
 
@@ -29,22 +31,26 @@
 
 ?>
 
+<div class="box box--less-padding box--fg-mint">
+    <h2>
+        <?php echo esc_html($price_title_1); ?><br />
+        <?php echo esc_html($price_title_2); ?>
+    </h2>
 
-<h2>
-    <?php echo esc_html($price_title_1); ?><br />
-    <?php echo esc_html($price_title_2); ?>
-</h2>
+    <?php if ( !empty($rent_costs) ): ?>
+        <article class="rent-cost">
+            <?php foreach ($rent_costs as $rent_cost): ?>
+                <div>
+                    <strong><?php echo esc_html($rent_cost['heading']) ?></strong>
+                    <p>
+                        <?php echo esc_html($rent_cost['explanation']) ?>
+                    </p>
+                </div>
+            <?php endforeach; ?>
+        </article>
+    <?php endif; ?>
 
-<ul class="grid grid--gutter grid--double-gutter">
-    <li class="gc t1-1 m1-2 l1-3">
-        <?php echo $content_1; ?>
-    </li>
-    <li class="gc t1-1 m1-2 l1-3">
-        <?php echo $content_2; ?>
-    </li>
-    <li class="gc t1-1 m1-2 l1-3">
-        <?php echo $content_3; ?>
-    </li>
-</ul>
-
-<a href="<?php echo esc_html($cancellation_policy); ?>" class="pricing-section__btn btn btn--mint"><?php echo the_title(); ?> cancellation policy ></a>
+    <a href="<?php echo esc_html($cancellation_policy); ?>" class="pricing-section__btn btn btn--mint">
+        <?php echo the_title(); ?> cancellation policy >
+    </a>
+</div>
