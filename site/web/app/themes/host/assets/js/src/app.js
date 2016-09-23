@@ -96,5 +96,27 @@ require('./ext/NodeList');
 
     require('FavouriteManager');
 
-    require('slick')();
+    //require('slick')();
 })();
+
+
+
+/**
+ * AJAX POSTS LOADING
+ * initalise posts "load more" module
+ */
+(function() {
+   'use strict';
+
+    if ( $('.js-posts-loader-container').length ) {
+        // Async load
+
+        //require.ensure(['posts-loader'], function() {
+            var PostsLoader = require('posts-loader');
+            new PostsLoader({
+                'dataEndpoint' : 'host_load_posts'
+            });
+        //},'posts-loader');
+    }
+
+}());
