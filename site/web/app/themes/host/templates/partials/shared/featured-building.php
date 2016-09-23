@@ -31,8 +31,7 @@
         ));
     } else {
         $second_content = Utils\ob_load_template_part('templates/partials/uni/uni-featured-building-second', array(
-            // 'images'        => $featured_building_carousel_images,
-            //'grid_modifier' => 'grid--vertical-l'
+            'connected_location' => host_building_find_connected_location(get_the_id())
         ));
     }
 ?>
