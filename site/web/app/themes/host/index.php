@@ -36,7 +36,7 @@
 <section class="band">
     <div class="container">
 
-        <ul class="article-list blog-features-list grid grid--half-gutter js-posts-loader-container" data-columns>
+        <ul class="article-list blog-features-list grid grid--half-gutter js-posts-loader-container">
             <?php echo Utils\ob_load_template_part('templates/partials/listing/article-loop', [
                 'query'         => $blog_posts
             ]); ?>
@@ -55,6 +55,7 @@
 <?php endif; ?>
 
 
-<?php echo Utils\ob_load_template_part('templates/partials/listing/pagination', array(
-    'query' => $the_query
-)); ?>
+<?php
+//echo Utils\ob_load_template_part('templates/partials/listing/pagination', array(
+//    'query' => $the_query
+//)); ?>

@@ -124,12 +124,12 @@ PostsLoader.prototype._fetchPosts = function(event) {
         dataType   : 'html',
         url        : self.ajaxEndPoint,
         beforeSend : function() {
-            console.log("AJAX!");3
+            console.log("AJAX!");
             self.loading = true;
             self.triggerEl.addClass(self.options.triggerActiveClass);
         },
         success    : function(data) {
-            console.log("data log" , data);
+            //console.log("data log" , data);
             $data = $(data);
             self._handlePosts($data);
         },

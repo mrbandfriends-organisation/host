@@ -32,7 +32,7 @@ function load_posts() {
    // WordPress templates
    $query = blog_post_query( $paged );
 
-   $result = Utils\ob_load_template_part('templates/partials/blog/article-loop.php', array(
+   $result = Utils\ob_load_template_part('templates/partials/listing/article-loop.php', array(
        'query' => $query
    ));
 
