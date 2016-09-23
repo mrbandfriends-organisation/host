@@ -31,7 +31,7 @@
         ));
     } else {
         $second_content = Utils\ob_load_template_part('templates/partials/uni/uni-featured-building-second', array(
-            'connected_location' => host_building_find_connected_location(get_the_id())
+            'connected_location' => host_universities_find_connected_location( get_the_id() )
         ));
     }
 ?>

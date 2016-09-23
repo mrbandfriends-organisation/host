@@ -17,3 +17,9 @@ function host_universities_find_all()
 
     return $repo->find_all();
 }
+
+function host_universities_find_connected_location( $uni_id ) {
+	$repo = Repo::init();
+	return $repo->find_connected('uni_to_location', $uni_id, array(
+	));
+}

@@ -1,5 +1,7 @@
 <?php
     use Roots\Sage\Utils;
+
+    $conneted_location_id = ( !empty($connected_location) ? $connected_location->post->ID : null );
 ?>
 
 <div class="grid grid--vertical-l">
@@ -9,23 +11,10 @@
         )); ?>
     </div>
     <div class="gc l1-2">
-        <?php
-            $aStaticParms = [
-                'zoom'   => $iZoom = ( !empty($iZoom) ? $iZoom : 13 ),
-                'key'    => GMAPS_API_KEY,
-                'center' => $sCenter = ( !empty($sCenter) ? $sCenter : 'CF10 3XQ' ),
-                'size'   => '940x420'
-            ];
-            $sStaticPath = "https://maps.googleapis.com/maps/api/staticmap?".http_build_query($aStaticParms);
-        ?>
-
-        <!-- <div class="map__map js-map"<?//=$sAttrs; ?> style="background-image:url(<?//=$sStaticPath; ?>)">
-            <img src="<?//=$sStaticPath; ?>" class="map__static" alt="">
-        </div> -->
-
-        <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
-            'image'     => $sStaticPath,
-            //'modifier'  => 'map__map'
+        <?php echo Utils\ob_load_template_part('templates/partials/shared/map-static', array(
+           'map_label'  => get_field('map_label', $conneted_location_id),
+           'map_centre' => get_field('map_centre', $conneted_location_id),
+           'map_zoom'   => get_field('map_zoom', $conneted_location_id)
         )); ?>
     </div>
 </div>
