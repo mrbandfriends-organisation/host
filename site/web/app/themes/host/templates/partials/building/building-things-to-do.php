@@ -9,7 +9,7 @@
 <?php
     $location_title = get_field('location_title');
     $location_overview = get_field('location_description');
-    $location_city = 'London';
+    $location_city = $connected_location_name;
 ?>
 
 <?php

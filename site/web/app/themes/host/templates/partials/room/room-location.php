@@ -12,6 +12,7 @@
     $location_city      = 'London';
     $location_image     = get_field('location_image', $parent_building_id);
     $locations          = get_field('points_of_interest', $parent_building_id);
+    $location_city = $connected_location_name;
 ?>
 
 <?php
