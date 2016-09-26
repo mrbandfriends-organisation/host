@@ -9,7 +9,7 @@ var PostsLoader = function(options) {
 
     var defaults = {
         'dataEndpoint'          : false,
-        'paginationUrl'         : '/blog/page/', // url format for pagination (eg: /blog/page/1/)
+        'paginationUrl'         : '/news/', // url format for pagination (eg: /blog/page/1/)
         'triggerEl'             : '.js-posts-loader-trigger', // element which initialising loading of new posts
         'containerEl'           : '.js-posts-loader-container', // element into which new posts should be inserted
         'loadingErrorMsg'       : '<p>Unfortunately, there was an error loading the additional posts. Please try again.</p>',
