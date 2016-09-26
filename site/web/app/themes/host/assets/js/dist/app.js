@@ -44,7 +44,7 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {/**
+	/**
 	 * APPLICATION JAVASCRIPT
 	 *
 	 * base JavaScript entry point
@@ -52,7 +52,7 @@
 	 */
 
 	// NPM Modules
-	__webpack_require__(33);
+	__webpack_require__(32);
 
 	// extend things
 	__webpack_require__(11);
@@ -77,7 +77,7 @@
 	(function() {
 	    "use strict";
 
-	    var SVGSpritemapLoader = __webpack_require__(22);
+	    var SVGSpritemapLoader = __webpack_require__(21);
 
 	    new SVGSpritemapLoader('/app/themes/host/assets/svg/sprites/output/spritesheet.svg');
 	}());
@@ -106,7 +106,7 @@
 	 */
 	(function() {
 	    'use strict';
-	    var RImgBg = __webpack_require__(17);
+	    var RImgBg = __webpack_require__(16);
 	    new RImgBg('.js-rimgbg');
 	}());
 
@@ -120,54 +120,31 @@
 	{
 	    "use strict";
 
+	    __webpack_require__(23);
+
 	    __webpack_require__(24);
-
-	    __webpack_require__(25);
-
-	    __webpack_require__(29)();
-
-	    __webpack_require__(27)();
-
-	    __webpack_require__(31)();
-
-	    __webpack_require__(30)();
-
-	    // require('bind-inview')();
-
-	    // require('onpage-smooth-scroll')();
 
 	    __webpack_require__(28)();
 
 	    __webpack_require__(26)();
 
+	    __webpack_require__(30)();
+
+	    __webpack_require__(29)();
+
+	    // require('bind-inview')();
+
+	    // require('onpage-smooth-scroll')();
+
+	    __webpack_require__(27)();
+
+	    __webpack_require__(25)();
+
 	    __webpack_require__(12);
 
-	    //require('slick')();
+	    // require('slick')();
 	})();
 
-
-
-	/**
-	 * AJAX POSTS LOADING
-	 * initalise posts "load more" module
-	 */
-	(function() {
-	   'use strict';
-
-	    if ( $('.js-posts-loader-container').length ) {
-	        // Async load
-
-	        //require.ensure(['posts-loader'], function() {
-	            var PostsLoader = __webpack_require__(16);
-	            new PostsLoader({
-	                'dataEndpoint' : 'host_load_posts'
-	            });
-	        //},'posts-loader');
-	    }
-
-	}());
-
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ },
 /* 1 */
@@ -175,12 +152,12 @@
 
 	'use strict';
 
-	var _ = __webpack_require__(3);
+	var _ = __webpack_require__(2);
 	var cls = __webpack_require__(8);
-	var defaultSettings = __webpack_require__(43);
+	var defaultSettings = __webpack_require__(42);
 	var dom = __webpack_require__(6);
-	var EventManager = __webpack_require__(40);
-	var guid = __webpack_require__(41);
+	var EventManager = __webpack_require__(39);
+	var guid = __webpack_require__(40);
 
 	var instances = {};
 
@@ -284,6 +261,95 @@
 
 /***/ },
 /* 2 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var cls = __webpack_require__(8);
+	var dom = __webpack_require__(6);
+
+	var toInt = exports.toInt = function (x) {
+	  return parseInt(x, 10) || 0;
+	};
+
+	var clone = exports.clone = function (obj) {
+	  if (obj === null) {
+	    return null;
+	  } else if (obj.constructor === Array) {
+	    return obj.map(clone);
+	  } else if (typeof obj === 'object') {
+	    var result = {};
+	    for (var key in obj) {
+	      result[key] = clone(obj[key]);
+	    }
+	    return result;
+	  } else {
+	    return obj;
+	  }
+	};
+
+	exports.extend = function (original, source) {
+	  var result = clone(original);
+	  for (var key in source) {
+	    result[key] = clone(source[key]);
+	  }
+	  return result;
+	};
+
+	exports.isEditable = function (el) {
+	  return dom.matches(el, "input,[contenteditable]") ||
+	         dom.matches(el, "select,[contenteditable]") ||
+	         dom.matches(el, "textarea,[contenteditable]") ||
+	         dom.matches(el, "button,[contenteditable]");
+	};
+
+	exports.removePsClasses = function (element) {
+	  var clsList = cls.list(element);
+	  for (var i = 0; i < clsList.length; i++) {
+	    var className = clsList[i];
+	    if (className.indexOf('ps-') === 0) {
+	      cls.remove(element, className);
+	    }
+	  }
+	};
+
+	exports.outerWidth = function (element) {
+	  return toInt(dom.css(element, 'width')) +
+	         toInt(dom.css(element, 'paddingLeft')) +
+	         toInt(dom.css(element, 'paddingRight')) +
+	         toInt(dom.css(element, 'borderLeftWidth')) +
+	         toInt(dom.css(element, 'borderRightWidth'));
+	};
+
+	exports.startScrolling = function (element, axis) {
+	  cls.add(element, 'ps-in-scrolling');
+	  if (typeof axis !== 'undefined') {
+	    cls.add(element, 'ps-' + axis);
+	  } else {
+	    cls.add(element, 'ps-x');
+	    cls.add(element, 'ps-y');
+	  }
+	};
+
+	exports.stopScrolling = function (element, axis) {
+	  cls.remove(element, 'ps-in-scrolling');
+	  if (typeof axis !== 'undefined') {
+	    cls.remove(element, 'ps-' + axis);
+	  } else {
+	    cls.remove(element, 'ps-x');
+	    cls.remove(element, 'ps-y');
+	  }
+	};
+
+	exports.env = {
+	  isWebKit: 'WebkitAppearance' in document.documentElement.style,
+	  supportsTouch: (('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch),
+	  supportsIePointer: window.navigator.msMaxTouchPoints !== null
+	};
+
+
+/***/ },
+/* 3 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*eslint-disable no-unused-vars*/
@@ -10363,101 +10429,12 @@
 
 
 /***/ },
-/* 3 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var cls = __webpack_require__(8);
-	var dom = __webpack_require__(6);
-
-	var toInt = exports.toInt = function (x) {
-	  return parseInt(x, 10) || 0;
-	};
-
-	var clone = exports.clone = function (obj) {
-	  if (obj === null) {
-	    return null;
-	  } else if (obj.constructor === Array) {
-	    return obj.map(clone);
-	  } else if (typeof obj === 'object') {
-	    var result = {};
-	    for (var key in obj) {
-	      result[key] = clone(obj[key]);
-	    }
-	    return result;
-	  } else {
-	    return obj;
-	  }
-	};
-
-	exports.extend = function (original, source) {
-	  var result = clone(original);
-	  for (var key in source) {
-	    result[key] = clone(source[key]);
-	  }
-	  return result;
-	};
-
-	exports.isEditable = function (el) {
-	  return dom.matches(el, "input,[contenteditable]") ||
-	         dom.matches(el, "select,[contenteditable]") ||
-	         dom.matches(el, "textarea,[contenteditable]") ||
-	         dom.matches(el, "button,[contenteditable]");
-	};
-
-	exports.removePsClasses = function (element) {
-	  var clsList = cls.list(element);
-	  for (var i = 0; i < clsList.length; i++) {
-	    var className = clsList[i];
-	    if (className.indexOf('ps-') === 0) {
-	      cls.remove(element, className);
-	    }
-	  }
-	};
-
-	exports.outerWidth = function (element) {
-	  return toInt(dom.css(element, 'width')) +
-	         toInt(dom.css(element, 'paddingLeft')) +
-	         toInt(dom.css(element, 'paddingRight')) +
-	         toInt(dom.css(element, 'borderLeftWidth')) +
-	         toInt(dom.css(element, 'borderRightWidth'));
-	};
-
-	exports.startScrolling = function (element, axis) {
-	  cls.add(element, 'ps-in-scrolling');
-	  if (typeof axis !== 'undefined') {
-	    cls.add(element, 'ps-' + axis);
-	  } else {
-	    cls.add(element, 'ps-x');
-	    cls.add(element, 'ps-y');
-	  }
-	};
-
-	exports.stopScrolling = function (element, axis) {
-	  cls.remove(element, 'ps-in-scrolling');
-	  if (typeof axis !== 'undefined') {
-	    cls.remove(element, 'ps-' + axis);
-	  } else {
-	    cls.remove(element, 'ps-x');
-	    cls.remove(element, 'ps-y');
-	  }
-	};
-
-	exports.env = {
-	  isWebKit: 'WebkitAppearance' in document.documentElement.style,
-	  supportsTouch: (('ontouchstart' in window) || window.DocumentTouch && document instanceof window.DocumentTouch),
-	  supportsIePointer: window.navigator.msMaxTouchPoints !== null
-	};
-
-
-/***/ },
 /* 4 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _ = __webpack_require__(3);
+	var _ = __webpack_require__(2);
 	var cls = __webpack_require__(8);
 	var dom = __webpack_require__(6);
 	var instances = __webpack_require__(1);
@@ -10938,7 +10915,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// jshint latedef:nofunc
-	var cookies = __webpack_require__(32);
+	var cookies = __webpack_require__(31);
 	var icon    = __webpack_require__(7);
 
 	var sFavouriteTemplate =
@@ -11731,8 +11708,8 @@
 	 * manages toggling of offcanvas elements
 	 */
 
-	__webpack_require__(2);
-	var EventBus = __webpack_require__(54);
+	__webpack_require__(3);
+	var EventBus = __webpack_require__(53);
 
 	var OffCanvasToggler = function(options) {
 	    "use strict";
@@ -11865,217 +11842,10 @@
 	// Export
 	module.exports = OffCanvasToggler;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 16 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function($) {/**
-	 * POSTS LOADER
-	 *
-	 * a utility "class" the wraps the process of "lazy" loading Blog posts
-	 * over Ajax.
-	*/
-
-	var PostsLoader = function(options) {
-
-	    var defaults = {
-	        'dataEndpoint'          : false,
-	        'paginationUrl'         : '/blog/page/', // url format for pagination (eg: /blog/page/1/)
-	        'triggerEl'             : '.js-posts-loader-trigger', // element which initialising loading of new posts
-	        'containerEl'           : '.js-posts-loader-container', // element into which new posts should be inserted
-	        'loadingErrorMsg'       : '<p>Unfortunately, there was an error loading the additional posts. Please try again.</p>',
-	        'updateHistory'         : true, // whether or not to update the browser history on each page reload
-	        'triggerActiveClass'    : '-loading'
-	    };
-
-	    this.options = $.extend({}, defaults, options);
-
-
-
-	    // Derived selectors
-	    this.triggerEl              = $(this.options.triggerEl);
-	    this.containerEl            = $(this.options.containerEl);
-
-	    // Allow for custom max pages - defaults to grabbing from DOM
-	    this.maxPages               = ( this.options.maxPages ) ? this.options.maxPages : this.triggerEl.data('posts-loader-max-pages');
-
-	    // Allow for Custom Ajax endpoint...
-	    this.ajaxEndPoint           = ( this.options.customAjaxHandler ) ? this.options.customAjaxHandler : '/wp/wp-admin/admin-ajax.php';
-
-	    // State Properties
-	    this.loading                = false;
-	    this.locked                 = false;
-	    this.currentPage            = ( this.options.currentPage ) ? this.options.currentPage : this.triggerEl.data('posts-loader-curr-page');
-
-
-	    // if there’s a data URL, overwrite the pagination URL
-	    if ( this.triggerEl[0] !== undefined && this.triggerEl[0].hasAttribute('data-posts-loader-url'))
-	        this.options.paginationUrl = this.triggerEl[0].getAttribute('data-posts-loader-url').replace(/https?:\/\/(.*?)\//, '/');
-
-	    // if there’s an endpoint
-	    if ( this.triggerEl[0] !== undefined && this.triggerEl[0].hasAttribute('data-posts-loader-endpoint'))
-
-	        this.options.dataEndpoint = this.triggerEl.data('posts-loader-endpoint');
-
-	    // shuffle the history state
-	    if (this.options.paginationUrl.indexOf('%s') === -1)
-	        this.options.paginationUrl += '%s';
-
-	    // Exit if there is no endpoint provided to get the data from
-	    if ( !this.options.dataEndpoint ) {
-	        return false;
-	    }
-
-
-	    // Blast off!
-	    this.init();
-	};
-
-	PostsLoader.prototype.init = function() {
-
-	    this._handleTriggerVisibility();
-	    this._addListeners();
-	    // parse off a query string
-	    this._parseQueryString(this.options.paginationUrl);
-	};
-
-	PostsLoader.prototype._parseQueryString = function(sUri)
-	{
-	    // 0. init
-	    this.oData = {
-	        action: this.options.dataEndpoint
-	    };
-	    var self = this;
-
-	    // 1. if there’s nothing to do, bail
-	    if (sUri.indexOf('?') === -1)
-	        return;
-
-	    // 2. strip off unnecessary bits
-	    var sQs = sUri.replace(/^(.*?)\?/, '');
-
-	    // 3. the last bit is always going to be the pagination var, so strip that
-	    sQs = sQs.replace(/&?\w*=$/, '');
-
-	    // 4. iterate!
-	    sQs.split('&').forEach(function(sSub)
-	    {
-	        // a. explode on equals
-	        var aM = sSub.split('=');
-
-	        // b. set things
-	        self.oData[aM[0]] = (aM.length > 1) ? aM[1] : '';
-	    });
-	};
-
-	PostsLoader.prototype._addListeners = function() {
-	    var self = this;
-
-	    this.triggerEl.on('click', function(event){
-	        self._fetchPosts(event);
-	    });
-	};
-
-	PostsLoader.prototype._fetchPosts = function(event) {
-	    var self = this;
-
-	    event.preventDefault();
-
-	    // If currently handling an existing request then bail out...
-	    if ( this.loading )
-	        return;
-
-	    // set the current page
-	    this.oData.paged = self.currentPage + 1;
-
-
-	    $.ajax({
-	        type       : 'GET',
-	        data       : this.oData,
-	        dataType   : 'html',
-	        url        : self.ajaxEndPoint,
-	        beforeSend : function() {
-	            console.log("AJAX!");
-	            self.loading = true;
-	            self.triggerEl.addClass(self.options.triggerActiveClass);
-	        },
-	        success    : function(data) {
-	            //console.log("data log" , data);
-	            $data = $(data);
-	            self._handlePosts($data);
-	        },
-	        error     : function(jqXHR, textStatus, errorThrown) {
-	            self.containerEl.append( self.loadingErrorMsg );
-	        }
-	    });
-
-	};
-
-	PostsLoader.prototype._handleTriggerVisibility = function() {
-	    // If we're showing the final page then don't allow more to be loaded
-	    if ( this.currentPage >= this.maxPages ) {
-	        this.triggerEl.hide();
-	    }
-	};
-
-
-	PostsLoader.prototype._handlePosts = function(data) {
-	    var self = this;
-
-	    // Increment to reflect that we've now advanced to a new "page" of posts
-	    this.currentPage++;
-
-	    if ( $data.length ) {
-
-	        this._handleTriggerVisibility();
-
-	        this.triggerEl.removeClass( this.options.triggerActiveClass );
-
-	        // Append new posts after a short delay
-	        // setTimeout(function() {
-	        //
-	        //     if (self.containerEl[0].hasAttribute('data-columns') && (salvattore !== 'undefined')) {
-	        //         salvattore.appendElements(self.containerEl[0], $data);
-	        //     } else {
-	        //         self.containerEl.append($data);
-	        //     }
-	        // }, 100);
-
-	        setTimeout(function() {
-	            self.containerEl.append($data);
-	        }, 100);
-	    }
-
-	    // Update Browser history and address bar
-	    if ( this.options.updateHistory && this._supportsHistoryAPI() ) {
-	        this._updateHistory();
-	    }
-
-	    // Unset the flag which blocks repeated calling of this method
-	    this.loading = false;
-	};
-
-	PostsLoader.prototype._supportsHistoryAPI = function(){
-	    return !!(window.history && history.pushState);
-	};
-
-
-	PostsLoader.prototype._updateHistory = function() {
-	    // Update page url to reflect the paged posts
-	    var historyState = this.options.paginationUrl.replace('%s', this.currentPage);
-
-	    history.pushState(null, null, historyState);
-	};
-
-
-	module.exports = PostsLoader;
-
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ },
-/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/* jshint strict: false */
@@ -12136,15 +11906,15 @@
 	// Export
 	module.exports = RImgBg;
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 18 */
+/* 17 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var map = {
-		"./dots-pagination": 19,
-		"./pn-pagination": 21
+		"./dots-pagination": 18,
+		"./pn-pagination": 20
 	};
 	function webpackContext(req) {
 		return __webpack_require__(webpackContextResolve(req));
@@ -12157,11 +11927,11 @@
 	};
 	webpackContext.resolve = webpackContextResolve;
 	module.exports = webpackContext;
-	webpackContext.id = 18;
+	webpackContext.id = 17;
 
 
 /***/ },
-/* 19 */
+/* 18 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var util = __webpack_require__(9);
@@ -12258,11 +12028,11 @@
 
 
 /***/ },
-/* 20 */
+/* 19 */
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var debounce = __webpack_require__(36);
+	var debounce = __webpack_require__(35);
 
 	function Slideshow()
 	{
@@ -12412,7 +12182,7 @@
 	        aPagination.forEach(function(sPagination)
 	        {
 	            // a. load the pagination
-	            var oPagination = __webpack_require__(18)("./"+sPagination+'-pagination')({
+	            var oPagination = __webpack_require__(17)("./"+sPagination+'-pagination')({
 	                elRoot:    el,
 	                iNumItems: iNumSlides,
 	                fnGo:      go,
@@ -12522,7 +12292,7 @@
 	    function bindSwipes()
 	    {
 	        // 1. enable swiping
-	        __webpack_require__(23)(el);
+	        __webpack_require__(22)(el);
 
 	        // 2. event handler
 	        el.addEventListener('swipeleft', function()
@@ -12595,7 +12365,7 @@
 
 
 /***/ },
-/* 21 */
+/* 20 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var util = __webpack_require__(9);
@@ -12683,7 +12453,7 @@
 
 
 /***/ },
-/* 22 */
+/* 21 */
 /***/ function(module, exports) {
 
 	/**
@@ -12732,7 +12502,7 @@
 
 
 /***/ },
-/* 23 */
+/* 22 */
 /***/ function(module, exports) {
 
 	var defaultOptions = {
@@ -12880,7 +12650,7 @@
 
 
 /***/ },
-/* 24 */
+/* 23 */
 /***/ function(module, exports) {
 
 	// jshint latedef:nofunc
@@ -13129,7 +12899,7 @@
 
 
 /***/ },
-/* 25 */
+/* 24 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function($) {/**
@@ -13232,10 +13002,10 @@
 
 	})();
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 26 */
+/* 25 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var bp = __webpack_require__(13);
@@ -13390,7 +13160,7 @@
 
 
 /***/ },
-/* 27 */
+/* 26 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13448,10 +13218,10 @@
 
 
 /***/ },
-/* 28 */
+/* 27 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(37);
+	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(36);
 
 	module.exports = function()
 	{
@@ -13471,10 +13241,10 @@
 	    });
 	};
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 29 */
+/* 28 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13507,7 +13277,7 @@
 	    if (!maps_loaded && !maps_loading)
 	    {
 	        maps_loading = true;
-	        __webpack_require__(35)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+	        __webpack_require__(34)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
 	    }
 	    else if (maps_loaded)
 	    {
@@ -13519,10 +13289,10 @@
 
 
 /***/ },
-/* 30 */
+/* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(38)($);
+	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(37)($);
 
 	module.exports = function()
 	{
@@ -13531,13 +13301,13 @@
 	    $('.js-scrollable').perfectScrollbar();
 	};
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 31 */
+/* 30 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var slideshow = __webpack_require__(20);
+	var slideshow = __webpack_require__(19);
 
 	module.exports = function()
 	{
@@ -13551,7 +13321,7 @@
 
 
 /***/ },
-/* 32 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var cookies = function (data, opt) {
@@ -13640,21 +13410,21 @@
 
 
 /***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(33);
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
+
+/***/ },
 /* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(34);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(3);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
 /* 34 */
-/***/ function(module, exports, __webpack_require__) {
-
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(2);
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
-
-/***/ },
-/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
@@ -13683,7 +13453,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 36 */
+/* 35 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -14067,7 +13837,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 37 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Magnific Popup - v1.1.0 - 2016-02-20
@@ -14076,7 +13846,7 @@
 	;(function (factory) { 
 	if (true) { 
 	 // AMD. Register as an anonymous module. 
-	 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)); 
+	 !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(3)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__)); 
 	 } else if (typeof exports === 'object') { 
 	 // Node/CommonJS 
 	 factory(require('jquery')); 
@@ -15932,21 +15702,21 @@
 	 _checkInstance(); }));
 
 /***/ },
-/* 38 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(39);
+	module.exports = __webpack_require__(38);
 
 
 /***/ },
-/* 39 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 
-	var ps = __webpack_require__(42);
+	var ps = __webpack_require__(41);
 	var psInstances = __webpack_require__(1);
 
 	function mountJQuery(jQuery) {
@@ -15976,7 +15746,7 @@
 
 	if (true) {
 	  // AMD. Register as an anonymous module.
-	  !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(2)], __WEBPACK_AMD_DEFINE_FACTORY__ = (mountJQuery), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  !(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__(3)], __WEBPACK_AMD_DEFINE_FACTORY__ = (mountJQuery), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	} else {
 	  var jq = window.jQuery ? window.jQuery : window.$;
 	  if (typeof jq !== 'undefined') {
@@ -15988,7 +15758,7 @@
 
 
 /***/ },
-/* 40 */
+/* 39 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -16065,7 +15835,7 @@
 
 
 /***/ },
-/* 41 */
+/* 40 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -16084,14 +15854,14 @@
 
 
 /***/ },
-/* 42 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var destroy = __webpack_require__(44);
-	var initialize = __webpack_require__(52);
-	var update = __webpack_require__(53);
+	var destroy = __webpack_require__(43);
+	var initialize = __webpack_require__(51);
+	var update = __webpack_require__(52);
 
 	module.exports = {
 	  initialize: initialize,
@@ -16101,7 +15871,7 @@
 
 
 /***/ },
-/* 43 */
+/* 42 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -16124,12 +15894,12 @@
 
 
 /***/ },
-/* 44 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _ = __webpack_require__(3);
+	var _ = __webpack_require__(2);
 	var dom = __webpack_require__(6);
 	var instances = __webpack_require__(1);
 
@@ -16152,12 +15922,12 @@
 
 
 /***/ },
-/* 45 */
+/* 44 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _ = __webpack_require__(3);
+	var _ = __webpack_require__(2);
 	var instances = __webpack_require__(1);
 	var updateGeometry = __webpack_require__(4);
 	var updateScroll = __webpack_require__(5);
@@ -16218,12 +15988,12 @@
 
 
 /***/ },
-/* 46 */
+/* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _ = __webpack_require__(3);
+	var _ = __webpack_require__(2);
 	var dom = __webpack_require__(6);
 	var instances = __webpack_require__(1);
 	var updateGeometry = __webpack_require__(4);
@@ -16327,12 +16097,12 @@
 
 
 /***/ },
-/* 47 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _ = __webpack_require__(3);
+	var _ = __webpack_require__(2);
 	var dom = __webpack_require__(6);
 	var instances = __webpack_require__(1);
 	var updateGeometry = __webpack_require__(4);
@@ -16463,7 +16233,7 @@
 
 
 /***/ },
-/* 48 */
+/* 47 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16605,7 +16375,7 @@
 
 
 /***/ },
-/* 49 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16626,12 +16396,12 @@
 
 
 /***/ },
-/* 50 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _ = __webpack_require__(3);
+	var _ = __webpack_require__(2);
 	var instances = __webpack_require__(1);
 	var updateGeometry = __webpack_require__(4);
 	var updateScroll = __webpack_require__(5);
@@ -16741,12 +16511,12 @@
 
 
 /***/ },
-/* 51 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _ = __webpack_require__(3);
+	var _ = __webpack_require__(2);
 	var instances = __webpack_require__(1);
 	var updateGeometry = __webpack_require__(4);
 	var updateScroll = __webpack_require__(5);
@@ -16923,26 +16693,26 @@
 
 
 /***/ },
-/* 52 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _ = __webpack_require__(3);
+	var _ = __webpack_require__(2);
 	var cls = __webpack_require__(8);
 	var instances = __webpack_require__(1);
 	var updateGeometry = __webpack_require__(4);
 
 	// Handlers
 	var handlers = {
-	  'click-rail': __webpack_require__(45),
-	  'drag-scrollbar': __webpack_require__(46),
-	  'keyboard': __webpack_require__(47),
-	  'wheel': __webpack_require__(48),
-	  'touch': __webpack_require__(51),
-	  'selection': __webpack_require__(50)
+	  'click-rail': __webpack_require__(44),
+	  'drag-scrollbar': __webpack_require__(45),
+	  'keyboard': __webpack_require__(46),
+	  'wheel': __webpack_require__(47),
+	  'touch': __webpack_require__(50),
+	  'selection': __webpack_require__(49)
 	};
-	var nativeScrollHandler = __webpack_require__(49);
+	var nativeScrollHandler = __webpack_require__(48);
 
 	module.exports = function (element, userSettings) {
 	  userSettings = typeof userSettings === 'object' ? userSettings : {};
@@ -16966,12 +16736,12 @@
 
 
 /***/ },
-/* 53 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var _ = __webpack_require__(3);
+	var _ = __webpack_require__(2);
 	var dom = __webpack_require__(6);
 	var instances = __webpack_require__(1);
 	var updateGeometry = __webpack_require__(4);
@@ -17009,7 +16779,7 @@
 
 
 /***/ },
-/* 54 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
