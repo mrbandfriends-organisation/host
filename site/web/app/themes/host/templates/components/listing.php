@@ -6,19 +6,22 @@
     $gloabl_page_id = $post->ID;
 
     // Query deafults
-    $page_id            = ( !empty($page_id) ? $page_id : $gloabl_page_id );
-    $post_loader_class  = ( !empty($post_loader_class) ? $post_loader_class : null );
-    $post_type          = ( !empty($post_type) ? $post_type : 'post' );
-    $post_per_page      = ( !empty($post_per_page) ? $post_per_page : 6 );
+    $page_id           = ( !empty($page_id) ? $page_id : $gloabl_page_id );
+    $post_loader_class = ( !empty($post_loader_class) ? $post_loader_class : null );
+    $post_per_page     = ( !empty($post_per_page) ? $post_per_page : 6 );
+    $post_type         = ( !empty($post_type) ? $post_type : 'post' );
+    $orderby           = ( !empty($orderby) ? $orderby : 'date' );
+
 
     // Getting the query
     $the_query = ajaxLoadPosts\ajax_load_post_query( array(
         'paged'          => get_query_var('paged'),
         'posts_per_page' => $post_per_page,
-        'post_type'      => $post_type
+        'post_type'      => $post_type,
+        'orderby'        => $orderby
     ));
 
-
+    //var_dump($the_query);
 
     // Template stuff
     // ========================================================================

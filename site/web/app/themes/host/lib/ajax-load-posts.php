@@ -11,9 +11,10 @@ use \WP_Query as WP_Query;
 
 function ajax_load_post_query( $options = array() ) {
     $defaults = array(
-        'paged' => 1,
+        'paged'          => 1,
         'posts_per_page' => 6,
-        'post_type' => 'post'
+        'post_type'      => 'post',
+        'orderby'        => 'date'
     );
 
     $options = array_merge($defaults, (array)$options);
@@ -22,7 +23,8 @@ function ajax_load_post_query( $options = array() ) {
         'paged'             => $options['paged'],
         'posts_per_page'    => $options['posts_per_page'],
         'post_type'         => $options['post_type'],
-        'order'             => 'ASC'
+        'order'             => 'ASC',
+        'orderby'           => $options['orderby']
     );
 
     // 2. query

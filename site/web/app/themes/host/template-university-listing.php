@@ -11,5 +11,6 @@
     'post_loader_class' => 'js-university-post-loader',
     'post_type'         => 'university',
     'post_per_page'     => 20,
+    'orderby'           => 'title',
     'modifier'          => 'universities'
 )); ?>
