@@ -18,19 +18,29 @@ $connected_location_name = host_building_find_connected_location($parent_buildin
     ))
 )); ?>
 
-<?php echo Utils\ob_load_template_part('templates/partials/room/room-intro.php', compact('parent_building_id')); ?>
+<?php echo Utils\ob_load_template_part('templates/partials/room/room-in-page-nav.php'); ?>
 
-<?php echo Utils\ob_load_template_part('templates/partials/room/room-detail.php'); ?>
+<div id="overview">
+    <?php echo Utils\ob_load_template_part('templates/partials/room/room-intro.php', compact('parent_building_id')); ?>
+</div>
 
-<?php echo Utils\ob_load_template_part('templates/partials/room/room-gallery.php'); ?>
+<div id="details">
+    <?php echo Utils\ob_load_template_part('templates/partials/room/room-detail.php'); ?>
+</div>
 
-<section class="band band--inset box box--padded">
+<div id="gallery">
+    <?php echo Utils\ob_load_template_part('templates/partials/room/room-gallery.php'); ?>
+</div>
+
+<section id="pricing" class="band band--inset box box--padded">
     <?php echo Utils\ob_load_template_part('templates/partials/room/room-prices.php'); ?>
 
     <?php echo Utils\ob_load_template_part('templates/partials/room/room-price-settings.php'); ?>
 </section>
 
-<?php echo Utils\ob_load_template_part('templates/partials/room/room-location.php', compact('parent_building_id', 'connected_location_name')); ?>
+<div id="location">
+    <?php echo Utils\ob_load_template_part('templates/partials/room/room-location.php', compact('parent_building_id', 'connected_location_name')); ?>
+</div>
 
 <?php echo Utils\ob_load_template_part('templates/partials/shared/map', array(
     'iZoom' => get_field('map_zoom', $parent_building_id),
@@ -41,4 +51,6 @@ $connected_location_name = host_building_find_connected_location($parent_buildin
     'aPoi' => get_field('map_features', $parent_building_id)
 )); ?>
 
-<?php echo Utils\ob_load_template_part('templates/partials/shared/awards'); ?>
+<div id="awards">
+    <?php echo Utils\ob_load_template_part('templates/partials/shared/awards'); ?>
+</div>
