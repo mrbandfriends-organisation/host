@@ -23,11 +23,6 @@
 
         <div class="article-tile__inner box box--less-padding">
 
-            <time class="article-tile__date">
-                <strong><?php echo get_the_date('M'); ?></strong>
-                <strong><?php echo get_the_date('d'); ?></strong>
-            </time>
-
             <?php if ( !empty($heading) ): ?>
                 <h2 class="article-tile__heading <?php echo esc_attr($heading_modifier); ?>">
                     <?=get_the_title(); ?>

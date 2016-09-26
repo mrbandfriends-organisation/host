@@ -78,18 +78,17 @@ $is-oldie: false !default;
 // # CSS files from external libraries and frameworks
 // ==========================================================================
 @import "vendors/perfect-scrollbar";
-@import "vendors/magnific-popup";
-@import "vendors/slick";
-@import "vendors/slick-theme";
-@import "vendors/fixed-sticky";
+@import "vendors/_magnific-popup.scss";
+@import "vendors/_slick.scss";
+@import "vendors/_slick-theme.scss";
 
 
 // # VENDORS EXTENSIONS
 // # contains any overides to vendor extensions (see above)
 // ==========================================================================
 //@import "vendors-extensions/EXAMPLE";
-@import "vendors-extensions/magnific-popup";
-@import "vendors-extensions/slick";
+@import "vendors-extensions/_magnific-popup.scss";
+@import "vendors-extensions/_slick.scss";
 
 
 // # COMPONENTS - http://sass-guidelin.es/#components-folder
@@ -112,10 +111,9 @@ $is-oldie: false !default;
 @import "components/favourites";
 @import "components/favouritable";
 @import "components/transport-list";
-@import "components/location-related-buildings";
-@import "components/carousel-infobox";
-@import "components/secondary-split-feature";
-@import "components/in-page-nav";
+@import "components/_location-related-buildings.scss";
+@import "components/_carousel-infobox.scss";
+@import "components/_secondary-split-feature";
 
 // # SITE LAYOUT STRUCTURE
 // ==========================================================================
@@ -125,6 +123,7 @@ $is-oldie: false !default;
 @import "layout/footer";
 @import "layout/social-media-icons-list";
 @import "layout/pricing";
+@import "layout/_article-list";
 
 // # SITE PAGES
 // ==========================================================================

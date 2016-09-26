@@ -9,12 +9,14 @@ var PostsLoader = function(options) {
 
     var defaults = {
         'dataEndpoint'          : false,
-        'paginationUrl'         : '/blog/page/', // url format for pagination (eg: /blog/page/1/)
+        'paginationUrl'         : '/news/', // url format for pagination (eg: /blog/page/1/)
         'triggerEl'             : '.js-posts-loader-trigger', // element which initialising loading of new posts
         'containerEl'           : '.js-posts-loader-container', // element into which new posts should be inserted
         'loadingErrorMsg'       : '<p>Unfortunately, there was an error loading the additional posts. Please try again.</p>',
         'updateHistory'         : true, // whether or not to update the browser history on each page reload
-        'triggerActiveClass'    : '-loading'
+        'triggerActiveClass'    : '-loading',
+        'postsPerPage'          : 6,
+        'postType'              : 'post'
     };
 
     this.options = $.extend({}, defaults, options);
@@ -117,6 +119,12 @@ PostsLoader.prototype._fetchPosts = function(event) {
     // set the current page
     this.oData.paged = self.currentPage + 1;
 
+    // Get thsi from data attr if empty get deafult
+    //this.oData.postType     = this.options.dataPostType;
+    this.oData.postType = this.options.postType;
+    // this.oData.postsPerPage = this.options.dataPostsPerPage;
+    this.oData.postsPerPage = this.options.postsPerPage;
+
 
     $.ajax({
         type       : 'GET',
@@ -161,18 +169,15 @@ PostsLoader.prototype._handlePosts = function(data) {
         this.triggerEl.removeClass( this.options.triggerActiveClass );
 
         // Append new posts after a short delay
-        // setTimeout(function() {
-        //
-        //     if (self.containerEl[0].hasAttribute('data-columns') && (salvattore !== 'undefined')) {
-        //         salvattore.appendElements(self.containerEl[0], $data);
-        //     } else {
-        //         self.containerEl.append($data);
-        //     }
-        // }, 100);
-
         setTimeout(function() {
-            self.containerEl.append($data);
+
+            if (self.containerEl[0].hasAttribute('data-columns') && (salvattore !== 'undefined')) {
+                salvattore.appendElements(self.containerEl[0], $data);
+            } else {
+                self.containerEl.append($data);
+            }
         }, 100);
+
     }
 
     // Update Browser history and address bar

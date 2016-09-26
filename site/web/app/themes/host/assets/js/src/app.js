@@ -96,5 +96,56 @@ require('./ext/NodeList');
 
     require('FavouriteManager');
 
-    require('slick')();
+    // require('slick')();
 })();
+
+
+
+/**
+ * AJAX POSTS LOADING
+ * initalise posts "load more" module
+ */
+(function() {
+   'use strict';
+
+   var PostsLoader = require('posts-loader');
+
+    // here need to test if container exists
+    // Depending which containe exitis depends on which instance of
+    // Post loader is called
+    if ( $('.js-news-post-loader').length ) {
+        // Async load
+
+        require.ensure(['posts-loader'], function() {
+            new PostsLoader({
+                'dataEndpoint' : 'host_load_posts'
+            });
+        },'posts-loader');
+    }
+
+    // uni if container exists
+    if ( $('.js-university-post-loader').length ) {
+        // Async load
+
+        require.ensure(['posts-loader'], function() {
+            new PostsLoader({
+                'dataEndpoint'  : 'host_load_posts',
+                'paginationUrl' : '/universities/',
+                'postType'      : 'university'
+            });
+        },'posts-loader');
+    }
+}());
+
+/**
+ * SALVATTORE
+ * creates multicolumn Masonary-like layout
+ */
+(function(){
+    if ( $('[data-columns]').length ) {
+        require.ensure(['salvattore'], function() {  // lazy loaded
+            // Needs to be set as a global on window directly...
+            window.salvattore = require('salvattore');
+        },'salvattore');
+    }
+}());
