@@ -6,7 +6,7 @@
 
 
     // Getting the query
-    $the_query = ajaxLoadPosts\blog_post_query(get_query_var('paged'), 5);
+    $the_query = ajaxLoadPosts\blog_post_query(get_query_var('paged'));
 
     // Temp for stlying page purposes before get ajax sorted
     $blog_posts = $the_query;
@@ -46,7 +46,7 @@
         </div>
 
         <?php if ($curr_page < $max_pages): ?>
-            <a href="<?=str_replace('%s', ($curr_page + 1), $sBaseUrl); ?>" class="article-list-button btn js-posts-loader-trigger"
+            <a href="<?=str_replace('%s', ($curr_page + 1), $sBaseUrl); ?>" class="article-list-button btn btn--sky js-posts-loader-trigger"
                 data-posts-loader-max-pages="<?php echo esc_attr( $max_pages ); ?>"
                 data-posts-loader-curr-page="<?php echo esc_attr( $curr_page ); ?>">
                 Load more articles
@@ -54,9 +54,3 @@
         <?php endif; ?>
     </section>
 <?php endif; ?>
-
-
-<?php
-//echo Utils\ob_load_template_part('templates/partials/listing/pagination', array(
-//    'query' => $the_query
-//)); ?>

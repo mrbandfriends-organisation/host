@@ -21,7 +21,7 @@
             </div>
         <?php endif; ?>
 
-        <div class="article-tile__inner box box--little-padding">
+        <div class="article-tile__inner box box--less-padding">
             <?php if ( !empty($heading) ): ?>
                 <h2 class="article-tile__heading <?php echo esc_attr($heading_modifier); ?>">
                     <?=get_the_title(); ?>

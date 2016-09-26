@@ -37,15 +37,26 @@
 
 .article-list {
     column-gap: rem(20);
-
     list-style: none outside;
 
     // for use with Salvattore
-    &[data-columns]:before { position: absolute; opacity: 0; }
-    &:not([data-columns='']) { column-count: 1; margin-right: rem(-10); margin-left: rem(-10); }
+    &[data-columns]:before { content: "1 .column"; position: absolute; opacity: 0; }
+    &:not([data-columns='']) {
+		column-count: 1;
+		margin-right: rem(-10);
+		margin-left: rem(-10);
+	}
 
     // salvattore prep
-    .column { float: left; padding: 0 rem(10); }
+    .column {
+		width: 100%;
+		float: left;
+		padding: 0 $quarter-spacing-unit;
+
+		@include mq(medium) {
+			padding: 0 $half-spacing-unit;
+		}
+	}
 
 	// small–large: two columns
     @include mq(small) {
@@ -69,20 +80,24 @@
     }
 
 	// scss-lint:disable DeclarationOrder (ignoring because it makes far more sense to put the media queries here…)
-    // large+: three columns
-    @include mq(xlarge) {
-        // non-salvattore
-        column-count: 4;
-
-        // salvattore count
-        &[data-columns]:before { content: "4 .column"; }
-        .column { width: 25%; }
-    }
+    // large+: four columns
+    // @include mq(xxlarge) {
+    //     // non-salvattore
+    //     column-count: 4;
+	//
+    //     // salvattore count
+    //     &[data-columns]:before { content: "4 .column"; }
+    //     .column { width: 25%; }
+    // }
 }
 
 .article-list__item {
-    margin-bottom: rem(20);
+    margin-bottom: $half-spacing-unit;
     break-inside: avoid;
+
+	@include mq(large) {
+		margin-bottom: $spacing-unit;
+	}
 }
 
 
@@ -98,6 +113,7 @@
 
 .article-tile__inner {
     .article-tile__heading {
+		margin-bottom: $half-spacing-unit;
         font-size: rem($h3-fsize);
         line-height: 1.04;
         color: $base-font-color;
