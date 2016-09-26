@@ -113,18 +113,27 @@ require('./ext/NodeList');
     // here need to test if container exists
     // Depending which containe exitis depends on which instance of
     // Post loader is called
-    if ( $('.js-posts-loader-container').length ) {
+    if ( $('.js-news-post-loader').length ) {
         // Async load
 
-        //require.ensure(['posts-loader'], function() {
+        require.ensure(['posts-loader'], function() {
             new PostsLoader({
                 'dataEndpoint' : 'host_load_posts'
             });
-        //},'posts-loader');
+        },'posts-loader');
     }
 
     // uni if container exists
-    // if ()
+    if ( $('.js-university-post-loader').length ) {
+        // Async load
+
+        require.ensure(['posts-loader'], function() {
+            new PostsLoader({
+                'dataEndpoint' : 'host_load_posts',
+                'postType' : 'university'
+            });
+        },'posts-loader');
+    }
 }());
 
 /**
