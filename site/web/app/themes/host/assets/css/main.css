@@ -5755,6 +5755,15 @@ a.article-tile__link:hover .article-tile__inner .article-tile__heading:first-lin
   line-height: 1;
 }
 
+.article-tile--universities .article-tile__image-container {
+  padding: 20px;
+  background-color: #fff;
+}
+
+.article-tile--universities .article-tile__heading {
+  margin-bottom: 0;
+}
+
 .homepage-investors-image-hack {
   width: 100%;
   height: 100%;
@@ -6818,6 +6827,9 @@ a.article-tile__link:hover .article-tile__inner .article-tile__heading:first-lin
     font-size: 1.625rem;
     line-height: 1.15;
   }
+  .article-tile--universities .article-tile__image-container{
+    padding: 2.5rem 1.875rem;
+  }
   .generic-content-page__inner{
     padding: 0 5%;
   }
@@ -7490,6 +7502,16 @@ a.article-tile__link:hover .article-tile__inner .article-tile__heading:first-lin
   }
   .pricing-body__number--large{
     font-size: 3.25rem;
+  }
+  .article-list--universities{
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+  .article-list--universities[data-columns]:before{
+    content: "4 .column";
+  }
+  .article-list--universities .column{
+    width: 25%;
   }
   .room-details-container{
     max-width: 75%;

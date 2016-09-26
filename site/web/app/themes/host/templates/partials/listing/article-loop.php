@@ -10,7 +10,7 @@
     <li class="article-list__item">
 		<?php echo Utils\ob_load_template_part('templates/partials/listing/article-loop-item', array(
 			'posts_query' 	=> $query,
-			'modifier'		=> $loop_item_modifier
+			'modifier'		=> $modifier
 		)); ?>
     </li>
 <?php endwhile; ?>

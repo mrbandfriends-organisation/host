@@ -22,7 +22,8 @@
 
     // Template stuff
     // ========================================================================
-    $loop_item_modifier = ( !empty($loop_item_modifier) ? $loop_item_modifier : null );
+    $modifier              = ( !empty($modifier) ? $modifier : null );
+    $article_list_modifier = ( !empty($modifier) ? 'article-list--' . $modifier : null );
 
 
 
@@ -53,10 +54,10 @@
 <?php if ($the_query->have_posts()): ?>
     <section class="article-list-section band box box--padded box--off-white">
         <div class="container">
-            <ul class="article-list js-posts-loader-container <?php echo esc_attr( $post_loader_class ); ?>" data-columns>
+            <ul class="article-list <?php echo esc_attr($article_list_modifier); ?> js-posts-loader-container <?php echo esc_attr( $post_loader_class ); ?>" data-columns>
                 <?php echo Utils\ob_load_template_part('templates/partials/listing/article-loop', [
-                    'query'              => $the_query,
-                    'loop_item_modifier' => $loop_item_modifier
+                    'query'    => $the_query,
+                    'modifier' => $modifier
                 ]); ?>
             </ul>
         </div>
