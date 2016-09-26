@@ -35,14 +35,16 @@ function ajax_load_post_query( $options = array() ) {
 
 function load_posts() {
     // $_REQUEST contains the params passed through in the AJAX request
-   $paged       = ( !empty( $_REQUEST["paged"] ) ) ? $_REQUEST["paged"] : 2;
-   $post_type   = ( !empty( $_REQUEST["postType"] ) ) ? $_REQUEST["postType"] : 'post';
+   $paged           = ( !empty( $_REQUEST["paged"] ) ) ? $_REQUEST["paged"] : 2;
+   $posts_per_page  = ( !empty( $_REQUEST["postsPerPage"] ) ) ? $_REQUEST["postsPerPage"] : $options['posts_per_page'];
+   $post_type       = ( !empty( $_REQUEST["postType"] ) ) ? $_REQUEST["postType"] : $options['post_type'];
 
    // Reuse same template helper as when using standard server side generated
    // WordPress templates
    $query = ajax_load_post_query( array(
-       'paged'     => $paged,
-       'post_type' => $post_type
+       'paged'          => $paged,
+       'posts_per_page' => $posts_per_page,
+       'post_type'      => $post_type
    ));
 
    $result = Utils\ob_load_template_part('templates/partials/listing/article-loop.php', array(

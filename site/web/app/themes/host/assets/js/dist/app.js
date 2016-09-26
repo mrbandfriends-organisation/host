@@ -205,16 +205,23 @@
 	(function() {
 	   'use strict';
 
+	   var PostsLoader = __webpack_require__(17);
+
+	    // here need to test if container exists
+	    // Depending which containe exitis depends on which instance of
+	    // Post loader is called
 	    if ( $('.js-posts-loader-container').length ) {
 	        // Async load
 
 	        //require.ensure(['posts-loader'], function() {
-	            var PostsLoader = __webpack_require__(17);
 	            new PostsLoader({
 	                'dataEndpoint' : 'host_load_posts'
 	            });
 	        //},'posts-loader');
 	    }
+
+	    // uni if container exists
+	    // if ()
 	}());
 
 	/**
@@ -11951,8 +11958,9 @@
 	        'containerEl'           : '.js-posts-loader-container', // element into which new posts should be inserted
 	        'loadingErrorMsg'       : '<p>Unfortunately, there was an error loading the additional posts. Please try again.</p>',
 	        'updateHistory'         : true, // whether or not to update the browser history on each page reload
-	        'triggerActiveClass'    : '-loading'
-	        // add featul here
+	        'triggerActiveClass'    : '-loading',
+	        'postsPerPage'          : 6,
+	        'postType'              : 'post'
 	    };
 
 	    this.options = $.extend({}, defaults, options);
@@ -12056,7 +12064,10 @@
 	    this.oData.paged = self.currentPage + 1;
 
 	    // Get thsi from data attr if empty get deafult
-	    this.oData.postType = 'post';
+	    //this.oData.postType     = this.options.dataPostType;
+	    this.oData.postType = this.options.postType;
+	    // this.oData.postsPerPage = this.options.dataPostsPerPage;
+	    this.oData.postsPerPage = this.options.postsPerPage;
 
 
 	    $.ajax({

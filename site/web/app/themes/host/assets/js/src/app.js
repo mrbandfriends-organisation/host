@@ -108,16 +108,23 @@ require('./ext/NodeList');
 (function() {
    'use strict';
 
+   var PostsLoader = require('posts-loader');
+
+    // here need to test if container exists
+    // Depending which containe exitis depends on which instance of
+    // Post loader is called
     if ( $('.js-posts-loader-container').length ) {
         // Async load
 
         //require.ensure(['posts-loader'], function() {
-            var PostsLoader = require('posts-loader');
             new PostsLoader({
                 'dataEndpoint' : 'host_load_posts'
             });
         //},'posts-loader');
     }
+
+    // uni if container exists
+    // if ()
 }());
 
 /**

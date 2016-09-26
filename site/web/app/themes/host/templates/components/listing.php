@@ -54,7 +54,10 @@
         <?php if ($curr_page < $max_pages): ?>
             <a href="<?=str_replace('%s', ($curr_page + 1), $sBaseUrl); ?>" class="article-list-button btn btn--sky js-posts-loader-trigger"
                 data-posts-loader-max-pages="<?php echo esc_attr( $max_pages ); ?>"
-                data-posts-loader-curr-page="<?php echo esc_attr( $curr_page ); ?>">
+                data-posts-loader-curr-page="<?php echo esc_attr( $curr_page ); ?>"
+                data-posts-loader-post-type="<?php echo esc_attr( $post_type ) ?>"
+                data-posts-loader-post-per-page="<?php echo esc_attr( $post_per_page ) ?>"
+                >
                 Load more articles
             </a>
         <?php endif; ?>

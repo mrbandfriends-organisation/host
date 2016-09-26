@@ -6,6 +6,6 @@
 ?>
 
 <?php echo Utils\ob_load_template_part('templates/components/listing', array(
-    'post_per_page'  => 3,
+    'post_per_page'  => 1,
     'post_type'      => 'university'
 )); ?>

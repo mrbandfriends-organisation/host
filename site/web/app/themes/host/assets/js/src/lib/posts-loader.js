@@ -14,8 +14,9 @@ var PostsLoader = function(options) {
         'containerEl'           : '.js-posts-loader-container', // element into which new posts should be inserted
         'loadingErrorMsg'       : '<p>Unfortunately, there was an error loading the additional posts. Please try again.</p>',
         'updateHistory'         : true, // whether or not to update the browser history on each page reload
-        'triggerActiveClass'    : '-loading'
-        // add featul here
+        'triggerActiveClass'    : '-loading',
+        'postsPerPage'          : 6,
+        'postType'              : 'post'
     };
 
     this.options = $.extend({}, defaults, options);
@@ -119,7 +120,10 @@ PostsLoader.prototype._fetchPosts = function(event) {
     this.oData.paged = self.currentPage + 1;
 
     // Get thsi from data attr if empty get deafult
-    this.oData.postType = 'post';
+    //this.oData.postType     = this.options.dataPostType;
+    this.oData.postType = this.options.postType;
+    // this.oData.postsPerPage = this.options.dataPostsPerPage;
+    this.oData.postsPerPage = this.options.postsPerPage;
 
 
     $.ajax({
