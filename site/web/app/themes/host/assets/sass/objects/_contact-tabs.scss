@@ -4,66 +4,92 @@
 // ==========================================================================
 
 .c-tabs-nav {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.c-tabs__heading {
+    &:first-line {
+        color: brand(red) !important;
+    }
 }
 
 .c-tabs-nav__link {
-  flex: 1;
-  margin-right: 4px;
-  padding: 12px;
-  color: #fff;
-  background-color: #b3b3b3;
-  text-align: center;
-  transition: color 0.3s;
+    flex: 1;
+    margin-right: rem(4px);
+    padding: rem(5px) rem(2px);
+    color: brand(red);
+    border-radius: rem(25px);
+    border: brand(red) solid 1px;
+    text-align: center;
+    transition: color 0.3s;
+    margin-bottom: $quarter-spacing-unit;
 }
 
-.c-tabs-nav__link:last-child {
-  margin-right: 0;
-}
-
-.c-tabs-nav__link:hover {
-  color: #6d6d6d;
+.c-tabs-nav__link:hover,
+.c-tabs-nav__link:focus {
+    text-decoration: none;
 }
 
 .c-tabs-nav__link.is-active {
-  color: #dc446e;
-  background-color: #e7e7e7;
+    background-color: brand(red);
+    color: #fff;
 }
 
 .c-tabs-nav__link i,
 .c-tabs-nav__link span {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
 }
 
 .c-tabs-nav__link i {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .c-tabs-nav__link span {
-  display: none;
-  font-size: 18px;
+    display: none;
+    font-size: 18px;
 }
 
 /**
  * Tab
  */
 .c-tab {
-  display: none;
-  background-color: #e7e7e7;
+    opacity: 0;
+    height: 0;
+    z-index: -1;
+
+    transition: opacity 0.35s ease-in-out, height 0.35s ease-in-out;
 }
 
 .c-tab.is-active {
-  display: block;
+    opacity: 1;
+    height: auto;
+    z-index: 1;
 }
 
 .c-tab__content {
-  padding: 1.5rem;
-  overflow: hidden; 
+    padding: 1.5rem;
+    overflow: hidden;
+}
+
+.c-tab__listing {
+
+}
+
+.c-tab__listing-item {
+    @include list-reset;
+
+    padding: rem(35px);
+    background-color: brand(red);
+
+    > * {
+        color: #fff !important;
+    }
 }
 
 
@@ -71,14 +97,10 @@
  * Tabs no-js fallback
  */
 .c-tabs.no-js .c-tabs-nav {
-  display: none;
+    display: none;
 }
 
 .c-tabs.no-js .c-tab {
-  display: block;
+  opacity: 1;
   margin-bottom: 1.5rem;
-}
-
-.c-tabs.no-js .c-tab:last-child {
-  margin-bottom: 0;
 }
