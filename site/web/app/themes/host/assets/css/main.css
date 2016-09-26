@@ -5187,8 +5187,6 @@ a.btn {
   margin-top: 20px;
 }
 
-<<<<<<< a7ebfa3867d709bf475844aabb5a058f4e32b590
-=======
 .in-page-nav {
   width: 100%;
   padding: 1.5625rem;
@@ -5257,7 +5255,6 @@ a.btn {
   height: 6px;
 }
 
->>>>>>> Begun to add positon sticky polhfill
 .banner {
   width: 100%;
   padding: 0 0 1.25rem;
@@ -5732,30 +5729,6 @@ a.btn {
 
 .pricing-body__number--large {
   font-size: 2rem;
-}
-
-.article-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  -moz-columns: 1;
-       columns: 1;
-}
-
-.article-list__item {
-  page-break-inside: avoid;
-  break-inside: avoid;
-  margin-bottom: 40px;
-}
-
-.article-tile__inner .article-tile__heading {
-  font-size: 1.5625rem;
-  line-height: 1.04;
-  color: #21293c;
-}
-
-.article-tile__inner .article-tile__heading:first-line {
-  color: #21293c;
 }
 
 .homepage-investors-image-hack {
@@ -6798,18 +6771,6 @@ a.btn {
   .footer-up-arrow-container{
     display: none;
   }
-  .article-list{
-    -moz-columns: 2;
-    columns: 2;
-    margin-left: -30px;
-  }
-  .article-list__item{
-    margin-left: 30px;
-  }
-  .article-tile__inner .article-tile__heading{
-    font-size: 1.625rem;
-    line-height: 1.15;
-  }
   .generic-content-page__inner{
     padding: 0 5%;
   }
@@ -7183,10 +7144,6 @@ a.btn {
   .pricing-body__number--large{
     font-size: 2rem;
   }
-  .article-list{
-    -moz-columns: 3;
-    columns: 3;
-  }
   .generic-content-page{
     padding: 80px 0;
   }
@@ -7473,10 +7430,6 @@ a.btn {
   }
   .pricing-body__number--large{
     font-size: 3.25rem;
-  }
-  .article-list{
-    -moz-columns: 4;
-    columns: 4;
   }
   .room-details-container{
     max-width: 75%;
