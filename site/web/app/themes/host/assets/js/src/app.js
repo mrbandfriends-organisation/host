@@ -120,3 +120,16 @@ require('./ext/NodeList');
     }
 
 }());
+
+/**
+ * SALVATTORE
+ * creates multicolumn Masonary-like layout
+ */
+(function(){
+    if ( $('[data-columns]').length ) {
+        require.ensure(['salvattore'], function() {  // lazy loaded
+            // Needs to be set as a global on window directly...
+            window.salvattore = require('salvattore');
+        },'salvattore');
+    }
+}());

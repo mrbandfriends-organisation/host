@@ -161,18 +161,18 @@ PostsLoader.prototype._handlePosts = function(data) {
         this.triggerEl.removeClass( this.options.triggerActiveClass );
 
         // Append new posts after a short delay
-        // setTimeout(function() {
-        //
-        //     if (self.containerEl[0].hasAttribute('data-columns') && (salvattore !== 'undefined')) {
-        //         salvattore.appendElements(self.containerEl[0], $data);
-        //     } else {
-        //         self.containerEl.append($data);
-        //     }
-        // }, 100);
-
         setTimeout(function() {
-            self.containerEl.append($data);
+        
+            if (self.containerEl[0].hasAttribute('data-columns') && (salvattore !== 'undefined')) {
+                salvattore.appendElements(self.containerEl[0], $data);
+            } else {
+                self.containerEl.append($data);
+            }
         }, 100);
+
+        // setTimeout(function() {
+        //     self.containerEl.append($data);
+        // }, 100);
     }
 
     // Update Browser history and address bar

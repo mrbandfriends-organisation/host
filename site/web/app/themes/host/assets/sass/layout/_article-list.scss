@@ -9,34 +9,87 @@
 // ==========================================================================
 // # BASE
 // ==========================================================================
+// .article-list {
+//     @include list-reset;
+//     columns: 1;
+//
+//     @include mq(medium) {
+//         columns: 2;
+//         margin-left: -$gutter;
+//     }
+//
+//     @include mq(large) {
+//         columns: 3;
+//     }
+//
+//     //@include mq(xlarge) {
+//     //    columns: 4;
+//     //}
+// }
+//
+// .article-list__item {
+//     -webkit-column-break-inside: avoid;
+//     page-break-inside: avoid;
+//     break-inside: avoid;
+//     margin-bottom: $spacing-unit;
+//
+//     @include mq(medium) {
+//         margin-left: $gutter;
+//     }
+// }
 
 .article-list {
-    @include list-reset;
-    columns: 1;
+    column-gap: rem(20);
 
-    @include mq(medium) {
-        columns: 2;
-        margin-left: -$gutter;
+    list-style: none outside;
+
+    // for use with Salvattore
+    &[data-columns]:before { position: absolute; opacity: 0; }
+    &:not([data-columns='']) { column-count: 1; margin-right: rem(-10); margin-left: rem(-10); }
+
+    // salvattore prep
+    .column { float: left; padding: 0 rem(10); }
+
+	// small–large: two columns
+    @include mq(small) {
+        // non-salvattore
+        column-count: 2;
+
+        // salvattore count
+        &[data-columns]:before { content: "2 .column"; }
+        .column { width: 50%; }
     }
 
+    // scss-lint:disable DeclarationOrder (ignoring because it makes far more sense to put the media queries here…)
+    // large+: three columns
     @include mq(large) {
-        columns: 3;
+        // non-salvattore
+        column-count: 3;
+
+        // salvattore count
+        &[data-columns]:before { content: "3 .column"; }
+        .column { width: 33.333%; }
     }
 
+	// scss-lint:disable DeclarationOrder (ignoring because it makes far more sense to put the media queries here…)
+    // large+: three columns
     @include mq(xlarge) {
-        columns: 4;
+        // non-salvattore
+        column-count: 4;
+
+        // salvattore count
+        &[data-columns]:before { content: "4 .column"; }
+        .column { width: 25%; }
     }
+
+
+
+
 }
 
 .article-list__item {
-    -webkit-column-break-inside: avoid;
-    page-break-inside: avoid;
+    margin-bottom: rem(20);
     break-inside: avoid;
-    margin-bottom: $spacing-unit;
-
-    @include mq(medium) {
-        margin-left: $gutter;
-    }
 }
 
 
