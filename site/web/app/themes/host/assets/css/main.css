@@ -5662,6 +5662,7 @@ a.btn {
 }
 
 .article-list[data-columns]:before {
+  content: "1 .column";
   position: absolute;
   opacity: 0;
 }
@@ -5675,16 +5676,17 @@ a.btn {
 
 .article-list .column {
   float: left;
-  padding: 0 0.625rem;
+  padding: 0 10px;
 }
 
 .article-list__item {
-  margin-bottom: 1.25rem;
+  margin-bottom: 20px;
   page-break-inside: avoid;
        break-inside: avoid;
 }
 
 .article-tile__inner .article-tile__heading {
+  margin-bottom: 20px;
   font-size: 1.5625rem;
   line-height: 1.04;
   color: #21293c;
@@ -6389,6 +6391,9 @@ a.btn {
     -moz-columns: 4;
     columns: 4;
   }
+  .article-list .column{
+    padding: 0 20px;
+  }
   .article-list{
     -moz-column-count: 2;
     column-count: 2;
@@ -6746,6 +6751,9 @@ a.btn {
   }
   .article-list-section .article-list-button{
     margin: 80px 0 30px 0;
+  }
+  .article-list__item{
+    margin-bottom: 40px;
   }
   .article-tile__inner .article-tile__heading{
     font-size: 1.625rem;
@@ -7423,16 +7431,6 @@ a.btn {
   }
   .pricing-body__number--large{
     font-size: 3.25rem;
-  }
-  .article-list{
-    -moz-column-count: 4;
-    column-count: 4;
-  }
-  .article-list[data-columns]:before{
-    content: "4 .column";
-  }
-  .article-list .column{
-    width: 25%;
   }
   .room-details-container{
     max-width: 75%;

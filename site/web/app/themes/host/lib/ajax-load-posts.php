@@ -8,7 +8,7 @@ use \WP_Query as WP_Query;
 // =================================================================================
 // STUARTS AJAX CODE
 // =================================================================================
-function blog_post_query($paged=1, $posts_per_page=5) {
+function blog_post_query($paged=1, $posts_per_page=6) {
     $args = array(
         'post_type'         => 'post',
         'posts_per_page'    => $posts_per_page,

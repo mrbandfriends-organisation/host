@@ -96,7 +96,7 @@ require('./ext/NodeList');
 
     require('FavouriteManager');
 
-    //require('slick')();
+    // require('slick')();
 })();
 
 
@@ -118,7 +118,6 @@ require('./ext/NodeList');
             });
         //},'posts-loader');
     }
-
 }());
 
 /**
