@@ -226,8 +226,9 @@
 
 	        !/* require.ensure */(function() {
 	            new PostsLoader({
-	                'dataEndpoint' : 'host_load_posts',
-	                'postType' : 'university'
+	                'dataEndpoint'  : 'host_load_posts',
+	                'paginationUrl' : '/universities/',
+	                'postType'      : 'university'
 	            });
 	        }(__webpack_require__));
 	    }

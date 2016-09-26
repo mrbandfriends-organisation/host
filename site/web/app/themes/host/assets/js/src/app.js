@@ -129,8 +129,9 @@ require('./ext/NodeList');
 
         require.ensure(['posts-loader'], function() {
             new PostsLoader({
-                'dataEndpoint' : 'host_load_posts',
-                'postType' : 'university'
+                'dataEndpoint'  : 'host_load_posts',
+                'paginationUrl' : '/universities/',
+                'postType'      : 'university'
             });
         },'posts-loader');
     }

@@ -66,6 +66,6 @@
 
 
 <?php
-//echo Utils\ob_load_template_part('templates/partials/listing/pagination', array(
-//    'query' => $the_query
-//)); ?>
+echo Utils\ob_load_template_part('templates/partials/listing/pagination', array(
+    'query' => $the_query
+)); ?>
