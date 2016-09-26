@@ -8,7 +8,7 @@
     $featured_image__modifier = ( !empty( $featured_image__modifier ) ) ? $featured_image__modifier : null;
     $heading                  = ( !empty(get_the_title()) ? get_the_title() : null );
     $heading_modifier         = ( !empty($heading_modifier) ? $heading_modifier : null );
-    $excerpt                  = ( !empty(get_the_excerpt()) ? get_the_excerpt() : null );
+    $excerpt                  = ( !empty(get_the_excerpt()) ? get_the_excerpt() : get_the_content() );
     $excerpt_modifier         = ( !empty($excerpt_modifier) ? $excerpt_modifier : null );
 
 
