@@ -8,7 +8,7 @@
 
 <?php while ( $query->have_posts() ): $query->the_post(); ?>
     <li class="article-list__item">
-		<?php echo Utils\ob_load_template_part('templates/partials/listing/article-loop-item', array(
+		<?php echo Utils\ob_load_template_part($loop_item_template, array(
 			'posts_query' 	=> $query,
 			'modifier'		=> $modifier
 		)); ?>

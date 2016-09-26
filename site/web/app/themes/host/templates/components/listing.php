@@ -11,13 +11,20 @@
     $post_type          = ( !empty($post_type) ? $post_type : 'post' );
     $post_per_page      = ( !empty($post_per_page) ? $post_per_page : 6 );
 
-
     // Getting the query
     $the_query = ajaxLoadPosts\ajax_load_post_query( array(
         'paged'          => get_query_var('paged'),
         'posts_per_page' => $post_per_page,
         'post_type'      => $post_type
     ));
+
+
+
+    // Template stuff
+    // ========================================================================
+    $loop_item_template = ( !empty($loop_item_template) ? $loop_item_template : 'templates/partials/listing/article-loop-item' );
+
+
 
     // Ajax stuff
     // ========================================================================
@@ -48,7 +55,8 @@
         <div class="container">
             <ul class="article-list js-posts-loader-container <?php echo esc_attr( $post_loader_class ); ?>" data-columns>
                 <?php echo Utils\ob_load_template_part('templates/partials/listing/article-loop', [
-                    'query' => $the_query
+                    'query'              => $the_query,
+                    'loop_item_template' => $loop_item_template
                 ]); ?>
             </ul>
         </div>
@@ -66,6 +74,7 @@
 
 
 <?php
-echo Utils\ob_load_template_part('templates/partials/listing/pagination', array(
-    'query' => $the_query
-)); ?>
+    //echo Utils\ob_load_template_part('templates/partials/listing/pagination', array(
+    //    'query' => $the_query
+    //));
+?>
