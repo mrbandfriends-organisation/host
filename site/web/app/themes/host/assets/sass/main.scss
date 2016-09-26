@@ -81,6 +81,7 @@ $is-oldie: false !default;
 @import "vendors/magnific-popup";
 @import "vendors/slick";
 @import "vendors/slick-theme";
+@import "vendors/fixed-sticky";
 
 
 // # VENDORS EXTENSIONS
@@ -89,7 +90,6 @@ $is-oldie: false !default;
 //@import "vendors-extensions/EXAMPLE";
 @import "vendors-extensions/magnific-popup";
 @import "vendors-extensions/slick";
-@import "vendors-extensions/fixed-sticky";
 
 
 // # COMPONENTS - http://sass-guidelin.es/#components-folder
