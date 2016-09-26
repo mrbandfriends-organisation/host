@@ -162,7 +162,7 @@ PostsLoader.prototype._handlePosts = function(data) {
 
         // Append new posts after a short delay
         setTimeout(function() {
-        
+
             if (self.containerEl[0].hasAttribute('data-columns') && (salvattore !== 'undefined')) {
                 salvattore.appendElements(self.containerEl[0], $data);
             } else {
@@ -170,9 +170,6 @@ PostsLoader.prototype._handlePosts = function(data) {
             }
         }, 100);
 
-        // setTimeout(function() {
-        //     self.containerEl.append($data);
-        // }, 100);
     }
 
     // Update Browser history and address bar

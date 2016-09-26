@@ -36,7 +36,7 @@
 )); ?>
 
 <?php if ($blog_posts->have_posts()): ?>
-    <section class="band box box--padded box--off-white">
+    <section class="article-list-section band box box--padded box--off-white">
         <div class="container">
             <ul class="article-list js-posts-loader-container" data-columns>
                 <?php echo Utils\ob_load_template_part('templates/partials/listing/article-loop', [
@@ -46,7 +46,7 @@
         </div>
 
         <?php if ($curr_page < $max_pages): ?>
-            <a href="<?=str_replace('%s', ($curr_page + 1), $sBaseUrl); ?>" class="btn btn--center btn--large btn--tertiary-reverse btn-ajax js-posts-loader-trigger"
+            <a href="<?=str_replace('%s', ($curr_page + 1), $sBaseUrl); ?>" class="article-list-button btn js-posts-loader-trigger"
                 data-posts-loader-max-pages="<?php echo esc_attr( $max_pages ); ?>"
                 data-posts-loader-curr-page="<?php echo esc_attr( $curr_page ); ?>">
                 Load more articles

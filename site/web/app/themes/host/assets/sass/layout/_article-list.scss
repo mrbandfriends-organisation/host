@@ -9,34 +9,31 @@
 // ==========================================================================
 // # BASE
 // ==========================================================================
-// .article-list {
-//     @include list-reset;
-//     columns: 1;
-//
-//     @include mq(medium) {
-//         columns: 2;
-//         margin-left: -$gutter;
-//     }
-//
-//     @include mq(large) {
-//         columns: 3;
-//     }
-//
-//     //@include mq(xlarge) {
-//     //    columns: 4;
-//     //}
-// }
-//
-// .article-list__item {
-//     -webkit-column-break-inside: avoid;
-//     page-break-inside: avoid;
-//     break-inside: avoid;
-//     margin-bottom: $spacing-unit;
-//
-//     @include mq(medium) {
-//         margin-left: $gutter;
-//     }
-// }
+
+.article-list-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	// Added here to overide the bleeding *:last-child
+	.article-list-button {
+		align-self: center;
+		margin: ($spacing-unit + 20px) 0 $spacing-unit;
+
+		@include mq(medium) {
+			margin: $double-spacing-unit 0 ($double-spacing-unit - 50px) 0 ;
+		}
+
+		@include mq(large) {
+			margin: $double-spacing-unit 0 ($double-spacing-unit - 50px);
+		}
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+	}
+}
 
 .article-list {
     column-gap: rem(20);
@@ -81,10 +78,6 @@
         &[data-columns]:before { content: "4 .column"; }
         .column { width: 25%; }
     }
-
-
-
-
 }
 
 .article-list__item {
@@ -120,7 +113,6 @@
     }
 
 }
-
 
 // .article-tile__excerpt {}
 
