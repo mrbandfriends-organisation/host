@@ -40,6 +40,17 @@
             <?php if ( !empty($heading) ): ?>
                 <h2 class="article-tile__heading <?php echo esc_attr($heading_modifier); ?>">
                     <?=get_the_title(); ?>
+                    <?php if ( is_page('universities') ): ?>
+                        <span class="article-tile__location">
+                            <?php
+                                $connected_location     = host_universities_find_connected_location( get_the_id() );
+                                $connected_location_id  = $connected_location->posts[0]->ID;
+                                $title                  = get_the_title($connected_location_id);
+
+                                echo esc_html($title);
+                            ?>
+                        </span>
+                    <?php endif; ?>
                 </h2>
             <?php endif; ?>
 

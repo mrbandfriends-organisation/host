@@ -5755,6 +5755,10 @@ a.article-tile__link:hover .article-tile__inner .article-tile__heading:first-lin
   line-height: 1;
 }
 
+.article-tile__location {
+  color: #d50e3c;
+}
+
 .article-tile--universities .article-tile__image-container {
   padding: 20px;
   background-color: #fff;
@@ -5762,6 +5766,10 @@ a.article-tile__link:hover .article-tile__inner .article-tile__heading:first-lin
 
 .article-tile--universities .article-tile__heading {
   margin-bottom: 0;
+}
+
+a.article-tile__link:hover .article-tile__location {
+  color: #21293c;
 }
 
 .homepage-investors-image-hack {

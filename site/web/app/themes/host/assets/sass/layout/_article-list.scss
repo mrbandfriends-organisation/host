@@ -176,7 +176,7 @@ a.article-tile__link {
 // # MODIFIER: UNIVERSITIES LISTING
 // ==========================================================================
 
-.article-list--universities {	
+.article-list--universities {
 	//scss-lint:disable DeclarationOrder (ignoring because it makes far more sense to put the media queries here…)
 	//large+: three columns
 	@include mq(xlarge) {
@@ -187,6 +187,10 @@ a.article-tile__link {
 		&[data-columns]:before { content: "4 .column"; }
 		.column { width: 25%; }
 	}
+}
+
+.article-tile__location {
+	color: brand(red);
 }
 
 .article-tile--universities {
@@ -203,18 +207,10 @@ a.article-tile__link {
 		margin-bottom: 0;
 		// color: #fff;
 	}
+}
 
-	// .article-tile__inner {
-	// 	background-color: brand(red);
-	// }
-	//
-	// a.article-tile__link:hover {
-	// 	.article-tile__inner {
-	// 		background-color: brand(red);
-	//
-	// 		.article-tile__heading {
-	// 			color: brand(ink);
-	// 		}
-	// 	}
-	// }
+a.article-tile__link:hover {	
+	.article-tile__location {
+		color: brand(ink);
+	}
 }
