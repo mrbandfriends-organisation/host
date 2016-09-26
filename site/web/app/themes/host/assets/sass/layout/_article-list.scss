@@ -103,12 +103,41 @@
 
 // .article-tile {}
 
-// .article-tile__image-container {}
+a.article-tile__link {
+	text-decoration: none;
 
-// .article-tile__image {}
+	&:hover {
+		.article-tile__inner {
+			background-color: brand(red);
+			color: #fff;
+
+			.article-tile__heading {
+				color: #fff;
+
+				&:first-line {
+		            color: #fff;
+		        }
+			}
+		}
+	}
+}
+
+.article-tile__image-container {
+	overflow: hidden;
+}
+
+.article-tile__image {
+	transform: scale(1.0);
+	transition: all ease-in-out 0.25s;
+
+	&:hover {
+		transform: scale(1.075);
+	}
+}
 
 .article-tile__inner {
 	position: relative;
+	transition: all ease-in-out 0.25s;
 
 	// Inisde inner to add specificity
     .article-tile__heading {
@@ -138,7 +167,7 @@
 	border-radius: 50%;
     justify-content: center;
     align-items: center;
-	// Minus padding on inner + height of date circle
+	// Minus height/2 of date circle
 	top: -( rem(35) );
 	left: 50%;
 	transform: translate(-50%, 0);

@@ -4,10 +4,8 @@
  *
  * the top "hero" banner displayed at the top of each page
  */
-
-use Roots\Sage\Assets;
-
- ?>
+    use Roots\Sage\Assets;
+?>
 
 <?php
     $modifier = ( !empty($modifier) ? "hero--" . $modifier : null );
