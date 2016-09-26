@@ -1,0 +1,46 @@
+.in-page-nav {
+    width: 100%;
+    padding: rem(25px);
+    background-color: tint(sky);
+}
+
+.in-page-nav__aside {
+    align-items: center;
+}
+
+.in-page-nav__logo {
+    width: rem(90px);
+    height: rem(40px);
+    fill: #fff;
+}
+
+.in-page-nav__heading {
+    color: #fff;
+    font-size: rem(16px);
+    margin-bottom: 0;
+}
+
+.in-page-nav__listing {
+    @include list-reset;
+
+    align-items: center;
+}
+
+.in-page-nav__listing-item {
+    text-align: center;
+}
+
+.in-page-nav__link {
+    color: #fff;
+    font-size: rem(16px);
+
+    @include link-hover($color: brand(sky), $bottom: -36);
+
+    &:focus,
+    &:hover {
+        &:after {
+            height: 6px;
+        }
+
+    }
+}
