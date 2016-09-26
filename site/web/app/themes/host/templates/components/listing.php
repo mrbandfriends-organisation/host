@@ -22,7 +22,7 @@
 
     // Template stuff
     // ========================================================================
-    $loop_item_template = ( !empty($loop_item_template) ? $loop_item_template : 'templates/partials/listing/article-loop-item' );
+    $loop_item_modifier = ( !empty($loop_item_modifier) ? $loop_item_modifier : null );
 
 
 
@@ -56,7 +56,7 @@
             <ul class="article-list js-posts-loader-container <?php echo esc_attr( $post_loader_class ); ?>" data-columns>
                 <?php echo Utils\ob_load_template_part('templates/partials/listing/article-loop', [
                     'query'              => $the_query,
-                    'loop_item_template' => $loop_item_template
+                    'loop_item_modifier' => $loop_item_modifier
                 ]); ?>
             </ul>
         </div>

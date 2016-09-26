@@ -23,10 +23,12 @@
 
         <div class="article-tile__inner box box--less-padding">
 
-            <time class="article-tile__date">
-                <strong><?php echo get_the_date('M'); ?></strong>
-                <strong><?php echo get_the_date('d'); ?></strong>
-            </time>
+            <?php if ( !is_front_page() && is_home() ): ?>
+                <time class="article-tile__date">
+                    <strong><?php echo get_the_date('M'); ?></strong>
+                    <strong><?php echo get_the_date('d'); ?></strong>
+                </time>
+            <?php endif; ?>
 
             <?php if ( !empty($heading) ): ?>
                 <h2 class="article-tile__heading <?php echo esc_attr($heading_modifier); ?>">

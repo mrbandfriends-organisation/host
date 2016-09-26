@@ -11,5 +11,5 @@
     'post_loader_class'  => 'js-university-post-loader',
     'post_type'          => 'university',
     'post_per_page'      => 20,
-    'loop_item_template' => 'templates/partials/listing/universities-loop-item'
+    'loop_item_modifier' => 'article-tile--universities'
 )); ?>
