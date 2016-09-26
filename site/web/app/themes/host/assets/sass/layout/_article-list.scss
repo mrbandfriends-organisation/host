@@ -108,6 +108,9 @@
 // .article-tile__image {}
 
 .article-tile__inner {
+	position: relative;
+
+	// Inisde inner to add specificity
     .article-tile__heading {
 		margin-bottom: $half-spacing-unit;
         font-size: rem($h3-fsize);
@@ -124,6 +127,27 @@
         }
     }
 
+}
+
+.article-tile__date {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	width: rem(70);
+	height: rem(70);
+	border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+	// Minus padding on inner + height of date circle
+	top: -( rem(35) );
+	left: 50%;
+	transform: translate(-50%, 0);
+	background: brand(ink);
+    color: #fff;
+
+	strong {
+		line-height: 1;
+	}
 }
 
 // .article-tile__excerpt {}

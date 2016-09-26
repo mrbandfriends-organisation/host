@@ -5685,6 +5685,10 @@ a.btn {
        break-inside: avoid;
 }
 
+.article-tile__inner {
+  position: relative;
+}
+
 .article-tile__inner .article-tile__heading {
   margin-bottom: 20px;
   font-size: 1.5625rem;
@@ -5694,6 +5698,30 @@ a.btn {
 
 .article-tile__inner .article-tile__heading:first-line {
   color: #21293c;
+}
+
+.article-tile__date {
+  position: absolute;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  width: 4.375rem;
+  height: 4.375rem;
+  border-radius: 50%;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  top: -2.1875rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background: #21293c;
+  color: #fff;
+}
+
+.article-tile__date strong {
+  line-height: 1;
 }
 
 .homepage-investors-image-hack {
