@@ -11952,6 +11952,7 @@
 	        'loadingErrorMsg'       : '<p>Unfortunately, there was an error loading the additional posts. Please try again.</p>',
 	        'updateHistory'         : true, // whether or not to update the browser history on each page reload
 	        'triggerActiveClass'    : '-loading'
+	        // add featul here
 	    };
 
 	    this.options = $.extend({}, defaults, options);
@@ -12053,6 +12054,9 @@
 
 	    // set the current page
 	    this.oData.paged = self.currentPage + 1;
+
+	    // Get thsi from data attr if empty get deafult
+	    this.oData.postType = 'post';
 
 
 	    $.ajax({
