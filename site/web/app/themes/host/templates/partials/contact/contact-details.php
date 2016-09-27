@@ -21,28 +21,28 @@
         if ( $locations->have_posts() ) :
       ?>
 
-      <div id="tabs" class="c-tabs">
+        <div id="tabs" class="c-tabs">
 
-          <h2 class="c-tabs__heading">
-            <?php echo esc_html($details_title_1); ?><br />
-            <?php echo esc_html($details_title_2); ?>
-          </h2>
+            <h2 class="c-tabs__heading">
+                <?php echo esc_html($details_title_1); ?><br />
+                <?php echo esc_html($details_title_2); ?>
+            </h2>
 
-          <?php echo $details_description; ?>
+            <?php echo $details_description; ?>
 
-          <div class="c-tabs-nav grid">
-          <?php
-              $count_tab_index = 0;
-              foreach ($locations->posts as $location) {
-                  $location_id = $location->ID;
-                  $location_title = $location->post_title;
-                  $count_tab_index++;
-                ?>
-                <a href="#<?php echo $location_title;?>" class="c-tabs-nav__link gc l1-7 <?php if ( $count_tab_index == 1) { echo "is-active"; } ?>">
-                  <?php echo $location_title; ?>
-                </a>
-          <?php } ?>
-          </div>
+            <div class="c-tabs-nav grid">
+                <?php $count_tab_index = 0; ?>
+                <?php foreach ($locations->posts as $location) : ?>
+                    <?php
+                        $location_id                = $location->ID;
+                        $location_title             = $location->post_title;
+                        $count_tab_index++;
+                    ?>
+                    <a href="#<?php echo $location_title;?>" class="c-tabs-nav__link gc l1-7 <?php if ( $count_tab_index == 1) { echo "is-active"; } ?>">
+                      <?php echo $location_title; ?>
+                    </a>
+                <?php endforeach; ?>
+            </div>
 
 
 
