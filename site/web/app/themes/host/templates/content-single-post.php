@@ -15,4 +15,6 @@
     </div>
 </section>
 
+<?php echo Utils\ob_load_template_part('templates/partials/blog/view-all'); ?>
+
 <?php echo Utils\ob_load_template_part('templates/partials/shared/news-feed'); ?>

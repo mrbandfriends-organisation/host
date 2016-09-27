@@ -74,7 +74,8 @@ $button-colours: (
         background: map-get($brand-palette, orange)
     ),
     mint: (
-        background: map-get($brand-palette, mint)
+        background: map-get($brand-palette, mint),
+        color: #fff
     ),
     sky: (
         background: map-get($brand-palette, sky)
@@ -84,6 +85,7 @@ $button-colours: (
     ),
     ink: (
         background: map-get($brand-palette, ink),
+        color: #fff,
         hover:      lighten(map-get($brand-palette, ink), 15%)
     ),
     outline-only: (
