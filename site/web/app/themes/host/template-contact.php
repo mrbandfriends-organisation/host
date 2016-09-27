@@ -11,5 +11,6 @@
 
 <?php echo Utils\ob_load_template_part('templates/partials/contact/contact-intro'); ?>
 
-
 <?php echo Utils\ob_load_template_part('templates/partials/contact/contact-details'); ?>
+
+<?php echo Utils\ob_load_template_part('templates/partials/contact/contact-form'); ?>
