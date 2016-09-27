@@ -9,7 +9,7 @@
 
 $checkerboard-conf: (
     grid-width:     215px,  // base column width
-    cols:           7,      // maximum number of columns to work with
+    cols:           6,    // maximum number of columns to work with
     padding:        (       // paddings at various (min) breakpoints
         (30px, false),
         (60px, 768px)
