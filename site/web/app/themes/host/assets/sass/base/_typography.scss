@@ -47,12 +47,6 @@ a {
         @include link-hover();
         // tranition:
     }
-    color: brand(red);
-
-    // Items that need to be tweaked
-    &:hover {
-        color: tint(red);
-    }
 }
 
 

@@ -39,7 +39,7 @@
         }
 
         @include mq(xlarge) {
-            margin: $double-spacing-unit rem(30) ($double-spacing-unit - $half-spacing-unit) $double-spacing-unit;
+            margin: $double-spacing-unit rem(30) ($double-spacing-unit - $half-spacing-unit) rem($large-container-spacing);
         }
     }
 }
