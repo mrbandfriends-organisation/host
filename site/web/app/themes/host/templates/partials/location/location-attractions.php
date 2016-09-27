@@ -10,7 +10,13 @@
 <section class="band split-feature -left grid">
     <div class="split-feature__main box box--ink gc l1-2">
         <div class="split-feature__content">
-            <h2><?=get_field('location_title'); ?></h2>
+
+            <?php if ( !empty('location_title_1') && !empty('location_title_2') ): ?>
+                <h2>
+                    <?= esc_html(get_field('location_title_1')); ?>
+                    <?= esc_html(get_field('location_title_2')); ?>
+                </h2>
+            <?php endif; ?>
 
             <?=apply_filters('the_content', get_field('location_description')); ?>
         </div>

@@ -38,8 +38,6 @@
     }
 
     p {
-        //color: tint(ink);
-
         @include mq(medium) {
             margin: ($spacing-unit - $quarter-spacing-unit) 0;
         }
@@ -50,6 +48,15 @@
 
         &:first-of-type {
             margin-top: 0;
+        }
+    }
+
+    a {
+        color: brand(red);
+
+        // Items that need to be tweaked
+        &:hover {
+            color: tint(red);
         }
     }
 }

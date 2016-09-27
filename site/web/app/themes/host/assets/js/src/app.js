@@ -118,7 +118,9 @@ require('./ext/NodeList');
 
         require.ensure(['posts-loader'], function() {
             new PostsLoader({
-                'dataEndpoint' : 'host_load_posts'
+                'dataEndpoint'  : 'host_load_posts',
+                'paginationUrl' : '/news/page/',
+                'order'         : 'DESC',
             });
         },'posts-loader');
     }
@@ -130,8 +132,9 @@ require('./ext/NodeList');
         require.ensure(['posts-loader'], function() {
             new PostsLoader({
                 'dataEndpoint'  : 'host_load_posts',
-                'paginationUrl' : '/universities/',
-                'postType'      : 'university'
+                'paginationUrl' : '/universities/page',
+                'postType'      : 'university',
+                'orderBy'       : 'title'
             });
         },'posts-loader');
     }

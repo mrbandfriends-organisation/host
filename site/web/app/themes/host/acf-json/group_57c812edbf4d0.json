@@ -73,14 +73,33 @@
         },
         {
             "key": "field_57c828748b040",
-            "label": "Location title",
-            "name": "location_title",
+            "label": "Location title 1",
+            "name": "location_title_1",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_57ea26fb32f07",
+            "label": "Location title 2",
+            "name": "location_title_2",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -364,5 +383,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1474465268
+    "modified": 1474963233
 }

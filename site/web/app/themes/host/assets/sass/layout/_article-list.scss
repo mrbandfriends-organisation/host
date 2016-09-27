@@ -194,14 +194,6 @@ a.article-tile__link {
 }
 
 .article-tile--universities {
-	.article-tile__image-container {
-		padding: $half-spacing-unit;
-		background-color: #fff;
-
-		@include mq(medium) {
-			padding: rem(40) rem(30);
-		}
-	}
 
 	.article-tile__heading {
 		margin-bottom: 0;
@@ -209,8 +201,24 @@ a.article-tile__link {
 	}
 }
 
-a.article-tile__link:hover {	
+a.article-tile__link:hover {
 	.article-tile__location {
 		color: brand(ink);
+	}
+}
+
+
+// SHAME SHAME SHAME
+// SHAME SHAME SHAME
+// SHAME SHAME SHAME
+// SHAME SHAME SHAME
+// SHAME SHAME SHAME
+.js-university-post-loader {
+	.column {
+		.article-tile {
+			.article-tile__image {
+				display: none;
+			}
+		}
 	}
 }

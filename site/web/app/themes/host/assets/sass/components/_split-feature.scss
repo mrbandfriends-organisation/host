@@ -31,16 +31,16 @@
 // # Actual content
 // ==========================================================================
 .split-feature__content {
-    padding:   rem(40) rem(30);
+    padding: rem(40) rem(30);
 
     @include mq(medium) {
         @include container("left");
-
-        padding: rem(80);
+        padding: rem(40) rem(80);
     }
 
     @include mq(large) {
         @include half-container;
+        padding: rem(80);
     }
 
 
@@ -82,10 +82,14 @@
     @include mq(large) {
         .split-feature__main {
             align-items: flex-end;
-            padding-left: rem(30);
+            //padding-left: rem(30);
         }
 
-        .split-feature__content { padding-left: 0; }
+        .split-feature__content {
+            margin-right: auto;
+            margin-left: rem($large-container-spacing);
+            padding-left: 0;
+        }
     }
 }
 
@@ -95,13 +99,29 @@
         .split-feature__main {
             align-items: flex-start;
             order: 2;
-
-            padding-right: rem(30);
+            //padding-right: rem(30);
         }
 
         .split-feature__content {
             @include container("right");
+            margin-right: rem($large-container-spacing);
+            margin-left: auto;
             padding-right: 0;
+        }
+    }
+}
+
+// If is band--inset split feature needs tweaks
+.band--inset.split-feature {
+    &.-left {
+        .split-feature__content {
+            margin-left: rem(65);
+        }
+    }
+
+    &.-right {
+        .split-feature__content {
+            margin-right: rem(65);
         }
     }
 }
