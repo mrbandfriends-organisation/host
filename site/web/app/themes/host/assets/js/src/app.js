@@ -22,7 +22,7 @@ require('./ext/NodeList');
 
     // // Initialise with selector
     // new GAEventTracking('.js-ga-tracking');
-}()); 
+}());
 
 /**
  * SVG SPRITEMAP
