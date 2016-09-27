@@ -328,6 +328,7 @@ p {
 
 a {
   text-decoration: none;
+  color: #d50e3c;
 }
 
 a:not(.nav-primary__link):not(.btn):not(.menu-item--banner-language-switcher select):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):not(.footer-up-arrow__link):not(.separated-list__link):not(.carousel-infobox__phone-number):not(.carousel-infobox__underlink-link) {
@@ -353,6 +354,10 @@ a:not(.nav-primary__link):not(.btn):not(.menu-item--banner-language-switcher sel
 
 a:not(.nav-primary__link):not(.btn):not(.menu-item--banner-language-switcher select):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):not(.footer-up-arrow__link):not(.separated-list__link):not(.carousel-infobox__phone-number):not(.carousel-infobox__underlink-link):hover:after, a:not(.nav-primary__link):not(.btn):not(.menu-item--banner-language-switcher select):not(.checkerboard-item__link):not(.footer-marks__link):not(.stacked-gallery__link):not(.banner__home-link):not(.footer-up-arrow__link):not(.separated-list__link):not(.carousel-infobox__phone-number):not(.carousel-infobox__underlink-link):focus:after {
   width: 100%;
+}
+
+a:hover {
+  color: #b71539;
 }
 
 a:hover,
