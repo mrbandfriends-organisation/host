@@ -14,3 +14,5 @@
         <?php the_content(); ?>
     </div>
 </section>
+
+<?php echo Utils\ob_load_template_part('templates/partials/shared/news-feed'); ?>

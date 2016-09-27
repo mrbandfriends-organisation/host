@@ -193,7 +193,7 @@
 
 	    __webpack_require__(14);
 
-	    // require('slick')();
+	    //require('slick')();
 	})();
 
 
