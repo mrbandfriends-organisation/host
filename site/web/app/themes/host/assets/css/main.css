@@ -7574,6 +7574,9 @@ a.article-tile__link:hover .article-tile__location {
     align-self: flex-start;
     margin: 40px 1.875rem -20px 40px;
   }
+  .map__map{
+    min-height: 31.25rem;
+  }
   .map__filters{
     padding: 40px;
   }
@@ -7985,6 +7988,9 @@ a.article-tile__link:hover .article-tile__location {
   }
   .awards.-left{
     margin: 80px 1.875rem 60px 7.8125rem;
+  }
+  .map__map{
+    min-height: 37.5rem;
   }
   .map__filters{
     padding: 80px;
