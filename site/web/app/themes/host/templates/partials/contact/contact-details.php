@@ -2,8 +2,9 @@
   /**
   * CONTACT INTRO
   **/
-  use Roots\Sage\Utils;
-  use Roots\Sage\RoomsBuildings;
+    use Roots\Sage\Utils;
+    use Roots\Sage\Extras;
+    use Roots\Sage\RoomsBuildings;
 ?>
 
 
@@ -58,45 +59,61 @@
                 ?>
 
 
-                  <div id="<?php echo $location_title; ?>" class="c-tab <?php if ( $count_tab_content == 1) { echo "is-active"; } ?>">
+                <div id="<?php echo $location_title; ?>" class="c-tab <?php if ( $count_tab_content == 1) { echo "is-active"; } ?>">
                     <div class="c-tab__content">
 
                       <?php if ( !empty($connected_buildings->posts) ): ?>
                           <ul class="c-tab__listing grid grid--gutter">
 
-                            <?php
-                              foreach ($connected_buildings->posts as $building):
+                            <?php foreach ($connected_buildings->posts as $building):
                                 $address_1 = get_field('building_address_1', $building->ID);
                                 $address_2 = get_field('building_address_2', $building->ID);
                                 $town_city = get_field('building_address_town_city', $building->ID);
                                 $post_code = get_field('building_address_post_code', $building->ID);
-                                $phone_no = get_field('building_address_phone_no', $building->ID);
-                              ?>
+                                $phone_no  = get_field('building_address_phone_no', $building->ID);
+                                $link      = ( !empty($building->ID) ? get_the_permalink($building->ID) : null );
 
-                                <li class="gc l1-3 flex">
-                                    <div class="c-tab__listing-item">
+                                // build addresses
+                                $address = join("\n", [
+                                    $address_1,
+                                    $address_2,
+                                    $town_city,
+                                    $post_code
+                                ]);
 
-                                        <h3><?php echo $building->post_title; ?><br><?php echo $location_title; ?></h3>
+                                // strip unneeded newlines
+                                $address = trim(preg_replace("/\n\n+/", "\n", $address));
 
-                                        <strong>Address</strong><br />
-                                        <?php echo $address_1; ?><br />
-                                        <?php if (!empty($address_2)) { echo $address_2 . "<br />"; } ?>
-                                        <?php echo $town_city; ?><br />
-                                        <?php echo $post_code; ?><br />
-                                        <br />
-                                        <strong>Call:</strong><br />
-                                        <a href="tel:<?php echo $phone_no; ?>"><?php echo $phone_no; ?></a>
+                                $google_maps_address = str_replace(" ", '+', esc_html($address));
+                            ?>
 
-                                    </div>
-                                </li>
+                                <?php if ( !empty($address) && !empty($phone_no) && !empty($building->post_title) ): ?>
+                                    <li class="gc l1-3 flex">
+                                        <div class="c-tab__listing-item">
+                                            <h3>
+                                                <?php echo $building->post_title; ?><br>
+                                                <?php echo $location_title; ?>
+                                            </h3>
 
+                                            <strong>Address</strong>
+                                            <p>
+                                                <?=str_replace("\n", '<br>', esc_html($address)); ?>
+                                            </p>
+
+                                            <a class="" href="https://www.google.com/maps?daddr=<?= $google_maps_address ?>); ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
+                                                Get directions
+                                            </a>
+
+                                            <strong>Call:</strong>
+                                            <a href="tel:<?php echo $phone_no; ?>"><?php echo $phone_no; ?></a>
+                                        </div>
+                                    </li>
+                                <?php endif; ?>
                             <?php endforeach; ?>
 
                     <?php else: ?>
-
                           <h3 class="plain">Host Students currently have no buildings in <?php echo $location_title; ?></h3>
-
-                  <?php endif; ?>
+                    <?php endif; ?>
 
                         </ul>
                     </div>

@@ -2510,17 +2510,23 @@ dl.-horizontal dd ~ dd {
 /**
  * Tab
  */
+div.c-tabs {
+  margin-bottom: -40px;
+}
+
 .c-tab {
   opacity: 0;
   height: 0;
-  z-index: -1;
-  transition: opacity 0.35s ease-in-out, height 0.35s ease-in-out;
+  z-index: 1;
+  transform: translate3d(-100%, 0, 0);
+  transition: all ease-in-out 0.35s;
 }
 
 .c-tab.is-active {
   opacity: 1;
   height: auto;
-  z-index: 1;
+  z-index: 1000;
+  transform: translate3d(0, 0, 0);
 }
 
 .c-tab__content {
@@ -2529,15 +2535,32 @@ dl.-horizontal dd ~ dd {
 }
 
 .c-tab__listing-item {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  padding: 2.1875rem;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  width: 100%;
+  margin-bottom: 40px !important;
+  padding: 1.25rem;
   background-color: #d50e3c;
 }
 
-.c-tab__listing-item > * {
+.c-tab__listing-item p,
+.c-tab__listing-item strong,
+.c-tab__listing-item a {
   color: #fff !important;
+}
+
+.c-tab__listing-item strong {
+  margin-bottom: 5px;
+}
+
+.c-tab__listing-item p {
+  margin-top: 0;
+}
+
+.c-tab__listing-item a {
+  margin-bottom: 20px;
 }
 
 /**
@@ -7012,6 +7035,9 @@ a.article-tile__link:hover .article-tile__location {
   .js-flyout__button[class]{
     height: 100%;
     padding: 2.1875rem;
+  }
+  .c-tab__listing-item{
+    padding: 2.5rem;
   }
   .mfp-arrow-left::after, .mfp-arrow-left:before{
     right: auto;
