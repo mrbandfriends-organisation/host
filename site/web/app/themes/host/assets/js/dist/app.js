@@ -215,7 +215,9 @@
 
 	        !/* require.ensure */(function() {
 	            new PostsLoader({
-	                'dataEndpoint' : 'host_load_posts'
+	                'dataEndpoint'  : 'host_load_posts',
+	                'paginationUrl' : '/news/page/',
+	                'order'         : 'DESC',
 	            });
 	        }(__webpack_require__));
 	    }
@@ -227,8 +229,9 @@
 	        !/* require.ensure */(function() {
 	            new PostsLoader({
 	                'dataEndpoint'  : 'host_load_posts',
-	                'paginationUrl' : '/universities/',
-	                'postType'      : 'university'
+	                'paginationUrl' : '/universities/page',
+	                'postType'      : 'university',
+	                'orderBy'       : 'title'
 	            });
 	        }(__webpack_require__));
 	    }
@@ -10968,7 +10971,9 @@
 	        'updateHistory'         : true, // whether or not to update the browser history on each page reload
 	        'triggerActiveClass'    : '-loading',
 	        'postsPerPage'          : 6,
-	        'postType'              : 'post'
+	        'postType'              : 'post',
+	        'order'                 : 'ASC',
+	        'orderBy'               : 'date'
 	    };
 
 	    this.options = $.extend({}, defaults, options);
@@ -11071,11 +11076,11 @@
 	    // set the current page
 	    this.oData.paged = self.currentPage + 1;
 
-	    // Get thsi from data attr if empty get deafult
-	    //this.oData.postType     = this.options.dataPostType;
-	    this.oData.postType = this.options.postType;
-	    // this.oData.postsPerPage = this.options.dataPostsPerPage;
+	    // Query options
+	    this.oData.postType     = this.options.postType;
 	    this.oData.postsPerPage = this.options.postsPerPage;
+	    this.oData.order        = this.options.order;
+	    this.oData.orderBy      = this.options.orderBy;
 
 
 	    $.ajax({

@@ -16,7 +16,9 @@ var PostsLoader = function(options) {
         'updateHistory'         : true, // whether or not to update the browser history on each page reload
         'triggerActiveClass'    : '-loading',
         'postsPerPage'          : 6,
-        'postType'              : 'post'
+        'postType'              : 'post',
+        'order'                 : 'ASC',
+        'orderBy'               : 'date'
     };
 
     this.options = $.extend({}, defaults, options);
@@ -119,11 +121,11 @@ PostsLoader.prototype._fetchPosts = function(event) {
     // set the current page
     this.oData.paged = self.currentPage + 1;
 
-    // Get thsi from data attr if empty get deafult
-    //this.oData.postType     = this.options.dataPostType;
-    this.oData.postType = this.options.postType;
-    // this.oData.postsPerPage = this.options.dataPostsPerPage;
+    // Query options
+    this.oData.postType     = this.options.postType;
     this.oData.postsPerPage = this.options.postsPerPage;
+    this.oData.order        = this.options.order;
+    this.oData.orderBy      = this.options.orderBy;
 
 
     $.ajax({
