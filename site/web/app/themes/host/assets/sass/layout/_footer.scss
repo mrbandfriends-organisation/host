@@ -17,6 +17,10 @@
     font-size:   rem(13);
     line-height: rem(24);
 
+    @include mq(medium) {
+        padding: rem(80) rem(30) rem(40);
+    }
+
     ul {
         margin: 0;
         list-style: none outside;
