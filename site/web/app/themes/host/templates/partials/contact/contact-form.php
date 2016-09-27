@@ -1,5 +1,8 @@
 <?php
     use Roots\Sage\Utils;
+    use Roots\Sage\GravityForms;
 ?>
 
-<?php echo do_shortcode('[gravityform id=1]'); ?>
+<?php if ( GravityForms\gravity_form_exists( 1 ) ): ?>
+    <?php gravity_form(1); ?>
+<?php endif ?>
