@@ -57,7 +57,7 @@
         ?>
         <li class="property-list__item">
             <article class="listed-property grid">
-                <div class="listed-property__main gc l1-2 xl2-3 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded" data-favouritable="<?=get_the_id(); ?>">
+                <div class="listed-property__main gc l1-2 xl2-3 xxl5-7 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded" data-favouritable="<?=get_the_id(); ?>">
                     <div class="listed-property__content grid">
                         <div class="listed-property__title-desc gc xxl3-5">
                             <h3 class="listed-property__title plain">
@@ -99,8 +99,8 @@
                         </div>
                     </div>
                 </div>
-                <aside class="listed-property__image gc l1-2 xl1-3"<?=$sStyle; ?>>
-                    <p class="listed-property__price box box--ink box--less-padding box--fg-<?=$aAvailabilityDefinition['foreground']; ?> h3">
+                <aside class="listed-property__image gc l1-2 xl1-3 xxl2-7"<?=$sStyle; ?>>
+                    <p class="listed-property__price box box--ink box--fg-<?=$aAvailabilityDefinition['foreground']; ?> h3">
                         Rooms from <span class="inherit-fg"><?=esc_html(get_field('prices_from')); ?></span>
                     </p>
                 </aside>
