@@ -13,4 +13,4 @@
 
 <?= Utils\esc_textarea__($description); ?>
 
-<a href="/news" class="btn">Show me all news</a>
+<a href="/news#listing" class="btn">Show me all news</a>
