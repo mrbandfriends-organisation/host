@@ -71,7 +71,9 @@
         margin-left: $half-spacing-unit;
 
         .btn {
-            min-width: rem(180);
+            width: rem(204);
+            min-width: 1px;
+            padding: rem(11) rem(25);
         }
     }
 

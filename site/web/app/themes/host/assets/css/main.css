@@ -4187,10 +4187,6 @@ a.btn {
   margin-left: 0rem;
 }
 
-.band--inset.split-feature.-right .split-feature__content {
-  margin-right: 4.0625rem;
-}
-
 .split-feature.-twin-content .split-feature__main .split-feature__content {
   padding-bottom: 40px;
 }
@@ -7117,13 +7113,10 @@ a.article-tile__link:hover .article-tile__location {
     width: 100%;
     margin-right: 0;
     margin-left: auto;
-    padding: 2.5rem 5rem;
+    padding: 5rem 2.5rem;
   }
   .split-feature__content .btn, .split-feature__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .split-feature__content select{
     margin-top: 40px;
-  }
-  .band--inset.split-feature.-left .split-feature__content{
-    margin-left: 4.0625rem;
   }
   .split-feature.-twin-content .split-feature__secondary{
     padding-bottom: 80px;
@@ -7531,7 +7524,6 @@ a.article-tile__link:hover .article-tile__location {
     width: 100%;
     margin-right: 0;
     margin-left: auto;
-    padding-left: 2.5rem;
   }
   .split-feature.-right .split-feature__main{
     -ms-flex-align: start;
@@ -7544,7 +7536,6 @@ a.article-tile__link:hover .article-tile__location {
     width: 100%;
     margin-right: auto;
     margin-left: 0;
-    padding-right: 2.5rem;
   }
   .split-feature.-twin-content .split-feature__main .split-feature__content{
     padding-bottom: 80px;
@@ -7613,7 +7604,9 @@ a.article-tile__link:hover .article-tile__location {
     margin-left: 20px;
   }
   .menu-item--banner-language-switcher .btn, .menu-item--banner-language-switcher select{
-    min-width: 11.25rem;
+    width: 12.75rem;
+    min-width: 1px;
+    padding: 0.6875rem 1.5625rem;
   }
   .nav-primary--banner .menu-item .nav-primary__link .menu-item__name{
     font-weight: bold;
@@ -8383,6 +8376,12 @@ a.article-tile__link:hover .article-tile__location {
   .split-feature.-right .split-feature__content{
     margin-right: 7.8125rem;
     padding-right: 0;
+  }
+  .band--inset.split-feature.-left .split-feature__content{
+    margin-left: 4.0625rem;
+  }
+  .band--inset.split-feature.-right .split-feature__content{
+    margin-right: 4.0625rem;
   }
   .listed-property__address-contact{
     -ms-flex-direction: column;
