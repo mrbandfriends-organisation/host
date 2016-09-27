@@ -41,7 +41,7 @@
                         'tile_image'            => $carousel_image,
                         'available_properties'  => $connected_buildings_count
                     )); ?>
-                    
+
                 </li>
                 <?php $count++; ?>
             <?php endwhile; ?>
@@ -49,11 +49,17 @@
 
             <li class="checkerboard__sell gc js-checkerboard__item js-checkerboard__sell">
                 <div class="box box--ink">
-                    <h3>Featured home<br>Our latest or greatest</h3>
 
-                    <p>
-                        <a href="/building.php" class="btn btn--white btn--small">Show me featured homes</a>
-                    </p>
+                  <?php if ( get_field('featured_building') != "" ) { ?>
+
+                      <h3>Featured home<br>Our latest or greatest</h3>
+                      <?php $featured_building = get_field('featured_building'); ?>
+                      <p>
+                          <a href="<?php echo $featured_building->guid; ?>" class="btn btn--white btn--small">Show me featured homes</a>
+                      </p>
+
+                  <?php } ?>
+
                 </div>
             </li>
         </ul>

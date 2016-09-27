@@ -60,8 +60,9 @@
 // # Secondary pane
 // ==========================================================================
 .split-feature__secondary {
+    min-height: rem(200);
 
-    @include mq($until: large) {
+    @include mq(large) {
         min-height: 50vh;
     }
 
@@ -115,7 +116,12 @@
 .band--inset.split-feature {
     &.-left {
         .split-feature__content {
-            margin-left: rem(65);
+            margin-left: rem(0);
+
+            @include mq(medium) {
+              margin-left: rem(65);
+            }
+
         }
     }
 
