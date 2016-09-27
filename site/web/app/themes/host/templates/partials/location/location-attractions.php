@@ -13,7 +13,7 @@
 
             <?php if ( !empty('location_title_1') && !empty('location_title_2') ): ?>
                 <h2>
-                    <?= esc_html(get_field('location_title_1')); ?>
+                    <?= esc_html(get_field('location_title_1')); ?><br />
                     <?= esc_html(get_field('location_title_2')); ?>
                 </h2>
             <?php endif; ?>
