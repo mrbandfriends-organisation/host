@@ -23,12 +23,16 @@
 // Heading 1
 @include headings(1, 1) {
     font-size: rem($h1-fsize);
+    letter-spacing: rem(-2);
+
     @include mq(medium) {
         font-size: rem($h1-fsize-desktop);
     }
 }
 @include headings(2, 2) {
     font-size: rem($h2-fsize);
+    letter-spacing: rem(-1);
+
     @include mq(medium) {
         font-size: rem($h2-fsize-desktop);
         margin-bottom: $spacing-unit;
