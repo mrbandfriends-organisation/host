@@ -4012,7 +4012,7 @@ a.btn {
 }
 
 .checkerboard__header {
-  padding: 7.8125rem 1.875rem 3.125rem;
+  padding: 3.125rem 1.875rem 3.125rem;
   text-align: center;
 }
 
@@ -4048,7 +4048,7 @@ a.btn {
   display: flex;
   -ms-flex-direction: column;
       flex-direction: column;
-  padding: 20px;
+  padding: 2.125rem;
   width: 100%;
 }
 
@@ -4163,6 +4163,10 @@ a.btn {
   margin-top: 20px;
 }
 
+.split-feature__secondary {
+  min-height: 12.5rem;
+}
+
 .split-feature__secondary .grid {
   height: 100%;
   width: 100%;
@@ -4177,7 +4181,7 @@ a.btn {
 }
 
 .band--inset.split-feature.-left .split-feature__content {
-  margin-left: 4.0625rem;
+  margin-left: 0rem;
 }
 
 .band--inset.split-feature.-right .split-feature__content {
@@ -4381,10 +4385,6 @@ a.btn {
   margin: 0;
   font-size: 2.1875rem;
   line-height: 1.2;
-}
-
-.listed-property__availability {
-  margin-bottom: 2.5rem;
 }
 
 .listed-property__number-types {
@@ -6660,8 +6660,11 @@ a.article-tile__link:hover .article-tile__location {
   .gc--below-s{
     display: none;
   }
+  .checkerboard__header{
+    padding: 7.8125rem 1.875rem 3.125rem;
+  }
   .checkerboard__sell .box{
-    padding: 40px;
+    padding: 2.25rem;
   }
   .listed-room{
     padding: 1.25rem;
@@ -7071,6 +7074,9 @@ a.article-tile__link:hover .article-tile__location {
   .split-feature__content .btn, .split-feature__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .split-feature__content select{
     margin-top: 40px;
   }
+  .band--inset.split-feature.-left .split-feature__content{
+    margin-left: 4.0625rem;
+  }
   .split-feature.-twin-content .split-feature__secondary{
     padding-bottom: 80px;
   }
@@ -7461,6 +7467,9 @@ a.article-tile__link:hover .article-tile__location {
   .split-feature__content{
     max-width: 33.59375rem;
     padding: 5rem;
+  }
+  .split-feature__secondary{
+    min-height: 50vh;
   }
   .split-feature.-left .split-feature__main{
     -ms-flex-align: end;
@@ -8385,9 +8394,6 @@ a.article-tile__link:hover .article-tile__location {
   }
   .offcanvas__wrapper.is-active-left .offcanvas__offscreen-left{
     opacity: 1;
-  }
-  .split-feature__secondary{
-    min-height: 50vh;
   }
   .billboard__inner{
     background-image: none !important;

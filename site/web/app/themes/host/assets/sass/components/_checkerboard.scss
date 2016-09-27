@@ -28,8 +28,13 @@ $checkerboard-conf: (
 // Header
 // ==========================================================================
 .checkerboard__header {
-    padding: rem(125) rem(30) rem(50);
+    padding: rem(50) rem(30) rem(50);
     text-align: center;
+
+    @include mq(small) {
+        padding: rem(125) rem(30) rem(50);
+    }
+
 }
 
 .checkerboard__content { align-items: stretch; }
@@ -59,17 +64,16 @@ $checkerboard-conf: (
     display: flex;
     flex: 1;
     width: auto;
-
     transition: transform 500ms;
 
     .box {
         display: flex;
         flex-direction: column;
-        padding: $half-spacing-unit;
+        padding: rem(34);
         width:   100%;
 
         @include mq(small) {
-            padding: $spacing-unit;
+            padding: rem(36);
         }
     }
 
