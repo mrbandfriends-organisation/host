@@ -10,8 +10,8 @@
     $post_loader_class = ( !empty($post_loader_class) ? $post_loader_class : null );
     $post_per_page     = ( !empty($post_per_page) ? $post_per_page : 6 );
     $post_type         = ( !empty($post_type) ? $post_type : 'post' );
-    $orderby           = ( !empty($orderby) ? $orderby : 'date' );
     $order             = ( !empty($order) ? $order : 'ASC' );
+    $orderby           = ( !empty($orderby) ? $orderby : 'date' );
 
 
     // Getting the query
@@ -19,7 +19,7 @@
         'paged'          => get_query_var('paged'),
         'posts_per_page' => $post_per_page,
         'post_type'      => $post_type,
-        //'order'          => $order,
+        'order'          => $order,
         'orderby'        => $orderby
     ));
 
@@ -80,6 +80,8 @@
 
 
 <?php
+    //$raw_url = get_next_posts_page_link();
+
     //echo Utils\ob_load_template_part('templates/partials/listing/pagination', array(
     //    'query' => $the_query
     //));
