@@ -1,5 +1,5 @@
 <header class="room-list__header">
-    <div class="room-list__header-inner container grid">
+    <div class="room-list__header-inner grid">
         <div class="room-list__title-info gc l1-2 box box--fg-grape">
             <h2><?=$title; ?></h2>
             <p><?=$intro; ?></p>
