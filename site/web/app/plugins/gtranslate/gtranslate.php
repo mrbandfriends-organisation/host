@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: GTranslate
+Plugin Name: GTranslate Mr B
 Plugin URI: https://gtranslate.io/?xyz=998
 Description: Makes your website <strong>multilingual</strong> and available to the world using Google Translate. For support visit <a href="https://gtranslate.io/forum/">GTranslate Forum</a>.
 Version: 2.0.18
@@ -79,7 +79,6 @@ class GTranslate extends WP_Widget {
         GTranslate::load_defaults($data);
         $wp_plugin_url = '/web/app/plugins/'. dirname( plugin_basename(__FILE__) );
 
-        wp_enqueue_style('gtranslate-style', $wp_plugin_url.'/gtranslate-style'.$data['flag_size'].'.css');
         wp_enqueue_script('jquery');
     }
 
