@@ -5467,6 +5467,10 @@ a.btn {
   text-align: center;
 }
 
+.menu-item--banner-language-switcher select::-ms-expand {
+  display: none;
+}
+
 .nav-primary {
   margin: 0;
   list-style: none outside;
