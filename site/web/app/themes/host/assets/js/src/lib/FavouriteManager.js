@@ -1,6 +1,7 @@
 // jshint latedef:nofunc
-var cookies = require('cookies');
-var icon    = require('svg-icons');
+var cookies         = require('cookies');
+var icon            = require('svg-icons');
+var _includes       = require('lodash.includes');
 
 var sFavouriteTemplate =
 '<article class="box box--fg-{{availability.foreground}} favourites__favourite" data-id="{{id}}">'+
@@ -389,7 +390,7 @@ function FavouriteManager()
         elButton.addEventListener('click', function()
         {
             // a. if it contains it, remove
-            if (aiFavourites.includes(iId))
+            if ( _includes(aiFavourites, iId) )
             {
                 aiFavourites = aiFavourites.filter(function(iCurr)
                 {
