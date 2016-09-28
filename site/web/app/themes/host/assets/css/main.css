@@ -3921,11 +3921,11 @@ a.btn {
 }
 
 .tcon-menu__lines::before {
-  top: 6.25px;
+  top: 7.14286px;
 }
 
 .tcon-menu__lines::after {
-  top: -6.25px;
+  top: -7.14286px;
 }
 
 .tcon-transform .tcon-menu__lines {
@@ -6806,7 +6806,7 @@ a.article-tile__link:hover .article-tile__location {
     padding: 1.25rem;
   }
   .listed-room__content{
-    width: 18.75rem;
+    width: 19.875rem;
   }
   .gform_footer{
     position: absolute;
