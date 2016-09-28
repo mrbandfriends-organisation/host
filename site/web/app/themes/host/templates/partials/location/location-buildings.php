@@ -1,20 +1,19 @@
 <?php
     /**
-     * LOCATION BUILDINGS
+     * LOCATION BUILDINGS.
      **/
     use Roots\Sage\Utils;
     use Roots\Sage\RoomsBuildings;
 
     // get buildings
     $buildings = new WP_Query([
-        'connected_type'  => 'building_to_location',
+        'connected_type' => 'building_to_location',
         'connected_items' => get_queried_object(),
-        'nopaging'        => true
+        'nopaging' => true,
     ]);
 
     // if nothing, bail
-    if ( !$buildings->have_posts() )
-    {
+    if (!$buildings->have_posts()) {
         return;
     }
 ?>
@@ -22,25 +21,24 @@
     <h2 class="vh">Properties in<br><?=the_title(); ?></h2>
 
     <ul class="property-list__list">
-    <?php while ( $buildings->have_posts() ): $buildings->the_post(); ?>
+    <?php while ($buildings->have_posts()): $buildings->the_post(); ?>
         <?php
             // build addresses
-            $address = join("\n", [
+            $address = implode("\n", [
                 get_field('building_address_1'),
                 get_field('building_address_2'),
                 get_field('building_address_town_city'),
-                get_field('building_address_post_code')
+                get_field('building_address_post_code'),
             ]);
 
             // strip unneeded newlines
             $address = trim(preg_replace("/\n\n+/", "\n", $address));
-            $phone   = trim(get_field('building_address_phone_no'));
+            $phone = trim(get_field('building_address_phone_no'));
 
             // thumbnail
             $sStyle = '';
-            if (has_post_thumbnail())
-            {
-                $sUrl   = wp_get_attachment_image_url(get_post_thumbnail_id(), 'width=500');
+            if (has_post_thumbnail()) {
+                $sUrl = wp_get_attachment_image_url(get_post_thumbnail_id(), 'width=500');
                 $sStyle = sprintf(' style="background-image: url(%s)"', $sUrl);
             }
 
@@ -50,10 +48,10 @@
 
             // link stuff
             $bExternal = (get_field('external_website') === true);
-            $sUrl      = $bExternal ? get_field('website_url') : get_the_permalink();
-            $sText     = $bExternal ? 'Take me to the website' : 'Show me this property';
-            $sAtts     = $bExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
-            $sBtnText     = ($aAvailabilityDefinition['text'] === 'Coming soon') ? '' : $sText;
+            $sUrl = $bExternal ? get_field('website_url') : get_the_permalink();
+            $sText = $bExternal ? 'Take me to the website' : 'Show me this property';
+            $sAtts = $bExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+            $sBtnText = ($aAvailabilityDefinition['text'] === 'Coming soon') ? '' : $sText;
         ?>
         <li class="property-list__item">
             <article class="listed-property grid">
@@ -61,9 +59,12 @@
                     <div class="listed-property__content grid">
                         <div class="listed-property__title-desc gc xxl3-5">
                             <h3 class="listed-property__title plain">
-                                <?php if (!empty($sUrl)): ?><a href="<?=$sUrl;?>"<?=$sAtts; ?>><?php endif; ?>
-                                <?=get_field('title_1'); ?></h3>
+                                <?php if (!empty($sUrl)): ?>
+                                <a href="<?=$sUrl;?>"<?=$sAtts; ?>>
+                                <?php endif; ?>
+                                <?=get_field('title_1'); ?>
                                 <?php if (!empty($sUrl)): ?></a><?php endif; ?>
+                            </h3>
                             <h4 class="listed-property__availability"><?=$aAvailabilityDefinition['text']; ?></h4>
 
                             <?php if ($iNumberTypes !== null): ?>
