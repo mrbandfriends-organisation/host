@@ -13,7 +13,7 @@
 }
 
 .favouritable__wrapper[class] {
-
+    position: relative; // pos context for favourite button
     margin-top: $double-spacing-unit;
 
     @include mq(large) {
