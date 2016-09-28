@@ -1,0 +1,43 @@
+// ==========================================================================
+// LANDMARK
+//
+// Description: used to provide consistent margins between major components
+// on a page/template.
+// ==========================================================================
+
+// ==========================================================================
+// BASE
+// ==========================================================================
+
+.landmark,
+%landmark {
+    @include clearfix;
+    margin-bottom: $double-spacing-unit;
+}
+
+.landmark-tiny,
+.landmark--tiny,
+%landmark-tiny {
+    @include clearfix;
+    margin-bottom: $half-spacing-unit;
+}
+
+.landmark-minor,
+.landmark--minor,
+%landmark-minor,
+.landmark-small,
+.landmark--small,
+%landmark-small {
+    @include clearfix;
+    margin-bottom: $spacing-unit;
+}
+
+.landmark-major,
+.landmark--major,
+%landmark-major,
+.landmark-large,
+.landmark--large,
+%landmark-large {
+    @include clearfix;
+    margin-bottom: $spacing-unit*3;
+}

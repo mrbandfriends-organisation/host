@@ -1,0 +1,230 @@
+// ==========================================================================
+//
+// HELPERS
+//
+// Description: Set of simple classes to implement common CSS patterns
+//
+// ==========================================================================
+
+
+// ==========================================================================
+// # CLEARFIX & CLEARING
+// ==========================================================================
+
+// # CLEARING
+// ==========================================================================
+
+.clear {
+    clear: both;
+}
+
+.clear-l {
+    clear: left;
+}
+
+.clear-r {
+    clear: right;
+}
+
+// # CLEARFIX
+// Description: Description: The Magnificent Clearfix: Updated to prevent
+// margin-collapsing on child elements in most situations
+// nicolasgallagher.com/micro-clearfix-hack/
+// ==========================================================================
+
+.clearfix,
+%clearfix,
+.cf,
+%cf {
+    zoom: 1;
+
+    &:before,
+    &:after {
+        display: table;
+        content: "";
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+
+
+
+
+// ==========================================================================
+// # FLOATS & ALIGNMENT
+// ==========================================================================
+
+// # FLOATS
+// ==========================================================================
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
+
+
+// # TEXT ALIGNMENT
+// ==========================================================================
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+
+// ==========================================================================
+// # IMAGERY
+// ==========================================================================
+
+// # IMAGE POSITIONING
+// ==========================================================================
+
+.img-left,
+%img-left,
+.img-l,
+.alignleft {
+    margin: 0 $base-line-height $base-line-height 0;
+    float: left;
+}
+
+.img-right,
+%img-right,
+.img-r,
+.alignright {
+    margin: 0 0 $base-line-height $base-line-height;
+    float: right;
+}
+
+.img-center,
+%img-center,
+.aligncenter {
+    display: block;
+    margin: 0 auto $base-line-height;
+    float: none;
+}
+
+.ir,
+%ir,
+.img-replace {
+    border: 0;
+    background-color: transparent;
+    line-height: 0; // http://adriandalvarez.tumblr.com/post/6731022156/html5-boilerplate-image-replacement-helper-class-ie7
+    overflow: hidden;
+}
+
+.ir:before,
+%ir:before,
+.img-replace:before {
+    display: block;
+    width: 0;
+    height: 150%;
+    content: "";
+}
+
+
+
+
+// ==========================================================================
+// # HIDDEN CONTENT
+// ==========================================================================
+
+// # HIDE: SCREENREADERS & BROWSERS
+// DESCRIPTION: css-discuss.incutio.com/wiki/Screenreader_Visibility
+// ==========================================================================
+
+.hidden,
+%hidden {
+    // scss-lint:disable ImportantRule
+    display: none !important;
+    visibility: hidden;
+}
+
+// # HIDE VISUALLY FOR BROWSERS
+// DESCRIPTION: Hide only visually, but have it available for screenreaders: by Jon Neal.
+// www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden
+// ==========================================================================
+
+.vh,
+%vh,
+.v-hidden,
+.screen-reader-text,
+.assistive-text {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+
+    clip: rect(0 0 0 0);
+    border: 0;
+    overflow: hidden;
+}
+
+.vh.focusable:active,
+.vh.focusable:focus,
+.v-hidden.focusable:active,
+.v-hidden.focusable:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    clip: auto;
+    overflow: visible;
+}
+
+// ==========================================================================
+// # HIDE: VISUALLY FROM ALL + MAINTAIN LAYOUT
+// DESCRIPTION: Hide visually and from screenreaders, but maintain layout
+// ==========================================================================
+
+.invisible {
+    visibility: hidden;
+}
+
+
+
+// ==========================================================================
+// # RESETTING
+// ==========================================================================
+
+// # LISTS
+// ==========================================================================
+
+.list-reset,
+%list-reset {
+    @include list-reset;
+}
+
+// # UNSTYLED LIST
+// ==========================================================================
+
+%list-unstyled,
+.list-unstyled {
+    margin-left: 0;
+    list-style: none;
+}
+
+
+// ==========================================================================
+// # EQUAL HEIGHTS
+// ==========================================================================
+
+// # FLEX
+// ==========================================================================
+.flex {
+    display: flex;
+}

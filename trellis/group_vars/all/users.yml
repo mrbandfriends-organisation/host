@@ -1,0 +1,28 @@
+# Documentation: https://roots.io/trellis/docs/ssh-keys/
+admin_user: admin
+
+# Also define 'vault_users' (`group_vars/staging/vault.yml`, `group_vars/production/vault.yml`)
+users:
+  - name: "{{ web_user }}"
+    groups:
+      - "{{ web_group }}"
+    keys:
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_david_smith_rsa.pub # Dave Smith
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_cliff_williams_rsa.pub # Cliff Williams
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_george_putnam_rsa.pub # George Putnam
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_stuart_nelson_rsa.pub # Stuart Nelson
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_aggesr_rsa.pub # Aggers
+  - name: "{{ admin_user }}"
+    groups:
+      - sudo
+    keys:
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_david_smith_rsa.pub # Dave Smith
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_cliff_williams_rsa.pub # Cliff Williams
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_stuart_nelson_rsa.pub # Stuart Nelson
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_george_putnam_rsa.pub # George Putnam
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_aggesr_rsa.pub # Aggers
+
+web_user: web
+web_group: www-data
+web_sudoers:
+  - "/usr/sbin/service php7.0-fpm *"

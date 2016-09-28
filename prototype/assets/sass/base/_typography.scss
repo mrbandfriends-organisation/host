@@ -1,0 +1,122 @@
+// ==========================================================================
+// TYPOGRAPHY
+//
+// Description: base typography styles to apply globally
+// ==========================================================================
+
+//scss-lint:disable SpaceAfterComma (no idea: it’s set to at_least_one_space)
+@include font-face('CircularWeb', '../fonts/circular/book',  400,      $file-formats: woff2 woff);
+@include font-face('CircularWeb', '../fonts/circular/std',  bold,     $file-formats: woff2 woff);
+
+// ==========================================================================
+// GLOBAL
+// ==========================================================================
+
+html {
+    font-size:   100%;
+    line-height: 1.55556;
+}
+
+body {
+    background: brand(white);
+    color: brand(ink);
+    font: normal rem(18) $base-font-family;
+}
+
+// ==========================================================================
+// PARAGRAPHS
+// ==========================================================================
+
+p {
+    margin: 1em 0;
+}
+
+.small-copy { font-size: rem(15); }
+
+// ==========================================================================
+// LINKS
+// ==========================================================================
+
+a {
+    text-decoration: none;
+}
+
+a:hover,
+a:focus {
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+a:hover,
+a:active {
+    outline: none;
+}
+
+
+// ==========================================================================
+// LISTS
+// ==========================================================================
+
+// Standard List
+// ==========================================================================
+
+ul,
+ol {
+    margin: 0 0 1em rem(25);
+    padding: 0;
+}
+
+// Nested lists
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+    margin-bottom: 0;
+}
+
+ul {
+    list-style: disc;
+}
+
+ol {
+    list-style: decimal;
+}
+
+li {
+    // line-height: $base-line-height;
+}
+
+
+// Definition List
+// ==========================================================================
+
+dd {
+    margin-left: 0;
+}
+
+
+// ==========================================================================
+// ADDRESS
+// ==========================================================================
+
+address {
+    margin-bottom: 1em;
+    font-style: normal;
+}
+
+
+// ==========================================================================
+// IMAGES
+// ==========================================================================
+
+// Set things up for responsive
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;
+}

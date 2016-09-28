@@ -1,0 +1,85 @@
+// ==========================================================================
+//
+// BANNER
+//
+// Description: layout and styling for primary banner/header of site
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.banner {
+    width: 100%;
+    padding: 0 0 rem($half-spacing-unit);
+}
+
+.banner__inner {
+    position:        relative;
+    display:         flex;
+    justify-content: space-between;
+    align-items:     center;
+
+    @include mq(nav-break-2) {
+        align-items: flex-end;
+    }
+}
+
+// ==========================================================================
+// # SECTION
+// ==========================================================================
+.banner__section {
+    // scss-lint:disable EmptyRule
+    //
+    // @include mq($from: nav-break-2) {
+    //     display: table-cell;
+    //     vertical-align: middle;
+    //
+    //     .flexbox & {
+    //         display: block;
+    //         flex: 0 0 auto;
+    //         vertical-align: initial;
+    //     }
+    // }
+}
+
+// ==========================================================================
+// # BRAND
+// ==========================================================================
+
+.banner__brand {
+    display: block;
+}
+
+// ==========================================================================
+// # NAV
+// ==========================================================================
+
+.banner__nav {
+    display:        flex;
+    flex-direction: column;
+    align-items:    flex-end;
+}
+
+// <li> that wraps the language switcher btn
+.menu-item--banner-language-switcher {
+    display: none;
+
+    @include mq(nav-break-2) {
+        display: block;
+        margin-left: $half-spacing-unit;
+
+        .btn {
+            width: rem(204);
+            min-width: 1px;
+            padding: rem(11) rem(25);
+        }
+    }
+
+    select {
+        @extend .btn;
+
+        text-align: center;
+    }
+}

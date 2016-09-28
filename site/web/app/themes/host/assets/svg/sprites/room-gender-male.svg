@@ -1,0 +1,9 @@
+<svg id="807d44fc-65c3-4977-bd79-87c05f12ab2f" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.96 46.63">
+  <title>room-gender-male</title>
+  <g>
+    <circle cx="11.98" cy="7.73" r="6.48" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <line x1="7.28" y1="32.95" x2="7.28" y2="45.38" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <line x1="16.65" y1="45.38" x2="16.65" y2="32.96" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <polyline points="7.28 32.98 1.25 15.11 22.71 15.11 16.65 32.98" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+  </g>
+</svg>

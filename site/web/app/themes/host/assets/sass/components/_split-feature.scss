@@ -1,0 +1,213 @@
+// ==========================================================================
+// # SPLIT FEATURE
+//
+// Split features are one of the more common elements on the site, and are,
+// in-effect a two equal column grid… just a little more specialised
+// ==========================================================================
+
+// scss-lint:disable MergeableSelector
+
+// ==========================================================================
+// # Base
+// ==========================================================================
+.split-feature {
+    // scss-lint:disable EmptyRule
+}
+
+.split-feature__main,
+.split-feature__secondary {
+    display:         flex;
+    flex-direction:  column;
+    justify-content: center;
+    align-items:     center;
+}
+
+// # Main pane
+// ==========================================================================
+.split-feature__main {
+    // scss-lint:disable EmptyRule
+}
+
+// # Actual content
+// ==========================================================================
+.split-feature__content {
+    padding: rem(40) rem(30);
+
+    @include mq(medium) {
+        @include container("left");
+        padding: rem(80) rem(40);
+    }
+
+    @include mq(large) {
+        @include half-container;
+        padding: rem(80);
+    }
+
+
+    // Stopped using this class as its causing issues
+    // against my preference modifing .btn for this usage
+    //.split-feature__btn {
+    & .btn {
+        margin-top: $half-spacing-unit;
+
+        @include mq(medium) {
+            margin-top: $spacing-unit;
+        }
+    }
+}
+
+
+// # Secondary pane
+// ==========================================================================
+.split-feature__secondary {
+    min-height: rem(200);
+
+    @include mq(large) {
+        min-height: 50vh;
+    }
+
+    .grid { height: 100%; width: 100%; }
+
+    .slideshow {
+        display: flex;
+        flex: 1;
+        width: 100%;
+    }
+}
+
+// ==========================================================================
+// # MODIFIER: ALIGNMENT
+// ==========================================================================
+.split-feature.-left {
+
+    @include mq(large) {
+        .split-feature__main {
+            align-items: flex-end;
+            //padding-left: rem(30);
+        }
+
+        .split-feature__content {
+            @include container("left");
+            //padding-left: rem(40);
+        }
+    }
+
+    @include mq(xlarge) {
+        .split-feature__content {
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
+    @include mq(xxlarge) {
+        .split-feature__content {
+            margin-left: rem($large-container-spacing);
+            padding-left: 0;
+        }
+    }
+}
+
+.split-feature.-right {
+
+    @include mq(large) {
+        .split-feature__main {
+            align-items: flex-start;
+            order: 2;
+            //padding-right: rem(30);
+        }
+
+        .split-feature__content {
+            @include container("right");
+            //padding-right: rem(40);
+            // margin-right: rem($large-container-spacing);
+            // margin-left: auto;
+        }
+    }
+
+    @include mq(xlarge) {
+        .split-feature__content {
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
+
+    @include mq(xxlarge) {
+        .split-feature__content {
+            margin-right: rem($large-container-spacing);
+            padding-right: 0;
+        }
+    }
+}
+
+// If is band--inset split feature needs tweaks
+.band--inset.split-feature {
+    &.-left {
+        .split-feature__content {
+            margin-left: rem(0);
+
+            @include mq(xxlarge) {
+              margin-left: rem(65);
+            }
+        }
+    }
+
+    &.-right {
+        .split-feature__content {
+
+            @include mq(xxlarge) {
+              margin-right: rem(65);
+            }
+        }
+    }
+}
+
+
+// ==========================================================================
+// # MODIFIER: TWIN CONTENT
+//
+// When both sides of the feature are content and one is not a fullbleed image
+// ==========================================================================
+.split-feature.-twin-content {
+    .split-feature__main  {
+        .split-feature__content {
+            padding-bottom: $spacing-unit;
+
+            @include mq(large) {
+                padding-bottom: $double-spacing-unit;
+            }
+        }
+    }
+
+    .split-feature__secondary {
+        padding-bottom: $spacing-unit;
+
+        @include mq(medium) {
+            padding-bottom: $double-spacing-unit;
+        }
+
+        @include mq(large) {
+            padding-bottom: 0;
+        }
+    }
+}
+
+// ==========================================================================
+// # MODIFIER: LOCATION REALTED BUILDING
+// ==========================================================================
+.split-feature--location-realted-building {
+    width: 100%;
+}
+
+// ==========================================================================
+// # MODIFIER: UNI INFORMATION LOGO
+// ==========================================================================
+.uni-information__logo-container {
+    @include half-container;
+    margin: 0 auto;
+    padding: $spacing-unit;
+
+    @include mq(large) {
+        padding: $double-spacing-unit $double-spacing-unit $double-spacing-unit 0;
+        margin-right: 0;
+    }
+}

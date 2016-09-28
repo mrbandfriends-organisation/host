@@ -1,0 +1,38 @@
+// ==========================================================================
+//
+// # MODULE: BAND
+//
+// Due to the design of the site, bands aren’t used (see boxes), except for
+// one peculiar instance where it semantically makes more sense
+//
+// ==========================================================================
+
+
+// ==========================================================================
+// BASE—does nothing
+// ==========================================================================
+
+.band {
+    //scss-lint:disable EmptyRule
+}
+
+
+// ==========================================================================
+// # INSET BAND
+// ==========================================================================
+.band--inset {
+    border: rem(30) solid brand(white);
+    background: #fff;
+
+    @include mq(medium) { border-width: rem(60); }
+}
+
+// ==========================================================================
+// # ALTERNATIVE INSET BAND (needs you to use boxes inside it)
+// ==========================================================================
+.band--inset-alt {
+    border: rem(10) solid brand(white);
+    background: brand(white);
+
+    @include mq(medium) { border-width: rem(60); }
+}

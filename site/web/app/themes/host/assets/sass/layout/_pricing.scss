@@ -1,0 +1,147 @@
+// ==========================================================================
+//
+// ROOM PRICING
+//
+// Description: Room pricing
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.pricing {
+    background-color: #fff;
+}
+
+// Main title for section
+.pricing__title {
+    &:first-line {
+        color: brand(mint)!important;
+    }
+}
+
+// Container for collection of options
+.pricing__option {
+    @include list-reset;
+}
+
+// Heading for each block of options
+.pricing-header {
+    background-color: brand(mint);
+}
+
+
+// ==========================================================================
+// # PRICING STEP
+//
+// Each step has up to 3 listing items
+// ==========================================================================
+// .pricing__heading {}
+
+.pricing__lisiting {
+    margin-bottom: $spacing-unit;
+
+    @include mq(large) {
+        margin-bottom: $double-spacing-unit;
+    }
+}
+
+// .pricing__lisiting-item {}
+
+.pricing__lisiting-item--photo {
+    display: flex;
+    flex-direction: column;
+
+    .pricing-body {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+}
+
+// First item in the Payment & Installment Plans
+.pricing__lisiting-item--first {
+    h3 {
+        &:last-of-type {
+            margin: 0 0 $half-spacing-unit;
+        }
+    }
+}
+
+.pricing-header {
+    padding: rem(20);
+
+    @include mq(xlarge) {
+        padding: rem(30) rem(20);
+    }
+
+    .pricing-header__heading {
+        color:  #fff;
+        margin-bottom: 0;
+        font-size: rem(19);
+
+        @include mq(xlarge) {
+            font-size: $h3-fsize-desktop;
+        }
+    }
+}
+
+.pricing-header__smallprint {
+    display: block;
+    color:  #fff;
+    margin-top: $quarter-spacing-unit;
+
+    @include mq(large) {
+        margin-top: $half-spacing-unit;
+    }
+}
+
+.pricing-body {
+    background-color: brand(white);
+
+    // =========================================
+    h3,
+    h4 {
+        margin: 0 0 $half-spacing-unit;
+        color: brand(ink);
+
+        &:first-line,
+        &.plain span {
+            color: brand(ink);
+        }
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.pricing-body__image {
+    height: 100%;
+    flex: 1;
+
+    @include mq($until: large) {
+        min-height: 22.5vh;
+    }
+}
+
+// .pricing-body__smallprint {}
+
+.pricing-body__number {
+    display: block;
+    margin-bottom: $quarter-spacing-unit;
+    font-size: rem($h3-fsize-desktop);
+}
+
+.pricing-body__number--large {
+    font-size: rem($h1-fsize);
+
+    @include mq(large) {
+        font-size: rem($h1-fsize-desktop - ($h1-fsize-desktop - $h1-fsize));
+    }
+
+    @include mq(xlarge) {
+        font-size: rem($h1-fsize-desktop);
+    }
+}

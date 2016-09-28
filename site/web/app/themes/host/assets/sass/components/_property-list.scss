@@ -1,0 +1,103 @@
+// ==========================================================================
+// # Module: property LIST
+// ==========================================================================
+
+.property-list {
+    // scss-lint:disable EmptyRule
+}
+
+// # LIST
+// ==========================================================================
+.property-list__list {
+    margin: 0;
+    list-style: none outside;
+}
+
+// # LIST ITEM
+// ==========================================================================
+.property-list__item {
+    & + & { margin-top: rem(20); }
+}
+
+// ==========================================================================
+// # Actual property
+// ==========================================================================
+.listed-property {
+    // scss-lint:disable EmptyRule
+}
+
+// Content
+// ==========================================================================
+.listed-property__content {
+
+    @include mq(xlarge) {
+        @include container("left");
+        @include two-third-container;
+    }
+}
+
+// Title + description
+// ==========================================================================
+.listed-property__title-desc { @include mq(xlarge) { padding-right: rem(40); }}
+
+.listed-property__title,
+.listed-property__availability {
+    margin: 0;
+
+    font-size: rem(35);
+    line-height: 1.2;
+    letter-spacing: rem(-1);
+}
+
+.listed-property__number-types {
+    margin: 1em 0;
+
+    font-size: rem(28);
+    font-weight: bold;
+}
+
+// Address + contact
+// ==========================================================================
+.listed-property__address-contact {
+    margin-top: rem(30);
+
+    .btn { min-width: 0; }
+
+    .svg-icon--marker {
+        position: relative;
+
+        top: 0.25em;
+        height: rem(18);
+        width:  rem(14);
+        margin-left: rem(-25);
+
+        float: left;
+
+    }
+
+    @include mq(xlarge) {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    @include mq(xxlarge) {
+        flex-direction: column;
+        align-items:    flex-start;
+        padding-left:   rem(40);
+        margin: 0;
+    }
+}
+
+// Image
+// ==========================================================================
+.listed-property__image {
+    background: brand(sky) none no-repeat bottom center/cover;
+}
+
+
+// Price
+// ==========================================================================
+.listed-property__price {
+    padding: $half-spacing-unit ($spacing-unit - $quarter-spacing-unit);
+}

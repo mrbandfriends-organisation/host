@@ -1,0 +1,247 @@
+// ==========================================================================
+//
+// FOOTER
+//
+// Description: layout and styling for site footer
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+.footer {
+    padding:    rem(40) rem(30);
+    background: tint(ink);
+    color:      #fff;
+
+    font-size:   rem(13);
+    line-height: rem(24);
+
+    @include mq(medium) {
+        padding: rem(80) rem(30) rem(40);
+    }
+
+    ul {
+        margin: 0;
+        list-style: none outside;
+    }
+
+    a { color: #fff; }
+}
+
+.footer__section {
+
+    & + & {
+        margin-top: rem(30);
+
+        //&:last-of-type {
+        //    @include mq($until: medium) {
+        //        margin-top: 0;
+        //    }
+        //}
+    }
+}
+
+// ==========================================================================
+// # BRANDING
+// ==========================================================================
+.footer__brand {
+    svg {
+        height: rem(45);
+        width:  rem(100);
+
+        fill: #fff;
+    }
+}
+
+// ==========================================================================
+// # BIG NAVIGATION
+// ==========================================================================
+.nav-footer {
+    // scss-lint:disable EmptyRule
+}
+
+.nav-footer__section:first-child .nav-footer__sublist {
+
+    @include mq(tiny) {
+        columns: 2;
+        column-gap: 0;
+
+        .nav-footer__item { padding-right: 1em; }
+    }
+
+    @include mq(small)  { columns: 4; }
+
+    @include mq(medium) { columns: 3; }
+
+    @include mq(large) {
+        padding-right: 10%;
+        columns: 5;
+    }
+}
+
+.nav-footer__section:nth-child(n+2) {
+    @include mq(large) {
+        display:        flex;
+        flex-direction: column;
+        align-items:    flex-end;
+    }
+}
+
+.nav-footer__section-header {
+    margin-right: auto;
+    color: brand(sky);
+}
+
+.nav-footer-secondary-container {
+    margin-right: auto;
+}
+
+//.nav-footer__link {
+//    @include link-hover();
+//}
+
+// ==========================================================================
+// # FOOTER SECTION
+// ==========================================================================
+.footer__final {
+    @include mq(xlarge) {
+        display: flex;
+        justify-content: space-between;
+        align-items:     flex-end;
+    }
+}
+
+// ==========================================================================
+// # UTILITY NAV
+// ==========================================================================
+#menu-footer-utilities.nav-footer-utilities {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: -1em;
+
+    font-size: rem(10);
+    line-height: 1;
+
+    li {
+        margin-bottom: 1em;
+        border-left: 1px solid #fff;
+        padding: 0 rem(10);
+
+        @include mq($until: 449px) {
+            width: 50%;
+        }
+
+        @include mq($from: 450px, $until: small) {
+            width: 33.33%;
+        }
+
+        @include mq($from: small, $until: medium) {
+            width: 25%;
+        }
+
+        @include mq($until: medium) {
+            margin-bottom: 0;
+            padding-left: 0;
+            padding-right: 0;
+            border: 0;
+        }
+
+        &:first-child {
+            padding-left: 0;
+            border-left: 0;
+
+            @include mq($until: medium) {
+                width: 100%;
+            }
+        }
+
+        &:last-child {
+            @include mq(medium) {
+                margin-bottom: 1em!important;
+            }
+        }
+
+        a,
+        small {
+            // Added to stop underlines on mobile being waaaaay to wide
+            display: inline;
+
+            @include mq($until: medium) {
+                // Added to match other footer menu items
+                line-height: rem(24);
+            }
+
+            line-height: 1.5;
+        }
+    }
+}
+
+// ==========================================================================
+// # SOCIAL + MARKS
+// ==========================================================================
+.footer-marks {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: rem(50);
+
+    @include mq(xlarge) {
+        margin: 0;
+    }
+
+    .svg-icon {
+
+        &.svg-icon--mark {
+            height: rem(67);
+            width:  rem(107);
+        }
+    }
+
+    a { display: block; }
+}
+
+.footer-marks__list {
+    display:     flex;
+    align-items: flex-end;
+}
+
+.footer-marks__item {
+    margin-right: rem(10);
+    line-height:  0;
+
+    @include mq($until: small) {
+        display: none;
+    }
+
+    &.-large {
+        display: block;
+        margin: 0 0 0 rem(30);
+    }
+}
+
+
+// ==========================================================================
+// # MOBILE UP ARROW
+// ==========================================================================
+
+.footer-up-arrow-container {
+    position: relative;
+    top: rem(-20);
+    justify-content: center;
+}
+
+.footer-up-arrow__link {
+    position: relative;
+    transform: translate3d(0,0,0);
+    transition: all ease-in-out 0.25s;
+
+    &:hover,
+    &:focus {
+        transform: translate3d(0, rem(-3), 0);
+    }
+}
+
+.footer-up-arrow__icon {
+    display: block;
+    transform: rotate(90deg);
+}

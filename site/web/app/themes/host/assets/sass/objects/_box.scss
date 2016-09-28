@@ -1,0 +1,240 @@
+// ==========================================================================
+//
+// # MODULE: BOX (like Bands, only more Atomic™)
+//
+// A box is Host’s equivalent of a band in most other sites, and represents
+// an area of content with some overarching styling (padding, colours, etc)
+//
+// These differ from bands in that boxes typically only occupy part of the
+// horizontal space on a page, whereas bands are full-width
+//
+// ==========================================================================
+
+// scss-lint:disable PlaceholderInExtend
+
+// ==========================================================================
+// # BASE CLASS
+// ==========================================================================
+
+.box {
+    background: #fff;
+    color: brand(ink);
+
+    a { color: currentColor; }
+
+    .inherit-fg { color: #fff; }
+
+    @include headings(1, 4) {
+        color: brand(ink);
+
+        &:first-line,
+        &.plain span { color: #fff; }
+    }
+}
+
+// ==========================================================================
+// # PADDING VARIANCE
+// ==========================================================================
+.box--padded {
+    padding: rem(20);
+
+    @include mq(medium) { padding: rem(50) rem(40); }
+}
+
+.box--little-padding {
+    padding: rem(10);
+
+    @include mq(medium) { padding: rem(10) rem(20); }
+}
+
+.box--less-padding {
+    padding: rem(20);
+
+    @include mq(medium) { padding: rem(40) rem(30); }
+}
+
+.box--more-padding {
+    padding: rem(30);
+
+    @include mq(medium) { padding: rem(50) rem(80); }
+}
+
+// ==========================================================================
+// # COLOUR VARIANCE - backgrounds
+// ==========================================================================
+.box--red {
+    background-color: brand(red);
+    color:      #fff;
+
+    .btn { @include button(white); }
+
+    &-alt {
+        background-color: tint(red);
+        color:      #fff;
+
+        @include headings(1, 4) {
+            color: #fff;
+
+            &:first-line,
+            &.plain span { color: brand(orange); }
+        }
+
+        .btn { @include button(white); }
+        .inherit-fg { color: brand(orange); }
+    }
+}
+
+.box--orange {
+    background-color: brand(orange);
+
+    .btn { @include button(white); }
+}
+
+.box--mint {
+    background-color: brand(mint);
+    color:      #fff;
+
+    .btn { @include button(white); }
+
+    &-alt {
+        background-color: brand(mint);
+
+        .btn { @include button(white); }
+    }
+}
+
+.box--sky {
+    background-color: brand(sky);
+    color:      #fff;
+
+    .btn {
+        @include button(white);
+
+        .btn--outline {
+            border-color: #fff;
+        }
+    }
+
+
+    &-alt {
+        background-color: brand(sky);
+
+        @include headings(1, 4) { color: #fff; }
+    }
+
+    &-dark {
+        background-color: tint(sky);
+        color:      #fff;
+
+        .btn { @include button(sky); }
+        .inherit-fg { color: brand(sky); }
+
+        @include headings(1, 4) {
+            color: #fff;
+
+            &:first-line,
+            &.plain span { color: brand(sky); }
+        }
+    }
+}
+
+.box--grape {
+    background-color: brand(grape);
+    color:      #fff;
+
+    &-dark {
+        background-color: tint(grape);
+        color:      #fff;
+
+        .btn { @include button(ink); }
+    }
+
+    .btn { @include button(ink); }
+}
+
+.box--ink {
+    background-color: brand(ink);
+    color:      #fff;
+
+    .btn { @include button(white); }
+
+    &-dark {
+        background-color: tint(ink);
+        color:      #fff;
+
+        .btn { @include button(white); }
+    }
+
+    &,
+    &-dark {
+        @include headings(1, 4) {
+            color: #fff;
+
+            &:first-line,
+            &.plain span { color: brand(sky); }
+        }
+
+        .inherit-fg { color: brand(sky); }
+    }
+}
+
+.box--off-white {
+    background-color: brand(white);
+}
+
+// ==========================================================================
+// # MORE COLOUR VARIANCE—this time, for foreground hinting
+// ==========================================================================
+.box--fg-red {
+
+    .inherit-fg { color: brand(red); }
+
+    @include headings(1, 4) {
+        &:first-line,
+        &.plain span { color: brand(red); }
+    }
+}
+
+.box--fg-orange {
+    .btn { @include button(orange); }
+
+    .inherit-fg { color: brand(orange); }
+
+    @include headings(1, 4) {
+        &:first-line,
+        &.plain span { color: brand(orange); }
+    }
+}
+
+.box--fg-mint {
+    .btn { @include button(mint); }
+
+    .inherit-fg { color: brand(mint); }
+
+    @include headings(1, 4) {
+        &:first-line,
+        &.plain span { color: brand(mint); }
+    }
+}
+
+.box--fg-sky {
+    .btn { @include button(sky); }
+
+    .inherit-fg { color: brand(sky); }
+
+    @include headings(1, 4) {
+        &:first-line,
+        &.plain span { color: brand(sky); }
+    }
+}
+
+.box--fg-grape {
+    .btn { @include button(grape); }
+
+    .inherit-fg { color: brand(grape); }
+
+    @include headings(1, 4) {
+        &:first-line,
+        &.plain span { color: brand(grape); }
+    }
+}

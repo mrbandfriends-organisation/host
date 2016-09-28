@@ -1,0 +1,161 @@
+@font-face {
+	font-family: "CircularWeb";
+	src: url('Fonts/circular/std.woff2') format('woff2'), url('Fonts/circular/std.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "CircularWebBold";
+	src: url('Fonts/circular/bold.woff2') format('woff2'), url('Fonts/circular/bold.woff') format('woff');
+	font-style: normal;
+}
+
+
+body {
+  background: #f5f5f5;
+  color: #21293c;
+  font: normal 16px "CircularWeb", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+
+/*////// HEADING STYLING ///////*/
+h1,
+h2,
+#modulemenu a {
+    font: normal 1.125rem "CircularWebBold", Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: #21293c; /* DARK */
+    font-size: 34px;
+    line-height: 1.15;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 34px;
+}
+h2 {
+    font-size: 26px;
+    border-bottom: none;
+		margin-left: 20px;
+}
+
+#modulemenu a {
+    font-size: 18px;
+    color: #da1e48; /* RED */
+}
+#modulemenu a:hover {
+  text-decoration: none;
+  color: #1c222d; /* DARK BLUE */
+}
+
+
+/*////// PARAGRAPH STYLING ///////*/
+.text-block-line-height {
+  margin: 0 0 1em;
+  line-height: 22px;
+  font-size: 16px;
+}
+
+
+
+/*////// FORM STYLING ///////*/
+input[type="text"],
+input[type="password"],
+input[type="file"],
+input[type="number"],
+select,
+textarea {
+		width: auto;
+		min-width: 200px;
+    border: 1px solid #DADADA;
+    background-color: #F8F8F8;
+    padding: 5px;
+    margin: 0;
+    border-radius: 0;
+    font-family: inherit;
+    font-size: inherit;
+		font-family: "CircularWeb", Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+div.MainTable input[type="text"],
+div.MainTable input[type="password"],
+div.MainTable input[type="file"],
+div.MainTable input[type="number"],
+div.MainTable select,
+div.MainTable textarea {
+		min-width: 420px;
+}
+
+
+
+/*////// CONTAINER STYLING ///////*/
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 960px;
+    background-color: #FFF;
+    position: relative;
+    height: inherit;
+    border: none;
+}
+
+
+/*////// HEADER STYLING ///////*/
+#header {
+	border: none;
+	background-color: white;
+	background-image: url("../img/host_logo.png");
+	background-repeat: no-repeat;
+	background-position: 30px 25px;
+}
+.header-container {
+	border-bottom: none;
+	padding-left: 20px;
+}
+
+
+
+/*////// FOOTER STYLING ///////*/
+#footer {
+	background-image: none;
+	min-height: 50px;
+  background: #1c222d;
+  color: #fff;
+}
+
+
+
+
+/*////// STYLES FROM STARREZ EXISTING STYLING ///////*/
+
+#profilemenu, #profilemenu .container, #header, #module_menu_container, #modulemenu {
+	background: transparent;
+}
+
+.ui-dialog {
+	background-color: white !important;
+}
+
+.container.shadow.ui-container {
+	border: solid 1px #d4d4d4;
+	box-shadow: none;
+}
+
+#profilemenu {
+	margin-bottom: 20px;
+	height: 150px;
+}
+
+#modulemenu {
+	border-color: transparent;
+}
+
+#module_menu_container {
+	border: 0;
+	box-shadow: none;
+	margin-top: -65px;
+	margin-bottom: 40px;
+}
+
+.progress-bar {
+	background-color: #EEE;
+}

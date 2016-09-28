@@ -1,0 +1,255 @@
+// ============================================================
+
+// PRIMARY OFFCANVAS
+
+// Description: styles for OffCanvas Panels
+
+// ============================================================
+
+
+// ==========================================================================
+// BASE
+// ==========================================================================
+
+.offcanvas__wrapper {
+    @include ui-offcanvas();
+    background-color: brand(grey);
+    display: block;
+    max-width: rem(1440);
+    margin: 0 auto;
+}
+
+// ==========================================================================
+// # BODY ELEMENT
+// ==========================================================================
+.offcanvas__body {
+    position: relative;
+    overflow: hidden;
+
+    z-index:    1;
+    min-height: 100vh;
+
+    background: #fff;
+
+    // mask overlay that appears when the menu is open
+    &:after {
+        position: absolute;
+        z-index:  9999;
+
+        top:    0;
+        left:   0;
+        width:  0;
+        height: 0;
+
+        background: rgba(0, 0, 0, 0.5);
+        opacity:    0;
+        transition: all 0s 0.5s, opacity 0.5s;
+
+        pointer-events: none;
+        content: "";
+    }
+
+    // active state
+    .is-active &:after {
+        height:  100%;
+        width:   100%;
+        opacity: 1;
+
+        transition: all 0s 0s, opacity 0.5s;
+    }
+}
+
+
+// Show offcanvas navigation on all viewports
+//.primary-offcanvas {
+//    background-color: brand(grey);
+//    color: #fff;
+//    box-shadow: inset 7px 0 15px -5px black(0.4);
+//    z-index: 10;
+//}
+
+//.primary-offcanvas__section {
+//    padding: rem(15px) rem(25px);
+//
+//
+//    @include mq($from: medium) {
+//        padding: rem(25px) rem(60px) rem(25px) rem(30px);
+//    }
+//}
+
+// ==========================================================================
+// # OFFCANVAS (NAVIGATION) DOM
+// ==========================================================================
+.primary-offcanvas {
+    position:       fixed;
+    display:        flex;
+    flex-direction: column;
+    z-index:  $zindex-tier-9;
+
+    top:     0;
+    left:    0;
+    width:   100%;
+    min-height:  100vh;
+    padding: rem(20) $spacing-unit;
+
+    background-color: map-get($brand-palette, ink);
+    box-shadow: none;
+
+    transform:  translate3d(0, -100%, 0);
+
+    .js-offcanvas--bound & { transition: all 0.5s ease; }
+
+    .is-active & {
+        transform: translate3d(0, 0, 0);
+        box-shadow: rgba(0, 0, 0, 0.2) 0 rem(10) rem(10) 0;
+    }
+}
+
+// # Offcanvas header section
+// ==========================================================================
+//.primary-offcanvas__header {
+//    display: flex;
+//    justify-content: space-between;
+//}
+
+// .primary-offcanvas__brand-image {
+//     height: rem(45);
+//     width:  rem(50);
+// }
+
+// # Offcanvas Logo Section
+// ==========================================================================
+.primary-offcanvas__logo-container {
+    width: 50%;
+}
+
+// # Offcanvas nav section
+// ==========================================================================
+.primary-offcanvas__section {
+    width: 100%;
+    margin: $spacing-unit rem(25) 0 0;
+
+    &:last-child {
+        display: flex;
+        flex: 1;
+
+        width: 100%;
+    }
+
+    &.-util {
+        margin: 0;
+    }
+}
+
+
+// ==========================================================================
+// TOGGLE
+// ==========================================================================
+
+.offcanvas-toggle {
+    // scss-lint:disable ImportantRule
+    @include mq($from: nav-break-2) {
+        // important required to ensure that any site specific styling
+        // applied to the toggle does not overide the visibility
+        display: none !important;
+    }
+
+    .no-js & {
+        display: none;
+    }
+
+
+    &:hover,
+    &:focus {
+        span {
+            color: $link-color-hover;
+        }
+    }
+}
+
+.offcanvas-toggle__text {
+    padding-right: $quarter-spacing-unit;
+    color: #000;
+}
+
+.offcanvas-toggle--open {
+    float: flip(right, left);
+    text-decoration: none;
+}
+
+.offcanvas-toggle--close {
+    position: relative;
+    z-index: 2;
+
+    &.offcanvas-toggle--close {
+        display: block;
+        width: 50%;
+        height: 50px;
+        padding: 0;
+        //#{$padding-right}: rem(30px);
+        text-align: flip(right, left);
+        transform: translateX( rem(25) );
+    }
+
+    .tcon-menu__lines {
+        &:before,
+        &:after {
+            background: #fff;
+        }
+    }
+}
+
+// ==========================================================================
+// TOGGLE
+// ==========================================================================
+
+// .primary-offcanvas__social-icons {}
+
+.offcanvas-social-icons {
+    @include list-reset;
+}
+
+.offcanvas-social-icons__item {
+    margin-right: $quarter-spacing-unit;
+}
+
+// .offcanvas-social-icons__link {}
+
+
+// ==========================================================================
+// LANGUAGE CHANGER SELECT
+// ==========================================================================
+.primary-offcanvas__language-changer {
+    @include select-arrow;
+    margin-top: $quarter-spacing-unit;
+
+    &:after {
+        top: rem(16);
+        transform: translate3d(0,0,0);
+    }
+
+    &:hover,
+    &:focus {
+        background-color: transparent;
+
+        .select {
+            color: #fff;
+        }
+    }
+
+    select {
+        background: transparent;
+        color: brand(sky);
+        padding: $quarter-spacing-unit 0;
+        border: none;
+        border-bottom: $base-border;
+        border-color: brand(mint);
+        transition: all ease-in-out 0.2s;
+
+        &:hover,
+        &:focus {
+            background-color: transparent;
+            border-color: #fff;
+        }
+    }
+}

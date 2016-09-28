@@ -1,0 +1,47 @@
+// ==========================================================================
+// # TRANSPORT LISTING
+// ==========================================================================
+
+.transport-list {
+    @include list-reset;
+}
+
+.transport-list__item {
+    margin-bottom: rem($spacing-unit);
+}
+
+.transport-list__icon {
+    width: rem(55px);
+    height: rem(40px);
+    margin-right: $quarter-spacing-unit;
+}
+
+.transport-list__listing {
+    @include list-reset;
+}
+
+.transport-list__listing-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: rem($quarter-spacing-unit);
+}
+
+.transport-list__content {
+    width: calc(100% - rem(55px));
+    padding-left: rem($quarter-spacing-unit);
+    display: inline-block;
+
+    &:first-line {
+        font-weight: bold;
+        color: brand(sky);
+    }
+}
+
+.transport-list__heading {
+    color: #fff !important;
+
+    &:first-line {
+        color: #fff !important;
+    }
+}

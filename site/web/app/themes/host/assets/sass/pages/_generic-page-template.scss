@@ -1,0 +1,62 @@
+// ============================================================
+
+// PAGE: GENERIC CONTENT PAGE
+
+// Description: This file contains styles that are specific to
+// a generic content page.
+
+// ============================================================
+
+// ============================================================
+//     BASE
+// ============================================================
+.generic-content-page {
+    padding: $spacing-unit 0;
+
+    @include mq(large) {
+        padding: $double-spacing-unit 0;
+    }
+}
+
+.generic-content-page__header {
+    padding-bottom: ($spacing-unit - $quarter-spacing-unit);
+
+    @include mq(large) {
+        padding-bottom: ($double-spacing-unit - $half-spacing-unit);
+    }
+}
+
+.generic-content-page__title {
+    color: brand(red);
+}
+
+.generic-content-page__inner {
+    padding: 0 7.5%;
+
+    @include mq(medium) {
+        padding: 0 5%;
+    }
+
+    p {
+        @include mq(medium) {
+            margin: ($spacing-unit - $quarter-spacing-unit) 0;
+        }
+
+        @include mq(large) {
+            margin: $spacing-unit 0;
+        }
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
+
+    a {
+        color: brand(red);
+
+        // Items that need to be tweaked
+        &:hover {
+            color: tint(red);
+        }
+    }
+}

@@ -1,0 +1,112 @@
+// ==========================================================================
+//
+// SOCIAL MEDIA Icon
+//
+// Description: Horizontal list of Social Icons
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.social-media-icons-list {
+    @include ui-nav-menu();
+    @include ui-nav-menu--inline();
+
+    @include mq($until: large) {
+        float: left;
+    }
+
+    .svg-icon {
+        width: rem(25);
+        height: rem(25);
+        transition: fill 200ms;
+    }
+}
+
+.social-media-icons-list__item {
+    font-size: rem(9px);
+
+    &:first-of-type {
+        .social-media-icons-list__link {
+            padding-left: 0;
+        }
+    }
+}
+
+.social-media-icons-list__link {
+    display: block;
+
+    width:  rem(25);
+    height: rem(25);
+    margin: 0 rem(5);
+    padding: 0 1.25rem;
+
+    color: brand(grey);
+    font-weight: 100;
+}
+
+.social-media-icons-list__icon {
+    &--twitter:hover  { fill: $twitter-color; }
+    &--facebook:hover { fill: $facebook-color; }
+    &--linked-in:hover { fill: $linkedin-color; }
+    &--rss:hover { fill: $rss-color; }
+}
+
+
+// ==========================================================================
+// # MODIFIER: HIDE ICON
+// ==========================================================================
+.social-media-icons-list__item--hide {
+    display: none;
+}
+
+
+// ==========================================================================
+// # MODIFIER: RIGHT ALIGN
+// ==========================================================================
+.social-media-icons-list--right-align {
+
+    .flexbox & {
+        display: flex;
+        justify-content: flex-end;
+    }
+}
+
+// ==========================================================================
+// # MODIFIER: ICON NETWORK FULL COLOR
+// ==========================================================================
+.social-media-icons-list__icon--network-color.social-media-icons-list__icon {
+    &--twitter {
+        fill: $twitter-color;
+
+        &:hover {
+            fill: lighten($twitter-color , 15%);
+        }
+    }
+
+    &--facebook {
+        fill: $facebook-color;
+
+        &:hover {
+            fill: lighten($facebook-color , 15%);
+        }
+    }
+
+    &--linked-in {
+        fill: $linkedin-color;
+
+        &:hover {
+            fill: lighten($linkedin-color , 15%);
+        }
+    }
+
+    &--rss {
+        fill: $rss-color;
+
+        &:hover {
+            fill: lighten($rss-color , 15%);
+        }
+    }
+}

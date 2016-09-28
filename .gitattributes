@@ -1,0 +1,2 @@
+site/web/app/themes/host/assets/css/*.css merge=ours
+site/web/app/themes/host/assets/js/dist/*.js merge=ours

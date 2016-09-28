@@ -1,0 +1,17 @@
+// ==========================================================================
+// # Full-bleed image
+// ==========================================================================
+
+.bleed-image {
+    width:  100%;
+    height: 100%;
+
+    background: transparent none no-repeat center center/cover;
+}
+
+.bleed-image__image {
+    height: rem(10);
+    width:  rem(10);
+
+    opacity: 0.000001;
+}

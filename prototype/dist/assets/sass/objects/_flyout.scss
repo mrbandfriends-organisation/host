@@ -1,0 +1,99 @@
+// ==========================================================================
+// # MODULE: flyout
+//
+// This is a JS-only
+// ==========================================================================
+
+.js-flyout {
+    position: absolute;
+
+    top:  50%;
+
+    transform: translateY(-50%);
+}
+
+// # Parent state (for positioning)
+// ==========================================================================
+.js-flyout__parent {
+    position: relative;
+}
+
+// # Button
+// ==========================================================================
+.js-flyout__button[class] {
+    position: absolute;
+
+    top:  0;
+
+    height: 100%;
+    width:  auto;
+    min-width: 0;
+
+    padding: rem(35);
+
+    border-radius: 0;
+
+    @include button(mint);
+
+    .svg-icon {
+        width:  rem(15);
+        height: rem(23);
+
+        fill: #fff;
+    }
+}
+
+// ==========================================================================
+// # ACTIVE STATE
+// ==========================================================================
+.js-flyout--active {
+    transition: transform 400ms;
+
+    .svg-icon { transition: transform 200ms 200ms; }
+}
+
+// ==========================================================================
+// # LEFT-ALIGNED
+// ==========================================================================
+.js-flyout--left {
+
+    // actual flyout (but only when active)
+    &.js-flyout--active { right: 100%; }
+
+    // button
+    .js-flyout__button {
+        left: 100%;
+
+        .svg-icon { transform: rotateY(180deg); }
+    }
+
+    // active state
+    &.js-flyout--open {
+        transform: translate(100%, -50%);
+
+        .svg-icon { transform: rotateY(0); }
+    }
+}
+
+// ==========================================================================
+// # RIGHT-ALIGNED
+// ==========================================================================
+.js-flyout--right {
+
+    // actual flyout (but only when active)
+    &.js-flyout--active { left: 100%; }
+
+    // button
+    .js-flyout__button {
+        right: 100%;
+
+        .svg-icon { transform: rotateY(0); }
+    }
+
+    // active state
+    &.js-flyout--open {
+        transform: translate(-100%, -50%);
+
+        .svg-icon { transform: rotateY(180deg); }
+    }
+}

@@ -1,0 +1,148 @@
+@charset "UTF-8"; // must be the first item in the file
+// ==========================================================================
+//
+// MAIN FILE
+//
+// Description: main entry point for the site styles. Organised on ITCSS
+// principles with each layer representing a greater level of specificity
+// than the last.
+//
+// Follows guidelines laid out in http://sass-guidelin.es/#main-file
+//
+// ==========================================================================
+
+$is-oldie: false !default;
+
+// # SETTINGS
+// ==========================================================================
+@import "settings/config";
+
+
+// # PACKAGES
+// ==========================================================================
+@import "bourbon";
+@import "node_modules/sass-mq/mq";
+
+
+
+// # UTILS - http://sass-guidelin.es/#utils-folder
+// ==========================================================================
+@import "utils/functions";
+@import "utils/mixins";
+@import "utils/offcanvas";
+@import "utils/nav-menu";
+
+
+// # BASE - http://sass-guidelin.es/#base-folder
+// ==========================================================================
+@import "base/normalize";
+@import "base/base";
+@import "base/typography";
+
+
+// # LAYOUT - http://sass-guidelin.es/#layout-folder
+// ==========================================================================
+@import "layout/grid";
+@import "layout/forms";
+
+
+// # ELEMENTS
+// ==========================================================================
+@import "elements/headings";
+@import "elements/tables";
+
+
+// # OBJECTS
+// ==========================================================================
+// @import "objects/alerts";
+@import "objects/svg-icons";
+// @import "objects/island";
+// @import "objects/landmark";
+@import "objects/containers";
+@import "objects/band";
+// @import "objects/plain-link";
+// @import "objects/slanted";
+// @import "objects/bullet-list";
+// @import "objects/inline-list";
+@import "objects/separated-list";
+@import "objects/definition-list";
+// @import "objects/overlayed-media";
+@import "objects/box";
+@import "objects/flyout";
+@import "objects/slideshow";
+@import "objects/contact-tabs";
+@import "objects/_multiply-bg";
+@import "objects/_select-arrow.scss";
+
+
+// # VENDORS
+// # CSS files from external libraries and frameworks
+// ==========================================================================
+@import "vendors/perfect-scrollbar";
+@import "vendors/_magnific-popup.scss";
+@import "vendors/_slick.scss";
+@import "vendors/_slick-theme.scss";
+
+
+// # VENDORS EXTENSIONS
+// # contains any overides to vendor extensions (see above)
+// ==========================================================================
+//@import "vendors-extensions/EXAMPLE";
+@import "vendors-extensions/_magnific-popup.scss";
+@import "vendors-extensions/_slick.scss";
+
+
+// # COMPONENTS - http://sass-guidelin.es/#components-folder
+// ==========================================================================
+@import "components/buttons";
+@import "components/primary-offcanvas";
+@import "components/transformicons";
+@import "components/checkerboard";
+@import "components/split-feature";
+@import "components/billboard";
+@import "components/awards";
+@import "components/hero";
+@import "components/bleed-image";
+@import "components/map";
+@import "components/property-list";
+@import "components/room-list";
+@import "components/scrollable";
+@import "components/stacked-gallery";
+@import "components/testimonial-wall";
+@import "components/favourites";
+@import "components/favouritable";
+@import "components/transport-list";
+@import "components/_location-related-buildings.scss";
+@import "components/_carousel-infobox.scss";
+@import "components/_secondary-split-feature";
+@import "components/_gravity-forms";
+@import "components/_in-page-nav";
+@import "components/_book";
+@import "components/_contact-form.scss";
+
+// # SITE LAYOUT STRUCTURE
+// ==========================================================================
+@import "layout/banner";
+@import "layout/primary-menu";
+@import "layout/utilities-menu";
+@import "layout/footer";
+@import "layout/social-media-icons-list";
+@import "layout/pricing";
+@import "layout/_article-list";
+
+// # SITE PAGES
+// ==========================================================================
+@import "pages/home";
+@import "pages/_generic-page-template";
+@import "pages/_room-page";
+
+
+// # SHAME FILE
+// # http://sass-guidelin.es/#shame-file
+// ==========================================================================
+@import "shame";
+
+
+// # TRUMPS/HELPERS
+// ==========================================================================
+@import "utils/helpers";

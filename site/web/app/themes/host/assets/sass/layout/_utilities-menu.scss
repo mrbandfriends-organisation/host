@@ -1,0 +1,67 @@
+// ==========================================================================
+//
+// UTILITIES MENU
+//
+// Description: layout and styling for utilities navigation menu
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE CLASSES
+// ==========================================================================
+.nav-utilities {
+    margin: 0;
+    list-style: none outside;
+
+    @include mq($until: nav-break-2) {
+        display: none;
+    }
+}
+
+.nav-utilities__item {
+    // scss-lint:disable EmptyRule
+}
+
+.nav-utilities__link {
+    display: block;
+}
+
+// ==========================================================================
+// # VARIANT: BANNER
+// ==========================================================================
+.nav-utilities--banner {
+
+    @include mq($from: medium) {
+        margin-right: rem(-15);
+    }
+
+
+    li {
+        display: inline-block;
+        margin: 0 0 $quarter-spacing-unit -0.2em;
+        padding: 0 rem(15);
+    }
+
+    a {
+        height:  rem(20);
+
+        font-size:   rem(14);
+        line-height: rem(20);
+
+        color:       brand(grey);
+    }
+
+    .svg-icon {
+        height:      rem(20);
+        width:       rem(20);
+        margin-left: rem(15);
+    }
+
+}
+
+// ==========================================================================
+// # VARIANT: OFFCANVAS
+// ==========================================================================
+.nav-primary--offcanvas {
+    // scss-lint:disable EmptyRule
+}

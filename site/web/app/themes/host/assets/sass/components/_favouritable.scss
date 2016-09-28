@@ -1,0 +1,159 @@
+// ==========================================================================
+// # Favourite button on buildings
+// ==========================================================================
+
+// # Class applied to outer container—gives us something to put position on
+// ==========================================================================
+.favouritable__container {
+    position: relative;
+
+    a svg {
+        margin-left: $half-spacing-unit;
+    }
+}
+
+.favouritable__wrapper[class] {
+
+    margin-top: $double-spacing-unit;
+
+    @include mq(large) {
+        margin-top: auto;
+    }
+
+    .favouritable {
+        left: 0;
+        //transform: translateX(55%);
+        top: -$double-spacing-unit;
+    }
+
+}
+
+// # Button container
+// ==========================================================================
+.favouritable {
+    position: absolute;
+
+    top:   rem(30);
+    right: rem(30);
+
+    .svg-icon {
+        display: block;
+        height:  rem(20);
+        width:   rem(20);
+        fill:    none;
+    }
+
+    &:after {
+        position: absolute;
+        display: block;
+
+        top: calc(100% + #{rem(5)});
+        // left: 50%;
+        // transform: translateX(-50%);
+
+        font-size: rem(14);
+        color: brand(grey);
+        content: "Favourite";
+    }
+}
+
+// # Button itself
+// ==========================================================================
+.favouritable__button {
+    display: block;
+
+    height:  rem(40);
+    width:   rem(40);
+    min-width: 0;
+    padding: rem(11) rem(10) rem(9);
+
+    border:  0;
+
+    background: #ccc;
+    color:      #fff;
+
+    &:hover {
+        background: brand(red);
+        color:      #fff;
+    }
+
+    // if it’s already been favourited
+    .-favourite & {
+        background: brand(red);
+
+        &:hover { background: tint(red); }
+    }
+
+}
+
+// # Icon
+// ==========================================================================
+.favouritable__icon {
+    stroke: #fff;
+}
+
+// # Boom!
+// ==========================================================================
+@keyframes favouritable-boom {
+    from { transform: scale(1.2); opacity: 1; }
+    to   { transform: scale(7.5); opacity: 0; }
+}
+
+.favouritable__boom {
+    position: absolute;
+
+    top:  rem(11);
+    left: rem(10);
+
+    transform: scale(0);
+    transform-origin: 50% 50%;
+
+    z-index:  1;
+
+    stroke: brand(red);
+
+    .-favourite.-added & { animation: favouritable-boom 2s 1; }
+}
+
+// ==========================================================================
+// # MODIFIER: DARK
+// ==========================================================================
+.favouritable__wrapper--dark {
+    .favouritable__container {
+
+        .favouritable {
+            &:after {
+                color: rgba(0,0,0,0.2);
+            }
+
+            .favouritable__button {
+                background: rgba(0,0,0,0.2);
+
+                &:hover,
+                &:focus {
+                    background: brand(red);
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.favouritable__container {
+    &.-favourite {
+        .favouritable {
+            &:after {
+                color: #fff;
+            }
+
+            .favouritable__button {
+                background: brand(red);
+
+                &:hover,
+                &:focus {
+                    background: tint(red);
+                }
+            }
+        }
+    }
+}

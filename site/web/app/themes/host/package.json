@@ -1,0 +1,39 @@
+{
+  "name": "front-end-boilerplate",
+  "version": "0.0.1",
+  "description": " ",
+  "main": "gulpfile.js",
+  "engines": {
+    "node": ">=5.8.0"
+  },
+  "scripts": {
+    "postinstall": [
+      "composer update",
+      "bundle install"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@mrbandfriends.git.beanstalkapp.com:/mrbandfriends/mrb-wordpress-theme.git"
+  },
+  "author": "Mr B & Friends",
+  "homepage": "",
+  "dependencies": {
+    "frontend-boilerplate-assets": "file:assets",
+    "gulp": "^3.9.1",
+    "lodash.includes": "^4.3.0"
+  },
+  "devDependencies": {
+    "del": "^2.2.1",
+    "featherlight": "^1.4.1",
+    "fg-loadjs": "^1.0.0",
+    "gulp-buffer": "0.0.2",
+    "gulp-php2html": "^0.3.2",
+    "gulp-svg2png": "^2.0.2",
+    "magnific-popup": "^1.1.0",
+    "perfect-scrollbar": "^0.6.12",
+    "run-sequence": "^1.2.2",
+    "salvattore": "^1.0.9",
+    "slick-carousel": "^1.6.0"
+  }
+}

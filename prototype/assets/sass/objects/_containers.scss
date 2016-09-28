@@ -1,0 +1,54 @@
+// ==========================================================================
+//
+// CONTAINERS
+//
+// Description: standard structures for dividing pages into "sections"
+//
+// Note—a lot of this is mixins for a reason—the various non full-width
+// container setups should not be used directly in the HTML because they
+// break responsivity.
+//
+// ==========================================================================
+
+@mixin container($align: "") {
+    width: 100%;
+
+    //scss-lint:disable SpaceAfterComma (no idea: it’s set to at_least_one_space)
+    margin-right: if(($align == "left"),  0, auto);
+    margin-left:  if(($align == "right"), 0, auto);
+}
+
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.container {
+    @include container;
+
+    max-width: rem(1075);
+}
+
+// ==========================================================================
+// # HALF-SIZED used in various content
+// ==========================================================================
+@mixin half-container { max-width: rem(537.5); }
+
+// ==========================================================================
+// # TWO-THIRDS WIDTH
+// ==========================================================================
+@mixin two-third-container { max-width: rem(716.6667); }
+
+// ==========================================================================
+// # THIRTY-PERCENT WIDTH
+// ==========================================================================
+@mixin thirty-container { max-width: rem(322.5); }
+
+// ==========================================================================
+// # Old, deprecated stuff
+// ==========================================================================
+.half-container,
+.two-third-container,
+.thirty-container {
+    transform: scaleX(-1);
+}

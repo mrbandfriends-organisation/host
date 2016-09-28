@@ -1,0 +1,53 @@
+// ==========================================================================
+//
+// BULLET LIST
+//
+// Description: standard styles for bulleted lists 
+//
+// ==========================================================================
+
+%bullet-list,
+.bullet-list {
+    list-style-type: none;
+    
+    li {
+        margin-bottom: $half-spacing-unit;      
+    }
+
+    span {
+        display: inline-block;
+        padding-left: rem(40px);
+        background-image: url("../images/bullet_points_orange.png");
+        background-repeat: no-repeat;
+        background-position: 0 rem(11px);
+    }
+}
+
+%bullet-list--orange,
+.bullet-list--orange {
+    span {
+        background-image: url("../images/bullet_points_orange.png");
+    }
+}
+
+%bullet-list--green,
+.bullet-list--green {
+    span {
+        background-image: url("../images/bullet_points_green.png");
+    }
+}
+
+%bullet-list--yellow,
+.bullet-list--yellow {
+    span {
+        background-image: url("../images/bullet_points_yellow.png");
+    }
+}
+
+%bullet-list--red,
+.bullet-list--red {
+    span {
+        background-image: url("../images/bullet_points_red.png");
+    }
+}
+

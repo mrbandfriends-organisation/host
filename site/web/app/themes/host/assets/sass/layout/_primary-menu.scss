@@ -1,0 +1,126 @@
+// ==========================================================================
+//
+// PRIMARY MENU
+//
+// Description: layout and styling for primary navigation menu
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE CLASSES
+// ==========================================================================
+.nav-primary {
+    margin: 0;
+    list-style: none outside;
+
+    @include mq($until: nav-break-2) {
+        display: none;
+    }
+}
+
+//.nav-primary__item {
+//    // scss-lint:disable EmptyRule
+//}
+
+.nav-primary__link {
+    transition: color ease-in-out 0.25s;
+
+    &:hover,
+    &:focus {
+        color: brand(red);
+    }
+}
+
+// ==========================================================================
+// # VARIANT: BANNER
+// ==========================================================================
+.nav-primary--banner {
+    display:      flex;
+    align-items:  center;
+
+    .menu-item {
+        .nav-primary__link {
+            display: block;
+
+            padding: rem(8) rem(15) 0;
+            color:   tint(ink);
+            font-size:rem(16);
+            line-height: rem(20);
+            transition: color ease-in-out 0.25s;
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+                color: brand(red);
+
+                & > strong {
+                    text-decoration: underline;
+                }
+            }
+
+            .menu-item__name {
+                display: block;
+
+                @include mq(nav-break-2) {
+                    font-weight: bold;
+                }
+            }
+        }
+
+        // Current menu item
+        &.current-menu-item {
+
+            .nav-primary__link {
+                color: brand(red);
+            }
+        }
+    }
+
+    .btn {
+        color: #fff;
+    }
+
+}
+
+// ==========================================================================
+// # VARIANT: OFFCANVAS
+// ==========================================================================
+.nav-primary--offcanvas {
+    // scss-lint:disable ImportantRule
+    display: block !important;
+
+    // <li>
+    .menu-item {
+        //margin: 0 5%;
+        padding: ($quarter-spacing-unit) 0;
+        border-bottom: solid rem(1) tint(mint);
+        //border-color: map-get( $brand-tints, mint);
+
+        .nav-primary__link {
+            color: #fff;
+            transition: color ease-in-out 0.25s;
+
+            &:hover,
+            &:focus {
+                color: brand(sky);
+                text-decoration: none;
+            }
+        }
+
+        // description desktop only
+        .menu-item__description {
+            display: none;
+        }
+
+        // Current menu item
+        &.current-menu-item {
+
+            .nav-primary__link {
+                color: brand(sky);
+            }
+        }
+    }
+
+
+
+}

@@ -1,0 +1,111 @@
+// ==========================================================================
+//
+// GRAVITY FORMS
+//
+// Description: Gravity forms custom styles NOT overrides
+//
+// ==========================================================================
+
+// ==========================================================================
+// # VENDOR OVERRIDES
+// ==========================================================================
+.gform_wrapper {
+    form {
+        position: relative;
+    }
+}
+
+// Lazy way of hiding the title
+.gform_heading {
+    display: none;
+}
+
+.gform_footer {
+    padding: $spacing-unit 0;
+
+    @include mq(small) {
+        position: absolute;
+        width: calc(50% - #{$gutter});
+        max-width: rem(240);
+        right: 0;
+        bottom: 0;
+        padding: 0;
+    }
+
+    .gf-field--btn {
+        width: 100%;
+        min-width: 0;
+        color: #fff;
+    }
+}
+
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.gform_fields {
+    @include gw;
+}
+
+.gf-field-container {
+    @include grid-column(1, 1);
+    margin-bottom: $half-spacing-unit;
+
+    @include mq(medium) {
+        margin-bottom: $spacing-unit;
+    }
+
+    // Input styling for all but text area
+    input,
+    select {
+        background-color: tint(sky);
+        border: none;
+        border-bottom: solid rem(1) #fff;
+        color: #fff;
+        cursor: pointer;
+        transition: all ease-in-out 0.25s;
+
+        &:hover,
+        &:focus {
+            border-bottom-color: brand(sky);
+        }
+    }
+
+    // Adding arrow to select
+    .ginput_container_select {
+        @include select-arrow(#fff, brand(sky)Ill sort it );
+    }
+}
+
+// Width
+// ================================================
+.gf-field-container--half {
+    @include grid-column(1, 1);
+
+    @include mq(small) {
+        @include grid-column(1, 2);
+    }
+}
+
+// Aligment
+// ================================================
+.gf-field-container--left {
+    @include mq(small) {
+        padding-right: $gutter;
+    }
+
+    @include mq(large) {
+        padding-right: $double-gutter-width;
+    }
+}
+
+.gf-field-container--right {
+    @include mq(small) {
+        padding-left: $gutter;
+    }
+
+    @include mq(large) {
+        padding-left: $double-gutter-width;
+    }
+}

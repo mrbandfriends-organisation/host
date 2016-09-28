@@ -1,0 +1,24 @@
+# Tools
+node_modules/
+bower_components/
+npm-debug.log
+npm-debug.log.*
+.sass-cache
+.env.json
+#/dist/*
+!/dist/.gitkeep
+!/vendor/.gitkeep
+
+# Miscellaneous
+*.esproj
+*.DS_Store
+*.orig
+*.psd
+*.zip
+*.sublime-project
+*.sublime-workspace
+composer.lock
+Gemfile.lock
+
+# hide vagrant stuffs
+/.vagrant

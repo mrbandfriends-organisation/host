@@ -1,0 +1,225 @@
+// ==========================================================================
+//
+// ARTICLE LIST
+//
+// Description: Styles for a arhcive listing page
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.article-list-section {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	// Added here to overide the bleeding *:last-child
+	.article-list-button {
+		align-self: center;
+		margin: ($spacing-unit + 20px) 0 $spacing-unit;
+
+		@include mq(medium) {
+			margin: $double-spacing-unit 0 ($double-spacing-unit - 50px) 0 ;
+		}
+
+		@include mq(large) {
+			margin: $double-spacing-unit 0 ($double-spacing-unit - 50px);
+		}
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+	}
+}
+
+.article-list {
+    column-gap: rem(20);
+
+    list-style: none outside;
+
+    // for use with Salvattore
+    &[data-columns]:before { content: "1 .column"; position: absolute; opacity: 0; }
+    &:not([data-columns='']) { column-count: 1; margin-right: rem(-10); margin-left: rem(-10); }
+
+    // salvattore prep
+    .column {
+		float: left;
+		padding: 0 $quarter-spacing-unit;
+
+		@include mq(small) {
+			padding: 0 $half-spacing-unit;
+		}
+	}
+
+	// small–large: two columns
+    @include mq(small) {
+        // non-salvattore
+        column-count: 2;
+
+        // salvattore count
+        &[data-columns]:before { content: "2 .column"; }
+        .column { width: 50%; }
+    }
+
+    // scss-lint:disable DeclarationOrder (ignoring because it makes far more sense to put the media queries here…)
+    // large+: three columns
+    @include mq(large) {
+        // non-salvattore
+        column-count: 3;
+
+        // salvattore count
+        &[data-columns]:before { content: "3 .column"; }
+        .column { width: 33.333%; }
+    }
+}
+
+.article-list__item {
+    margin-bottom: $half-spacing-unit;
+    break-inside: avoid;
+
+	@include mq(medium) {
+		margin-bottom: $spacing-unit;
+	}
+}
+
+
+// ==========================================================================
+// # ARTICLE TILE
+// ==========================================================================
+
+// .article-tile {}
+
+a.article-tile__link {
+	text-decoration: none;
+
+	&:hover {
+		.article-tile__image {
+			transform: scale(1.075);
+		}
+
+		.article-tile__inner {
+			background-color: brand(red);
+			color: #fff;
+
+			.article-tile__heading {
+				color: #fff;
+
+				&:first-line {
+		            color: #fff;
+		        }
+			}
+		}
+	}
+}
+
+.article-tile__image-container {
+	overflow: hidden;
+}
+
+.article-tile__image {
+	transform: scale(1.0);
+	transition: all ease-in-out 0.25s;
+}
+
+.article-tile__inner {
+	position: relative;
+	transition: all ease-in-out 0.25s;
+
+	// Inisde inner to add specificity
+    .article-tile__heading {
+		margin-bottom: $half-spacing-unit;
+        font-size: rem($h3-fsize);
+        line-height: 1.04;
+        color: $base-font-color;
+
+        &:first-line {
+            color: $base-font-color;
+        }
+
+        @include mq(medium) {
+            font-size: rem($h3-fsize-desktop);
+            line-height: 1.15;
+        }
+    }
+
+}
+
+.article-tile__date {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	width: rem(70);
+	height: rem(70);
+	border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+	// Minus height/2 of date circle
+	top: -( rem(35) );
+	left: 50%;
+	transform: translate(-50%, 0);
+	background: brand(ink);
+    color: #fff;
+
+	strong {
+		line-height: 1;
+	}
+}
+
+// .article-tile__excerpt {}
+
+
+
+// ==========================================================================
+// # MODIFIER: UNIVERSITIES LISTING
+// ==========================================================================
+
+.article-list--universities {
+	//scss-lint:disable DeclarationOrder (ignoring because it makes far more sense to put the media queries here…)
+	//large+: three columns
+	@include mq(xlarge) {
+		// non-salvattore
+		column-count: 4;
+
+		// salvattore count
+		&[data-columns]:before { content: "4 .column"; }
+		.column { width: 25%; }
+	}
+}
+
+.article-tile__location {
+	display: block;
+	color: brand(red);
+}
+
+.article-tile--universities {
+
+	.article-tile__heading {
+		margin-bottom: 0;
+		// color: #fff;
+	}
+}
+
+a.article-tile__link:hover {
+	.article-tile__location {
+		color: brand(ink);
+	}
+}
+
+
+// SHAME SHAME SHAME
+// SHAME SHAME SHAME
+// SHAME SHAME SHAME
+// SHAME SHAME SHAME
+// SHAME SHAME SHAME
+.js-university-post-loader {
+	.column {
+		.article-tile {
+			.article-tile__image {
+				display: none;
+			}
+		}
+	}
+}

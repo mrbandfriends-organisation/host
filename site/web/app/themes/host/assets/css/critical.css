@@ -1,0 +1,12 @@
+html {
+  overflow: hidden;
+  background: #fff;
+}
+
+html.wf-active, html.wf-inactive {
+  overflow: auto;
+}
+
+body {
+  opacity: 0;
+}

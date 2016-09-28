@@ -1,0 +1,13 @@
+{
+    "name": "mrbandfriends/front-end-boilerplate",
+    "description": "Mr B Frontend Boilerplate",
+    "authors": [
+        {
+            "name": "Mr B and Friends",
+            "email": "digital@mrbandfriends.co.uk"
+        }
+    ],
+    "require": {
+        "league/plates": "3.*"
+    }
+}

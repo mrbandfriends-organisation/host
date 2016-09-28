@@ -1,0 +1,99 @@
+// ==========================================================================
+// # Module: MAP
+//
+// Google map component
+// ==========================================================================
+
+// ==========================================================================
+// # Base
+// ==========================================================================
+.map {
+    // scss-lint:disable EmptyRule
+}
+
+// ==========================================================================
+// # Map container
+// ==========================================================================
+.map__map {
+    position: relative;
+    padding-top: 33%;
+    background: transparent none no-repeat center center/cover;
+    overflow: hidden;
+    min-height: rem(320);
+
+    @include mq(medium) {
+        min-height: rem(380);
+    }
+
+    @include mq(large) {
+        min-height: rem(500);
+    }
+
+    @include mq(xlarge) {
+        min-height: rem(600);
+    }
+
+
+    &.js-enhanced {
+        background: transparent none !important; //scss-lint:disable ImportantRule
+    }
+
+    > div {
+        top: 0;
+    }
+}
+
+.map__static {
+    position: absolute;
+
+    top:  50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    opacity:  0.0000001;
+}
+
+// ==========================================================================
+// # Filters
+// ==========================================================================
+.map__filters {
+    width: 33.333%;
+    min-width: rem(250);
+    max-width: rem(450);
+    padding: $half-spacing-unit;
+
+    @include mq(large) {
+        padding: $spacing-unit;
+    }
+
+    @include mq(xlarge) {
+        padding: $double-spacing-unit;
+    }
+
+    .form-filter {
+        padding-left: rem(40);
+    }
+}
+
+// # Colourways
+// ==========================================================================
+.map__filter {
+    .svg-icon {
+        height: rem(27);
+        width:  rem(20);
+
+        margin-left: rem(-40);
+        margin-right: 0.5em;
+
+        float:  left;
+        transition: fill 200ms;
+        fill: transparentize(brand(grey), 0.7);
+
+        vertical-align: middle;
+    }
+
+    &.-unis      input:checked ~ .svg-icon { fill: brand(orange); }
+    &.-food      input:checked ~ .svg-icon { fill: brand(grape); }
+    &.-shops     input:checked ~ .svg-icon { fill: brand(mint); }
+    &.-transport input:checked ~ .svg-icon { fill: brand(ink); }
+}

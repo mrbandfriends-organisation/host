@@ -1,0 +1,179 @@
+// scss-lint:disable GroupedPropertyOrder
+
+$tcon-size: 40px !default;
+$tcon-transition: 0.3s !default;
+$tcon-jstransform: "tcon-transform" !default;
+
+$tcon-menu-radius: ($tcon-size / 14) !default;
+$tcon-menu-color: brand(grey) !default;
+$tcon-menu-arrowleft-transformation: (
+  transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 90deg)
+) !default;
+$tcon-menu-arrow360left-transformation: (
+  transform: scale3d(0.8, 0.8, 0.8) rotate3d(0, 0, 1, 360deg)
+) !default;
+
+.tcon {
+    display: flex;
+    width: $tcon-size;
+    min-width: 0;
+    height: $tcon-size;
+    border: 0;
+    background: transparent;
+    outline: none;
+    transition: $tcon-transition;
+    appearance: none;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+
+    > * {
+        display: block;
+    }
+
+    &:hover,
+    &:focus {
+        outline: none; // see issue #36 https://github.com/grayghostvisuals/transformicons/issues/36
+        background: none;
+    }
+
+    &::-moz-focus-inner {
+        border: 0;
+    }
+}
+
+@mixin tcon-menu-lines {
+    display: inline-block;
+    height: ($tcon-size / 7);
+    width: $tcon-size;
+    border-radius: $tcon-menu-radius;
+    transition: $tcon-transition;
+    background: $tcon-menu-color;
+}
+
+.tcon-menu__lines {
+    @include tcon-menu-lines;
+    position: relative;
+
+    &::before,
+    &::after {
+        @include tcon-menu-lines;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        content: "";
+        transform-origin: ($tcon-size / 14) center;
+    }
+
+    &::before {
+        top: ($tcon-size / 4);
+    }
+
+    &::after {
+        top: -($tcon-size / 4);
+    }
+
+    .#{$tcon-jstransform} & {
+        transform: scale3d(0.8, 0.8, 0.8);
+    }
+}
+
+.tcon-menu--xcross {
+    width: auto;
+
+    &.#{$tcon-jstransform} {
+        .tcon-menu__lines {
+            background: transparent;
+
+            // scss-lint:disable NestingDepth
+            &::before,
+            &::after {
+                transform-origin: 50% 50%;
+                top: 0;
+                width: $tcon-size;
+            }
+
+            // scss-lint:disable NestingDepth
+            &::before {
+                transform: rotate3d(0, 0, 1, 45deg);
+            }
+
+            // scss-lint:disable NestingDepth
+            &::after {
+                transform: rotate3d(0, 0, 1, -45deg);
+            }
+        }
+    }
+}
+// see issue #7 https://github.com/grayghostvisuals/transformicons/issues/7#issuecomment-59813596
+.tcon-visuallyhidden {
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+
+    &:active,
+    &:focus {
+        position: static;
+        overflow: visible;
+        width: auto;
+        height: auto;
+        margin: 0;
+        clip: auto;
+    }
+}
+
+$tcon-plus-bg: transparent !default;
+$tcon-circle-radius: 80% !default;
+$tcon-plus-radius: ($tcon-size / 8) !default;
+$tcon-plus-color: #000 !default;
+
+.tcon-remove {
+    position: relative;
+    width: $tcon-size;
+    height: $tcon-size;
+    transform: scale(0.75);
+
+    &::before,
+    &::after {
+        position: absolute;
+        top: 37%;
+        left: 8%;
+        display: block;
+        width: 85%;
+        height: 25%;
+        border-radius: 2px;
+        content: "";
+        background: #000;
+        transition: $tcon-transition;
+    }
+
+    &::before {
+        transform: rotate(45deg);
+    }
+
+    &::after {
+        transform: rotate(-45deg);
+    }
+}
+
+.tcon-remove--check {
+    &.#{$tcon-jstransform} {
+        &::before {
+            top: 50%;
+            width: 55%;
+            transform: rotate(-135deg) translate(5%, -10%);
+        }
+
+        &::after {
+            top: 50%;
+            width: 85%;
+            transform: rotate(-45deg) translate(20%, 10%);
+        }
+    }
+}

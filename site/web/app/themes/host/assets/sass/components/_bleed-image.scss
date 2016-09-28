@@ -1,0 +1,48 @@
+// ==========================================================================
+//
+// Full-bleed image
+//
+// Description: describe your component here
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.bleed-image {
+    width:  100%;
+    height: 100%;
+
+    background-position: center center;
+    background-size:     cover;
+    background-repeat:   no-repeat;
+}
+
+.bleed-image__image {
+    height: rem(10);
+    width:  rem(10);
+
+    opacity: 0.000001;
+}
+
+// ==========================================================================
+// # MODIFIER: ALIGNMENT
+// ==========================================================================
+.bleed-image--top {
+    background-position-y: top;
+}
+
+.bleed-image--until-xxlarge-top {
+    @include mq($until: xxlarge) {
+        background-position: top center;
+    }
+}
+
+.bleed-image--hide-small {
+    display: none;
+
+    @include mq(medium) {
+        display: block;
+    }
+}

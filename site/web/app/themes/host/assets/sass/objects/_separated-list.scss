@@ -1,0 +1,29 @@
+// ==========================================================================
+// # SEPARATED LIST
+// ==========================================================================
+
+.separated-list {
+    margin: 1em 0;
+    list-style: none outside;
+}
+
+.separated-list__item {
+    display: flex;
+    padding: rem(10) 0;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: $base-border;
+}
+
+.separated-list__icon {
+    min-width: rem(32px);
+    min-height: rem(32px);
+    margin-right: $half-spacing-unit;
+
+    @include mq(large) {
+        margin-right: $spacing-unit;
+    }
+}
+
+// # MODIFIER:
+// ==========================================================================

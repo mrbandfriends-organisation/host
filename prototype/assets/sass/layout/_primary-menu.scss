@@ -1,0 +1,55 @@
+// ==========================================================================
+//
+// PRIMARY MENU
+//
+// Description: layout and styling for primary navigation menu
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE CLASSES
+// ==========================================================================
+.nav-primary {
+    margin: 0;
+    list-style: none outside;
+
+    @include mq($until: nav-break-2) {
+        display: none;
+    }
+}
+
+.nav-primary__item {
+    // scss-lint:disable EmptyRule
+}
+
+.nav-primary__link {
+    display: block;
+}
+
+// ==========================================================================
+// # VARIANT: BANNER
+// ==========================================================================
+.nav-primary--banner {
+    display:      flex;
+    align-items:  center;
+
+    .nav-primary__link {
+        padding: rem(8) rem(15);
+        color:   tint(ink);
+        line-height: 1.25;
+
+        span {
+            display: block;
+            font-weight: bold;
+        }
+    }
+
+}
+
+// ==========================================================================
+// # VARIANT: OFFCANVAS
+// ==========================================================================
+.nav-primary--offcanvas {
+    // scss-lint:disable ImportantRule
+    display: block !important;
+}

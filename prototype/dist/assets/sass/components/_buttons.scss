@@ -1,0 +1,93 @@
+// ==========================================================================
+//
+// BUTTONS
+//
+// Description: UI styles to create button-like elements
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+
+.btn,
+button {
+    display:   inline-block;
+
+    margin:    0;
+    padding:   rem(13) rem(15);
+    width:     auto;
+    min-width: rem(280);
+
+    transition: all 200ms;
+
+    border:    1px solid transparent;
+    border-radius: rem(6);
+
+    background-color: brand(red);
+
+    color: #fff;
+    font-size:   rem(16);
+    line-height: rem(18);
+    text-align:  center;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    &:hover {
+        background: darken(brand(red), 10%);
+        text-decoration: none;
+    }
+
+    .svg-icon {
+        display: inline-block;
+        height:  rem(18);
+        width:   rem(18);
+        vertical-align: middle;
+    }
+
+    @include mq(medium) {
+        padding:     rem(15) rem(25);
+        font-size:   rem(18);
+        line-height: rem(21);
+
+        .svg-icon { height: rem(21); }
+    }
+
+    & + & { margin-top: rem(20); }
+}
+
+// Special case for links, otherwise they get snarfed by boxes
+// ==========================================================================
+a.btn { color: #fff; }
+
+// ==========================================================================
+// # COLOUR VARIENCE
+//
+// Note: this is not especially semantic, but as colours seem to be used
+// randomly without any real meaning…
+// ==========================================================================
+
+@each $colour, $way in $button-colours {
+    .btn--#{$colour}[class] { @include button($colour); }
+}
+
+// ==========================================================================
+// # SIZE VARIANCE
+// ==========================================================================
+
+.btn--small[class] {
+    padding: rem(11) rem(15);
+}
+
+.btn--very-small[class] {
+    padding: rem(12) rem(15);
+
+    font-size:   rem(14);
+    line-height: rem(16);
+}
+
+.btn--narrow {
+    min-width: 0;
+}

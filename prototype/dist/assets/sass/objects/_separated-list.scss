@@ -1,0 +1,13 @@
+// ==========================================================================
+// # SEPARATED LIST
+// ==========================================================================
+
+.separated-list {
+    margin: 1em 0;
+    list-style: none outside;
+}
+
+.separated-list__item {
+    padding: rem(10) 0;
+    border-bottom: 1px solid brand(grey);
+}

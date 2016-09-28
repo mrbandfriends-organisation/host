@@ -1,0 +1,162 @@
+// ============================================================
+
+// PAGE: ROOM PAGE
+
+// Description: This file contains styles that are specific to
+// a room page.
+
+// ============================================================
+
+// ============================================================
+// SECTION: ROOM DETAILS SECTION
+// ============================================================
+.room-details-container {
+    @include mq(xlarge) {
+        display: block;
+        max-width: calc(100% - 260px);
+    }
+
+    @include mq(xxlarge) {
+        max-width: calc(100% - 330px);
+    }
+}
+
+.room-details {
+    margin-bottom: $spacing-unit;
+
+    @include mq(medium) {
+        margin-bottom: $double-spacing-unit;
+    }
+}
+
+.room-detail-item {
+    @include mq(medium) {
+        &:nth-of-type(odd) {
+            padding-right: $gutter;
+            padding-left: 0;
+        }
+
+        &:nth-of-type(even) {
+            padding-right: 0;
+            padding-left: $gutter;
+        }
+    }
+}
+
+.room-detail-item__inner {
+    flex-direction: row;
+    //justify-content: space-between;
+}
+
+.room-detail-item__icon {
+    display: none;
+
+    @include mq(small) {
+        display: block;
+    }
+
+    @include mq(large) {
+        margin-right: $half-spacing-unit;
+    }
+}
+
+.room-detail-item__label {
+    width: 21%;
+    min-width: rem(85);
+    margin-right: $quarter-gutter-width;
+
+    @include mq(large) {
+        margin-right: $half-spacing-unit;
+    }
+}
+
+.room-detail-item__value {
+    //margin-right: auto;
+}
+
+// ROOMS DETAILS ASIDE
+//
+// Deafult content for this is the "uni pack"
+// ======================================================
+
+.room-details-aside {
+    margin-top: $spacing-unit;
+
+    @include mq(large) {
+        margin-top: $triple-spacing-unit;
+    }
+}
+
+.room-details-aside__logo {
+    display: none;
+
+    @include mq(xlarge) {
+        display: block;
+        position: absolute;
+        max-width: rem(110);
+        border-radius: 50%;
+        top: 0;
+        right: 0;
+        padding: rem(20);
+        background-color: #fff;
+
+        a {
+            display: block;
+
+            &:hover,
+            &:focus {
+                cursor: pointer;
+
+                img {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        img {
+            transform: scale(1.0);
+            transition: all ease-in-out 0.25s;
+        }
+    }
+
+    // Add padding if box is padded
+    .box--padded & {
+        right: $half-spacing-unit;
+        top: ($half-spacing-unit);
+    }
+}
+
+
+// ============================================================
+// SECTION: PRICING SETTINGS
+// ============================================================
+.rent-cost {
+    @include mq(large) {
+        columns: 2;
+        column-width: 50%;
+
+        div {
+            display: inline-block;
+            break-inside: auto;
+        }
+    }
+
+    @include mq(xlarge) {
+        columns: 3;
+        column-width: 33.33%;
+    }
+
+    p {
+        margin-bottom: $spacing-unit;
+    }
+}
+
+.pricing-section__btn {
+    display: block;
+    width: 100%;
+    margin-top: $spacing-unit;
+
+    @include mq(large) {
+        margin-top: $double-spacing-unit;
+    }
+}
