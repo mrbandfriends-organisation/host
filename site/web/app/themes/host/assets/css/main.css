@@ -5332,6 +5332,10 @@ a.btn {
   height: 6px;
 }
 
+.contact-form-section {
+  padding: 40px;
+}
+
 .banner {
   width: 100%;
   padding: 0 0 1.25rem;
@@ -7265,6 +7269,9 @@ a.article-tile__link:hover .article-tile__location {
   }
   .gfield{
     margin-bottom: 40px;
+  }
+  .contact-form-section{
+    padding: 80px;
   }
   .nav-utilities--banner{
     margin-right: -0.9375rem;
