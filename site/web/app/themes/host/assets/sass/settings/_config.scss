@@ -276,7 +276,9 @@ $default-transition:			ease-out;
 $spacing-unit: 					40px;
 $half-spacing-unit: 			$spacing-unit/2;
 $quarter-spacing-unit: 			$spacing-unit/4;
-$double-spacing-unit: 			$spacing-unit*2;
+$double-spacing-unit:           $spacing-unit*2;
+$triple-spacing-unit: 			$spacing-unit*3;
+
 
 $large-container-spacing:       125px;
 
