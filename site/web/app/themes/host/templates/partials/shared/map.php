@@ -85,7 +85,7 @@
     </div>
     <?php if ($bFilter): ?>
         <form action="#" method="post" class="map__filters box box--fg-<?=$sFg; ?> js-flyout js-flyout--left">
-            <h3>What’s around<br>the local area?</h3>
+            <h2>What’s around<br>the local area?</h2>
 
             <fieldset class="form-filter">
                 <ul class="form-filter__list">

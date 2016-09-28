@@ -957,7 +957,7 @@ input[type="button"]:focus {
 .form-filter__filter {
   display: block;
   padding: 0.625rem 0;
-  font-weight: bold;
+  font-weight: normal;
   cursor: pointer;
 }
 
@@ -3353,7 +3353,7 @@ img.mfp-img {
 }
 
 .mfp-bg {
-  background-color: rgba(33, 41, 60, 0.94);
+  background-color: rgba(33, 41, 60, 0.965);
   background-blend-mode: multiply;
   opacity: 1;
 }
@@ -4187,10 +4187,6 @@ a.btn {
   margin-left: 0rem;
 }
 
-.band--inset.split-feature.-right .split-feature__content {
-  margin-right: 4.0625rem;
-}
-
 .split-feature.-twin-content .split-feature__main .split-feature__content {
   padding-bottom: 40px;
 }
@@ -4388,6 +4384,7 @@ a.btn {
   margin: 0;
   font-size: 2.1875rem;
   line-height: 1.2;
+  letter-spacing: -0.0625rem;
 }
 
 .listed-property__number-types {
@@ -4415,6 +4412,10 @@ a.btn {
 
 .listed-property__image {
   background: #00c0f3 none no-repeat bottom center/cover;
+}
+
+.listed-property__price {
+  padding: 20px 30px;
 }
 
 .room-list__header {
@@ -4485,7 +4486,7 @@ a.btn {
 }
 
 .listed-room__price {
-  margin: 0 0 2em;
+  margin: 0 0 20px;
 }
 
 .listed-room__avail[class] {
@@ -4547,8 +4548,10 @@ a.btn {
 }
 
 .listed-room__features-item {
+  float: left;
   display: inline-block;
   font-size: 0.9375rem;
+  width: 50%;
 }
 
 .listed-room__features-item:not(:last-child):after {
@@ -4944,12 +4947,11 @@ a.btn {
 }
 
 .favouritable__wrapper[class] {
-  margin-top: 160px;
+  margin-top: 80px;
 }
 
 .favouritable__wrapper[class] .favouritable {
-  right: 55%;
-  transform: translateX(55%);
+  left: 0;
   top: -80px;
 }
 
@@ -4970,8 +4972,6 @@ a.btn {
   position: absolute;
   display: block;
   top: calc(100% + 0.3125rem);
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 0.875rem;
   color: #999;
   content: "Favourite";
@@ -5210,6 +5210,44 @@ a.btn {
 
 .secondary-split-feature__main .secondary-split-feature__content .btn, .secondary-split-feature__main .secondary-split-feature__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .secondary-split-feature__main .secondary-split-feature__content select {
   margin-top: 20px;
+}
+
+.gform_wrapper .top_label input.medium,
+.gform_wrapper .top_label select.medium {
+  width: 100%;
+}
+
+.gform_fields {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex: 0 1 auto;
+      flex: 0 1 auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-rendering: optimizespeed;
+}
+
+.gfield {
+  margin-bottom: 20px;
+}
+
+.gf-column {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  width: auto;
+  max-width: 100%;
+}
+
+.gf-column--half {
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  width: auto;
+  max-width: 100%;
 }
 
 .banner {
@@ -6673,6 +6711,13 @@ a.article-tile__link:hover .article-tile__location {
     max-width: 30%;
     min-width: 18.75rem;
   }
+  .gf-column--half{
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    width: auto;
+    max-width: 50%;
+    padding-right: 30px;
+  }
   .nav-footer__section:first-child .nav-footer__sublist{
     -moz-columns: 4;
     columns: 4;
@@ -7072,13 +7117,10 @@ a.article-tile__link:hover .article-tile__location {
     width: 100%;
     margin-right: 0;
     margin-left: auto;
-    padding: 2.5rem 5rem;
+    padding: 5rem 2.5rem;
   }
   .split-feature__content .btn, .split-feature__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .split-feature__content select{
     margin-top: 40px;
-  }
-  .band--inset.split-feature.-left .split-feature__content{
-    margin-left: 4.0625rem;
   }
   .split-feature.-twin-content .split-feature__secondary{
     padding-bottom: 80px;
@@ -7111,8 +7153,14 @@ a.article-tile__link:hover .article-tile__location {
   .secondary-split-feature__main .secondary-split-feature__content .btn, .secondary-split-feature__main .secondary-split-feature__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .secondary-split-feature__main .secondary-split-feature__content select{
     margin-top: 40px;
   }
+  .gfield{
+    margin-bottom: 40px;
+  }
   .nav-utilities--banner{
     margin-right: -0.9375rem;
+  }
+  .footer{
+    padding: 5rem 1.875rem 2.5rem;
   }
   .nav-footer__section:first-child .nav-footer__sublist{
     -moz-columns: 3;
@@ -7483,7 +7531,6 @@ a.article-tile__link:hover .article-tile__location {
     width: 100%;
     margin-right: 0;
     margin-left: auto;
-    padding-left: 2.5rem;
   }
   .split-feature.-right .split-feature__main{
     -ms-flex-align: start;
@@ -7496,7 +7543,6 @@ a.article-tile__link:hover .article-tile__location {
     width: 100%;
     margin-right: auto;
     margin-left: 0;
-    padding-right: 2.5rem;
   }
   .split-feature.-twin-content .split-feature__main .split-feature__content{
     padding-bottom: 80px;
@@ -7527,6 +7573,9 @@ a.article-tile__link:hover .article-tile__location {
     align-self: flex-start;
     margin: 40px 1.875rem -20px 40px;
   }
+  .map__map{
+    min-height: 31.25rem;
+  }
   .map__filters{
     padding: 40px;
   }
@@ -7550,7 +7599,10 @@ a.article-tile__link:hover .article-tile__location {
     min-height: 25vh;
   }
   .favouritable__wrapper[class]{
-    margin-top: 80px;
+    margin-top: auto;
+  }
+  .gf-column--half{
+    padding-right: 60px;
   }
   .banner__inner{
     -ms-flex-align: end;
@@ -7562,7 +7614,9 @@ a.article-tile__link:hover .article-tile__location {
     margin-left: 20px;
   }
   .menu-item--banner-language-switcher .btn, .menu-item--banner-language-switcher select{
-    min-width: 11.25rem;
+    width: 12.75rem;
+    min-width: 1px;
+    padding: 0.6875rem 1.5625rem;
   }
   .nav-primary--banner .menu-item .nav-primary__link .menu-item__name{
     font-weight: bold;
@@ -7933,6 +7987,9 @@ a.article-tile__link:hover .article-tile__location {
   }
   .awards.-left{
     margin: 80px 1.875rem 60px 7.8125rem;
+  }
+  .map__map{
+    min-height: 37.5rem;
   }
   .map__filters{
     padding: 80px;
@@ -8332,6 +8389,12 @@ a.article-tile__link:hover .article-tile__location {
   .split-feature.-right .split-feature__content{
     margin-right: 7.8125rem;
     padding-right: 0;
+  }
+  .band--inset.split-feature.-left .split-feature__content{
+    margin-left: 4.0625rem;
+  }
+  .band--inset.split-feature.-right .split-feature__content{
+    margin-right: 4.0625rem;
   }
   .listed-property__address-contact{
     -ms-flex-direction: column;

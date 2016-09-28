@@ -35,7 +35,7 @@
 
     @include mq(medium) {
         @include container("left");
-        padding: rem(40) rem(80);
+        padding: rem(80) rem(40);
     }
 
     @include mq(large) {
@@ -88,7 +88,7 @@
 
         .split-feature__content {
             @include container("left");
-            padding-left: rem(40);
+            //padding-left: rem(40);
         }
     }
 
@@ -118,7 +118,7 @@
 
         .split-feature__content {
             @include container("right");
-            padding-right: rem(40);
+            //padding-right: rem(40);
             // margin-right: rem($large-container-spacing);
             // margin-left: auto;
         }
@@ -145,16 +145,18 @@
         .split-feature__content {
             margin-left: rem(0);
 
-            @include mq(medium) {
+            @include mq(xxlarge) {
               margin-left: rem(65);
             }
-
         }
     }
 
     &.-right {
         .split-feature__content {
-            margin-right: rem(65);
+
+            @include mq(xxlarge) {
+              margin-right: rem(65);
+            }
         }
     }
 }

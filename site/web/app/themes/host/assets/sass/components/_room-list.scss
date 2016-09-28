@@ -132,7 +132,7 @@
 // Title
 // ==========================================================================
 .listed-room__title { margin: 0; }
-.listed-room__price { margin: 0 0 2em; }
+.listed-room__price { margin: 0 0 $half-spacing-unit; }
 
 // Availability slug
 // ==========================================================================
@@ -207,8 +207,10 @@
 }
 
 .listed-room__features-item {
+    float: left;
     display: inline-block;
     font-size: rem(15);
+    width: 50%;
 
     &:not(:last-child) {
         &:after {

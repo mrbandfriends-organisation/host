@@ -25,6 +25,14 @@
         min-height: rem(380);
     }
 
+    @include mq(large) {
+        min-height: rem(500);
+    }
+
+    @include mq(xlarge) {
+        min-height: rem(600);
+    }
+
 
     &.js-enhanced {
         background: transparent none !important; //scss-lint:disable ImportantRule

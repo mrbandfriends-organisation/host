@@ -46,6 +46,7 @@
 
     font-size: rem(35);
     line-height: 1.2;
+    letter-spacing: rem(-1);
 }
 
 .listed-property__number-types {
@@ -92,4 +93,11 @@
 // ==========================================================================
 .listed-property__image {
     background: brand(sky) none no-repeat bottom center/cover;
+}
+
+
+// Price
+// ==========================================================================
+.listed-property__price {
+    padding: $half-spacing-unit ($spacing-unit - $quarter-spacing-unit);
 }
