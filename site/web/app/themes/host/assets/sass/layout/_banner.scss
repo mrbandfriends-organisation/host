@@ -95,4 +95,9 @@
 
         text-align: center;
     }
+
+     // Hide arrow in IE0+
+    select::-ms-expand {
+        display: none;
+    }
 }
