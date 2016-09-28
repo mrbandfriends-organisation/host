@@ -223,6 +223,11 @@
     @include select-arrow;
     margin-top: $quarter-spacing-unit;
 
+    &:after {
+        top: rem(16);
+        transform: translate3d(0,0,0);
+    }
+
     &:hover,
     &:focus {
         background-color: transparent;
