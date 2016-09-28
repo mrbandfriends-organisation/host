@@ -50,6 +50,16 @@
 
 .banner__brand {
     display: block;
+
+    svg {
+        //height: rem(60);
+
+    }
+}
+
+.banner__home-link {
+    display: block;
+    width:  rem(140);
 }
 
 // ==========================================================================
@@ -81,5 +91,10 @@
         @extend .btn;
 
         text-align: center;
+    }
+
+     // Hide arrow in IE0+
+    select::-ms-expand {
+        display: none;
     }
 }
