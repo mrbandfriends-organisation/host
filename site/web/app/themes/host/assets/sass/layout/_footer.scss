@@ -228,10 +228,6 @@
     position: relative;
     top: rem(-20);
     justify-content: center;
-
-    @include mq(medium) {
-        display: none;
-    }
 }
 
 .footer-up-arrow__link {
