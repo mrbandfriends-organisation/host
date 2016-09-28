@@ -1,17 +1,18 @@
 <?php
     use Roots\Sage\Utils;
+
 ?>
 
 <header class="banner js-banner" role="banner">
 	<div class="banner__inner container">
 		<div class="banner__section banner__brand">
-            <a href="/" class="banner__home-link"><?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'site-logo', 'classnames' => 'svg-icon--site-logo svg-icon--red' ]); ?></a>
+            <?php echo Utils\ob_load_template_part('templates/partials/site-logo'); ?>            
 		</div>
 
 		<div class="banner__section banner__nav">
             <?php
-                echo Utils\ob_load_template_part('templates/partials/utility-nav', [ 'modifier' => 'banner' ]);
-                echo Utils\ob_load_template_part('templates/menus/primary-nav',    [ 'modifier' => 'banner' ]);
+                echo Utils\ob_load_template_part('templates/partials/utility-nav', ['modifier' => 'banner']);
+                echo Utils\ob_load_template_part('templates/menus/primary-nav',    ['modifier' => 'banner']);
             ?>
 
             <button id="menu-button" type="button" class="offcanvas-toggle offcanvas-toggle--open tcon tcon-menu--xcross js-offcanvas-toggle" aria-label="toggle menu" aria-expanded="false" aria-controls="menu">

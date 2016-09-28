@@ -16,17 +16,24 @@ function GMaps()
     /** ivars */
     var el  = this;
     var oMap;
+    var isDraggable;
     var aoMarker = {};
     var aoFilter = [];
     var oWin     = null;
     var oBounds  = null;
+
+    if ( window.innerWidth < 800 ) {
+        isDraggable = false
+    } else {
+        isDraggable = true
+    }
 
     // config
     var defaults = {
         zoom:               15,
         center:             { lat: 0, lng: 0 },
         mapTypeControl:     false,
-        draggable:          false,
+        draggable:          isDraggable,
         streetViewControl:  false,
         scrollwheel:        false
     };
@@ -124,7 +131,9 @@ function GMaps()
         // 4. if we have a type
         if ((oPlace.type !== undefined) && (oIconMap[oPlace.type] !== undefined))
         {
-            oDefinition.icon = WEB_ROOT+'assets/svg/standalone/output/marker-'+oIconMap[oPlace.type]+'.svg';
+            // NOTE: we've reverted to using PNG versions of the SVGs because of this bug
+            // http://stackoverflow.com/questions/19719574/google-maps-svg-image-marker-icons-not-showing-in-ie11/26608307#26608307
+            oDefinition.icon = WEB_ROOT+'assets/svg/standalone/png/marker-'+oIconMap[oPlace.type]+'.png';
         }
 
         // 5. draw the marker and place it in bounds

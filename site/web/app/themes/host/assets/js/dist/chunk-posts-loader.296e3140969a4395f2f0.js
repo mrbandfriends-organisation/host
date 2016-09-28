@@ -148,7 +148,6 @@ webpackJsonp([0,2],{
 	        dataType   : 'html',
 	        url        : self.ajaxEndPoint,
 	        beforeSend : function() {
-	            console.log("AJAX!");
 	            self.loading = true;
 	            self.triggerEl.addClass(self.options.triggerActiveClass);
 	        },
