@@ -25,14 +25,15 @@
         <ul class="checkerboard__list grid">
             <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
                 <?php
-                    $carousel_image = get_template_directory_uri() . '/assets/images/london.jpg';
+                    $carousel_field = ( !empty(get_field('carousel_images') ) ? get_field('carousel_images') : null );
+                    $carousel_image = ( !empty($carousel_field) ? $carousel_field[0]['url'] : get_template_directory_uri() . '/assets/images/london.jpg' );
                 ?>
                 <li class="checkerboard__item gc">
 
                     <?php
-                      $connected_buildings_array = host_location_find_connected_buildings(get_the_id());
-                      $connected_buildings = $connected_buildings_array->posts;
-                      $connected_buildings_count = count($connected_buildings);
+                        $connected_buildings_array = host_location_find_connected_buildings(get_the_id());
+                        $connected_buildings = $connected_buildings_array->posts;
+                        $connected_buildings_count = count($connected_buildings);
                     ?>
 
                     <?php echo Utils\ob_load_template_part('templates/partials/home/home-locations-item.php', array(
