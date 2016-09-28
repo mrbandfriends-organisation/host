@@ -9,10 +9,30 @@
 // ==========================================================================
 // # VENDOR OVERRIDES
 // ==========================================================================
-.gform_wrapper .top_label input.medium,
-.gform_wrapper .top_label select.medium {
-    width: 100%;
+.gform_wrapper {
+    form {
+        position: relative;
+    }
 }
+
+.gform_footer {
+    padding: $spacing-unit 0;
+
+    @include mq(small) {
+        position: absolute;
+        width: calc(50% - #{$gutter});
+        max-width: rem(240);
+        right: 0;
+        bottom: 0;
+        padding: 0;
+    }
+
+    .btn {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
 
 // ==========================================================================
 // # BASE
@@ -39,14 +59,24 @@
 
     @include mq(small) {
         @include grid-column(1, 2);
-        padding-right: $gutter;
+
+        &:nth-of-type(odd) {
+            padding-right: $gutter;
+        }
+
+        &:nth-of-type(even) {
+            padding-left: $gutter;
+        }
+
     }
 
     @include mq(large) {
-        padding-right: $double-gutter-width;
+        &:nth-of-type(odd) {
+            padding-right: $double-gutter-width;
+        }
+
+        &:nth-of-type(even) {
+            padding-left: $double-gutter-width;
+        }
     }
 }
-
-// ==========================================================================
-// # MODIFIER: %%MODIFIER_NAME%%
-// ==========================================================================

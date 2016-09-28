@@ -2,10 +2,10 @@
     use Roots\Sage\Utils;
 
     $uni_id     = get_the_id();
-    $image      = ( !empty($image['url']) ? $image['url'] : null );
+    //$image      = ( !empty($image['url']) ? $image['url'] : null );
 
     if ( !empty($image) ) {
-        $image = ( !empty($image['url']) ? $image['url'] : null );
+        $image = ( !empty($image) ? $image['url'] : null );
     } elseif ( host_universities_find_connected_location($uni_id) ) {
         $connected_location       = host_universities_find_connected_location($uni_id);
         $connected_location_id    = $connected_location->posts[0]->ID;

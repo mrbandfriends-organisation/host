@@ -4,7 +4,14 @@
 
 // # Class applied to outer container—gives us something to put position on
 // ==========================================================================
-.favouritable__container { position: relative; }
+.favouritable__container {
+    position: relative;
+
+    a svg {
+        margin-left: $half-spacing-unit;
+    }
+}
+
 .favouritable__wrapper[class] {
 
     margin-top: $double-spacing-unit;

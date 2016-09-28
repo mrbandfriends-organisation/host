@@ -130,6 +130,7 @@ $slideshow-animate-speed: 3s;
     &:hover,
     &:focus {
         background: rgba(255, 255, 255, 0.15);
+        outline-color: brand(grey);
 
         .svg-icon {
             opacity: 1;

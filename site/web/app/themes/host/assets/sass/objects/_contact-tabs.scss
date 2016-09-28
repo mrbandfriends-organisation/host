@@ -9,6 +9,10 @@
     list-style: none;
     margin: 0;
     padding: 0;
+
+    @include mq($from: 380px) {
+        margin: 0 (-$half-spacing-unit) 0 0;
+    }
 }
 
 .c-tabs__heading {
@@ -17,40 +21,74 @@
     }
 }
 
-.c-tabs-nav__link {
-    flex: 1;
-    margin-right: rem(4px);
-    padding: rem(5px) rem(2px);
+a.c-tabs-nav__link {
+    display: flex;
+    flex: 0;
+    justify-content: center;
+    margin: 0 $half-spacing-unit $half-spacing-unit 0;
+    padding: rem(8) 0;
+    border: brand(red) solid rem(1);
+    border-radius: rem(25);
+    font-size: rem(15);
     color: brand(red);
-    border-radius: rem(25px);
-    border: brand(red) solid 1px;
     text-align: center;
-    transition: color 0.3s;
-    margin-bottom: $quarter-spacing-unit;
+    transition: all 0.3s;
+
+    @include mq($until: 380px) {
+        flex-basis: 100%;
+        margin-right: 0;
+    }
+
+    @include mq($from: 380px, $until: small) {
+        flex-basis: calc(50% - #{$half-spacing-unit});
+    }
+
+    @include mq($from: small, $until: medium) {
+        flex-basis: calc(33.33% - #{$half-spacing-unit});
+    }
+
+    @include mq($from: medium, $until: large) {
+        flex-basis: calc(25% - #{$half-spacing-unit});
+    }
+
+    @include mq($from: large, $until: xlarge) {
+        flex-basis: calc(20% - #{$half-spacing-unit});
+    }
+
+    @include mq($from: xlarge, $until: xxlarge) {
+        flex-basis: calc(16.66% - #{$half-spacing-unit});
+    }
+
+    @include mq($from: xxlarge) {
+        flex-basis: calc(12.5% - #{$half-spacing-unit});
+    }
+
+    &:hover,
+    &:focus {
+        background-color: tint(red);
+        color: #fff;
+        text-decoration: none;
+    }
 }
 
-.c-tabs-nav__link:hover,
-.c-tabs-nav__link:focus {
-    text-decoration: none;
-}
 
 .c-tabs-nav__link.is-active {
     background-color: brand(red);
     color: #fff;
 }
 
-.c-tabs-nav__link i,
-.c-tabs-nav__link span {
+a.c-tabs-nav__link i,
+a.c-tabs-nav__link span {
     margin: 0;
     padding: 0;
     line-height: 1;
 }
 
-.c-tabs-nav__link i {
+a.c-tabs-nav__link i {
     font-size: 18px;
 }
 
-.c-tabs-nav__link span {
+a.c-tabs-nav__link span {
     display: none;
     font-size: 18px;
 }
