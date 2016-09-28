@@ -24,7 +24,7 @@
     </header>
     <div class="checkerboard-item__content js-checkerboard__content">
         <p class="checkerboard-item__availability">
-            <?=esc_html($no_of_props); ?> properties available
+            <?=esc_html($no_of_props); ?> <?php if (count($no_of_props) === 1) { echo "property"; } else { echo "properties"; } ?> available
             <a href="<?php echo esc_url($url); ?>" class="btn btn--very-small btn--narrow">Show me homes</a>
         </p>
         <?php if ($connected_internal_building_id) { ?>
