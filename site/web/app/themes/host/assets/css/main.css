@@ -5250,6 +5250,74 @@ a.btn {
   max-width: 100%;
 }
 
+.in-page-nav {
+  width: 100%;
+  padding: 1.5625rem;
+  background-color: #314265;
+}
+
+.in-page-nav__aside {
+  -ms-flex-align: center;
+      -ms-grid-row-align: center;
+      align-items: center;
+}
+
+.in-page-nav__logo {
+  width: 5.625rem;
+  height: 2.5rem;
+  fill: #fff;
+}
+
+.in-page-nav__heading {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.in-page-nav__listing {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -ms-flex-align: center;
+      -ms-grid-row-align: center;
+      align-items: center;
+}
+
+.in-page-nav__listing-item {
+  text-align: center;
+}
+
+.in-page-nav__link {
+  color: #fff;
+  font-size: 1rem;
+  position: relative;
+}
+
+.in-page-nav__link:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0.0625rem;
+  bottom: -2.25rem;
+  left: 50%;
+  background-color: #00c0f3;
+  transform: translateX(-50%);
+  transition: width ease-in-out 0.25s;
+}
+
+.in-page-nav__link:hover, .in-page-nav__link:focus {
+  text-decoration: none;
+  transition: color ease-in-out 0.25s;
+}
+
+.in-page-nav__link:hover:after, .in-page-nav__link:focus:after {
+  width: 100%;
+}
+
+.in-page-nav__link:focus:after, .in-page-nav__link:hover:after {
+  height: 6px;
+}
+
 .banner {
   width: 100%;
   padding: 0 0 1.25rem;
