@@ -4158,7 +4158,6 @@ a.btn {
 .checkerboard-item__content .btn, .checkerboard-item__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .checkerboard-item__content select {
   display: block;
   margin-top: 0.625rem !important;
-  white-space: nowrap;
 }
 
 .-active .checkerboard-item__content {
@@ -7814,6 +7813,7 @@ a.article-tile__link:hover .article-tile__location {
     margin: 40px 0 20px;
   }
   .awards.-left{
+    height: 102px;
     -ms-flex-item-align: start;
     align-self: flex-start;
     margin: 40px 1.875rem -20px 40px;
