@@ -125,10 +125,10 @@ div.c-tabs {
 
 .c-tab__listing {
     @include list-reset;
+    list-style: none!important;
 }
 
 .c-tab__listing-item {
-    //@include list-reset;
     display: flex;
     flex-direction: column;
     width: 100%;
