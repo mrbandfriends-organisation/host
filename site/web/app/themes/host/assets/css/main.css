@@ -3464,7 +3464,6 @@ button .svg-icon {
   height: 1.75rem;
   width: 1.75rem;
   vertical-align: middle;
-  margin-left: 20px;
 }
 
 .btn + .btn, .menu-item--banner-language-switcher select + .btn, .menu-item--banner-language-switcher .btn + select, .menu-item--banner-language-switcher select + select,
@@ -4810,6 +4809,7 @@ a.btn {
   margin-left: 0.9375rem;
   fill: none;
   stroke: currentColor;
+  margin-left: 0;
 }
 
 .favourites__button:hover {
@@ -4947,6 +4947,10 @@ a.btn {
 
 .favouritable__container {
   position: relative;
+}
+
+.favouritable__container a svg {
+  margin-left: 20px;
 }
 
 .favouritable__wrapper[class] {
