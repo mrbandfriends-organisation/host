@@ -2,7 +2,7 @@ require('slick-carousel');
 module.exports = function()
 {
     $('.js-slick-fade').slick({
-        arrows: true,
+        arrows: false,
         dots: true,
         infinite: true,
         speed: 500,
