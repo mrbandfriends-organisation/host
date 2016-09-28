@@ -2371,7 +2371,7 @@ dl.-horizontal dd ~ dd {
 }
 
 .slideshow--large-pagination .slideshow-pagination--pn .slideshow-pagination__button:hover, .slideshow--large-pagination .slideshow-pagination--pn .slideshow-pagination__button:focus {
-  background-color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.85);
   outline: none;
 }
 
@@ -8856,6 +8856,12 @@ a.article-tile__link:hover .article-tile__location {
   }
   .gc--fixed-ratio.m-ar100:before{
     padding-top: 100%;
+  }
+  .slideshow--large-pagination .slideshow-pagination--pn .slideshow-pagination__button{
+    background: transparent;
+  }
+  .slideshow--large-pagination .slideshow-pagination--pn .slideshow-pagination__button:hover{
+    background: transparent;
   }
   .testimonial-wall__image{
     display: none;
