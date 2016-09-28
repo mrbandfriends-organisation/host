@@ -5255,7 +5255,6 @@ a.btn {
 
 .in-page-nav__aside {
   -ms-flex-align: center;
-      -ms-grid-row-align: center;
       align-items: center;
 }
 
@@ -5276,7 +5275,6 @@ a.btn {
   margin: 0;
   padding: 0;
   -ms-flex-align: center;
-      -ms-grid-row-align: center;
       align-items: center;
 }
 
@@ -6771,11 +6769,7 @@ a.article-tile__link:hover .article-tile__location {
     padding: 1.25rem;
   }
   .listed-room__content{
-    -ms-flex-preferred-size: 30%;
-    flex-basis: 30%;
-    width: auto;
-    max-width: 30%;
-    min-width: 18.75rem;
+    width: 19.875rem;
   }
   .gf-column--half{
     -ms-flex-preferred-size: 50%;
