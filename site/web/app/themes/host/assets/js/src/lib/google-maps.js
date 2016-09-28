@@ -124,7 +124,9 @@ function GMaps()
         // 4. if we have a type
         if ((oPlace.type !== undefined) && (oIconMap[oPlace.type] !== undefined))
         {
-            oDefinition.icon = WEB_ROOT+'assets/svg/standalone/output/marker-'+oIconMap[oPlace.type]+'.svg';
+            // NOTE: we've reverted to using PNG versions of the SVGs because of this bug
+            // http://stackoverflow.com/questions/19719574/google-maps-svg-image-marker-icons-not-showing-in-ie11/26608307#26608307
+            oDefinition.icon = WEB_ROOT+'assets/svg/standalone/png/marker-'+oIconMap[oPlace.type]+'.png';
         }
 
         // 5. draw the marker and place it in bounds
