@@ -67,11 +67,11 @@ $tcon-menu-arrow360left-transformation: (
     }
 
     &::before {
-        top: ($tcon-size / 4);
+        top: ($tcon-size / 3.5);
     }
 
     &::after {
-        top: -($tcon-size / 4);
+        top: -($tcon-size / 3.5);
     }
 
     .#{$tcon-jstransform} & {

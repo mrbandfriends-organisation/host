@@ -269,7 +269,7 @@ function Slideshow()
         el.addEventListener('swiperight', function()
         {
             step(-1);
-        })
+        });
     }
 
     /**

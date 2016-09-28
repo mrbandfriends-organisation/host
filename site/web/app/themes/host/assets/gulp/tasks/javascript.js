@@ -35,7 +35,7 @@ gulp.task('javascripts', function() {
                         }),
                         new webpack.optimize.OccurrenceOrderPlugin(),
                         new CleanWebpackPlugin(['dist'], {
-                          root: __dirname + paths.js.root,
+                          root: paths.js.root,
                           verbose: true,
                           dry: false
                         })

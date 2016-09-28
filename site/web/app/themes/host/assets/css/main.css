@@ -2321,6 +2321,7 @@ dl.-horizontal dd ~ dd {
 
 .slideshow-pagination--pn .slideshow-pagination__button:hover, .slideshow-pagination--pn .slideshow-pagination__button:focus {
   background: rgba(255, 255, 255, 0.15);
+  outline-color: #999;
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button:hover .svg-icon, .slideshow-pagination--pn .slideshow-pagination__button:focus .svg-icon {
@@ -3921,11 +3922,11 @@ a.btn {
 }
 
 .tcon-menu__lines::before {
-  top: 6.25px;
+  top: 7.14286px;
 }
 
 .tcon-menu__lines::after {
-  top: -6.25px;
+  top: -7.14286px;
 }
 
 .tcon-transform .tcon-menu__lines {
@@ -5344,6 +5345,40 @@ a.btn {
 
 .in-page-nav__link:focus:after, .in-page-nav__link:hover:after {
   height: 6px;
+}
+
+.book__heading,
+.book__title {
+  margin-top: 0;
+  margin-bottom: 0.625rem;
+}
+
+.book__heading:first-line,
+.book__title:first-line {
+  color: #00c0f3 !important;
+}
+
+.book__heading {
+  font-size: responsive-type(26px) !important;
+}
+
+.book__title {
+  font-size: responsive-type(35px) !important;
+}
+
+.book__link {
+  display: block;
+  margin-bottom: 0.625rem;
+  text-decoration: underline;
+}
+
+.book__link:hover {
+  text-decoration: none;
+}
+
+.book_btn {
+  min-width: 75% !important;
+  max-width: 75%;
 }
 
 .contact-form-section {
@@ -7803,10 +7838,6 @@ a.article-tile__link:hover .article-tile__location {
   .generic-content-page__inner p{
     margin: 40px 0;
   }
-  .room-details-container{
-    display: block;
-    max-width: 80%;
-  }
   .room-detail-item__icon{
     margin-right: 20px;
   }
@@ -8162,6 +8193,14 @@ a.article-tile__link:hover .article-tile__location {
     -ms-flex-align: end;
     align-items: flex-end;
   }
+  .book{
+    position: absolute;
+    right: -3.75rem;
+    top: 25%;
+    width: 50%;
+    max-width: 20rem;
+    transform: translateY(-25%);
+  }
   .footer__final{
     display: -ms-flexbox;
     display: flex;
@@ -8193,15 +8232,8 @@ a.article-tile__link:hover .article-tile__location {
     width: 25%;
   }
   .room-details-container{
-    max-width: 75%;
-  }
-  .room-detail-item:nth-of-type(odd){
-    padding-right: 60px;
-    padding-left: 0;
-  }
-  .room-detail-item:nth-of-type(even){
-    padding-right: 0;
-    padding-left: 60px;
+    display: block;
+    max-width: calc(100% - 260px);
   }
   .room-details-aside__logo{
     display: block;
@@ -8560,8 +8592,12 @@ a.article-tile__link:hover .article-tile__location {
     padding-left: 2.5rem;
     margin: 0;
   }
+  .book{
+    display: block;
+    max-width: 24.375rem;
+  }
   .room-details-container{
-    max-width: 66.66%;
+    max-width: calc(100% - 330px);
   }
 }
 

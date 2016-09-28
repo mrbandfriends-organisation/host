@@ -6,7 +6,7 @@
     use Roots\Sage\Extras;
 ?>
 
-<section class="band band--inset box--padded box box--fg-mint">
+<section class="band band--inset box--padded box box--fg-mint" style="position: relative;">
     <h2>
       It's all about<br />
       those little details.
@@ -58,8 +58,20 @@
 
                 <?php endwhile; ?>
             </ul>
-        </div>
     <?php endif; ?>
+        <div class="book box box--less-padding box--padded box--ink">
+            <h2 class="book__heading h3"><?= esc_html($building_name); ?><br><?= esc_html($city); ?></h2>
+
+            <h3 class="book__title h2"><?php the_title();?><br><?= get_field('from_amount'); ?></h3>
+            <a class="book__link" href="#pricing">View pricing options</a>
+            <?php $booking_url = get_field('booking_url', 'option') ?>
+            <?php if ( !empty($booking_url) ): ?>
+                <a href="<?= esc_url($booking_url); ?>" class="book_btn btn btn--sky">Book this room</a>
+            <?php endif; ?>
+        </div>
+    </div>
+
+
 
     <?php echo Utils\ob_load_template_part('templates/partials/room/room-detail-aside'); ?>
 
