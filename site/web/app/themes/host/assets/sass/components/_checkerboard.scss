@@ -69,8 +69,11 @@ $checkerboard-conf: (
     .box {
         display: flex;
         flex-direction: column;
-        padding: rem(34);
+        justify-content: center;
+        align-items: center;
         width:   100%;
+        padding: rem(34);
+        text-align: center;
 
         @include mq(small) {
             padding: rem(36);

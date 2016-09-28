@@ -123,10 +123,12 @@ div.c-tabs {
     overflow: hidden;
 }
 
-// .c-tab__listing {}
+.c-tab__listing {
+    @include list-reset;
+    list-style: none!important;
+}
 
 .c-tab__listing-item {
-    //@include list-reset;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -138,6 +140,7 @@ div.c-tabs {
         padding: rem($spacing-unit);
     }
 
+    // Content inside each item
     p,
     strong,
     a {

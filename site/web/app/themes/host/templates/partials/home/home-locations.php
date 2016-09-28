@@ -49,17 +49,19 @@
             <?php wp_reset_postdata(); ?>
 
             <li class="checkerboard__sell gc js-checkerboard__item js-checkerboard__sell">
-                <div class="box box--ink">
+                <div class="checkerboard__sell-item box box--ink">
+                    <?php
+                        $get_homepage_id        = Utils\get_id_by_slug('home');
+                        $homepage_id            = ( !empty($get_homepage_id) ? $get_homepage_id : null );
+                        $home_featured_building = ( !empty(get_field('featured_building', $homepage_id)) ? get_field('featured_building', $homepage_id) : null );
 
-                  <?php if ( get_field('featured_building') != "" ) { ?>
-
-                      <h3>Featured home<br>Our latest or greatest</h3>
-                      <?php $featured_building = get_field('featured_building'); ?>
-                      <p>
-                          <a href="#featured" class="btn btn--white btn--small">Show me featured homes</a>
-                      </p>
-
-                  <?php } ?>
+                        if ( !empty($home_featured_building) ) :
+                    ?>
+                        <h3>Featured home<br>Our latest or greatest</h3>
+                        <p>
+                            <a href="<?php echo get_the_permalink($home_featured_building); ?>" class="btn btn--white btn--small">Show me featured homes</a>
+                        </p>
+                    <?php endif; ?>
 
                 </div>
             </li>
