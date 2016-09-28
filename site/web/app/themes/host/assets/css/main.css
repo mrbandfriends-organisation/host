@@ -4505,6 +4505,10 @@ a.btn {
   transform: translate(-50%, -50%);
 }
 
+.listed-room__content .btn, .listed-room__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .listed-room__content select {
+  margin-top: 20px;
+}
+
 .listed-room__info {
   -ms-flex-order: 2;
       order: 2;
