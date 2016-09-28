@@ -56,12 +56,25 @@
         margin-bottom: $spacing-unit;
     }
 
+    // Input styling for all but text area
     input,
     select {
         background-color: tint(sky);
         border: none;
-        border-bottom: solid rem(1) brand(sky);
+        border-bottom: solid rem(1) #fff;
         color: #fff;
+        cursor: pointer;
+        transition: all ease-in-out 0.25s;
+
+        &:hover,
+        &:focus {
+            border-bottom-color: brand(sky);
+        }
+    }
+
+    // Adding arrow to select
+    .ginput_container_select {
+        @include select-arrow(#fff, brand(sky));
     }
 }
 

@@ -220,34 +220,15 @@
 // LANGUAGE CHANGER SELECT
 // ==========================================================================
 .primary-offcanvas__language-changer {
-    position: relative;
+    @include select-arrow;
     margin-top: $quarter-spacing-unit;
-
-    &::after {
-        content: "";
-        position: absolute;
-        width: 0;
-        height: 0;
-        top: 50%;
-        right: 0;
-        border-left: rem(8) solid transparent;
-        border-right: rem(8) solid transparent;
-        border-top: rem(14) solid brand(sky);
-        transform: translate3d(0, -50%, 0);
-        transition: all ease-in-out 0.2s;
-    }
 
     &:hover,
     &:focus {
         background-color: transparent;
 
-        &::after {
-            border-top-color: #fff;
-        }
-
         .select {
             color: #fff;
-
         }
     }
 

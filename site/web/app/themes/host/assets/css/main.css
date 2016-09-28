@@ -597,7 +597,7 @@ img {
 input,
 label,
 select {
-  font-size: 16px;
+  font-size: 1.125rem;
   font-family: CircularWeb, Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
@@ -3844,6 +3844,10 @@ a.btn {
   border-top-color: #fff;
 }
 
+.primary-offcanvas__language-changer:hover, .primary-offcanvas__language-changer:focus {
+  background-color: transparent;
+}
+
 .primary-offcanvas__language-changer:hover .select, .primary-offcanvas__language-changer:focus .select {
   color: #fff;
 }
@@ -5268,8 +5272,42 @@ a.btn {
 .gf-field-container select {
   background-color: #314265;
   border: none;
-  border-bottom: solid 0.0625rem #00c0f3;
+  border-bottom: solid 0.0625rem #fff;
   color: #fff;
+  cursor: pointer;
+  transition: all ease-in-out 0.25s;
+}
+
+.gf-field-container input:hover, .gf-field-container input:focus,
+.gf-field-container select:hover,
+.gf-field-container select:focus {
+  border-bottom-color: #00c0f3;
+}
+
+.gf-field-container .ginput_container_select {
+  position: relative;
+}
+
+.gf-field-container .ginput_container_select::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 50%;
+  right: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-top: 0.875rem solid #fff;
+  transform: translate3d(0, -50%, 0);
+  transition: all ease-in-out 0.2s;
+}
+
+.gf-field-container .ginput_container_select:hover, .gf-field-container .ginput_container_select:focus {
+  background-color: transparent;
+}
+
+.gf-field-container .ginput_container_select:hover::after, .gf-field-container .ginput_container_select:focus::after {
+  border-top-color: #00c0f3;
 }
 
 .gf-field-container--half {
