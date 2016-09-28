@@ -7841,6 +7841,10 @@ a.article-tile__link:hover .article-tile__location {
   }
   .favouritable__wrapper[class]{
     margin-top: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: end;
+    align-items: flex-end;
   }
   .gf-field-container--left{
     padding-right: 60px;
