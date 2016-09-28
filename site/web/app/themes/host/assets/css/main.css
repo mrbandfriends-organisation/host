@@ -5227,13 +5227,18 @@ a.btn {
   position: relative;
 }
 
+.gform_heading {
+  display: none;
+}
+
 .gform_footer {
   padding: 40px 0;
 }
 
-.gform_footer .btn, .gform_footer .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .gform_footer select {
+.gform_footer .gf-field--btn {
   width: 100%;
   min-width: 0;
+  color: #fff;
 }
 
 .gform_fields {
@@ -5251,18 +5256,23 @@ a.btn {
   text-rendering: optimizespeed;
 }
 
-.gfield {
-  margin-bottom: 20px;
-}
-
-.gf-column {
+.gf-field-container {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   width: auto;
   max-width: 100%;
+  margin-bottom: 20px;
 }
 
-.gf-column--half {
+.gf-field-container input,
+.gf-field-container select {
+  background-color: #314265;
+  border: none;
+  border-bottom: solid 0.0625rem #00c0f3;
+  color: #fff;
+}
+
+.gf-field-container--half {
   -ms-flex-preferred-size: 100%;
       flex-basis: 100%;
   width: auto;
@@ -6854,16 +6864,16 @@ a.article-tile__link:hover .article-tile__location {
     bottom: 0;
     padding: 0;
   }
-  .gf-column--half{
+  .gf-field-container--half{
     -ms-flex-preferred-size: 50%;
     flex-basis: 50%;
     width: auto;
     max-width: 50%;
   }
-  .gf-column--half:nth-of-type(odd){
+  .gf-field-container--left{
     padding-right: 30px;
   }
-  .gf-column--half:nth-of-type(even){
+  .gf-field-container--right{
     padding-left: 30px;
   }
   .nav-footer__section:first-child .nav-footer__sublist{
@@ -7305,7 +7315,7 @@ a.article-tile__link:hover .article-tile__location {
   .secondary-split-feature__main .secondary-split-feature__content .btn, .secondary-split-feature__main .secondary-split-feature__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .secondary-split-feature__main .secondary-split-feature__content select{
     margin-top: 40px;
   }
-  .gfield{
+  .gf-field-container{
     margin-bottom: 40px;
   }
   .contact-form-section{
@@ -7761,10 +7771,10 @@ a.article-tile__link:hover .article-tile__location {
   .favouritable__wrapper[class]{
     margin-top: auto;
   }
-  .gf-column--half:nth-of-type(odd){
+  .gf-field-container--left{
     padding-right: 60px;
   }
-  .gf-column--half:nth-of-type(even){
+  .gf-field-container--right{
     padding-left: 60px;
   }
   .banner__inner{

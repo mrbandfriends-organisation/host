@@ -49,7 +49,7 @@ if ( class_exists( 'GFCommon' ) ) {
      * modifies the default markup for Gravity Forms' submit buttons
      */
     function modify_gform_submit_btn($button, $form){
-        return '<button class="btn btn--primary">' . esc_html( $form["button"]["text"] ) . '</button>';
+        return '<button class="gf-field--btn btn btn--grape">' . esc_html( $form["button"]["text"] ) . '</button>';
     }
     add_filter("gform_submit_button", __NAMESPACE__ . '\\modify_gform_submit_btn', 10, 2);
 
@@ -65,6 +65,7 @@ if ( class_exists( 'GFCommon' ) ) {
     }
     add_filter("gform_init_scripts_footer", __NAMESPACE__ . "\\force_gform_inline_scripts");
 
+
     /**
      * STRIP GRAVITY FORMS SCRIPT TAGS
      *
@@ -76,5 +77,42 @@ if ( class_exists( 'GFCommon' ) ) {
 
     add_filter("gform_get_form_filter", __NAMESPACE__ . "\\strip_inline_gform_scripts", 10, 2);
     add_filter( 'gform_tabindex', '__return_false' );
+
+
+
+    add_filter( 'gform_field_css_class', __NAMESPACE__ . '\\custom_class', 10, 3 );
+    function custom_class( $classes, $field, $form ) {
+        if ( $form['id'] === 1 ) {
+
+            // Adding class to all fields
+            if( !empty($field) ) {
+                $classes .= ' gf-field-container';
+            }
+
+            // Adding sizing class
+            // ====================
+            if ( $field->type == 'text' || $field->type == 'email' || $field->type == 'select' ) {
+                $classes .= ' gf-field-container--half';
+            }
+
+            // Adding aligment classes
+            // ====================
+            if ( !empty($form) ) {
+                $number_fields = count($form['fields']);
+
+                // Left aligned
+                if($field->id === 1 || $field->id === 3 || $field->id === 6) {
+                    $classes .= ' gf-field-container--left';
+                }
+                // Right aligned
+                elseif ($field->id === 2 || $field->id === 4) {
+                    $classes .= ' gf-field-container--right';
+                }
+            }
+
+            return $classes;
+        }
+
+    }
 
 } // end test for Gravity Forms being active
