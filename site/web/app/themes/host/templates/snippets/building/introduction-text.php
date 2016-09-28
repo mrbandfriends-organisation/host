@@ -10,7 +10,7 @@
 ?>
 
 <?php if ( $number_rooms > 0 ): ?>
-    <h3><?php echo esc_html($number_rooms); ?> room <?php echo esc_html($room_types); ?> availible.</h3>
+    <h3><?php echo esc_html($number_rooms); ?> room <?php echo esc_html($room_types); ?> available.</h3>
 <?php endif; ?>
 
 <h2>
