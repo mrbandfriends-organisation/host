@@ -5444,6 +5444,9 @@ a.btn {
 
 .banner__home-link {
   display: block;
+}
+
+.banner__home-link img {
   width: 8.75rem;
 }
 
