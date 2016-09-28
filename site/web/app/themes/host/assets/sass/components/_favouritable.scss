@@ -7,15 +7,15 @@
 .favouritable__container { position: relative; }
 .favouritable__wrapper[class] {
 
-    margin-top: $double-spacing-unit * 2;
+    margin-top: $double-spacing-unit;
 
     @include mq(large) {
-        margin-top: $double-spacing-unit;
+        margin-top: auto;
     }
 
     .favouritable {
-        right: 55%;
-        transform: translateX(55%);
+        left: 0;
+        //transform: translateX(55%);
         top: -$double-spacing-unit;
     }
 
@@ -41,9 +41,8 @@
         display: block;
 
         top: calc(100% + #{rem(5)});
-        left: 50%;
-
-        transform: translateX(-50%);
+        // left: 50%;
+        // transform: translateX(-50%);
 
         font-size: rem(14);
         color: brand(grey);

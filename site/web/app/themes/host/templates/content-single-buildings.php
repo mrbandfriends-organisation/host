@@ -17,11 +17,9 @@
         ))
     )); ?>
 
-    <?php echo Utils\ob_load_template_part('templates/partials/building/building-intro', compact('connected_location_name')
-    ); ?>
+    <?php echo Utils\ob_load_template_part('templates/partials/building/building-intro', compact('connected_location_name')); ?>
 
-    <?php echo Utils\ob_load_template_part('templates/partials/building/building-rooms', compact('connected_location_name')
-    ); ?>
+    <?php echo Utils\ob_load_template_part('templates/partials/building/building-rooms', compact('connected_location_name')); ?>
 
     <?php echo Utils\ob_load_template_part('templates/partials/building/building-facilities', compact('connected_location_name')
     ); ?>

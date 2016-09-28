@@ -4486,7 +4486,7 @@ a.btn {
 }
 
 .listed-room__price {
-  margin: 0 0 2em;
+  margin: 0 0 20px;
 }
 
 .listed-room__avail[class] {
@@ -4548,8 +4548,10 @@ a.btn {
 }
 
 .listed-room__features-item {
+  float: left;
   display: inline-block;
   font-size: 0.9375rem;
+  width: 50%;
 }
 
 .listed-room__features-item:not(:last-child):after {
@@ -4945,12 +4947,11 @@ a.btn {
 }
 
 .favouritable__wrapper[class] {
-  margin-top: 160px;
+  margin-top: 80px;
 }
 
 .favouritable__wrapper[class] .favouritable {
-  right: 55%;
-  transform: translateX(55%);
+  left: 0;
   top: -80px;
 }
 
@@ -4971,8 +4972,6 @@ a.btn {
   position: absolute;
   display: block;
   top: calc(100% + 0.3125rem);
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 0.875rem;
   color: #999;
   content: "Favourite";
@@ -7600,7 +7599,7 @@ a.article-tile__link:hover .article-tile__location {
     min-height: 25vh;
   }
   .favouritable__wrapper[class]{
-    margin-top: 80px;
+    margin-top: auto;
   }
   .gf-column--half{
     padding-right: 60px;

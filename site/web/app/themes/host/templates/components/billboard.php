@@ -23,7 +23,7 @@
         $second = $this->fetch($second);
     }
 
-    $sBg = (empty($background)) ? '' : ' style="background-image:url('.esc_attr($background).')"';
+    $sBg = (empty($background)) ? null : ' style="background-image:url('.esc_attr($background).')"';
 ?>
 <section class="band billboard -<?=$align; ?> box<?=$color.$add_class; ?>">
     <div class="container billboard__inner grid"<?=$sBg; ?>>
