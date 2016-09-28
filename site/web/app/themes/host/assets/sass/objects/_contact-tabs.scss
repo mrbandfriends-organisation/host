@@ -123,7 +123,9 @@ div.c-tabs {
     overflow: hidden;
 }
 
-// .c-tab__listing {}
+.c-tab__listing {
+    @include list-reset;
+}
 
 .c-tab__listing-item {
     //@include list-reset;
@@ -138,6 +140,7 @@ div.c-tabs {
         padding: rem($spacing-unit);
     }
 
+    // Content inside each item
     p,
     strong,
     a {
