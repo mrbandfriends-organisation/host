@@ -11407,7 +11407,7 @@
 	        elContainer.appendChild(icon('heart', 'favouritable__boom'));
 
 	        // 4. mark current
-	        if (aiFavourites.includes(iId))
+	        if (_includes(aiFavourites, iId))
 	        {
 	            elFavouritable.classList.add('-favourite');
 	        }
