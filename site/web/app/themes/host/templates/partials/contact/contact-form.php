@@ -3,8 +3,8 @@
     use Roots\Sage\GravityForms;
 ?>
 
-<section class="box box--ink">
-    <div class="container">        
+<section class="contact-form-section box box--ink">
+    <div class="container">
         <?php if ( GravityForms\gravity_form_exists( 1 ) ): ?>
             <?php gravity_form(1); ?>
         <?php endif ?>
