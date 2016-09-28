@@ -92,11 +92,11 @@
 
         &:before {
             position: absolute;
-            right: rem(30);
-            top: rem(20);
+            right: rem(25);
+            top: rem(21);
 
-            width: rem(8);
-            height: rem(8);
+            width: rem(9);
+            height: rem(9);
 
             content: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDE0LjYgMjMiIHhtbDpzcGFjZT0icHJlc2VydmUiPgogIDxwb2x5Z29uIGZpbGw9IiNmZmYiIHBvaW50cz0iMTQuNiAzLjIgMTEuNSAwIDAgMTEuNSAwIDExLjUgMCAxMS41IDExLjUgMjMgMTQuNiAxOS44IDYuMyAxMS41ICIvPgo8L3N2Zz4=");
             transform: rotate(-90deg);
