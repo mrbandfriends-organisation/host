@@ -13,11 +13,13 @@
 }
 
 .favouritable__wrapper[class] {
-
+    position: relative; // pos context for favourite button
     margin-top: $double-spacing-unit;
 
     @include mq(large) {
         margin-top: auto;
+        display: flex; // needed to force IE11 
+        align-items: flex-end; // needed to force IE11 
     }
 
     .favouritable {

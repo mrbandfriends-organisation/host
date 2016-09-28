@@ -3,7 +3,7 @@
     use Roots\Sage\GravityForms;
 ?>
 
-<section class="contact-form-section box box--sky-dark">
+<section id="contact-form-section" class="contact-form-section box box--sky-dark">
     <div class="container">
 
         <h2>

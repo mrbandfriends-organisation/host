@@ -45,6 +45,7 @@ $slideshow-animate-speed: 3s;
         left:      0;
 
         width:   100%;
+        // height: 100% !important;
 
         transform: translateX(0);
 
@@ -189,12 +190,19 @@ $slideshow-animate-speed: 3s;
 .slideshow--large-pagination .slideshow-pagination--pn .slideshow-pagination__button {
     height:     rem(315);
     width:      rem(70);
-
     background: #fff;
+
+    @include mq($until: medium) {
+        background: transparent;
+
+        &:hover {
+            background: transparent;
+        }
+    }
 
     &:hover,
     &:focus {
-        background-color: rgba(255, 255, 255, 0.85);
+        background: rgba(255, 255, 255, 0.85);
         outline: none;
     }
 }
@@ -269,12 +277,34 @@ $slideshow-animate-speed: 3s;
 
     &.js-slideshow--active {
 
-        &:before { animation: slideshow-ai-before $slideshow-animate-speed $slideshow-animate-delay 1 forwards; }
-        &:after  { animation: slideshow-ai-after  $slideshow-animate-speed $slideshow-animate-delay ease-out 1 forwards; }
+        &:before {
+            animation: slideshow-ai-before $slideshow-animate-speed $slideshow-animate-delay 1 forwards;
+
+            //@include mq($until: medium) {
+            //    animation: none;
+            //    opacity: 1;
+            //    transform: scale(1)
+            //}
+        }
+        &:after  {
+            animation: slideshow-ai-after  $slideshow-animate-speed $slideshow-animate-delay ease-out 1 forwards;
+
+            //@include mq($until: medium) {
+            //    animation: none;
+            //    width: 100%;
+            //    opacity: 1;
+            //    transform: scale(0) translate(-50%, -50%);
+            //}
+        }
 
         .slideshow-pagination,
         .slideshow-infobox {
             animation: slideshow-ai-pagination $slideshow-animate-speed $slideshow-animate-delay 1 forwards;
+
+            // @include mq($until: medium) {
+            //    animation: none;
+            //    opacity: 1;
+            // }
         }
     }
 }
