@@ -25,11 +25,23 @@
         <ul class="checkerboard__list grid">
             <?php while ( $locations->have_posts() ) : $locations->the_post(); ?>
                 <?php
-                    $carousel_field = ( !empty(get_field('carousel_images') ) ? get_field('carousel_images') : null );
-                    $carousel_image = ( !empty($carousel_field) ? $carousel_field[0]['url'] : get_template_directory_uri() . '/assets/images/london.jpg' );
+                    $checkerboard_field = get_field('checkerboard_image');
+                    $carousel_field     = get_field('carousel_images');
+
+                    // Get checkboard image
+                    if ( !empty($checkerboard_field) ) {
+                        $checkerboard_image = $checkerboard_field['url'];
+                    }
+                    // Get first carosuel image if there is no checkerboard image
+                    elseif( !empty($carousel_field) ) {
+                        $checkerboard_image = $carousel_field[0]['url'];
+                    }
+                    // If they BOTH dont work then use fallback image
+                    else {
+                        $checkerboard_image = get_template_directory_uri() . '/assets/images/london.jpg';
+                    }
                 ?>
                 <li class="checkerboard__item gc">
-
                     <?php
                         $connected_buildings_array = host_location_find_connected_buildings(get_the_id());
                         $connected_buildings = $connected_buildings_array->posts;
@@ -39,7 +51,7 @@
                     <?php echo Utils\ob_load_template_part('templates/partials/home/home-locations-item.php', array(
                         'label'                 => get_the_title(),
                         'url'                   => get_permalink(),
-                        'tile_image'            => $carousel_image,
+                        'tile_image'            => $checkerboard_image,
                         'available_properties'  => $connected_buildings_count
                     )); ?>
 
