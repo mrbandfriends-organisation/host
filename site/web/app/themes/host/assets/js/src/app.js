@@ -108,7 +108,7 @@ require('./ext/NodeList');
 (function() {
    'use strict';
 
-  
+
 
     // here need to test if container exists
     // Depending which containe exitis depends on which instance of
