@@ -39,11 +39,25 @@
 
     @include mq(small) {
         @include grid-column(1, 2);
-        padding-right: $gutter;
+
+        &:nth-of-type(odd) {
+            padding-right: $gutter;
+        }
+
+        &:nth-of-type(even) {
+            padding-left: $gutter;
+        }
+
     }
 
     @include mq(large) {
-        padding-right: $double-gutter-width;
+        &:nth-of-type(odd) {
+            padding-right: $double-gutter-width;
+        }
+
+        &:nth-of-type(even) {
+            padding-left: $double-gutter-width;
+        }
     }
 }
 
