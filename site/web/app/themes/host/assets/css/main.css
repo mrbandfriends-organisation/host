@@ -4158,7 +4158,6 @@ a.btn {
 .checkerboard-item__content .btn, .checkerboard-item__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .checkerboard-item__content select {
   display: block;
   margin-top: 0.625rem !important;
-  white-space: nowrap;
 }
 
 .-active .checkerboard-item__content {
@@ -4503,6 +4502,10 @@ a.btn {
   min-width: 100%;
   min-height: 100%;
   transform: translate(-50%, -50%);
+}
+
+.listed-room__content .btn, .listed-room__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .listed-room__content select {
+  margin-top: 20px;
 }
 
 .listed-room__info {

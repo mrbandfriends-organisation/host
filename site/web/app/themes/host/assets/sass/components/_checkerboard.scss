@@ -179,7 +179,7 @@ $checkerboard-conf: (
     .btn {
         display: block;
         margin-top: rem(10) !important; //scss-lint:disable ImportantRule
-        white-space: nowrap;
+       // white-space: nowrap; // removed because breaks layout in other languages where strings of text get very long
     }
 
     .-active & {
