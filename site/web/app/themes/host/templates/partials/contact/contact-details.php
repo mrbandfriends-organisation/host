@@ -15,14 +15,12 @@
 ?>
 
 <section class="band band--inset box box--padded">
-      <?php
+    <?php
         $locations = (!empty($locations)) ? $locations : host_locations_find_all( ['order' => 'ASC', 'orderby' => 'title'] );
 
         if ( $locations->have_posts() ) :
-      ?>
-
+    ?>
         <div id="tabs" class="c-tabs">
-
             <h2 class="c-tabs__heading">
                 <?php echo esc_html($details_title_1); ?><br />
                 <?php echo esc_html($details_title_2); ?>
@@ -34,95 +32,117 @@
                 <?php $count_tab_index = 0; ?>
                 <?php foreach ($locations->posts as $location) : ?>
                     <?php
-                        $location_id                = $location->ID;
-                        $location_title             = $location->post_title;
+                        $location_id         = $location->ID;
+                        $location_title      = $location->post_title;
+                        $connected_buildings = host_location_find_connected_buildings($location_id);
                         $count_tab_index++;
+
+                        // Checking if each building has an address
+                        // foreach ($connected_buildings->posts as $building) {
+                        //     $building_id = $building->ID;
+                        //
+                        //     if ( get_field('building_address_post_code', $building_id) ) {
+                        //         $has_address = true;
+                        //         $count_tab_index++;
+                        //     } else {
+                        //         $has_address = false;
+                        //     }
+                        // }
                     ?>
-                    <a href="#<?php echo $location_title;?>" class="c-tabs-nav__link <?php if ( $count_tab_index == 1) { echo "is-active"; } ?>">
-                      <?php echo $location_title; ?>
-                    </a>
+                    <?php // Only shows building if it has an address ?>
+                    <?php //if ( $has_address === true ): ?>
+                        <a href="#<?php echo $location_title;?>" class="c-tabs-nav__link <?php if ( $count_tab_index == 1) { echo "is-active"; } ?>">
+                            <?php echo $location_title; ?>
+                        </a>
+                    <?php //endif; ?>
                 <?php endforeach; ?>
             </div>
 
 
 
-          <?php
-              $count_tab_content = 0;
-              foreach ($locations->posts as $location) {
-                  $location_id = $location->ID;
-                  $location_title = $location->post_title;
-                  $count_tab_content++;
+            <?php $count_tab_content = 0; ?>
+            <?php foreach ($locations->posts as $location) : ?>
+                <?php
+                    $location_id            = $location->ID;
+                    $location_title         = $location->post_title;
+                    $connected_buildings    = host_location_find_connected_buildings($location_id);
+                    $count_tab_content++;
 
-                  $connected_buildings_array = host_location_find_connected_buildings($location_id);
+                    // Checking if each building has an address
+                    foreach ($connected_buildings->posts as $building) {
+                        $building_id = $building->ID;
 
-                  $connected_buildings = $connected_buildings_array;
+                        if ( get_field('building_address_post_code', $building_id) ) {
+                            $has_address = true;
+                        } else {
+                            $has_address = false;
+                        }
+                    }
                 ?>
-
-
                 <div id="<?php echo $location_title; ?>" class="c-tab <?php if ( $count_tab_content == 1) { echo "is-active"; } ?>">
                     <div class="c-tab__content">
+                        <?php if ( $has_address === true ): ?>
 
-                      <?php if ( !empty($connected_buildings->posts) ): ?>
-                          <ul class="c-tab__listing grid grid--gutter">
+                        <?php if ( !empty( $connected_buildings->posts ) ): ?>
+                            <ul class="c-tab__listing grid grid--gutter">
+                                <?php foreach ($connected_buildings->posts as $building):
+                                    $address_1 = get_field('building_address_1', $building->ID);
+                                    $address_2 = ( !empty(get_field('building_address_2', $building->ID)) ? get_field('building_address_2', $building->ID) : null );
+                                    $town_city = get_field('building_address_town_city', $building->ID);
+                                    $post_code = get_field('building_address_post_code', $building->ID);
+                                    $phone_no  = get_field('building_address_phone_no', $building->ID);
+                                    $link      = ( !empty($building->ID) ? get_the_permalink($building->ID) : null );
 
-                            <?php foreach ($connected_buildings->posts as $building):
-                                $address_1 = get_field('building_address_1', $building->ID);
-                                $address_2 = get_field('building_address_2', $building->ID);
-                                $town_city = get_field('building_address_town_city', $building->ID);
-                                $post_code = get_field('building_address_post_code', $building->ID);
-                                $phone_no  = get_field('building_address_phone_no', $building->ID);
-                                $link      = ( !empty($building->ID) ? get_the_permalink($building->ID) : null );
+                                    // build addresses
+                                    $address = join("\n", [
+                                        $address_1,
+                                        $address_2,
+                                        $town_city,
+                                        $post_code
+                                    ]);
 
-                                // build addresses
-                                $address = join("\n", [
-                                    $address_1,
-                                    $address_2,
-                                    $town_city,
-                                    $post_code
-                                ]);
+                                    // strip unneeded newlines
+                                    $address = trim(preg_replace("/\n\n+/", "\n", $address));
 
-                                // strip unneeded newlines
-                                $address = trim(preg_replace("/\n\n+/", "\n", $address));
+                                    // Removing spaces for google maps string
+                                    $google_maps_address = str_replace(" ", '+', esc_html($address));
+                                ?>
 
-                                $google_maps_address = str_replace(" ", '+', esc_html($address));
-                            ?>
+                                    <?php if ( !empty($address) ): ?>
+                                        <li class="gc l1-3 flex">
+                                            <div class="c-tab__listing-item">
+                                                <h3>
+                                                    <?php echo $building->post_title; ?><br>
+                                                    <?php echo $location_title; ?>
+                                                </h3>
 
-                                <?php if ( !empty($address) && !empty($phone_no) && !empty($building->post_title) ): ?>
-                                    <li class="gc l1-3 flex">
-                                        <div class="c-tab__listing-item">
-                                            <h3>
-                                                <?php echo $building->post_title; ?><br>
-                                                <?php echo $location_title; ?>
-                                            </h3>
+                                                <strong>Address</strong>
+                                                <p>
+                                                    <?=str_replace("\n", '<br>', esc_html($address)); ?>
+                                                </p>
 
-                                            <strong>Address</strong>
-                                            <p>
-                                                <?=str_replace("\n", '<br>', esc_html($address)); ?>
-                                            </p>
+                                                <a class="" href="https://www.google.com/maps?daddr=<?= $google_maps_address ?>); ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
+                                                    Get directions
+                                                </a>
 
-                                            <a class="" href="https://www.google.com/maps?daddr=<?= $google_maps_address ?>); ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
-                                                Get directions
-                                            </a>
+                                                <strong>Call:</strong>
+                                                <a href="tel:<?php echo $phone_no; ?>"><?php echo $phone_no; ?></a>
+                                            </div>
+                                        </li>
+                                    <?php endif; ?>
 
-                                            <strong>Call:</strong>
-                                            <a href="tel:<?php echo $phone_no; ?>"><?php echo $phone_no; ?></a>
-                                        </div>
-                                    </li>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-
-                    <?php else: ?>
-                          <h3 class="plain">Host Students currently have no buildings in <?php echo $location_title; ?></h3>
-                    <?php endif; ?>
-
-                        </ul>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                        <?php else: ?>
+                            <div class="box box--more-padding">
+                                <h3 class="text-center plain">Host Students currently have no buildings in <?php echo $location_title; ?></h3>
+                            </div>
+                        <?php endif; ?>
                     </div>
-                  </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
 
-          <?php } ?>
-
-
-      </div>
-
-      <?php endif; ?>
-  </section>
+    <?php endif; ?>
+</section>

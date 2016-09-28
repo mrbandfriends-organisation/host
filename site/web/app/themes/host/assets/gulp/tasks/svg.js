@@ -7,7 +7,6 @@ var plumber      = require('gulp-plumber');
 var svgmin       = require('gulp-svgmin');
 var svgstore     = require('gulp-svgstore');
 var rename       = require('gulp-rename');
-var svg2png      = require('gulp-svg2png');
 var paths        = require('../paths');
 var errorHandler = require('../errorHandler');
 

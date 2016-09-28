@@ -138,7 +138,7 @@ function bust_caching($sUri)
     $sStamp = file_exists($sPath) ? ".".filemtime($sPath) : "";
 
     // 3. min file
-    $sSuff = (defined('WP_ENV') && (WP_ENV !== 'development' && WP_ENV !== 'staging')) ? 'min.' : '';
+    $sSuff = (defined('WP_ENV') && (WP_ENV !== 'development' && WP_ENV !== 'staging')) ? '' : '';
 
     // 4. create a new URL
     return preg_replace('/\.(\w+)$/', "{$sSuff}{$sStamp}.$1", $sUri).(empty($sQs) ? '' : "?{$sQs}");
