@@ -205,7 +205,7 @@
 	(function() {
 	   'use strict';
 
-	  
+
 
 	    // here need to test if container exists
 	    // Depending which containe exitis depends on which instance of
@@ -11714,6 +11714,7 @@
 	        zoom:               15,
 	        center:             { lat: 0, lng: 0 },
 	        mapTypeControl:     false,
+	        draggable:          false,
 	        streetViewControl:  false,
 	        scrollwheel:        false
 	    };
