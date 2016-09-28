@@ -2320,6 +2320,7 @@ dl.-horizontal dd ~ dd {
 
 .slideshow-pagination--pn .slideshow-pagination__button:hover, .slideshow-pagination--pn .slideshow-pagination__button:focus {
   background: rgba(255, 255, 255, 0.15);
+  outline-color: #999;
 }
 
 .slideshow-pagination--pn .slideshow-pagination__button:hover .svg-icon, .slideshow-pagination--pn .slideshow-pagination__button:focus .svg-icon {
@@ -6801,7 +6802,7 @@ a.article-tile__link:hover .article-tile__location {
     padding: 1.25rem;
   }
   .listed-room__content{
-    width: 18.125rem;
+    width: 18.75rem;
   }
   .gform_footer{
     position: absolute;
