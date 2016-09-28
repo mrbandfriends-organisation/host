@@ -6023,6 +6023,11 @@ a.article-tile__link:hover .article-tile__inner .article-tile__heading:first-lin
   line-height: 1;
 }
 
+.article-tile__excerpt {
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
+}
+
 .article-tile__location {
   display: block;
   color: #d50e3c;
