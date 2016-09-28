@@ -108,7 +108,7 @@ require('./ext/NodeList');
 (function() {
    'use strict';
 
-   var PostsLoader = require('posts-loader');
+
 
     // here need to test if container exists
     // Depending which containe exitis depends on which instance of
@@ -117,6 +117,7 @@ require('./ext/NodeList');
         // Async load
 
         require.ensure(['posts-loader'], function() {
+            var PostsLoader = require('posts-loader');
             new PostsLoader({
                 'dataEndpoint'  : 'host_load_posts',
                 'paginationUrl' : '/news/page/',
@@ -130,6 +131,7 @@ require('./ext/NodeList');
         // Async load
 
         require.ensure(['posts-loader'], function() {
+            var PostsLoader = require('posts-loader');
             new PostsLoader({
                 'dataEndpoint'  : 'host_load_posts',
                 'paginationUrl' : '/universities/page',

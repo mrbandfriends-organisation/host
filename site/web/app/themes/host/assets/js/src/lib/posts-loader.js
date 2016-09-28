@@ -1,3 +1,6 @@
+"use strict";
+
+var salvattore = require('salvattore');
 /**
  * POSTS LOADER
  *
@@ -6,6 +9,7 @@
 */
 
 var PostsLoader = function(options) {
+
 
     var defaults = {
         'dataEndpoint'          : false,
@@ -42,17 +46,20 @@ var PostsLoader = function(options) {
 
 
     // if there’s a data URL, overwrite the pagination URL
-    if ( this.triggerEl[0] !== undefined && this.triggerEl[0].hasAttribute('data-posts-loader-url'))
+    if ( this.triggerEl[0] !== undefined && this.triggerEl[0].hasAttribute('data-posts-loader-url')) {
         this.options.paginationUrl = this.triggerEl[0].getAttribute('data-posts-loader-url').replace(/https?:\/\/(.*?)\//, '/');
+    }
 
     // if there’s an endpoint
-    if ( this.triggerEl[0] !== undefined && this.triggerEl[0].hasAttribute('data-posts-loader-endpoint'))
+    if ( this.triggerEl[0] !== undefined && this.triggerEl[0].hasAttribute('data-posts-loader-endpoint')) {
 
         this.options.dataEndpoint = this.triggerEl.data('posts-loader-endpoint');
+    }
 
     // shuffle the history state
-    if (this.options.paginationUrl.indexOf('%s') === -1)
+    if (this.options.paginationUrl.indexOf('%s') === -1) {
         this.options.paginationUrl += '%s';
+    }
 
     // Exit if there is no endpoint provided to get the data from
     if ( !this.options.dataEndpoint ) {
@@ -81,8 +88,9 @@ PostsLoader.prototype._parseQueryString = function(sUri)
     var self = this;
 
     // 1. if there’s nothing to do, bail
-    if (sUri.indexOf('?') === -1)
+    if (sUri.indexOf('?') === -1) {
         return;
+    }
 
     // 2. strip off unnecessary bits
     var sQs = sUri.replace(/^(.*?)\?/, '');
@@ -115,8 +123,9 @@ PostsLoader.prototype._fetchPosts = function(event) {
     event.preventDefault();
 
     // If currently handling an existing request then bail out...
-    if ( this.loading )
+    if ( this.loading ) {
         return;
+    }
 
     // set the current page
     this.oData.paged = self.currentPage + 1;
@@ -139,9 +148,7 @@ PostsLoader.prototype._fetchPosts = function(event) {
             self.triggerEl.addClass(self.options.triggerActiveClass);
         },
         success    : function(data) {
-            //console.log("data log" , data);
-            $data = $(data);
-            self._handlePosts($data);
+            self._handlePosts($(data)); // parse HTML using jQuery
         },
         error     : function(jqXHR, textStatus, errorThrown) {
             self.containerEl.append( self.loadingErrorMsg );
@@ -164,7 +171,7 @@ PostsLoader.prototype._handlePosts = function(data) {
     // Increment to reflect that we've now advanced to a new "page" of posts
     this.currentPage++;
 
-    if ( $data.length ) {
+    if ( data.length ) {
 
         this._handleTriggerVisibility();
 
@@ -174,9 +181,9 @@ PostsLoader.prototype._handlePosts = function(data) {
         setTimeout(function() {
 
             if (self.containerEl[0].hasAttribute('data-columns') && (salvattore !== 'undefined')) {
-                salvattore.appendElements(self.containerEl[0], $data);
+                salvattore.appendElements(self.containerEl[0], data);
             } else {
-                self.containerEl.append($data);
+                self.containerEl.append(data);
             }
         }, 100);
 

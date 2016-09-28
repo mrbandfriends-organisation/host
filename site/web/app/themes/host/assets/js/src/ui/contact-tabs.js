@@ -22,6 +22,21 @@
     var initCalled = false;
 
     /**
+     * handleClick
+     *
+     * @description Handles click event listeners on each of the links in the
+     *   tab navigation. Returns nothing.
+     * @param {HTMLElement} link The link to listen for events on
+     * @param {Number} index The index of that link
+     */
+    var handleClick = function(link, index) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        goToTab(index);
+      });
+    };
+
+    /**
      * init
      *
      * @description Initializes the component by removing the no-js class from
@@ -40,20 +55,6 @@
       }
     };
 
-    /**
-     * handleClick
-     *
-     * @description Handles click event listeners on each of the links in the
-     *   tab navigation. Returns nothing.
-     * @param {HTMLElement} link The link to listen for events on
-     * @param {Number} index The index of that link
-     */
-    var handleClick = function(link, index) {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        goToTab(index);
-      });
-    };
 
     /**
      * goToTab
@@ -91,7 +92,8 @@
     'el': '.c-tabs',
     'tabNavigationLinks': '.c-tabs-nav__link',
     'tabContentContainers': '.c-tab'
-  }
+  };
+  
   if ($('.c-tabs').length > 0) {
       window.tabs(options).init();
   }
