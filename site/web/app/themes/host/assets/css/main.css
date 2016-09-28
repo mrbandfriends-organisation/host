@@ -5215,9 +5215,17 @@ a.btn {
   margin-top: 20px;
 }
 
-.gform_wrapper .top_label input.medium,
-.gform_wrapper .top_label select.medium {
+.gform_wrapper form {
+  position: relative;
+}
+
+.gform_footer {
+  padding: 40px 0;
+}
+
+.gform_footer .btn, .gform_footer .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .gform_footer select {
   width: 100%;
+  min-width: 0;
 }
 
 .gform_fields {
@@ -6790,6 +6798,14 @@ a.article-tile__link:hover .article-tile__location {
   }
   .listed-room__content{
     width: 19.875rem;
+  }
+  .gform_footer{
+    position: absolute;
+    width: calc(50% - 30px);
+    max-width: 15rem;
+    right: 0;
+    bottom: 0;
+    padding: 0;
   }
   .gf-column--half{
     -ms-flex-preferred-size: 50%;
