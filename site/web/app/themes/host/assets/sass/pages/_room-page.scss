@@ -11,17 +11,13 @@
 // SECTION: ROOM DETAILS SECTION
 // ============================================================
 .room-details-container {
-    @include mq(large) {
-        display: block;
-        max-width: 80%;
-    }
-
     @include mq(xlarge) {
-        max-width: 75%;
+        display: block;
+        max-width: calc(100% - 260px);
     }
 
     @include mq(xxlarge) {
-        max-width: 66.66%;
+        max-width: calc(100% - 330px);
     }
 }
 
@@ -43,18 +39,6 @@
         &:nth-of-type(even) {
             padding-right: 0;
             padding-left: $gutter;
-        }
-    }
-
-    @include mq(xlarge) {
-        &:nth-of-type(odd) {
-            padding-right: $double-gutter-width;
-            padding-left: 0;
-        }
-
-        &:nth-of-type(even) {
-            padding-right: 0;
-            padding-left: $double-gutter-width;
         }
     }
 }

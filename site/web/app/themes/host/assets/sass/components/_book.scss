@@ -1,0 +1,48 @@
+.book {
+    @include mq(xlarge) {
+        position: absolute;
+        right: - rem(60);
+        top: 25%;
+        width: 50%;
+        max-width: rem(320px);
+        transform: translateY(-25%);
+    }
+
+    @include mq(xxlarge) {
+        display: block;
+        max-width: rem(390px);
+    }
+}
+
+.book__heading,
+.book__title {
+    margin-top: 0;
+    margin-bottom: rem($quarter-spacing-unit);
+
+    &:first-line {
+        color: brand(sky) !important;
+    }
+}
+
+.book__heading {
+    font-size: responsive-type(26px) !important;
+}
+
+.book__title {
+    font-size: responsive-type(35px) !important;
+}
+
+.book__link {
+    display: block;
+    margin-bottom: rem($quarter-spacing-unit);
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.book_btn {
+    min-width: 75% !important;
+    max-width: 75%;
+}

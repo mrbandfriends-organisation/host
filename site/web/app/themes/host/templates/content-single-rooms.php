@@ -25,7 +25,10 @@ $connected_location_name = host_building_find_connected_location($parent_buildin
 </div>
 
 <div id="details">
-    <?php echo Utils\ob_load_template_part('templates/partials/room/room-detail.php'); ?>
+    <?php echo Utils\ob_load_template_part('templates/partials/room/room-detail.php', array(
+        'building_name'     => $parent_building->post_title,
+        'city'              => get_field('building_address_town_city', $parent_building_id),
+    )); ?>
 </div>
 
 <div id="gallery">
