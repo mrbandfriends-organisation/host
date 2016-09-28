@@ -443,6 +443,7 @@ img {
 
 .gc--vmiddle {
   -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
       align-self: center;
 }
 
@@ -527,7 +528,6 @@ img {
 
 .grid--vmiddle {
   -ms-flex-align: center;
-      -ms-grid-row-align: center;
       align-items: center;
 }
 
@@ -537,7 +537,6 @@ img {
 
 .grid--vbottom {
   -ms-flex-align: end;
-      -ms-grid-row-align: flex-end;
       align-items: flex-end;
 }
 
@@ -4042,7 +4041,6 @@ a.btn {
 
 .checkerboard__content {
   -ms-flex-align: stretch;
-      -ms-grid-row-align: stretch;
       align-items: stretch;
 }
 
@@ -4405,6 +4403,10 @@ a.btn {
   margin-top: 1.25rem;
 }
 
+.listed-property__content {
+  position: relative;
+}
+
 .listed-property__title,
 .listed-property__availability {
   margin: 0;
@@ -4748,7 +4750,6 @@ a.btn {
   -ms-flex-pack: center;
       justify-content: center;
   -ms-flex-align: center;
-      -ms-grid-row-align: center;
       align-items: center;
   color: #fff;
 }
@@ -4978,6 +4979,7 @@ a.btn {
 }
 
 .favouritable__wrapper[class] {
+  position: relative;
   margin-top: 80px;
 }
 
@@ -5341,7 +5343,6 @@ a.btn {
 
 .in-page-nav__aside {
   -ms-flex-align: center;
-      -ms-grid-row-align: center;
       align-items: center;
 }
 
@@ -5362,7 +5363,6 @@ a.btn {
   margin: 0;
   padding: 0;
   -ms-flex-align: center;
-      -ms-grid-row-align: center;
       align-items: center;
 }
 
@@ -5938,6 +5938,7 @@ a.btn {
 
 .article-list-section .article-list-button {
   -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
       align-self: center;
   margin: 60px 0 40px;
 }
@@ -7765,7 +7766,6 @@ a.article-tile__link:hover .article-tile__location {
   }
   .split-feature.-left .split-feature__main{
     -ms-flex-align: end;
-    -ms-grid-row-align: flex-end;
     align-items: flex-end;
   }
   .split-feature.-left .split-feature__content{
@@ -7775,7 +7775,6 @@ a.article-tile__link:hover .article-tile__location {
   }
   .split-feature.-right .split-feature__main{
     -ms-flex-align: start;
-    -ms-grid-row-align: flex-start;
     align-items: flex-start;
     -ms-flex-order: 2;
     order: 2;
@@ -7850,7 +7849,6 @@ a.article-tile__link:hover .article-tile__location {
   }
   .banner__inner{
     -ms-flex-align: end;
-    -ms-grid-row-align: flex-end;
     align-items: flex-end;
   }
   .menu-item--banner-language-switcher{
@@ -8658,7 +8656,6 @@ a.article-tile__link:hover .article-tile__location {
     -ms-flex-direction: column;
     flex-direction: column;
     -ms-flex-align: start;
-    -ms-grid-row-align: flex-start;
     align-items: flex-start;
     padding-left: 2.5rem;
     margin: 0;

@@ -29,7 +29,8 @@
 // Content
 // ==========================================================================
 .listed-property__content {
-
+    position: relative; // positioning context for favourite icon
+    
     @include mq(xlarge) {
         @include container("left");
         @include two-third-container;
