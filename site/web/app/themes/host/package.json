@@ -20,8 +20,8 @@
   "homepage": "",
   "dependencies": {
     "frontend-boilerplate-assets": "file:assets",
-    "gulp": "^3.9.1",
-    "lodash.includes": "^4.3.0"
+    "gulp": "^3.9.1"
+    
   },
   "devDependencies": {
     "del": "^2.2.1",
@@ -34,6 +34,7 @@
     "perfect-scrollbar": "^0.6.12",
     "run-sequence": "^1.2.2",
     "salvattore": "^1.0.9",
-    "slick-carousel": "^1.6.0"
+    "slick-carousel": "^1.6.0",
+    "lodash.includes": "^4.3.0"
   }
 }
