@@ -6,8 +6,7 @@
     use Roots\Sage\RoomsBuildings;
 
 
-    $connected_internal_buildings_array = host_location_find_internal_connected_buildings(get_the_id());
-
+    $connected_internal_building_id = host_location_find_internal_connected_buildings(get_the_id());
 ?>
 
 <?php
@@ -28,10 +27,10 @@
             <?=esc_html($no_of_props); ?> properties available
             <a href="<?php echo esc_url($url); ?>" class="btn btn--very-small btn--narrow">Show me homes</a>
         </p>
-        <?php if ($connected_internal_buildings_array) { ?>
+        <?php if ($connected_internal_building_id) { ?>
           <p class="checkerboard-item__feeling-lucky">
               I’m feeling lucky:
-              <a href="<?php echo $connected_internal_buildings_array; ?>" class="btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
+              <a href="<?php echo esc_url(get_permalink($connected_internal_building_id)); ?>" class="btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
           </p>
         <?php } ?>
     </div>

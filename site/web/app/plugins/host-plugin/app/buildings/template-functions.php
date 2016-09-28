@@ -64,7 +64,7 @@ function host_location_find_internal_connected_buildings( $location_id ) {
     }
 
     if ($external == "0") {
-        $building_links[] = $connected_building->guid;
+        $building_links[] = $connected_building->ID;
     }
     else {
         // Do not return anything for external sites
