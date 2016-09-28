@@ -11558,17 +11558,24 @@
 	    /** ivars */
 	    var el  = this;
 	    var oMap;
+	    var isDraggable;
 	    var aoMarker = {};
 	    var aoFilter = [];
 	    var oWin     = null;
 	    var oBounds  = null;
+
+	    if ( window.innerWidth < 800 ) {
+	        isDraggable = false
+	    } else {
+	        isDraggable = true
+	    }
 
 	    // config
 	    var defaults = {
 	        zoom:               15,
 	        center:             { lat: 0, lng: 0 },
 	        mapTypeControl:     false,
-	        draggable:          false,
+	        draggable:          isDraggable,
 	        streetViewControl:  false,
 	        scrollwheel:        false
 	    };
