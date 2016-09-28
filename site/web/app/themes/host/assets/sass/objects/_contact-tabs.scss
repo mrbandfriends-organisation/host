@@ -119,12 +119,13 @@ div.c-tabs {
 }
 
 .c-tab__content {
-    padding: 1.5rem;
+    padding: 1.5rem 0;
     overflow: hidden;
 }
 
 .c-tab__listing {
     @include list-reset;
+    margin-left: rem(-$gutter);
     list-style: none!important;
 }
 
