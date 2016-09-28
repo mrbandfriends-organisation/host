@@ -9,10 +9,34 @@
 // ==========================================================================
 // # VENDOR OVERRIDES
 // ==========================================================================
-.gform_wrapper .top_label input.medium,
-.gform_wrapper .top_label select.medium {
-    width: 100%;
+.gform_wrapper {
+    form {
+        position: relative;
+    }
 }
+
+.gform_footer {
+    padding: $spacing-unit 0;
+
+    @include mq(small) {
+        position: absolute;
+        width: calc(50% - #{$gutter});
+        max-width: rem(240);
+        right: 0;
+        bottom: 0;
+        padding: 0;
+    }
+
+    .btn {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+// .gform_wrapper .top_label input.medium,
+// .gform_wrapper .top_label select.medium {
+//     width: 100%;
+// }
 
 // ==========================================================================
 // # BASE
