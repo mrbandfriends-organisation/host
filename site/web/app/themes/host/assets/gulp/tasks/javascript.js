@@ -9,13 +9,14 @@ var webpack             = require('webpack');
 var gulpWebpack         = require('webpack-stream');
 var CleanWebpackPlugin  = require('clean-webpack-plugin');
 var errorHandler        = require('../errorHandler');
-var paths               = require('../paths')
+var paths               = require('../paths');
+
 
 gulp.task('javascripts', function() {
     return  gulp.src( paths.js.source )
                 .pipe(plumber({
                     errorHandler: errorHandler
-                }))
+                }))                
                 .pipe(gulpWebpack({ // webpack-stream for using Webpack with Gulp streams
                     output: {
                         //path: "./assets/js/",

@@ -31,13 +31,14 @@
 
 ?>
 
+<?php if ( !empty($rent_costs) ): ?>
 <div class="box box--less-padding box--fg-mint">
     <h2>
         <?php echo esc_html($price_title_1); ?><br />
         <?php echo esc_html($price_title_2); ?>
     </h2>
 
-    <?php if ( !empty($rent_costs) ): ?>
+
         <article class="rent-cost">
             <?php foreach ($rent_costs as $rent_cost): ?>
                 <div>
