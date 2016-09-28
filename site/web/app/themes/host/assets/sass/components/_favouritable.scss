@@ -18,6 +18,8 @@
 
     @include mq(large) {
         margin-top: auto;
+        display: flex; // needed to force IE11 
+        align-items: flex-end; // needed to force IE11 
     }
 
     .favouritable {

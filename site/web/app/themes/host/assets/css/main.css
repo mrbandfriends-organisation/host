@@ -4161,7 +4161,6 @@ a.btn {
 .checkerboard-item__content .btn, .checkerboard-item__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .checkerboard-item__content select {
   display: block;
   margin-top: 0.625rem !important;
-  white-space: nowrap;
 }
 
 .-active .checkerboard-item__content {
@@ -4506,6 +4505,10 @@ a.btn {
   min-width: 100%;
   min-height: 100%;
   transform: translate(-50%, -50%);
+}
+
+.listed-room__content .btn, .listed-room__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .listed-room__content select {
+  margin-top: 20px;
 }
 
 .listed-room__info {
@@ -7817,6 +7820,7 @@ a.article-tile__link:hover .article-tile__location {
     margin: 40px 0 20px;
   }
   .awards.-left{
+    height: 102px;
     -ms-flex-item-align: start;
     align-self: flex-start;
     margin: 40px 1.875rem -20px 40px;
@@ -7848,6 +7852,10 @@ a.article-tile__link:hover .article-tile__location {
   }
   .favouritable__wrapper[class]{
     margin-top: auto;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: end;
+    align-items: flex-end;
   }
   .gf-field-container--left{
     padding-right: 60px;
