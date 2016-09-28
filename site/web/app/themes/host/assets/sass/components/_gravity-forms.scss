@@ -15,6 +15,11 @@
     }
 }
 
+// Lazy way of hiding the title
+.gform_heading {
+    display: none;
+}
+
 .gform_footer {
     padding: $spacing-unit 0;
 
@@ -27,9 +32,10 @@
         padding: 0;
     }
 
-    .btn {
+    .gf-field--btn {
         width: 100%;
         min-width: 0;
+        color: #fff;
     }
 }
 
@@ -42,41 +48,51 @@
     @include gw;
 }
 
-.gfield {
+.gf-field-container {
+    @include grid-column(1, 1);
     margin-bottom: $half-spacing-unit;
 
     @include mq(medium) {
         margin-bottom: $spacing-unit;
     }
+
+    input,
+    select {
+        background-color: tint(sky);
+        border: none;
+        border-bottom: solid rem(1) brand(sky);
+        color: #fff;
+    }
 }
 
-.gf-column {
-    @include grid-column(1, 1);
-}
-
-.gf-column--half {
+// Width
+// ================================================
+.gf-field-container--half {
     @include grid-column(1, 1);
 
     @include mq(small) {
         @include grid-column(1, 2);
+    }
+}
 
-        &:nth-of-type(odd) {
-            padding-right: $gutter;
-        }
-
-        &:nth-of-type(even) {
-            padding-left: $gutter;
-        }
-
+// Aligment
+// ================================================
+.gf-field-container--left {
+    @include mq(small) {
+        padding-right: $gutter;
     }
 
     @include mq(large) {
-        &:nth-of-type(odd) {
-            padding-right: $double-gutter-width;
-        }
+        padding-right: $double-gutter-width;
+    }
+}
 
-        &:nth-of-type(even) {
-            padding-left: $double-gutter-width;
-        }
+.gf-field-container--right {
+    @include mq(small) {
+        padding-left: $gutter;
+    }
+
+    @include mq(large) {
+        padding-left: $double-gutter-width;
     }
 }
