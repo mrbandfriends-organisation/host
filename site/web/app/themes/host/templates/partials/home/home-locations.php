@@ -55,7 +55,7 @@
                       <h3>Featured home<br>Our latest or greatest</h3>
                       <?php $featured_building = get_field('featured_building'); ?>
                       <p>
-                          <a href="<?php echo $featured_building->guid; ?>" class="btn btn--white btn--small">Show me featured homes</a>
+                          <a href="#featured" class="btn btn--white btn--small">Show me featured homes</a>
                       </p>
 
                   <?php } ?>

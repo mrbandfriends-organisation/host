@@ -38,11 +38,13 @@
 ?>
 
 <?php if( $featured_building ): ?>
-    <?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
-        'color'   => "sky",
-        'content' => $main_content,
-        'second'  => $second_content
-    )); ?>
+    <div id="featured">
+        <?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
+            'color'   => "sky",
+            'content' => $main_content,
+            'second'  => $second_content
+        )); ?>
+    </div>
 <?php
     wp_reset_postdata();
     endif;
