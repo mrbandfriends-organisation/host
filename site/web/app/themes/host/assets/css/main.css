@@ -7828,6 +7828,7 @@ a.article-tile__link:hover .article-tile__location {
     align-items: flex-end;
   }
   .menu-item--banner-language-switcher{
+    position: relative;
     display: block;
     margin-left: 20px;
   }
@@ -7835,6 +7836,15 @@ a.article-tile__link:hover .article-tile__location {
     width: 12.75rem;
     min-width: 1px;
     padding: 0.6875rem 1.5625rem;
+  }
+  .menu-item--banner-language-switcher:before{
+    position: absolute;
+    right: 1.875rem;
+    top: 1.25rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    content: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDE0LjYgMjMiIHhtbDpzcGFjZT0icHJlc2VydmUiPgogIDxwb2x5Z29uIGZpbGw9IiNmZmYiIHBvaW50cz0iMTQuNiAzLjIgMTEuNSAwIDAgMTEuNSAwIDExLjUgMCAxMS41IDExLjUgMjMgMTQuNiAxOS44IDYuMyAxMS41ICIvPgo8L3N2Zz4=");
+    transform: rotate(-90deg);
   }
   .nav-primary--banner .menu-item .nav-primary__link .menu-item__name{
     font-weight: bold;

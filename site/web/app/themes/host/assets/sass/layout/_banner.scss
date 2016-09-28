@@ -77,6 +77,7 @@
     display: none;
 
     @include mq(nav-break-2) {
+        position: relative;
         display: block;
         margin-left: $half-spacing-unit;
 
@@ -84,6 +85,18 @@
             width: rem(204);
             min-width: 1px;
             padding: rem(11) rem(25);
+        }
+
+        &:before {
+            position: absolute;
+            right: rem(30);
+            top: rem(20);
+
+            width: rem(8);
+            height: rem(8);
+
+            content: url("data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeD0iMCIgeT0iMCIgdmlld0JveD0iMCAwIDE0LjYgMjMiIHhtbDpzcGFjZT0icHJlc2VydmUiPgogIDxwb2x5Z29uIGZpbGw9IiNmZmYiIHBvaW50cz0iMTQuNiAzLjIgMTEuNSAwIDAgMTEuNSAwIDExLjUgMCAxMS41IDExLjUgMjMgMTQuNiAxOS44IDYuMyAxMS41ICIvPgo8L3N2Zz4=");
+            transform: rotate(-90deg);
         }
     }
 
