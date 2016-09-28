@@ -91,15 +91,12 @@
 // ==========================================================================
 .listed-room__content {
     position: relative;
-
     display: flex;
     flex-direction: column;
-
     z-index: 2;
 
     @include mq(small) {
-        @include grid-column(3, 10);
-        min-width: rem(300);
+        width: rem(318);
     }
 
     // Tweak appearance of slideshow a little
