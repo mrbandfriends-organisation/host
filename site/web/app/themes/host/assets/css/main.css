@@ -3456,9 +3456,10 @@ button:hover {
 .btn .svg-icon, .menu-item--banner-language-switcher select .svg-icon,
 button .svg-icon {
   display: inline-block;
-  height: 1.125rem;
-  width: 1.125rem;
+  height: 1.75rem;
+  width: 1.75rem;
   vertical-align: middle;
+  margin-left: 20px;
 }
 
 .btn + .btn, .menu-item--banner-language-switcher select + .btn, .menu-item--banner-language-switcher .btn + select, .menu-item--banner-language-switcher select + select,
