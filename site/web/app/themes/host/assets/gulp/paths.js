@@ -39,7 +39,8 @@ module.exports = require('deep-assign')({
         output: {
             sprite:     root+'/svg/sprites/output/',
             spriteFile: 'spritesheet.svg',
-            standalone: root+'/svg/standalone/output/'
+            standalone: root+'/svg/standalone/output/',
+            standalonepng: root+'/svg/standalone/output/png/'
         }
     }
 }, localPaths);

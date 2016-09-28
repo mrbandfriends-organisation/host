@@ -3844,6 +3844,11 @@ a.btn {
   border-top-color: #fff;
 }
 
+.primary-offcanvas__language-changer:after {
+  top: 1rem;
+  transform: translate3d(0, 0, 0);
+}
+
 .primary-offcanvas__language-changer:hover, .primary-offcanvas__language-changer:focus {
   background-color: transparent;
 }
