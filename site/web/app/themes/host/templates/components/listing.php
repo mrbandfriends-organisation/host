@@ -57,7 +57,7 @@
 )); ?>
 
 <?php if ($the_query->have_posts()): ?>
-    <section class="article-list-section band box box--padded box--off-white">
+    <section id="listing" class="article-list-section band box box--padded box--off-white">
         <div class="container">
             <ul class="article-list <?php echo esc_attr($article_list_modifier); ?> js-posts-loader-container <?php echo esc_attr( $post_loader_class ); ?>" data-columns>
                 <?php echo Utils\ob_load_template_part('templates/partials/listing/article-loop', [
