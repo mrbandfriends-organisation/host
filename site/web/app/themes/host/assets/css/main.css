@@ -2240,6 +2240,7 @@ dl.-horizontal dd ~ dd {
 }
 
 .slideshow__list {
+  position: relative;
   overflow: hidden;
 }
 
@@ -2443,6 +2444,7 @@ dl.-horizontal dd ~ dd {
 .slideshow--animate-in .slideshow-pagination,
 .slideshow--animate-in .slideshow-infobox {
   opacity: 0;
+  z-index: 1000;
 }
 
 .slideshow--animate-in.js-slideshow--active:before {

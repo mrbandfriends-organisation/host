@@ -26,6 +26,7 @@ $slideshow-animate-speed: 3s;
 // Slideshow list container
 // ==========================================================================
 .slideshow__list {
+    position: relative;
     overflow: hidden;
 }
 
@@ -292,7 +293,10 @@ $slideshow-animate-speed: 3s;
     }
 
     .slideshow-pagination,
-    .slideshow-infobox { opacity: 0; }
+    .slideshow-infobox {
+        opacity: 0;
+        z-index: $zindex-tier-1;
+    }
 
     &.js-slideshow--active {
 
