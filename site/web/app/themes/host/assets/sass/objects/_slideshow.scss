@@ -263,13 +263,32 @@ $slideshow-animate-speed: 3s;
     &:after {
         top:    50%;
         left:   50%;
-        height: rem(315);
-        width:  rem(260);
-
+        height: rem(90);
+        width:  rem(70);
+        border-left:  rem(20) solid #fff;
+        border-right: rem(20) solid #fff;
         transform: translate(-50%, -50%);
 
-        border-left:  rem(70) solid #fff;
-        border-right: rem(70) solid #fff;
+        @include mq($from: 460) {
+            height: rem(120);
+            width:  rem(87);
+            border-left:  rem(30) solid #fff;
+            border-right: rem(30) solid #fff
+        }
+
+        @include mq(medium) {
+            height: rem(200);
+            width:  rem(173);
+            border-left:  rem(50) solid #fff;
+            border-right: rem(50) solid #fff;
+        }
+
+        @include mq(large) {
+            height: rem(315);
+            width:  rem(260);
+            border-left:  rem(70) solid #fff;
+            border-right: rem(70) solid #fff;
+        }
     }
 
     .slideshow-pagination,
