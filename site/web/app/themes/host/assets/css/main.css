@@ -4455,6 +4455,10 @@ a.btn {
   padding: 20px 30px;
 }
 
+.listed-property__booking-btn {
+  background-color: #d50e3c !important;
+}
+
 .room-list__header {
   background: #fff;
 }

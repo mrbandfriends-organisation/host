@@ -67,7 +67,9 @@
 .listed-property__address-contact {
     margin-top: rem(30);
 
-    .btn { min-width: 0; }
+    .btn {
+        min-width: 0;
+    }
 
     .svg-icon--marker {
         position: relative;
@@ -106,4 +108,8 @@
 // ==========================================================================
 .listed-property__price {
     padding: $half-spacing-unit ($spacing-unit - $quarter-spacing-unit);
+}
+
+.listed-property__booking-btn {
+    background-color: brand(red) !important;
 }

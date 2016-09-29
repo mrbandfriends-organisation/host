@@ -97,6 +97,11 @@
                             <?php if (!empty($sUrl) && !empty($sBtnText)): ?>
                             <p>
                                 <a href="<?=$sUrl; ?>" class="btn"<?=$sAtts; ?>><?=$sBtnText; ?></a>
+
+                                <?php if ( $aAvailabilityDefinition['text'] !== 'Sold out' ): ?>
+                                    <?php $booking_url = get_field('booking_url', 'option'); ?>
+                                    <a href="<?=$booking_url; ?>" class="btn btn--red listed-property__booking-btn">Book now</a>
+                                <?php endif; ?>
                             </p>
                             <?php endif; ?>
                         </div>
