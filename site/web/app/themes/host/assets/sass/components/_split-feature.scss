@@ -62,6 +62,13 @@
 .split-feature__secondary {
     min-height: rem(200);
 
+    @include mq($until: medium) {
+        img {
+            max-width: 86%;
+            margin: 7% auto;
+        }
+    }
+
     @include mq(large) {
         min-height: 50vh;
     }
@@ -179,6 +186,7 @@
     }
 
     .split-feature__secondary {
+        min-height: 0;
         padding-bottom: $spacing-unit;
 
         @include mq(medium) {

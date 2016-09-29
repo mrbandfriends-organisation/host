@@ -90,7 +90,7 @@
     left:    0;
     width:   100%;
     min-height:  100vh;
-    padding: rem(20) $spacing-unit;
+    padding: rem($half-spacing-unit) $spacing-unit ($double-spacing-unit - $half-spacing-unit);
 
     background-color: map-get($brand-palette, ink);
     box-shadow: none;
@@ -127,10 +127,11 @@
 // ==========================================================================
 .primary-offcanvas__section {
     width: 100%;
-    margin: $spacing-unit rem(25) 0 0;
+    margin: $half-spacing-unit rem(25) 0 0;
 
     &:last-child {
         display: flex;
+        align-items: flex-end;
         flex: 1;
 
         width: 100%;
@@ -175,6 +176,10 @@
 .offcanvas-toggle--open {
     float: flip(right, left);
     text-decoration: none;
+
+    @include mq($until: medium) {
+        padding-right: 0;
+    }
 }
 
 .offcanvas-toggle--close {

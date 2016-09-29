@@ -10,7 +10,7 @@
 // # BASE
 // ==========================================================================
 .footer {
-    padding:    rem(40) rem(30);
+    padding:    rem(40) rem(20);
     background: tint(ink);
     color:      #fff;
 
@@ -105,6 +105,8 @@
 // # FOOTER SECTION
 // ==========================================================================
 .footer__final {
+    margin-top: 0;
+
     @include mq(xlarge) {
         display: flex;
         justify-content: space-between;
@@ -182,8 +184,12 @@
 // ==========================================================================
 .footer-marks {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     margin-top: rem(50);
+
+    @include mq(medium) {
+        justify-content: flex-end;
+    }
 
     @include mq(xlarge) {
         margin: 0;
@@ -215,7 +221,11 @@
 
     &.-large {
         display: block;
-        margin: 0 0 0 rem(30);
+        margin: 0;
+
+        @include mq(medium) {
+            margin: 0 0 0 rem(30);
+        }
     }
 }
 

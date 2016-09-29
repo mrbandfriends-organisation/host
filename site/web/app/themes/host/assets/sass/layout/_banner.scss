@@ -12,7 +12,11 @@
 
 .banner {
     width: 100%;
-    padding: 0 0 rem($half-spacing-unit);
+    padding: 0 0 rem(15);
+
+    @include mq(medium) {
+        padding: 0 0 rem($half-spacing-unit);
+    }
 }
 
 .banner__inner {
@@ -61,7 +65,11 @@
     display: block;
 
     img {
-        width:  rem(140);
+        width: rem(100);
+
+        @include mq(medium) {
+            width: rem(140);
+        }
     }
 }
 

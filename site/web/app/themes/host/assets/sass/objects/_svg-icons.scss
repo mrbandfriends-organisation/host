@@ -120,5 +120,10 @@
 
 .svg-icon--site-logo {
     height: rem(60);
-    width:  rem(140);
+    width: rem(100);
+
+    @include mq(medium) {
+        height: rem(60);
+        width:  rem(140);
+    }
 }
