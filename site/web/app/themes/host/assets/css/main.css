@@ -4265,16 +4265,6 @@ a.btn {
   margin-top: 20px;
 }
 
-.billboard.box--grape .btn:not(:last-child), .billboard.box--grape .menu-item--banner-language-switcher select:not(:last-child), .menu-item--banner-language-switcher .billboard.box--grape select:not(:last-child) {
-  background-color: #fff;
-  color: #b455a0;
-}
-
-.billboard.box--grape .btn:last-child, .billboard.box--grape .menu-item--banner-language-switcher select:last-child, .menu-item--banner-language-switcher .billboard.box--grape select:last-child {
-  background-color: transparent;
-  border: 2px solid #fff;
-}
-
 .awards {
   display: -ms-flexbox;
   display: flex;

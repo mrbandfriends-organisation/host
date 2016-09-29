@@ -49,8 +49,8 @@
 .billboard__secondary {
     margin-top: rem(40);
 
-    @include mq(large) { 
-        margin: 0; 
+    @include mq(large) {
+        margin: 0;
 
     }
 }
@@ -77,13 +77,13 @@
         // margin-bottom: - rem($spacing-unit);
     }
 
-    .btn:not(:last-child) {
-        background-color: #fff;
-        color: brand(grape);
-    }
-
-    .btn:last-child {
-        background-color: transparent;
-        border: 2px solid #fff;
-    }
+    // .btn:not(:last-child) {
+    //     background-color: #fff;
+    //     color: brand(grape);
+    // }
+    //
+    // .btn:last-child {
+    //     background-color: transparent;
+    //     border: 2px solid #fff;
+    // }
 }
