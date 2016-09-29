@@ -77,7 +77,7 @@
                 "available": "Rooms available",
                 "limited": "Limited availability",
                 "sold_out": "Sold out",
-                "coming_soon: Coming soon": "coming_soon: Coming soon"
+                "coming_soon": "Coming soon"
             },
             "default_value": [],
             "allow_null": 0,
@@ -889,5 +889,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1475155008
+    "modified": 1475157276
 }
