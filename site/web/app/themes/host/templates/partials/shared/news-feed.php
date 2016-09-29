@@ -4,41 +4,41 @@
 
 <?php
   /*///// THIS NEEDS TO BE MOVED ///////*/
-  $news_args = array(
-    'posts_per_page'   => 3,
-    'offset'           => 0,
-    'category'         => 'news',
-    'orderby'          => 'date',
-    'order'            => 'DESC',
-    'include'          => '',
-    'exclude'          => '',
-    'meta_key'         => '',
-    'meta_value'       => '',
-    'post_type'        => 'post',
-    'post_status'      => 'publish',
-    'suppress_filters' => true
-  );
-  $news_posts_array = get_posts( $news_args );
+    $news_args = array(
+        'posts_per_page'   => 3,
+        'offset'           => 0,
+        'category'         => 'news',
+        'orderby'          => 'date',
+        'order'            => 'DESC',
+        'include'          => '',
+        'exclude'          => '',
+        'meta_key'         => '',
+        'meta_value'       => '',
+        'post_type'        => 'post',
+        'post_status'      => 'publish',
+        'suppress_filters' => true
+    );
+    $news_posts_array = get_posts( $news_args );
 
-  $article_1_id = $news_posts_array[0]->ID;
-  $article_2_id = $news_posts_array[1]->ID;
-  $article_3_id = $news_posts_array[2]->ID;
+    $article_1_id = $news_posts_array[0]->ID;
+    $article_2_id = $news_posts_array[1]->ID;
+    $article_3_id = $news_posts_array[2]->ID;
 
-  $article_1_title = $news_posts_array[0]->post_title;
-  $article_2_title = $news_posts_array[1]->post_title;
-  $article_3_title = $news_posts_array[2]->post_title;
+    $article_1_title = $news_posts_array[0]->post_title;
+    $article_2_title = $news_posts_array[1]->post_title;
+    $article_3_title = $news_posts_array[2]->post_title;
 
-  $article_1_link = $news_posts_array[0]->guid;
-  $article_2_link = $news_posts_array[1]->guid;
-  $article_3_link = $news_posts_array[2]->guid;
+    $article_1_link = $news_posts_array[0]->guid;
+    $article_2_link = $news_posts_array[1]->guid;
+    $article_3_link = $news_posts_array[2]->guid;
 
-  $article_1_excerpt = $news_posts_array[0]->post_excerpt;
-  $article_2_excerpt = $news_posts_array[1]->post_excerpt;
-  $article_3_excerpt = $news_posts_array[2]->post_excerpt;
+    $article_1_excerpt = $news_posts_array[0]->post_excerpt;
+    $article_2_excerpt = $news_posts_array[1]->post_excerpt;
+    $article_3_excerpt = $news_posts_array[2]->post_excerpt;
 
-  $thumb_id_1 = get_post_thumbnail_id( $article_1_id );
-  $thumb_id_2 = get_post_thumbnail_id( $article_2_id );
-  $thumb_id_3 = get_post_thumbnail_id( $article_3_id );
+    $thumb_id_1 = get_post_thumbnail_id( $article_1_id );
+    $thumb_id_2 = get_post_thumbnail_id( $article_2_id );
+    $thumb_id_3 = get_post_thumbnail_id( $article_3_id );
 ?>
 
 <section class="band news-feed" data-equality="medium">
