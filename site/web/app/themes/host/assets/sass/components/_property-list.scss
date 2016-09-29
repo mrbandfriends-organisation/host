@@ -30,7 +30,7 @@
 // ==========================================================================
 .listed-property__content {
     position: relative; // positioning context for favourite icon
-    
+
     @include mq(xlarge) {
         @include container("left");
         @include two-third-container;
@@ -39,6 +39,11 @@
 
 // Title + description
 // ==========================================================================
+.listed-property__header {
+    @include mq($until: medium) {
+        max-width: calc(100% - 40px);
+    }
+}
 .listed-property__title-desc { @include mq(xlarge) { padding-right: rem(40); }}
 
 .listed-property__title,

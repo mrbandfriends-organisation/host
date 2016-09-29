@@ -58,14 +58,16 @@
                 <div class="listed-property__main gc l1-2 xl2-3 xxl5-7 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded" data-favouritable="<?=get_the_id(); ?>">
                     <div class="listed-property__content grid">
                         <div class="listed-property__title-desc gc xxl3-5">
-                            <h3 class="listed-property__title plain">
-                                <?php if (!empty($sUrl)): ?>
-                                <a href="<?=$sUrl;?>"<?=$sAtts; ?>>
-                                <?php endif; ?>
-                                <?=get_field('title_1'); ?>
-                                <?php if (!empty($sUrl)): ?></a><?php endif; ?>
-                            </h3>
-                            <h4 class="listed-property__availability"><?=$aAvailabilityDefinition['text']; ?></h4>
+                            <header class="listed-property__header">
+                                <h3 class="listed-property__title plain">
+                                    <?php if (!empty($sUrl)): ?>
+                                    <a href="<?=$sUrl;?>"<?=$sAtts; ?>>
+                                    <?php endif; ?>
+                                    <?=get_field('title_1'); ?>
+                                    <?php if (!empty($sUrl)): ?></a><?php endif; ?>
+                                </h3>
+                                <h4 class="listed-property__availability"><?=$aAvailabilityDefinition['text']; ?></h4>
+                            </header>
 
                             <?php if ($iNumberTypes !== null): ?>
                             <p class="listed-property__number-types inherit-fg">
