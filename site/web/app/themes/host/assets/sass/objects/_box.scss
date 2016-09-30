@@ -59,6 +59,12 @@
     @include mq(medium) { padding: rem(50) rem(80); }
 }
 
+.box--mega-padding {
+    padding: rem($spacing-unit);
+
+    @include mq(medium) { padding: rem($double-spacing-unit + $spacing-unit) rem($double-spacing-unit); }
+}
+
 // ==========================================================================
 // # COLOUR VARIANCE - backgrounds
 // ==========================================================================
