@@ -48,9 +48,21 @@
 
 // .room-list-nav__list {}
 
-// .room-list-nav__item {}
+.room-list-nav__item {
+    transition: all ease-in-out 0.2s;
 
-.room-list-nav__link {
+    &:hover {
+        border-bottom-color: #fff;
+
+        a.room-list-nav__link {
+            color: #fff;
+        }
+    }
+}
+
+a.room-list-nav__link {
+    color: brand(ink);
+
     &:hover {
         text-decoration: none;
     }

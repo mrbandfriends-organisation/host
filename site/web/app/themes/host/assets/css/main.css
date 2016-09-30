@@ -4488,7 +4488,23 @@ a.btn {
   padding: 1.875rem;
 }
 
-.room-list-nav__link:hover {
+.room-list-nav__item {
+  transition: all ease-in-out 0.2s;
+}
+
+.room-list-nav__item:hover {
+  border-bottom-color: #fff;
+}
+
+.room-list-nav__item:hover a.room-list-nav__link {
+  color: #fff;
+}
+
+a.room-list-nav__link {
+  color: #21293c;
+}
+
+a.room-list-nav__link:hover {
   text-decoration: none;
 }
 
