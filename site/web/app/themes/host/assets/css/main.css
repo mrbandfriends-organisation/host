@@ -6183,6 +6183,10 @@ a.article-tile__link:hover .article-tile__location {
   object-fit: cover;
 }
 
+.checkerboard__mobile:nth-of-type(2) {
+  display: none;
+}
+
 .features__small-print {
   display: block;
   padding-left: 10px;
