@@ -5014,8 +5014,8 @@ a.btn {
 
 .favouritable {
   position: absolute;
-  top: 1.875rem;
-  right: 1.875rem;
+  top: 1.25rem;
+  right: 1.25rem;
 }
 
 .favouritable .svg-icon {
@@ -5023,15 +5023,6 @@ a.btn {
   height: 1.25rem;
   width: 1.25rem;
   fill: none;
-}
-
-.favouritable:after {
-  position: absolute;
-  display: block;
-  top: calc(100% + 0.3125rem);
-  font-size: 0.875rem;
-  color: #999;
-  content: "Favourite";
 }
 
 .favouritable__button {
