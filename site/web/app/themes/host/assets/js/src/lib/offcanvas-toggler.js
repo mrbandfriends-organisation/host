@@ -103,12 +103,12 @@ OffCanvasToggler.prototype._updateDisplay = function(command) {
 
     if (command === 'open') {
         this.$wrapper.addClass( this.settings.activeClass );
-        this.$menu[0].setAttribute('aria-hidden', 'false');
-        this.$toggleElements[0].setAttribute('aria-expanded', true);
+        this.$menu.attr('aria-hidden', 'false');
+        this.$toggleElements.attr('aria-expanded', true);
     } else if (command === 'close') {
         this.$wrapper.removeClass( this.settings.activeClass );
-        this.$menu[0].setAttribute('aria-hidden', 'true');
-        this.$toggleElements[0].removeAttribute('aria-expanded');
+        this.$menu.attr('aria-hidden', 'true');
+        this.$toggleElements.removeAttribute('aria-expanded');
     }
 };
 
