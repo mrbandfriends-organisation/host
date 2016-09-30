@@ -90,7 +90,7 @@
     left:    0;
     width:   100%;
     min-height:  100vh;
-    padding: rem(20) $spacing-unit;
+    padding: rem($half-spacing-unit) $spacing-unit ($double-spacing-unit - $half-spacing-unit);
 
     background-color: map-get($brand-palette, ink);
     box-shadow: none;
@@ -127,10 +127,11 @@
 // ==========================================================================
 .primary-offcanvas__section {
     width: 100%;
-    margin: $spacing-unit rem(25) 0 0;
+    margin: $half-spacing-unit rem(25) 0 0;
 
     &:last-child {
         display: flex;
+        align-items: flex-end;
         flex: 1;
 
         width: 100%;
@@ -138,6 +139,16 @@
 
     &.-util {
         margin: 0;
+    }
+}
+
+.offcanvas-utilities-container {
+    nav {
+        width: 100%;
+
+        a {
+            color: #fff;
+        }
     }
 }
 
@@ -175,6 +186,10 @@
 .offcanvas-toggle--open {
     float: flip(right, left);
     text-decoration: none;
+
+    @include mq($until: medium) {
+        padding-right: 0;
+    }
 }
 
 .offcanvas-toggle--close {
@@ -203,7 +218,11 @@
 // TOGGLE
 // ==========================================================================
 
-// .primary-offcanvas__social-icons {}
+.primary-offcanvas__social-icons {
+    @media screen and (max-height: 479px) {
+        display: none;
+    }
+}
 
 .offcanvas-social-icons {
     @include list-reset;
@@ -240,6 +259,7 @@
     select {
         background: transparent;
         color: brand(sky);
+        margin-bottom: 0;
         padding: $quarter-spacing-unit 0;
         border: none;
         border-bottom: $base-border;

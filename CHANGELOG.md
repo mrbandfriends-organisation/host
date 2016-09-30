@@ -8,7 +8,7 @@ For more information about keeping good change logs please refer to [keep a chan
 
 
 
-## [0.5.0] - 2016-09-28
+## [0.8.0] - 2016-09-30
 
 Initial release to master.
 

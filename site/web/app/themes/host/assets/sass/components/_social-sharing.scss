@@ -1,0 +1,55 @@
+// ==========================================================================
+//
+// SOCIAL SHARING ICONS
+//
+// Description: A set of icons that are used for social sharing
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.social-sharing-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: $half-spacing-unit;
+
+    @include mq(medium) {
+        margin-bottom: $spacing-unit;
+    }
+}
+
+.social-sharing {
+    @include list-reset;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.social-sharing__item {
+    margin-left: $quarter-spacing-unit;
+
+    &:first-of-type {
+        margin-left: ($quarter-spacing-unit/2);
+    }
+}
+
+.social-sharing__link {
+    &:hover,
+    &:focus {
+        .social-sharing__icon {
+            transform: translate3d(0, rem(-4), 0);
+        }
+    }
+}
+
+.social-sharing__icon {
+    transform: translate3d(0, 0, 0);
+    transition: all ease-in-out 0.2s;
+}
+
+// ==========================================================================
+// # MODIFIER: %%MODIFIER_NAME%%
+// ==========================================================================

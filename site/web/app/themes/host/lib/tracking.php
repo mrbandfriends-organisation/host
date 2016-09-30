@@ -28,7 +28,7 @@ function google_tag_manager_code() {?>
   <?php } ?>
 <?php
 }
-add_action('wp_footer', __NAMESPACE__ . '\\google_tag_manager_code', 21); 
+add_action('wp_footer', __NAMESPACE__ . '\\google_tag_manager_code', 21);
 
 
 /**
@@ -36,17 +36,25 @@ add_action('wp_footer', __NAMESPACE__ . '\\google_tag_manager_code', 21);
  */
 function google_analytics_code() {
     if ( defined( 'GOOGLE_ANALYTICS_CODE' ) && !empty( GOOGLE_ANALYTICS_CODE ) ): ?>
+    <?php
+    $urls = [];
+    while ( have_rows('trackable_external_urls', 'option') ) : the_row();
+        array_push($urls, esc_html(get_sub_field('url')));
+    endwhile;?>
+
      <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      
-        ga('create', <?php echo GOOGLE_ANALYTICS_CODE; ?>, 'auto');
+
+        ga('create', '<?= GOOGLE_ANALYTICS_CODE; ?>', 'auto', {'allowLinker': true});
+        ga('require', 'linker');
+        ga('linker:autoLink', <?=json_encode($urls); ?> );
         ga('send', 'pageview');
-      
-      </script>    
-    <?php endif; ?>  
-<?php 
-}  
-add_action('wp_footer', __NAMESPACE__ . '\\google_analytics_code', 19);
+
+      </script>
+    <?php endif; ?>
+<?php
+}
+add_action('wp_head', __NAMESPACE__ . '\\google_analytics_code', 19);

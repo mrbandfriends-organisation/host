@@ -26,11 +26,16 @@
     // scss-lint:disable EmptyRule
 }
 
+.listed-property__main {
+    min-height: rem(300);
+}
+
 // Content
 // ==========================================================================
 .listed-property__content {
     position: relative; // positioning context for favourite icon
-    
+    height: 100%;
+
     @include mq(xlarge) {
         @include container("left");
         @include two-third-container;
@@ -39,6 +44,11 @@
 
 // Title + description
 // ==========================================================================
+.listed-property__header {
+    @include mq($until: medium) {
+        max-width: calc(100% - 40px);
+    }
+}
 .listed-property__title-desc { @include mq(xlarge) { padding-right: rem(40); }}
 
 .listed-property__title,
@@ -60,9 +70,11 @@
 // Address + contact
 // ==========================================================================
 .listed-property__address-contact {
-    margin-top: rem(30);
+    margin-top: auto;
 
-    .btn { min-width: 0; }
+    .btn {
+        min-width: 0;
+    }
 
     .svg-icon--marker {
         position: relative;
@@ -101,4 +113,9 @@
 // ==========================================================================
 .listed-property__price {
     padding: $half-spacing-unit ($spacing-unit - $quarter-spacing-unit);
+}
+
+.listed-property__booking-btn {
+    display: block;
+    background-color: brand(red) !important;
 }

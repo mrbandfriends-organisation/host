@@ -1,7 +1,25 @@
-<?php get_template_part('templates/page', 'header'); ?>
+<?php
+    use Roots\Sage\Utils;
+?>
 
-<div class="alert alert-warning">
-  <?php _e('Sorry, but the page you were trying to view does not exist.', 'sage'); ?>
-</div>
+<section class="404-page">
+    <div class="box box--mega-padding box--fg-sky">
+        <div class="container content-404">
+            <img class="content-404__image" src="<?php echo get_template_directory_uri() . '/assets/images/404_pause.png'; ?>" alt="" />
 
-<?php get_search_form(); ?>
+            <h1 class="content-404__title">
+                Whoopsie!<br />
+                That’s an error.
+            </h1>
+
+            <p>
+                We're sorry something went wrong there. The page your looking for could not be found.
+                <br>
+                <br>
+                Don’t cry. We’ll get you home.
+            </p>
+
+            <a href="<?php echo get_home_url(); ?>" class="btn">Homepage</a>
+        </div>
+    </div>
+</section>

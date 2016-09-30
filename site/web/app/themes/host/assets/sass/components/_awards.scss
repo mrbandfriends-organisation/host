@@ -8,8 +8,14 @@
 
     max-width: rem(405);
     //margin: 0 0 -$half-spacing-unit 0;
-    margin: 0 0 (-$half-spacing-unit);
+    margin: 0 (-$quarter-spacing-unit) (-$half-spacing-unit);
+    padding: 0 rem(30);
     list-style: none outside;
+
+    @include mq(medium) {
+        padding: 0;
+        margin: 0 0 (-$half-spacing-unit);
+    }
 
     @include mq(large) {
         //padding-bottom: $spacing-unit;
@@ -18,9 +24,13 @@
 }
 
 .awards__item {
-    width: 33.33%;
+    width: 50%;
     padding: 0 $quarter-spacing-unit;
     margin-bottom: $half-spacing-unit;
+
+    @include mq(medium) {
+        width: 33.33%;
+    }
 
     @include mq(large) {
         //padding: $half-spacing-unit $quarter-spacing-unit;

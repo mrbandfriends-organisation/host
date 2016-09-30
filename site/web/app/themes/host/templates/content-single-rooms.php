@@ -21,7 +21,7 @@ $connected_location_name = host_building_find_connected_location($parent_buildin
 <?php echo Utils\ob_load_template_part('templates/partials/room/room-in-page-nav.php'); ?>
 
 <div id="overview">
-    <?php //echo Utils\ob_load_template_part('templates/partials/room/room-intro.php', compact('parent_building_id')); ?>
+    <?php echo Utils\ob_load_template_part('templates/partials/room/room-intro.php', compact('parent_building_id')); ?>
 </div>
 
 <div id="details">

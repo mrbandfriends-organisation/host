@@ -20,9 +20,13 @@ html {
 body {
     background: brand(white);
     color: brand(ink);
-    font: normal rem(18) $base-font-family;
+    font: normal rem(15) $base-font-family;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    @include mq(medium) {
+        font-size: rem(18);
+    }
 }
 
 // ==========================================================================
@@ -31,7 +35,11 @@ body {
 
 p {
     margin: 1em 0;
-    line-height: rem(28);
+    line-height: rem(25);
+
+    @include mq(medium) {
+        line-height: rem(28);
+    }
 }
 
 .small-copy { font-size: rem(15); }
