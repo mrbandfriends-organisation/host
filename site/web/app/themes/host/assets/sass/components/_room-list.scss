@@ -48,9 +48,46 @@
 
 // .room-list-nav__list {}
 
-// .room-list-nav__item {}
+.room-list-nav__item {
+    position: relative;
+    transition: all ease-in-out 0.2s;
 
-.room-list-nav__link {
+    &:after {
+        position: absolute;
+        content: "";
+        background-color: transparent;
+        width: rem(30);
+        height: rem(30);
+        left: -(rem(45));
+        opacity: 0;
+        transform: rotate(45deg);
+        transition: all ease-in-out 0.2s;
+
+        @include mq(large) {
+            left: -(rem(50) + rem(15));
+            background-color: #fff;
+        }
+    }
+
+
+    &:hover {
+        border-bottom-color: #fff;
+        cursor: pointer;
+
+        &:after {
+            opacity: 1;
+        }
+
+        a.room-list-nav__link {
+            color: #fff;
+        }
+    }
+}
+
+a.room-list-nav__link {
+    color: brand(ink);
+    transition: all ease-in-out 0.2s;
+
     &:hover {
         text-decoration: none;
     }
