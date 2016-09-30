@@ -26,10 +26,15 @@
     // scss-lint:disable EmptyRule
 }
 
+.listed-property__main {
+    min-height: rem(300);
+}
+
 // Content
 // ==========================================================================
 .listed-property__content {
     position: relative; // positioning context for favourite icon
+    height: 100%;
 
     @include mq(xlarge) {
         @include container("left");
@@ -65,7 +70,7 @@
 // Address + contact
 // ==========================================================================
 .listed-property__address-contact {
-    margin-top: rem(30);
+    margin-top: auto;
 
     .btn {
         min-width: 0;

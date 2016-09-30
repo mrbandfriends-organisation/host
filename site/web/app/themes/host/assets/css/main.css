@@ -1255,6 +1255,10 @@ thead tr:last-child th {
   fill: #00c0f3;
 }
 
+.svg-icon--ink {
+  fill: #21293c;
+}
+
 .svg-icon--small {
   width: 1rem;
   height: 1rem;
@@ -4404,8 +4408,13 @@ a.btn {
   margin-top: 1.25rem;
 }
 
+.listed-property__main {
+  min-height: 18.75rem;
+}
+
 .listed-property__content {
   position: relative;
+  height: 100%;
 }
 
 .listed-property__title,
@@ -4423,7 +4432,7 @@ a.btn {
 }
 
 .listed-property__address-contact {
-  margin-top: 1.875rem;
+  margin-top: auto;
 }
 
 .listed-property__address-contact .btn, .listed-property__address-contact .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .listed-property__address-contact select {
@@ -5005,8 +5014,8 @@ a.btn {
 
 .favouritable {
   position: absolute;
-  top: 1.875rem;
-  right: 1.875rem;
+  top: 1.25rem;
+  right: 1.25rem;
 }
 
 .favouritable .svg-icon {
@@ -5014,15 +5023,6 @@ a.btn {
   height: 1.25rem;
   width: 1.25rem;
   fill: none;
-}
-
-.favouritable:after {
-  position: absolute;
-  display: block;
-  top: calc(100% + 0.3125rem);
-  font-size: 0.875rem;
-  color: #999;
-  content: "Favourite";
 }
 
 .favouritable__button {
@@ -5454,6 +5454,45 @@ a.btn {
 
 .contact-form-section {
   padding: 40px;
+}
+
+.social-sharing-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.social-sharing {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.social-sharing__item {
+  margin-left: 10px;
+}
+
+.social-sharing__item:first-of-type {
+  margin-left: 5px;
+}
+
+.social-sharing__link:hover .social-sharing__icon, .social-sharing__link:focus .social-sharing__icon {
+  transform: translate3d(0, -0.25rem, 0);
+}
+
+.social-sharing__icon {
+  transform: translate3d(0, 0, 0);
+  transition: all ease-in-out 0.2s;
 }
 
 .banner {
@@ -7441,6 +7480,9 @@ a.article-tile__link:hover .article-tile__location {
   }
   .contact-form-section{
     padding: 80px;
+  }
+  .social-sharing-container{
+    margin-bottom: 40px;
   }
   .banner{
     padding: 0 0 1.25rem;
