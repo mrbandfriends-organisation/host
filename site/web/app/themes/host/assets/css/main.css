@@ -6204,6 +6204,10 @@ a.article-tile__link:hover .article-tile__location {
   margin-top: 40px;
 }
 
+.room-details-aside h2:first-line {
+  color: #00b9b5 !important;
+}
+
 .room-details-aside__logo {
   display: none;
 }
