@@ -185,6 +185,8 @@ function Checkerboard()
         // 2. reindex and reposition
         reindex();
         reposition();
+
+        console.log("we are resizing");
     }
 
     /**
