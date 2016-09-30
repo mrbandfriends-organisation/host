@@ -1,5 +1,6 @@
 <?php
     use Roots\Sage\Utils;
+    use Roots\Sage\Extras;
 
     $button_text = ( !empty($button_text) ? $button_text : null );
 ?>
@@ -16,7 +17,7 @@
 <?php endif; ?>
 
 <?php if ( !empty($button_url) && !empty($button_text) ): ?>
-    <a href="<?php echo esc_html($button_url) ?>" class="btn split-feature__btn">
+    <a href="<?php echo esc_html($button_url) ?>" class="btn split-feature__btn" <?= ( isset($external_url) ) ? Extras\link_open_new_tab_attrs() : ''; ?>>
         <?php echo esc_html($button_text); ?>
     </a>
 <?php endif; ?>
