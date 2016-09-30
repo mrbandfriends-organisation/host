@@ -1,9 +1,4 @@
-<svg id="ef83e20a-18fa-447f-9e5b-355095a7e08c" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.36 46.63">
+<svg id="81aa0204-7981-4237-9f0b-ce5d8d3ccd13" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.36 46.63">
   <title>room-gender-female</title>
-  <g>
-    <circle cx="10.63" cy="7.73" r="6.48" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <line x1="5.94" y1="32.95" x2="5.94" y2="45.38" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <line x1="15.3" y1="45.38" x2="15.3" y2="32.96" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <polyline points="15.3 32.95 19.11 32.95 10.54 14.21 1.25 32.95 5.93 32.95" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-  </g>
+  <path d="M20.24,32.43,12.39,15.25a7.74,7.74,0,1,0-3.73-.05L.13,32.39A1.25,1.25,0,0,0,1.25,34.2H4.69V45.38a1.25,1.25,0,0,0,2.5,0V32.95A1.25,1.25,0,0,0,5.94,31.7H3.27L10.5,17.12,17.16,31.7H15.3A1.25,1.25,0,0,0,14,32.95s0,0,0,0V45.38a1.25,1.25,0,0,0,2.5,0V34.2h2.55a1.25,1.25,0,0,0,1.14-1.77ZM5.39,7.73A5.23,5.23,0,1,1,10.63,13,5.24,5.24,0,0,1,5.39,7.73Z" style="fill: #010101"/>
 </svg>

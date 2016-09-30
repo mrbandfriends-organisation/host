@@ -1,11 +1,8 @@
-<svg id="89d2a8c6-f761-4960-8968-4402c29dd9ab" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.75 36.2">
+<svg id="edd10800-a9bd-432a-9031-f1aeed9a45f5" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.75 36.2">
   <title>desk-1</title>
   <g>
-    <rect x="1.25" y="1.25" width="75.25" height="5" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <rect x="6.08" y="6.25" width="31.29" height="28.7" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <rect x="67.48" y="6.25" width="4.1" height="28.7" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <line x1="6.08" y1="20.6" x2="37.37" y2="20.6" fill="#fff" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <line x1="18.66" y1="13.67" x2="24.79" y2="13.67" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <line x1="18.66" y1="28.03" x2="24.79" y2="28.03" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <path d="M76.5,0H1.25A1.25,1.25,0,0,0,0,1.25v5A1.25,1.25,0,0,0,1.25,7.5H4.83V34.95A1.25,1.25,0,0,0,6.08,36.2H37.37a1.25,1.25,0,0,0,1.25-1.25V7.5H66.23V34.95a1.25,1.25,0,0,0,1.25,1.25h4.1a1.25,1.25,0,0,0,1.25-1.25V7.5H76.5a1.25,1.25,0,0,0,1.25-1.25v-5A1.25,1.25,0,0,0,76.5,0ZM7.33,33.7V21.85H36.12V33.7ZM36.12,19.35H7.33V7.5H36.12ZM70.33,33.7h-1.6V7.5h1.6ZM75.25,5H2.5V2.5H75.25Z" style="fill: #1d1d1b"/>
+    <path d="M18.66,14.92h6.13a1.25,1.25,0,0,0,0-2.5H18.66a1.25,1.25,0,0,0,0,2.5Z" style="fill: #1d1d1b"/>
+    <path d="M24.79,26.78H18.66a1.25,1.25,0,0,0,0,2.5h6.13a1.25,1.25,0,0,0,0-2.5Z" style="fill: #1d1d1b"/>
   </g>
 </svg>
