@@ -12957,12 +12957,14 @@
 	        {
 	            buildMobileVersion();
 	        }
+	        //else {
+	        //    console.log("scrollWidth = " + aElChild[0].scrollWidth);
+	        //    console.log(bMobBuilt);
+	        //}
 
 	        // 2. reindex and reposition
 	        reindex();
 	        reposition();
-
-	        console.log("we are resizing");
 	    }
 
 	    /**
