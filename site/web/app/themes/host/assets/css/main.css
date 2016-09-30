@@ -1502,6 +1502,10 @@ dl.-horizontal dd ~ dd {
   padding: 1.875rem;
 }
 
+.box--mega-padding {
+  padding: 2.5rem;
+}
+
 .box--red {
   background-color: #d50e3c;
   color: #fff;
@@ -6204,6 +6208,19 @@ a.article-tile__link:hover .article-tile__location {
   margin-top: 40px;
 }
 
+.content-404 {
+  display: block;
+  max-width: 26.875rem;
+}
+
+.content-404__image {
+  display: block;
+}
+
+.content-404__title {
+  margin-bottom: 10px;
+}
+
 .clear {
   clear: both;
 }
@@ -7389,6 +7406,9 @@ a.article-tile__link:hover .article-tile__location {
   }
   .box--more-padding{
     padding: 3.125rem 5rem;
+  }
+  .box--mega-padding{
+    padding: 7.5rem 5rem;
   }
   .js-flyout__button[class]{
     height: 100%;
