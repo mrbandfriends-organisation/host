@@ -4894,7 +4894,7 @@ a.btn {
   transition: opacity 1s, transform 1s, right 0ms 1s;
   background: #f5f5f5;
   opacity: 0;
-  z-index: 100;
+  z-index: 9000;
 }
 
 .favourites__flyout.-open {
