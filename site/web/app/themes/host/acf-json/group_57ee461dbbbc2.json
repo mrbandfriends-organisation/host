@@ -1,0 +1,64 @@
+{
+    "key": "group_57ee461dbbbc2",
+    "title": "Tracking",
+    "fields": [
+        {
+            "key": "field_57ee461dc4413",
+            "label": "Trackable external URLs",
+            "name": "trackable_external_urls",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": "",
+            "max": "",
+            "layout": "table",
+            "button_label": "Add Row",
+            "sub_fields": [
+                {
+                    "key": "field_57ee466f7b9ad",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "text",
+                    "instructions": "Please add any URLs which should be tracked by the Host Google Analytics when users continue their journey via an external link.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-tracking-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1475235423
+}
