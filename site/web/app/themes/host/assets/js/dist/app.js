@@ -12956,10 +12956,11 @@
 	        if ((aElChild[0].scrollWidth === 0) && !bMobBuilt)
 	        {
 	            buildMobileVersion();
-	        } else {
-	            console.log("scrollWidth = " + aElChild[0].scrollWidth);
-	            console.log(bMobBuilt);
 	        }
+	        //else {
+	        //    console.log("scrollWidth = " + aElChild[0].scrollWidth);
+	        //    console.log(bMobBuilt);
+	        //}
 
 	        // 2. reindex and reposition
 	        reindex();
