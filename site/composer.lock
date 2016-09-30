@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "253c1207d63a00ad63f5e49d0b6b3b20",
-    "content-hash": "9249a61f9f80fa82fd8d4917a72d3c8a",
+    "hash": "60983adac3f28079eb92f91643cd7a83",
+    "content-hash": "b5e06c142ccf97f14da2d72a007e01d3",
     "packages": [
         {
             "name": "composer/installers",
@@ -342,6 +342,26 @@
             "time": "2016-09-01 10:05:43"
         },
         {
+            "name": "wpackagist-plugin/better-wp-security",
+            "version": "5.6.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/better-wp-security/",
+                "reference": "tags/5.6.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/better-wp-security.5.6.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/better-wp-security/"
+        },
+        {
             "name": "wpackagist-plugin/codepress-admin-columns",
             "version": "2.5.6.3",
             "source": {
@@ -360,6 +380,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/codepress-admin-columns/"
+        },
+        {
+            "name": "wpackagist-plugin/stream",
+            "version": "3.0.7",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/stream/",
+                "reference": "tags/3.0.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/stream.3.0.7.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/stream/"
         },
         {
             "name": "wpackagist-plugin/wordpress-seo",
