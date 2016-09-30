@@ -16,12 +16,14 @@
 
 <section class="band slideshow js-slideshow slideshow--large-pagination slideshow--light-pagination slideshow--animate-in" data-pagination="pn dots">
     <ul class="slideshow__list js-slideshow__list">
-    <?php foreach ( $carousel_images AS $image): ?>
-        <li class="slideshow__item js-slideshow__item" style="background-image:url(<?=$image['sizes']['large'];?>);">
-            <img src="<?php echo $image['sizes']['large']; ?>" class="slideshow__image js-slideshow__image" alt="<?=$image['alt']; ?>">
+        
+        <?php echo $info_box; ?>
 
-            <?php echo $info_box; ?>
-        </li>
-    <?php endforeach; ?>
+        <?php foreach ( $carousel_images AS $image): ?>
+            <li class="slideshow__item js-slideshow__item" style="background-image:url(<?=$image['sizes']['large'];?>);">
+                <img src="<?php echo $image['sizes']['large']; ?>" class="slideshow__image js-slideshow__image" alt="<?=$image['alt']; ?>">
+
+            </li>
+        <?php endforeach; ?>
     </ul>
 </section>

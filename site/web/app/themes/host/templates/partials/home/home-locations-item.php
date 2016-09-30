@@ -7,6 +7,7 @@
 
 
     $connected_internal_building_id = host_location_find_internal_connected_buildings(get_the_id());
+    $connected_building_availibility = get_field('availability', $connected_internal_building_id);
 ?>
 
 <?php
@@ -27,11 +28,11 @@
             <?=esc_html($no_of_props); ?> <?php if ( $no_of_props === 1 ) { echo "property"; } else { echo "properties"; } ?> available
             <a href="<?php echo esc_url($url); ?>" class="btn btn--very-small btn--narrow">Show me homes</a>
         </p>
-        <?php if ($connected_internal_building_id) { ?>
+        <?php if ( $connected_building_availibility === 'available' ) : ?>
           <p class="checkerboard-item__feeling-lucky">
               I’m feeling lucky:
               <a href="<?php echo esc_url(get_permalink($connected_internal_building_id)); ?>" class="btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
           </p>
-        <?php } ?>
+      <?php endif; ?>
     </div>
 </article>
