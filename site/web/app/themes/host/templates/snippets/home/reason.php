@@ -8,6 +8,7 @@
     $reasons                = ( !empty($reasons) ? $reasons : null );
     $reasons_button_text    = ( !empty($reasons_button_text) ? $reasons_button_text : null );
     $reasons_button_link    = ( !empty($reasons_button_link) ? $reasons_button_link : null );
+    $disclaimer             = ( !empty(get_field('reasons_small_print')) ? get_field('reasons_small_print') : null );
 ?>
 
 <?php if ( !empty($reason_title_1) && !empty($reason_title_1) ): ?>
@@ -32,6 +33,10 @@
             </li>
         <?php endforeach; ?>
     </ul>
+<?php endif; ?>
+
+<?php if ( !empty($disclaimer) ): ?>
+    <small class="features__small-print"><?php echo esc_html($disclaimer); ?></small>
 <?php endif; ?>
 
 <?php if ( !empty($reasons_button_text) && !empty($reasons_button_link) ): ?>

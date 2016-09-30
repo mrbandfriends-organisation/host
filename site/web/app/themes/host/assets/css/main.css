@@ -6148,6 +6148,11 @@ a.article-tile__link:hover .article-tile__location {
   object-fit: cover;
 }
 
+.features__small-print {
+  display: block;
+  padding-left: 10px;
+}
+
 .generic-content-page {
   padding: 40px 0;
 }
