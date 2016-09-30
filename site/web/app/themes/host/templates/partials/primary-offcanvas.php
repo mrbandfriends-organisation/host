@@ -44,7 +44,11 @@
         </ul>
     </div>
 
-    <div class="primary-offcanvas__section">
-        <?php echo Utils\ob_load_template_part('templates/menus/utility-nav.php', $offcanvas_nav_args); ?>
+
+    <div class="primary-offcanvas__section offcanvas-utilities-container">
+        <?php echo Utils\ob_load_template_part('templates/menus/utility-nav.php', array(
+            'modifier' => 'offcanvas'
+        )); ?>
     </div>
+
 </div>

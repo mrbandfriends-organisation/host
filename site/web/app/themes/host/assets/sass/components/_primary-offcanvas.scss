@@ -142,6 +142,16 @@
     }
 }
 
+.offcanvas-utilities-container {
+    nav {
+        width: 100%;
+
+        a {
+            color: #fff;
+        }
+    }
+}
+
 
 // ==========================================================================
 // TOGGLE
@@ -208,7 +218,11 @@
 // TOGGLE
 // ==========================================================================
 
-// .primary-offcanvas__social-icons {}
+.primary-offcanvas__social-icons {
+    @media screen and (max-height: 479px) {
+        display: none;
+    }
+}
 
 .offcanvas-social-icons {
     @include list-reset;
@@ -245,6 +259,7 @@
     select {
         background: transparent;
         color: brand(sky);
+        margin-bottom: 0;
         padding: $quarter-spacing-unit 0;
         border: none;
         border-bottom: $base-border;
