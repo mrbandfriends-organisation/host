@@ -1255,6 +1255,10 @@ thead tr:last-child th {
   fill: #00c0f3;
 }
 
+.svg-icon--ink {
+  fill: #21293c;
+}
+
 .svg-icon--small {
   width: 1rem;
   height: 1rem;
@@ -5455,6 +5459,45 @@ a.btn {
   padding: 40px;
 }
 
+.social-sharing-container {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.social-sharing {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: row;
+      flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.social-sharing__item {
+  margin-left: 10px;
+}
+
+.social-sharing__item:first-of-type {
+  margin-left: 5px;
+}
+
+.social-sharing__link:hover .social-sharing__icon, .social-sharing__link:focus .social-sharing__icon {
+  transform: translate3d(0, -0.25rem, 0);
+}
+
+.social-sharing__icon {
+  transform: translate3d(0, 0, 0);
+  transition: all ease-in-out 0.2s;
+}
+
 .banner {
   width: 100%;
   padding: 0 0 0.9375rem;
@@ -7440,6 +7483,9 @@ a.article-tile__link:hover .article-tile__location {
   }
   .contact-form-section{
     padding: 80px;
+  }
+  .social-sharing-container{
+    margin-bottom: 40px;
   }
   .banner{
     padding: 0 0 1.25rem;
