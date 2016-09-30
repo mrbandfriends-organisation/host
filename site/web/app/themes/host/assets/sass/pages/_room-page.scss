@@ -85,6 +85,10 @@
     @include mq(large) {
         margin-top: $triple-spacing-unit;
     }
+
+    h2:first-line {
+        color: brand(mint) !important;
+    }
 }
 
 .room-details-aside__logo {

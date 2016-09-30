@@ -30,11 +30,11 @@
             </strong>
             <p>
                 <?php
-                    if( have_rows('living_space') ):?>
+                    if( have_rows('the_amenities') ):?>
                         <ul class="listed-room__features">
-                            <?php while ( have_rows('living_space') ) : the_row();
+                            <?php while ( have_rows('the_amenities') ) : the_row();
 
-                                $item_name = get_sub_field('name');
+                                $item_name = get_sub_field('description');
                             ?>
                             <li class="listed-room__features-item">
                                 <?=esc_html($item_name); ?>

@@ -120,11 +120,23 @@ class container
         {
             $aoBuildings->the_post();
 
+            if ($is_external = (get_field('external_website')) === true):
+                $return_url = get_field('website_url');
+                $return_attrs = 'target="_blank" rel="noopener" rel="noreferrer"';
+                $return_message = 'Take me to the website';
+            else:
+                $return_url = get_the_permalink();
+                $return_attrs = '';
+                $return_message = 'Show me this property';
+            endif;
+
             // a. basic info
             $aReturn = [
                 'id'                => get_the_ID(),
                 'title'             => get_the_title(),
-                'url'               => get_the_permalink(),
+                'url'               => $return_url,
+                'attrs'             => $return_attrs,
+                'btn_message'       => $return_message,
                 'availability'      => RoomsBuildings\availability_status(get_field('availability'))
             ];
 
