@@ -14,27 +14,34 @@ if( function_exists('acf_add_options_page') ) {
 		'redirect'		=> false
 	));
 
-			// SUB PAGES
-			acf_add_options_sub_page(array(
-				'page_title' 	=> 'Contact Settings',
-				'menu_title'	=> 'Contact Settings',
-				'parent_slug'	=> 'site-options',
-				'autoload' 		=> false,
-			));
+	// SUB PAGES
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Contact Settings',
+		'menu_title'	=> 'Contact Settings',
+		'parent_slug'	=> 'site-options',
+		'autoload' 		=> false,
+	));
 
-			acf_add_options_sub_page(array(
-				'page_title' 	=> 'Social Settings',
-				'menu_title'	=> 'Social Settings',
-				'parent_slug'	=> 'site-options',
-				'autoload' 		=> false,
-			));
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Social Settings',
+		'menu_title'	=> 'Social Settings',
+		'parent_slug'	=> 'site-options',
+		'autoload' 		=> false,
+	));
 
-			acf_add_options_sub_page(array(
-				'page_title' 	=> 'StarRez Settings',
-				'menu_title'	=> 'StarRez Settings',
-				'parent_slug'	=> 'site-options',
-				'autoload' 		=> false,
-			));
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'StarRez Settings',
+		'menu_title'	=> 'StarRez Settings',
+		'parent_slug'	=> 'site-options',
+		'autoload' 		=> false,
+	));
+
+    acf_add_options_sub_page(array(
+		'page_title' 	=> 'Tracking settings',
+		'menu_title'	=> 'Tracking Settings',
+		'parent_slug'	=> 'site-options',
+		'autoload' 		=> false,
+	));
 
 
 	// CONTENT SLICES
