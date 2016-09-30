@@ -4408,8 +4408,13 @@ a.btn {
   margin-top: 1.25rem;
 }
 
+.listed-property__main {
+  min-height: 18.75rem;
+}
+
 .listed-property__content {
   position: relative;
+  height: 100%;
 }
 
 .listed-property__title,
@@ -4427,7 +4432,7 @@ a.btn {
 }
 
 .listed-property__address-contact {
-  margin-top: 1.875rem;
+  margin-top: auto;
 }
 
 .listed-property__address-contact .btn, .listed-property__address-contact .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .listed-property__address-contact select {
