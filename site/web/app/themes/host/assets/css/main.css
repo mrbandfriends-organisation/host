@@ -4489,11 +4489,29 @@ a.btn {
 }
 
 .room-list-nav__item {
+  position: relative;
+  transition: all ease-in-out 0.2s;
+}
+
+.room-list-nav__item:after {
+  position: absolute;
+  content: "";
+  background-color: transparent;
+  width: 1.875rem;
+  height: 1.875rem;
+  left: -2.8125rem;
+  opacity: 0;
+  transform: rotate(45deg);
   transition: all ease-in-out 0.2s;
 }
 
 .room-list-nav__item:hover {
   border-bottom-color: #fff;
+  cursor: pointer;
+}
+
+.room-list-nav__item:hover:after {
+  opacity: 1;
 }
 
 .room-list-nav__item:hover a.room-list-nav__link {
@@ -4502,6 +4520,7 @@ a.btn {
 
 a.room-list-nav__link {
   color: #21293c;
+  transition: all ease-in-out 0.2s;
 }
 
 a.room-list-nav__link:hover {
@@ -8008,6 +8027,10 @@ a.article-tile__link:hover .article-tile__location {
   .room-list-nav{
     margin: 0;
     padding: 3.125rem;
+  }
+  .room-list-nav__item:after{
+    left: -4.0625rem;
+    background-color: #fff;
   }
   .stacked-gallery{
     min-height: 25vh;
