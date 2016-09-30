@@ -43,4 +43,8 @@
             </li>
         </ul>
     </div>
+
+    <div class="primary-offcanvas__section">
+        <?php echo Utils\ob_load_template_part('templates/menus/utility-nav.php', $offcanvas_nav_args); ?>
+    </div>
 </div>
