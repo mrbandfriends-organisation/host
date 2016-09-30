@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9fdd9444285a8aea1ccdf0fdfc73c416",
-    "content-hash": "3f5c4bcf5d2af63812c2ff34b8672e0c",
+    "hash": "60983adac3f28079eb92f91643cd7a83",
+    "content-hash": "b5e06c142ccf97f14da2d72a007e01d3",
     "packages": [
         {
             "name": "composer/installers",
@@ -109,16 +109,16 @@
         },
         {
             "name": "johnpbloch/wordpress",
-            "version": "4.5.3",
+            "version": "4.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/johnpbloch/wordpress.git",
-                "reference": "f5c6f4dd899e6365ddf2752d2705ed1de7e10715"
+                "reference": "aca8da84b4a699b16b8bcc96d2bc794a4c7b5ae3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/f5c6f4dd899e6365ddf2752d2705ed1de7e10715",
-                "reference": "f5c6f4dd899e6365ddf2752d2705ed1de7e10715",
+                "url": "https://api.github.com/repos/johnpbloch/wordpress/zipball/aca8da84b4a699b16b8bcc96d2bc794a4c7b5ae3",
+                "reference": "aca8da84b4a699b16b8bcc96d2bc794a4c7b5ae3",
                 "shasum": ""
             },
             "require": {
@@ -142,7 +142,7 @@
                 "blog",
                 "cms"
             ],
-            "time": "2016-06-21 16:31:21"
+            "time": "2016-09-07 15:01:47"
         },
         {
             "name": "johnpbloch/wordpress-core-installer",
@@ -342,6 +342,26 @@
             "time": "2016-09-01 10:05:43"
         },
         {
+            "name": "wpackagist-plugin/better-wp-security",
+            "version": "5.6.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/better-wp-security/",
+                "reference": "tags/5.6.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/better-wp-security.5.6.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/better-wp-security/"
+        },
+        {
             "name": "wpackagist-plugin/codepress-admin-columns",
             "version": "2.5.6.3",
             "source": {
@@ -362,16 +382,36 @@
             "homepage": "https://wordpress.org/plugins/codepress-admin-columns/"
         },
         {
-            "name": "wpackagist-plugin/wordpress-seo",
-            "version": "3.5",
+            "name": "wpackagist-plugin/stream",
+            "version": "3.0.7",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
-                "reference": "tags/3.5"
+                "url": "https://plugins.svn.wordpress.org/stream/",
+                "reference": "tags/3.0.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.3.5.zip",
+                "url": "https://downloads.wordpress.org/plugin/stream.3.0.7.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/stream/"
+        },
+        {
+            "name": "wpackagist-plugin/wordpress-seo",
+            "version": "3.6",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/wordpress-seo/",
+                "reference": "tags/3.6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/wordpress-seo.3.6.zip",
                 "reference": null,
                 "shasum": null
             },
