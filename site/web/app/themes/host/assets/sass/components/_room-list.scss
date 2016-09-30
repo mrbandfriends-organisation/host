@@ -61,7 +61,7 @@
         left: -(rem(45));
         opacity: 0;
         transform: rotate(45deg);
-        transition: opacity ease-in-out 0.2s;
+        transition: all ease-in-out 0.2s;
 
         @include mq(large) {
             left: -(rem(50) + rem(15));
@@ -86,6 +86,7 @@
 
 a.room-list-nav__link {
     color: brand(ink);
+    transition: all ease-in-out 0.2s;
 
     &:hover {
         text-decoration: none;

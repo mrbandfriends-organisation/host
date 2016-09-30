@@ -4502,7 +4502,7 @@ a.btn {
   left: -2.8125rem;
   opacity: 0;
   transform: rotate(45deg);
-  transition: opacity ease-in-out 0.2s;
+  transition: all ease-in-out 0.2s;
 }
 
 .room-list-nav__item:hover {
@@ -4520,6 +4520,7 @@ a.btn {
 
 a.room-list-nav__link {
   color: #21293c;
+  transition: all ease-in-out 0.2s;
 }
 
 a.room-list-nav__link:hover {
