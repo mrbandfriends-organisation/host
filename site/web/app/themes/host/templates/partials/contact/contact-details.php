@@ -104,8 +104,12 @@
                                     // strip unneeded newlines
                                     $address = trim(preg_replace("/\n\n+/", "\n", $address));
 
+                                    $google_maps_address = join("\n", [
+                                        $town_city . " ",
+                                        $post_code
+                                    ]);
                                     // Removing spaces for google maps string
-                                    $google_maps_address = str_replace(" ", '+', esc_html($address));
+                                    $google_maps_address = str_replace(" ", '+', esc_html($google_maps_address));
                                 ?>
 
                                     <?php if ( !empty($address) ): ?>
@@ -121,7 +125,7 @@
                                                     <?=str_replace("\n", '<br>', esc_html($address)); ?>
                                                 </p>
 
-                                                <a class="" href="https://www.google.com/maps?daddr=<?= $google_maps_address ?>); ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
+                                                <a class="" href="https://www.google.com/maps?daddr=<?= $google_maps_address ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
                                                     Get directions
                                                 </a>
 
