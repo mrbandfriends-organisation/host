@@ -11039,7 +11039,7 @@
 	    '</header>'+
 	    '<p><strong>Availability:</strong> {{availability.text}}</p>'+
 	    '<footer class="favourites__favourite__footer">'+
-	        '<a href="{{url}}" class="btn btn--small">Show me this property</a>'+
+	        '<a {{attrs}} href="{{url}}" class="btn btn--small">{{btn_message}}</a>'+
 	    '</footer>'+
 	'</article>';
 
@@ -11466,7 +11466,7 @@
 	module.exports = (function()
 	{
 	    "use strict";
-	    
+
 	    new FavouriteManager();
 	})();
 
@@ -12957,6 +12957,10 @@
 	        {
 	            buildMobileVersion();
 	        }
+	        //else {
+	        //    console.log("scrollWidth = " + aElChild[0].scrollWidth);
+	        //    console.log(bMobBuilt);
+	        //}
 
 	        // 2. reindex and reposition
 	        reindex();

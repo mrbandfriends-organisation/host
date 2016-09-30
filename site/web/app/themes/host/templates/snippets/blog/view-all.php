@@ -3,9 +3,9 @@
 ?>
 
 <?php
-    $title_1     = get_field('title_1','option');
-    $title_2     = get_field('title_2','option');
-    $description = get_field('description','option');
+    $title_1     = get_field('blogs_title_1','option');
+    $title_2     = get_field('blogs_title_2','option');
+    $description = get_field('blogs_description','option');
 ?>
 
 <h2>

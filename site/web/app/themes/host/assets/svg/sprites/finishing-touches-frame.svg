@@ -1,10 +1,7 @@
-<svg id="25e9b012-41d9-4bfd-9e89-4276ab74d274" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.6 39.32">
+<svg id="3c832db6-0871-4780-9d0c-4b064d295c73" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36.6 39.32">
   <title>finishing-touches-frame</title>
   <g>
-    <rect x="1.25" y="10.8" width="34.1" height="27.28" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <polyline points="8.07 10.8 18.3 1.25 28.53 10.8" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <circle cx="9.72" cy="17.2" r="2.73" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <polyline points="1.77 34.82 12.16 24.44 23.13 38.07" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <polyline points="16.93 29.21 24.44 21.71 35.35 32.62" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <path d="M35.35,9.55H29L19.15.34a1.25,1.25,0,0,0-1.71,0L7.58,9.55H1.25A1.25,1.25,0,0,0,0,10.8V38.07a1.25,1.25,0,0,0,1.25,1.25h34.1a1.25,1.25,0,0,0,1.25-1.25V10.8A1.25,1.25,0,0,0,35.35,9.55ZM18.3,3l7.06,6.59H11.24ZM34.1,12V29.6l-8.78-8.78a1.25,1.25,0,0,0-1.77,0l-7,7-3.38-4.21a1.25,1.25,0,0,0-.91-.46,1.27,1.27,0,0,0-1,.36L2.5,32.33V12ZM2.5,35.81a1.18,1.18,0,0,0,.16-.1l9.4-9.4,8.46,10.52H2.5Zm21.23,1-5.63-7,6.34-6.34,9.66,9.66v3.69Z" style="fill: #1d1d1b"/>
+    <path d="M9.72,21.17a4,4,0,1,0-4-4A4,4,0,0,0,9.72,21.17Zm0-5.46a1.48,1.48,0,1,1-1.48,1.48A1.48,1.48,0,0,1,9.72,15.72Z" style="fill: #1d1d1b"/>
   </g>
 </svg>

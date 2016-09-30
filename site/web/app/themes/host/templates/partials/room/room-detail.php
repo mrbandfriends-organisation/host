@@ -58,6 +58,12 @@
 
                 <?php endwhile; ?>
             </ul>
+    <?php else: ?>
+        <div class="grid">
+            <p class="gc m1-2">
+                All our rooms have been designed to help you make the most of your time at university. They will be ultra modern, and include lots of little luxuries like high-tech kitchens and beautiful bathrooms. All pictures are indicative as all rooms slightly vary.
+            </p>
+        </div>
     <?php endif; ?>
         <div class="book box box--less-padding box--padded box--ink">
             <h2 class="book__heading h3"><?= esc_html($building_name); ?><br><?= esc_html($city); ?></h2>

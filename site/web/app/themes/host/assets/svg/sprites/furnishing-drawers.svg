@@ -1,9 +1,8 @@
-<svg id="f732755f-4113-4552-b2b3-cbe8dc39762b" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.69 29.84">
+<svg id="a34b9694-9654-4aa4-af56-0ef3c77a8179" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.69 29.84">
   <title>furnishing-drawers</title>
   <g>
-    <line x1="21.75" y1="8.93" x2="26.85" y2="8.93" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <line x1="21.75" y1="20.75" x2="26.85" y2="20.75" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <rect x="1.25" y="1.25" width="46.19" height="27.34" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
-    <line x1="1.25" y1="14.92" x2="47.44" y2="14.92" fill="none" stroke="#231f20" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+    <path d="M21.75,10.18h5.1a1.25,1.25,0,1,0,0-2.5h-5.1a1.25,1.25,0,1,0,0,2.5Z" style="fill: #1d1d1b"/>
+    <path d="M26.85,19.5h-5.1a1.25,1.25,0,0,0,0,2.5h5.1a1.25,1.25,0,0,0,0-2.5Z" style="fill: #1d1d1b"/>
+    <path d="M47.44,0H1.25A1.25,1.25,0,0,0,0,1.25V28.59a1.25,1.25,0,0,0,1.25,1.25H47.44a1.25,1.25,0,0,0,1.25-1.25V1.25A1.25,1.25,0,0,0,47.44,0ZM46.19,2.5V13.67H2.5V2.5ZM2.5,27.34V16.17H46.19V27.34Z" style="fill: #1d1d1b"/>
   </g>
 </svg>
