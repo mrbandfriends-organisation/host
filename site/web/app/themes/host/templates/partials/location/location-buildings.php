@@ -4,6 +4,7 @@
      **/
     use Roots\Sage\Utils;
     use Roots\Sage\RoomsBuildings;
+    use Roots\Sage\Extras;
 
     // get buildings
     $buildings = new WP_Query([
@@ -98,11 +99,11 @@
                             <p>
                                 <a href="<?=$sUrl; ?>" class="btn"<?=$sAtts; ?>><?=$sBtnText; ?></a>
 
-                                <?php if ( $aAvailabilityDefinition['text'] !== 'Sold out' ): ?>
+                                <?php if ( $aAvailabilityDefinition['text'] !== 'Sold out' && !$bExternal ): ?>
 
                                     <?php $booking_url = get_field('booking_url', 'option'); ?>
-                                    
-                                    <a href="<?=$booking_url; ?>" class="btn btn--red listed-property__booking-btn">Book now</a>
+
+                                    <a href="<?=$booking_url; ?>" class="btn btn--red listed-property__booking-btn" <?php Extras\link_open_new_tab_attrs(); ?>>Book now</a>
 
                                 <?php endif; ?>
                             </p>

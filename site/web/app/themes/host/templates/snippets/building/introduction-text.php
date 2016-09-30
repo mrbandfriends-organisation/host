@@ -1,5 +1,6 @@
 <?php
     use Roots\Sage\Utils;
+    use Roots\Sage\Extras;
 ?>
 
 <?php
@@ -22,4 +23,4 @@
 
 <?php $booking_url = get_field('booking_url', 'option'); ?>
 
-<a href="<?= esc_attr($booking_url); ?>" class="btn btn--red">Book now</a>
+<a href="<?= esc_attr($booking_url); ?>" class="btn btn--red" <?php Extras\link_open_new_tab_attrs(); ?>>Book now</a>
