@@ -7,10 +7,14 @@ For more information about keeping good change logs please refer to [keep a chan
 ## Changelog
 
 
+## [1.0.0] - 2016-09-30
+
+Initial release to master.
+
 
 ## [0.8.0] - 2016-09-30
 
-Initial release to master.
+Beta release to master.
 
 
 
