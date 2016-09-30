@@ -13,10 +13,12 @@
         <div class="pricing__option">
             <h3 class="pricing__heading plain h4">1. The simple stuff:</h3>
 
+
+            <?php foreach ($pricing_options as $pricing_option): ?>
                 <?php
-                    $simple_weeks = $pricing_options[0]['number_of_weeks'];
-                    $date_range = $pricing_options[0]['date_range'];
-                    $price_per_week = $pricing_options[0]['price_per_week'];
+                    $simple_weeks   = $pricing_option['number_of_weeks'];
+                    $date_range     = $pricing_option['date_range'];
+                    $price_per_week = $pricing_option['price_per_week'];
                 ?>
                 <ul class="pricing__lisiting grid grid--gutter">
                     <li class="gc l1-3 pricing__lisiting-item pricing__lisiting-item--photo">
@@ -64,38 +66,38 @@
                         </div>
                     </li>
                 </ul>
+            <?php endforeach; ?>
 
-                    <h3 class="pricing__heading plain h4">2. Payment &amp; installment plans</h3>
 
-                    <ul class="pricing__lisiting grid grid--gutter flex">
-                        <?php $counter = 1; ?>
-                        <?php foreach ($pricing_options[0]['payment_plans'] as $payment_plan):?>
-                            <?php $listing_item_modifier = ($counter === 1 ? 'pricing__lisiting-item--first' : null); ?>
+            <h3 class="pricing__heading plain h4">2. Payment &amp; installment plans</h3>
+            <ul class="pricing__lisiting grid grid--gutter flex">
+                <?php $counter = 1; ?>
+                <?php // var_dump($pricing_options) ?>
+                <?php foreach ($pricing_options as $payment_plan):?>
+                    <?php $listing_item_modifier = ($counter === 1 ? 'pricing__lisiting-item--first' : null); ?>
 
-                            <li class="gc l1-3 pricing__lisiting-item <?php echo esc_attr($listing_item_modifier); ?>">
-                                <?php
-                                    $title = $payment_plan['title'];
-                                    $subtitle = $payment_plan['subtitle'];
-                                    $content = $payment_plan['content'];
-                                ?>
-                                <div class="pricing-header">
-                                    <h4 class="pricing-header__heading">
-                                        <?php echo esc_html($title);?>
-                                    </h4>
-                                    <span class="pricing-header__smallprint">
-                                        <?= esc_html($subtitle) ?>
-                                    </span>
-                                </div>
-                                <div class="pricing-body box box--less-padding">
-                                    <?php
-                                        echo Utils\esc_text_area__($content);
-                                    ?>
-                                </div>
-                            </li>
-
-                        <?php endforeach; ?>
-
-                    </ul>
+                    <li class="gc l1-3 pricing__lisiting-item <?php echo esc_attr($listing_item_modifier); ?>">
+                        <?php
+                            $title = $payment_plan['title'];
+                            $subtitle = $payment_plan['subtitle'];
+                            $content = $payment_plan['content'];
+                        ?>
+                        <div class="pricing-header">
+                            <h4 class="pricing-header__heading">
+                                <?php echo esc_html($title);?>
+                            </h4>
+                            <span class="pricing-header__smallprint">
+                                <?= esc_html($subtitle) ?>
+                            </span>
+                        </div>
+                        <div class="pricing-body box box--less-padding">
+                            <?php
+                                echo Utils\esc_text_area__($content);
+                            ?>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
         </div>
     </div>
 <?php endif; ?>
