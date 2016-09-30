@@ -2249,6 +2249,7 @@ dl.-horizontal dd ~ dd {
 
 .slideshow__list {
   position: relative;
+  width: 100%;
   overflow: hidden;
 }
 
