@@ -4556,7 +4556,7 @@ a.room-list-nav__link:hover {
 
 .listed-room__content .slideshow__item {
   padding-top: 82.5%;
-  height: auto !important;
+  height: 100%;
 }
 
 .listed-room__content .slideshow__image {
@@ -6181,6 +6181,10 @@ a.article-tile__link:hover .article-tile__location {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.checkerboard__mobile:nth-of-type(2) {
+  display: none;
 }
 
 .features__small-print {
