@@ -185,6 +185,25 @@
             ]
         },
         {
+            "key": "field_57ee53d7a3291",
+            "label": "Reasons Small Print",
+            "name": "reasons_small_print",
+            "type": "text",
+            "instructions": "This text appears below the list of features in small text.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_57c958f1061d4",
             "label": "Button text",
             "name": "reasons_button_text",
@@ -404,5 +423,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1473257726
+    "modified": 1475236860
 }
