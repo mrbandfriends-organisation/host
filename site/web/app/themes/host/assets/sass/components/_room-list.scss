@@ -140,8 +140,7 @@ a.room-list-nav__link {
     // ======================================================================
     .slideshow__item {
         padding-top: 82.5%;
-
-        height: auto !important; // scss-lint:disable ImportantRule
+        height: 100%; // scss-lint:disable ImportantRule
     }
 
     .slideshow__image {
