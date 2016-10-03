@@ -28,6 +28,10 @@
 
 .listed-property__main {
     min-height: rem(300);
+
+    @include mq($until: large) {
+        order: 2;
+    }
 }
 
 // Content

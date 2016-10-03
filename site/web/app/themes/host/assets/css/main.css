@@ -3512,6 +3512,11 @@ img.mfp-img {
   border-bottom-color: #00c0f3;
 }
 
+.gf-field-container input:focus + label,
+.gf-field-container select:focus + label {
+  transform: translateY(-20px);
+}
+
 .gf-field-container textarea {
   margin-bottom: 20px;
 }
@@ -5686,6 +5691,7 @@ a.room-list-nav__link:hover {
 }
 
 .nav-primary--offcanvas .menu-item .nav-primary__link {
+  display: block;
   color: #fff;
   transition: color ease-in-out 0.25s;
 }
@@ -9097,6 +9103,10 @@ a.article-tile__link:hover .article-tile__location {
   }
   .billboard__inner{
     background-image: none !important;
+  }
+  .listed-property__main{
+    -ms-flex-order: 2;
+    order: 2;
   }
   .secondary-split-feature__aside{
     min-height: 30vh;
