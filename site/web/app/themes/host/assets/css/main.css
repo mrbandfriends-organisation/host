@@ -4555,6 +4555,7 @@ a.btn {
   margin: 1em 0;
   font-size: 1.75rem;
   font-weight: bold;
+  letter-spacing: -0.0625rem;
 }
 
 .listed-property__address-contact {
@@ -5566,6 +5567,11 @@ a.room-list-nav__link:hover {
   transition: all ease-in-out 0.2s;
 }
 
+.news-feed__article p {
+  font-size: 0.9375rem;
+  line-height: 1.5625rem;
+}
+
 .banner {
   width: 100%;
   padding: 0 0 0.9375rem;
@@ -6078,6 +6084,7 @@ a.room-list-nav__link:hover {
 }
 
 .article-list {
+  margin: 0;
   -moz-column-gap: 1.25rem;
        column-gap: 1.25rem;
   list-style: none outside;
