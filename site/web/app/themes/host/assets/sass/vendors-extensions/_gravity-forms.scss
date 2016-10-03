@@ -70,6 +70,10 @@
         &:focus {
             border-bottom-color: brand(sky);
         }
+
+        &:focus + label {
+            transform: translateY(-20px);
+        }
     }
 
     textarea {

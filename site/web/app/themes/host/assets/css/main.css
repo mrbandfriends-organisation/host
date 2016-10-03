@@ -3512,6 +3512,11 @@ img.mfp-img {
   border-bottom-color: #00c0f3;
 }
 
+.gf-field-container input:focus + label,
+.gf-field-container select:focus + label {
+  transform: translateY(-20px);
+}
+
 .gf-field-container textarea {
   margin-bottom: 20px;
 }
