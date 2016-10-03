@@ -7,6 +7,22 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.4.2] - 2016-10-03
+### Changed
+- Moved Tag manager output to head
+
+## [1.4.1] - 2016-10-03
+### Changed
+- Changed Google Tag manager key and removed GA key
+
+## [1.4.0] - 2016-10-03
+### Fixed
+- Made mistake with creating hotfix 1.3.1 - doing release to fix this and allow chnages to be deployed.
+
+## [1.3.1] - 2016-10-03
+### Fixed
+- Fixed exporting of gravity forms js to prevent webpack error
+
 ## [1.3.0] - 2016-10-03
 ### Fixed
 - Favourite conditional login on location page
