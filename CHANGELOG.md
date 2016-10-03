@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 ## Changelog
 
 
+## [1.1.1] - 2016-10-03
+### Fixed
+- Re-added number of rooms field
+
 ## [1.0.0] - 2016-09-30
 
 Initial release to master.

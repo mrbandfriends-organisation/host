@@ -432,6 +432,27 @@
             "media_upload": 1
         },
         {
+            "key": "field_57f232f6885aa",
+            "label": "Room types",
+            "name": "room_types",
+            "type": "number",
+            "instructions": "The number of different room types available in this building",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": "",
+            "max": "",
+            "step": ""
+        },
+        {
             "key": "field_57b30befbdda6",
             "label": "Facilities",
             "name": "",
@@ -889,5 +910,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1475157276
+    "modified": 1475490603
 }
