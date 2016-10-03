@@ -7,7 +7,7 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
-## [1.5.0] - 2016-10-03
+## [1.5.1] - 2016-10-03
 ### Fixed
 - Js exporting bug
 
