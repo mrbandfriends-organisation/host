@@ -53,10 +53,12 @@
             $sText = $bExternal ? 'Take me to the website' : 'Show me this property';
             $sAtts = $bExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
             $sBtnText = ($aAvailabilityDefinition['text'] === 'Coming soon') ? '' : $sText;
+
+            $favouriteable = ( $aAvailabilityDefinition['text'] != 'Coming soon' ? 'data-favouritable="' . get_the_id() . '"' : null );
         ?>
         <li class="property-list__item">
             <article class="listed-property grid">
-                <div class="listed-property__main gc l1-2 xl2-3 xxl5-7 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded">
+                <div class="listed-property__main gc l1-2 xl2-3 xxl5-7 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded" <?php echo $favouriteable; ?>>
                     <div class="listed-property__content grid">
                         <div class="listed-property__title-desc gc xxl3-5">
                             <header class="listed-property__header">
@@ -100,11 +102,8 @@
                                 <a href="<?=$sUrl; ?>" class="btn"<?=$sAtts; ?>><?=$sBtnText; ?></a>
 
                                 <?php if ( $aAvailabilityDefinition['text'] !== 'Sold out' && !$bExternal ): ?>
-
                                     <?php $booking_url = get_field('booking_url', 'option'); ?>
-
                                     <a href="<?=$booking_url; ?>" class="btn btn--red listed-property__booking-btn" <?php Extras\link_open_new_tab_attrs(); ?>>Book now</a>
-
                                 <?php endif; ?>
                             </p>
                             <?php endif; ?>

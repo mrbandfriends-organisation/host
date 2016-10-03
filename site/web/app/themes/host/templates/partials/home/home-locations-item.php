@@ -29,10 +29,10 @@
             <a href="<?php echo esc_url($url); ?>" class="btn btn--very-small btn--narrow">Show me homes</a>
         </p>
         <?php if ( $connected_building_availibility === 'available' || $connected_building_availibility === 'limited' ) : ?>
-          <p class="checkerboard-item__feeling-lucky">
-              I’m feeling lucky:
-              <a href="<?php echo esc_url(get_permalink($connected_internal_building_id)); ?>" class="btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
-          </p>
-      <?php endif; ?>
+            <p class="checkerboard-item__feeling-lucky">
+                I’m feeling lucky:
+                <a href="<?php echo esc_url(get_permalink($connected_internal_building_id)); ?>" class="btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
+            </p>
+        <?php endif; ?>
     </div>
 </article>

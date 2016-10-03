@@ -72,6 +72,10 @@
         }
     }
 
+    textarea {
+        margin-bottom: $half-spacing-unit;
+    }
+
     // Adding arrow to select
     .ginput_container_select {
         @include select-arrow(#fff, brand(sky));
@@ -107,5 +111,29 @@
 
     @include mq(large) {
         padding-left: $double-gutter-width;
+    }
+}
+
+
+// ==========================================================================
+// # VALIDATION
+// ==========================================================================
+.validation_error {
+    margin-bottom: $spacing-unit;
+    color: brand(red);
+}
+
+.validation_message {
+    color: brand(red);
+    margin-top: -($quarter-spacing-unit);
+}
+
+.gfield_error.gf-field-container {
+    input {
+        border-bottom-color: brand(red);
+    }
+
+    textarea {
+        border:  brand(red) solid rem(2);
     }
 }
