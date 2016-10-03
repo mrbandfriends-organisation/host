@@ -9,7 +9,7 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## [1.4.0] - 2016-10-03
 ### Fixed
-- Made mistake with creating hotfix 1.3.1 - doing release to fix this
+- Made mistake with creating hotfix 1.3.1 - doing release to fix this and allow chnages to be deployed.
 
 ## [1.3.1] - 2016-10-03
 ### Fixed
