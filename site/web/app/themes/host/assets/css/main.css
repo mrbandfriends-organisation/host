@@ -4551,6 +4551,18 @@ a.btn {
   letter-spacing: -0.0625rem;
 }
 
+.listed-property__availability--sky[class] {
+  color: #00c0f3;
+}
+
+.listed-property__availability--orange[class] {
+  color: #f79433;
+}
+
+.listed-property__availability--red[class] {
+  color: #d50e3c;
+}
+
 .listed-property__number-types {
   margin: 1em 0;
   font-size: 1.75rem;

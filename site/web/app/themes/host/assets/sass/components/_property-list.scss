@@ -60,6 +60,18 @@
     letter-spacing: rem(-1);
 }
 
+.listed-property__availability--sky[class] {
+    color: brand(sky);
+}
+
+.listed-property__availability--orange[class] {
+    color: brand(orange);
+}
+
+.listed-property__availability--red[class] {
+    color: brand(red);
+}
+
 .listed-property__number-types {
     margin: 1em 0;
 
