@@ -1,3 +1,4 @@
+
 # Change Log
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
@@ -6,8 +7,19 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.3.0] - 2016-10-03
+### Fixed
+- Favourite conditional login on location page
+- Added gravity form error highlighting
+### Added
+- Added Postman plugin
+
+## [1.2.0] - 2016-09-30
+### Fixed
+- Attempt to fix the double location select on mobile
 
 ## [1.1.1] - 2016-10-03
+This hotfix should be 1.2.1 but due to 1.2.0 not existing remotely at point of creation it has an incorrect name
 ### Fixed
 - Re-added number of rooms field
 
