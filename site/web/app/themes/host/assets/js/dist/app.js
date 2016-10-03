@@ -103,7 +103,7 @@
 	 */
 
 	// NPM Modules
-	__webpack_require__(35);
+	__webpack_require__(36);
 
 	// extend things
 	__webpack_require__(13);
@@ -175,25 +175,27 @@
 
 	    __webpack_require__(26);
 
-	    __webpack_require__(30)();
+	    __webpack_require__(31)();
 
 	    __webpack_require__(28)();
 
-	    __webpack_require__(33)();
+	    __webpack_require__(34)();
 
-	    __webpack_require__(31)();
+	    __webpack_require__(32)();
 
 	    // require('bind-inview')();
 
 	    // require('onpage-smooth-scroll')();
 
-	    __webpack_require__(29)();
+	    __webpack_require__(30)();
 
 	    __webpack_require__(27)();
 
 	    __webpack_require__(14);
 
-	    __webpack_require__(32)();
+	    __webpack_require__(33)();
+
+	    __webpack_require__(29)();
 	})();
 
 
@@ -10342,10 +10344,10 @@
 
 	var _ = __webpack_require__(3);
 	var cls = __webpack_require__(9);
-	var defaultSettings = __webpack_require__(46);
+	var defaultSettings = __webpack_require__(47);
 	var dom = __webpack_require__(6);
-	var EventManager = __webpack_require__(43);
-	var guid = __webpack_require__(44);
+	var EventManager = __webpack_require__(44);
+	var guid = __webpack_require__(45);
 
 	var instances = {};
 
@@ -11025,9 +11027,9 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	// jshint latedef:nofunc
-	var cookies         = __webpack_require__(34);
+	var cookies         = __webpack_require__(35);
 	var icon            = __webpack_require__(8);
-	var _includes       = __webpack_require__(39);
+	var _includes       = __webpack_require__(40);
 
 	var sFavouriteTemplate =
 	'<article class="box box--fg-{{availability.foreground}} favourites__favourite" data-id="{{id}}">'+
@@ -11830,7 +11832,7 @@
 	 */
 
 	__webpack_require__(1);
-	var EventBus = __webpack_require__(57);
+	var EventBus = __webpack_require__(58);
 
 	var OffCanvasToggler = function(options) {
 	    "use strict";
@@ -12153,7 +12155,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	
-	var debounce = __webpack_require__(38);
+	var debounce = __webpack_require__(39);
 
 	function Slideshow()
 	{
@@ -13348,7 +13350,48 @@
 /* 29 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(40);
+	/* WEBPACK VAR INJECTION */(function($) {/**
+	 * SHOW GRAVITY FORMS VALIDATION MESSAGES
+	 * by default the window won't scroll down to show any
+	 * error messages display
+	 */
+	(function() {
+	    'use strict';
+
+	    // Check for a validation notice (success / fail)
+	    // .add() adds an additional selector to the result set thereby
+	    // allowing us to test for x2 selectors due to GForm variations
+	    var validationNotice = $('.gform_confirmation_message').add('form .validation_error');
+
+	    if ( validationNotice.length ) {
+
+	        // Get the closest parent "div" - only way to be consistent with GForms
+	        var formWrapper = validationNotice.parent().closest('div');
+
+	        var id  = formWrapper.attr('id');
+
+	        // If the form is within a toogled element then show that element
+	        var toggleWrapper = validationNotice.parents('.js-toggle-form');
+
+	        if (toggleWrapper.length) {
+	            toggleWrapper.show();
+	        }
+
+	        // Skip to the document point
+	        if (id !== undefined) {
+	            window.location.hash = id;
+	        }
+	    }
+
+	}());
+
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+
+/***/ },
+/* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/* WEBPACK VAR INJECTION */(function($) {var magnificPopup = __webpack_require__(41);
 
 	module.exports = function()
 	{
@@ -13371,7 +13414,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 30 */
+/* 31 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -13404,7 +13447,7 @@
 	    if (!maps_loaded && !maps_loading)
 	    {
 	        maps_loading = true;
-	        __webpack_require__(37)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+	        __webpack_require__(38)('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
 	    }
 	    else if (maps_loaded)
 	    {
@@ -13416,10 +13459,10 @@
 
 
 /***/ },
-/* 31 */
+/* 32 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(41)($);
+	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(42)($);
 
 	module.exports = function()
 	{
@@ -13451,10 +13494,10 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 32 */
+/* 33 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(58);
+	/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(59);
 	module.exports = function()
 	{
 	    $('.js-slick-fade').slick({
@@ -13483,7 +13526,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ },
-/* 33 */
+/* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var slideshow = __webpack_require__(21);
@@ -13500,7 +13543,7 @@
 
 
 /***/ },
-/* 34 */
+/* 35 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var cookies = function (data, opt) {
@@ -13589,21 +13632,21 @@
 
 
 /***/ },
-/* 35 */
+/* 36 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(36);
+	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["$"] = __webpack_require__(37);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 36 */
+/* 37 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["jQuery"] = __webpack_require__(1);
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 37 */
+/* 38 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
@@ -13632,7 +13675,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 38 */
+/* 39 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -14016,7 +14059,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
-/* 39 */
+/* 40 */
 /***/ function(module, exports) {
 
 	/**
@@ -14767,7 +14810,7 @@
 
 
 /***/ },
-/* 40 */
+/* 41 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*! Magnific Popup - v1.1.0 - 2016-02-20
@@ -16632,21 +16675,21 @@
 	 _checkInstance(); }));
 
 /***/ },
-/* 41 */
+/* 42 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	module.exports = __webpack_require__(42);
+	module.exports = __webpack_require__(43);
 
 
 /***/ },
-/* 42 */
+/* 43 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;'use strict';
 
-	var ps = __webpack_require__(45);
+	var ps = __webpack_require__(46);
 	var psInstances = __webpack_require__(2);
 
 	function mountJQuery(jQuery) {
@@ -16688,7 +16731,7 @@
 
 
 /***/ },
-/* 43 */
+/* 44 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -16765,7 +16808,7 @@
 
 
 /***/ },
-/* 44 */
+/* 45 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -16784,14 +16827,14 @@
 
 
 /***/ },
-/* 45 */
+/* 46 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	var destroy = __webpack_require__(47);
-	var initialize = __webpack_require__(55);
-	var update = __webpack_require__(56);
+	var destroy = __webpack_require__(48);
+	var initialize = __webpack_require__(56);
+	var update = __webpack_require__(57);
 
 	module.exports = {
 	  initialize: initialize,
@@ -16801,7 +16844,7 @@
 
 
 /***/ },
-/* 46 */
+/* 47 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -16824,7 +16867,7 @@
 
 
 /***/ },
-/* 47 */
+/* 48 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16852,7 +16895,7 @@
 
 
 /***/ },
-/* 48 */
+/* 49 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -16918,7 +16961,7 @@
 
 
 /***/ },
-/* 49 */
+/* 50 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17027,7 +17070,7 @@
 
 
 /***/ },
-/* 50 */
+/* 51 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17163,7 +17206,7 @@
 
 
 /***/ },
-/* 51 */
+/* 52 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17305,7 +17348,7 @@
 
 
 /***/ },
-/* 52 */
+/* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17326,7 +17369,7 @@
 
 
 /***/ },
-/* 53 */
+/* 54 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17441,7 +17484,7 @@
 
 
 /***/ },
-/* 54 */
+/* 55 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17623,7 +17666,7 @@
 
 
 /***/ },
-/* 55 */
+/* 56 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17635,14 +17678,14 @@
 
 	// Handlers
 	var handlers = {
-	  'click-rail': __webpack_require__(48),
-	  'drag-scrollbar': __webpack_require__(49),
-	  'keyboard': __webpack_require__(50),
-	  'wheel': __webpack_require__(51),
-	  'touch': __webpack_require__(54),
-	  'selection': __webpack_require__(53)
+	  'click-rail': __webpack_require__(49),
+	  'drag-scrollbar': __webpack_require__(50),
+	  'keyboard': __webpack_require__(51),
+	  'wheel': __webpack_require__(52),
+	  'touch': __webpack_require__(55),
+	  'selection': __webpack_require__(54)
 	};
-	var nativeScrollHandler = __webpack_require__(52);
+	var nativeScrollHandler = __webpack_require__(53);
 
 	module.exports = function (element, userSettings) {
 	  userSettings = typeof userSettings === 'object' ? userSettings : {};
@@ -17666,7 +17709,7 @@
 
 
 /***/ },
-/* 56 */
+/* 57 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -17709,7 +17752,7 @@
 
 
 /***/ },
-/* 57 */
+/* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*
@@ -17960,7 +18003,7 @@
 
 
 /***/ },
-/* 58 */
+/* 59 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*

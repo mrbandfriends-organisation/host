@@ -97,6 +97,8 @@ require('./ext/NodeList');
     require('FavouriteManager');
 
     require('slick')();
+
+    require('gravity-form-submission')();
 })();
 
 
