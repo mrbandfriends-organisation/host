@@ -90,6 +90,7 @@ $is-oldie: false !default;
 //@import "vendors-extensions/EXAMPLE";
 @import "vendors-extensions/_magnific-popup.scss";
 @import "vendors-extensions/_slick.scss";
+@import "vendors-extensions/_gravity-forms";
 
 
 // # COMPONENTS - http://sass-guidelin.es/#components-folder
@@ -115,7 +116,6 @@ $is-oldie: false !default;
 @import "components/_location-related-buildings.scss";
 @import "components/_carousel-infobox.scss";
 @import "components/_secondary-split-feature";
-@import "components/_gravity-forms";
 @import "components/_in-page-nav";
 @import "components/_book";
 @import "components/_contact-form.scss";
