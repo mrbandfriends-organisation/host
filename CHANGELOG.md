@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.3.1] - 2016-10-03
+### Fixed
+- Fixed exporting of gravity forms js to prevent webpack error
+
 ## [1.3.0] - 2016-10-03
 ### Fixed
 - Favourite conditional login on location page
