@@ -28,7 +28,7 @@ function google_tag_manager_code() {?>
   <?php } ?>
 <?php
 }
-add_action('wp_footer', __NAMESPACE__ . '\\google_tag_manager_code', 21);
+add_action('wp_head', __NAMESPACE__ . '\\google_tag_manager_code', 21);
 
 
 /**
