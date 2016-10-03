@@ -4,7 +4,8 @@
 
 <?php echo Utils\ob_load_template_part('templates/components/hero', array(
     'post_id' => get_the_id(),
-    'color'   => 'off-white'
+    'color'   => 'off-white',
+    'srcset'  => true
 )); ?>
 
 <?php echo Utils\ob_load_template_part('templates/partials/uni/uni-information', array(

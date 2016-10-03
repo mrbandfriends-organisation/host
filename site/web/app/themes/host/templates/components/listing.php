@@ -53,7 +53,8 @@
 ?>
 
 <?php echo Utils\ob_load_template_part('templates/components/hero', array(
-    'post_id'  => $page_id
+    'post_id'  => $page_id,
+    'srcset'   => true
 )); ?>
 
 <?php if ($the_query->have_posts()): ?>
