@@ -98,7 +98,7 @@ require('./ext/NodeList');
 
     require('slick')();
 
-    require('gravity-form-submission')();
+    // require('gravity-form-submission')();
 })();
 
 
