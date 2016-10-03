@@ -28,6 +28,10 @@
 
 .listed-property__main {
     min-height: rem(300);
+
+    @include mq($until: large) {
+        order: 2;
+    }
 }
 
 // Content
@@ -58,6 +62,18 @@
     font-size: rem(35);
     line-height: 1.2;
     letter-spacing: rem(-1);
+}
+
+.listed-property__availability--sky[class] {
+    color: brand(sky);
+}
+
+.listed-property__availability--orange[class] {
+    color: brand(orange);
+}
+
+.listed-property__availability--red[class] {
+    color: brand(red);
 }
 
 .listed-property__number-types {

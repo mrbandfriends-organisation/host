@@ -69,7 +69,7 @@
                                     <?=get_field('title_1'); ?>
                                     <?php if (!empty($sUrl)): ?></a><?php endif; ?>
                                 </h3>
-                                <h4 class="listed-property__availability"><?=$aAvailabilityDefinition['text']; ?></h4>
+                                <h4 class="listed-property__availability listed-property__availability--<?=$aAvailabilityDefinition['foreground']; ?>"><?=$aAvailabilityDefinition['text']; ?></h4>
                             </header>
 
                             <?php if ($iNumberTypes !== null): ?>
