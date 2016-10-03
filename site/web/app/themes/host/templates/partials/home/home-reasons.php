@@ -27,8 +27,8 @@
 ?>
 
 <?php echo Utils\ob_load_template_part('templates/components/split-feature.php', array(
-    'second' => "<img src=\"{$reasons_image}\" />",
     'align'   => "right",
     'color'   => "orange",
-    'content' => $main_content
+    'content' => $main_content,
+    'second' => "<img src=\"{$reasons_image}\" />"
 )); ?>

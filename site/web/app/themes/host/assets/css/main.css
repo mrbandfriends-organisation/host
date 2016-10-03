@@ -5692,6 +5692,7 @@ a.room-list-nav__link:hover {
 }
 
 .nav-primary--offcanvas .menu-item .nav-primary__link {
+  display: block;
   color: #fff;
   transition: color ease-in-out 0.25s;
 }

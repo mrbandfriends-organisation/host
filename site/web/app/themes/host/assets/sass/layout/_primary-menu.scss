@@ -97,6 +97,7 @@
         //border-color: map-get( $brand-tints, mint);
 
         .nav-primary__link {
+            display: block;
             color: #fff;
             transition: color ease-in-out 0.25s;
 
