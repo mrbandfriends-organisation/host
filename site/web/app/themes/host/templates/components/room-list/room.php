@@ -29,21 +29,6 @@
                 <span class="vh">Availability:</span><?=$status['text']; ?>
             </strong>
             <p>
-                <?php
-                    if( have_rows('the_amenities') ):?>
-                        <ul class="listed-room__features">
-                            <?php while ( have_rows('the_amenities') ) : the_row();
-
-                                $item_name = get_sub_field('description');
-                            ?>
-                            <li class="listed-room__features-item">
-                                <?=esc_html($item_name); ?>
-                            </li>
-                            <?php endwhile; ?>
-                        </ul>
-                <?php endif; ?>
-            </p>
-            <p>
                 <a href="<?= esc_url(get_permalink()); ?>" class="btn btn--small btn--narrow">More information</a>
             </p>
         </div>
