@@ -1,3 +1,4 @@
+
 // ==========================================================================
 // # SPLIT FEATURE
 //
@@ -73,7 +74,11 @@
         min-height: 50vh;
     }
 
-    .grid { height: 100%; width: 100%; }
+    .grid {
+        height: 100%;
+        width: 100%;
+        flex-grow: 1;
+    }
 
     .slideshow {
         display: flex;
