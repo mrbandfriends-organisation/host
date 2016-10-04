@@ -7,7 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
-## [1.5.2] - 2016-10-04
+## [1.5.4] - 2016-10-04
+### Fixed
+- Fixed issues with tag manager script include
+
+## [1.5.3] - 2016-10-04
 ### Fixed
 - Fixed incorrect tag manager code
 
