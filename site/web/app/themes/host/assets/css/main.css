@@ -5442,6 +5442,11 @@ a.room-list-nav__link:hover {
   background-color: #fff;
 }
 
+.secondary-split-feature__aside {
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .secondary-split-feature__main {
   position: relative;
 }
