@@ -22,9 +22,9 @@
 
 <?php
 echo Utils\ob_load_template_part('templates/components/split-feature', [
-    'color'   	 => 'ink',
-    'scrollable' => true,
-    'content' 	 => $main_content,
-    'second'  	 => $aside_content
+    'color'   	      => 'ink',
+    'scrollable'      => true,
+    'content' 	      => $main_content,
+    'second'  	      => $aside_content
 ]);
  ?>
