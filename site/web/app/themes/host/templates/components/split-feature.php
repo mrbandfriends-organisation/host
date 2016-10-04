@@ -1,12 +1,12 @@
 <?php
     Use Roots\Sage\Utils;
 
-    $align               = (empty($align))   ? 'left' : $align;
-    $color               = (empty($color))   ? ''     : " box--{$color}";
-    $band                = (empty($band))    ? ''     : " band--{$band}";
-    $modifier            = (empty($modifier))    ? ''     : "split-feature--{$modifier}";
-    $main_modifier       = (empty($main_modifier) ? '' : "split-feature__main--{$main_modifier}" );
-    $second_modifier  = (empty($second_modifier) ? '' : "split-feature__secondary--{$second_modifier}" );
+    $align           = (empty($align))   ? 'left' : $align;
+    $color           = (empty($color))   ? ''     : " box--{$color}";
+    $band            = (empty($band))    ? ''     : " band--{$band}";
+    $modifier        = (empty($modifier))    ? ''     : "split-feature--{$modifier}";
+    $main_modifier   = (empty($main_modifier) ? '' : "split-feature__main--{$main_modifier}" );
+    $second_modifier = (empty($second_modifier) ? '' : "split-feature__secondary--{$second_modifier}" );
 
     if (empty($content))
     {
