@@ -4458,6 +4458,8 @@ a.btn {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
 }
 
 .bleed-image__image {
@@ -9174,10 +9176,6 @@ a.article-tile__link:hover .article-tile__location {
   }
   .offcanvas-toggle--open{
     padding-right: 0;
-  }
-  .split-feature__secondary img{
-    max-width: 86%;
-    margin: 7% auto;
   }
   .listed-property__header{
     max-width: calc(100% - 40px);
