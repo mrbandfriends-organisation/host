@@ -4374,6 +4374,10 @@ a.btn {
   padding: 40px;
 }
 
+.split-feature__secondary--location-list {
+  display: none;
+}
+
 .billboard {
   padding: 0 1.25rem;
 }
@@ -4937,9 +4941,17 @@ a.room-list-nav__link:hover {
   max-height: 100%;
 }
 
+.stacked-gallery-container {
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+}
+
 .stacked-gallery {
+  display: -ms-flexbox;
+  display: flex;
   position: relative;
-  min-height: 40vh;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
 }
 
 .stacked-gallery__link {
@@ -6218,6 +6230,10 @@ a.article-tile__link:hover .article-tile__location {
 }
 
 .homepage-investors-image-hack {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -8036,6 +8052,9 @@ a.article-tile__link:hover .article-tile__location {
     padding: 80px 80px 80px 0;
     margin-right: 0;
   }
+  .split-feature__secondary--location-list{
+    display: block;
+  }
   .billboard{
     padding: 0 1.875rem;
   }
@@ -8081,9 +8100,6 @@ a.article-tile__link:hover .article-tile__location {
   .room-list-nav__item:after{
     left: -4.0625rem;
     background-color: #fff;
-  }
-  .stacked-gallery{
-    min-height: 25vh;
   }
   .favouritable__wrapper[class]{
     margin-top: auto;
@@ -8962,6 +8978,10 @@ a.article-tile__link:hover .article-tile__location {
   .gc--fixed-ratio.s-ar200:before{
     padding-top: 200%;
   }
+  .listed-room__content{
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+  }
   .footer-marks__item{
     display: none;
   }
@@ -9104,9 +9124,15 @@ a.article-tile__link:hover .article-tile__location {
   .billboard__inner{
     background-image: none !important;
   }
+  .billboard__main--building-intro{
+    margin-bottom: 20px;
+  }
   .listed-property__main{
     -ms-flex-order: 2;
     order: 2;
+  }
+  .stacked-gallery{
+    min-height: 40vh;
   }
   .secondary-split-feature__aside{
     min-height: 30vh;

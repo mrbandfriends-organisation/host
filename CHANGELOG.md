@@ -7,6 +7,13 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.6.0] - 2016-10-05
+### Fixed
+- Fixed issues with building page room carousel mobile
+- Layout for location POI
+- Safari fix for homepage investors image
+- Mobile spacing for building favourite button
+
 ## [1.5.4] - 2016-10-04
 ### Fixed
 - Fixed issues with tag manager script include

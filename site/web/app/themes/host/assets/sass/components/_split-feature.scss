@@ -219,3 +219,14 @@
         margin-right: 0;
     }
 }
+
+// ==========================================================================
+// # MODIFIER: LOCATION
+// ==========================================================================
+.split-feature__secondary--location-list {
+    display: none;
+
+    @include mq(large) {
+        display: block;
+    }
+}

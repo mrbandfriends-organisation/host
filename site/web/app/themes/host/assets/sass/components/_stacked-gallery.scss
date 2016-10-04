@@ -17,14 +17,21 @@ $transition: all ease-in-out 0.5s;
 // # BASE
 // ==========================================================================
 
-// .stacked-gallery-container {}
+.stacked-gallery-container {
+    flex-grow: 1;
+}
 
 .stacked-gallery {
+    display: flex;
     position: relative;
-    min-height: 40vh;
+    flex-grow: 1;
+
+    @include mq($until: large) {
+        min-height: 40vh;
+    }
 
     @include mq(large) {
-        min-height: 25vh;
+        //min-height: 25vh;
     }
 
 }

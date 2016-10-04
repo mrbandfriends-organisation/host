@@ -132,6 +132,10 @@ a.room-list-nav__link {
     flex-direction: column;
     z-index: 2;
 
+    @include mq($until: small) {
+        flex-grow: 1;
+    }
+
     @include mq(small) {
         width: rem(318);
     }
