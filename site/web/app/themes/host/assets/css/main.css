@@ -2236,6 +2236,17 @@ dl.-horizontal dd ~ dd {
   transform: rotateY(180deg);
 }
 
+.header-slider {
+  display: -ms-flexbox;
+  display: flex;
+  height: 50vh;
+}
+
+.header-slider .header-slider__slide {
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
 .slideshow {
   position: relative;
   overflow: hidden;
@@ -3924,6 +3935,7 @@ a.btn {
 }
 
 .offcanvas-utilities-container nav a {
+  display: block;
   color: #fff;
 }
 
