@@ -8065,7 +8065,8 @@ a.article-tile__link:hover .article-tile__location {
     margin-right: 0;
   }
   .split-feature__secondary--location-list{
-    display: block;
+    display: -ms-flexbox;
+    display: flex;
   }
   .billboard{
     padding: 0 1.875rem;

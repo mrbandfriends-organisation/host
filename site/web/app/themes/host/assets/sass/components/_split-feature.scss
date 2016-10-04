@@ -232,6 +232,6 @@
     display: none;
 
     @include mq(large) {
-        display: block;
+        display: flex;
     }
 }

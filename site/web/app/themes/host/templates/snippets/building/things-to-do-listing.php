@@ -42,7 +42,7 @@
         </div>
 
         <?php if ( !empty($location_image) ): ?>
-            <div class="gc s1-3">
+            <div class="gc s1-3 flex">
                 <?php echo Utils\ob_load_template_part('templates/components/bleed-image', [
                     'image'     => $location_image['url'],
                     'modifier'  => 'bleed-image--hide-small'
