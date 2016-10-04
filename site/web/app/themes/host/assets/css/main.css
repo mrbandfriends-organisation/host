@@ -4961,7 +4961,6 @@ a.room-list-nav__link:hover {
 .stacked-gallery__link {
   display: block;
   width: 100%;
-  height: 100%;
   -ms-flex-direction: column;
       flex-direction: column;
   -ms-flex-pack: center;
@@ -4969,6 +4968,8 @@ a.room-list-nav__link:hover {
   -ms-flex-align: center;
       -ms-grid-row-align: center;
       align-items: center;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
   color: #fff;
 }
 
@@ -4993,6 +4994,10 @@ a.room-list-nav__link:hover {
   opacity: 0;
   z-index: 1000;
   transition: all ease-in-out 0.5s;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  text-align: center;
 }
 
 .stacked-gallery__label {
@@ -9134,9 +9139,6 @@ a.article-tile__link:hover .article-tile__location {
   .listed-property__main{
     -ms-flex-order: 2;
     order: 2;
-  }
-  .stacked-gallery{
-    min-height: 40vh;
   }
   .secondary-split-feature__aside{
     min-height: 30vh;
