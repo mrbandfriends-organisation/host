@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.5.2] - 2016-10-04
+### Fixed
+- Changed Google Tag manager key and removed GA key on production
+
 ## [1.5.1] - 2016-10-03
 ### Fixed
 - Js exporting bug
