@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.6.1] - 2016-10-05
+### Fixed
+- Fixed issues with split featured secondary on Safari
+
 ## [1.6.0] - 2016-10-05
 ### Fixed
 - Fixed issues with building page room carousel mobile
