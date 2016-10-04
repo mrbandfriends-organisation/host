@@ -4454,7 +4454,6 @@ a.btn {
 
 .bleed-image {
   width: 100%;
-  height: 100%;
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -7633,6 +7632,10 @@ a.article-tile__link:hover .article-tile__location {
   .social-sharing-container{
     margin-bottom: 40px;
   }
+  .news-feed-column--above-m{
+    display: -ms-flexbox;
+    display: flex;
+  }
   .banner{
     padding: 0 0 1.25rem;
   }
@@ -8945,6 +8948,10 @@ a.article-tile__link:hover .article-tile__location {
   .book{
     display: block;
     max-width: 24.375rem;
+  }
+  .news-feed-column--above-xxl{
+    display: -ms-flexbox;
+    display: flex;
   }
   .room-details-container{
     max-width: calc(100% - 330px);
