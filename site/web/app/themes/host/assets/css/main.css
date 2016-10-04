@@ -2426,6 +2426,12 @@ dl.-horizontal dd ~ dd {
   }
 }
 
+@keyframes single-image-pause {
+  to {
+    opacity: 0;
+  }
+}
+
 .slideshow--animate-in:before, .slideshow--animate-in:after {
   position: absolute;
   z-index: 20;
@@ -2454,6 +2460,10 @@ dl.-horizontal dd ~ dd {
 .slideshow--animate-in .slideshow-infobox {
   opacity: 0;
   z-index: 1000;
+}
+
+.slideshow--animate-in:not(.js-slideshow--active):after {
+  animation: single-image-pause 0.5s 0.75s ease-out 1 forwards;
 }
 
 .slideshow--animate-in.js-slideshow--active:before {
