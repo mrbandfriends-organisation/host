@@ -9,6 +9,14 @@
 // ==========================================================================
 // # BASE
 // ==========================================================================
+
+// Ensureing dots are alwasy overlaying the slider
+.slick-dotted.slick-slider{
+    margin-bottom: 0;
+}
+
+// # DOTS
+// ==========================================================================
 .slick-dots {
     //position:  absolute;
     //bottom:    rem(15);
@@ -55,6 +63,22 @@
         }
     }
 }
+
+// # ARROWS
+// ==========================================================================
+.slick-prev,
+.slick-next {
+    min-width: 1px;
+}
+
+.slick-prev {
+    left: 0;
+}
+
+.slick-next {
+    right: 0;
+}
+
 
 // ==========================================================================
 // # MODIFIER: LOCATION REALTED BUILDING SLIDER
