@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.7.2] - 2016-10-06
+### Changed
+- Added fallback image for building people section
+
 ## [1.7.1] - 2016-10-06
 ### Fixed
 - Compiled assets for release
