@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.7.1] - 2016-10-06
+### Fixed
+- Compiled assets for release
+
 ## [1.7.0] - 2016-10-06
 ### Fixed
 - Fixed issues with bleed image
