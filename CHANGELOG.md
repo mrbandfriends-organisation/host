@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.7.0] - 2016-10-06
+### Fixed
+- Fixed issues with bleed image
+- Ensured header carousel pause fades out if only one image in carousel
+
 ## [1.6.1] - 2016-10-05
 ### Fixed
 - Fixed issues with split featured secondary on Safari
