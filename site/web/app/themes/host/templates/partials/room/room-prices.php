@@ -23,7 +23,10 @@
                 <ul class="pricing__lisiting grid grid--gutter">
                     <li class="gc l1-3 pricing__lisiting-item pricing__lisiting-item--photo">
                         <div class="pricing-header">
-                            <h4 class="pricing-header__heading">Room Type: <br >Premium Studio</h4>
+                            <h4 class="pricing-header__heading">
+                                Room Type: <br >
+                                <?php the_title(); ?>
+                            </h4>
                         </div>
                         <div class="pricing-body box">
                             <?php
