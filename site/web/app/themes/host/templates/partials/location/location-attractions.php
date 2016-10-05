@@ -35,7 +35,7 @@
                 </dl>
             </div>
         <?php endif; ?>
-            <div class="gc<?=$sRemainCols; ?>">
+            <div class="gc<?=$sRemainCols; ?> flex">
                 <div class="box bleed-image" style="background-image:url(<?=get_field('things_to_do_image')['url']; ?>)">
                     <img src="/_dummy/london-eye.jpg" alt="" class="bleed-image__image">
                 </div>

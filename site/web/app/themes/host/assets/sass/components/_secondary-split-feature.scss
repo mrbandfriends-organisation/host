@@ -13,6 +13,8 @@
 // .secondary-split-feature {}
 
 .secondary-split-feature__aside {
+    display: flex;
+    
     @include mq($until: large) {
         min-height: 30vh;
     }

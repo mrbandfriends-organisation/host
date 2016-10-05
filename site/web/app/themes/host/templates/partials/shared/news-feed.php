@@ -44,7 +44,7 @@
 <section class="band news-feed" data-equality="medium">
     <h2 class="vh">Latest news</h2>
     <div class="grid news-feed__grid">
-        <div class="gc m1-3 xxl1-5">
+        <div class="gc m1-3 xxl1-5 flex">
             <article class="news-feed__article box box--ink box--less-padding" data-equality-pane="2">
                 <header class="news-feed__article__header">
                     <h3 class="news-feed__article__title plain">
@@ -59,7 +59,7 @@
         </div>
         <div class="gc m2-3 xxl4-5">
             <div class="grid">
-                <div class="gc xxl1-4 gc--above-xxl">
+                <div class="gc xxl1-4 gc--above-xxl news-feed-column--above-xxl">
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => wp_get_attachment_image_url($thumb_id_1, 'large'),
                         'modifier' => 'box--grape-dark multiply-bg'
@@ -78,7 +78,7 @@
                         </p>
                     </article>
                 </div>
-                <div class="gc m1-2 xxl1-4 gc--above-m">
+                <div class="gc m1-2 xxl1-4 gc--above-m news-feed-column--above-m">
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => wp_get_attachment_image_url($thumb_id_2, 'large'),
                         'modifier' => 'box--grape-dark multiply-bg'
@@ -86,13 +86,13 @@
                 </div>
             </div>
             <div class="grid">
-                <div class="gc xxl1-4 gc--above-xxl">
+                <div class="gc xxl1-4 gc--above-xxl news-feed-column--above-xxl">
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => '/app/uploads/2016/08/girl-alpha.png',
                         'modifier' => 'box--grape-dark multiply-bg'
                     ]); ?>
                 </div>
-                <div class="gc m1-2 xxl1-4 gc--above-m">
+                <div class="gc m1-2 xxl1-4 gc--above-m news-feed-column--above-m">
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => wp_get_attachment_image_url($thumb_id_3, 'large'),
                         'modifier' => 'box--grape-dark multiply-bg'

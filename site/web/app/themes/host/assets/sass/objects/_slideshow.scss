@@ -243,6 +243,12 @@ $slideshow-animate-speed: 3s;
     to   { opacity: 1; }
 }
 
+@keyframes single-image-pause {
+    to {
+        opacity: 0;
+    }
+}
+
 .slideshow--animate-in {
     &:before,
     &:after {
@@ -297,6 +303,12 @@ $slideshow-animate-speed: 3s;
     .slideshow-infobox {
         opacity: 0;
         z-index: $zindex-tier-1;
+    }
+
+    &:not(.js-slideshow--active) {
+        &:after {
+            animation: single-image-pause 0.5s 0.75s ease-out 1 forwards;
+        }
     }
 
     &.js-slideshow--active {
