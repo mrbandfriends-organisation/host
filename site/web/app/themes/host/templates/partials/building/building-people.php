@@ -27,11 +27,12 @@
 $main_content = Utils\ob_load_template_part('templates/snippets/building/our-people-introduction', compact('people_title', 'people_description'));
 
 if ( !empty($photo_url) ) {
-    $aside_content = Utils\ob_load_template_part('templates/components/bleed-image', array(
-        'image'  => $photo_url
-    ));
+    //$aside_content = Utils\ob_load_template_part('templates/components/bleed-image', array(
+    //    'image'  => $photo_url
+    //));
+    $aside_content = '<img src="' . $photo_url . '" alt="">';
 } else {
-    $aside_content = null;
+    $aside_content = '<img src="' . get_template_directory_uri() . '/assets/images/people-pause-fallback.png' . '" alt="">';
 }
 ?>
 
