@@ -1,0 +1,4 @@
+# Read Me
+
+## Bleed Image Component
+For this component to work correctly on Safari the parent element must be `display: flex`.
