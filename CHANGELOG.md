@@ -7,19 +7,23 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
-## [1.7.3] - 2016-10-06
+## [1.7.4] - 2016-10-06
+### Fixed
+- Added NOSCRIPT google tag manager script 
+
+## [1.7.3] - 2016-10-05
 ### Fixed
 - Made name of room dynamic in room pricing component
 
-## [1.7.2] - 2016-10-06
+## [1.7.2] - 2016-10-05
 ### Changed
 - Added fallback image for building people section
 
-## [1.7.1] - 2016-10-06
+## [1.7.1] - 2016-10-05
 ### Fixed
 - Compiled assets for release
 
-## [1.7.0] - 2016-10-06
+## [1.7.0] - 2016-10-05
 ### Fixed
 - Fixed issues with bleed image
 - Ensured header carousel pause fades out if only one image in carousel
