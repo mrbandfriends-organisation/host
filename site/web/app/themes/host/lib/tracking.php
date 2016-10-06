@@ -22,6 +22,17 @@ function google_tag_manager_code() {?>
 }
 add_action('wp_head', __NAMESPACE__ . '\\google_tag_manager_code', 0);
 
+function google_tag_manager_no_script_code() { ?>
+  <?php if ( defined( 'GOOGLE_TAG_MANAGER_CODE' ) && !empty( GOOGLE_TAG_MANAGER_CODE )) { ?>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?= GOOGLE_TAG_MANAGER_CODE; ?>"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+  <?php } ?>
+<?php
+}
+add_action('after_body', __NAMESPACE__ . '\\google_tag_manager_no_script_code', 0);
+
 
 /**
  * ADD GOOGLE ANALYTICS CODE

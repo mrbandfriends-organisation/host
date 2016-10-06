@@ -10,6 +10,7 @@ use Roots\Sage\Utils;
 <html <?php language_attributes(); ?> class="no-js">
 	<?php get_template_part('templates/head'); ?>
 	<body <?php body_class(); ?>>
+        <?php do_action('after_body'); ?>
 		<div class="offcanvas__wrapper js-offcanvas__wrapper">
 			<div id="page" class="page offcanvas__body js-offcanvas-body">
 				<?php
