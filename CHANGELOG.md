@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.7.6] - 2016-10-07
+### Fixed
+- Safari & FF bug with carousel's high on load. Just Added max-height to any element where JS sets the height
+
 ## [1.7.5] - 2016-10-07
 ### Added
 - Testimonials to single building as per PSD
