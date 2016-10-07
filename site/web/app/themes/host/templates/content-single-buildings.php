@@ -35,3 +35,5 @@
 
     <?php echo Utils\ob_load_template_part('templates/partials/building/building-people', compact('connected_location_name')
     ); ?>
+
+    <?php echo Utils\ob_load_template_part('templates/partials/shared/testimonials'); ?>
