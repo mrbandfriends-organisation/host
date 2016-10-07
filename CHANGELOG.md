@@ -7,9 +7,13 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.7.5] - 2016-10-07
+### Added
+- Testimonials to single building as per PSD
+
 ## [1.7.4] - 2016-10-06
 ### Fixed
-- Added NOSCRIPT google tag manager script 
+- Added NOSCRIPT google tag manager script
 
 ## [1.7.3] - 2016-10-05
 ### Fixed
