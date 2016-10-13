@@ -14,6 +14,7 @@
             'town'              => get_field('building_address_town_city'),
             'post_code'         => get_field('building_address_post_code'),
             'phone'             => get_field('building_address_phone_no'),
+            'email'             => get_field('building_email_address'),
         ))
     )); ?>
 

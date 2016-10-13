@@ -305,7 +305,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -313,9 +313,26 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
+        },
+        {
+            "key": "field_57ffb479873be",
+            "label": "Email address",
+            "name": "building_email_address",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_57b30964c687b",
@@ -910,5 +927,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1475490603
+    "modified": 1476375696
 }

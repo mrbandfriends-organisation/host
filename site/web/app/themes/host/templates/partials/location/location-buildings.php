@@ -35,6 +35,7 @@
             // strip unneeded newlines
             $address = trim(preg_replace("/\n\n+/", "\n", $address));
             $phone = trim(get_field('building_address_phone_no'));
+            $email = trim(get_field('building_email_address'));
 
             // thumbnail
             $sStyle = '';
@@ -95,6 +96,14 @@
                                     <?=esc_html($phone); ?>
                                 </p>
                                 <?php endif; ?>
+
+                                <?php if (!empty($email)): ?>
+                                <p>
+                                    <strong>Email:</strong>
+                                    <a href="mailto:<?=esc_html($email); ?>"><?=esc_html($email); ?></a>
+                                </p>
+                                <?php endif; ?>
+
                             </address>
 
                             <?php if (!empty($sUrl) && !empty($sBtnText)): ?>
