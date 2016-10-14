@@ -1,0 +1,27 @@
+## Hardening Security
+
+# Block PHP files in uploads directory.
+location ~* /(?:uploads|files)/.*\.php$ {
+    deny all;
+}
+
+# Block PHP files in content directory.
+location ~* /app/.*\.php$ {
+    deny all;
+}
+
+# Block PHP files in includes directory.
+location ~* /wp-includes/.*\.php$ {
+    deny all;
+}
+
+# Block PHP files in uploads, content, and includes directory.
+location ~* /(?:uploads|files|wp-content|wp-includes)/.*\.php$ {
+    deny all;
+}
+
+# Sensitive files
+location ~ /(wp-comments-post.php|readme.html|license.txt) {
+    deny all;
+}
+
