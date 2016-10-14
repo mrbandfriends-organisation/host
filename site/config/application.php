@@ -75,12 +75,6 @@ define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 define('DISALLOW_FILE_EDIT', true);
 
-if (WP_ENV === 'production' || WP_ENV === 'development') {
-    define('WP_CACHE', true);
-} else {
-    define('WP_CACHE', false);
-}
-
 /*
  * Bootstrap WordPress
  */
