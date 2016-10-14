@@ -91,6 +91,7 @@
                                     $town_city = get_field('building_address_town_city', $building->ID);
                                     $post_code = get_field('building_address_post_code', $building->ID);
                                     $phone_no  = get_field('building_address_phone_no', $building->ID);
+                                    $email  = get_field('building_email_address', $building->ID);
                                     $link      = ( !empty($building->ID) ? get_the_permalink($building->ID) : null );
 
                                     // build addresses
@@ -129,8 +130,16 @@
                                                     Get directions
                                                 </a>
 
-                                                <strong>Call:</strong>
-                                                <a href="tel:<?php echo $phone_no; ?>"><?php echo $phone_no; ?></a>
+                                                <?php if (!empty($phone_no)): ?>
+                                                  <strong>Call:</strong>
+                                                  <a href="tel:<?php echo $phone_no; ?>"><?php echo $phone_no; ?></a>
+                                                <?php endif; ?>
+
+                                                <?php if (!empty($email)): ?>
+                                                  <strong>Email:</strong>
+                                                  <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
+                                                <?php endif; ?>
+
                                             </div>
                                         </li>
                                     <?php endif; ?>

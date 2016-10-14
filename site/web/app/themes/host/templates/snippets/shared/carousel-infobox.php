@@ -45,4 +45,11 @@
     <strong class="carousel-infobox__subheading">Call.</strong>
     <span><?php echo esc_html($phone); ?></span>
 <?php endif; ?>
+
+<?php if ( !empty($email) ): ?>
+    <strong class="carousel-infobox__subheading">Email.</strong>
+    <span><a href="mailto:<?php echo esc_html($email); ?>"><?php echo esc_html($email); ?></a></span>
+<?php endif; ?>
+
+
 </div>

@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.8.0] - 2016-10-14
+### Added
+- Adding email field to buildings
+
 ## [1.7.8] - 2016-10-07
 ### Fixed
 - Compiled css for Safari & Firefox carousel fix after increasing max-height
