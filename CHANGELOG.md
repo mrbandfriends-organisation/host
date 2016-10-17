@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.8.3] - 2016-10-17
+### Added
+- Members (Role Manager) Plugin
+
 ## [1.8.2] - 2016-10-17
 ### Added
 - User Switching Plugin
