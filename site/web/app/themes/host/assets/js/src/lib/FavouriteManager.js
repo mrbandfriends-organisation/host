@@ -1,7 +1,10 @@
 // jshint latedef:nofunc
-var cookies         = require('cookies');
+//var cookies         = require('cookies');
+var Cookies         = require('js-cookie');
 var icon            = require('svg-icons');
 var _includes       = require('lodash.includes');
+
+
 
 var sFavouriteTemplate =
 '<article class="box box--fg-{{availability.foreground}} favourites__favourite" data-id="{{id}}">'+
@@ -284,18 +287,24 @@ function FavouriteManager()
     function loadFromCookie()
     {
         // 1. read, but default to an empty string
-        var sCookieValue = ""+cookies('favourites') || "";
+        //var sCookieValue = ""+cookies('favourites') || "";
+        
 
-        // 2. parse out
-        aiFavourites = sCookieValue.split(/,\s*/g).map(function(item)
-        {
-            item = parseInt(item, 10);
-            return (item === item) ? item : null;
+        var sCookieValue = Cookies.get('favourites'); 
 
-        }).filter(function(item)
-        {
-            return (item !== null);
-        });
+        if (sCookieValue !== undefined) {
+
+            // 2. parse out
+            aiFavourites = sCookieValue.split(/,\s*/g).map(function(item)
+            {
+                item = parseInt(item, 10);
+                return (item === item) ? item : null;
+
+            }).filter(function(item)
+            {
+                return (item !== null);
+            });
+        }
     }
 
     /**
@@ -307,10 +316,17 @@ function FavouriteManager()
         var sCookieValue = aiFavourites.join(',');
 
         // 2. store for a year
-        cookies({ favourites: sCookieValue }, {
-            expires: 365 * 86400
+        Cookies.set('favourites', sCookieValue, {
+            expires: 7 * 86400
         });
+
     }
+
+
+    function removeCookie()
+    {
+        Cookies.remove('favourites')
+     }
 
     /**
      * Callback from the header DOM when a ‘remove’ button is pressed
@@ -329,7 +345,12 @@ function FavouriteManager()
         {
             return (iCurr !== iToRemove);
         });
-        saveToCookie();
+
+        if (aiFavourites.length) {
+            saveToCookie();
+        } else {
+            removeCookie();
+        }
 
         // 3. find the appropriate element in the list
         document.querySelectorAll('[data-favouritable="'+iToRemove+'"]').each(function(el)
@@ -421,6 +442,8 @@ function FavouriteManager()
 
     function init()
     {
+
+
         // 0. load from the cookie
         loadFromCookie();
 
