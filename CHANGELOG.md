@@ -7,6 +7,14 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.8.1] - 2016-10-17
+
+### Added
+- Rocket NGINX conf for Page Caching
+
+### Fixed
+- Ensure that Favourites JS fully removes cookie when there are no favourites. This allows Page Caching to function when you have no unique content related to your session. 
+
 ## [1.8.0] - 2016-10-14
 ### Added
 - Adding email field to buildings
