@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.8.4] - 2016-10-17
+### Added
+- MU Plugin to allow Editors to amend WP Rocket settings
+
 ## [1.8.3] - 2016-10-17
 ### Added
 - Members (Role Manager) Plugin
