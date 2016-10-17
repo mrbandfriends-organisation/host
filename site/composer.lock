@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8f7a7a96702e93196826fdca1c48f2ad",
-    "content-hash": "56cfe648d9a1cbf3a6b346b0870f07e0",
+    "hash": "b7acd99727ef867f8ead2deed477ffdf",
+    "content-hash": "0228cd557eb8c2c4145be671f0af6e8c",
     "packages": [
         {
             "name": "composer/installers",
@@ -380,6 +380,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/codepress-admin-columns/"
+        },
+        {
+            "name": "wpackagist-plugin/members",
+            "version": "1.1.2",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/members/",
+                "reference": "tags/1.1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/members.1.1.2.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/members/"
         },
         {
             "name": "wpackagist-plugin/postman-smtp",
