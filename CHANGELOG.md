@@ -7,6 +7,13 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.8.2] - 2016-10-17
+### Added
+- User Switching Plugin
+
+### Changed
+- Update SEO and Security Plugins
+
 ## [1.8.0] - 2016-10-14
 ### Added
 - Adding email field to buildings
