@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.8.5] - 2016-10-17
+### Added
+- Add `wp-rocket-config` directory with `.gitkeep` file. Required by Plugin on server so adding to repo avoids need to create manually on deploy.
+
 ## [1.8.4] - 2016-10-17
 ### Added
 - MU Plugin to allow Editors to amend WP Rocket settings
