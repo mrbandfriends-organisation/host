@@ -7,6 +7,12 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.9.1] - 2016-10-19
+### Fixed
+- Ensure SVG Sprite is loaded from CDN path correctly via Localised PHP dynamic value
+- Reenable Uglify for JS
+
+
 ## [1.9.0] - 2016-10-19
 ### Added
 - Add Util function `cdnify` to manually create CDN links where not auto handeled by WP Rocket
