@@ -7,6 +7,12 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.9.0] - 2016-10-19
+### Added
+- Add Util function `cdnify` to manually create CDN links where not auto handeled by WP Rocket
+- Add WP Rocket configuration on Plugin to allow for CDN to serve all assets 
+- Configure Cloud CDN on Rackspace
+
 ## [1.8.5] - 2016-10-17
 ### Added
 - Add `wp-rocket-config` directory with `.gitkeep` file. Required by Plugin on server so adding to repo avoids need to create manually on deploy.
@@ -25,6 +31,14 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ### Changed
 - Update SEO and Security Plugins
+
+## [1.8.1] - 2016-10-17
+
+### Added
+- Rocket NGINX conf for Page Caching
+
+### Fixed
+- Ensure that Favourites JS fully removes cookie when there are no favourites. This allows Page Caching to function when you have no unique content related to your session. 
 
 ## [1.8.0] - 2016-10-14
 ### Added
