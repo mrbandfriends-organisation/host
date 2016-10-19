@@ -47,7 +47,8 @@ function php_js_vars() {
 
     LOCALISED_VARS.ajaxurl                           = <?php echo json_encode( admin_url( "admin-ajax.php" ) ) ?>;
     LOCALISED_VARS.ajaxnonce                         = <?php echo json_encode( wp_create_nonce( "lv_ajax_nonce" ) ) ?>;
-    LOCALISED_VARS.stylesheet_directory_uri          = <?php echo json_encode( Utils\cdnify( get_stylesheet_directory_uri() ) ) ?>;
+    LOCALISED_VARS.stylesheet_directory_uri          = <?php echo json_encode( get_stylesheet_directory_uri() ) ?>;
+    LOCALISED_VARS.cdnified_stylesheet_directory_uri = <?php echo json_encode( Utils\cdnify( get_stylesheet_directory_uri() ) ) ?>;
     </script>
 <?php
 }
