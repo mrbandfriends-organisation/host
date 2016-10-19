@@ -13,7 +13,8 @@
             $thumb_url       = $thumb_url_array[0];
 
             echo Utils\ob_load_template_part('templates/components/bleed-image', array(
-                'image' => $thumb_url
+                'image' => $thumb_url,
+                'alt'   => $$thumb_url_array
             ));
         ?>
     </div>

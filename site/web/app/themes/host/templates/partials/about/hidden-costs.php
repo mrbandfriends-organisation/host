@@ -15,6 +15,7 @@ $main_content = Utils\ob_load_template_part('templates/snippets/about/hidden-cos
     'section_2_description'   => $section_2_description,
     'section_2_disclaimer'    => $section_2_disclaimer,
     'section_2_image_gallery' => $section_2_image_gallery
+
 ));
 
 $second_image = ( !empty($section_2_image_gallery[0]) ? $section_2_image_gallery[0]['url'] : null );
