@@ -118,10 +118,12 @@ add_filter('style_loader_tag', __NAMESPACE__.'\\hook_loadcss');
 function bust_caching($sUri)
 {
     // 0. if we’re in development, or MinQueue is switched on…
-    if (class_exists('MinQueue') || (defined('WP_ENV') && (WP_ENV === 'development')))
+/*
+    if ( 0 && class_exists('MinQueue') || (defined('WP_ENV') && (WP_ENV === 'development')))
     {
         return $sUri;
     }
+*/
 
     // 1. strip domain off the front of the source
     $sUri = preg_replace_callback('/https?:\/\/(.*?)\//', function($aM)
@@ -136,6 +138,9 @@ function bust_caching($sUri)
     // 2. work out the local path to the file
     $sPath  = dirname(ABSPATH).preg_replace('/\?(.*?)$/', '', $sUri);
     $sStamp = file_exists($sPath) ? ".".filemtime($sPath) : "";
+
+    // 2.5 - reinstate the full url where required as we need this if we're using an origin PULL CDN
+    $sUri = Utils\cdnify($sUri);
 
     // 3. min file
     $sSuff = (defined('WP_ENV') && (WP_ENV !== 'development' && WP_ENV !== 'staging')) ? '' : '';

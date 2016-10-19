@@ -33,7 +33,7 @@ require('./ext/NodeList');
 
     var SVGSpritemapLoader = require('svg-spritemap-loader.js');
 
-    new SVGSpritemapLoader('/app/themes/host/assets/svg/sprites/output/spritesheet.svg');
+    new SVGSpritemapLoader( LOCALISED_VARS.stylesheet_directory_uri + '/assets/svg/sprites/output/spritesheet.svg');
 }());
 
 
