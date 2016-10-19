@@ -118,10 +118,12 @@ add_filter('style_loader_tag', __NAMESPACE__.'\\hook_loadcss');
 function bust_caching($sUri)
 {
     // 0. if we’re in development, or MinQueue is switched on…
-    if ( class_exists('MinQueue') || (defined('WP_ENV') && (WP_ENV === 'development')))
+/*
+    if ( 0 && class_exists('MinQueue') || (defined('WP_ENV') && (WP_ENV === 'development')))
     {
         return $sUri;
     }
+*/
 
     // 1. strip domain off the front of the source
     $sUri = preg_replace_callback('/https?:\/\/(.*?)\//', function($aM)
