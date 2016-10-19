@@ -12,7 +12,6 @@
     $button         = ( !empty(get_field('button', 'options')) ? get_field('button', 'options') : null );
     $featured_image = ( !empty(get_field('featured_image', 'options')) ? get_field('featured_image', 'options') : null );
     $logo           = ( !empty(get_field('student_kit_3rd_party_company_logo', 'options')) ? get_field('student_kit_3rd_party_company_logo', 'options') : null );
-    
 ?>
 <?php if ( !empty($title_1) && !empty($title_2) && !empty($description) ): ?>
     <aside class="room-details-aside secondary-split-feature band grid">
