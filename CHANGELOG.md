@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.9.2] - 2016-10-19
+### Removed
+- Don't load SVG from CDN url due to CORS issue
+
 ## [1.9.1] - 2016-10-19
 ### Fixed
 - Ensure SVG Sprite is loaded from CDN path correctly via Localised PHP dynamic value
