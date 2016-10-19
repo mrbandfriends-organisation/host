@@ -12,12 +12,14 @@
     $button         = ( !empty(get_field('button', 'options')) ? get_field('button', 'options') : null );
     $featured_image = ( !empty(get_field('featured_image', 'options')) ? get_field('featured_image', 'options') : null );
     $logo           = ( !empty(get_field('student_kit_3rd_party_company_logo', 'options')) ? get_field('student_kit_3rd_party_company_logo', 'options') : null );
+    
 ?>
 <?php if ( !empty($title_1) && !empty($title_2) && !empty($description) ): ?>
     <aside class="room-details-aside secondary-split-feature band grid">
         <div class="secondary-split-feature__aside box box--mint gc l1-3">
             <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
-                'image' => $featured_image['sizes']['large']
+                'image' => $featured_image['sizes']['large'],
+                'alt'   => $featured_image['alt']
             )); ?>
         </div>
         <div class="secondary-split-feature__main box box--padded box--off-white gc l2-3">
