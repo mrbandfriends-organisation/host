@@ -12,6 +12,7 @@
   $investors_button_text = get_field('investors_button_text');
   $investors_button_link = get_field('investors_button_link');
   $investors_image = get_field('investors_image');
+  $investors_image_alt = $investors_image['alt'];
   $investors_image = $investors_image['url'];
 ?>
 
@@ -27,6 +28,6 @@
 <?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
     'align' => 'right',
     'color' => 'grape',
-    'second' => "<img class=\"homepage-investors-image-hack\" src=\"{$investors_image}\" />",
+    'second' => "<img class=\"homepage-investors-image-hack\" src=\"{$investors_image}\" alt=\"{$investors_image_alt}\" />",
     'content' => $main_content
 )); ?>

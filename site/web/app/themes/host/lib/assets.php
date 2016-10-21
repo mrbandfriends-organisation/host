@@ -174,6 +174,7 @@ add_filter('script_loader_src', __NAMESPACE__.'\\bust_caching');
          'alt'          => '' // empty string is the minimumal requirement for alt
      ], $aConf);
 
+
      // 2. basic HTML attributes
      $aAttr = $aConf;
      unset($aAttr['dimensions'], $aAttr['default_dim'], $aAttr['wpthumb'], $aAttr['aspect_ratio']);  // assume everything else goes to HTML
