@@ -7,6 +7,22 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.9.2] - 2016-10-19
+### Removed
+- Don't load SVG from CDN url due to CORS issue
+
+## [1.9.1] - 2016-10-19
+### Fixed
+- Ensure SVG Sprite is loaded from CDN path correctly via Localised PHP dynamic value
+- Reenable Uglify for JS
+
+
+## [1.9.0] - 2016-10-19
+### Added
+- Add Util function `cdnify` to manually create CDN links where not auto handeled by WP Rocket
+- Add WP Rocket configuration on Plugin to allow for CDN to serve all assets 
+- Configure Cloud CDN on Rackspace
+
 ## [1.8.5] - 2016-10-17
 ### Added
 - Add `wp-rocket-config` directory with `.gitkeep` file. Required by Plugin on server so adding to repo avoids need to create manually on deploy.

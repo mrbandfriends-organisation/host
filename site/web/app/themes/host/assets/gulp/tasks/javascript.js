@@ -25,11 +25,11 @@ gulp.task('javascripts', function() {
                         chunkFilename: "chunk-[name].[chunkhash].js" // generate one hash per chunk to enable cache busting on change
                     },
                     plugins: [
-                        // new webpack.optimize.UglifyJsPlugin({
-                        //     compressor: {
-                        //         warnings: false,
-                        //     },
-                        // }),
+                        new webpack.optimize.UglifyJsPlugin({
+                            compressor: {
+                                warnings: false,
+                            },
+                        }),
                         new webpack.ProvidePlugin({ // inject globals as required
                             $: "jquery",
                             jQuery: "jquery",
