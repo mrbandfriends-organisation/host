@@ -24,5 +24,6 @@
 ?>
 
 <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
-    'image'     => $sStaticPath
+    'image'     => $sStaticPath,
+    'alt'       => $label
 )); ?>

@@ -17,7 +17,8 @@
     <aside class="room-details-aside secondary-split-feature band grid">
         <div class="secondary-split-feature__aside box box--mint gc l1-3">
             <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
-                'image' => $featured_image['sizes']['large']
+                'image' => $featured_image['sizes']['large'],
+                'alt'   => $featured_image['alt']
             )); ?>
         </div>
         <div class="secondary-split-feature__main box box--padded box--off-white gc l2-3">

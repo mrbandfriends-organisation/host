@@ -62,7 +62,8 @@
                 <div class="gc xxl1-4 gc--above-xxl news-feed-column--above-xxl">
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => wp_get_attachment_image_url($thumb_id_1, 'large'),
-                        'modifier' => 'box--grape-dark multiply-bg'
+                        'modifier' => 'box--grape-dark multiply-bg',
+                        'alt'      => get_post_meta( $thumb_id_1, '_wp_attachment_image_alt', false)[0]
                     ]); ?>
                 </div>
                 <div class="gc m1-2">
@@ -81,7 +82,9 @@
                 <div class="gc m1-2 xxl1-4 gc--above-m news-feed-column--above-m">
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => wp_get_attachment_image_url($thumb_id_2, 'large'),
-                        'modifier' => 'box--grape-dark multiply-bg'
+                        'modifier' => 'box--grape-dark multiply-bg',
+                        'alt'      => get_post_meta( $thumb_id_2, '_wp_attachment_image_alt', false)[0]
+
                     ]); ?>
                 </div>
             </div>
@@ -89,13 +92,17 @@
                 <div class="gc xxl1-4 gc--above-xxl news-feed-column--above-xxl">
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => '/app/uploads/2016/08/girl-alpha.png',
-                        'modifier' => 'box--grape-dark multiply-bg'
+                        'modifier' => 'box--grape-dark multiply-bg',
+                        'alt'      => get_post_meta( $thumb_id_1, '_wp_attachment_image_alt', false)[0]
+
                     ]); ?>
                 </div>
                 <div class="gc m1-2 xxl1-4 gc--above-m news-feed-column--above-m">
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => wp_get_attachment_image_url($thumb_id_3, 'large'),
-                        'modifier' => 'box--grape-dark multiply-bg'
+                        'modifier' => 'box--grape-dark multiply-bg',
+                        'alt'      => get_post_meta( $thumb_id_3, '_wp_attachment_image_alt', false)[0]
+
                     ]); ?>
                 </div>
                 <div class="gc m1-2">
