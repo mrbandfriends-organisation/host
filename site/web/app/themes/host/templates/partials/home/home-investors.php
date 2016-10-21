@@ -28,5 +28,5 @@
     'align' => 'right',
     'color' => 'grape',
     'second' => "<img class=\"homepage-investors-image-hack\" src=\"{$investors_image}\" />",
-    'content' => $main_content,
+    'content' => $main_content
 )); ?>
