@@ -36,7 +36,8 @@
                             ?>
                             <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
                                 'image'     => $thumb_url,
-                                'modifier'  => 'pricing-body__image'
+                                'modifier'  => 'pricing-body__image',
+                                'alt'       => get_post_meta( $thumb_id, '_wp_attachment_image_alt', false)[0]
                             )); ?>
                         </div>
                     </li>

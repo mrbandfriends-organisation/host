@@ -13,6 +13,7 @@
   $investors_button_text = get_field('investors_button_text');
   $investors_button_link = get_field('investors_button_link');
   $investors_image = get_field('investors_image');
+  $investors_image_alt = $investors_image['alt'];
   $investors_image = $investors_image['url'];
 ?>
 
@@ -28,7 +29,7 @@
 <?php 
   $second_image = Assets\lazy_loaded_image(array(
       'src' => $investors_image,
-      'alt' => "",
+      'alt' => $investors_image_alt,
       'classnames' => "homepage-investors-image-hack"
     )
   );
