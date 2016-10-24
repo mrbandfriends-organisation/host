@@ -8,7 +8,7 @@
     <?php $pricing_options = get_field('pricing_options'); ?>
 
     <div class="pricing box box--less-padding js-ready-reckoner">
-        <h2 class="pricing__title">Thinking of prices?<br>Let’s break it down.</h2>
+        <h2 class="pricing__title">Thinking of prices? <br>Let’s break it down.</h2>
 
         <div class="pricing__option">
             <h3 class="pricing__heading plain h4">1. The simple stuff:</h3>
@@ -33,12 +33,17 @@
                                 $thumb_id        = get_post_thumbnail_id();
                                 $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'thumbnail-size', true);
                                 $thumb_url       = $thumb_url_array[0];
+                                $thumb_alt       = get_post_meta( $thumb_id, '_wp_attachment_image_alt', false);
                             ?>
-                            <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
-                                'image'     => $thumb_url,
-                                'modifier'  => 'pricing-body__image',
-                                'alt'       => get_post_meta( $thumb_id, '_wp_attachment_image_alt', false)[0]
-                            )); ?>
+                            <?php 
+
+                                echo Utils\ob_load_template_part('templates/components/bleed-image', array(
+                                    'image'     => $thumb_url,
+                                    'modifier'  => 'pricing-body__image',
+                                    'alt'       => ( !empty($thumb_alt) ) ? $thumb_alt[0] : ''
+                                )); 
+
+                            ?>
                         </div>
                     </li>
                     <li class="gc l1-3 pricing__lisiting-item">

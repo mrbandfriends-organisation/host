@@ -60,10 +60,11 @@
         <div class="gc m2-3 xxl4-5">
             <div class="grid">
                 <div class="gc xxl1-4 gc--above-xxl news-feed-column--above-xxl">
+                    <?php $thumb_1_alt = get_post_meta( $thumb_id_1, '_wp_attachment_image_alt', false);?>
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => wp_get_attachment_image_url($thumb_id_1, 'large'),
                         'modifier' => 'box--grape-dark multiply-bg',
-                        'alt'      => get_post_meta( $thumb_id_1, '_wp_attachment_image_alt', false)[0]
+                        'alt'      => ( !empty($thumb_1_alt) ) ? $thumb_1_alt[0] : ''
                     ]); ?>
                 </div>
                 <div class="gc m1-2">
@@ -80,28 +81,31 @@
                     </article>
                 </div>
                 <div class="gc m1-2 xxl1-4 gc--above-m news-feed-column--above-m">
+                    <?php $thumb_2_alt = get_post_meta( $thumb_id_2, '_wp_attachment_image_alt', false);?>
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => wp_get_attachment_image_url($thumb_id_2, 'large'),
                         'modifier' => 'box--grape-dark multiply-bg',
-                        'alt'      => get_post_meta( $thumb_id_2, '_wp_attachment_image_alt', false)[0]
+                        'alt'      => ( !empty($thumb_2_alt) ) ? $thumb_2_alt[0] : ''
 
                     ]); ?>
                 </div>
             </div>
             <div class="grid">
                 <div class="gc xxl1-4 gc--above-xxl news-feed-column--above-xxl">
+                    <?php $thumb_3_alt = get_post_meta( $thumb_id_1, '_wp_attachment_image_alt', false);?>
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => '/app/uploads/2016/08/girl-alpha.png',
                         'modifier' => 'box--grape-dark multiply-bg',
-                        'alt'      => get_post_meta( $thumb_id_1, '_wp_attachment_image_alt', false)[0]
+                        'alt'      => ( !empty($thumb_3_alt) ) ? $thumb_3_alt[0] : ''
 
                     ]); ?>
                 </div>
                 <div class="gc m1-2 xxl1-4 gc--above-m news-feed-column--above-m">
+                    <?php $thumb_4_alt = get_post_meta( $thumb_id_3, '_wp_attachment_image_alt', false);?>
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => wp_get_attachment_image_url($thumb_id_3, 'large'),
                         'modifier' => 'box--grape-dark multiply-bg',
-                        'alt'      => get_post_meta( $thumb_id_3, '_wp_attachment_image_alt', false)[0]
+                        'alt'      => ( !empty($thumb_4_alt) ) ? $thumb_4_alt[0] : ''
 
                     ]); ?>
                 </div>
