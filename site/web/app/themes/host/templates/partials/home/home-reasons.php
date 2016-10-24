@@ -31,14 +31,11 @@
       'alt' => $reasons_image['alt']
     ));
 
-  // var_dump( get_field('reason_image') );
 ?>
 
 <?php echo Utils\ob_load_template_part('templates/components/split-feature.php', array(
     'align'   => "right",
     'color'   => "orange",
     'content' => $main_content,
-    //'second'  => "<img src=\"{$reasons_image}\" />"
     'second' => $second_content
-
 )); ?>
