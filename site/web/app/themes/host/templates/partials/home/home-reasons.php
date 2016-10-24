@@ -3,6 +3,7 @@
   * HOME REASONS
   **/
     use Roots\Sage\Utils;
+    use Roots\Sage\Assets;
 ?>
 
 <?php
@@ -26,9 +27,16 @@
 ));
 ?>
 
-<?php echo Utils\ob_load_template_part('templates/components/split-feature.php', array(
-    'align'   => "right",
-    'color'   => "orange",
-    'content' => $main_content,
-    'second' => "<img src=\"{$reasons_image}\" />"
-)); ?>
+<?php 
+  $split_feature_second_image = Assets\lazy_loaded_image(array(
+      'src' => $reasons_image,
+    )
+  );
+
+  echo Utils\ob_load_template_part('templates/components/split-feature.php', array(
+      'align'   => "right",
+      'color'   => "orange",
+      'content' => $main_content,
+      'second' => $split_feature_second_image
+  )); 
+?>

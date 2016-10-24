@@ -18,10 +18,14 @@ gulp.task('javascripts', function() {
                     errorHandler: errorHandler
                 }))                
                 .pipe(gulpWebpack({ // webpack-stream for using Webpack with Gulp streams
+                    entry: {
+                        "app": paths.js.sourceDir + 'app.js',
+                        "app.min": paths.js.sourceDir + 'app.js'
+                    },
                     output: {
                         //path: "./assets/js/",
                         publicPath: "/app/themes/host/assets/js/dist/",
-                        filename: "app.js",
+                        filename: "[name].js",
                         chunkFilename: "chunk-[name].[chunkhash].js" // generate one hash per chunk to enable cache busting on change
                     },
                     plugins: [

@@ -20,7 +20,8 @@
   "homepage": "",
   "dependencies": {
     "frontend-boilerplate-assets": "file:assets",
-    "gulp": "^3.9.1"
+    "gulp": "^3.9.1",
+    "lazysizes": "^2.0.5"
   },
   "devDependencies": {
     "del": "^2.2.1",

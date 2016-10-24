@@ -255,3 +255,22 @@ function the_responsive_thumbnail( $post_id = null, $aConf = [] )
     // 3. get the thumbnail ID
     return get_responsive_image(get_post_thumbnail_id($post_id), $aConf);
 }
+
+
+function lazy_loaded_image($args) {
+
+    $args = array_merge(array(
+        'src' => null,
+        'alt' => "",
+        'classnames' => ""
+    ), $args);
+
+    if (!empty($args['src'])) {
+
+        return Utils\ob_load_template_part('templates/partials/shared/lazy-image', array(
+            'src'           => $args['src'],
+            'alt'           => $args['alt'],
+            'classnames'    => $args['classnames']
+        ));
+    }
+}

@@ -16,11 +16,12 @@
         $label = 'My City';
     }
 
-    $image = (!empty($tile_image)) ? " style=\"background-image:url({$tile_image});\"" : '';
+    //$image = (!empty($tile_image)) ? " style=\"background-image:url({$tile_image});\"" : '';
+    $image = (!empty($tile_image)) ? $tile_image : '';
     $no_of_props = (!empty($available_properties)) ? $available_properties : 0;
 ?>
 <article class="checkerboard-item js-checkerboard__item">
-    <header class="checkerboard-item__title"<?=$image;?>>
+    <header class="checkerboard-item__title lazyload" data-bg="<?php echo esc_attr($image); ?>">
         <a href="<?=esc_url($url); ?>" class="checkerboard-item__link js-checkerboard__trigger"><?=$label; ?></a>
     </header>
     <div class="checkerboard-item__content js-checkerboard__content">

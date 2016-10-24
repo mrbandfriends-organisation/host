@@ -17,6 +17,7 @@ module.exports = require('deep-assign')({
     },
     js: {
         watch:  root+'/js/src/**/*.js',
+        sourceDir: root+'/js/src/',
         source: root+'/js/src/app.js',
         output: root+'/js/dist/',
         root:   root+'/js/',

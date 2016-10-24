@@ -94,7 +94,25 @@ require('./ext/NodeList');
 
     require('slick')();
 
+    require('lazysizes');
 })();
+
+
+/**
+ * LAZY LOADING BACKGROUND IMAGES
+ * uses lazysizes to detect when element is inview and then
+ * finds the image and loads it by adding style attribute
+ * https://github.com/aFarkas/lazysizes
+ */
+(function() {
+    document.addEventListener('lazybeforeunveil', function(e){
+        var bg = e.target.getAttribute('data-bg');
+
+        if(bg){
+            e.target.style.backgroundImage = 'url(' + bg + ')';
+        }
+    });
+}());
 
 
 /**

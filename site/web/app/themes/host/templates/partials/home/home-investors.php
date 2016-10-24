@@ -2,7 +2,8 @@
   /**
   * HOME INVESTORS
   **/
-    use Roots\Sage\Utils;
+  use Roots\Sage\Utils;
+  use Roots\Sage\Assets;
 ?>
 
 <?php
@@ -24,9 +25,19 @@
 ));
 ?>
 
-<?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
-    'align' => 'right',
-    'color' => 'grape',
-    'second' => "<img class=\"homepage-investors-image-hack\" src=\"{$investors_image}\" />",
-    'content' => $main_content,
-)); ?>
+<?php 
+  $second_image = Assets\lazy_loaded_image(array(
+      'src' => $investors_image,
+      'alt' => "",
+      'classnames' => "homepage-investors-image-hack"
+    )
+  );
+      
+
+  echo Utils\ob_load_template_part('templates/components/split-feature', array(
+      'align' => 'right',
+      'color' => 'grape',    
+      'content' => $main_content,
+      'second' => $second_image
+  )); 
+?>

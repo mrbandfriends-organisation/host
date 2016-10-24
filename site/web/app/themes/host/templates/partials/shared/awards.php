@@ -34,7 +34,10 @@
                 <ul class="awards <?php echo esc_attr($awards_logos_modifier); ?>">
                     <?php foreach ($award_logos as $logo_item) : ?>
                         <li class="awards__item">
-                            <img class="awards__image" src="<?php echo esc_html( $logo_item['logo']['url'] ); ?>" alt="<?php echo esc_html( $logo_item['title'] ); ?>" class="awards__image" />
+                            <noscript>
+                                <img class="awards__image" src="<?php echo esc_attr( $logo_item['logo']['url'] ); ?>" alt="<?php echo esc_attr( $logo_item['title'] ); ?>" />
+                            </noscript>
+                            <img class="awards__image lazyload" data-src="<?php echo esc_attr( $logo_item['logo']['url'] ); ?>" alt="<?php echo esc_attr( $logo_item['title'] ); ?>" />
                         </li>
                     <?php endforeach; ?>
                 </ul>
