@@ -2,8 +2,10 @@
     $carousel_images = ( !empty($carousel_images) ? $carousel_images : null );
 ?>
 
+<?php if (!empty($carousel_images)): ?>
 <div class="slideshow js-slideshow slideshow--light-pagination" data-pagination="pn dots">
-    <ul class="slideshow__list js-slideshow__list">
+    <ul class="slideshow__list js-slideshow__list">       
+
     <?php foreach ( $carousel_images AS $image): ?>
         <?php
             $alt = ( !empty($image['alt']) ? $image['alt'] : null );
@@ -14,3 +16,4 @@
     <?php endforeach; ?>
     </ul>
 </div>
+<?php endif ?>
