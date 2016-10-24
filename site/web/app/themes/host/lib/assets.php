@@ -117,38 +117,40 @@ add_filter('style_loader_tag', __NAMESPACE__.'\\hook_loadcss');
  */
 function bust_caching($sUri)
 {
-    // 0. if we’re in development, or MinQueue is switched on…
-/*
-    if ( 0 && class_exists('MinQueue') || (defined('WP_ENV') && (WP_ENV === 'development')))
-    {
-        return $sUri;
-    }
-*/
-
+   
     // 1. strip domain off the front of the source
     $sUri = preg_replace_callback('/https?:\/\/(.*?)\//', function($aM)
     {
         return ($aM[1] === 'fonts.googleapis.com') ? $aM[0] : '/';
     }, $sUri);
 
+
     // 2. strip query string
     $sUri  = preg_replace('/ver=([0-9\.]+)&?/', '', $sUri);
-    list($sUri, $sQs) = explode('?', $sUri);
+
+    $exploded = explode('?', $sUri);
+    if (isset( $exploded[1])) {
+        list($sUri, $sQs) = $exploded;
+    } else {
+        list($sUri) = $exploded;
+    }
 
     // 2. work out the local path to the file
     $sPath  = dirname(ABSPATH).preg_replace('/\?(.*?)$/', '', $sUri);
+
     $sStamp = file_exists($sPath) ? ".".filemtime($sPath) : "";
 
     // 2.5 - reinstate the full url where required as we need this if we're using an origin PULL CDN
     $sUri = Utils\cdnify($sUri);
 
-    // 3. min file
-    $sSuff = (defined('WP_ENV') && (WP_ENV !== 'development' && WP_ENV !== 'staging')) ? '' : '';
+    // 3. - determine whether to use the minified version fo the file
+    $sSuffix = (defined('WP_ENV') && (WP_ENV !== 'development' && WP_ENV !== 'staging')) ? '.min' : '.min';
 
     // 4. create a new URL
-    return preg_replace('/\.(\w+)$/', "{$sSuff}{$sStamp}.$1", $sUri).(empty($sQs) ? '' : "?{$sQs}");
+    return preg_replace('/\.(\w+)$/', "{$sSuffix}{$sStamp}.$1", $sUri).(empty($sQs) ? '' : "?{$sQs}");
 }
 add_filter('script_loader_src', __NAMESPACE__.'\\bust_caching');
+add_filter('style_loader_src', __NAMESPACE__.'\\bust_caching');
 
 /**
  * Works in a similar way to wp_get_attachment_image, only returns an IMG with a srcset attribute
