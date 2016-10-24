@@ -26,6 +26,7 @@
     "del": "^2.2.1",
     "featherlight": "^1.4.1",
     "fg-loadjs": "^1.0.0",
+    "fontfaceobserver": "^2.0.5",
     "gulp-buffer": "0.0.2",
     "gulp-php2html": "^0.3.2",
     "js-cookie": "^2.1.3",

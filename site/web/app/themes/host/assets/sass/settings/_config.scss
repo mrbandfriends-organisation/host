@@ -150,7 +150,8 @@ $cursive: 						"Bradley Hand ITC", "Apple Chancery", "URW Chancery L", cursive;
 // ==========================================================================
 
 $base-font-size:          		16px;
-$base-font-family:        		CircularWeb, $arial; // or write your own custom font-stack
+$base-font-family:              $arial; // or write your own custom font-stack
+$wf-base-font-family:           CircularWeb, $arial;
 $base-line-height:        		1.4;
 $base-font-color: 				map-get($brand-palette, ink);;
 $em-base: 				        $base-font-size;

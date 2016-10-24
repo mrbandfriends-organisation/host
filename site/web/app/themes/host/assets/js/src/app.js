@@ -74,21 +74,17 @@ require('./ext/NodeList');
 {
     "use strict";
 
+    require('webfonts');
+
     require('checkerboard');
 
-    require('contact-tabs');
-
-    require('maps')();
+    require('contact-tabs');    
 
     require('flyouts')();
 
     require('slideshows')();
 
     require('scrollable')();
-
-    // require('bind-inview')();
-
-    // require('onpage-smooth-scroll')();
 
     require('lightbox')();
 
@@ -98,8 +94,20 @@ require('./ext/NodeList');
 
     require('slick')();
 
-    // require('gravity-form-submission')();
 })();
+
+
+/**
+ * GOOGLE MAPS 
+ * initialises Google Maps functionality where a map is present
+ */
+(function() {
+    if ( $('.js-map').length ) {
+        require.ensure(['maps'], function() {
+            require('maps')();
+        },'google-maps');
+    }
+}());
 
 
 
@@ -109,8 +117,6 @@ require('./ext/NodeList');
  */
 (function() {
    'use strict';
-
-
 
     // here need to test if container exists
     // Depending which containe exitis depends on which instance of
