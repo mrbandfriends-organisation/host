@@ -117,7 +117,12 @@ add_filter('style_loader_tag', __NAMESPACE__.'\\hook_loadcss');
  */
 function bust_caching($sUri)
 {
-   
+    
+    // Don't filter any scripts for the admin
+    if (is_admin()) {
+        return $sUri;
+    }
+
     // 1. strip domain off the front of the source
     $sUri = preg_replace_callback('/https?:\/\/(.*?)\//', function($aM)
     {
