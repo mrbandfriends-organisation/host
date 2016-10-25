@@ -1,5 +1,6 @@
 <?php
     use Roots\Sage\Utils;
+    use Roots\Sage\Assets;
 
     // Tech Ben Statements
     $post_type                = ( !empty($post_type) ? $post_type : null );
@@ -25,7 +26,13 @@
     <a href="<?=esc_attr(get_the_permalink());?>" class="article-tile__link">
         <?php if ( !empty($featured_image) ): ?>
             <div class="article-tile__image-container">
-                <img class="article-tile__image <?php echo esc_attr($featured_image__modifier) ?>" src="<?php echo esc_url($featured_image); ?>" alt="" />
+                <?php 
+                    echo Assets\lazy_loaded_image(array(
+                        'src' => $featured_image,
+                        'alt' => "",
+                        'classnames' => 'article-tile__image ' . $featured_image__modifier
+                    ));
+                ?>      
             </div>
         <?php endif; ?>
 
