@@ -49,7 +49,7 @@ var bpm = require('breakpoint-tools');
     "use strict";
 
     // Async load
-    if ( window.innerWidth < 992 ) {
+    if ( bpm.matchSmaller('large') ) {
         // Async load
         //require.ensure(['offcanvas-toggler'], function() {
             var OffCanvasToggler = require('offcanvas-toggler');

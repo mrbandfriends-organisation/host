@@ -27,7 +27,7 @@ var FontFaceObserver = require('fontfaceobserver');
 var webFont = new FontFaceObserver('CircularWeb');
 
 Promise.race([
-	timer(3000),
+	timer(3000), // if the fonts aint loaded fast enough then kick off big time!
 	webFont.load()
 ]).then(function () {
 	if (!document.documentElement.classList.contains('wf-active')) { // don't re-added if optimised loading has already added
@@ -43,18 +43,3 @@ Promise.race([
 });
 
 
-// Trigger Load
-/*
-circularWeb.load().then(function() {
-    if (!document.documentElement.classList.contains('wf-active')) { // don't re-added if optimised loading has already added
-        //document.documentElement.className += " wf-circular-web-400-loaded wf-circular-web-600-loaded";
-        document.documentElement.className += " wf-active";
-    }
-
-    // Optimise for repeat view
-    // https://www.zachleat.com/web-fonts/demos/fout-with-class.html
-    sessionStorage.foutFontsLoaded = true;
-}).catch(function() {
-    document.documentElement.className += " wf-inactive";
-});
-*/

@@ -224,8 +224,7 @@ body {
 }
 
 body {
-  transition: opacity 0.1s linear;
-  opacity: 0;
+  opacity: 1;
 }
 
 .unenhanced body,

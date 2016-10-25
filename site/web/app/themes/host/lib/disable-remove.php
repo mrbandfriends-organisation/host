@@ -21,6 +21,7 @@ function disable_wp_emojicons() {
   remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
   remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
   remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+  remove_action('wp_head', 'wp_oembed_add_host_js');
 
 }
 add_action( 'init', __NAMESPACE__ . '\\disable_wp_emojicons' );
