@@ -11,7 +11,6 @@ var CleanWebpackPlugin  = require('clean-webpack-plugin');
 var errorHandler        = require('../errorHandler');
 var paths               = require('../paths');
 
-
 gulp.task('javascripts', function() {
     return  gulp.src( paths.js.source )
                 .pipe(plumber({
@@ -19,7 +18,7 @@ gulp.task('javascripts', function() {
                 }))                
                 .pipe(gulpWebpack({ // webpack-stream for using Webpack with Gulp streams
                     entry: {
-                        "app": paths.js.sourceDir + 'app.js',
+                        //"app": paths.js.sourceDir + 'app.js',
                         "app.min": paths.js.sourceDir + 'app.js'
                     },
                     output: {
@@ -53,7 +52,8 @@ gulp.task('javascripts', function() {
                         modulesDirectories: ['lib', 'vendor', 'node_modules', 'ui']
                     }
                 },webpack)) // 2nd argument allows us to inject a custom version of webpack into the webpack-stream lib
-                .pipe(gulp.dest( paths.js.output ));
+                .pipe(gulp.dest( paths.js.output ))
+
 });
 
 

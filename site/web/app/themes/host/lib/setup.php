@@ -104,7 +104,7 @@ function assets()
 {
     wp_enqueue_style('mrb-wp-theme', Assets\asset_path('styles/main.css'), false, null);
 
-    if (is_single() && comments_open() && get_option('thread_comments')) {
+    if (0 && is_single() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');
     }
     if (!is_admin()) {

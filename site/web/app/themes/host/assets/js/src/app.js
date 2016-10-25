@@ -12,7 +12,7 @@ require('expose?$!expose?jQuery!jquery');
 require('./ext/NodeList');
 
 /**
- * GOGGLE EVENT TRACKING
+ * GOGGLE EVENT TRACKINGd
  * provides ability to fire GA events by applying data- attributes
  * to DOM elements. Requires "ga" object to be in global scope
  */
