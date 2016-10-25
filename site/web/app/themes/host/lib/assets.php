@@ -143,16 +143,29 @@ function bust_caching($sUri)
     // 2. work out the local path to the file
     $sPath  = dirname(ABSPATH).preg_replace('/\?(.*?)$/', '', $sUri);
 
+
+
+
     $sStamp = file_exists($sPath) ? ".".filemtime($sPath) : "";
 
     // 2.5 - reinstate the full url where required as we need this if we're using an origin PULL CDN
     $sUri = Utils\cdnify($sUri);
 
-    // 3. - determine whether to use the minified version fo the file
     $sSuffix = (defined('WP_ENV') && (WP_ENV !== 'development' && WP_ENV !== 'staging')) ? '.min' : '.min';
 
     // 4. create a new URL
-    return preg_replace('/\.(\w+)$/', "{$sSuffix}{$sStamp}.$1", $sUri).(empty($sQs) ? '' : "?{$sQs}");
+    $min_asset = preg_replace('/\.(\w+)$/', "{$sSuffix}{$sStamp}.$1", $sUri).(empty($sQs) ? '' : "?{$sQs}");
+
+
+
+
+    $std_asset = preg_replace('/\.(\w+)$/', "{$sStamp}.$1", $sUri).(empty($sQs) ? '' : "?{$sQs}");
+
+    if (file_exists(dirname(ABSPATH) . $min_asset)) {
+        return $min_asset;
+    } else {
+        return $std_asset;
+    }
 }
 add_filter('script_loader_src', __NAMESPACE__.'\\bust_caching');
 add_filter('style_loader_src', __NAMESPACE__.'\\bust_caching');
