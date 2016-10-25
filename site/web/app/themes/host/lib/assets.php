@@ -110,7 +110,7 @@ function hook_loadcss($tag)
     return "{$sMunge}<noscript>{$tag}</noscript>\n";
     return $tag;
 }
-add_filter('style_loader_tag', __NAMESPACE__.'\\hook_loadcss');
+//add_filter('style_loader_tag', __NAMESPACE__.'\\hook_loadcss');
 
 /**
  * Adds the last modification date of a file to the URL.
