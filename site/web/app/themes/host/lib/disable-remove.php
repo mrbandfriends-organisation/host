@@ -25,6 +25,8 @@ function disable_wp_emojicons() {
 }
 add_action( 'init', __NAMESPACE__ . '\\disable_wp_emojicons' );
 
+// We can also remove the DNS prefetch by returning false on filter emoji_svg_url (thanks @yobddigi):
+add_filter( 'emoji_svg_url', '__return_false' );
 
 /**
  * Generic Function for Dequeing scripts and styles
