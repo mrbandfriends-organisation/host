@@ -90,8 +90,6 @@ var bpm = require('breakpoint-tools');
 
     require('scrollable')();
 
-    require('lightbox')();
-
     require('equality')();
 
     require('FavouriteManager');
@@ -102,52 +100,78 @@ var bpm = require('breakpoint-tools');
 })();
 
 
+
+
+
 /**
  * GOOGLE TRANSLATION IMPLEMENTATION
  * originally the site used to rely on a Plugin but this included assets
  * in such a way as to block render. As a result we've reimplemented this
  * manually.
  */
-$(window).on('load',function() {
-    var gadget;
-    var targetString = ( bpm.matchLarger('large') ) ? 'google-translate-target-large' : 'google-translate-target-small';
+(function() {
+    $(window).on('load',function() {
+        var gadget;
+        var targetString = ( bpm.matchLarger('large') ) ? 'google-translate-target-large' : 'google-translate-target-small';
 
-    var googleTranslateTarget = $('#' + targetString);
+        var googleTranslateTarget = $('#' + targetString);
 
 
-    window.googleLanguageTranslatorInit = function() { 
-       new google.translate.TranslateElement({ 
-            pageLanguage: 'en',
-            includedLanguages:'en,zh-CN,zh-TW,fr,de,it,ja,pt,es',
-            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, 
-            multilanguagePage: true,
-            autoDisplay: false
-        }, targetString);
+        window.googleLanguageTranslatorInit = function() { 
+           new google.translate.TranslateElement({ 
+                pageLanguage: 'en',
+                includedLanguages:'en,zh-CN,zh-TW,fr,de,it,ja,pt,es',
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, 
+                multilanguagePage: true,
+                autoDisplay: false
+            }, targetString);
 
-        // Improve layout
-        googleTranslateTarget.find('div').css('display','block');
+            // Improve layout
+            googleTranslateTarget.find('div').css('display','block');
 
-        gadget = googleTranslateTarget.find('.goog-te-gadget');
+            gadget = googleTranslateTarget.find('.goog-te-gadget');
 
-        // Remove Google logo and span
-        gadget.children().not('div').remove()
+            // Remove Google logo and span
+            gadget.children().not('div').remove()
 
-        // Remove "powered by" text nodes
-        gadget.contents().filter(function() {
-            return this.nodeType == 3;
-        }).remove();
+            // Remove "powered by" text nodes
+            gadget.contents().filter(function() {
+                return this.nodeType == 3;
+            }).remove();
 
-        // Remove loading placeholder
-        googleTranslateTarget.find('.js-translation-loading-placeholder').remove();
+            // Remove loading placeholder
+            googleTranslateTarget.find('.js-translation-loading-placeholder').remove();
 
-        
+            
+        };
+        require('fg-loadjs')('//translate.google.com/translate_a/element.js?cb=googleLanguageTranslatorInit');
+    });
+}());
+
+
+(function() {
+    $(window).on('load',function() {
+        if ( $('.js-popup-gallery-trigger').length ) {
+            require.ensure(['lightbox'], function() {
+                require('lightbox')();
+            },'lightbox');
+        }
+    });
+}());
+
+
+(function() {    
+    var $buoop = {c:2};
+    
+    function $buo_f(){
+        setTimeout(function() {
+            var e = document.createElement("script");
+            e.src = "//browser-update.org/update.min.js";
+            document.body.appendChild(e);
+        }, 3000);
     };
-    require('fg-loadjs')('//translate.google.com/translate_a/element.js?cb=googleLanguageTranslatorInit');
-});
-
-
-
-
+    $(window).on('load', $buo_f);  
+}());
 
 
 /**
