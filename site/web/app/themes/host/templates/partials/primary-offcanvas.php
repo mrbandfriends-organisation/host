@@ -16,8 +16,8 @@
         </button>
     </div>
 
-    <div class="primary-offcanvas__section primary-offcanvas__language-changer">
-        <?= do_shortcode('[GTranslate]');  ?>
+    <div class="primary-offcanvas__section primary-offcanvas__language-changer js-offcanvas-language-changer">
+        <?php echo do_shortcode('[mrb_google_translate id="google-translate-target-small"]');  ?>
     </div>
 
     <div class="primary-offcanvas__section">
