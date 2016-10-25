@@ -14,13 +14,37 @@
  * https://www.zachleat.com/web-fonts/demos/fout-with-class.html        
  */
 
+function timer(time) {
+  return new Promise(function (resolve, reject) {
+    setTimeout(reject, time);
+  });
+}
+
 var FontFaceObserver = require('fontfaceobserver');
 
 
 // Setup FontFaceObservers
-var circularWeb = new FontFaceObserver('CircularWeb');
+var webFont = new FontFaceObserver('CircularWeb');
+
+Promise.race([
+	timer(3000),
+	webFont.load()
+]).then(function () {
+	if (!document.documentElement.classList.contains('wf-active')) { // don't re-added if optimised loading has already added
+	    //document.documentElement.className += " wf-circular-web-400-loaded wf-circular-web-600-loaded";
+	    document.documentElement.className += " wf-active";
+	}
+	
+	// Optimise for repeat view
+	// https://www.zachleat.com/web-fonts/demos/fout-with-class.html
+	sessionStorage.foutFontsLoaded = true;
+}).catch(function () {
+	document.documentElement.className += " wf-inactive";
+});
+
 
 // Trigger Load
+/*
 circularWeb.load().then(function() {
     if (!document.documentElement.classList.contains('wf-active')) { // don't re-added if optimised loading has already added
         //document.documentElement.className += " wf-circular-web-400-loaded wf-circular-web-600-loaded";
@@ -33,3 +57,4 @@ circularWeb.load().then(function() {
 }).catch(function() {
     document.documentElement.className += " wf-inactive";
 });
+*/

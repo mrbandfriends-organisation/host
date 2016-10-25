@@ -101,7 +101,7 @@ function banner_nav_language_switcher($nav, $args)
 
     // Currently footer utils menu doesnt have a string name just it's ID
     if ($args->menu == 6) {
-        return $nav.'<li class="menu-item menu-item--banner-language-switcher">'.do_shortcode('[GTranslate]').'</li>';
+        return $nav.'<li class="menu-item menu-item--banner-language-switcher">'.do_shortcode('[mrb_google_translate id="google-translate-target-large"]').'</li>';
     }
 
     return $nav;
@@ -116,3 +116,6 @@ function link_open_new_tab_attrs()
 {
     echo esc_attr('target="_blank" rel="noopener" rel="noreferrer"');
 }
+
+
+

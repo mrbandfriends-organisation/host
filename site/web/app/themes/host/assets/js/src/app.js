@@ -11,6 +11,10 @@ require('expose?$!expose?jQuery!jquery');
 // extend things
 require('./ext/NodeList');
 
+var bpm = require('breakpoint-tools');
+
+
+
 /**
  * GOGGLE EVENT TRACKINGd
  * provides ability to fire GA events by applying data- attributes
@@ -96,6 +100,54 @@ require('./ext/NodeList');
 
     require('lazysizes');
 })();
+
+
+/**
+ * GOOGLE TRANSLATION IMPLEMENTATION
+ * originally the site used to rely on a Plugin but this included assets
+ * in such a way as to block render. As a result we've reimplemented this
+ * manually.
+ */
+$(window).on('load',function() {
+    var gadget;
+    var targetString = ( bpm.matchLarger('large') ) ? 'google-translate-target-large' : 'google-translate-target-small';
+
+    var googleTranslateTarget = $('#' + targetString);
+
+
+    window.googleLanguageTranslatorInit = function() { 
+       new google.translate.TranslateElement({ 
+            pageLanguage: 'en',
+            includedLanguages:'en,zh-CN,zh-TW,fr,de,it,ja,pt,es',
+            layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, 
+            multilanguagePage: true,
+            autoDisplay: false
+        }, targetString);
+
+        // Improve layout
+        googleTranslateTarget.find('div').css('display','block');
+
+        gadget = googleTranslateTarget.find('.goog-te-gadget');
+
+        // Remove Google logo and span
+        gadget.children().not('div').remove()
+
+        // Remove "powered by" text nodes
+        gadget.contents().filter(function() {
+            return this.nodeType == 3;
+        }).remove();
+
+        // Remove loading placeholder
+        googleTranslateTarget.find('.js-translation-loading-placeholder').remove();
+
+        
+    };
+    require('fg-loadjs')('//translate.google.com/translate_a/element.js?cb=googleLanguageTranslatorInit');
+});
+
+
+
+
 
 
 /**

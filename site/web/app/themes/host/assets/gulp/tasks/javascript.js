@@ -18,8 +18,8 @@ gulp.task('javascripts', function() {
                 }))                
                 .pipe(gulpWebpack({ // webpack-stream for using Webpack with Gulp streams
                     entry: {
-                        //"app": paths.js.sourceDir + 'app.js',
-                        "app.min": paths.js.sourceDir + 'app.js'
+                        "app": paths.js.sourceDir + 'app.js',
+                        //"app.min": paths.js.sourceDir + 'app.js'
                     },
                     output: {
                         //path: "./assets/js/",
@@ -28,11 +28,13 @@ gulp.task('javascripts', function() {
                         chunkFilename: "chunk-[name].[chunkhash].js" // generate one hash per chunk to enable cache busting on change
                     },
                     plugins: [
+                        /*
                         new webpack.optimize.UglifyJsPlugin({
-                            compressor: {
-                                warnings: false,
-                            },
-                        }),
+                                                    compressor: {
+                                                        warnings: false,
+                                                    },
+                                                }),
+                        */
                         new webpack.ProvidePlugin({ // inject globals as required
                             $: "jquery",
                             jQuery: "jquery",
