@@ -22,5 +22,5 @@ wordpress_sites:
     cache:
       enabled: false
     htpasswd:
-      name: host
-      password: pass4host
+      - name: host
+        password: pass4host
