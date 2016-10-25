@@ -27,6 +27,10 @@ body {
     @include mq(medium) {
         font-size: rem(18);
     }
+
+    .wf-active & {
+        font-family: $wf-base-font-family;
+    }
 }
 
 // ==========================================================================

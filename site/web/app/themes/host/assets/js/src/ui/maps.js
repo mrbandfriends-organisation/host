@@ -28,7 +28,7 @@ module.exports = function()
     if (!maps_loaded && !maps_loading)
     {
         maps_loading = true;
-        require('fg-loadjs')('//maps.googleapis.com/maps/api/js?v=3.exp&key='+GOOGLE_MAPS_KEY, hasLoaded);
+        require('fg-loadjs')('//maps.googleapis.com/maps/api/js?v=3.exp&key='+LOCALISED_VARS.google_maps_key, hasLoaded);
     }
     else if (maps_loaded)
     {

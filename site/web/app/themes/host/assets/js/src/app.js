@@ -12,7 +12,7 @@ require('expose?$!expose?jQuery!jquery');
 require('./ext/NodeList');
 
 /**
- * GOGGLE EVENT TRACKING
+ * GOGGLE EVENT TRACKINGd
  * provides ability to fire GA events by applying data- attributes
  * to DOM elements. Requires "ga" object to be in global scope
  */
@@ -74,21 +74,17 @@ require('./ext/NodeList');
 {
     "use strict";
 
+    require('webfonts');
+
     require('checkerboard');
 
-    require('contact-tabs');
-
-    require('maps')();
+    require('contact-tabs');    
 
     require('flyouts')();
 
     require('slideshows')();
 
     require('scrollable')();
-
-    // require('bind-inview')();
-
-    // require('onpage-smooth-scroll')();
 
     require('lightbox')();
 
@@ -98,8 +94,38 @@ require('./ext/NodeList');
 
     require('slick')();
 
-    // require('gravity-form-submission')();
+    require('lazysizes');
 })();
+
+
+/**
+ * LAZY LOADING BACKGROUND IMAGES
+ * uses lazysizes to detect when element is inview and then
+ * finds the image and loads it by adding style attribute
+ * https://github.com/aFarkas/lazysizes
+ */
+(function() {
+    document.addEventListener('lazybeforeunveil', function(e){
+        var bg = e.target.getAttribute('data-bg');
+
+        if(bg){
+            e.target.style.backgroundImage = 'url(' + bg + ')';
+        }
+    });
+}());
+
+
+/**
+ * GOOGLE MAPS 
+ * initialises Google Maps functionality where a map is present
+ */
+(function() {
+    if ( $('.js-map').length ) {
+        require.ensure(['maps'], function() {
+            require('maps')();
+        },'google-maps');
+    }
+}());
 
 
 
@@ -109,8 +135,6 @@ require('./ext/NodeList');
  */
 (function() {
    'use strict';
-
-
 
     // here need to test if container exists
     // Depending which containe exitis depends on which instance of

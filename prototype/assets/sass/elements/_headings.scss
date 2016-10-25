@@ -18,6 +18,11 @@
 
         &:first-line { color: currentColor !important; } //scss-lint:disable ImportantRule
     }
+
+    .wf-active & {
+        font-family: $wf-base-font-family;
+        font-weight: bold;
+    }
 }
 
 

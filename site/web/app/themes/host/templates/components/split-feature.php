@@ -33,6 +33,6 @@
         </div>
     </div>
     <aside class="split-feature__secondary <?php echo esc_attr($second_modifier) ?> gc l1-2">
-        <?= $second; ?>
+        <?=$second; ?>
     </aside>
 </section>

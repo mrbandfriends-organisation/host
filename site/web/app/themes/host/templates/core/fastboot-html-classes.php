@@ -6,12 +6,12 @@
     if('querySelector' in document && 'localStorage' in window && 'addEventListener' in window) {
         // Add HTML class
         if (document.documentElement.classList) {
-            document.documentElement.classList.add('cuts-the-mustard');
-            document.documentElement.classList.remove('no-cuts-the-mustard');
+            document.documentElement.classList.add('enhanced');
+            document.documentElement.classList.remove('unenhanced');
         } else {
-            document.documentElement.className += ' cuts-the-mustard';
+            document.documentElement.className += ' enhanced';
             // Reliable way of removing a class in olde browsers
-            document.documentElement.className = document.documentElement.className.replace(new RegExp('(^|\\b)' + 'no-cuts-the-mustard'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+            document.documentElement.className = document.documentElement.className.replace(new RegExp('(^|\\b)' + 'unenhanced'.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
         }
     }
 </script>
