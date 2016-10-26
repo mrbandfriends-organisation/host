@@ -13,7 +13,8 @@ require('./ext/NodeList');
 
 // Promise polyfill
 // https://github.com/taylorhakes/promise-polyfill
-var Promise = require('promise-polyfill');
+var PromisePolyfill = require('promise-polyfill');
+window.Promise = window.Promise || PromisePolyfill;
 var setAsap = require('setasap');
 Promise._immediateFn = setAsap;
 
