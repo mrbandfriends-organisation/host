@@ -14,7 +14,11 @@
  * https://www.zachleat.com/web-fonts/demos/fout-with-class.html        
  */
 
-var Promise = require('es6-promise').Promise;
+var Promise = require('promise-polyfill');
+var setAsap = require('setasap');
+Promise._immediateFn = setAsap;
+
+console.log(Promise);
 
 function timer(time) {
 	return new Promise(function (resolve, reject) {

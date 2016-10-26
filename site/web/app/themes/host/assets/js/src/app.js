@@ -11,8 +11,14 @@ require('expose?$!expose?jQuery!jquery');
 // extend things
 require('./ext/NodeList');
 
-var bpm     = require('breakpoint-tools');
-var Promise = require('es6-promise').Promise;
+// Promise polyfill
+// https://github.com/taylorhakes/promise-polyfill
+var Promise = require('promise-polyfill');
+var setAsap = require('setasap');
+Promise._immediateFn = setAsap;
+
+// Breakpoint Manager
+var bpm = require('breakpoint-tools');
 
 
 /**

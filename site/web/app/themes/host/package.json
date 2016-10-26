@@ -21,7 +21,8 @@
   "dependencies": {
     "frontend-boilerplate-assets": "file:assets",
     "gulp": "^3.9.1",
-    "lazysizes": "^2.0.5"
+    "lazysizes": "^2.0.5",
+    "setasap": "^2.0.0"
   },
   "devDependencies": {
     "del": "^2.2.1",
