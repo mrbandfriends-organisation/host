@@ -37,13 +37,13 @@
             </div>
         <?php endif; ?>
             <?php 
-                $bleed_image = get_field('things_to_do_image')['url'];
+                $bleed_image = get_field('things_to_do_image');
             ?>
             
             <?php if (!empty($bleed_image)): ?>
             <div class="gc<?=$sRemainCols; ?> flex">
-                <div class="box bleed-image lazyload" data-bg="<?php echo esc_attr($bleed_image);?>">
-                    <img data-src="<?php echo esc_attr($bleed_image);?>" alt="" class="bleed-image__image lazyload">
+                <div class="box bleed-image lazyload" data-bg="<?php echo esc_attr($bleed_image['url']);?>">
+                    <img data-src="<?php echo esc_attr($bleed_image['url']);?>" alt="<?php echo esc_attr($bleed_image['alt']);?>" class="bleed-image__image lazyload">
                 </div>
             </div>
             <?php endif; ?>
