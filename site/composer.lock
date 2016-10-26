@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b7acd99727ef867f8ead2deed477ffdf",
-    "content-hash": "0228cd557eb8c2c4145be671f0af6e8c",
+    "hash": "741d82dbdf4813d3903719efeb8ba022",
+    "content-hash": "84d12a40e9b4de2f1b32517614723856",
     "packages": [
         {
             "name": "composer/installers",
@@ -352,7 +352,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/better-wp-security.5.6.4.zip",
-                "reference": null,
+                "reference": "tags/5.6.4",
                 "shasum": null
             },
             "require": {
@@ -372,7 +372,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/codepress-admin-columns.2.5.6.3.zip",
-                "reference": null,
+                "reference": "tags/2.5.6.3",
                 "shasum": null
             },
             "require": {
@@ -380,6 +380,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/codepress-admin-columns/"
+        },
+        {
+            "name": "wpackagist-plugin/imsanity",
+            "version": "2.3.6",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/imsanity/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/imsanity.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/imsanity/"
         },
         {
             "name": "wpackagist-plugin/members",
@@ -392,7 +412,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/members.1.1.2.zip",
-                "reference": null,
+                "reference": "tags/1.1.2",
                 "shasum": null
             },
             "require": {
@@ -412,7 +432,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/postman-smtp.1.7.2.zip",
-                "reference": null,
+                "reference": "tags/1.7.2",
                 "shasum": null
             },
             "require": {
@@ -432,7 +452,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/stream.3.0.7.zip",
-                "reference": null,
+                "reference": "tags/3.0.7",
                 "shasum": null
             },
             "require": {
@@ -452,7 +472,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/user-switching.1.0.9.zip",
-                "reference": null,
+                "reference": "tags/1.0.9",
                 "shasum": null
             },
             "require": {
@@ -472,7 +492,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/wordpress-seo.3.7.0.zip",
-                "reference": null,
+                "reference": "tags/3.7.0",
                 "shasum": null
             },
             "require": {
