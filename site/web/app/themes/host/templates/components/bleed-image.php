@@ -2,7 +2,7 @@
     use Roots\Sage\Assets;
 
     $modifier   = ( !empty($modifier) ? $modifier : null );
-    $alt        = ( !empty($alt) ? 'alt="' . esc_html($alt) . '"' : null );
+    $alt        = ( !empty($alt) ? $alt : "" );
 ?>
 
 <div class="box bleed-image <?php echo esc_attr($modifier); ?> lazyload" data-bg="<?php echo esc_attr($image); ?>">
