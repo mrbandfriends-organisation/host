@@ -18,31 +18,30 @@ var Promise = require('promise-polyfill');
 var setAsap = require('setasap');
 Promise._immediateFn = setAsap;
 
-console.log(Promise);
+var FontFaceObserver = require('fontfaceobserver');
 
+
+
+// Timeout helper
 function timer(time) {
 	return new Promise(function (resolve, reject) {
 		setTimeout(reject, time);
 	});
 }
 
-var FontFaceObserver = require('fontfaceobserver');
-
-
 // Setup FontFaceObservers
 var webFont = new FontFaceObserver('CircularWeb');
 
+// Race the Font load against the timeout
 Promise.race([
 	timer(3000), // if the fonts aint loaded fast enough then kick off big time!
 	webFont.load()
 ]).then(function () {
 	if (!document.documentElement.classList.contains('wf-active')) { // don't re-added if optimised loading has already added
-	    //document.documentElement.className += " wf-circular-web-400-loaded wf-circular-web-600-loaded";
 	    document.documentElement.className += " wf-active";
 	}
 	
-	// Optimise for repeat view
-	// https://www.zachleat.com/web-fonts/demos/fout-with-class.html
+	// Optimise for repeat view - https://www.zachleat.com/web-fonts/demos/fout-with-class.html
 	sessionStorage.foutFontsLoaded = true;
 }).catch(function () {
 	document.documentElement.className += " wf-inactive";
