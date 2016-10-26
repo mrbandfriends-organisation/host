@@ -406,6 +406,20 @@ function post_thumb_url($post_id = null)
     return $featured_img_url;
 }
 
+
+function get_post_thumb_data( $post_id, $size='full' ) {
+    $rtn = [];
+
+    $post_thumbnail_id = get_post_thumbnail_id( $post_id );
+
+    $src_data = get_post_thumb_src( $post_id, $size, $post_thumbnail_id );
+
+    $rtn['src']     = $src_data[0];
+    $rtn['alt']     = get_image_alt_by_id( $post_thumbnail_id );
+
+    return $rtn;
+}
+
 function cdnify($asset_path)
 {
     if (WP_ENV !== 'development' && function_exists('get_rocket_cdn_url')) {
