@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "del": "^2.2.1",
+    "es6-promise": "^4.0.5",
     "featherlight": "^1.4.1",
     "fg-loadjs": "^1.0.0",
     "fontfaceobserver": "^2.0.5",

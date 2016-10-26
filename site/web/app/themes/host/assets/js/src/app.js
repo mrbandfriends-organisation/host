@@ -11,8 +11,8 @@ require('expose?$!expose?jQuery!jquery');
 // extend things
 require('./ext/NodeList');
 
-var bpm = require('breakpoint-tools');
-
+var bpm     = require('breakpoint-tools');
+var Promise = require('es6-promise').Promise;
 
 
 /**
@@ -136,7 +136,7 @@ var bpm = require('breakpoint-tools');
 
             // Remove "powered by" text nodes
             gadget.contents().filter(function() {
-                return this.nodeType == 3;
+                return this.nodeType === 3;
             }).remove();
 
             // Remove loading placeholder

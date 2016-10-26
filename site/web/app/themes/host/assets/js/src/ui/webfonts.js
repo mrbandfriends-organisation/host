@@ -14,10 +14,12 @@
  * https://www.zachleat.com/web-fonts/demos/fout-with-class.html        
  */
 
+var Promise = require('es6-promise').Promise;
+
 function timer(time) {
-  return new Promise(function (resolve, reject) {
-    setTimeout(reject, time);
-  });
+	return new Promise(function (resolve, reject) {
+		setTimeout(reject, time);
+	});
 }
 
 var FontFaceObserver = require('fontfaceobserver');
