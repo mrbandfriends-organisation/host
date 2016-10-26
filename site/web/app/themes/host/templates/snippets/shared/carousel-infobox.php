@@ -20,11 +20,11 @@
 <div class="carosel-infobox carosel-infobox--building slideshow-infobox box box--mint text-left">
 
 <?php if ( !empty($building_name) ): ?>
-    <h3 class="carousel-infobox__heading">
+    <h1 class="carousel-infobox__heading h3">
         <?php echo esc_html($building_name); ?> building.
         <br>
         <?=esc_html($town); ?>
-    </h3>
+    </h1>
 <?php endif; ?>
 
 <?php if ( !empty($address) ): ?>

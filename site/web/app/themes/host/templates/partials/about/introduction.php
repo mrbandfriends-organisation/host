@@ -10,6 +10,7 @@ $description      = get_field('description');
 $award_logos      = get_field('award_logos');
 
 $main_content = Utils\ob_load_template_part('templates/snippets/about/introduction-text', array(
+	'heading_level' 	=> '1',
     'title_1'           => $title_1,
     'title_2'           => $title_2,
     'description'       => $description,

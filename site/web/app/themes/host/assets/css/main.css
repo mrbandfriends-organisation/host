@@ -4489,7 +4489,7 @@ a.btn {
   background: transparent none no-repeat center right;
 }
 
-.billboard__main--building-intro h2 {
+.billboard__main--building-intro__heading {
   margin-top: 20px;
 }
 

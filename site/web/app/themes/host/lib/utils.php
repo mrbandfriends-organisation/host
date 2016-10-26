@@ -151,22 +151,25 @@ function cache_bust_asset($file)
  */
 function esc_text_area__($string_to_esc_and_translate, $text_domain = 'englishstudio')
 {
+    return wp_kses_post($string_to_esc_and_translate);
+    /*
     return wp_kses($string_to_esc_and_translate, array(
-            'a' => array(
-                    'href' => array(),
-                    'title' => array(),
-            ),
-            'br' => array(),
-            'em' => array(),
-            'strong' => array(),
-            'p' => array(),
-            'ul' => array(),
-            'ol' => array(),
-            'li' => array(),
-            'h2' => array(),
-            'h3' => array(),
-            'h4' => array(),
-    ));
+                'a' => array(
+                        'href' => array(),
+                        'title' => array(),
+                ),
+                'br' => array(),
+                'em' => array(),
+                'strong' => array(),
+                'p' => array(),
+                'ul' => array(),
+                'ol' => array(),
+                'li' => array(),
+                'h2' => array(),
+                'h3' => array(),
+                'h4' => array(),
+        ));
+    */
 }
 // Alias for above
 function esc_textarea__($string_to_esc_and_translate, $text_domain = 'englishstudio')

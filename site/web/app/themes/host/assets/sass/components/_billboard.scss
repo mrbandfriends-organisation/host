@@ -67,13 +67,13 @@
 // # MODIFIER: BUILDING INTRO BILLBOARD
 // ==========================================================================
 .billboard__main--building-intro {
-    h2 {
-        margin-top: $half-spacing-unit;
-    }
-
     @include mq($until: large) {
         margin-bottom: $half-spacing-unit;
     }
+}
+
+.billboard__main--building-intro__heading {
+    margin-top: $half-spacing-unit;
 }
 
 .billboard.box--grape {

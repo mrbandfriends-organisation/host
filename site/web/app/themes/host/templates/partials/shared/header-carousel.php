@@ -14,7 +14,7 @@
     }
 ?>
 
-<section class="band slideshow js-slideshow slideshow--large-pagination slideshow--light-pagination slideshow--animate-in" data-pagination="pn dots">
+<div class="band slideshow js-slideshow slideshow--large-pagination slideshow--light-pagination slideshow--animate-in" data-pagination="pn dots">
     <ul class="slideshow__list js-slideshow__list">
         
         <?php echo $info_box; ?>
@@ -26,4 +26,4 @@
             </li>
         <?php endforeach; ?>
     </ul>
-</section>
+</div>

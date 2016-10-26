@@ -4,7 +4,8 @@
 <div data-favouritable="<?=get_the_id(); ?>">
     <?php // check if the repeater field has rows of data ?>
     <?php if( have_rows('links_downloads') ):?>
-        <h3 class="plain inherit-fg">Can't wait to get settled in? You'll need these.</h3>
+        <h3 class="vh">Useful Links and Downloads</h3>
+        <p class="plain inherit-fg h3">Can't wait to get settled in? You'll need these.</p>
 
         <?php while ( have_rows('links_downloads') ) : the_row();
             $button_text     = get_sub_field('button_text');

@@ -31,9 +31,9 @@
  ?>
 
 <?php if ( !empty($post_thumbnail_ref) ): ?>
-    <section class="band hero <?=$modifier; ?> box<?=$color; ?>">
+    <div class="band hero <?=$modifier; ?> box<?=$color; ?>">
         <div class="container hero__inner">
             <?php echo $image; ?>
         </div>
-    </section>
+    </div>
 <?php endif; ?>
