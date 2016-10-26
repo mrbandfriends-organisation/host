@@ -127,7 +127,7 @@ var bpm = require('breakpoint-tools');
         window.googleLanguageTranslatorInit = function() { 
            new google.translate.TranslateElement({ 
                 pageLanguage: 'en',
-                includedLanguages:'en,zh-CN,zh-TW,fr,de,it,ja,pt,es',
+                includedLanguages:'en,zh-CN',
                 layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, 
                 multilanguagePage: true,
                 autoDisplay: false
@@ -155,7 +155,10 @@ var bpm = require('breakpoint-tools');
     });
 }());
 
-
+/**
+ * LIGHTBOX
+ * conditionally loaded lightbox 
+ */
 (function() {
     $(window).on('load',function() {
         if ( $('.js-popup-gallery-trigger').length ) {
@@ -167,6 +170,9 @@ var bpm = require('breakpoint-tools');
 }());
 
 
+/**
+ * BROWSER UPGRADE NOTICE
+ */
 (function() {    
     var $buoop = {c:2};
     

@@ -8223,9 +8223,8 @@ a.article-tile__link:hover .article-tile__location {
     margin-left: 20px;
   }
   .menu-item--banner-language-switcher .btn, .menu-item--banner-language-switcher select{
-    width: 12.75rem;
     min-width: 1px;
-    padding: 0.6875rem 1.5625rem;
+    padding: 0.6875rem 2.5rem 0.6875rem 1.5625rem;
   }
   .menu-item--banner-language-switcher:before{
     position: absolute;

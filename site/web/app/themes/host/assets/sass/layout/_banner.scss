@@ -93,9 +93,9 @@
         margin-left: $half-spacing-unit;
 
         .btn {
-            width: rem(204);
+            //width: rem(204);
             min-width: 1px;
-            padding: rem(11) rem(25);
+            padding: rem(11) rem(40px) rem(11) rem(25);
         }
 
         &:before {
