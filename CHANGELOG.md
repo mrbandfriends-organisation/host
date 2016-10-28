@@ -7,6 +7,14 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.9.3] - 2016-10-28
+
+### Added
+- Ability for CMS to manage the only static image in the News feed "slice"
+
+### Fixed
+- Incorrect ACF field reference on news feed resulting in old image being shown up
+
 ## [1.9.2] - 2016-10-19
 ### Removed
 - Don't load SVG from CDN url due to CORS issue
