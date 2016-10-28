@@ -1,0 +1,48 @@
+{
+    "key": "group_58132a4ca6336",
+    "title": "News Feed",
+    "fields": [
+        {
+            "key": "field_58132a68373f7",
+            "label": "Static News Feed Image",
+            "name": "static_news_feed_image",
+            "type": "image",
+            "instructions": "This controls the single image within the news field slice that is not driven by the content of the News article. There is a single image that is always the same. This controls that image.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "site-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1477651119
+}
