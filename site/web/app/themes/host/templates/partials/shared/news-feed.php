@@ -36,9 +36,13 @@
     $article_2_excerpt = $news_posts_array[1]->post_excerpt;
     $article_3_excerpt = $news_posts_array[2]->post_excerpt;
 
-    $thumb_id_1 = get_post_thumbnail_id( $article_1_id );
-    $thumb_id_2 = get_post_thumbnail_id( $article_2_id );
-    $thumb_id_3 = get_post_thumbnail_id( $article_3_id );
+    $thumb_id_1     = get_post_thumbnail_id( $article_1_id );
+    $thumb_id_2     = get_post_thumbnail_id( $article_2_id );
+    $thumb_id_3     = get_post_thumbnail_id( $article_3_id );
+    $thumb_static_field   = get_field('static_news_feed_image','option');
+    $thumb_static = (!empty($thumb_static_field)) ? $thumb_static_field['sizes']['large'] : false;
+    $thumb_static_alt = (!empty($thumb_static_field)) ? $thumb_static_field['alt'] : "";
+    
 ?>
 
 <section class="band news-feed" data-equality="medium">
@@ -94,9 +98,9 @@
                 <div class="gc xxl1-4 gc--above-xxl news-feed-column--above-xxl">
                     <?php $thumb_3_alt = get_post_meta( $thumb_id_1, '_wp_attachment_image_alt', false);?>
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
-                        'image'    => '/app/uploads/2016/08/girl-alpha.png',
-                        'modifier' => 'box--grape-dark multiply-bg',
-                        'alt'      => ( !empty($thumb_3_alt) ) ? $thumb_3_alt[0] : ''
+                        'alt'      => $thumb_static_alt,
+                        'image'    => $thumb_static,
+                        'modifier' => 'box--grape-dark multiply-bg'
 
                     ]); ?>
                 </div>
