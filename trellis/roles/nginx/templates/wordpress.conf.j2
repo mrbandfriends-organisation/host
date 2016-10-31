@@ -17,3 +17,30 @@ include h5bp/directive-only/extra-security.conf;
 include h5bp/location/cross-domain-fonts.conf;
 include h5bp/location/protect-system-files.conf;
 include h5bp/location/cache-busting.conf;
+
+# Feed
+location ~* \.(?:rss|atom)$ {
+  expires 1h;
+  add_header Cache-Control "public";
+}
+
+# Favicons (of any kind)
+location ~ favicon {
+  expires 1y;
+  access_log off;
+  add_header Cache-Control "public";
+}
+
+# Media: images, icons, video, audio, HTC
+location ~* \.(?:jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm|htc)$ {
+  expires 1h;
+  access_log off;
+  add_header Cache-Control "public";
+}
+
+# CSS and Javascript - filename based caching in place so safe to cache for lon$
+location ~* \.(?:css|js)$ {
+  expires 1y;
+  access_log off;
+  add_header Cache-Control "public";
+}

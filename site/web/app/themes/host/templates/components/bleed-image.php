@@ -1,10 +1,17 @@
 <?php
-    use Roots\Sage\Utils;
+    use Roots\Sage\Assets;
 
-    $sBg        = (empty($image)) ? '' : ' style="background-image:url('.esc_attr($image).')"';
     $modifier   = ( !empty($modifier) ? $modifier : null );
-    $alt        = ( !empty($alt) ? 'alt="' . esc_html($alt) . '"' : null );
+    $alt        = ( !empty($alt) ? $alt : "" );
 ?>
-<div class="box bleed-image <?php echo esc_attr($modifier); ?>"<?=$sBg; ?>>
-    <img src="<?=esc_attr($image); ?>" <?php echo Utils\esc_textarea__($alt); ?> class="bleed-image__image">
+
+<div class="box bleed-image <?php echo esc_attr($modifier); ?> lazyload" data-bg="<?php echo esc_attr($image); ?>">
+	<?php 
+		echo Assets\lazy_loaded_image(array(
+	    	'src' => $image,
+	    	'alt' => $alt,
+	    	'classnames' => 'bleed-image__image'
+	    ));
+	?>
 </div>
+

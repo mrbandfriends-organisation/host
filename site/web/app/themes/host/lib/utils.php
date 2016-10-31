@@ -151,22 +151,25 @@ function cache_bust_asset($file)
  */
 function esc_text_area__($string_to_esc_and_translate, $text_domain = 'englishstudio')
 {
+    return wp_kses_post($string_to_esc_and_translate);
+    /*
     return wp_kses($string_to_esc_and_translate, array(
-            'a' => array(
-                    'href' => array(),
-                    'title' => array(),
-            ),
-            'br' => array(),
-            'em' => array(),
-            'strong' => array(),
-            'p' => array(),
-            'ul' => array(),
-            'ol' => array(),
-            'li' => array(),
-            'h2' => array(),
-            'h3' => array(),
-            'h4' => array(),
-    ));
+                'a' => array(
+                        'href' => array(),
+                        'title' => array(),
+                ),
+                'br' => array(),
+                'em' => array(),
+                'strong' => array(),
+                'p' => array(),
+                'ul' => array(),
+                'ol' => array(),
+                'li' => array(),
+                'h2' => array(),
+                'h3' => array(),
+                'h4' => array(),
+        ));
+    */
 }
 // Alias for above
 function esc_textarea__($string_to_esc_and_translate, $text_domain = 'englishstudio')
@@ -406,9 +409,23 @@ function post_thumb_url($post_id = null)
     return $featured_img_url;
 }
 
+
+function get_post_thumb_data( $post_id, $size='full' ) {
+    $rtn = [];
+
+    $post_thumbnail_id = get_post_thumbnail_id( $post_id );
+
+    $src_data = get_post_thumb_src( $post_id, $size, $post_thumbnail_id );
+
+    $rtn['src']     = $src_data[0];
+    $rtn['alt']     = get_image_alt_by_id( $post_thumbnail_id );
+
+    return $rtn;
+}
+
 function cdnify($asset_path)
 {
-    if (function_exists('get_rocket_cdn_url')) {
+    if (WP_ENV !== 'development' && function_exists('get_rocket_cdn_url')) {
         return get_rocket_cdn_url($asset_path);
     } else {
         return $asset_path;

@@ -224,11 +224,10 @@ body {
 }
 
 body {
-  transition: opacity 0.1s linear;
-  opacity: 0;
+  opacity: 1;
 }
 
-.no-cuts-the-mustard body,
+.unenhanced body,
 .no-webfonts body,
 .wf-inactive body,
 .wf-active body,
@@ -313,9 +312,13 @@ html {
 body {
   background: #f5f5f5;
   color: #21293c;
-  font: normal 0.9375rem CircularWeb, Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font: normal 0.9375rem Arial, "Helvetica Neue", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.wf-active body {
+  font-family: CircularWeb, Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 p {
@@ -443,6 +446,7 @@ img {
 
 .gc--vmiddle {
   -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
       align-self: center;
 }
 
@@ -527,7 +531,6 @@ img {
 
 .grid--vmiddle {
   -ms-flex-align: center;
-      -ms-grid-row-align: center;
       align-items: center;
 }
 
@@ -537,7 +540,6 @@ img {
 
 .grid--vbottom {
   -ms-flex-align: end;
-      -ms-grid-row-align: flex-end;
       align-items: flex-end;
 }
 
@@ -598,6 +600,12 @@ input,
 label,
 select {
   font-size: 1.125rem;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.wf-circular-web-400-loaded input, .wf-circular-web-400-loaded
+label, .wf-circular-web-400-loaded
+select {
   font-family: CircularWeb, Arial, "Helvetica Neue", Helvetica, sans-serif;
 }
 
@@ -640,7 +648,7 @@ textarea {
   border-radius: 0;
   background-color: #f5f5f5;
   font-size: 16px;
-  font-family: CircularWeb, Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   box-shadow: 0;
 }
 
@@ -4263,7 +4271,6 @@ a.btn {
 
 .checkerboard__content {
   -ms-flex-align: stretch;
-      -ms-grid-row-align: stretch;
       align-items: stretch;
 }
 
@@ -4482,7 +4489,7 @@ a.btn {
   background: transparent none no-repeat center right;
 }
 
-.billboard__main--building-intro h2 {
+.billboard__main--building-intro__heading {
   margin-top: 20px;
 }
 
@@ -5047,7 +5054,6 @@ a.room-list-nav__link:hover {
   -ms-flex-pack: center;
       justify-content: center;
   -ms-flex-align: center;
-      -ms-grid-row-align: center;
       align-items: center;
   -ms-flex-positive: 1;
       flex-grow: 1;
@@ -5555,7 +5561,6 @@ a.room-list-nav__link:hover {
 
 .in-page-nav__aside {
   -ms-flex-align: center;
-      -ms-grid-row-align: center;
       align-items: center;
 }
 
@@ -5576,7 +5581,6 @@ a.room-list-nav__link:hover {
   margin: 0;
   padding: 0;
   -ms-flex-align: center;
-      -ms-grid-row-align: center;
       align-items: center;
 }
 
@@ -6196,6 +6200,7 @@ a.room-list-nav__link:hover {
 
 .article-list-section .article-list-button {
   -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
       align-self: center;
   margin: 60px 0 40px;
 }
@@ -8123,7 +8128,6 @@ a.article-tile__link:hover .article-tile__location {
   }
   .split-feature.-left .split-feature__main{
     -ms-flex-align: end;
-    -ms-grid-row-align: flex-end;
     align-items: flex-end;
   }
   .split-feature.-left .split-feature__content{
@@ -8133,7 +8137,6 @@ a.article-tile__link:hover .article-tile__location {
   }
   .split-feature.-right .split-feature__main{
     -ms-flex-align: start;
-    -ms-grid-row-align: flex-start;
     align-items: flex-start;
     -ms-flex-order: 2;
     order: 2;
@@ -8212,7 +8215,6 @@ a.article-tile__link:hover .article-tile__location {
   }
   .banner__inner{
     -ms-flex-align: end;
-    -ms-grid-row-align: flex-end;
     align-items: flex-end;
   }
   .menu-item--banner-language-switcher{
@@ -8221,9 +8223,8 @@ a.article-tile__link:hover .article-tile__location {
     margin-left: 20px;
   }
   .menu-item--banner-language-switcher .btn, .menu-item--banner-language-switcher select{
-    width: 12.75rem;
     min-width: 1px;
-    padding: 0.6875rem 1.5625rem;
+    padding: 0.6875rem 2.5rem 0.6875rem 1.5625rem;
   }
   .menu-item--banner-language-switcher:before{
     position: absolute;
@@ -9030,7 +9031,6 @@ a.article-tile__link:hover .article-tile__location {
     -ms-flex-direction: column;
     flex-direction: column;
     -ms-flex-align: start;
-    -ms-grid-row-align: flex-start;
     align-items: flex-start;
     padding-left: 2.5rem;
     margin: 0;

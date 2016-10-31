@@ -72,7 +72,7 @@
 
                         if ( !empty($home_featured_building) ) :
                     ?>
-                        <h3>Featured home<br>Our latest or greatest</h3>
+                        <h2 class="h3">Featured home<br>Our latest or greatest</h2>
                         <p>
                             <a href="<?= ( $is_external ) ? get_field('website_url', $home_featured_building) : get_the_permalink($home_featured_building);?>" class="btn btn--white btn--small" <?php ( $is_external ) ?: Extras\link_open_new_tab_attrs(); ?>>Show me featured homes</a>                        </p>
                     <?php endif; ?>

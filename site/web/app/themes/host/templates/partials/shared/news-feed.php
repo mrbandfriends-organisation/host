@@ -41,8 +41,8 @@
     $thumb_id_3     = get_post_thumbnail_id( $article_3_id );
     $thumb_static_field   = get_field('static_news_feed_image','option');
     $thumb_static = (!empty($thumb_static_field)) ? $thumb_static_field['sizes']['large'] : false;
-
-
+    $thumb_static_alt = (!empty($thumb_static_field)) ? $thumb_static_field['alt'] : "";
+    
 ?>
 
 <section class="band news-feed" data-equality="medium">
@@ -64,9 +64,11 @@
         <div class="gc m2-3 xxl4-5">
             <div class="grid">
                 <div class="gc xxl1-4 gc--above-xxl news-feed-column--above-xxl">
+                    <?php $thumb_1_alt = get_post_meta( $thumb_id_1, '_wp_attachment_image_alt', false);?>
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => wp_get_attachment_image_url($thumb_id_1, 'large'),
-                        'modifier' => 'box--grape-dark multiply-bg'
+                        'modifier' => 'box--grape-dark multiply-bg',
+                        'alt'      => ( !empty($thumb_1_alt) ) ? $thumb_1_alt[0] : ''
                     ]); ?>
                 </div>
                 <div class="gc m1-2">
@@ -83,23 +85,32 @@
                     </article>
                 </div>
                 <div class="gc m1-2 xxl1-4 gc--above-m news-feed-column--above-m">
+                    <?php $thumb_2_alt = get_post_meta( $thumb_id_2, '_wp_attachment_image_alt', false);?>
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => wp_get_attachment_image_url($thumb_id_2, 'large'),
-                        'modifier' => 'box--grape-dark multiply-bg'
+                        'modifier' => 'box--grape-dark multiply-bg',
+                        'alt'      => ( !empty($thumb_2_alt) ) ? $thumb_2_alt[0] : ''
+
                     ]); ?>
                 </div>
             </div>
             <div class="grid">
                 <div class="gc xxl1-4 gc--above-xxl news-feed-column--above-xxl">
+                    <?php $thumb_3_alt = get_post_meta( $thumb_id_1, '_wp_attachment_image_alt', false);?>
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
+                        'alt'      => $thumb_static_alt,
                         'image'    => $thumb_static,
                         'modifier' => 'box--grape-dark multiply-bg'
+
                     ]); ?>
                 </div>
                 <div class="gc m1-2 xxl1-4 gc--above-m news-feed-column--above-m">
+                    <?php $thumb_4_alt = get_post_meta( $thumb_id_3, '_wp_attachment_image_alt', false);?>
                     <?=Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'    => wp_get_attachment_image_url($thumb_id_3, 'large'),
-                        'modifier' => 'box--grape-dark multiply-bg'
+                        'modifier' => 'box--grape-dark multiply-bg',
+                        'alt'      => ( !empty($thumb_4_alt) ) ? $thumb_4_alt[0] : ''
+
                     ]); ?>
                 </div>
                 <div class="gc m1-2">

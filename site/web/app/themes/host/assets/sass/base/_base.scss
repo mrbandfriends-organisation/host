@@ -44,10 +44,10 @@ button {
 // # FONTFACE FOUT PROTECTION
 // ==========================================================================
 body {
-    transition: opacity 0.1s linear;
-    opacity: 0;
+    //transition: opacity 0.1s linear;
+    opacity: 1;
 
-    .no-cuts-the-mustard &,
+    .unenhanced &,
     .no-webfonts &,
     .wf-inactive &,
     .wf-active &,

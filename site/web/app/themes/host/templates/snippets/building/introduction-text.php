@@ -11,10 +11,10 @@
 ?>
 
 <?php if ( $number_rooms > 0 ): ?>
-    <h3><?php echo esc_html($number_rooms); ?> room <?php echo esc_html($room_types); ?> available.</h3>
+    <span class="h3"><?php echo esc_html($number_rooms); ?> room <?php echo esc_html($room_types); ?> available.</span>
 <?php endif; ?>
 
-<h2>
+<h2 class="billboard__main--building-intro__heading h2">
   <?= esc_html($title_1); ?><br />
   <?= esc_html($title_2); ?>
 </h2>

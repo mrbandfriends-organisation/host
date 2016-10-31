@@ -20,7 +20,8 @@
                 'location'  => $student_testimonials[0]['location']->post_title,
                 'name'  => $student_testimonials[0]['name'],
                 'testimonial'  => $student_testimonials[0]['testimonial'],
-                'image'        => $student_testimonials[0]['image']['url']
+                'image'        => $student_testimonials[0]['image']['url'],
+                'alt'        => $student_testimonials[0]['image']['alt']
             )); ?>
 
             <?php echo Utils\ob_load_template_part('templates/snippets/shared/testimonial-grid-2', array(
@@ -34,7 +35,8 @@
                 'location'  => $student_testimonials[2]['location']->post_title,
                 'name'  => $student_testimonials[2]['name'],
                 'testimonial'  => $student_testimonials[2]['testimonial'],
-                'image'        => $student_testimonials[2]['image']['url']
+                'image'        => $student_testimonials[2]['image']['url'],
+                'alt'        => $student_testimonials[2]['image']['alt']
             )); ?>
 
         </article>
@@ -43,7 +45,8 @@
                 'location'     => $student_testimonials[3]['location']->post_title,
                 'name'         => $student_testimonials[3]['name'],
                 'testimonial'  => $student_testimonials[3]['testimonial'],
-                'image'        => $student_testimonials[3]['image']['url']
+                'image'        => $student_testimonials[3]['image']['url'],
+                'alt'        => $student_testimonials[3]['image']['alt']
             )); ?>
 
         </article>

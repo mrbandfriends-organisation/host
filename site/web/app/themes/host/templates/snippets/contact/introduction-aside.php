@@ -3,7 +3,7 @@
 ?>
     <?php // check if the repeater field has rows of data ?>
     <?php if( have_rows('links_downloads') ):?>
-        <h3 class="plain inherit-fg">Can't wait to get settled in?</h3>
+        <h2 class="plain inherit-fg h3">Can't wait to get settled in?</h2>
 
         <?php while ( have_rows('links_downloads') ) : the_row();
             $button_text     = get_sub_field('button_text');

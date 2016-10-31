@@ -23,10 +23,11 @@
         $second = $this->fetch($second);
     }
 
-    $sBg = (empty($background)) ? null : ' style="background-image:url('.esc_attr($background).')"';
+    $background = (!empty($background) ) ? $background : '';
+  
 ?>
 <section class="band billboard -<?=$align; ?> box<?=$color.$add_class; ?>">
-    <div class="container billboard__inner grid"<?=$sBg; ?>>
+    <div class="container billboard__inner grid <?php echo ( !empty($background) ) ? 'lazyload' : '';?>" data-bg="<?php echo esc_attr($background);?>">
         <div class="billboard__main <?= esc_attr($main_modifier); ?> l3-5">
             <?=$content; ?>
         </div>

@@ -13,7 +13,7 @@
 
   $connected_rooms = host_buildings_find_connected_rooms(get_the_id());
   $title = esc_html($rooms_title_1) . '<br />' . esc_html($rooms_title_2);
-?>
+?>
 
 <?php
   if ( !empty($connected_rooms->posts) ) {

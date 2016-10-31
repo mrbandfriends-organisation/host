@@ -38,10 +38,11 @@
             $email = trim(get_field('building_email_address'));
 
             // thumbnail
-            $sStyle = '';
+            $sPostThumb = '';
             if (has_post_thumbnail()) {
                 $sUrl = wp_get_attachment_image_url(get_post_thumbnail_id(), 'width=500');
-                $sStyle = sprintf(' style="background-image: url(%s)"', $sUrl);
+                $sPostThumb = $sUrl;
+
             }
 
             // availability stuff
@@ -119,7 +120,9 @@
                         </div>
                     </div>
                 </div>
-                <aside class="listed-property__image gc l1-2 xl1-3 xxl2-7"<?=$sStyle; ?>>
+                <?php 
+                 ?>
+                <aside class="listed-property__image gc l1-2 xl1-3 xxl2-7 lazyload" data-bg="<?php echo esc_attr($sPostThumb);?>">
                     <p class="listed-property__price box box--ink box--fg-<?=$aAvailabilityDefinition['foreground']; ?> h3">
                         Rooms from <span class="inherit-fg"><?=esc_html(get_field('prices_from')); ?></span>
                     </p>

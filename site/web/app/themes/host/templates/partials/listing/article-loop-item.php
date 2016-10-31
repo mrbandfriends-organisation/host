@@ -1,5 +1,6 @@
 <?php
     use Roots\Sage\Utils;
+    use Roots\Sage\Assets;
 
     // Tech Ben Statements
     $post_type                = ( !empty($post_type) ? $post_type : null );
@@ -17,15 +18,22 @@
     if ( $post_type === 'university' ) {
         $featured_image = null;
     } else {
-        $featured_image = ( has_post_thumbnail() === true ? Utils\post_thumb_url( get_the_ID() ) : $fallback_featured_image['url'] );
+        $featured_image = ( has_post_thumbnail() === true ? Utils\get_post_thumb_data( get_the_ID(), 'medium' ) : $fallback_featured_image['url'] );
     }
+
 ?>
 
 <article class="article-tile <?php echo esc_attr($modifier); ?>">
     <a href="<?=esc_attr(get_the_permalink());?>" class="article-tile__link">
         <?php if ( !empty($featured_image) ): ?>
             <div class="article-tile__image-container">
-                <img class="article-tile__image <?php echo esc_attr($featured_image__modifier) ?>" src="<?php echo esc_url($featured_image); ?>" alt="" />
+                <?php 
+                    echo Assets\lazy_loaded_image(array(
+                        'src' => $featured_image['src'],
+                        'alt' => $featured_image['alt'],
+                        'classnames' => 'article-tile__image ' . $featured_image__modifier
+                    ));
+                ?>      
             </div>
         <?php endif; ?>
 

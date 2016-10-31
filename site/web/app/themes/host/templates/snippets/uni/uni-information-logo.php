@@ -24,6 +24,7 @@
 
 <?php if ( !empty($fallback_image) ): ?>
     <?php echo Utils\ob_load_template_part('templates/components/bleed-image', array(
-        'image'  => $fallback_image
+        'image'  => $fallback_image,
+        'alt'    => $connected_location_image[0]['alt']
     )); ?>
 <?php endif; ?>

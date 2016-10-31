@@ -1,0 +1,2 @@
+# Hosted on seperate RDS instance
+mysql_remote_database: true

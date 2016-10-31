@@ -7,6 +7,7 @@
     $sRemainCols = '';
 
 ?>
+
 <section class="band split-feature -left grid">
     <div class="split-feature__main box box--ink gc l1-2">
         <div class="split-feature__content">
@@ -35,11 +36,17 @@
                 </dl>
             </div>
         <?php endif; ?>
+            <?php 
+                $bleed_image = get_field('things_to_do_image');
+            ?>
+            
+            <?php if (!empty($bleed_image)): ?>
             <div class="gc<?=$sRemainCols; ?> flex">
-                <div class="box bleed-image" style="background-image:url(<?=get_field('things_to_do_image')['url']; ?>)">
-                    <img src="/_dummy/london-eye.jpg" alt="" class="bleed-image__image">
+                <div class="box bleed-image lazyload" data-bg="<?php echo esc_attr($bleed_image['url']);?>">
+                    <img data-src="<?php echo esc_attr($bleed_image['url']);?>" alt="<?php echo esc_attr($bleed_image['alt']);?>" class="bleed-image__image lazyload">
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </aside>
 </section>

@@ -14,7 +14,7 @@
 
     <?php if( have_rows('living_space') ): ?>
         <div class="room-details-container">
-            <h4>The living space.</h4>
+            <h3 class="h4">The living space.</h3>
             <ul class="room-details separated-list grid">
                 <?php while ( have_rows('living_space') ) : the_row(); ?>
                     <?php
@@ -37,7 +37,7 @@
         <?php endif; ?>
 
         <?php if( have_rows('the_amenities') ): ?>
-            <h4>The amenities.</h4>
+            <h3 class="h4">The amenities.</h3>
             <ul class="room-details separated-list grid">
                 <?php while ( have_rows('the_amenities') ) : the_row(); ?>
                     <?php

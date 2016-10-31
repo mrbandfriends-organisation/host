@@ -1,4 +1,5 @@
 <?php
+    use Roots\Sage\Assets;
     $awards = ( !empty($awards) ? $awards : null );
 ?>
 
@@ -6,7 +7,11 @@
     <ul class="awards">
     <?php foreach ($awards as $award): ?>
         <li class="awards__item ">
-            <img src="<?=esc_url($award['logo']['url']); ?>" alt="<?=esc_attr($award['logo']['alt']); ?>" class="awards__image">
+        	<?php echo Assets\lazy_loaded_image(array(
+				'src' => $award['logo']['url'],
+				'alt' => $award['logo']['alt'],
+				'classnames' => "awards__image"
+        	)); ?>            
         </li>
     <?php endforeach; ?>
     </ul>

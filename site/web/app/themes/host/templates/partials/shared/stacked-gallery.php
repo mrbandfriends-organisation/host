@@ -35,7 +35,8 @@
                     </div>
                     <?php echo Utils\ob_load_template_part('templates/components/bleed-image', [
                         'image'     => esc_url($images[$i]['url']),
-                        'modifier'  => 'stacked-gallery__bleed-image ' . $image_overlay_colour
+                        'modifier'  => 'stacked-gallery__bleed-image ' . $image_overlay_colour,
+                         'alt'      => $images[0]['alt']
                     ] ); ?>
                 </a>
             </div>

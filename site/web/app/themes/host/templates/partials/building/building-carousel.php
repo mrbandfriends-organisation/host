@@ -22,10 +22,3 @@
 <?php echo $featured_building_description; ?>
 <a href="<?php echo esc_html($featured_building_guid); ?>" class="btn">Show me this property</a>
 
-
-
-<?php
-  // echo "<pre>";
-  //   print_r($featured_building);
-  // echo "</pre>";
-?>
