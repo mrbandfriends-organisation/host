@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.10.1] - 2016-10-31
+
+### Changed
+- Reduce quality of homepage images massively to improve load time
+
 ## [1.10.0] - 2016-10-31
 
 ### Added
