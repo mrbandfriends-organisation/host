@@ -7,6 +7,29 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.10.0] - 2016-10-31
+
+### Added
+- Reinstate cache busting for CSS (requires server config update)
+- Add assets caching and expiry rules to Trellis config. Will require deploy to Production
+- Add lazyloading for images throughout the site
+- Add custom Google Translate implementation. Now doesn't block loading and is generally nice.
+- Add IMSanity Plugin to better control sizes of images uploaded to server
+- Add Plugin to allow for `nofollow` links
+
+### Changed
+- Optimise webfont loading using FontFaceLoader script
+- Proritise first render by deferring a tonne of JS
+- Chunk more JS to conditionally load based on. Generally only if very expensive to load on all pages (eg: Google Maps)
+- Ensure all assets are optimised for Production by default
+- Remove preload weirdness being added to all style tags due to customisation by previous Mr B Dev
+- 
+
+### Fixed
+- Add `alt` attributes to all images across site that are "content" images
+- Amend heading levels to ensure `<h1>` on all pages and logical heading order improved
+- Force WP Emoji script to be disabled
+
 ## [1.9.3] - 2016-10-28
 
 ### Added
