@@ -4426,7 +4426,6 @@ a.btn {
 }
 
 .split-feature__secondary .grid {
-  height: 100%;
   width: 100%;
   -ms-flex-positive: 1;
       flex-grow: 1;
@@ -4549,9 +4548,7 @@ a.btn {
 }
 
 .bleed-image__image {
-  height: 0.625rem;
-  width: 0.625rem;
-  opacity: 0.000001;
+  opacity: 0;
 }
 
 .bleed-image--top {
@@ -7691,6 +7688,11 @@ a.article-tile__link:hover .article-tile__location {
   }
   .awards__item{
     width: 33.33%;
+  }
+  .bleed-image__image{
+    height: 0.625rem;
+    width: 0.625rem;
+    opacity: 0.000001;
   }
   .bleed-image--hide-small{
     display: block;

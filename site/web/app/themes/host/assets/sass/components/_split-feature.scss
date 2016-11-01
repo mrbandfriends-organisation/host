@@ -75,8 +75,9 @@
     }
 
     .grid {
-        height: 100%;
         width: 100%;
+        // Removed as breaks Safari
+        //height: 100%;
         flex-grow: 1;
     }
 
