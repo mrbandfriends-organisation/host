@@ -362,7 +362,7 @@ $slideshow-animate-speed: 3s;
         border-right: rem(20) solid #fff;
         transform: translate(-50%, -50%);
 
-        @include mq($from: 460) {
+        @include mq($from: 460px) {
             height: rem(120);
             width:  rem(87);
             border-left:  rem(30) solid #fff;
