@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.10.2] - 2016-11-01
+
+### Fixed
+- Safari bug with bleed images not expanding to fill container
+
 ## [1.10.1] - 2016-10-31
 
 ### Changed

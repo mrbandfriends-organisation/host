@@ -12,6 +12,7 @@
 
 .bleed-image {
     width:  100%;
+    // Removed as breaks in Safari
     //height: 100%;
 
     background-position: center center;
@@ -22,10 +23,13 @@
 }
 
 .bleed-image__image {
-    height: rem(10);
-    width:  rem(10);
+    opacity: 0;
 
-    opacity: 0.000001;
+    @include mq($from: medium) {
+        height: rem(10);
+        width:  rem(10);
+        opacity: 0.000001;        
+    }
 }
 
 // ==========================================================================
