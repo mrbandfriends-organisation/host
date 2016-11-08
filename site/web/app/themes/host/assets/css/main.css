@@ -5107,6 +5107,10 @@ a.room-list-nav__link:hover {
   background-color: rgba(247, 148, 51, 0.65);
 }
 
+.stacked-gallery-container--min-height {
+  min-height: 50vh;
+}
+
 .testimonial-wall__content {
   display: -ms-flexbox;
   display: flex;
