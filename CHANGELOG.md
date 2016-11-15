@@ -11,6 +11,7 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ### Fixed
 - Fixed IE bug with gallery min height
+- Fixed header carosuel by using Slick Slider to handle the JS
 
 
 ## [1.10.3] - ?
