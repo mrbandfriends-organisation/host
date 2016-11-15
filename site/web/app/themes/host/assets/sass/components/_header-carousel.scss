@@ -1,0 +1,95 @@
+// ==========================================================================
+//
+// HEADER CAROUSEL
+//
+// Description: Header carousel that uses Slick
+//
+// ==========================================================================
+
+// ==========================================================================
+// # BASE
+// ==========================================================================
+
+.slick-header-carousel-container {
+    position: relative;
+}
+
+/* ul */.slick-slider.slick-header-carousel {
+    @include list-reset;
+    height: 50vh;
+    margin-bottom: 0;
+
+    .slick-track,
+    .slick-list,
+    .slick-slide {
+        height: 100%;
+    }
+
+    // Styles that aplly to both arrows
+    .slick-prev,
+    .slick-next {
+        width: rem(70);
+        min-width: rem(20);
+        height: 80%;
+        padding:   rem(10);
+        background: rgba(255, 255, 255, 0);
+        border-radius: 0;
+        opacity: 1;
+        transition: background 200ms,
+                    opacity    350ms,
+                    transform  0ms 350ms;
+
+            @include mq(medium) {
+                height: rem(294);
+                background: rgba(255, 255, 255, 0.975);
+            }
+
+        &:before {
+            display: block;
+            content: url("../svg/standalone/arrow-left.svg");
+            transform: translate3d(0, 0, 0);
+            transition: transform ease-in-out 350ms;
+        }
+
+        &:hover,
+        &:focus {
+            @include mq(medium) {
+                background: rgba(255, 255, 255, 0.85);
+                outline-color: brand(grey);
+            }
+
+            &:before {
+                transform: translate3d(rem(-6), 0, 0);
+            }
+        }
+    }
+
+    .slick-prev {
+        left: 0;
+        // Needs to be removed
+        z-index: $zindex-tier-1;
+    }
+
+    .slick-next {
+        right: 0;
+        transform: translate(0, -50%) rotate(180deg);
+    }
+}
+
+/* li */.slick-header-carousel__slide {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* ul */.slick-dots {
+    bottom: rem($quarter-spacing-unit);
+}
+
+
+
+
+
+// ==========================================================================
+// # MODIFIER: %%MODIFIER_NAME%%
+// ==========================================================================
