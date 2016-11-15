@@ -1,1 +1,4 @@
 .DS_Store
+/site/web/app/ewww/jpegtran
+/site/web/app/ewww/optipng
+/site/web/app/ewww/gifsicle

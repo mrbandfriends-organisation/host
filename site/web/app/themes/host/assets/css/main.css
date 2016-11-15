@@ -5108,7 +5108,7 @@ a.room-list-nav__link:hover {
 }
 
 .stacked-gallery-container--min-height {
-  min-height: 50vh;
+  height: 50vh;
 }
 
 .testimonial-wall__content {

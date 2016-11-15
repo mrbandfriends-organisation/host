@@ -7,6 +7,17 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.10.4] - 2016-11-15
+
+### Fixed
+- Fixed IE bug with gallery min height
+
+
+## [1.10.3] - ?
+
+### Fixed
+- Added modifier for min height of gallery
+
 ## [1.10.2] - 2016-11-01
 
 ### Fixed
@@ -33,7 +44,7 @@ For more information about keeping good change logs please refer to [keep a chan
 - Chunk more JS to conditionally load based on. Generally only if very expensive to load on all pages (eg: Google Maps)
 - Ensure all assets are optimised for Production by default
 - Remove preload weirdness being added to all style tags due to customisation by previous Mr B Dev
-- 
+-
 
 ### Fixed
 - Add `alt` attributes to all images across site that are "content" images
@@ -61,7 +72,7 @@ For more information about keeping good change logs please refer to [keep a chan
 ## [1.9.0] - 2016-10-19
 ### Added
 - Add Util function `cdnify` to manually create CDN links where not auto handeled by WP Rocket
-- Add WP Rocket configuration on Plugin to allow for CDN to serve all assets 
+- Add WP Rocket configuration on Plugin to allow for CDN to serve all assets
 - Configure Cloud CDN on Rackspace
 
 ## [1.8.5] - 2016-10-17
@@ -89,7 +100,7 @@ For more information about keeping good change logs please refer to [keep a chan
 - Rocket NGINX conf for Page Caching
 
 ### Fixed
-- Ensure that Favourites JS fully removes cookie when there are no favourites. This allows Page Caching to function when you have no unique content related to your session. 
+- Ensure that Favourites JS fully removes cookie when there are no favourites. This allows Page Caching to function when you have no unique content related to your session.
 
 ## [1.8.0] - 2016-10-14
 ### Added
