@@ -5697,6 +5697,10 @@ a.room-list-nav__link:hover {
   transition: all ease-in-out 0.2s;
 }
 
+.slick-header-carousel-container {
+  position: relative;
+}
+
 /* ul */
 .slick-slider.slick-header-carousel {
   list-style: none;
@@ -7785,6 +7789,7 @@ a.article-tile__link:hover .article-tile__location {
     color: #21293c;
     transition: all 200ms;
     transform: translateY(-50%);
+    z-index: 1000;
   }
   .secondary-split-feature__main .secondary-split-feature__content .btn, .secondary-split-feature__main .secondary-split-feature__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .secondary-split-feature__main .secondary-split-feature__content select{
     margin-top: 40px;

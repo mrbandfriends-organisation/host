@@ -26,6 +26,7 @@
         color: brand(ink);
         transition: all 200ms;
         transform: translateY(-50%);
+        z-index: $zindex-tier-1;
 
         @include mq(large) {
             padding: $spacing-unit;

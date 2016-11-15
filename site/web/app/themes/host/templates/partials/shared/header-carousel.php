@@ -15,11 +15,12 @@
     }
 ?>
 
-<div class="band">
-    <ul class="slick-header-carousel js-slick-header-carousel">
-
+<div class="slick-header-carousel-container band">
+    <?php if ( !empty($info_box) ): ?>
         <?php echo $info_box; ?>
+    <?php endif; ?>
 
+    <ul class="slick-header-carousel js-slick-header-carousel">
         <?php foreach ( $carousel_images AS $image): ?>
             <li class="slick-header-carousel__slide js-rimgbg">
                 <?php echo Assets\get_responsive_image($image['id'], array()); ?>

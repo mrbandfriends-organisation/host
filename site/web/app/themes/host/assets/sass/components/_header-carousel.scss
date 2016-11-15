@@ -10,6 +10,10 @@
 // # BASE
 // ==========================================================================
 
+.slick-header-carousel-container {
+    position: relative;
+}
+
 /* ul */.slick-slider.slick-header-carousel {
     @include list-reset;
     height: 50vh;
