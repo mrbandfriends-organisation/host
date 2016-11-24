@@ -470,22 +470,6 @@
             "step": ""
         },
         {
-            "key": "field_5836c33da6712",
-            "label": "Are all rooms sold out?",
-            "name": "are_all_rooms_sold_out",
-            "type": "true_false",
-            "instructions": "If you want to set all rooms for this building to be sold out then check this box. This will override the individual rooms availability status and set the building's availability status to be \"sold out\".",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0
-        },
-        {
             "key": "field_57b30befbdda6",
             "label": "Facilities",
             "name": "",
@@ -943,5 +927,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1479984521
+    "modified": 1480006442
 }
