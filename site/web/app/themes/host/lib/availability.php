@@ -48,10 +48,10 @@ function availability_status($availability)
 /**
  *  BUILDING AVAILIBILITY
  *
- *  Checks building availibility. If building is sold out then this
+ *  Checks building availability. If building is sold out then this
  *  availibity status overrides invidivual rooms status
  */
-function building_avilibility($room_id = null) {
+function building_availability($room_id = null) {
 
     if( !empty($room_id) ) {
 
@@ -60,11 +60,11 @@ function building_avilibility($room_id = null) {
         $building_id        = $connected_building->posts[0]->ID;
 
         // 2. Checking buildings status.
-        $field                 = get_field( 'are_all_rooms_sold_out', $building_id );
-        $building_availibility = ( !empty($field) ? $field : null );
+        $field                 = get_field( 'availability', $building_id );
+        $building_availability = ( !empty($field) ? $field : null );
 
         // 3. Returns building or rooms status
-        if ( !empty($building_availibility) && $building_availibility === true ) {
+        if ( !empty($building_availability) && $building_availability === 'sold_out' ) {
             return availability_status('sold_out');
         } else {
             $availability = get_field('availability', $room_id);
