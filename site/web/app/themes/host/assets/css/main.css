@@ -6505,6 +6505,11 @@ a.article-tile__link:hover .article-tile__location {
   margin-bottom: 10px;
 }
 
+.uni-featured-building-second__item {
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+}
+
 .clear {
   clear: both;
 }

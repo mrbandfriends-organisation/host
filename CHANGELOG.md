@@ -7,6 +7,16 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.11.0] - 2016-11-24
+
+### Added
+- Helper function for setting building availibity for all rooms.
+
+### Fixed
+- Fixed issue with verticle stacked gallery on single uni pages
+- Fixed spelling and added colon on room pages booking componet 
+
+
 ## [1.10.4] - 2016-11-15
 
 ### Fixed
