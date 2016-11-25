@@ -76,6 +76,21 @@ function GMaps()
     }
 
     /**
+     *  Gets address from lng & lat of pin
+     */
+    function getAddress(lat, lng) {
+        var latlng = new google.maps.LatLng(lat, lng);
+        var geocoder = geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[1]) {
+                    return results[1].formatted_address;
+                }
+            }
+        });
+    }
+
+    /**
      * Shows an info window
      */
     function showInfoWindow()
@@ -87,8 +102,17 @@ function GMaps()
             oWin = new google.maps.InfoWindow({ content: "" });
         }
 
-        // 2. set the content + show it
-        oWin.setContent('<strong class="map__info-window">'+this.title+'</strong>');
+        // 2. Converts address to string with only +'s not spaces'
+        // if( address !== undefined) {
+            // address = address.split(' ').join('+');
+        // }
+
+        // 3. set the content + show it
+        oWin.setContent(
+            '<strong class="map__info-window">'+this.title+'</strong>'
+            // '<br>' +
+            //'<a href="https://www.google.com/maps?daddr=Birmingham+B15+2GG">Get directions</a>'
+        );
         oWin.open(oMap, this);
     }
 
@@ -131,7 +155,7 @@ function GMaps()
         // 4. if we have a type
         if ((oPlace.type !== undefined) && (oIconMap[oPlace.type] !== undefined))
         {
-       
+
             // NOTE: we've reverted to using PNG versions of the SVGs because of this bug
             // http://stackoverflow.com/questions/19719574/google-maps-svg-image-marker-icons-not-showing-in-ie11/26608307#26608307
             oDefinition.icon = LOCALISED_VARS.stylesheet_directory_uri + '/assets/svg/standalone/png/marker-'+oIconMap[oPlace.type]+'.png';
@@ -156,6 +180,16 @@ function GMaps()
 
         // 9. bind click…
         oMarker.addListener('click', showInfoWindow);
+        // oMarker.addListener('click', function(){
+            // console.log("lat & lng" + oPlace.lat, oPlace.lng);
+            // var address = getAddress(oPlace.lat, oPlace.lng);
+
+            // Problem is this function is not working
+            // console.log(address);
+            // console.log( address );
+            // showInfoWindow;
+        // });
+
     }
 
     /**
