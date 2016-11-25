@@ -6333,6 +6333,7 @@ a.article-tile__link:hover .article-tile__inner .article-tile__heading:first-lin
 }
 
 .article-tile__image {
+  width: 100%;
   transform: scale(1);
   transition: all ease-in-out 0.25s;
 }
