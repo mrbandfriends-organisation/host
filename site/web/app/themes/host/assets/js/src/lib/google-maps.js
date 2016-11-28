@@ -75,26 +75,13 @@ function GMaps()
         return true;
     }
 
-    /**
-     *  Gets address from lng & lat of pin
-     */
-    function getAddress(lat, lng) {
-        var latlng = new google.maps.LatLng(lat, lng);
-        var geocoder = geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ 'latLng': latlng }, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                if (results[1]) {
-                    return results[1].formatted_address;
-                }
-            }
-        });
-    }
 
     /**
      * Shows an info window
      */
-    function showInfoWindow()
+    function showInfoWindow(marker)
     {
+        var address;
         /* jshint validthis: true */
         // 1. if there’s no window
         if (oWin === null)
@@ -103,17 +90,18 @@ function GMaps()
         }
 
         // 2. Converts address to string with only +'s not spaces'
-        // if( address !== undefined) {
-            // address = address.split(' ').join('+');
-        // }
+        // console.log(address);
+        if( marker.address ) {
+            address = marker.address.split(' ').join('+');
+        }
 
         // 3. set the content + show it
         oWin.setContent(
-            '<strong class="map__info-window">'+this.title+'</strong>'
-            // '<br>' +
-            //'<a href="https://www.google.com/maps?daddr=Birmingham+B15+2GG">Get directions</a>'
+            '<strong class="map__info-window">'+marker.title+'</strong>' +
+            '<br>' +
+            '<a href="https://www.google.com/maps?daddr='+ address +'">Get directions</a>'
         );
-        oWin.open(oMap, this);
+        oWin.open(oMap, marker);
     }
 
     /**
@@ -149,7 +137,8 @@ function GMaps()
         var oDefinition = {
             map:      oMap,
             position: { lat: oPlace.lat, lng: oPlace.lng },
-            title:    oPlace.title
+            title:    oPlace.title,
+            address: oPlace.address
         };
 
         // 4. if we have a type
@@ -179,16 +168,9 @@ function GMaps()
         aoMarker[oPlace.type].push(oMarker);
 
         // 9. bind click…
-        oMarker.addListener('click', showInfoWindow);
-        // oMarker.addListener('click', function(){
-            // console.log("lat & lng" + oPlace.lat, oPlace.lng);
-            // var address = getAddress(oPlace.lat, oPlace.lng);
-
-            // Problem is this function is not working
-            // console.log(address);
-            // console.log( address );
-            // showInfoWindow;
-        // });
+        oMarker.addListener('click', function(){
+            showInfoWindow(this);
+        });
 
     }
 
