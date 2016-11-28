@@ -479,7 +479,7 @@ function ppc_field($query = null) {
     if( !empty($query) && isset($_GET['location_ppc_id']) ) {
         $query->set('meta_key', 'location_ppc_id');
         $query->set('meta_value', $_GET['location_ppc_id']);
-        var_dump('filter');
+        // var_dump('filter');
     }
 
     return $query;
