@@ -472,3 +472,15 @@ function get_posts_for_map_markers( $data_aray = array(), $aConnectedPosts = nul
 
     }
 }
+
+
+// Filter post by PPC field
+function ppc_field($query = null) {
+    if( !empty($query) && isset($_GET['city']) ) {
+        $query->set('meta_key', 'location_ppc_id');
+        $query->set('meta_value', $_GET['location_ppc_id']);
+    }
+
+    return $query;
+}
+add_action('ppc_field', __NAMESPACE__.'\\my_pre_get_posts');

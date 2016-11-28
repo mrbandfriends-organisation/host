@@ -8,10 +8,15 @@
 
     // get buildings
     $buildings = new WP_Query([
-        'connected_type' => 'building_to_location',
+        'connected_type'  => 'building_to_location',
         'connected_items' => get_queried_object(),
-        'nopaging' => true,
+        'nopaging'        => true
     ]);
+
+    // Filtering PPC
+    // https://www.advancedcustomfields.com/resources/query-posts-custom-fields
+    Utils\ppc_field($buildings);
+
 
     // if nothing, bail
     if (!$buildings->have_posts()) {
@@ -120,7 +125,7 @@
                         </div>
                     </div>
                 </div>
-                <?php 
+                <?php
                  ?>
                 <aside class="listed-property__image gc l1-2 xl1-3 xxl2-7 lazyload" data-bg="<?php echo esc_attr($sPostThumb);?>">
                     <p class="listed-property__price box box--ink box--fg-<?=$aAvailabilityDefinition['foreground']; ?> h3">
