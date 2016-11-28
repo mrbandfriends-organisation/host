@@ -1,5 +1,6 @@
 <?php
     namespace Roots\Sage\Utils;
+    use Roots\Sage\Utils;
 
     // 1. get parameters from the database
     $iZoom   = ( !empty( $iZoom) ) ? $iZoom : get_field('map_zoom');
@@ -11,29 +12,19 @@
     $id      = 'map'.substr(uniqid(), 0, 8);
 
 
-    // Getting connected buildings
-    $oConnected_buildings = host_locations_find_connected_building( get_the_id() )->posts;
 
-    // Looping over connected builings to build array for building pin
-    foreach ($oConnected_buildings as $oBuilding ) {
-        $iId               = $oBuilding->ID;
-        $sBuilding_address = ( !empty(get_field('map_centre', $iId)) ? get_field('map_centre', $iId) : null );
-        $sBuilding_title   = ( !empty(get_field('map_label', $iId)) ? get_field('map_label', $iId) : null );
+    if ( 'locations' === get_post_type() ) {
 
-        $aSingleBuilding = array(
-            'label'     => $sBuilding_title,
-            'type'      => 'building',
-            'location'  => array(
-                'address' => $sBuilding_address['address'],
-                'lat'     => $sBuilding_address['lat'],
-                'lng'     => $sBuilding_address['lng']
-            ),
-        );
+        $aPoi = Utils\get_posts_for_map_markers($aPoi, host_location_find_connected_buildings( get_the_id() )->posts );
 
-        // Pushing this buildings map pin info onto Points Of Interest array
-        array_push($aPoi, $aSingleBuilding);
+    } elseif( 'buildings' === get_post_type() ) {
+
+        $aPoi = Utils\get_posts_for_map_markers($aPoi, array( get_post(get_the_id()) ) );
+
+    } else {
+        // do nothing
     }
-    // var_dump( $aPoi );
+
 
     // if there’re no centre points or main marker
     if (!is_array($aCentre) || empty($sLabel))
