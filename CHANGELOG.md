@@ -7,6 +7,13 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+
+## [1.11.1] - 2016-11-24
+
+### Added
+- Instruction for PPC ID field
+
+
 ## [1.11.0] - 2016-11-24
 
 Added directions into map tooltips, pin for each building and filter
