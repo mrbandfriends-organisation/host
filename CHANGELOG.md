@@ -10,7 +10,7 @@ For more information about keeping good change logs please refer to [keep a chan
 ## [1.11.0] - 2016-11-24
 
 ### Added
-- Helper function for setting building availibity for all rooms.
+- Helper function for setting building availability for all rooms.
 - Map "Host red" pin for each building
 - Map pins tooltip now has directions link in it
 - Updated footer text
@@ -18,7 +18,7 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ### Fixed
 - Fixed issue with verticle stacked gallery on single uni pages
-- Fixed spelling and added colon on room pages booking componet
+- Fixed spelling and added colon on room pages booking component
 
 
 ## [1.10.4] - 2016-11-15
