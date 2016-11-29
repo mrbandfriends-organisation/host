@@ -6,7 +6,7 @@
             "key": "field_583c611291db0",
             "label": "Location PPC ID",
             "name": "location_ppc_id",
-            "type": "number",
+            "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -16,12 +16,10 @@
                 "id": ""
             },
             "default_value": "",
+            "maxlength": "",
             "placeholder": "",
             "prepend": "",
-            "append": "",
-            "min": "",
-            "max": "",
-            "step": ""
+            "append": ""
         }
     ],
     "location": [
@@ -41,5 +39,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1480352479
+    "modified": 1480415052
 }

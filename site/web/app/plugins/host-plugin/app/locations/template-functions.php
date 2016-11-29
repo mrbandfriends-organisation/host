@@ -24,3 +24,22 @@ function host_locations_find_connected_building( $location_id, $current_id = nul
         'post__not_in' => [$current_id]
 	));
 }
+
+/**
+ *  Get posts with locations for map markers
+ *
+ * @param array $oConnectedPosts [Array of post objects]
+ *
+ * @return [array] $aSingleMarker [Array of markers]
+ */
+// if( isset($_GET['location_ppc_id']) ) {
+//
+//     $ppc_id = (int)$_GET['location_ppc_id'];
+//
+//     $locationPPI = [
+//         'meta_key'	 => 'location_ppc_id',
+//         'meta_value' => $ppc_id
+//     ];
+//
+//     $query = array_merge($query, $locationPPI);
+// }
