@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ed2adafa5086f9e2d6016c7072c93e08",
-    "content-hash": "0e304e365511b3ad1fa70cd88d85a3e6",
+    "hash": "c609460f7784cb966cb65dd0c7696551",
+    "content-hash": "5a46e62c57d131ec1f02f7aeceaa236f",
     "packages": [
         {
             "name": "composer/installers",
@@ -382,6 +382,26 @@
             "homepage": "https://wordpress.org/plugins/codepress-admin-columns/"
         },
         {
+            "name": "wpackagist-plugin/disable-users",
+            "version": "1.0.5",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/disable-users/",
+                "reference": "trunk"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/disable-users.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/disable-users/"
+        },
+        {
             "name": "wpackagist-plugin/imsanity",
             "version": "2.3.6",
             "source": {
@@ -432,7 +452,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/nofollow.1.4.5.zip",
-                "reference": null,
+                "reference": "tags/1.4.5",
                 "shasum": null
             },
             "require": {

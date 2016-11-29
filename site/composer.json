@@ -47,7 +47,8 @@
     "wpackagist-plugin/user-switching": "~1.0.9",
     "wpackagist-plugin/members": "~1.1.2",
     "wpackagist-plugin/imsanity": "^2.3",
-    "wpackagist-plugin/nofollow": "^1.4"
+    "wpackagist-plugin/nofollow": "^1.4",
+    "wpackagist-plugin/disable-users": "^1.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^2.5.1"

@@ -18,7 +18,7 @@
     if ( $post_type === 'university' ) {
         $featured_image = null;
     } else {
-        $featured_image = ( has_post_thumbnail() === true ? Utils\get_post_thumb_data( get_the_ID(), 'medium' ) : $fallback_featured_image['url'] );
+        $featured_image = ( has_post_thumbnail() === true ? Utils\get_post_thumb_data( get_the_ID(), 'large' ) : $fallback_featured_image['url'] );
     }
 
 ?>
@@ -27,13 +27,19 @@
     <a href="<?=esc_attr(get_the_permalink());?>" class="article-tile__link">
         <?php if ( !empty($featured_image) ): ?>
             <div class="article-tile__image-container">
-                <?php 
+                <?php
+                    $src = wpthumb($featured_image['src'], array(
+                        'width'  => 400,
+                        'crop'   => true,
+                        'resize' => true
+                    ));
+
                     echo Assets\lazy_loaded_image(array(
-                        'src' => $featured_image['src'],
+                        'src' => $src,
                         'alt' => $featured_image['alt'],
                         'classnames' => 'article-tile__image ' . $featured_image__modifier
                     ));
-                ?>      
+                ?>
             </div>
         <?php endif; ?>
 

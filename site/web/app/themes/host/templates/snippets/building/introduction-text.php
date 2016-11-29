@@ -5,13 +5,26 @@
 
 <?php
     // Getting number of rooms for building
-    $connected_rooms = host_buildings_find_connected_rooms(get_the_id());
-    $number_rooms = $connected_rooms->post_count;
-    $room_types = ( $number_rooms === 1 ? 'type' : 'types' );
+    $connected_rooms         = host_buildings_find_connected_rooms(get_the_id());
+    $connected_rooms         = $connected_rooms->posts;
+    $number_availibile_rooms = 0;
+    $room_types              = ( count($connected_rooms) === 1 ? 'type' : 'types' );
+
+    // 1. Loops over each room.
+    foreach($connected_rooms as $room) {
+        $room_id                 = $room->ID;
+        $availibility            = ( !empty(get_field('availability', $room_id)) ? get_field('availability', $room_id) : null );
+
+        // 2. If room has a vaule for its availibility & is not set to sold out
+        //    count as an availibile room
+        if ( !empty($availibility) && $availibility != 'sold_out' ) {
+            $number_availibile_rooms++;
+        }
+    }
 ?>
 
-<?php if ( $number_rooms > 0 ): ?>
-    <span class="h3"><?php echo esc_html($number_rooms); ?> room <?php echo esc_html($room_types); ?> available.</span>
+<?php if ( $number_availibile_rooms > 0 ): ?>
+    <span class="h3"><?php echo esc_html($number_availibile_rooms); ?> room <?php echo esc_html($room_types); ?> to choose from.</span>
 <?php endif; ?>
 
 <h2 class="billboard__main--building-intro__heading h2">

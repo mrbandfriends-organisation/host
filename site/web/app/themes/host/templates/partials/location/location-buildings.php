@@ -6,21 +6,18 @@
     use Roots\Sage\RoomsBuildings;
     use Roots\Sage\Extras;
 
-    // get buildings
-    $buildings = new WP_Query([
-        'connected_type' => 'building_to_location',
-        'connected_items' => get_queried_object(),
-        'nopaging' => true,
-    ]);
-
-    // if nothing, bail
-    if (!$buildings->have_posts()) {
-        return;
+    // Getting query using plugin template function. If there is PPC ID set then the query
+    // if queried by this fields value
+    if( isset($_GET['location_ppc_id']) ) {
+        $buildings = host_location_find_connected_buildings_by_ppc_id( get_the_id(), $_GET['location_ppc_id'] );
+    } else {
+        $buildings = host_location_find_connected_buildings( get_the_id() );
     }
 ?>
 <section class="band band--inset-alt property-list">
     <h2 class="vh">Properties in<br><?=the_title(); ?></h2>
 
+    <?php if ( $buildings->have_posts() ) : ?>
     <ul class="property-list__list">
     <?php while ($buildings->have_posts()): $buildings->the_post(); ?>
         <?php
@@ -120,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-                <?php 
+                <?php
                  ?>
                 <aside class="listed-property__image gc l1-2 xl1-3 xxl2-7 lazyload" data-bg="<?php echo esc_attr($sPostThumb);?>">
                     <p class="listed-property__price box box--ink box--fg-<?=$aAvailabilityDefinition['foreground']; ?> h3">
@@ -131,6 +128,9 @@
         </li>
     <?php endwhile; ?>
     </ul>
+    <?php else : ?>
+        <p>Sorry there are no buildings for this location</p>
+    <?php endif; ?>
 </section>
 <?php
     wp_reset_postdata();

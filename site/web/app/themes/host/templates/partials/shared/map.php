@@ -1,5 +1,6 @@
 <?php
     namespace Roots\Sage\Utils;
+    use Roots\Sage\Utils;
 
     // 1. get parameters from the database
     $iZoom   = ( !empty( $iZoom) ) ? $iZoom : get_field('map_zoom');
@@ -10,11 +11,27 @@
     $aPoi    = ( !empty( $aPoi) ) ? $aPoi : get_field('map_features');
     $id      = 'map'.substr(uniqid(), 0, 8);
 
+
+
+    if ( 'locations' === get_post_type() ) {
+
+        $aPoi = Utils\get_posts_for_map_markers($aPoi, host_location_find_connected_buildings( get_the_id() )->posts );
+
+    } elseif( 'buildings' === get_post_type() ) {
+
+        $aPoi = Utils\get_posts_for_map_markers($aPoi, array( get_post(get_the_id()) ) );
+
+    } else {
+        // do nothing
+    }
+
+
     // if there’re no centre points or main marker
     if (!is_array($aCentre) || empty($sLabel))
     {
         return;
     }
+
 
     // format centre point
     $sCentre  = "{$aCentre['lat']},{$aCentre['lng']}";
@@ -53,7 +70,8 @@
             $aMarker[$aP['type']][] = [
                 'title' => $aP['label'],
                 'lat'   => (float)$aP['location']['lat'],
-                'lng'   => (float)$aP['location']['lng']
+                'lng'   => (float)$aP['location']['lng'],
+                'address' => $aP['location']['address']
             ];
         }
 

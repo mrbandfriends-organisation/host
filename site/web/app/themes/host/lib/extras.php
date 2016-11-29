@@ -59,7 +59,7 @@ function php_js_vars()
     <script>
     LOCALISED_VARS.page_slug = <?php echo json_encode($post->post_name); ?>;
     </script>
-<?php 
+<?php
     }
 }
 add_action('wp_head', __NAMESPACE__.'\\php_js_vars');
@@ -85,7 +85,7 @@ function copyright_utils_menu($nav, $args)
 
     // Currently footer utils menu doesnt have a string name just it's ID
     if ($args->menu == 7) {
-        return '<li class="menu-item"><small>&#169; Host Students '.esc_html(date('Y')).'</small></li>'.$nav;
+        return '<li class="menu-item"><small>&#169; Host '.esc_html(date('Y')).'</small></li>'.$nav;
     }
 
     return $nav;
@@ -116,6 +116,3 @@ function link_open_new_tab_attrs()
 {
     echo esc_attr('target="_blank" rel="noopener" rel="noreferrer"');
 }
-
-
-

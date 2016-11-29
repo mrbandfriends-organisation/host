@@ -4,8 +4,8 @@
     $conneted_location_id = ( !empty($connected_location) ? $connected_location->post->ID : null );
 ?>
 
-<div class="grid grid--vertical-l">
-    <div class="gc l1-2 flex">
+<div class="grid grid--vertical-l uni-featured-building-second">
+    <div class="uni-featured-building-second__item gc l1-2 flex">
         <?php
             // Getting featured image form location
             $thumb_id        = get_post_thumbnail_id($featuerd_building_id);
@@ -18,7 +18,7 @@
             ));
         ?>
     </div>
-    <div class="gc l1-2 flex">
+    <div class="uni-featured-building-second__item gc l1-2 flex">
         <?php echo Utils\ob_load_template_part('templates/partials/shared/map-static', array(
            'map_label'  => get_field('map_label', $conneted_location_id),
            'map_centre' => get_field('map_centre', $conneted_location_id),
