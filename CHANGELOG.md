@@ -11,10 +11,14 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ### Added
 - Helper function for setting building availibity for all rooms.
+- Map "Host red" pin for each building
+- Map pins tooltip now has directions link in it
+- Updated footer text
+- Ability to filter locations buildings using a PPC ID
 
 ### Fixed
 - Fixed issue with verticle stacked gallery on single uni pages
-- Fixed spelling and added colon on room pages booking componet 
+- Fixed spelling and added colon on room pages booking componet
 
 
 ## [1.10.4] - 2016-11-15
