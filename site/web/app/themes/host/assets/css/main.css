@@ -9392,11 +9392,11 @@ a.article-tile__link:hover .article-tile__location {
   .carosel-infobox{
     transform: none;
     top: 0;
-    bottom: -2.5rem;
+    bottom: -3.4375rem;
     -ms-flex-pack: start;
     justify-content: flex-start;
     overflow: auto;
-    width: 40%;
+    width: 45%;
   }
 }
 
