@@ -85,6 +85,12 @@
 
 // Address + contact
 // ==========================================================================
+
+.listed-property__address {
+    width: 100%; // fix to IE11 bug with word wrap as documented at http://stackoverflow.com/questions/35111090/why-ie11-doesnt-wrap-the-text-in-flexbox
+}
+
+
 .listed-property__address-contact {
     margin-top: auto;
 

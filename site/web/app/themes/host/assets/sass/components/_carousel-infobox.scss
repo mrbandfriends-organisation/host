@@ -19,7 +19,6 @@
         flex-direction: column;
         justify-content: center;
         top: 50%;
-        // 70px = width of arrow
         right: 70px + $half-spacing-unit;
         padding: $half-spacing-unit;
         font-size: rem(16);
@@ -27,10 +26,20 @@
         transition: all 200ms;
         transform: translateY(-50%);
         z-index: $zindex-tier-1;
+    }
 
-        @include mq(large) {
-            padding: $spacing-unit;
-        }
+    @media screen and ( max-height: 880px ) {
+        transform: none;
+        top: 0;
+        bottom: rem(-55px);
+        justify-content: flex-start;
+        overflow: auto;
+        width: 40%;
+    }
+
+
+    @include mq(large) {
+        padding: $spacing-unit;
     }
 
     p {

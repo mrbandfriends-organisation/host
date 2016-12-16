@@ -84,6 +84,11 @@
 
 /* ul */.slick-dots {
     bottom: rem($quarter-spacing-unit);
+
+    @media screen and ( min-width: 768px ) and (max-height: 880px) {
+        text-align: left;
+        left: 7%;
+    }
 }
 
 
