@@ -21,7 +21,7 @@ add_shortcode( 'mrb_google_translate', function($attrs) {
 
 	return '<div id="' . $args['id'] . '">
 		<select class="js-translation-loading-placeholder">
-			<option>Select a Language</script>
+			<option>Select a Language</option>
 		</select>
 	</div>';
 } );

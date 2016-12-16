@@ -2,7 +2,7 @@
     <div class="room-list__header-inner grid">
         <div class="room-list__title-info gc l1-2 box box--fg-grape">
             <h2><?=$title; ?></h2>
-            <p><?=$intro; ?></p>
+            <?=$intro; ?>
         </div>
         <nav class="room-list-nav gc l-30pc box box--grape">
             <h3>Take a look at<br>our room types</h3>
