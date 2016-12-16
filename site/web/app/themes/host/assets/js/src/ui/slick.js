@@ -22,4 +22,22 @@ module.exports = function()
            },
        ]
     });
+
+    /**
+     *  SLICK HEADER CAROSUEL
+     */
+    $('.js-slick-header-carousel').slick({
+        arrows: true,
+        dots: true,
+        infinite: true,
+        mobileFirst: true,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    draggable: false
+                }
+            }
+        ]
+    });
 }

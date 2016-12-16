@@ -1,0 +1,43 @@
+{
+    "key": "group_583c5fde9739b",
+    "title": "Location PPC ID",
+    "fields": [
+        {
+            "key": "field_583c611291db0",
+            "label": "Location PPC ID",
+            "name": "location_ppc_id",
+            "type": "text",
+            "instructions": "Insert here your unique PPC code. Only properties with this code assigned will then show when you go to the relavent location page. This is an example of how the URL would look -  http:\/\/www.host-students.com\/locations\/london?location_ppc_id=XXXXX",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "buildings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1480422164
+}

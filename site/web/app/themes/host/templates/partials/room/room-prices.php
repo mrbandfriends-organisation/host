@@ -35,13 +35,13 @@
                                 $thumb_url       = $thumb_url_array[0];
                                 $thumb_alt       = get_post_meta( $thumb_id, '_wp_attachment_image_alt', false);
                             ?>
-                            <?php 
+                            <?php
 
                                 echo Utils\ob_load_template_part('templates/components/bleed-image', array(
                                     'image'     => $thumb_url,
                                     'modifier'  => 'pricing-body__image',
                                     'alt'       => ( !empty($thumb_alt) ) ? $thumb_alt[0] : ''
-                                )); 
+                                ));
 
                             ?>
                         </div>
@@ -78,7 +78,7 @@
             <?php endforeach; ?>
 
             <?php if ( !empty($pricing_options[0]['payment_plans']) ): ?>
-            <h3 class="pricing__heading plain h4">2. Payment &amp; installment plans</h3>
+            <h3 class="pricing__heading plain h4">2. Payment &amp; instalment plans:</h3>
             <ul class="pricing__lisiting grid grid--gutter flex">
                 <?php $counter = 1; ?>
                 <?php foreach ($pricing_options as $pricing_option): ?>

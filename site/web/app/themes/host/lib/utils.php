@@ -431,3 +431,44 @@ function cdnify($asset_path)
         return $asset_path;
     }
 }
+
+
+/**
+ *  Get posts with locations for map markers
+ *
+ * @param [array] $oConnectedPosts [Array of post objects]
+ *
+ * @return [array] $aSingleMarker [Array of markers]
+ */
+function get_posts_for_map_markers( $data_aray = array(), $aConnectedPosts = null ) {
+
+    // 1. Checking if there are any connected markers
+    if ( !empty($aConnectedPosts) ) {
+
+        $aPosts        = $aConnectedPosts;
+        $aSingleMarker = [];
+        // var_dump($aPosts);
+
+        // 2. Looping over connected markers object to build array each marker
+        foreach ($aPosts as $aPost ) {
+            $iId            = $aPost->ID;
+            $sMarkerAddress = ( !empty(get_field('map_centre', $iId)) ? get_field('map_centre', $iId) : null );
+            $sMarkerTitle   = ( !empty(get_field('map_label', $iId)) ? get_field('map_label', $iId) : null );
+
+            // 3. Each single marker is turned into an array
+            array_push($data_aray, array(
+                'label'     => $sMarkerTitle,
+                'type'      => 'building',
+                'location'  => array(
+                    'address' => $sMarkerAddress['address'],
+                    'lat'     => $sMarkerAddress['lat'],
+                    'lng'     => $sMarkerAddress['lng']
+                ),
+            ));
+
+        }
+        // 4. Returns array of markers
+        return $data_aray;
+
+    }
+}

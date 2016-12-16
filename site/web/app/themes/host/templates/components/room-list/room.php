@@ -9,15 +9,14 @@
         "offset"   => -1
     ];
 
-    $room_category = get_the_category();
-    $room_category = $room_category[0];
+    $room_category      = get_the_category();
+    $room_category      = $room_category[0];
 
-    $availability = get_field('availability');
-    $from_amount = get_field('from_amount');
-    $status = RoomsBuildings\availability_status($availability);
-     ?>
-
-
+    $from_amount        = get_field('from_amount');
+    // $availability          = get_field('availability');
+    // $status                = RoomsBuildings\availability_status($availability);
+    $status             = RoomsBuildings\building_availability(get_the_id());
+?>
 
 <article id="r<?=$id; ?>" class="listed-room room-list__room">
     <div class="listed-room__content">

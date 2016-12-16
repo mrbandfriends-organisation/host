@@ -6,7 +6,8 @@ var oIconMap = {
     transport: 'black',
     unis:      'orange',
     food:      'grape',
-    shops:     'mint'
+    shops:     'mint',
+    building:  'red'
 };
 
 function GMaps()
@@ -75,11 +76,13 @@ function GMaps()
         return true;
     }
 
+
     /**
      * Shows an info window
      */
-    function showInfoWindow()
+    function showInfoWindow(marker)
     {
+        var address;
         /* jshint validthis: true */
         // 1. if there’s no window
         if (oWin === null)
@@ -87,9 +90,19 @@ function GMaps()
             oWin = new google.maps.InfoWindow({ content: "" });
         }
 
-        // 2. set the content + show it
-        oWin.setContent('<strong class="map__info-window">'+this.title+'</strong>');
-        oWin.open(oMap, this);
+        // 2. Converts address to string with only +'s not spaces'
+        // console.log(address);
+        if( marker.address ) {
+            address = marker.address.split(' ').join('+');
+        }
+
+        // 3. set the content + show it
+        oWin.setContent(
+            '<strong class="map__info-window">'+marker.title+'</strong>' +
+            '<br>' +
+            '<a href="https://www.google.com/maps?daddr='+ address +'">Get directions</a>'
+        );
+        oWin.open(oMap, marker);
     }
 
     /**
@@ -125,19 +138,26 @@ function GMaps()
         var oDefinition = {
             map:      oMap,
             position: { lat: oPlace.lat, lng: oPlace.lng },
-            title:    oPlace.title
+            title:    oPlace.title,
+            address: oPlace.address
         };
 
         // 4. if we have a type
         if ((oPlace.type !== undefined) && (oIconMap[oPlace.type] !== undefined))
         {
-       
+
             // NOTE: we've reverted to using PNG versions of the SVGs because of this bug
             // http://stackoverflow.com/questions/19719574/google-maps-svg-image-marker-icons-not-showing-in-ie11/26608307#26608307
             oDefinition.icon = LOCALISED_VARS.stylesheet_directory_uri + '/assets/svg/standalone/png/marker-'+oIconMap[oPlace.type]+'.png';
+
         }
 
-        // 5. draw the marker and place it in bounds
+        // 5. Ensuring that all buidling pins are at the front
+        if( oDefinition !== undefined && oIconMap[oPlace.type] === 'red' ) {
+            oDefinition.zIndex = 10000
+        }
+
+        // 6. draw the marker and place it in bounds
         var oMarker = new google.maps.Marker(oDefinition);
         oBounds.extend(oMarker.position);
 
@@ -155,7 +175,10 @@ function GMaps()
         aoMarker[oPlace.type].push(oMarker);
 
         // 9. bind click…
-        oMarker.addListener('click', showInfoWindow);
+        oMarker.addListener('click', function(){
+            showInfoWindow(this);
+        });
+
     }
 
     /**
@@ -251,10 +274,10 @@ function GMaps()
         }, 1000);
 
         // 4. if we have a place, point at it
-        if (el.hasAttribute('data-place'))
-        {
-            plotPlace(el.getAttribute('data-place'));
-        }
+        // if (el.hasAttribute('data-place'))
+        // {
+            // plotPlace(el.getAttribute('data-place'));
+        // }
 
         // 5. if there are markers
         if (el.hasAttribute('data-markers'))

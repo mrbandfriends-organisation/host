@@ -5,7 +5,7 @@
     <?php
         $connected_location = host_building_find_connected_location(get_the_id())->post;
         $connected_location_name = $connected_location->post_title;
-     ?>
+    ?>
 
     <?php echo Utils\ob_load_template_part('templates/partials/shared/header-carousel', array(
             'info_box' => Utils\ob_load_template_part('templates/snippets/shared/carousel-infobox', array(

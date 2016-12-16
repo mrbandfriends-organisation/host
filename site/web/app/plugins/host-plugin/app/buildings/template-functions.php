@@ -27,14 +27,43 @@ function host_buildings_find_connected_rooms( $building_id ) {
  * FIND ALL
  * Connected buildings to location.
  */
-function host_location_find_connected_buildings( $location_id ) {
+function host_location_find_connected_buildings( $location_id, $query_args = [] ) {
 	$repo = Repo::init();
-	$location_buildings = $repo->find_connected('building_to_location', $location_id, array(
-	));
-  return( $location_buildings );
+
+	$location_buildings = $repo->find_connected(
+        'building_to_location',
+        $location_id,
+        $query_args
+    );
+
+    return( $location_buildings );
 }
 
 
+/**
+ *  Get posts with locations for map markers
+ *
+ * @param [int]     $location_id [ID of location post]
+ * @param [string]  $ppc_id      [PPC id]
+ *
+ * @return [array]               [WP_Query array]
+ *
+ */
+function host_location_find_connected_buildings_by_ppc_id($location_id, $ppc_id) {
+
+    $locationPPI = [
+        'meta_key'	 => 'location_ppc_id',
+        'meta_value' => $ppc_id
+    ];
+
+    return host_location_find_connected_buildings($location_id, $locationPPI);
+}
+
+
+/**
+ * FIND
+ * Connected buildings to location that are NOT external websites.
+ */
 function host_building_find_connected_location( $building_id ) {
 	$repo = Repo::init();
 	return $repo->find_connected('building_to_location', $building_id, array(
