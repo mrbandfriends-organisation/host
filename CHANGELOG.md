@@ -7,6 +7,12 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.12.0] - 2016-12-16
+
+### Fixed
+- Ensure Carousel Infobox is positioned correctly on small height viewports
+- Fix to email address not wrapping in IE11
+- Remove small markup bugs causing IE11 errors
 
 ## [1.11.1] - 2016-11-24
 
