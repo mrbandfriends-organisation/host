@@ -4665,6 +4665,10 @@ a.btn {
   font-weight: bold;
 }
 
+.listed-property__address {
+  width: 100%;
+}
+
 .listed-property__address-contact {
   margin-top: auto;
 }
@@ -9396,7 +9400,7 @@ a.article-tile__link:hover .article-tile__location {
     -ms-flex-pack: start;
     justify-content: flex-start;
     overflow: auto;
-    width: 45%;
+    width: 40%;
   }
 }
 
