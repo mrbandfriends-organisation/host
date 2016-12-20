@@ -113,15 +113,16 @@ $is-oldie: false !default;
 @import "components/favourites";
 @import "components/favouritable";
 @import "components/transport-list";
-@import "components/_location-related-buildings.scss";
-@import "components/_carousel-infobox.scss";
+@import "components/_location-related-buildings";
+@import "components/_carousel-infobox";
 @import "components/_secondary-split-feature";
 @import "components/_in-page-nav";
 @import "components/_book";
-@import "components/_contact-form.scss";
-@import "components/_social-sharing.scss";
-@import "components/_news-feed.scss";
-@import "components/_header-carousel.scss";
+@import "components/_contact-form";
+@import "components/_social-sharing";
+@import "components/_news-feed";
+@import "components/_header-carousel";
+@import "components/_header-slider";
 
 // # SITE LAYOUT STRUCTURE
 // ==========================================================================
