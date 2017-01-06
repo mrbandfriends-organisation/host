@@ -50,6 +50,7 @@
 
             // link stuff
             $bExternal = (get_field('external_website') === true);
+            $faqs_url =  get_field('faqs_url');
             $sUrl = $bExternal ? get_field('website_url') : get_the_permalink();
             $sText = $bExternal ? 'Take me to the website' : 'Show me this property';
             $sAtts = $bExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
@@ -135,6 +136,13 @@
                                         Join the Waiting List
                                     </a>
                                 <?php endif; ?>
+
+
+                                <?php if (!empty($faqs_url)): ?>
+                                    <a href="<?php echo esc_attr( $faqs_url );?>" class="btn btn--red btn--block">
+                                        View FAQs
+                                    </a>                                    
+                                <?php endif ?>
 
                             </p>
                             <?php endif; ?>
