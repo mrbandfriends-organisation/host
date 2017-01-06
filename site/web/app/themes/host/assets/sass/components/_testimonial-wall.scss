@@ -7,10 +7,11 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     width: 100%;
 
-    p { margin: 0; }
+    p { 
+        margin: 0; 
+    }
 }
 
 .testimonial-wall__image {
@@ -20,6 +21,114 @@
         display: none;
     }
 }
+
+
+.testimonial-wall__inner {
+    @include gw();
+}
+
+.testimonial-wall__unit {
+    @include gc();
+}
+
+
+
+
+
+
+
+// ==========================================================================
+// # FIRST
+// ==========================================================================
+
+.testimonial-wall__unit--first {
+    outline: 1px solid green;
+    @include gw();
+    
+    @include mq($from: xxlarge) {
+        @include grid-column(1, 3, 'xxl');
+        @include gw-v;
+    }
+
+    @include mq($until: small) {
+        flex-direction: column-reverse;
+    }
+}
+
+
+
+.testimonial-wall__grid-1 {
+    @include gw();
+    @include gc();
+    
+    @include mq($from: medium) {
+        @include grid-column(2, 3, 'm');
+    }
+
+    @include mq($from: xxlarge) {
+        @include grid-column(1, 2, 'xxl');
+        
+        // Covers random selector within grid-column mixin()
+        width: 100%;
+        max-width: none;
+        max-height: percentage(1/2);
+    }   
+}
+
+.testimonial-wall__grid-2 {
+    @include gw();
+    @include gc();
+    
+    @include mq($from: medium) {
+        @include grid-column(1, 3, 'm');
+    }
+
+    @include mq($from: xxlarge) {
+        @include grid-column(1, 2, 'xxl');
+
+        // Covers random selector within grid-column mixin()
+        width: 100%;
+        max-width: none;
+        max-height: percentage(1/2);
+    }   
+}
+
+// ==========================================================================
+// # SECOND
+// ==========================================================================
+
+.testimonial-wall__unit--second {
+        outline: 1px solid blue;
+    @include gw();
+
+    @include mq($from: xxlarge) {
+        @include grid-column(3, 6, 'xxl');
+        flex-direction: row-reverse;    
+    }
+}
+
+// ==========================================================================
+// # THIRD
+// ==========================================================================
+
+.testimonial-wall__unit--third {
+    @include gw();
+
+    @include mq($from: xxlarge) {
+        @include gw-v;
+        @include grid-column(1, 6, 'xxl');
+    }
+}
+
+.testimonial-wall__unit--third > * {
+    @include mq($from: xxlarge) {
+        width: 100%;
+        max-width: none;
+        max-height: percentage(1/2); 
+    }
+}
+
+
 
 // ==========================================================================
 // # Testimonial wall overrides

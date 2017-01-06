@@ -14,8 +14,8 @@
 <section class="band testimonial-wall" data-equality>
     <h2 class="vh">What our residents say</h2>
 
-    <div class="grid">
-        <div class="gc xxl1-3 grid grid--vertical-small-flip grid--vertical-xxl">
+    <div class="testimonial-wall__inner">
+        <div class="testimonial-wall__unit testimonial-wall__unit--first">
             <?php echo Utils\ob_load_template_part('templates/snippets/shared/testimonial-grid-1', array(
                 'location'  => $student_testimonials[0]['location']->post_title,
                 'name'  => $student_testimonials[0]['name'],
@@ -30,7 +30,7 @@
                 'testimonial'  => $student_testimonials[1]['testimonial'],
             )); ?>
         </div>
-        <article class="testimonial-wall__testimonial testimonial-wall__testimonial--until-xxlarge-flip gc xxl3-6 grid">
+        <article class="testimonial-wall__unit testimonial-wall__unit--second testimonial-wall__testimonial">
             <?php echo Utils\ob_load_template_part('templates/snippets/shared/testimonial-grid-3', array(
                 'location'  => $student_testimonials[2]['location']->post_title,
                 'name'  => $student_testimonials[2]['name'],
@@ -40,7 +40,7 @@
             )); ?>
 
         </article>
-        <article class="testimonial-wall__testimonial gc xxl1-6 grid grid--vertical-xxl">
+        <article class="testimonial-wall__unit testimonial-wall__unit--third testimonial-wall__testimonial">
             <?php echo Utils\ob_load_template_part('templates/snippets/shared/testimonial-grid-4', array(
                 'location'     => $student_testimonials[3]['location']->post_title,
                 'name'         => $student_testimonials[3]['name'],
