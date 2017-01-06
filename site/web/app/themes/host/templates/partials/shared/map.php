@@ -21,8 +21,14 @@
 
         $aPoi = Utils\get_posts_for_map_markers($aPoi, array( get_post(get_the_id()) ) );
 
+    } elseif ( 'rooms' === get_post_type() ) {
+
+        $aPoi = Utils\get_posts_for_map_markers($aPoi, host_room_find_connected_building( get_the_id() )->posts );
+
     } else {
-        // do nothing
+    
+        // nothing doin'    
+
     }
 
 
@@ -58,12 +64,14 @@
     /** Markers/POIs */
     if (!empty($aPoi) && is_array($aPoi))
     {
+
         // remap our markers a little
         $aMarker = [
             'unis'      => [],
             'food'      => [],
-            'shops'     => [],
-            'transport' => []
+            //'shops'     => [],
+            'transport' => [],
+            'building' => []
         ];
         foreach ($aPoi AS $aP)
         {
@@ -91,10 +99,11 @@
      * Filter sets
      */
     $aFilter = [
+        'building' => 'Buildings',
         'unis'      => 'Universities',
         'food'      => 'Eating and drinking',
-        'shops'     => 'Shopping',
-        'transport' => 'Transport'
+        //'shops'     => 'Shopping',
+        'transport' => 'Transport',
     ];
 ?>
 <section class="map">

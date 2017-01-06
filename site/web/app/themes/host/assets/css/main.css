@@ -4548,6 +4548,10 @@ a.btn {
   fill: #21293c;
 }
 
+.map__filter.-building input:checked ~ .svg-icon {
+  fill: #d50e3c;
+}
+
 .property-list__list {
   margin: 0;
   list-style: none outside;
