@@ -14,8 +14,8 @@
 <section class="band testimonial-wall" data-equality>
     <h2 class="vh">What our residents say</h2>
 
-    <div class="testimonial-wall__inner">
-        <div class="testimonial-wall__unit testimonial-wall__unit--first">
+    <div class="testimonial-wall__inner js-testimonial-wall-inner">
+        <div class="testimonial-wall__unit testimonial-wall__unit--first js-testimonial-wall-first">
             <?php echo Utils\ob_load_template_part('templates/snippets/shared/testimonial-grid-1', array(
                 'location'  => $student_testimonials[0]['location']->post_title,
                 'name'  => $student_testimonials[0]['name'],

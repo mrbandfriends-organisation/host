@@ -97,7 +97,8 @@ var bpm = require('breakpoint-tools');
 
     require('scrollable')();
 
-    require('equality')();
+    // Switched out for fixed height
+    //require('equality')();
 
     require('FavouriteManager');
 

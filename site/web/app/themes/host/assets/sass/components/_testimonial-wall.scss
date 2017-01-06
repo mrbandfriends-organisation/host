@@ -25,6 +25,7 @@
 
 .testimonial-wall__inner {
     @include gw();
+    height: rem(800);
 }
 
 .testimonial-wall__unit {
@@ -42,7 +43,6 @@
 // ==========================================================================
 
 .testimonial-wall__unit--first {
-    outline: 1px solid green;
     @include gw();
     
     @include mq($from: xxlarge) {
@@ -98,7 +98,6 @@
 // ==========================================================================
 
 .testimonial-wall__unit--second {
-        outline: 1px solid blue;
     @include gw();
 
     @include mq($from: xxlarge) {

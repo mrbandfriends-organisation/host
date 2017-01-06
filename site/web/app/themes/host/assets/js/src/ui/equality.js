@@ -89,6 +89,8 @@ function Equality()
             el.style.height = (iMaxHeight * iProp)+'px';
 
         });
+
+        
     }
 
     function init()

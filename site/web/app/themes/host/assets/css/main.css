@@ -5074,6 +5074,7 @@ a.room-list-nav__link:hover {
   padding: 0;
   list-style: none;
   text-rendering: optimizespeed;
+  height: 50rem;
 }
 
 .testimonial-wall__unit {
@@ -5085,7 +5086,6 @@ a.room-list-nav__link:hover {
 }
 
 .testimonial-wall__unit--first {
-  outline: 1px solid green;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: row;
@@ -5141,7 +5141,6 @@ a.room-list-nav__link:hover {
 }
 
 .testimonial-wall__unit--second {
-  outline: 1px solid blue;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: row;
