@@ -287,7 +287,7 @@ var bpm = require('breakpoint-tools');
     var enquiryHallField    = contactForm.find('.js-enquiry-hall');
     var waitingListOption   = enquiryField.find('option[value="Add to Waiting List"]').first();
     
-    console.log(queryObject);
+
     
     if ( !contactForm.length ) return;
 

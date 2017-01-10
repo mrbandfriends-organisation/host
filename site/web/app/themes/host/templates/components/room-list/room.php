@@ -3,9 +3,14 @@
     use Roots\Sage\RoomsBuildings;
     use Roots\Sage\Utils;
 
-    $id = get_the_id();
+    global $post;
+    $post_slug=$post->post_name;
+
+    $id = "room-{$post_slug}";
+
+    
     $aSlideshowConf = [
-        "selector" => "#r{$id}",
+        "selector" => "#{$id}",
         "offset"   => -1
     ];
 
@@ -18,7 +23,7 @@
     $status             = RoomsBuildings\building_availability(get_the_id());
 ?>
 
-<article id="r<?=$id; ?>" class="listed-room room-list__room">
+<article id="<?=esc_attr( $id ); ?>" class="listed-room room-list__room">
     <div class="listed-room__content">
         <div class="listed-room__info box box--fg-grape box--less-padding">
             <h3 class="listed-room__title"><?=get_the_title();?></h3>
