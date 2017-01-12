@@ -20,6 +20,8 @@ page load.
 - Ability to preselect "Add to Waiting List" (only) from Enquiry type dropdown on Contact page via query string params
 - Ability to preselect any value from the "Choose hall to contact" dropdown on Contact page via query string params
 - Show "Join Waiting List" button if Building status is Sold Out - shows on `/locations/{{location}}` page. Creates a deep link to auto select values on the Enquiry Form. __Note__: this requires that the values in the dropdown match up exactly with the values in the url which in turn are dynamically generated in the format `{{Location}}{{ Building Name }}` (slugified).
+- __CMS__: Add `js-enquiry-hall` class to "Choose a hall to contact" field
+- __CMS__: Add `js-enquiry-type` class to "Your enquiry type" field
 - Ability to link to FAQs page from Building
 
 ### Changed
