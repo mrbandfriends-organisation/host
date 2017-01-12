@@ -7,6 +7,27 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.13.0] - 2017-01-12
+
+### Fixed
+- Testimonials grid fixed in IE11. Simplified and removed JS requirement.
+- Ensure only first Slick slide is shown until it's fully initialised. Avoids horrible "jump" and unstyled look on 
+page load.
+
+### Added
+- Add `Buildings` to map markers on Room page. 
+- Pull Building on to Map on Room page.
+- Ability to preselect "Add to Waiting List" (only) from Enquiry type dropdown on Contact page via query string params
+- Ability to preselect any value from the "Choose hall to contact" dropdown on Contact page via query string params
+- Show "Join Waiting List" button if Building status is Sold Out - shows on `/locations/{{location}}` page. Creates a deep link to auto select values on the Enquiry Form. __Note__: this requires that the values in the dropdown match up exactly with the values in the url which in turn are dynamically generated in the format `{{Location}}{{ Building Name }}` (slugified).
+- __CMS__: Add `js-enquiry-hall` class to "Choose a hall to contact" field
+- __CMS__: Add `js-enquiry-type` class to "Your enquiry type" field
+- Ability to link to FAQs page from Building
+
+### Changed
+- Update deep link "hash" to allow human friendly urls for links on Location Buildings page
+
+
 ## [1.12.0] - 2016-12-16
 
 ### Fixed

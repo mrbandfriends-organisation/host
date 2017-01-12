@@ -97,7 +97,8 @@ var bpm = require('breakpoint-tools');
 
     require('scrollable')();
 
-    require('equality')();
+    // Switched out for fixed height
+    //require('equality')();
 
     require('FavouriteManager');
 
@@ -267,5 +268,37 @@ var bpm = require('breakpoint-tools');
             // Needs to be set as a global on window directly...
             window.salvattore = require('salvattore');
         },'salvattore');
+    }
+}());
+
+
+/**
+ * AUTO SELECT ENQUIRY PROPERTY AND HALL
+ * allows deep linking to the Contact form with particular values
+ * selected via JS. This is used from the locations listing page
+ * when you click the "join the waiting list" button
+ */
+(function(){
+    var queryString         = require('query-string');
+    var contactForm         = $('#gform_1');
+
+    var queryObject         = queryString.parse(window.location.search);
+    var enquiryField        = contactForm.find('.js-enquiry-type');
+    var enquiryHallField    = contactForm.find('.js-enquiry-hall');
+    var waitingListOption   = enquiryField.find('option[value="Add to Waiting List"]').first();
+    
+
+    
+    if ( !contactForm.length ) return;
+
+    if (queryObject !== undefined ) {
+
+        if(queryObject["enquiry-type"] !== undefined && queryObject["enquiry-type"] === LOCALISED_VARS.waiting_list_field) {
+            waitingListOption.prop('selected', true);
+        }
+
+        if(queryObject["enquiry-hall"] !== undefined) {
+            enquiryHallField.find('option[value="' + queryObject["enquiry-hall"] + '"]').first().prop('selected', true);
+        }
     }
 }());

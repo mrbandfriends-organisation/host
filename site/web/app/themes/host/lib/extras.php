@@ -51,6 +51,7 @@ function php_js_vars()
     LOCALISED_VARS.stylesheet_directory_uri          = <?php echo json_encode(get_stylesheet_directory_uri()) ?>;
     LOCALISED_VARS.cdnified_stylesheet_directory_uri = <?php echo json_encode(Utils\cdnify(get_stylesheet_directory_uri())) ?>;
     LOCALISED_VARS.google_maps_key                   = <?php echo json_encode(GMAPS_API_KEY) ?>;
+    LOCALISED_VARS.waiting_list_field                = <?php echo json_encode(WAITING_LIST_FIELD) ?>;
     </script>
 <?php
     global $post;

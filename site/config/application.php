@@ -75,6 +75,12 @@ define('AUTOMATIC_UPDATER_DISABLED', true);
 define('DISABLE_WP_CRON', env('DISABLE_WP_CRON') ?: false);
 define('DISALLOW_FILE_EDIT', true);
 
+// This defines the exact value of the field in the Contact form which 
+// is used for the "Add to Waiting List" option. Changing this value will
+// break critical functionality. 
+define('WAITING_LIST_FIELD', 'Add to Waiting List');
+
+
 /*
  * Bootstrap WordPress
  */

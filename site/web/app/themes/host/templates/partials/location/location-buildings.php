@@ -6,6 +6,8 @@
     use Roots\Sage\RoomsBuildings;
     use Roots\Sage\Extras;
 
+    $location_title = get_the_title();
+
     // Getting query using plugin template function. If there is PPC ID set then the query
     // if queried by this fields value
     if( isset($_GET['location_ppc_id']) ) {
@@ -48,12 +50,15 @@
 
             // link stuff
             $bExternal = (get_field('external_website') === true);
+            $faqs_url =  get_field('faqs_url');
             $sUrl = $bExternal ? get_field('website_url') : get_the_permalink();
             $sText = $bExternal ? 'Take me to the website' : 'Show me this property';
             $sAtts = $bExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
             $sBtnText = ($aAvailabilityDefinition['text'] === 'Coming soon') ? '' : $sText;
 
             $favouriteable = ( $aAvailabilityDefinition['text'] != 'Coming soon' ? 'data-favouritable="' . get_the_id() . '"' : null );
+
+            $property_title = get_field('title_1');
         ?>
         <li class="property-list__item">
             <article class="listed-property grid">
@@ -65,7 +70,7 @@
                                     <?php if (!empty($sUrl)): ?>
                                     <a href="<?=$sUrl;?>"<?=$sAtts; ?>>
                                     <?php endif; ?>
-                                    <?=get_field('title_1'); ?>
+                                    <?=$property_title;?>
                                     <?php if (!empty($sUrl)): ?></a><?php endif; ?>
                                 </h3>
                                 <h4 class="listed-property__availability listed-property__availability--<?=$aAvailabilityDefinition['foreground']; ?>"><?=$aAvailabilityDefinition['text']; ?></h4>
@@ -112,6 +117,33 @@
                                     <?php $booking_url = get_field('booking_url', 'option'); ?>
                                     <a href="<?=$booking_url; ?>" class="btn btn--red listed-property__booking-btn" <?php Extras\link_open_new_tab_attrs(); ?>>Book now</a>
                                 <?php endif; ?>
+
+                                <?php if ( $aAvailabilityDefinition['text'] === 'Sold out' ): ?>
+
+                                    <?php                                     
+
+                                    // Note the Hall field "value" on the enquiry form must match
+                                    // this value exactly otherwise it won't work
+                                    $enquiry_hall_field_ref = "$location_title $property_title";
+
+                                    $enquiry_query_data = array(
+                                        'enquiry-type'=> WAITING_LIST_FIELD,
+                                        'enquiry-hall'=> $enquiry_hall_field_ref
+                                    );
+                                    
+                                    ?>
+                                    <a href="/contact/?<?php echo esc_attr( http_build_query($enquiry_query_data) );?>#contact-form-section" class="btn btn--sky btn--block">
+                                        Join the Waiting List
+                                    </a>
+                                <?php endif; ?>
+
+
+                                <?php if (!empty($faqs_url)): ?>
+                                    <a href="<?php echo esc_attr( $faqs_url );?>" class="btn btn--red btn--block">
+                                        View FAQs
+                                    </a>                                    
+                                <?php endif ?>
+
                             </p>
                             <?php endif; ?>
                         </div>

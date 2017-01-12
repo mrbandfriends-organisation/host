@@ -28,8 +28,3 @@
         <?php endforeach; ?>
     </ul>
 </div>
-
-
-<!-- <li class="slideshow__item js-slideshow__item" style="background-image:url(<?//=$image['sizes']['large'];?>);">
-    <img src="<?php //echo $image['sizes']['large']; ?>" class="slideshow__image js-slideshow__image" alt="<?//=$image['alt']; ?>">
-</li> -->
