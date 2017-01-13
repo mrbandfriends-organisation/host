@@ -61,10 +61,13 @@
     $aStaticParms['markers'] = "|{$sLabel}";
     $aDynParms['place']      = $sLabel;
 
+
+        
+
     /** Markers/POIs */
     if (!empty($aPoi) && is_array($aPoi))
     {
-
+        // Define which marks are allowed...
         // remap our markers a little
         $aMarker = [
             'unis'      => [],
@@ -74,14 +77,20 @@
             'building' => []
         ];
         foreach ($aPoi AS $aP)
-        {
-            $aMarker[$aP['type']][] = [
-                'title' => $aP['label'],
-                'lat'   => (float)$aP['location']['lat'],
-                'lng'   => (float)$aP['location']['lng'],
-                'address' => $aP['location']['address']
-            ];
+        {   
+            // Only allow certain types of markers
+            if ($aP['type'] !== "shops") { // client requested "Shops" were ommitted       
+                $aMarker[$aP['type']][] = [
+                    'title' => $aP['label'],
+                    'lat'   => (float)$aP['location']['lat'],
+                    'lng'   => (float)$aP['location']['lng'],
+                    'address' => $aP['location']['address']
+                ];
+            }
         }
+
+        var_dump($aMarker);
+        
 
         // and append to our dynamic map
         $aDynParms['markers'] = str_replace('"', '&quot;', esc_attr(json_encode($aMarker)));
@@ -105,6 +114,8 @@
         //'shops'     => 'Shopping',
         'transport' => 'Transport',
     ];
+
+
 ?>
 <section class="map">
     <div class="map__map js-map"<?=$sAttrs; ?> style="background-image:url(<?=$sStaticPath; ?>)">

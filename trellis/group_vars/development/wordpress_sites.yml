@@ -3,7 +3,7 @@
 # Define accompanying passwords/secrets in group_vars/development/vault.yml
 
 wordpress_sites:
-  host:
+  host.com:
     site_hosts:
       - canonical: host.dev
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
@@ -12,7 +12,7 @@ wordpress_sites:
     multisite:
       enabled: false
     ssl:
-      enabled: false
+      enabled: true
       provider: self-signed
     cache:
       enabled: false
