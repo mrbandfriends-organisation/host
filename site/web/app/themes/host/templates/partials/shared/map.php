@@ -89,7 +89,7 @@
             }
         }
 
-        var_dump($aMarker);
+        
         
 
         // and append to our dynamic map

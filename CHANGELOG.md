@@ -7,7 +7,12 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
-## [1.13.1] - 2017-01-12
+## [1.13.2] - 2017-01-13
+
+### Fixed
+- remove debugging output
+
+## [1.13.1] - 2017-01-13
 
 ### Changed
 - Update WP and Plugins
