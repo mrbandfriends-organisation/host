@@ -149,7 +149,8 @@
                         <?php endif; ?>
                         <?php else: ?>
                             <div class="box box--more-padding">
-                                <h3 class="text-center plain">Host Students currently have no buildings in <?php echo $location_title; ?></h3>
+                                <?php // ?>
+                                <h3 class="text-center plain">Host currently have no buildings in <?php echo $location_title; ?></h3>
                             </div>
                         <?php endif; ?>
                     </div>
