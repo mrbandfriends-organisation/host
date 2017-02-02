@@ -2370,6 +2370,18 @@ dl.-horizontal dd ~ dd {
   transform: scaleX(-1) translateX(-0.1875rem);
 }
 
+.slideshow-pagination--pn .slideshow-pagination__button--prev {
+  left: 0;
+}
+
+.slideshow-pagination--pn .slideshow-pagination__button--prev .svg-icon {
+  transform: scaleX(-1) translateX(0rem) rotate(180deg);
+}
+
+.slideshow-pagination--pn .slideshow-pagination__button--prev:hover .svg-icon, .slideshow-pagination--pn .slideshow-pagination__button--prev:focus .svg-icon {
+  transform: scaleX(-1) translateX(0.1875rem) rotate(180deg);
+}
+
 .slideshow--light-pagination .slideshow-pagination--pn .slideshow-pagination__button {
   height: 12.5rem;
   width: 3.125rem;
