@@ -31,9 +31,20 @@
      */
     var handleClick = function(link, index) {
       link.addEventListener('click', function(e) {
+        console.log(this);
         e.preventDefault();
         goToTab(index);
       });
+    };
+
+    var handleHash = function() {
+        var hash = window.location.hash,
+            el = $('a[href^="' + hash + '"]');
+
+        if (el) {
+            var index = el.data('index');
+            goToTab(index);
+        }
     };
 
     /**
@@ -47,6 +58,7 @@
       if (!initCalled) {
         initCalled = true;
         el.classList.remove('no-js');
+        handleHash();
 
         for (var i = 0; i < tabNavigationLinks.length; i++) {
           var link = tabNavigationLinks[i];
@@ -93,7 +105,7 @@
     'tabNavigationLinks': '.c-tabs-nav__link',
     'tabContentContainers': '.c-tab'
   };
-  
+
   if ($('.c-tabs').length > 0) {
       window.tabs(options).init();
   }

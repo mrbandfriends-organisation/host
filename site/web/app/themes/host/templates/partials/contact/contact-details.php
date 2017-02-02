@@ -35,25 +35,13 @@
                         $location_id         = $location->ID;
                         $location_title      = $location->post_title;
                         $connected_buildings = host_location_find_connected_buildings($location_id);
-                        $count_tab_index++;
-
-                        // Checking if each building has an address
-                        // foreach ($connected_buildings->posts as $building) {
-                        //     $building_id = $building->ID;
-                        //
-                        //     if ( get_field('building_address_post_code', $building_id) ) {
-                        //         $has_address = true;
-                        //         $count_tab_index++;
-                        //     } else {
-                        //         $has_address = false;
-                        //     }
-                        // }
                     ?>
                     <?php // Only shows building if it has an address ?>
                     <?php //if ( $has_address === true ): ?>
-                        <a href="#<?php echo $location_title;?>" class="c-tabs-nav__link <?php if ( $count_tab_index == 1) { echo "is-active"; } ?>">
-                            <?php echo $location_title; ?>
+                        <a href="#<?php echo $location_title;?>" data-index="<?= esc_attr($count_tab_index); ?>" class="c-tabs-nav__link">
+                            <?php echo esc_html($location_title); ?>
                         </a>
+                        <?php $count_tab_index++; ?>
                     <?php //endif; ?>
                 <?php endforeach; ?>
             </div>
@@ -117,8 +105,8 @@
                                         <li class="gc l1-3 flex">
                                             <div class="c-tab__listing-item">
                                                 <h3>
-                                                    <?php echo $building->post_title; ?><br>
-                                                    <?php echo $location_title; ?>
+                                                    <?php echo esc_html($building->post_title); ?><br>
+                                                    <?php echo esc_html($location_title); ?>
                                                 </h3>
 
                                                 <strong>Address</strong>
@@ -126,18 +114,18 @@
                                                     <?=str_replace("\n", '<br>', esc_html($address)); ?>
                                                 </p>
 
-                                                <a class="" href="https://www.google.com/maps?daddr=<?= $google_maps_address ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
+                                                <a class="" href="https://www.google.com/maps?daddr=<?= esc_attr($google_maps_address) ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
                                                     Get directions
                                                 </a>
 
                                                 <?php if (!empty($phone_no)): ?>
                                                   <strong>Call:</strong>
-                                                  <a href="tel:<?php echo $phone_no; ?>"><?php echo $phone_no; ?></a>
+                                                  <a href="tel:<?php echo esc_attr($phone_no); ?>"><?php echo esc_html($phone_no); ?></a>
                                                 <?php endif; ?>
 
                                                 <?php if (!empty($email)): ?>
                                                   <strong>Email:</strong>
-                                                  <a href="mailto:<?php echo $email; ?>"><?php echo $email; ?></a>
+                                                  <a href="mailto:<?php echo esc_attr($email); ?>"><?php echo esc_html($email); ?></a>
                                                 <?php endif; ?>
 
                                             </div>
@@ -150,7 +138,7 @@
                         <?php else: ?>
                             <div class="box box--more-padding">
                                 <?php // ?>
-                                <h3 class="text-center plain">Host currently have no buildings in <?php echo $location_title; ?></h3>
+                                <h3 class="text-center plain">Host currently have no buildings in <?php echo esc_html($location_title); ?></h3>
                             </div>
                         <?php endif; ?>
                     </div>
