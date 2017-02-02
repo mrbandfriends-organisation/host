@@ -1,0 +1,14 @@
+.breadcrumbs {
+    background-color: tint(sky);
+    padding: rem(10px) rem(25px) 0rem;
+}
+
+.breadcrumbs__link {
+    color: #fff;
+    text-decoration: underline;
+    transition: color .25s ease-in-out;
+
+    &:hover {
+        color: darken(#fff, 10%);
+    }
+}

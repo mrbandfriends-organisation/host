@@ -5,6 +5,7 @@
 <?php
 $parent_building = host_room_find_connected_building(get_the_id())->post;
 $parent_building_id = $parent_building->ID;
+$parent_building_permalink = get_the_permalink($parent_building->ID);
 $connected_location_name = host_building_find_connected_location($parent_building_id)->post->post_title;
  ?>
 
@@ -16,6 +17,10 @@ $connected_location_name = host_building_find_connected_location($parent_buildin
         'post_code'         => get_field('building_address_post_code', $parent_building_id),
         'phone'             => get_field('building_address_phone_no', $parent_building_id),
     ))
+)); ?>
+
+<?php echo Utils\ob_load_template_part('templates/partials/room/room-breadcrumb', array(
+    'parent_url' => $parent_building_permalink
 )); ?>
 
 <?php echo Utils\ob_load_template_part('templates/partials/room/room-in-page-nav.php'); ?>
