@@ -139,7 +139,8 @@ function GMaps()
             map:      oMap,
             position: { lat: oPlace.lat, lng: oPlace.lng },
             title:    oPlace.title,
-            address: oPlace.address
+            address: oPlace.address,
+            active: oPlace.active
         };
 
         // 4. if we have a type
@@ -160,6 +161,11 @@ function GMaps()
         // 6. draw the marker and place it in bounds
         var oMarker = new google.maps.Marker(oDefinition);
         oBounds.extend(oMarker.position);
+
+        if (!oDefinition.active)
+        {
+            oMarker.setVisible(false);
+        }
 
         // 7. if it’s a default marker, bail
         if (oPlace.type === undefined)

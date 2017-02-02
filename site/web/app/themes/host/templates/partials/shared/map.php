@@ -26,8 +26,8 @@
         $aPoi = Utils\get_posts_for_map_markers($aPoi, host_room_find_connected_building( get_the_id() )->posts );
 
     } else {
-    
-        // nothing doin'    
+
+        // nothing doin'
 
     }
 
@@ -62,7 +62,7 @@
     $aDynParms['place']      = $sLabel;
 
 
-        
+
 
     /** Markers/POIs */
     if (!empty($aPoi) && is_array($aPoi))
@@ -77,20 +77,21 @@
             'building' => []
         ];
         foreach ($aPoi AS $aP)
-        {   
+        {
             // Only allow certain types of markers
-            if ($aP['type'] !== "shops") { // client requested "Shops" were ommitted       
+            if ($aP['type'] !== "shops") { // client requested "Shops" were ommitted
                 $aMarker[$aP['type']][] = [
                     'title' => $aP['label'],
                     'lat'   => (float)$aP['location']['lat'],
                     'lng'   => (float)$aP['location']['lng'],
-                    'address' => $aP['location']['address']
+                    'address' => $aP['location']['address'],
+                    'active'  => ( $aP['type'] === 'building' || $aP['type'] === 'unis' ? true : false )
                 ];
             }
         }
 
-        
-        
+
+
 
         // and append to our dynamic map
         $aDynParms['markers'] = str_replace('"', '&quot;', esc_attr(json_encode($aMarker)));
@@ -130,7 +131,7 @@
                 <?php foreach ($aFilter AS $sFilter => $sLabel): ?>
                     <li class="form-filter__item">
                         <label for="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" class="form-filter__filter map__filter -<?=esc_attr($sFilter); ?>">
-                            <input type="checkbox" id="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" name="filter[]" value="<?=esc_attr($sFilter); ?>" checked>
+                            <input type="checkbox" id="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" name="filter[]" value="<?=esc_attr($sFilter); ?>" <?php if ( $sFilter === 'building' || $sFilter === 'unis' ): ?>checked<?php endif; ?>>
                             <?=icon('pin-filled'); ?>
                             <?=$sLabel; ?>
                         </label>
