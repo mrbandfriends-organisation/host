@@ -8,14 +8,11 @@
 
     $id = "room-{$post_slug}";
 
-    
+
     $aSlideshowConf = [
         "selector" => "#{$id}",
         "offset"   => -1
     ];
-
-    $room_category      = get_the_category();
-    $room_category      = $room_category[0];
 
     $from_amount        = get_field('from_amount');
     // $availability          = get_field('availability');
