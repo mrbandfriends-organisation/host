@@ -8,8 +8,7 @@
   },
   "scripts": {
     "postinstall": [
-      "composer update",
-      "bundle install"
+      "composer update && bundle install"
     ]
   },
   "repository": {
@@ -21,11 +20,13 @@
   "dependencies": {
     "frontend-boilerplate-assets": "file:assets",
     "gulp": "^3.9.1",
+    "gulp-if": "^2.0.2",
+    "gulp-rev": "^7.1.2",
     "lazysizes": "^2.0.5",
     "setasap": "^2.0.0"
   },
   "devDependencies": {
-    "del": "^2.2.1",
+    "del": "^2.2.2",
     "es6-promise": "^4.0.5",
     "featherlight": "^1.4.1",
     "fg-loadjs": "^1.0.0",
