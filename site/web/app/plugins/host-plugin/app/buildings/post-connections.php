@@ -41,7 +41,8 @@ class Post_Connections
             'from' => 'buildings',
             'to' => 'locations',
             'cardinality' => 'many-to-one',
-            'admin_column' => 'from'
+            'admin_column' => 'from',
+            'sortable' => 'any'
         ) );
 
         p2p_register_connection_type( array(

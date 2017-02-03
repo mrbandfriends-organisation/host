@@ -29,7 +29,7 @@ function host_buildings_find_connected_rooms( $building_id ) {
  */
 function host_location_find_connected_buildings( $location_id, $query_args = [] ) {
 	$repo = Repo::init();
-
+  // Note these items are ordered by the 'sortable' via p2p functionality
 	$location_buildings = $repo->find_connected(
         'building_to_location',
         $location_id,
@@ -50,7 +50,7 @@ function host_location_find_connected_buildings( $location_id, $query_args = [] 
  *
  */
 function host_location_find_connected_buildings_by_ppc_id($location_id, $ppc_id) {
-
+    // Note these items are ordered by the 'sortable' via p2p functionality
     $locationPPI = [
         'meta_key'	 => 'location_ppc_id',
         'meta_value' => $ppc_id

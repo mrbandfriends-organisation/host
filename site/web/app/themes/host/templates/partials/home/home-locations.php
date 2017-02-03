@@ -27,10 +27,10 @@
             <?php while ($locations->have_posts()) : $locations->the_post(); ?>
                 <?php
                     $checkerboard_field = get_field('checkerboard_image');
-                    $carousel_field = get_field('carousel_images');
+                    $carousel_field     = get_field('carousel_images');
 
                     // Get checkboard image
-                    if (!empty($checkerboard_field)) {
+                    if ( !empty($checkerboard_field) && !empty($checkerboard_field['url']) ) {
                         $checkerboard_image = $checkerboard_field['url'];
                     }
                     // Get first carosuel image if there is no checkerboard image
