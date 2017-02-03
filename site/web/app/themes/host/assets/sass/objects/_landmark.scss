@@ -12,14 +12,14 @@
 .landmark,
 %landmark {
     @include clearfix;
-    margin-bottom: $double-spacing-unit;
+    margin-bottom: $spacing-unit;
 }
 
 .landmark-tiny,
 .landmark--tiny,
 %landmark-tiny {
     @include clearfix;
-    margin-bottom: $half-spacing-unit;
+    margin-bottom: $half-spacing-unit/2;
 }
 
 .landmark-minor,
@@ -29,7 +29,7 @@
 .landmark--small,
 %landmark-small {
     @include clearfix;
-    margin-bottom: $spacing-unit;
+    margin-bottom: $half-spacing-unit;
 }
 
 .landmark-major,
@@ -39,5 +39,5 @@
 .landmark--large,
 %landmark-large {
     @include clearfix;
-    margin-bottom: $spacing-unit*3;
+    margin-bottom: $double-spacing-unit;
 }

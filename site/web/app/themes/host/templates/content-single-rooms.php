@@ -13,6 +13,7 @@ $connected_location_name = host_building_find_connected_location($parent_buildin
     'info_box' => Utils\ob_load_template_part('templates/snippets/shared/carousel-infobox', array(
         'building_name'     => $parent_building->post_title,
         'address_1'         => get_field('building_address_1', $parent_building_id),
+        'address_2'         => get_field('building_address_2', $parent_building_id),
         'town'              => get_field('building_address_town_city', $parent_building_id),
         'post_code'         => get_field('building_address_post_code', $parent_building_id),
         'phone'             => get_field('building_address_phone_no', $parent_building_id),

@@ -1307,6 +1307,91 @@ thead tr:last-child th {
   width: 6.25rem;
 }
 
+.landmark {
+  zoom: 1;
+  margin-bottom: 40px;
+}
+
+.landmark:before {
+  display: table;
+  content: "";
+}
+
+.landmark:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.landmark-tiny,
+.landmark--tiny {
+  zoom: 1;
+  margin-bottom: 10px;
+}
+
+.landmark-tiny:before,
+.landmark--tiny:before {
+  display: table;
+  content: "";
+}
+
+.landmark-tiny:after,
+.landmark--tiny:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.landmark-minor,
+.landmark--minor,
+.landmark-small,
+.landmark--small {
+  zoom: 1;
+  margin-bottom: 20px;
+}
+
+.landmark-minor:before,
+.landmark--minor:before,
+.landmark-small:before,
+.landmark--small:before {
+  display: table;
+  content: "";
+}
+
+.landmark-minor:after,
+.landmark--minor:after,
+.landmark-small:after,
+.landmark--small:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
+.landmark-major,
+.landmark--major,
+.landmark-large,
+.landmark--large {
+  zoom: 1;
+  margin-bottom: 80px;
+}
+
+.landmark-major:before,
+.landmark--major:before,
+.landmark-large:before,
+.landmark--large:before {
+  display: table;
+  content: "";
+}
+
+.landmark-major:after,
+.landmark--major:after,
+.landmark-large:after,
+.landmark--large:after {
+  display: table;
+  clear: both;
+  content: "";
+}
+
 .container {
   width: 100%;
   margin-right: auto;

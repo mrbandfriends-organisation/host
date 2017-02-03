@@ -172,6 +172,26 @@ var bpm = require('breakpoint-tools');
 
 
 /**
+ * PANORAMA LIGHTBOX
+ * 
+ */
+(function() {
+    $(window).on('load',function() {
+        var triggers = $('.js-room-panorama-trigger');
+        if ( triggers.length ) {
+            require.ensure(['magnific-popup'], function() {
+                var magnific = require('magnific-popup');
+
+                triggers.magnificPopup({
+                    type: 'iframe',
+                });
+            },'magnific-popup');
+        }
+    });
+}());
+
+
+/**
  * BROWSER UPGRADE NOTICE
  */
 (function() {

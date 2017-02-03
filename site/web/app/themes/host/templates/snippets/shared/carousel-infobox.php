@@ -1,8 +1,12 @@
 <?php
     Use Roots\Sage\Extras;
 
+    $address_1 = (!empty($address_1)) ? $address_1 : '';
+    $address_2 = (!empty($address_2)) ? $address_2 : '';
+
     $address = join("\n", [
         $address_1,
+        $address_2,
         $town . " " . $post_code
     ]);
     // strip unneeded newlines
