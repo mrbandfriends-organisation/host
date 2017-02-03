@@ -15,7 +15,7 @@
   $reasons_button_link  = esc_html(get_field('reasons_button_link'));
 ?>
 
-<?php 
+<?php
   $main_content = Utils\ob_load_template_part('templates/snippets/' . $snippet, array(
       'reasons_image'       => $reasons_image,
       'reason_title_1'      => $reason_title_1,
@@ -37,5 +37,6 @@
     'align'   => "right",
     'color'   => "orange",
     'content' => $main_content,
-    'second' => $second_content
+    'second'  => $second_content,
+    'id'      => 'home-reason'
 )); ?>

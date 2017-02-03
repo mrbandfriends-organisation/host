@@ -12,9 +12,6 @@
     'snippet' => 'uni/uni-information-main.php'
 )); ?>
 
-<?php echo Utils\ob_load_template_part('templates/partials/shared/featured-building', array(
-    'snippet'                 => 'shared/standard-content',
-    'featured_building_title' => 'Your closest home:'
-)); ?>
+
 
 <?php echo Utils\ob_load_template_part('templates/partials/shared/awards'); ?>

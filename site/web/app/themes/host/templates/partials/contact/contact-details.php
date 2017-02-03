@@ -14,7 +14,7 @@
     $details_description = get_field('details_description');
 ?>
 
-<section class="band band--inset box box--padded">
+<section id="contact-halls" class="band band--inset box box--padded">
     <?php
         $locations = (!empty($locations)) ? $locations : host_locations_find_all( ['order' => 'ASC', 'orderby' => 'title'] );
 

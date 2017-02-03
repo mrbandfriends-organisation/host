@@ -134,7 +134,7 @@
 
 
 ?>
-<section class="map">
+<section id="map" class="map">
     <div class="map__map js-map"<?=$sAttrs; ?> style="background-image:url(<?=$sStaticPath; ?>)">
         <img src="<?=$sStaticPath; ?>" class="map__static" alt="">
     </div>
