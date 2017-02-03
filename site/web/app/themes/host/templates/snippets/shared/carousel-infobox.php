@@ -30,30 +30,33 @@
         <?=esc_html($town); ?>
     </h1>
 <?php endif; ?>
+    <div class="carosel-infobox__content">
+        <div class="carosel-infobox__primary">
+        <?php if ( !empty($address) ): ?>
+            <strong class="carousel-infobox__subheading">Address.</strong>
+            <p>
+                <?=str_replace("\n", '<br>', esc_html($address)); ?>
+            </p>
 
-<?php if ( !empty($address) ): ?>
-    <strong class="carousel-infobox__subheading">Address.</strong>
-    <p>
-        <?=str_replace("\n", '<br>', esc_html($address)); ?>
-    </p>
+            <?php // Taking off to google maps with address as destination ?>
+            <strong class="carousel-infobox__subheading">
+                <a class="carousel-infobox__underlink-link" href="https://www.google.com/maps?daddr=<?= $google_maps_address ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
+                    Get directions
+                </a>
+            </strong>
+        <?php endif; ?>
+        </div>
+        
+        <div class="carosel-infobox__secondary">
+        <?php if ( !empty($phone) ): ?>
+            <strong class="carousel-infobox__subheading">Call.</strong>
+            <span><?php echo esc_html($phone); ?></span>
+        <?php endif; ?>
 
-    <?php // Taking off to google maps with address as destination ?>
-    <strong class="carousel-infobox__subheading">
-        <a class="carousel-infobox__underlink-link" href="https://www.google.com/maps?daddr=<?= $google_maps_address ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
-            Get directions
-        </a>
-    </strong>
-<?php endif; ?>
-
-<?php if ( !empty($phone) ): ?>
-    <strong class="carousel-infobox__subheading">Call.</strong>
-    <span><?php echo esc_html($phone); ?></span>
-<?php endif; ?>
-
-<?php if ( !empty($email) ): ?>
-    <strong class="carousel-infobox__subheading">Email.</strong>
-    <span><a href="mailto:<?php echo esc_html($email); ?>"><?php echo esc_html($email); ?></a></span>
-<?php endif; ?>
-
-
+        <?php if ( !empty($email) ): ?>
+            <strong class="carousel-infobox__subheading">Email.</strong>
+            <span><a href="mailto:<?php echo esc_html($email); ?>"><?php echo esc_html($email); ?></a></span>
+        <?php endif; ?>
+        </div>
+    </div>
 </div>
