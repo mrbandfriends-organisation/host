@@ -78,10 +78,20 @@
         ];
         foreach ($aPoi AS $aP)
         {
+        //     echo "<pre>";
+        // print_r($aP);
+        // echo "</pre>";
+            $link_text = ( !empty( $aP['link_text'] ) ) ? $aP['link_text'] : false;
+            $link_href = ( !empty( $aP['link_href'] ) ) ? $aP['link_href'] : false;
+            $open_in_new = ( !empty( $aP['open_in_new'] ) ) ? $aP['open_in_new'] : false;
+
             // Only allow certain types of markers
             if ($aP['type'] !== "shops") { // client requested "Shops" were ommitted
                 $aMarker[$aP['type']][] = [
                     'title' => $aP['label'],
+                    'link_text' => $link_text,
+                    'link_href' => $link_href,
+                    'open_in_new' => $open_in_new,
                     'lat'   => (float)$aP['location']['lat'],
                     'lng'   => (float)$aP['location']['lng'],
                     'address' => $aP['location']['address'],
@@ -90,12 +100,18 @@
             }
         }
 
+        // echo "<pre>";
+        // print_r($aMarker);
+        // echo "</pre>";
+
 
 
 
         // and append to our dynamic map
         $aDynParms['markers'] = str_replace('"', '&quot;', esc_attr(json_encode($aMarker)));
     }
+
+
 
     /** render down */
     $sStaticPath = "https://maps.googleapis.com/maps/api/staticmap?".http_build_query($aStaticParms);
