@@ -23,12 +23,14 @@ function GMaps()
     var oWin     = null;
     var oBounds  = null;
 
-    if ( window.innerWidth < 800 ) {
-        isDraggable = false
-    } else {
-        isDraggable = true
-    }
+    // if ( window.innerWidth < 800 ) {
+    //     isDraggable = false
+    // } else {
+    //     isDraggable = true
+    // }
 
+    isDraggable = true
+    
     // config
     var defaults = {
         zoom:               15,
@@ -319,6 +321,16 @@ function GMaps()
 
         // 7. flag things and recentre on bounds
         el.classList.add('js-enhanced');
+
+        // Only allow it to be zoomable using two fingers
+        // document.addEventListener('touchmove', function(e) {
+        //     e.preventDefault();
+        //     var touch = e.touches[0];
+        //     if(e.touches.length == 2){
+        //       //This means there are two finger move gesture on screen
+        //       oMap.setOptions({draggable:true});
+        //     }
+        // }, false);
     }
 
     return init();
