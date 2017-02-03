@@ -3,6 +3,22 @@
     "title": "Location Information",
     "fields": [
         {
+            "key": "field_5894a0430aa4d",
+            "label": "Disable \"Am I Feeling Lucky\"",
+            "name": "disable_am_i_feeling_lucky",
+            "type": "true_false",
+            "instructions": "Global overide to enable the disabling of the \"I'm feeling lucky\" element for this Location on the tile for this particular location.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0
+        },
+        {
             "key": "field_57c82803458c6",
             "label": "Header",
             "name": "",
@@ -364,5 +380,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1486117333
+    "modified": 1486135583
 }

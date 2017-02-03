@@ -29,7 +29,8 @@
             <?=esc_html($no_of_props); ?> <?php if ( $no_of_props === 1 ) { echo "property"; } else { echo "properties"; } ?> available
             <a href="<?php echo esc_url($url); ?>" class="btn btn--very-small btn--narrow">Show me homes</a>
         </p>
-        <?php if ( $connected_building_availibility === 'available' || $connected_building_availibility === 'limited' ) : ?>
+        <?php // only show if the admin hasn't manually disabled it (global overide) and we have buildings available for this location 
+        if ( !$disable_am_i_feeling_lucky && ( $connected_building_availibility === 'available' || $connected_building_availibility === 'limited' ) ) : ?>
             <p class="checkerboard-item__feeling-lucky">
                 I’m feeling lucky:
                 <a href="<?php echo esc_url(get_permalink($connected_internal_building_id)); ?>" class="btn btn--very-small btn--narrow btn--grape">Find me a student home</a>
