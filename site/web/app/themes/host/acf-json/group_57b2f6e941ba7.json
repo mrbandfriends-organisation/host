@@ -702,6 +702,25 @@
                     "disabled": 0
                 },
                 {
+                    "key": "field_58945a02d6a01",
+                    "label": "Link",
+                    "name": "link",
+                    "type": "text",
+                    "instructions": "If entered the title will become a link to the location specified in this field.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_57b58b3786ca9",
                     "label": "Transport time",
                     "name": "transport_time",
@@ -889,5 +908,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1486033241
+    "modified": 1486117401
 }
