@@ -1,5 +1,6 @@
 <?php
 
+    use Roots\Sage\Assets;
     use Roots\Sage\RoomsBuildings;
     use Roots\Sage\Utils;
 
@@ -41,13 +42,27 @@
                     foreach ($photos as $index => $photo):
 
                         $photo_title = $photo['title'];
-                        $photo_url = $photo['url'];
-                        $photo_2_url = $photos[$index]['url'];?>
-                        <li class="slideshow__item js-slideshow__item box--blue" style="background-image:url(<?=esc_url($photo_2_url); ?>);">
-                            <img src="<?php echo esc_url($photo_url); ?>" alt="<?php echo esc_attr($photo_title); ?>" title ="<?php echo esc_attr($photo_title); ?>" class="slideshow__image js-slideshow__image" />
+                        $photo_id    = $photo['id'];
+                        $photo_2_id  = $photos[$index]['id'];
+                ?>
+
+                        <li class="slideshow__item js-slideshow__item box--blue js-rimgbg">
+                            <?= // This is for the main background image
+                                Assets\get_responsive_image($photo_2_id, array(
+                                    'dimensions' => [320]
+                                ));
+                            ?>
+
+                            
+                            <?= // This is for the small image with the color overlay
+                                Assets\get_responsive_image($photo_id, array(
+                                    "alt"   => $photo_title,
+                                    "class" => "slideshow__image js-slideshow__image",
+                                ));
+                            ?>
                         </li>
                     <?php
-                    endforeach;
+                        endforeach;
                     ?>
             </ul>
         </aside>
