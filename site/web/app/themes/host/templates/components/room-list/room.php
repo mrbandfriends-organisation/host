@@ -49,15 +49,15 @@
                         <li class="slideshow__item js-slideshow__item box--blue js-rimgbg">
                             <?= // This is for the main background image
                                 Assets\get_responsive_image($photo_2_id, array(
-                                    'dimensions' => [320]
                                 ));
                             ?>
 
-                            
+
                             <?= // This is for the small image with the color overlay
                                 Assets\get_responsive_image($photo_id, array(
-                                    "alt"   => $photo_title,
-                                    "class" => "slideshow__image js-slideshow__image",
+                                    "alt"        => $photo_title,
+                                    "class"      => "slideshow__image js-slideshow__image",
+                                    'dimensions' => [320]
                                 ));
                             ?>
                         </li>
