@@ -6,7 +6,9 @@
 $parent_building = host_room_find_connected_building(get_the_id())->post;
 $parent_building_id = $parent_building->ID;
 $parent_building_permalink = get_the_permalink($parent_building->ID);
-$connected_location_name = host_building_find_connected_location($parent_building_id)->post->post_title;
+
+$connected_location      = host_building_find_connected_location($parent_building_id)->post;
+$connected_location_name = $connected_location->post_title;
  ?>
 
 <?php echo Utils\ob_load_template_part('templates/partials/shared/header-carousel', array(
@@ -48,7 +50,7 @@ $connected_location_name = host_building_find_connected_location($parent_buildin
 </section>
 
 <div id="location">
-    <?php echo Utils\ob_load_template_part('templates/partials/room/room-location.php', compact('parent_building_id', 'connected_location_name')); ?>
+    <?php echo Utils\ob_load_template_part('templates/partials/room/room-location.php', compact('parent_building_id', 'connected_location', 'connected_location_name')); ?>
 </div>
 
 <?php echo Utils\ob_load_template_part('templates/partials/shared/map', array(

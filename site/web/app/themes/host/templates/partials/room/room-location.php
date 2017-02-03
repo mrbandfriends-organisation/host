@@ -12,10 +12,11 @@
     $location_image     = get_field('location_image', $parent_building_id);
     $locations          = get_field('points_of_interest', $parent_building_id);
     $location_city      = $connected_location_name;
+    $location_id        = $connected_location->ID;
 ?>
 
 <?php
-    $main_content = Utils\ob_load_template_part('templates/snippets/building/things-to-do-introduction', compact('location_title_1', 'location_title_2', 'location_overview', 'location_city'));
+    $main_content = Utils\ob_load_template_part('templates/snippets/building/things-to-do-introduction', compact('location_id','location_title_1', 'location_title_2', 'location_overview', 'location_city'));
     $aside_content = Utils\ob_load_template_part('templates/snippets/building/things-to-do-listing', compact('locations', 'location_city', 'location_image'));
 ?>
 
