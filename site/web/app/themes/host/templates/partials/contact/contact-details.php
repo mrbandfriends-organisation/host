@@ -38,7 +38,7 @@
                     ?>
                     <?php // Only shows building if it has an address ?>
                     <?php //if ( $has_address === true ): ?>
-                        <a href="#<?php echo $location_title;?>" data-index="<?= esc_attr($count_tab_index); ?>" class="c-tabs-nav__link">
+                        <a href="#<?php echo sanitize_title($location_title);?>" data-index="<?= esc_attr($count_tab_index); ?>" class="c-tabs-nav__link">
                             <?php echo esc_html($location_title); ?>
                         </a>
                         <?php $count_tab_index++; ?>
@@ -67,7 +67,7 @@
                         }
                     }
                 ?>
-                <div id="<?php echo $location_title; ?>" class="c-tab <?php if ( $count_tab_content == 1) { echo "is-active"; } ?>">
+                <div id="<?php echo sanitize_title($location_title); ?>" class="c-tab <?php if ( $count_tab_content == 1) { echo "is-active"; } ?>">
                     <div class="c-tab__content">
                         <?php if ( $has_address === true ): ?>
 
