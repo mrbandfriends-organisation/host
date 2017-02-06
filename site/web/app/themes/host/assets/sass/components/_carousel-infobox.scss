@@ -31,7 +31,7 @@
     @media screen and ( max-height: 880px ) {
         transform: none;
         top: 0;
-        bottom: rem(-55px);
+        //bottom: rem(-55px);
         justify-content: flex-start;
         overflow: auto;
         width: 40%;
@@ -53,10 +53,11 @@
 
 // Strong elements
 .carousel-infobox__subheading {
-    margin-top: $half-spacing-unit;
+    display: block; // force clearing
+    padding-top: $half-spacing-unit;
 
     & + :not(.carousel-infobox__subheading) {
-        margin-top: ($quarter-spacing-unit / 2);
+        padding-top: ($quarter-spacing-unit / 2);
     }
 
 }
@@ -93,6 +94,22 @@
         &:before {
             background-color: #fff;
         }
+    }
+}
+
+// # CONTENT
+// ==========================================================================
+.carosel-infobox__content {
+    @include gw();
+}
+
+.carosel-infobox__primary,
+.carosel-infobox__secondary {
+    @include gc();
+    
+    // on small height screens we need to allow for more vertical space
+    @media screen and ( max-height: 880px ) {
+        @include grid-column(1,2);
     }
 }
 

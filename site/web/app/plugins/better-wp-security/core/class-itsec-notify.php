@@ -67,7 +67,11 @@ class ITSEC_Notify {
 		}
 
 
-		return $this->send_daily_digest();
+		$result = $this->send_daily_digest();
+
+		delete_site_transient( 'itsec_notification_running' );
+
+		return $result;
 	}
 
 	/**
@@ -84,7 +88,7 @@ class ITSEC_Notify {
 		$send_email = false;
 
 
-		require_once( ITSEC_Core::get_core_dir() . 'lib/class-itsec-mailer.php' );
+		require_once( ITSEC_Core::get_core_dir() . 'lib/class-itsec-mail.php' );
 		$mail = new ITSEC_Mail();
 		$mail->add_header( esc_html__( 'Daily Security Digest', 'better-wp-security' ), sprintf( wp_kses( __( 'Your Daily Security Digest for <b>%s</b>', 'better-wp-security' ), array( 'b' => array() ) ), date_i18n( get_option( 'date_format' ) ) ) );
 		$mail->add_info_box( sprintf( wp_kses( __( 'The following is a summary of security related activity on your site: <b>%s</b>', 'better-wp-security' ), array( 'b' => array() ) ), get_option( 'siteurl' ) ) );
@@ -92,11 +96,11 @@ class ITSEC_Notify {
 
 		$mail->add_section_heading( esc_html__( 'Lockouts', 'better-wp-security' ), 'lock' );
 
-		$host_count = sizeof( $itsec_lockout->get_lockouts( 'host', true ) );
 		$user_count = sizeof( $itsec_lockout->get_lockouts( 'user', true ) );
+		$host_count = sizeof( $itsec_lockout->get_lockouts( 'host', true ) );
 
 		if ( $host_count > 0 || $user_count > 0 ) {
-			$mail->add_lockouts_summary( $host_count, $user_count );
+			$mail->add_lockouts_summary( $user_count, $host_count );
 			$send_email = true;
 		} else {
 			$mail->add_text( esc_html__( 'No lockouts since the last email check.', 'better-wp-security' ) );
@@ -150,18 +154,6 @@ class ITSEC_Notify {
 		$mail->add_footer();
 
 
-		$raw_recipients  = ITSEC_Modules::get_setting( 'global', 'notification_email' );
-		$recipients = array();
-
-		foreach ( $raw_recipients as $recipient ) {
-			$recipient = trim( $recipient );
-
-			if ( is_email( $recipient ) ) {
-				$recipients[] = $recipient;
-			}
-		}
-
-
 		$this->queue = array(
 			'last_sent' => ITSEC_Core::get_current_time_gmt(),
 			'messages'  => array(),
@@ -170,9 +162,10 @@ class ITSEC_Notify {
 		update_site_option( 'itsec_message_queue', $this->queue );
 
 
-		$subject = sprintf( esc_html__( '[%s] Daily Security Digest', 'better-wp-security' ), esc_url( get_option( 'siteurl' ) ) );
+		$subject = esc_html__( 'Daily Security Digest', 'better-wp-security' );
+		$mail->set_subject( $subject );
 
-		return $mail->send( $recipients, $subject );
+		return $mail->send();
 	}
 
 	/**

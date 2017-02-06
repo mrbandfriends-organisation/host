@@ -3,6 +3,22 @@
     "title": "Location Information",
     "fields": [
         {
+            "key": "field_5894a0430aa4d",
+            "label": "Disable \"Am I Feeling Lucky\"",
+            "name": "disable_am_i_feeling_lucky",
+            "type": "true_false",
+            "instructions": "Global overide to enable the disabling of the \"I'm feeling lucky\" element for this Location on the tile for this particular location.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0
+        },
+        {
             "key": "field_57c82803458c6",
             "label": "Header",
             "name": "",
@@ -73,33 +89,14 @@
         },
         {
             "key": "field_57c828748b040",
-            "label": "Location title 1",
-            "name": "location_title_1",
+            "label": "Location title",
+            "name": "location_title",
             "type": "text",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_57ea26fb32f07",
-            "label": "Location title 2",
-            "name": "location_title_2",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -230,8 +227,8 @@
             "mime_types": ""
         },
         {
-            "key": "field_57ec0b73a40b4",
-            "label": "Checkerboard",
+            "key": "field_57d6cae29e80e",
+            "label": "News",
             "name": "",
             "type": "tab",
             "instructions": "",
@@ -246,9 +243,46 @@
             "endpoint": 0
         },
         {
-            "key": "field_57ec0b5fa40b3",
-            "label": "Checkerboard Image",
-            "name": "checkerboard_image",
+            "key": "field_57d6caeb9e80f",
+            "label": "Title",
+            "name": "news_title",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_57d6cc789e810",
+            "label": "Content",
+            "name": "news_content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "text",
+            "toolbar": "basic",
+            "media_upload": 0
+        },
+        {
+            "key": "field_57d6e160738b6",
+            "label": "Image",
+            "name": "news_image",
             "type": "image",
             "instructions": "",
             "required": 0,
@@ -258,7 +292,7 @@
                 "class": "",
                 "id": ""
             },
-            "return_format": "array",
+            "return_format": "id",
             "preview_size": "thumbnail",
             "library": "all",
             "min_width": "",
@@ -268,6 +302,63 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_57d6ccf59e811",
+            "label": "Call to action",
+            "name": "",
+            "type": "message",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_57d6cd2c9e812",
+            "label": "Text",
+            "name": "news_cta_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_57d6cd3d9e813",
+            "label": "Link",
+            "name": "news_cta_link",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page"
+            ],
+            "taxonomy": [],
+            "allow_null": 0,
+            "allow_archives": 1,
+            "multiple": 0
         }
     ],
     "location": [
@@ -289,5 +380,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1475156973
+    "modified": 1486135583
 }

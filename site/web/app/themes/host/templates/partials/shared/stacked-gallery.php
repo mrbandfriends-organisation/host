@@ -14,7 +14,9 @@
         <?php $counter = 0; ?>
         <?php for ($i=$counter; $i < $image_counter; $i++): ?>
         <?php //foreach ($images as $image): ?>
+     
             <?php if ( $counter < $number_thumbs ): ?>
+            <?php $caption = ( !empty( $images[$i]['caption'] ) ) ? $images[$i]['caption'] : ''; ?>
             <div class="stacked-gallery gc t1-2 l1-2">
                 <a href="<?php echo
                     wpthumb(
@@ -25,7 +27,7 @@
                             'resize' => true
                         )
                     ); ?>"
-                    class="stacked-gallery__link flex js-popup-gallery-trigger">
+                    class="stacked-gallery__link flex js-popup-gallery-trigger" title="<?php echo esc_attr($caption); ?>">
                     <div class="stacked-gallery__inner flex">
                         <strong class="stacked-gallery__label">See all <?php echo esc_html($image_counter); ?> photos</strong>
                         <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', array(

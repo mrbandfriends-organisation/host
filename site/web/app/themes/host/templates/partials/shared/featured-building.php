@@ -48,7 +48,7 @@
 ?>
 
 <?php if( $featured_building ): ?>
-    <div id="featured">
+    <div id="featured-building">
         <?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
             'color'   => "sky",
             'content' => $main_content,

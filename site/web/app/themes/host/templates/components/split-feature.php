@@ -7,6 +7,7 @@
     $modifier        = (empty($modifier))    ? ''     : "split-feature--{$modifier}";
     $main_modifier   = (empty($main_modifier) ? '' : "split-feature__main--{$main_modifier}" );
     $second_modifier = (empty($second_modifier) ? '' : "split-feature__secondary--{$second_modifier}" );
+    $id              = (!empty($id) ? 'id="' . esc_attr($id) . '"' : null );
 
     if (empty($content))
     {
@@ -26,7 +27,7 @@
         $second = $this->fetch($second);
     }
 ?>
-<section class="band<?= esc_attr($band); ?> split-feature -<?= esc_attr($align); ?> <?= esc_attr($modifier); ?> grid">
+<section <?= $id ?> class="band<?= esc_attr($band); ?> split-feature -<?= esc_attr($align); ?> <?= esc_attr($modifier); ?> grid">
     <div class="split-feature__main <?php echo esc_attr($main_modifier) ?> box<?= esc_attr($color); ?> gc l1-2">
         <div class="split-feature__content">
             <?= $content; ?>

@@ -366,6 +366,25 @@
             "mime_types": ""
         },
         {
+            "key": "field_589464c238580",
+            "label": "Room Panorama",
+            "name": "room_panorama",
+            "type": "text",
+            "instructions": "Provide the iframe embed link to the panorama you would like to display. Please note using non-iframe embeds will not work.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_57befcd7e6dee",
             "label": "Price",
             "name": "",
@@ -575,5 +594,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1474561615
+    "modified": 1486120186
 }

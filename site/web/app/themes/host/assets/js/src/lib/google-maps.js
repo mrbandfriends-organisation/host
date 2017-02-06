@@ -23,12 +23,14 @@ function GMaps()
     var oWin     = null;
     var oBounds  = null;
 
-    if ( window.innerWidth < 800 ) {
-        isDraggable = false
-    } else {
-        isDraggable = true
-    }
+    // if ( window.innerWidth < 800 ) {
+    //     isDraggable = false
+    // } else {
+    //     isDraggable = true
+    // }
 
+    isDraggable = true
+    
     // config
     var defaults = {
         zoom:               15,
@@ -82,7 +84,11 @@ function GMaps()
      */
     function showInfoWindow(marker)
     {
+
         var address;
+        var linkContent;
+        var openInNewAttrs = "";
+
         /* jshint validthis: true */
         // 1. if there’s no window
         if (oWin === null)
@@ -96,11 +102,22 @@ function GMaps()
             address = marker.address.split(' ').join('+');
         }
 
+        if( marker.openInNew !== undefined && marker.openInNew ) {
+            openInNewAttrs = ' target="_blank" ';
+        }
+
+        if (marker.linkText && marker.linkHref) {
+            linkContent = '<a ' + openInNewAttrs + ' href="'+ marker.linkHref +'">' + marker.linkText + '</a>';
+        } else {
+            linkContent = '<a ' + openInNewAttrs + ' href="https://www.google.com/maps?daddr='+ address +'">Get directions</a>';
+        }
+
+
         // 3. set the content + show it
         oWin.setContent(
             '<strong class="map__info-window">'+marker.title+'</strong>' +
             '<br>' +
-            '<a href="https://www.google.com/maps?daddr='+ address +'">Get directions</a>'
+            linkContent
         );
         oWin.open(oMap, marker);
     }
@@ -139,7 +156,11 @@ function GMaps()
             map:      oMap,
             position: { lat: oPlace.lat, lng: oPlace.lng },
             title:    oPlace.title,
-            address: oPlace.address
+            address: oPlace.address,
+            active: oPlace.active,
+            linkText: oPlace.link_text,
+            linkHref: oPlace.link_href,
+            openInNew: oPlace.open_in_new
         };
 
         // 4. if we have a type
@@ -160,6 +181,11 @@ function GMaps()
         // 6. draw the marker and place it in bounds
         var oMarker = new google.maps.Marker(oDefinition);
         oBounds.extend(oMarker.position);
+
+        if (!oDefinition.active)
+        {
+            oMarker.setVisible(false);
+        }
 
         // 7. if it’s a default marker, bail
         if (oPlace.type === undefined)
@@ -211,6 +237,7 @@ function GMaps()
             /* jshint loopfunc:true */
             aoMark[k].forEach(function(oMarker)
             {
+                //console.log(oMarker);
                 // i. set type
                 oMarker.type = k;
 
@@ -294,6 +321,16 @@ function GMaps()
 
         // 7. flag things and recentre on bounds
         el.classList.add('js-enhanced');
+
+        // Only allow it to be zoomable using two fingers
+        // document.addEventListener('touchmove', function(e) {
+        //     e.preventDefault();
+        //     var touch = e.touches[0];
+        //     if(e.touches.length == 2){
+        //       //This means there are two finger move gesture on screen
+        //       oMap.setOptions({draggable:true});
+        //     }
+        // }, false);
     }
 
     return init();

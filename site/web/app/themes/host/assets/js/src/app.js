@@ -89,7 +89,7 @@ var bpm = require('breakpoint-tools');
 
     require('checkerboard');
 
-    require('contact-tabs');    
+    require('contact-tabs');
 
     require('flyouts')();
 
@@ -125,11 +125,11 @@ var bpm = require('breakpoint-tools');
         var googleTranslateTarget = $('#' + targetString);
 
 
-        window.googleLanguageTranslatorInit = function() { 
-           new google.translate.TranslateElement({ 
+        window.googleLanguageTranslatorInit = function() {
+           new google.translate.TranslateElement({
                 pageLanguage: 'en',
                 includedLanguages:'en,zh-CN',
-                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL, 
+                layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
                 multilanguagePage: true,
                 autoDisplay: false
             }, targetString);
@@ -150,7 +150,7 @@ var bpm = require('breakpoint-tools');
             // Remove loading placeholder
             googleTranslateTarget.find('.js-translation-loading-placeholder').remove();
 
-            
+
         };
         require('fg-loadjs')('//translate.google.com/translate_a/element.js?cb=googleLanguageTranslatorInit');
     });
@@ -158,7 +158,7 @@ var bpm = require('breakpoint-tools');
 
 /**
  * LIGHTBOX
- * conditionally loaded lightbox 
+ * conditionally loaded lightbox
  */
 (function() {
     $(window).on('load',function() {
@@ -172,11 +172,31 @@ var bpm = require('breakpoint-tools');
 
 
 /**
+ * PANORAMA LIGHTBOX
+ * 
+ */
+(function() {
+    $(window).on('load',function() {
+        var triggers = $('.js-room-panorama-trigger');
+        if ( triggers.length ) {
+            require.ensure(['magnific-popup'], function() {
+                var magnific = require('magnific-popup');
+
+                triggers.magnificPopup({
+                    type: 'iframe',
+                });
+            },'magnific-popup');
+        }
+    });
+}());
+
+
+/**
  * BROWSER UPGRADE NOTICE
  */
-(function() {    
+(function() {
     var $buoop = {c:2};
-    
+
     function $buo_f(){
         setTimeout(function() {
             var e = document.createElement("script");
@@ -184,7 +204,7 @@ var bpm = require('breakpoint-tools');
             document.body.appendChild(e);
         }, 3000);
     };
-    $(window).on('load', $buo_f);  
+    $(window).on('load', $buo_f);
 }());
 
 
@@ -206,7 +226,7 @@ var bpm = require('breakpoint-tools');
 
 
 /**
- * GOOGLE MAPS 
+ * GOOGLE MAPS
  * initialises Google Maps functionality where a map is present
  */
 (function() {
@@ -286,9 +306,9 @@ var bpm = require('breakpoint-tools');
     var enquiryField        = contactForm.find('.js-enquiry-type');
     var enquiryHallField    = contactForm.find('.js-enquiry-hall');
     var waitingListOption   = enquiryField.find('option[value="Add to Waiting List"]').first();
-    
 
-    
+
+
     if ( !contactForm.length ) return;
 
     if (queryObject !== undefined ) {

@@ -57,7 +57,7 @@ $is-oldie: false !default;
 // @import "objects/alerts";
 @import "objects/svg-icons";
 // @import "objects/island";
-// @import "objects/landmark";
+@import "objects/landmark";
 @import "objects/containers";
 @import "objects/band";
 // @import "objects/plain-link";
@@ -123,6 +123,7 @@ $is-oldie: false !default;
 @import "components/_news-feed";
 @import "components/_header-carousel";
 @import "components/_header-slider";
+@import "components/_breadcrumbs";
 
 // # SITE LAYOUT STRUCTURE
 // ==========================================================================

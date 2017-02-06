@@ -26,6 +26,7 @@
         'scrollable'      => true,
         'content' 	      => $main_content,
         'second'  	      => $aside_content,
-        'second_modifier' => 'location-list'
+        'second_modifier' => 'location-list',
+        'id'              => 'things-to-do'
     ]);
 ?>

@@ -26,8 +26,8 @@
         $aPoi = Utils\get_posts_for_map_markers($aPoi, host_room_find_connected_building( get_the_id() )->posts );
 
     } else {
-    
-        // nothing doin'    
+
+        // nothing doin'
 
     }
 
@@ -62,7 +62,7 @@
     $aDynParms['place']      = $sLabel;
 
 
-        
+
 
     /** Markers/POIs */
     if (!empty($aPoi) && is_array($aPoi))
@@ -77,24 +77,41 @@
             'building' => []
         ];
         foreach ($aPoi AS $aP)
-        {   
+        {
+        //     echo "<pre>";
+        // print_r($aP);
+        // echo "</pre>";
+            $link_text = ( !empty( $aP['link_text'] ) ) ? $aP['link_text'] : false;
+            $link_href = ( !empty( $aP['link_href'] ) ) ? $aP['link_href'] : false;
+            $open_in_new = ( !empty( $aP['open_in_new'] ) ) ? $aP['open_in_new'] : false;
+
             // Only allow certain types of markers
-            if ($aP['type'] !== "shops") { // client requested "Shops" were ommitted       
+            if ($aP['type'] !== "shops") { // client requested "Shops" were ommitted
                 $aMarker[$aP['type']][] = [
                     'title' => $aP['label'],
+                    'link_text' => $link_text,
+                    'link_href' => $link_href,
+                    'open_in_new' => $open_in_new,
                     'lat'   => (float)$aP['location']['lat'],
                     'lng'   => (float)$aP['location']['lng'],
-                    'address' => $aP['location']['address']
+                    'address' => $aP['location']['address'],
+                    'active'  => ( $aP['type'] === 'building' || $aP['type'] === 'unis' ? true : false )
                 ];
             }
         }
 
-        
-        
+        // echo "<pre>";
+        // print_r($aMarker);
+        // echo "</pre>";
+
+
+
 
         // and append to our dynamic map
         $aDynParms['markers'] = str_replace('"', '&quot;', esc_attr(json_encode($aMarker)));
     }
+
+
 
     /** render down */
     $sStaticPath = "https://maps.googleapis.com/maps/api/staticmap?".http_build_query($aStaticParms);
@@ -117,7 +134,7 @@
 
 
 ?>
-<section class="map">
+<section id="map" class="map">
     <div class="map__map js-map"<?=$sAttrs; ?> style="background-image:url(<?=$sStaticPath; ?>)">
         <img src="<?=$sStaticPath; ?>" class="map__static" alt="">
     </div>
@@ -130,7 +147,7 @@
                 <?php foreach ($aFilter AS $sFilter => $sLabel): ?>
                     <li class="form-filter__item">
                         <label for="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" class="form-filter__filter map__filter -<?=esc_attr($sFilter); ?>">
-                            <input type="checkbox" id="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" name="filter[]" value="<?=esc_attr($sFilter); ?>" checked>
+                            <input type="checkbox" id="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" name="filter[]" value="<?=esc_attr($sFilter); ?>" <?php if ( $sFilter === 'building' || $sFilter === 'unis' ): ?>checked<?php endif; ?>>
                             <?=icon('pin-filled'); ?>
                             <?=$sLabel; ?>
                         </label>

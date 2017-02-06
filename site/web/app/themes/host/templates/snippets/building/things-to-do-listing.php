@@ -11,7 +11,15 @@
                 <?php foreach( $locations as $location ): ?>
                     <?php if ( !empty($location['title']) ): ?>
                         <li class="transport-list__item">
-                            <h3 class="transport-list__heading h3"><?= esc_html($location['title']); ?></h3>
+                            <h3 class="transport-list__heading h3">
+                                <?php if ( !empty( $location['link'] ) ): ?>
+                                <a href="<?php echo esc_attr($location['link']);?>">
+                                <?php endif ?>
+                                    <?= esc_html($location['title']); ?>
+                                <?php if ( !empty( $location['link'] ) ): ?>
+                                </a>                                
+                                <?php endif ?>
+                            </h3>
                             <ul class="transport-list__listing">
                                 <?php if ( !empty($location['transport_time']) ): ?>
                                     <li class="transport-list__listing-item">
@@ -47,7 +55,7 @@
             </ul>
         </div>
 
-        <?php if ( !empty($location_image) ): ?>
+        <?php if ( !empty($location_image) && !empty( $location_image['url'] ) ): ?>
             <div class="gc s1-3 flex">
                 <?php echo Utils\ob_load_template_part('templates/components/bleed-image', [
                     'image'     => $location_image['url'],

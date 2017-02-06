@@ -22,6 +22,12 @@
     margin-bottom: 0;
     overflow: hidden;
 
+    @include mq($from: medium) {
+        // on suitably large screens don't allow the carousel
+        // to shrink too much else it looks bad
+        min-height: rem(500px); 
+    }
+
     .slick-track,
     .slick-list,
     .slick-slide {
@@ -83,6 +89,8 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    
+
 
 
     .slick-initialized & {

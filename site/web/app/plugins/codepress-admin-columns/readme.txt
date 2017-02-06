@@ -3,8 +3,8 @@ Contributors: codepress, tschutter, davidmosterd, engelen, dungengronovius
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZDZRSYLQ4Z76J
 Tags: plugins, wordpress, admin, column, columns, custom columns, custom fields, image, dashboard, sortable, filters, posts, media, users, pages, posttypes, manage columns, wp-admin
 Requires at least: 3.5
-Tested up to: 4.5.1
-Stable tag: 2.5.6.3
+Tested up to: 4.6.1
+Stable tag: 2.5.6.4
 
 Customise columns on the administration screens for post(types), pages, media, comments, links and users with an easy to use drag-and-drop interface.
 
@@ -12,8 +12,9 @@ Customise columns on the administration screens for post(types), pages, media, c
 
 Manage and organize columns in the posts, users, comments and media lists in the WordPress admin panel. Transform the WordPress admin screens into beautiful, clear overviews.
 
-> #### Admin Columns Pro
-> The free version of Admin Columns does not support sorting, filtering and inline editing and has no priority support. [Admin Columns Pro](https://www.admincolumns.com/?utm_source=wordpressorg&utm_medium=readme&utm_content=blockquote&utm_campaign=cpac-pluginpage) offers these features, direct e-mail support and several add-ons.
+> Looking for the possibility of **sorting and filtering** your columns, and integrations for **WooCommerce** and **Advanced Custom Fields** columns? **[Admin Columns Pro](https://www.admincolumns.com/?utm_source=wordpressorg&utm_medium=readme&utm_content=blockquote&utm_campaign=cpac-pluginpage)** offers these features and many more!
+>
+> It also includes priority support from our support team and direct inline editing of your posts, users and categories. [What are you waiting for?](https://www.admincolumns.com/?utm_source=wordpressorg&utm_medium=readme&utm_content=blockquote-what-waiting-for&utm_campaign=cpac-pluginpage)
 
 [vimeo http://vimeo.com/96885841]
 
@@ -131,6 +132,7 @@ Admin Columns can change your post (posts, pages and custom post types), user, c
 * Taxonomy
 * Width
 
+
 = Comment columns =
 
 * Actions
@@ -199,16 +201,20 @@ You can find a list of the available actions and filters (and examples on how to
 
 == Screenshots ==
 
-1. Settings page for Post(type) columns.
-2. Posts Screen with the customized sortable columns.
-3. Settings page for the Media Library columns.
-4. Media Screen with the customized sortable columns.
-5. Settings page for Users columns.
-6. Users Screen with the customized sortable columns.
-7. Settings page showing the different displaying types for custom field.
-8. Posts Screen with custom fields.
+1. Easily add new columns to your posts screen.
+2. Settings page for Post(type) columns.
+3. Posts Screen with the customized sortable columns.
+4. Settings page for the Media Library columns.
+5. Media Screen with the customized sortable columns.
+6. Settings page for Users columns.
+7. Users Screen with the customized sortable columns.
+8. Settings page showing the different displaying types for custom field.
+9. Posts Screen with custom fields.
 
 == Changelog ==
+
+= 2.5.6.4 =
+* [Update] Updated promo banner
 
 = 2.5.6.3 =
 * [Added] Filter for suppressing admin notices, use: `add_filter( 'cac/suppress_site_wide_notices', '__return_true' )`
