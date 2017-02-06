@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.14.0] - 2017-02-06
+
+### Fixed
+- All of Fernando's list of changes, except for work on maps and anchor links for contact accordion
+
 ## [1.13.2] - 2017-01-13
 
 ### Fixed
@@ -23,11 +28,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ### Fixed
 - Testimonials grid fixed in IE11. Simplified and removed JS requirement.
-- Ensure only first Slick slide is shown until it's fully initialised. Avoids horrible "jump" and unstyled look on 
+- Ensure only first Slick slide is shown until it's fully initialised. Avoids horrible "jump" and unstyled look on
 page load.
 
 ### Added
-- Add `Buildings` to map markers on Room page. 
+- Add `Buildings` to map markers on Room page.
 - Pull Building on to Map on Room page.
 - Ability to preselect "Add to Waiting List" (only) from Enquiry type dropdown on Contact page via query string params
 - Ability to preselect any value from the "Choose hall to contact" dropdown on Contact page via query string params
