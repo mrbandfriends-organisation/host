@@ -5,7 +5,7 @@
     use Roots\Sage\Utils;
 
     global $post;
-    $post_slug=$post->post_name;
+    $post_slug = sanitize_title(get_the_title());
 
     $id = "room-{$post_slug}";
 
