@@ -192,6 +192,7 @@
                         "transport": "Transport",
                         "shops": "Shops",
                         "food": "Food",
+                        "show_flats": "Show Flats",
                         "unis": "Universities"
                     },
                     "default_value": [],
@@ -303,5 +304,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1486133767
+    "modified": 1486480387
 }
