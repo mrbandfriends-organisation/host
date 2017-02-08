@@ -126,7 +126,7 @@
      */
     $aFilter = [
         'building'    => 'Buildings',
-        'show_flats'  => 'Show Flats',
+        'show_flats'  => 'Show Flat',
         'unis'        => 'Universities',
         'food'        => 'Eating and drinking',
         'transport'   => 'Transport',
