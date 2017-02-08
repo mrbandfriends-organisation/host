@@ -63,7 +63,7 @@ $is-oldie: false !default;
 // @import "objects/plain-link";
 // @import "objects/slanted";
 // @import "objects/bullet-list";
-// @import "objects/inline-list";
+@import "objects/inline-list";
 @import "objects/separated-list";
 @import "objects/definition-list";
 // @import "objects/overlayed-media";
@@ -142,6 +142,7 @@ $is-oldie: false !default;
 @import "pages/_room-page";
 @import "pages/_404.scss";
 @import "pages/_single-university.scss";
+@import "pages/_single-building.scss";
 
 
 // # SHAME FILE

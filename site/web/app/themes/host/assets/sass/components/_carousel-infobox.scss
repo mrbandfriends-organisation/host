@@ -113,6 +113,32 @@
     }
 }
 
+// # SOCIAL ICONS
 // ==========================================================================
-// # MODIFIER: %%MODIFIER_NAME%%
+.carousel-infobox__social-icons {
+    position: absolute;
+    top: rem(10px);
+    right: rem(20px);
+
+    @include mq(large) {
+        top: rem(20px);
+        right: rem(30px);
+    }
+}
+
 // ==========================================================================
+// # MODIFIER: HAS TOP ICONS
+// ==========================================================================
+
+.carosel-infobox--has-top-icons {
+    padding-top: rem(40px);
+
+    @include mq(medium) {
+        padding-top: rem(40px);
+    }
+
+    @include mq(large) {
+        padding-top: rem(50px);
+    }
+    
+}
