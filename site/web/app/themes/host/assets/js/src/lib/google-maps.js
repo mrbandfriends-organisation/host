@@ -6,7 +6,7 @@ var oIconMap = {
     transport: 'black',
     unis:      'orange',
     food:      'grape',
-    shops:     'mint',
+    show_flats: 'mint',
     building:  'red'
 };
 
@@ -30,7 +30,7 @@ function GMaps()
     // }
 
     isDraggable = true
-    
+
     // config
     var defaults = {
         zoom:               15,
@@ -97,7 +97,6 @@ function GMaps()
         }
 
         // 2. Converts address to string with only +'s not spaces'
-        // console.log(address);
         if( marker.address ) {
             address = marker.address.split(' ').join('+');
         }
@@ -237,7 +236,6 @@ function GMaps()
             /* jshint loopfunc:true */
             aoMark[k].forEach(function(oMarker)
             {
-                //console.log(oMarker);
                 // i. set type
                 oMarker.type = k;
 

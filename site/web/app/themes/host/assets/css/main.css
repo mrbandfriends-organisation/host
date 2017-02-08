@@ -4633,7 +4633,7 @@ a.btn {
   fill: #b455a0;
 }
 
-.map__filter.-shops input:checked ~ .svg-icon {
+.map__filter.-show_flats input:checked ~ .svg-icon {
   fill: #00b9b5;
 }
 

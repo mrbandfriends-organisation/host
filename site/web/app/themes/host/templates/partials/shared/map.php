@@ -70,11 +70,11 @@
         // Define which marks are allowed...
         // remap our markers a little
         $aMarker = [
-            'unis'      => [],
-            'food'      => [],
-            //'shops'     => [],
-            'transport' => [],
-            'building' => []
+            'unis'        => [],
+            'food'        => [],
+            'show_flats'  => [],
+            'transport'   => [],
+            'building'    => []
         ];
         foreach ($aPoi AS $aP)
         {
@@ -95,7 +95,7 @@
                     'lat'   => (float)$aP['location']['lat'],
                     'lng'   => (float)$aP['location']['lng'],
                     'address' => $aP['location']['address'],
-                    'active'  => ( $aP['type'] === 'building' || $aP['type'] === 'unis' ? true : false )
+                    'active'  => ( $aP['type'] === 'building' || $aP['type'] === 'unis' || $aP['type'] === 'show_flats' ? true : false )
                 ];
             }
         }
@@ -125,11 +125,11 @@
      * Filter sets
      */
     $aFilter = [
-        'building' => 'Buildings',
-        'unis'      => 'Universities',
-        'food'      => 'Eating and drinking',
-        //'shops'     => 'Shopping',
-        'transport' => 'Transport',
+        'building'    => 'Buildings',
+        'show_flats'  => 'Show Flats',
+        'unis'        => 'Universities',
+        'food'        => 'Eating and drinking',
+        'transport'   => 'Transport',
     ];
 
 
@@ -147,7 +147,7 @@
                 <?php foreach ($aFilter AS $sFilter => $sLabel): ?>
                     <li class="form-filter__item">
                         <label for="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" class="form-filter__filter map__filter -<?=esc_attr($sFilter); ?>">
-                            <input type="checkbox" id="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" name="filter[]" value="<?=esc_attr($sFilter); ?>" <?php if ( $sFilter === 'building' || $sFilter === 'unis' ): ?>checked<?php endif; ?>>
+                            <input type="checkbox" id="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" name="filter[]" value="<?=esc_attr($sFilter); ?>" <?php if ( $sFilter === 'building' || $sFilter === 'unis' || $sFilter === 'show_flats' ): ?>checked<?php endif; ?>>
                             <?=icon('pin-filled'); ?>
                             <?=$sLabel; ?>
                         </label>
