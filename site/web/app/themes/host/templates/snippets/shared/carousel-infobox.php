@@ -6,9 +6,15 @@
     $address_1 = (!empty($address_1)) ? $address_1 : '';
     $address_2 = (!empty($address_2)) ? $address_2 : '';
 
+    $address_lines = array(
+        'address_1' => $address_1,
+        'address_2' => $address_2
+    );
+
+    $address_lines = rtrim( join( $address_lines, ', ' ), ',' );
+
     $address = join("\n", [
-        $address_1,
-        $address_2,
+        $address_lines,
         $town . " " . $post_code
     ]);
     // strip unneeded newlines
