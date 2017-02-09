@@ -6393,6 +6393,7 @@ a.room-list-nav__link:hover {
   display: flex;
   -ms-flex-align: end;
       align-items: flex-end;
+  width: 100%;
 }
 
 .footer-marks__item {
@@ -6403,6 +6404,7 @@ a.room-list-nav__link:hover {
 .footer-marks__item.-large {
   display: block;
   margin: 0;
+  margin-left: auto;
 }
 
 .footer-up-arrow-container {
@@ -8280,6 +8282,14 @@ a.article-tile__link:hover .article-tile__location {
     -moz-columns: 3;
     columns: 3;
   }
+  .footer__final{
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-align: end;
+    align-items: flex-end;
+  }
   #menu-footer-utilities.nav-footer-utilities li:last-child{
     margin-bottom: 1em !important;
   }
@@ -9176,14 +9186,6 @@ a.article-tile__link:hover .article-tile__location {
     max-width: 20rem;
     transform: translateY(-25%);
   }
-  .footer__final{
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -ms-flex-align: end;
-    align-items: flex-end;
-  }
   .footer-marks{
     margin: 0;
   }
@@ -9694,9 +9696,6 @@ a.article-tile__link:hover .article-tile__location {
   .testimonial-wall__unit--first{
     -ms-flex-direction: column-reverse;
     flex-direction: column-reverse;
-  }
-  .footer-marks__item{
-    display: none;
   }
 }
 

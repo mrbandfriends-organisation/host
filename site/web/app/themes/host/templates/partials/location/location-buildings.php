@@ -112,22 +112,19 @@
                                     <?php endif; ?>
 
                                 </address>
-
                                 
-                                    <p>
-                                        <?php if (!empty($sUrl) && !empty($sBtnText)): ?>
-                                        <a href="<?=$sUrl; ?>" class="btn"<?=$sAtts; ?>><?=$sBtnText; ?></a>
-                                        <?php endif; ?>
-                                        
-                                        <?php echo Utils\ob_load_template_part('templates/snippets/building/conditional-buttons', array(
-                                            'can_book' => $availability_status['can_book'],
-                                            'can_join_waiting_list' => $availability_status['can_join_waiting_list'],
-                                            'enquiry_hall_name' => $location_title . " " . $property_title,
-                                            'btn_modifiers' => 'btn--block'
-                                        )); ?>
-                                    </p>
-
-                                
+                                <p>
+                                    <?php if (!empty($sUrl) && !empty($sBtnText)): ?>
+                                    <a href="<?=$sUrl; ?>" class="btn"<?=$sAtts; ?>><?=$sBtnText; ?></a>
+                                    <?php endif; ?>
+                                    
+                                    <?php echo Utils\ob_load_template_part('templates/snippets/building/conditional-buttons', array(
+                                        'can_book' => $availability_status['can_book'],
+                                        'can_join_waiting_list' => $availability_status['can_join_waiting_list'],
+                                        'enquiry_hall_name' => $location_title . " " . $property_title,
+                                        'btn_modifiers' => 'btn--block'
+                                    )); ?>
+                                </p>
                             </div>
                         </div>
                     </div>

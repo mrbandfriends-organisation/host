@@ -107,7 +107,7 @@
 .footer__final {
     margin-top: 0;
 
-    @include mq(xlarge) {
+    @include mq(medium) {
         display: flex;
         justify-content: space-between;
         align-items:     flex-end;
@@ -185,6 +185,7 @@
 .footer-marks {
     display: flex;
     justify-content: flex-start;
+
     margin-top: rem(50);
 
     @include mq(medium) {
@@ -209,19 +210,17 @@
 .footer-marks__list {
     display:     flex;
     align-items: flex-end;
+    width: 100%;
 }
 
 .footer-marks__item {
     margin-right: rem(10);
     line-height:  0;
 
-    @include mq($until: small) {
-        display: none;
-    }
-
     &.-large {
         display: block;
         margin: 0;
+        margin-left: auto;
 
         @include mq(medium) {
             margin: 0 0 0 rem(30);
