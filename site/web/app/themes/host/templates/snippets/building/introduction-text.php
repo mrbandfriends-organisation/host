@@ -42,32 +42,11 @@
 
 <?= Utils\esc_textarea__($description); ?>
 
-<?php if ( $availability_status['can_book'] ): ?>
-    <?php $booking_url = get_field('booking_url', 'option'); ?>
-    <a href="<?= esc_attr($booking_url); ?>" class="btn btn--red" <?php Extras\link_open_new_tab_attrs(); ?>>
-        Book now
-    </a>
-<?php endif ?>
-
-<?php if ( $availability_status['can_join_waiting_list'] ): ?>
-    <?php 
-
-        // This value must match EXACTLY that which is configured in the
-        // "Choose a hall to contact" select field on the Contact form
-        $enquiry_hall_name = $location_name . " " . $building_name;
-
-        // JS is listening to prepopulate the Contact form!
-        $query_string = http_build_query(array(
-            'enquiry-type' => "Add to Waiting List",
-            'enquiry-hall' => $enquiry_hall_name
-        ));
-
-    ?>
-
-    <a href="/contact/?<?php echo esc_attr($query_string);?>#contact-form-section" class="btn btn--red">
-        Join The Waiting List
-    </a>
-<?php endif ?>
+<?php echo Utils\ob_load_template_part('templates/snippets/building/conditional-buttons', array(
+    'can_book' => $availability_status['can_book'],
+    'can_join_waiting_list' => $availability_status['can_join_waiting_list'],
+    'enquiry_hall_name' => $location_name . " " . $building_name
+)); ?>
 
 
 

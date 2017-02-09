@@ -19,7 +19,8 @@ function get_availability_config($availability = "available", $type )
                 'colour' => 'orange',
                 'foreground' => 'orange',
                 'can_book' => true,
-                'can_join_waiting_list' => false
+                'can_join_waiting_list' => false,
+                'favouritable' => true
             ];
             break;
 
@@ -31,7 +32,8 @@ function get_availability_config($availability = "available", $type )
                 'colour' => 'red',
                 'foreground' => 'red',
                 'can_book' => false,
-                'can_join_waiting_list' => true
+                'can_join_waiting_list' => true,
+                'favouritable' => true
             ];
             break;
 
@@ -43,7 +45,8 @@ function get_availability_config($availability = "available", $type )
                 'colour' => 'orange',
                 'foreground' => 'orange',
                 'can_book' => false,
-                'can_join_waiting_list' => true
+                'can_join_waiting_list' => true,
+                'favouritable' => false
             ];
             break;
 
@@ -56,7 +59,8 @@ function get_availability_config($availability = "available", $type )
                 'colour' => 'mint',
                 'foreground' => 'sky',
                 'can_book' => true,
-                'can_join_waiting_list' => false
+                'can_join_waiting_list' => false,
+                'favouritable' => true
             ];
     }
 }

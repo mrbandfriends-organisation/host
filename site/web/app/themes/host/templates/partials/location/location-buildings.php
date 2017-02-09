@@ -24,6 +24,9 @@
         <ul class="property-list__list">
         <?php while ($buildings->have_posts()): $buildings->the_post(); ?>
             <?php
+
+                $building_id = get_the_id();
+
                 // build addresses
                 $address = implode("\n", [
                     get_field('building_address_1'),
@@ -46,24 +49,24 @@
                 }
 
                 // availability stuff
-                $aAvailabilityDefinition = RoomsBuildings\availability_status(get_field('availability'));
+                $availability_status = RoomsBuildings\building_availability( $building_id );
                 $iNumberTypes = get_field('room_types');
 
                 // link stuff
-                $bExternal = (get_field('external_website') === true);
-                $faqs_url =  get_field('faqs_url');
-                $sUrl = $bExternal ? get_field('website_url') : get_the_permalink();
-                $sText = $bExternal ? 'Take me to the website' : 'Show me this property';
-                $sAtts = $bExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
-                $sBtnText = ($aAvailabilityDefinition['text'] === 'Coming soon') ? '' : $sText;
+                $bExternal  = (get_field('external_website') === true);
+                $faqs_url   =  get_field('faqs_url');
+                $sUrl       = $bExternal ? get_field('website_url') : get_the_permalink();
+                $sText      = $bExternal ? 'Take me to the website' : 'Show me this property';
+                $sAtts      = $bExternal ? ' target="_blank" rel="noopener noreferrer"' : '';
+                $sBtnText   = ($availability_status['text'] === 'Coming soon') ? '' : $sText;
 
-                $favouriteable = ( $aAvailabilityDefinition['text'] != 'Coming soon' ? 'data-favouritable="' . get_the_id() . '"' : null );
+                $favouriteable = ( $availability_status['favouritable'] ? 'data-favouritable="' . get_the_id() . '"' : null );
 
                 $property_title = get_field('title_1');
             ?>
             <li id="property-<?= esc_attr($counter); ?>" class="property-list__item">
                 <article class="listed-property grid">
-                    <div class="listed-property__main gc l1-2 xl2-3 xxl5-7 box box--fg-<?=$aAvailabilityDefinition['foreground']; ?> box--padded" <?php echo $favouriteable; ?>>
+                    <div class="listed-property__main gc l1-2 xl2-3 xxl5-7 box box--fg-<?=$availability_status['foreground']; ?> box--padded" <?php echo $favouriteable; ?>>
                         <div class="listed-property__content grid">
                             <div class="listed-property__title-desc gc xxl3-5">
                                 <header class="listed-property__header">
@@ -74,7 +77,7 @@
                                         <?=$property_title;?>
                                         <?php if (!empty($sUrl)): ?></a><?php endif; ?>
                                     </h3>
-                                    <h4 class="listed-property__availability listed-property__availability--<?=$aAvailabilityDefinition['foreground']; ?>"><?=$aAvailabilityDefinition['text']; ?></h4>
+                                    <h4 class="listed-property__availability listed-property__availability--<?=$availability_status['foreground']; ?>"><?=$availability_status['text']; ?></h4>
                                 </header>
 
                                 <?php if ($iNumberTypes !== null): ?>
@@ -110,50 +113,28 @@
 
                                 </address>
 
-                                <?php if (!empty($sUrl) && !empty($sBtnText)): ?>
-                                <p>
-                                    <a href="<?=$sUrl; ?>" class="btn"<?=$sAtts; ?>><?=$sBtnText; ?></a>
+                                
+                                    <p>
+                                        <?php if (!empty($sUrl) && !empty($sBtnText)): ?>
+                                        <a href="<?=$sUrl; ?>" class="btn"<?=$sAtts; ?>><?=$sBtnText; ?></a>
+                                        <?php endif; ?>
+                                        
+                                        <?php echo Utils\ob_load_template_part('templates/snippets/building/conditional-buttons', array(
+                                            'can_book' => $availability_status['can_book'],
+                                            'can_join_waiting_list' => $availability_status['can_join_waiting_list'],
+                                            'enquiry_hall_name' => $location_title . " " . $property_title,
+                                            'btn_modifiers' => 'btn--block'
+                                        )); ?>
+                                    </p>
 
-                                    <?php if ( $aAvailabilityDefinition['text'] !== 'Sold out' && !$bExternal ): ?>
-                                        <?php $booking_url = get_field('booking_url', 'option'); ?>
-                                        <a href="<?=$booking_url; ?>" class="btn btn--red listed-property__booking-btn" <?php Extras\link_open_new_tab_attrs(); ?>>Book now</a>
-                                    <?php endif; ?>
-
-                                    <?php if ( $aAvailabilityDefinition['text'] === 'Sold out' ): ?>
-
-                                        <?php
-
-                                        // Note the Hall field "value" on the enquiry form must match
-                                        // this value exactly otherwise it won't work
-                                        $enquiry_hall_field_ref = "$location_title $property_title";
-
-                                        $enquiry_query_data = array(
-                                            'enquiry-type'=> WAITING_LIST_FIELD,
-                                            'enquiry-hall'=> $enquiry_hall_field_ref
-                                        );
-
-                                        ?>
-                                        <a href="/contact/?<?php echo esc_attr( http_build_query($enquiry_query_data) );?>#contact-form-section" class="btn btn--sky btn--block">
-                                            Join the Waiting List
-                                        </a>
-                                    <?php endif; ?>
-
-
-                                    <?php if (!empty($faqs_url)): ?>
-                                        <a href="<?php echo esc_attr( $faqs_url );?>" class="btn btn--red btn--block">
-                                            View FAQs
-                                        </a>
-                                    <?php endif ?>
-
-                                </p>
-                                <?php endif; ?>
+                                
                             </div>
                         </div>
                     </div>
                     <?php
                      ?>
                     <aside class="listed-property__image gc l1-2 xl1-3 xxl2-7 lazyload" data-bg="<?php echo esc_attr($sPostThumb);?>">
-                        <p class="listed-property__price box box--ink box--fg-<?=$aAvailabilityDefinition['foreground']; ?> h3">
+                        <p class="listed-property__price box box--ink box--fg-<?=$availability_status['foreground']; ?> h3">
                             Rooms from <span class="inherit-fg"><?=esc_html(get_field('prices_from')); ?></span>
                         </p>
                     </aside>
