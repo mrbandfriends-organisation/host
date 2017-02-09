@@ -6,6 +6,7 @@
 
     global $post;
     $post_slug = sanitize_title(get_the_title());
+    $room_id = get_the_id();
 
     $id = "room-{$post_slug}";
 
@@ -16,9 +17,11 @@
     ];
 
     $from_amount        = get_field('from_amount');
-    // $availability          = get_field('availability');
-    // $status                = RoomsBuildings\availability_status($availability);
-    $status             = RoomsBuildings\building_availability(get_the_id());
+    
+
+    // Get status of the Room or the Building (if overide is specified at Building level)
+    $availability_status = RoomsBuildings\room_building_availability( $room_id, $building_status);
+    
 ?>
 
 <article id="<?=esc_attr( $id ); ?>" class="listed-room room-list__room">
@@ -27,8 +30,8 @@
             <h3 class="listed-room__title"><?=get_the_title();?></h3>
             <h4 class="listed-room__price h3 plain">From <?=$from_amount; ?></h4>
 
-            <strong class="listed-room__avail box box--little-padding box--<?=$status['colour']; ?> h4 plain">
-                <span class="vh">Availability:</span><?=$status['text']; ?>
+            <strong class="listed-room__avail box box--little-padding box--<?=$availability_status['colour']; ?> h4 plain">
+                <span class="vh">Availability:</span><?=$availability_status['text']; ?>
             </strong>
             <p>
                 <a href="<?= esc_url(get_permalink()); ?>" class="btn btn--small btn--narrow">More information</a>
