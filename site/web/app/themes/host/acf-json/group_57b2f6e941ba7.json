@@ -555,9 +555,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_57b30d00567c9",
-            "label": "Facilities title",
-            "name": "facilities_title",
+            "key": "field_589da6a005459",
+            "label": "Facilities Title 1",
+            "name": "facilities_title_1",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -571,9 +571,26 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
+        },
+        {
+            "key": "field_589da6aa0545a",
+            "label": "Facilities Title 2",
+            "name": "facilities_title_2",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_57b30c2ebdda7",
@@ -981,5 +998,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1486571566
+    "modified": 1486727289
 }
