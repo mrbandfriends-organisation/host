@@ -100,10 +100,33 @@
             }
         }
 
-        // echo "<pre>";
-        // print_r($aMarker);
-        // echo "</pre>";
+        $markers_with_items = array_filter($aMarker, function($marker) {
+            return (!empty($marker)) ? true : false;
+        });
 
+        
+
+
+        /**
+         * Possible available filter sets
+         */
+        $available_filters = [
+            'building'    => 'Buildings',
+            'show_flats'  => 'Show Flat',
+            'unis'        => 'Universities',
+            'food'        => 'Eating and drinking',
+            'transport'   => 'Transport',
+        ];
+
+        /**
+         * Filters
+         * 
+         * Compute the intersection of the possible marker type filters with the marker types
+         * that actually have items associated with them. This returns an array of only those
+         * filters which have items. 
+         */
+        $aFilter = array_intersect_key($available_filters, array_flip( array_keys($markers_with_items) ) );
+    
 
 
 
@@ -121,16 +144,10 @@
         $sAttrs .= sprintf(' data-%s="%s"', $sParm, esc_attr($sVal));
     }
 
-    /**
-     * Filter sets
-     */
-    $aFilter = [
-        'building'    => 'Buildings',
-        'show_flats'  => 'Show Flat',
-        'unis'        => 'Universities',
-        'food'        => 'Eating and drinking',
-        'transport'   => 'Transport',
-    ];
+   
+
+
+
 
 
 ?>
