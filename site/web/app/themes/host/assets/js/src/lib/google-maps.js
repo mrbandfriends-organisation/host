@@ -7,7 +7,8 @@ var oIconMap = {
     unis:      'orange',
     food:      'grape',
     show_flats: 'mint',
-    building:  'red'
+    building:  'red',
+    shops: 'sky'
 };
 
 function GMaps()
@@ -168,7 +169,9 @@ function GMaps()
 
             // NOTE: we've reverted to using PNG versions of the SVGs because of this bug
             // http://stackoverflow.com/questions/19719574/google-maps-svg-image-marker-icons-not-showing-in-ie11/26608307#26608307
+            // see "oIconMap" for mapping between icons and png images
             oDefinition.icon = LOCALISED_VARS.stylesheet_directory_uri + '/assets/svg/standalone/png/marker-'+oIconMap[oPlace.type]+'.png';
+
 
         }
 

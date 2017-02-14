@@ -97,4 +97,5 @@
     &.-show_flats     input:checked ~ .svg-icon { fill: brand(mint); }
     &.-transport input:checked ~ .svg-icon { fill: brand(ink); }
     &.-building input:checked ~ .svg-icon { fill: brand(red); }
+    &.-shops input:checked ~ .svg-icon { fill: brand(sky); }
 }

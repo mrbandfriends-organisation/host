@@ -4744,6 +4744,10 @@ a.btn {
   fill: #d50e3c;
 }
 
+.map__filter.-shops input:checked ~ .svg-icon {
+  fill: #00c0f3;
+}
+
 .property-list__list {
   margin: 0;
   list-style: none outside;

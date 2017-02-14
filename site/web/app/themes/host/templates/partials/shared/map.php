@@ -115,6 +115,7 @@
             'unis'        => 'Universities',
             'food'        => 'Eating and drinking',
             'transport'   => 'Transport',
+            'shops'       => 'Shops'
         ];
 
         /**

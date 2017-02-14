@@ -7,6 +7,7 @@ var plumber      = require('gulp-plumber');
 var svgmin       = require('gulp-svgmin');
 var svgstore     = require('gulp-svgstore');
 var rename       = require('gulp-rename');
+var svg2png      = require('svg2png');
 var paths        = require('../paths');
 var errorHandler = require('../errorHandler');
 
@@ -52,7 +53,7 @@ gulp.task('svgstandalone', function()
                 .pipe(gulp.dest( paths.svg.output.standalone ));
 });
 
-/*
+
 gulp.task('svg2pngstandalone', function () {
     gulp.src( paths.svg.output.standalone )
         .pipe(plumber({
@@ -62,6 +63,6 @@ gulp.task('svg2pngstandalone', function () {
         .pipe(svg2png())
         .pipe(gulp.dest( paths.svg.output.standalonepng ));
 });
-*/
+
 
 gulp.task('svg-watch', [ 'svgsprite', 'svgstandalone' ]);
