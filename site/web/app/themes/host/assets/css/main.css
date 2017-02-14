@@ -9876,6 +9876,9 @@ a.article-tile__link:hover .article-tile__location {
   .pricing-body__image{
     min-height: 22.5vh;
   }
+  .building-our-people .split-feature__secondary{
+    display: none;
+  }
 }
 
 @media screen and (max-height: 880px){

@@ -6,3 +6,9 @@
 //
 // ==========================================================================
 
+
+.building-our-people .split-feature__secondary {
+	@include mq($until: large) {
+		display: none; // don't load image on small screens
+	}
+}
