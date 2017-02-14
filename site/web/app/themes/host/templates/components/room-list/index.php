@@ -7,7 +7,7 @@
     $building_status    = RoomsBuildings\building_availability( $building_id ); 
  ?>
 
-<section id="rooms-nav" class="band band--inset-alt room-list">
+<section id="rooms" class="band band--inset-alt room-list">
     <?php echo Utils\ob_load_template_part('templates/components/room-list/header', compact('id', 'title', 'intro', 'rooms' )); ?>
 
     <ul class="room-list__list">
