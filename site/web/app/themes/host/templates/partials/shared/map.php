@@ -85,19 +85,18 @@
             $link_href = ( !empty( $aP['link_href'] ) ) ? $aP['link_href'] : false;
             $open_in_new = ( !empty( $aP['open_in_new'] ) ) ? $aP['open_in_new'] : false;
 
-            // Only allow certain types of markers
-            if ($aP['type'] !== "shops") { // client requested "Shops" were ommitted
-                $aMarker[$aP['type']][] = [
-                    'title' => $aP['label'],
-                    'link_text' => $link_text,
-                    'link_href' => $link_href,
-                    'open_in_new' => $open_in_new,
-                    'lat'   => (float)$aP['location']['lat'],
-                    'lng'   => (float)$aP['location']['lng'],
-                    'address' => $aP['location']['address'],
-                    'active'  => ( $aP['type'] === 'building' || $aP['type'] === 'unis' || $aP['type'] === 'show_flats' ? true : false )
-                ];
-            }
+            // Only allow certain types of markers            
+            $aMarker[$aP['type']][] = [
+                'title' => $aP['label'],
+                'link_text' => $link_text,
+                'link_href' => $link_href,
+                'open_in_new' => $open_in_new,
+                'lat'   => (float)$aP['location']['lat'],
+                'lng'   => (float)$aP['location']['lng'],
+                'address' => $aP['location']['address'],
+                'active'  => ( $aP['type'] === 'building' || $aP['type'] === 'unis' || $aP['type'] === 'show_flats' ? true : false )
+            ];
+            
         }
 
         $markers_with_items = array_filter($aMarker, function($marker) {
