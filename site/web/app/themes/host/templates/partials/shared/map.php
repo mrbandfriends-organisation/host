@@ -111,7 +111,7 @@
          * Possible available filter sets
          */
         $available_filters = [
-            'building'    => 'Buildings',
+            'building'    => 'Host', // client requested this is renamed...
             'show_flats'  => 'Show Flat',
             'unis'        => 'Universities',
             'food'        => 'Eating and drinking',
