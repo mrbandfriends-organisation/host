@@ -5270,7 +5270,6 @@ a.room-list-nav__link:hover {
   padding: 0;
   list-style: none;
   text-rendering: optimizespeed;
-  height: 50rem;
 }
 
 .testimonial-wall__unit {
@@ -9177,6 +9176,9 @@ a.article-tile__link:hover .article-tile__location {
     justify-content: space-between;
     -ms-flex-align: end;
     align-items: flex-end;
+  }
+  .testimonial-wall__inner{
+    height: 50rem;
   }
   .book{
     position: absolute;

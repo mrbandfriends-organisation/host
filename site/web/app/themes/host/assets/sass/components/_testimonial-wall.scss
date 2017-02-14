@@ -25,7 +25,10 @@
 
 .testimonial-wall__inner {
     @include gw();
-    height: rem(800);
+
+    @include mq($from: xlarge) { // only fix height when we're at a suitably large size else we'll get overflow issues on small devices
+        height: rem(800);
+    }
 }
 
 .testimonial-wall__unit {
