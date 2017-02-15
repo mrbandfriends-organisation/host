@@ -90,6 +90,17 @@ class container
     }
 
 
+    /**
+     * REWRITE RULES
+     * 
+     * creates custom permalink structures. The key is mapping the custom url structure to the 
+     * default query args generated when registering the post_type. To check what the non-pretty 
+     * url args are, simply disable pretty permalinks from within the admin and then copy the values
+     * in the url. 
+     *
+     * Note: the order in which add_rewrite_rule() is called in this method is CRIITCAL in order to ensure
+     * the rewrite rules are matched in order of specificity
+     */
     public function rewrite_rules() {
         add_rewrite_tag('%room_name%', '([0-9A-Za-z]+)', 'rooms=');
         add_rewrite_tag('%building_name%', '([0-9A-Za-z]+)', 'buildings=');      
@@ -112,7 +123,7 @@ class container
      * classes for specific actions within the /lib/ directory.
      */
     private function register_filters()
-    {
+    {   
         add_filter( 'post_type_link', array( $this, 'modify_post_type_link' ), 10, 2 );
 
         add_filter( 'breadcrumb_trail_items', array( $this, 'modify_breadcrumb_items' ), 10, 2 );
@@ -139,9 +150,6 @@ class container
         $location       = $location_from_building->post;
 
         $rtn = new \stdClass();
-
-
-
 
         $rtn->building = $building;
         $rtn->location = $location;
@@ -176,6 +184,12 @@ class container
     }
 
 
+    /**
+     * FILTERS THE PERMALINK
+     * 
+     * post type links for rooms have placeholder values which needs to be
+     * dynamically replaced with the correct values on a per post basis
+     */
     public function modify_post_type_link( $link, $post ) {
           if ( 'rooms' == $post->post_type ) {
             

@@ -56,8 +56,8 @@ class Post_Types
                      'thumbnail',
                      'page-attributes'
                  ),
-                 'rewrite' => array(
-                    'slug' => __( 'locations/%location_name%/%building_name%', 'host'),
+                 'rewrite' => array( // note this creates the permalink. We then use filter on 'post_type_link' to replace the placeholders with dynamic values
+                    'slug' => __( 'locations/%location_name%/%building_name%', 'host'), // produces -> /locations/chester/fontessa-house/standard-en-suite-2/
                 )
              )
          );
