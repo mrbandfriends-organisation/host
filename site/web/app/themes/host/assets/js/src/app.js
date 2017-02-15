@@ -337,7 +337,7 @@ var bpm = require('breakpoint-tools');
         var hash = window.location.hash;
 
         if ( hash.length ) {
-            var target = $(hash);            
+            var target = $(hash.toLowerCase());            
 
             if (target.length) {
                 setTimeout(function() { // force scroll to happen
