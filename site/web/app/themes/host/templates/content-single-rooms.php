@@ -22,9 +22,13 @@ $connected_location_name = $connected_location->post_title;
     ))
 )); ?>
 
-<?php echo Utils\ob_load_template_part('templates/partials/room/room-breadcrumb', array(
-    'parent_url' => $parent_building_permalink
-)); ?>
+<?php echo breadcrumb_trail(); ?>
+
+<?php 
+// echo Utils\ob_load_template_part('templates/partials/room/room-breadcrumb', array(
+//     'parent_url' => $parent_building_permalink
+// )); 
+?>
 
 <?php echo Utils\ob_load_template_part('templates/partials/room/room-in-page-nav.php'); ?>
 

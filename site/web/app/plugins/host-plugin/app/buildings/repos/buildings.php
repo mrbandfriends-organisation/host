@@ -12,7 +12,7 @@ namespace HostPluginNamespace\App\Buildings\Repos;
 use HostPluginNamespace\Contracts\Repo;
 use WP_Query as WP_Query;
 
-class buildings extends Repo
+class Buildings extends Repo
 {
     /**
      * POST TYPE.

@@ -122,13 +122,10 @@ class container
 
     public function rewrite_rules() {
 
-        add_rewrite_tag('%building_name%', '([0-9A-Za-z]+)');
-        add_rewrite_tag('%location_name%', '([0-9A-Za-z]+)');
+          
        
-        add_rewrite_rule('locations/([0-9A-Za-z-]+)/([0-9A-Za-z-]+)/?', 'index.php?buildings=$matches[2]', 'top');
-
-        //buildings=cambridge-cb1
-
+        //add_rewrite_rule('locations/[0-9A-Za-z-]+/([0-9A-Za-z-]+)/?', 'index.php?buildings=$matches[1]', 'top');
+        
     }
 
 
