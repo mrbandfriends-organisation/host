@@ -85,6 +85,8 @@ class container
      */
     private function register_actions()
     {
+        add_action( 'init', array( $this, 'rewrite_rules' ), 10, 0);
+
         add_action('wp_ajax_nopriv_buildings_load_favourites', array($this, 'getBuildingInformation'));
         add_action('wp_ajax_buildings_load_favourites',        array($this, 'getBuildingInformation'));
     }
@@ -97,9 +99,37 @@ class container
      */
     private function register_filters()
     {
-        //add_filter( 'FILTER_NAME', array( $this, 'CALLBACK_FUNCTION' ) );
+        add_filter( 'post_type_link', array( $this, 'modify_post_type_link' ), 10, 2 );
     }
 
+    public function modify_post_type_link( $link, $post ) {
+          if ( 'buildings' == $post->post_type ) {
+
+            $repo = Repos\Buildings::init();
+            $query = $repo->find_connected(
+                'building_to_location',
+                $post->ID
+            );
+
+            $connected_location = $query->post->post_name;
+            
+            return str_replace( '%location_name%', $connected_location, $link );
+            
+          }
+          return $link;
+    }
+
+
+    public function rewrite_rules() {
+
+        add_rewrite_tag('%building_name%', '([0-9A-Za-z]+)');
+        add_rewrite_tag('%location_name%', '([0-9A-Za-z]+)');
+       
+        add_rewrite_rule('locations/([0-9A-Za-z-]+)/([0-9A-Za-z-]+)/?', 'index.php?buildings=$matches[2]', 'top');
+
+        //buildings=cambridge-cb1
+
+    }
 
 
     public function getBuildingInformation()
