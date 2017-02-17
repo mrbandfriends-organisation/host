@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.14.1] - 2017-02-17
+
+### Fixed
+- Building was misisng the `building_email_address` field from the ACF JSON but the data was still available. Sync'd all fields and re-created field.
+
 ## [1.14.0] - 2017-02-06
 
 ### Fixed

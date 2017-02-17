@@ -231,6 +231,79 @@
             ]
         },
         {
+            "key": "field_589b47765cdb5",
+            "label": "Social",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_589b47ed6e457",
+            "label": "Twitter",
+            "name": "building_twitter",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_589b47fe6e458",
+            "label": "Facebook",
+            "name": "building_facebook",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_589b48056e459",
+            "label": "Instagram",
+            "name": "building_instagram",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_57b309047a9ce",
             "label": "Address",
             "name": "",
@@ -329,6 +402,25 @@
             "maxlength": "",
             "readonly": 0,
             "disabled": 0
+        },
+        {
+            "key": "field_58a6e4949a106",
+            "label": "Email Address",
+            "name": "building_email_address",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_57b308ed7a9cd",
@@ -482,9 +574,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_57b30d00567c9",
-            "label": "Facilities title",
-            "name": "facilities_title",
+            "key": "field_589da6a005459",
+            "label": "Facilities Title 1",
+            "name": "facilities_title_1",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -498,9 +590,26 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
+        },
+        {
+            "key": "field_589da6aa0545a",
+            "label": "Facilities Title 2",
+            "name": "facilities_title_2",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_57b30c2ebdda7",
@@ -908,5 +1017,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1486117401
+    "modified": 1487332625
 }
