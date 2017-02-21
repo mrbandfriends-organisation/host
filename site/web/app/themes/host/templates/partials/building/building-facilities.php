@@ -9,7 +9,7 @@
 <?php
     $facilities_title_1     = get_field('facilities_title_1');
     $facilities_title_2     = get_field('facilities_title_2');
-    $facilities_title       = get_field('facilities_title');
+    //$facilities_title       = get_field('facilities_title');
     $facilities_overview    = get_field('facilities_overview');
     $facilities_location    = $connected_location_name;
     $facilities_images      = get_field('facilities_photos');
@@ -35,6 +35,6 @@ echo Utils\ob_load_template_part('templates/components/split-feature', [
     'scrollable' => true,
     'content' 	 => $main_content,
     'second'  	 => $aside_content,
-    'id'         => 'building-facilities'
+    'id'         => 'details'
 ]);
  ?>

@@ -38,13 +38,17 @@
     };
 
     var handleHash = function() {
-        var hash = window.location.hash,
-            el = $('a[href^="' + hash + '"]');
+        var hash = window.location.hash;
+        
+        if (hash !== undefined) {     
+            console.log(hash.toLowerCase());  
+            var el = $('a[href^="' + hash.toLowerCase() + '"]');
 
-        if (el) {
-            var index = el.data('index');
-            goToTab(index);
-        }
+            if (el) {
+                var index = el.data('index');
+                goToTab(index);
+            }
+         }
     };
 
     /**

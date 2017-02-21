@@ -65,7 +65,7 @@
                     <li class="gc l1-3 pricing__lisiting-item">
                         <div class="pricing-header">
                             <h4 class="pricing-header__heading plain">
-                                Rent amount Per week:
+                                Rent amount Per week:
                             </h4>
                         </div>
                         <div class="pricing-body box box--less-padding">

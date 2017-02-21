@@ -16,7 +16,8 @@
     $main_content = Utils\ob_load_template_part('templates/snippets/building/introduction-text', array(
         'title_1'           => $building_title_1,
         'title_2'           => $building_title_2,
-        'description'       => $building_description
+        'description'       => $building_description,
+        'connected_location_name' => $connected_location_name
     ));
 
     $aside_content = Utils\ob_load_template_part('templates/snippets/building/introduction-aside');

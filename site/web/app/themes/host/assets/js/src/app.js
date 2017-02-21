@@ -322,3 +322,30 @@ var bpm = require('breakpoint-tools');
         }
     }
 }());
+
+
+/**
+ * FORCE SCROLL TO ANCHORS
+ * lazy loading of images causes lots of inaccurate scrolling when
+ * the browser is handling in page anchors. This typically only effects
+ * the initial page load. The following caters for this by manually 
+ * scrolling the page to the intended target under all circumstances
+ * once the page has fully loaded
+ */
+(function(){
+    $( window ).on('load', function() {
+        var hash = window.location.hash;
+
+        if ( hash.length ) {
+            var target = $(hash.toLowerCase());            
+
+            if (target.length) {
+                setTimeout(function() { // force scroll to happen
+                    var offset = target.offset().top;
+                    window.scrollTo(0, offset);
+                }, 0);
+            }
+
+        }
+    });
+}());

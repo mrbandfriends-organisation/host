@@ -191,7 +191,8 @@
                     "choices": {
                         "transport": "Transport",
                         "shops": "Shops",
-                        "food": "Food",
+                        "food": "Eating and drinking",
+                        "show_flats": "Show Flat",
                         "unis": "Universities"
                     },
                     "default_value": [],
@@ -303,5 +304,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1486133767
+    "modified": 1487081799
 }

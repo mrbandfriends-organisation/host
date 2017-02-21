@@ -9,7 +9,7 @@
                 <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'site-logo', 'classnames' => 'in-page-nav__logo' ]); ?>
             </div>
             <div class="gc l1-2">
-                <h2 class="h4 in-page-nav__heading">View this section:</h2>
+                <p class="h4 in-page-nav__heading">View this section:</p>
             </div>
         </div>
 

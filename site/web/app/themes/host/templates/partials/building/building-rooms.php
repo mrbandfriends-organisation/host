@@ -4,6 +4,9 @@
     **/
     use Roots\Sage\Utils;
     use Roots\Sage\RoomsBuildings;
+
+    $building_id = get_the_id();
+
 ?>
 
 <?php
@@ -20,7 +23,8 @@
         echo Utils\ob_load_template_part('templates/components/room-list/index', [
             'title' => $title,
             'intro' => $rooms_description,
-            'rooms' => $connected_rooms
+            'rooms' => $connected_rooms,
+            'building_id' => $building_id
         ]);
     }
 ?>

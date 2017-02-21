@@ -38,6 +38,7 @@ if ( !empty($photo_url) ) {
 
 <?php
 echo Utils\ob_load_template_part('templates/components/split-feature', [
+    'classes'    => 'building-our-people',
     'color'   	 => 'red',
     'content' 	 => $main_content,
     'second'  	 => $aside_content

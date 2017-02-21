@@ -11,24 +11,23 @@
 // ==========================================================================
 
 .carosel-infobox {
-    display: none;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $half-spacing-unit;
+    font-size: rem(16);
+    color: brand(ink);
+    transition: all 200ms;  
+    
     @include mq(medium) {
-        display: flex;
         position: absolute;
-        flex-direction: column;
-        justify-content: center;
         top: 50%;
         right: 70px + $half-spacing-unit;
-        padding: $half-spacing-unit;
-        font-size: rem(16);
-        color: brand(ink);
-        transition: all 200ms;
         transform: translateY(-50%);
         z-index: $zindex-tier-1;
     }
 
-    @media screen and ( max-height: 880px ) {
+    @media screen and ( max-height: 880px ) and ( min-width: #{map-get($mq-breakpoints, 'medium')} ) {
         transform: none;
         top: 0;
         //bottom: rem(-55px);
@@ -106,6 +105,14 @@
 .carosel-infobox__primary,
 .carosel-infobox__secondary {
     @include gc();
+
+    @include mq(small) {
+        @include grid-column(1,2);
+    }
+
+    @include mq(medium) {
+        @include grid-column(2,2);
+    }
     
     // on small height screens we need to allow for more vertical space
     @media screen and ( max-height: 880px ) {
@@ -113,6 +120,32 @@
     }
 }
 
+// # SOCIAL ICONS
 // ==========================================================================
-// # MODIFIER: %%MODIFIER_NAME%%
+.carousel-infobox__social-icons {
+    position: absolute;
+    top: rem(10px);
+    right: rem(20px);
+
+    @include mq(large) {
+        top: rem(20px);
+        right: rem(30px);
+    }
+}
+
 // ==========================================================================
+// # MODIFIER: HAS TOP ICONS
+// ==========================================================================
+
+.carosel-infobox--has-top-icons {
+    padding-top: rem(40px);
+
+    @include mq(medium) {
+        padding-top: rem(40px);
+    }
+
+    @include mq(large) {
+        padding-top: rem(50px);
+    }
+    
+}

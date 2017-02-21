@@ -6,8 +6,9 @@ var oIconMap = {
     transport: 'black',
     unis:      'orange',
     food:      'grape',
-    shops:     'mint',
-    building:  'red'
+    show_flats: 'mint',
+    building:  'red',
+    shops: 'sky'
 };
 
 function GMaps()
@@ -30,7 +31,7 @@ function GMaps()
     // }
 
     isDraggable = true
-    
+
     // config
     var defaults = {
         zoom:               15,
@@ -97,7 +98,6 @@ function GMaps()
         }
 
         // 2. Converts address to string with only +'s not spaces'
-        // console.log(address);
         if( marker.address ) {
             address = marker.address.split(' ').join('+');
         }
@@ -169,7 +169,9 @@ function GMaps()
 
             // NOTE: we've reverted to using PNG versions of the SVGs because of this bug
             // http://stackoverflow.com/questions/19719574/google-maps-svg-image-marker-icons-not-showing-in-ie11/26608307#26608307
+            // see "oIconMap" for mapping between icons and png images
             oDefinition.icon = LOCALISED_VARS.stylesheet_directory_uri + '/assets/svg/standalone/png/marker-'+oIconMap[oPlace.type]+'.png';
+
 
         }
 
@@ -237,7 +239,6 @@ function GMaps()
             /* jshint loopfunc:true */
             aoMark[k].forEach(function(oMarker)
             {
-                //console.log(oMarker);
                 // i. set type
                 oMarker.type = k;
 

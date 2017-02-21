@@ -70,11 +70,11 @@
         // Define which marks are allowed...
         // remap our markers a little
         $aMarker = [
-            'unis'      => [],
-            'food'      => [],
-            //'shops'     => [],
-            'transport' => [],
-            'building' => []
+            'unis'        => [],
+            'food'        => [],
+            'show_flats'  => [],
+            'transport'   => [],
+            'building'    => []
         ];
         foreach ($aPoi AS $aP)
         {
@@ -85,25 +85,48 @@
             $link_href = ( !empty( $aP['link_href'] ) ) ? $aP['link_href'] : false;
             $open_in_new = ( !empty( $aP['open_in_new'] ) ) ? $aP['open_in_new'] : false;
 
-            // Only allow certain types of markers
-            if ($aP['type'] !== "shops") { // client requested "Shops" were ommitted
-                $aMarker[$aP['type']][] = [
-                    'title' => $aP['label'],
-                    'link_text' => $link_text,
-                    'link_href' => $link_href,
-                    'open_in_new' => $open_in_new,
-                    'lat'   => (float)$aP['location']['lat'],
-                    'lng'   => (float)$aP['location']['lng'],
-                    'address' => $aP['location']['address'],
-                    'active'  => ( $aP['type'] === 'building' || $aP['type'] === 'unis' ? true : false )
-                ];
-            }
+            // Only allow certain types of markers            
+            $aMarker[$aP['type']][] = [
+                'title' => $aP['label'],
+                'link_text' => $link_text,
+                'link_href' => $link_href,
+                'open_in_new' => $open_in_new,
+                'lat'   => (float)$aP['location']['lat'],
+                'lng'   => (float)$aP['location']['lng'],
+                'address' => $aP['location']['address'],
+                'active'  => ( $aP['type'] === 'building' || $aP['type'] === 'unis' || $aP['type'] === 'show_flats' ? true : false )
+            ];
+            
         }
 
-        // echo "<pre>";
-        // print_r($aMarker);
-        // echo "</pre>";
+        $markers_with_items = array_filter($aMarker, function($marker) {
+            return (!empty($marker)) ? true : false;
+        });
 
+        
+
+
+        /**
+         * Possible available filter sets
+         */
+        $available_filters = [
+            'building'    => 'Host', // client requested this is renamed...
+            'show_flats'  => 'Show Flat',
+            'unis'        => 'Universities',
+            'food'        => 'Eating and drinking',
+            'transport'   => 'Transport',
+            'shops'       => 'Shops'
+        ];
+
+        /**
+         * Filters
+         * 
+         * Compute the intersection of the possible marker type filters with the marker types
+         * that actually have items associated with them. This returns an array of only those
+         * filters which have items. 
+         */
+        $aFilter = array_intersect_key($available_filters, array_flip( array_keys($markers_with_items) ) );
+    
 
 
 
@@ -121,16 +144,10 @@
         $sAttrs .= sprintf(' data-%s="%s"', $sParm, esc_attr($sVal));
     }
 
-    /**
-     * Filter sets
-     */
-    $aFilter = [
-        'building' => 'Buildings',
-        'unis'      => 'Universities',
-        'food'      => 'Eating and drinking',
-        //'shops'     => 'Shopping',
-        'transport' => 'Transport',
-    ];
+   
+
+
+
 
 
 ?>
@@ -147,7 +164,7 @@
                 <?php foreach ($aFilter AS $sFilter => $sLabel): ?>
                     <li class="form-filter__item">
                         <label for="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" class="form-filter__filter map__filter -<?=esc_attr($sFilter); ?>">
-                            <input type="checkbox" id="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" name="filter[]" value="<?=esc_attr($sFilter); ?>" <?php if ( $sFilter === 'building' || $sFilter === 'unis' ): ?>checked<?php endif; ?>>
+                            <input type="checkbox" id="<?=esc_attr("{$id}__filter--{$sFilter}"); ?>" name="filter[]" value="<?=esc_attr($sFilter); ?>" <?php if ( $sFilter === 'building' || $sFilter === 'unis' || $sFilter === 'show_flats' ): ?>checked<?php endif; ?>>
                             <?=icon('pin-filled'); ?>
                             <?=$sLabel; ?>
                         </label>
