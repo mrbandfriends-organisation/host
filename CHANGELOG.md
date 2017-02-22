@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.15.1] - 2017-02-22
+
+### Fixed
+- Re-enable dual titles for Building Location. Fixed bug where the field was single (‘location_title’) but the template was still expecting dual fields (location_title_1 and location_title_2).
+
 ## [1.15.0] - 2017-02-21
 
 ### Added
