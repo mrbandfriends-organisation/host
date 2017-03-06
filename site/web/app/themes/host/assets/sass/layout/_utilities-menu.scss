@@ -6,16 +6,16 @@
 //
 // ==========================================================================
 
+
+
 // ==========================================================================
 // # BASE CLASSES
 // ==========================================================================
 .nav-utilities {
+    display: flex;
+    justify-content: flex-end;
     margin: 0;
     list-style: none outside;
-
-    @include mq($until: nav-break-2) {
-        display: none;
-    }
 }
 
 .nav-utilities__item {
@@ -31,15 +31,26 @@
 // ==========================================================================
 .nav-utilities--banner {
 
-    @include mq($from: medium) {
-        margin-right: rem(-15);
-    }
+    // @include mq($from: medium) {
+    //     margin-right: rem(-15);
+    // }
 
 
     li {
-        display: inline-block;
+        // display: inline-block;
+        display: none;
         margin: 0 0 $quarter-spacing-unit -0.2em;
         padding: 0 rem(15);
+
+        @include mq($from: nav-break-2) {
+            display: inline-block;
+        }
+
+        &:last-child {
+            display: inline-block;
+            margin-right: 0;
+            padding-right: 0;
+        }
     }
 
     a {

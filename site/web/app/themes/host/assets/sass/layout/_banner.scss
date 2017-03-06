@@ -6,6 +6,20 @@
 //
 // ==========================================================================
 
+.site-header {
+    display: flex;
+    flex-direction: column;
+
+    .menu-utilities {
+        order: 10;
+    }
+
+    .banner {
+        order: 20;
+    }
+}
+
+
 // ==========================================================================
 // # BASE
 // ==========================================================================
@@ -13,6 +27,7 @@
 .banner {
     width: 100%;
     padding: 0 0 rem(15);
+    
 
     @include mq(medium) {
         padding: 0 0 rem($half-spacing-unit);
@@ -23,10 +38,10 @@
     position:        relative;
     display:         flex;
     justify-content: space-between;
-    align-items:     center;
+    align-items:     flex-end;
 
     @include mq(nav-break-2) {
-        align-items: flex-end;
+        align-items: center;
     }
 }
 

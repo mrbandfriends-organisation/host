@@ -8,6 +8,7 @@
 .favourites__button {
     padding: 0;
     min-width: 0;
+    //margin-right: rem(20px);
 
     background: transparent none;
     color: brand(grey);
@@ -24,7 +25,8 @@
         margin-left: 0;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
         background: transparent none;
     }
 
@@ -36,10 +38,11 @@
 .favourites__flyout {
     position: absolute;
 
-    top:   calc(100% + #{rem(20)});
+    top: rem(30px);
     right: 10000%;  // move it way out of the way
     width: rem(675);
-    padding: rem(40) 0 rem(40) rem(40);
+    max-width: 100%; // mobile protection
+    padding: rem(30);
 
     transform: translateX(100%);
     transform-origin: top center;
@@ -49,6 +52,8 @@
     background: brand(white);
     opacity: 0;
     z-index:  $zindex-tier-9;
+
+    
 
 
     &.-open {
@@ -76,6 +81,7 @@
     button {
         height: auto;
         min-width: 0;
+        margin-right: 1em;
 
         font-size: rem(15);
         line-height: 1;
@@ -85,7 +91,7 @@
         .svg-icon { height: rem(14); width: rem(14); }
     }
 
-    button { margin-left: rem(20); }
+   
 }
 
 .favourites__list[class],
@@ -122,8 +128,8 @@
 .favourites__close[class][class] {
     position: absolute;
 
-    top:    rem(30);
-    right:  rem(30);
+    top:    0;
+    right:  0;
     width:  rem(40);
     height: rem(40);
 
@@ -144,8 +150,12 @@
 // ==========================================================================
 // # Favourite
 // ==========================================================================
+
+
 .favourites__favourite {
-    padding-left: rem(180);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
     background: transparent;
 
     &:after {
@@ -155,14 +165,20 @@
     }
 }
 
+.favourites__favourite__content {
+    flex: 99999 1 20em;
+}
+
 .favourites__favourite__image {
+    flex: 1 1 rem(150);
+    margin-right: 1em; // TODO
+    margin-bottom: 1em;
     height: rem(150);
     width:  rem(150);
 
-    margin-left: rem(-180);
-    float: left;
-
     background: brand(grey);
 
-    img { display: block; }
+    img { 
+        display: block; 
+    }
 }
