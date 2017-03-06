@@ -49,9 +49,10 @@
                 </div>
             <?php endforeach; ?>
         </article>
-    <?php endif; ?>
+
 
     <a href="<?php echo esc_html($cancellation_policy); ?>" class="pricing-section__btn btn btn--mint">
         <?php echo the_title(); ?> cancellation policy >
     </a>
 </div>
+<?php endif; ?>
