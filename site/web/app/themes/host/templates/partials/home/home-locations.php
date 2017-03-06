@@ -31,7 +31,7 @@
                     $disable_am_i_feeling_lucky    = get_field('disable_am_i_feeling_lucky');
            
 
-                    // Get checkboard image
+                    // Get checkboard image if it's specifically been added
                     if ( !empty($checkerboard_field) && !empty($checkerboard_field['url']) ) {
                         $checkerboard_image = $checkerboard_field['url'];
                     }
