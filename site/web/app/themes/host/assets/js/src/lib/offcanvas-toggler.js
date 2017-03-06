@@ -38,7 +38,6 @@ var OffCanvasToggler = function(options) {
  */
 OffCanvasToggler.prototype._init = function() {
     "use strict";
-
     this._addListeners();
 };
 
@@ -108,7 +107,7 @@ OffCanvasToggler.prototype._updateDisplay = function(command) {
     } else if (command === 'close') {
         this.$wrapper.removeClass( this.settings.activeClass );
         this.$menu.attr('aria-hidden', 'true');
-        this.$toggleElements.removeAttribute('aria-expanded');
+        this.$toggleElements.attr('aria-expanded', false);
     }
 };
 
