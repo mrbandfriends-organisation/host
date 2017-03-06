@@ -35,6 +35,6 @@ echo Utils\ob_load_template_part('templates/components/split-feature', [
     'scrollable' => true,
     'content' 	 => $main_content,
     'second'  	 => $aside_content,
-    'id'         => 'details'
+    'id'         => 'facilities'
 ]);
  ?>
