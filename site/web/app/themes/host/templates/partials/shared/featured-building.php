@@ -7,55 +7,77 @@
 ?>
 
 <?php
-    $featured_building                 = get_field('featured_building');
+    $featured_buildings                 = get_field('featured_buildings');
 
-    if ( !empty($featured_building) ) {
-
-        // Vars
-        $featured_building_id              = ( !empty($featured_building) ? $featured_building->ID : null );
-        $featured_building_title           = ( !empty($featured_building_title) ? $featured_building_title : get_field('featured_building_title') );
-        $featured_building_name            = $featured_building->post_title;
-        $featured_building_url             = $featured_building->guid;
-        $featured_building_description     = get_field('description', $featured_building_id);
-        $featured_building_carousel_images = get_field('carousel_images', $featured_building_id);
-        $is_external                       = get_field('external_website', $featured_building_id);
-        $featured_building_url             = ( $is_external ) ? get_field('website_url', $featured_building_id) : get_the_permalink($featured_building_id);
-
-        $main_content = Utils\ob_load_template_part('templates/snippets/shared/standard-content', array(
-            'title_1'     => $featured_building_title,
-            'title_2'     => $featured_building_name,
-            'content'     => $featured_building_description,
-            'button_url'  => $featured_building_url,
-            'button_text' => 'Show me this property',
-            'external_url'  => true
-        ));
-
-
-        if ( is_front_page() ) {
-            $second_content = Utils\ob_load_template_part('templates/partials/shared/stacked-gallery', array(
-                'images'        => $featured_building_carousel_images,
-                'grid_modifier' => 'grid--vertical-l'
-            ));
-        } else {
-            $second_content = Utils\ob_load_template_part('templates/partials/uni/uni-featured-building-second', array(
-                'connected_location'   => host_universities_find_connected_location( get_the_id() ),
-                'featuerd_building_id' => $featured_building_id
-            ));
-        }
-    }
-
-
-?>
-
-<?php if( $featured_building ): ?>
+    if ( !empty($featured_buildings) ): ?>
     <div id="featured-building">
-        <?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
-            'color'   => "sky",
-            'content' => $main_content,
-            'second'  => $second_content
-        )); ?>
+   
+
+    <?php while( have_rows('featured_buildings') ): the_row(); 
+
+            $main_content       = null;
+            $secondary_content  = null;
+
+            // Fields
+            $featured_building_content_type     = get_sub_field('content_type');
+
+            if ($featured_building_content_type === "custom" ) {
+
+                $featured_building_title            = get_sub_field('title');
+                $featured_building_name             = get_sub_field('name');
+                $featured_building_description      = get_sub_field('content');
+                $featured_building_cta_link         = get_sub_field('cta_link');
+                $featured_building_cta_text         = get_sub_field('cta_text');
+                $featured_building_carousel_images  = get_sub_field('imagery');
+                $is_external                        = false;
+            } else { // connected building
+                $featured_connected_building        = get_sub_field('building');
+                $featured_connected_building_id    = $featured_connected_building->ID;
+
+                $featured_building_title            = get_sub_field('title');
+                $featured_building_name             = $featured_connected_building->post_title;
+                $featured_building_description      = get_field('description', $featured_connected_building_id);
+                $featured_building_carousel_images  = get_field('carousel_images', $featured_connected_building_id);
+                $is_external                        = get_field('external_website', $featured_connected_building_id);
+                $featured_building_cta_link              = ( $is_external ) ? get_field('website_url', $featured_connected_building_id) : get_permalink($featured_connected_building_id);
+                $featured_building_cta_text         = 'Show me this property';
+            }
+        
+            // Defaults
+            $featured_building_title = ( !empty( $featured_building_title ) ) ? $featured_building_title : 'Featured';
+
+            // MAIN CONTENT
+            $main_content = Utils\ob_load_template_part('templates/snippets/shared/standard-content', array(
+                'title_1'       => $featured_building_title,
+                'title_2'       => $featured_building_name,
+                'content'       => $featured_building_description,
+                'button_url'    => $featured_building_cta_link,
+                'button_text'   => $featured_building_cta_text,
+                'external_url'  => $is_external
+            ));
+          
+
+            if (!empty( $featured_building_carousel_images ) ) {
+                $secondary_content = Utils\ob_load_template_part('templates/partials/shared/stacked-gallery', array(
+                    'images'        => $featured_building_carousel_images,
+                    'grid_modifier' => 'grid--vertical-l'
+                ));
+            }
+            
+
+
+            if( !empty( $main_content ) && !empty( $secondary_content ) ): ?>
+                
+                <?php echo Utils\ob_load_template_part('templates/components/split-feature', array(
+                    'color'   => "sky",
+                    'content' => $main_content,
+                    'second'  => $secondary_content
+                )); ?>
+                
+            <?php
+                endif;           
+        endwhile; ?>
     </div>
-<?php
-    wp_reset_postdata();
-    endif;
+    <?php endif;
 ?>
+
