@@ -5,6 +5,9 @@ use Roots\Sage\Setup;
 
 /**
  * Makes Building and Room availability friendly
+ *
+ * developers: if you amend this information be sure to check favourite
+ * javascript for compatibility as it relies on this function
 **/
 function get_availability_config($availability = "available", $type )
 {
