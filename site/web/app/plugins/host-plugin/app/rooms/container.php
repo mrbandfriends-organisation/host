@@ -85,8 +85,10 @@ class container
      */
     private function register_actions()
     {
+        add_action( 'template_redirect', array($this, 'custom_download_retrieval' ) );
         add_action( 'init', array( $this, 'rewrite_rules' ), 10, 0);
         //add_action( 'ACTION_NAME', array( $this, 'CALLBACK_FUNCTION' ) );
+        //
     }
 
     /**
@@ -101,10 +103,40 @@ class container
 
         add_filter( 'breadcrumb_trail_items', array( $this, 'modify_breadcrumb_items' ), 10, 2 );
 
-        //add_filter( 'wp_get_attachment_link', array( $this, 'modify_attachment_link' ), 10, 5 );
+        // add_filter( 'wp_get_attachment_link', array( $this, 'modify_attachment_link' ), 10, 6 );
 
 
       
+    }
+
+
+    public function custom_download_retrieval() {
+        
+        $custom_attachment_type     = get_query_var('custom_attachment_type');
+        $custom_attachment_id       = get_query_var('custom_attachment_id');
+
+        
+        if ( !empty($custom_attachment_id) && !empty($custom_attachment_type) && $custom_attachment_type === "building") {
+
+
+            $file_path   = get_attached_file($custom_attachment_id);
+            $file_name  = basename( $file_path );
+           
+            // Force file to download
+            header('X-Robots-Tag: noindex');
+            header('Pragma: public');   // required
+            header('Expires: 0');       // no cache
+            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+            header('Last-Modified: '.gmdate ('D, d M Y H:i:s', filemtime ($file_path)).' GMT');
+            header('Cache-Control: private',false);
+            header('Content-Type: application/pdf');
+            header('Content-Disposition: attachment; filename="' . $file_name . '"');
+            header('Content-Transfer-Encoding: binary');
+            header('Content-Length: ' . filesize($file_path));    // provide file size
+            header('Connection: close');
+            readfile($file_path);       // push it out
+            wp_die();
+        }
     }
 
 
@@ -123,7 +155,16 @@ class container
     {
         // Add our two rewrite tags for use in the rewrite rules
         add_rewrite_tag('%room_name%', '([0-9A-Za-z]+)', 'rooms=');
-        add_rewrite_tag('%building_name%', '([0-9A-Za-z]+)', 'buildings=');      
+        add_rewrite_tag('%building_name%', '([0-9A-Za-z]+)', 'buildings='); 
+
+        // Rules for handling attachments on this room 
+        add_rewrite_tag('%custom_attachment_type%', '([A-Za-z]+)');  
+        add_rewrite_tag('%custom_attachment_id%', '([0-9]+)');  
+            
+        
+        // Specific requests for Room file attachments
+        // eg: /locations/bristol/king-square-studios/documents/3735-pdf-sample/
+        add_rewrite_rule('locations/[0-9A-Za-z-]+/[0-9A-Za-z-]+/documents/([0-9]+)-[0-9A-Za-z-_.]+/?', 'index.php?custom_attachment_id=$matches[1]&custom_attachment_type=building', 'top');
         
         // Single ROOM - the most specific rule **must** be first...
         add_rewrite_rule('locations/[0-9A-Za-z-]+/[0-9A-Za-z-]+/([0-9A-Za-z-]+)/?', 'index.php?rooms=$matches[1]', 'top');
@@ -173,9 +214,8 @@ class container
 
 
 
-    // public function modify_attachment_link($id, $size, $permalink, $icon, $text) {
-    //     var_dump($permalink);
-    //     return $foo;
+    // public function modify_attachment_link( $markup, $id, $size, $permalink, $icon, $text ) {
+    //     return $markup;
     // }
 
 
