@@ -29,7 +29,7 @@
                 $featured_building_cta_link         = get_sub_field('cta_link');
                 $featured_building_cta_text         = get_sub_field('cta_text');
                 $featured_building_carousel_images  = get_sub_field('imagery');
-                $is_external                        = false;
+                $is_external                        = get_sub_field('cta_external');
             } else { // connected building
                 $featured_connected_building        = get_sub_field('building');
                 $featured_connected_building_id    = $featured_connected_building->ID;

@@ -252,6 +252,30 @@
                     "prepend": "",
                     "append": "",
                     "maxlength": ""
+                },
+                {
+                    "key": "field_58be91efc7c90",
+                    "label": "CTA External?",
+                    "name": "cta_external",
+                    "type": "true_false",
+                    "instructions": "If checked then the call to action button will open the link in a new tab\/window.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_58bd4887244c3",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0
                 }
             ]
         }
@@ -282,5 +306,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1488802594
+    "modified": 1488884261
 }
