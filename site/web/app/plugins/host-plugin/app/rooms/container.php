@@ -100,7 +100,11 @@ class container
         add_filter( 'post_type_link', array( $this, 'modify_post_type_link' ), 10, 2 );
 
         add_filter( 'breadcrumb_trail_items', array( $this, 'modify_breadcrumb_items' ), 10, 2 );
-        
+
+        //add_filter( 'wp_get_attachment_link', array( $this, 'modify_attachment_link' ), 10, 5 );
+
+
+      
     }
 
 
@@ -143,24 +147,36 @@ class container
         if( !empty($post) && 'rooms' == $post->post_type ) { // only do this when necessary
             $connected = $this->get_connected_location_and_building($post->ID);
 
-            $building_id    = $connected->building->ID;
-            $building_title = $connected->building->post_title;
-            $building_slug  = '<a href="' . get_the_permalink($building_id) . '">' . $building_title . '</a>';
+            if (!empty($connected)) {
+        
+                $building_id    = $connected->building->ID;
+                $building_title = $connected->building->post_title;
+                $building_slug  = '<a href="' . get_the_permalink($building_id) . '">' . $building_title . '</a>';
 
 
-            $location_id    = $connected->location->ID;
-            $location_title = $connected->location->post_title;
-            $location_slug  = '<a href="' . get_the_permalink($location_id) . '">' . $location_title . '</a>';
+                $location_id    = $connected->location->ID;
+                $location_title = $connected->location->post_title;
+                $location_slug  = '<a href="' . get_the_permalink($location_id) . '">' . $location_title . '</a>';
 
-            // Insert at correct place in breadcrumbs
-            array_splice( $items, -1, 0, $location_slug ); 
-            array_splice( $items, -1, 0, $building_slug ); 
+                // Insert at correct place in breadcrumbs
+                array_splice( $items, -1, 0, $location_slug ); 
+                array_splice( $items, -1, 0, $building_slug ); 
+
+            }
         }
 
         //var_dump($items);
 
         return $items;
     }
+
+
+
+
+    // public function modify_attachment_link($id, $size, $permalink, $icon, $text) {
+    //     var_dump($permalink);
+    //     return $foo;
+    // }
 
 
     /**
@@ -179,17 +195,20 @@ class container
             
             $connected = $this->get_connected_location_and_building($post->ID);
 
-            $building_id    = $connected->building->ID;
-            $building_slug  = $connected->building->post_name;
- 
+            if (!empty($connected)) {
+                $building_id    = $connected->building->ID;
+                $building_slug  = $connected->building->post_name;
+     
 
-            $location_slug  = $connected->location->post_name;
+                $location_slug  = $connected->location->post_name;
 
 
-            // Replace placeholders in the permalink
-            $link = str_replace( '%location_name%', $location_slug, $link );
-            $link = str_replace( '%building_name%', $building_slug, $link );
-            $link = str_replace( '%room_name%', 'twodio', $link );            
+                // Replace placeholders in the permalink
+                $link = str_replace( '%location_name%', $location_slug, $link );
+                $link = str_replace( '%building_name%', $building_slug, $link );
+                $link = str_replace( '%room_name%', 'twodio', $link );            
+                # code...
+            }
           }
           
           return $link;
@@ -211,20 +230,26 @@ class container
             'room_to_building',
             $room_id
         );
+
         $building       = $building_from_room->post;
-        $building_id    = $building->ID;
+        
+        if ( !empty( $building ) ) {       
+            $building_id    = $building->ID;
 
-        $location_from_building = $buildings_repo->find_connected(
-            'building_to_location',
-            $building_id
-        );
+            $location_from_building = $buildings_repo->find_connected(
+                'building_to_location',
+                $building_id
+            );
 
-        $location       = $location_from_building->post;
+            $location       = $location_from_building->post;
 
-        $rtn = new \stdClass();
+            $rtn = new \stdClass();
 
-        $rtn->building = $building;
-        $rtn->location = $location;
+            $rtn->building = $building;
+            $rtn->location = $location;
+        } else {
+            $rtn = false;
+        }
 
         return $rtn;
     }
