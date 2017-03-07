@@ -14,14 +14,14 @@
  * to "development" or "production" in each particular server/environment.
  */
 
-if (empty($_SERVER['WP_ENV']) || $_SERVER['WP_ENV'] != 'production') {
+if (empty($_SERVER['WP_ENV']) || $_SERVER['WP_ENV'] !== 'production') {
     $plugins = array(
         'stream/stream.php',
         'wp-rocket/wp-rocket.php',
         'sucuri-scanner/sucuri.php',
         'better-wp-security/better-wp-security.php',
         'akismet/akismet.php',
-        'rewrite-rules-inspector/rewrite-rules-inspector.php'
+        //'rewrite-rules-inspector/rewrite-rules-inspector.php'
     );
     require_once(ABSPATH . 'wp-admin/includes/plugin.php');
     deactivate_plugins($plugins);
