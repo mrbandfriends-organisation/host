@@ -102,40 +102,57 @@ class container
         add_filter( 'post_type_link', array( $this, 'modify_post_type_link' ), 10, 2 );
 
         add_filter( 'breadcrumb_trail_items', array( $this, 'modify_breadcrumb_items' ), 10, 2 );
-
-        // add_filter( 'wp_get_attachment_link', array( $this, 'modify_attachment_link' ), 10, 6 );
-
-
       
     }
 
 
+    /**
+     * CUSTOM DOWNLOAD RETRIEVAL
+     * 
+     * client requirement was to have documents relating to a room accessible
+     * at a custom url end point in the format:
+     *
+     * /locations/{{city}}/{{building}}/documents/{{document-slug}}/ 
+     */
     public function custom_download_retrieval() {
         
-        $custom_attachment_type     = get_query_var('custom_attachment_type');
-        $custom_attachment_id       = get_query_var('custom_attachment_id');
+        // Custom query vars set in rewrite rules
+        $custom_attachment_type     = get_query_var('custom_attachment_type'); // "room"
+        $custom_attachment_name     = get_query_var('custom_attachment_name'); // the "name" field of the attachement
 
-        
-        if ( !empty($custom_attachment_id) && !empty($custom_attachment_type) && $custom_attachment_type === "building") {
+        // Only handle if required query vars are present
+        if ( !empty($custom_attachment_name) && !empty($custom_attachment_type) && $custom_attachment_type === "room") {
 
+            // Retrieve Attachment posts by "name" (which is like post_name)
+            $attachment_query = new \WP_Query(array(
+                'post_type'=> 'attachment',
+                //'attachment_id' => 3734
+                'attachment' => $custom_attachment_name
+                //'post_mime_type' => 'application/pdf'    
+            ));
 
-            $file_path   = get_attached_file($custom_attachment_id);
-            $file_name  = basename( $file_path );
-           
-            // Force file to download
-            header('X-Robots-Tag: noindex');
-            header('Pragma: public');   // required
-            header('Expires: 0');       // no cache
-            header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-            header('Last-Modified: '.gmdate ('D, d M Y H:i:s', filemtime ($file_path)).' GMT');
-            header('Cache-Control: private',false);
-            header('Content-Type: application/pdf');
-            header('Content-Disposition: attachment; filename="' . $file_name . '"');
-            header('Content-Transfer-Encoding: binary');
-            header('Content-Length: ' . filesize($file_path));    // provide file size
-            header('Connection: close');
-            readfile($file_path);       // push it out
-            wp_die();
+            // If we have a matching attachement then proceed to download
+            if ( !empty($attachment_query->post) ) {
+                
+                // Get file path and derive file name
+                $file_path      = get_attached_file($attachment_query->post->ID);
+                $file_name      = basename( $file_path );
+               
+                // Force file to download
+                header('X-Robots-Tag: noindex');
+                header('Pragma: public');   // required
+                header('Expires: 0');       // no cache
+                header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+                header('Last-Modified: '.gmdate ('D, d M Y H:i:s', filemtime ($file_path)).' GMT');
+                header('Cache-Control: private',false);
+                header('Content-Type: application/pdf');
+                header('Content-Disposition: attachment; filename="' . $file_name . '"');
+                header('Content-Transfer-Encoding: binary');
+                header('Content-Length: ' . filesize($file_path));    // provide file size
+                header('Connection: close');
+                readfile($file_path);       // push it out
+                wp_die();
+            }
         }
     }
 
@@ -159,12 +176,13 @@ class container
 
         // Rules for handling attachments on this room 
         add_rewrite_tag('%custom_attachment_type%', '([A-Za-z]+)');  
-        add_rewrite_tag('%custom_attachment_id%', '([0-9]+)');  
-            
+        //add_rewrite_tag('%custom_attachment_id%', '([0-9]+)');  
+        add_rewrite_tag('%custom_attachment_name%', '([0-9A-Za-z-_.]+)');  
+         
         
         // Specific requests for Room file attachments
         // eg: /locations/bristol/king-square-studios/documents/3735-pdf-sample/
-        add_rewrite_rule('locations/[0-9A-Za-z-]+/[0-9A-Za-z-]+/documents/([0-9]+)-[0-9A-Za-z-_.]+/?', 'index.php?custom_attachment_id=$matches[1]&custom_attachment_type=building', 'top');
+        add_rewrite_rule('locations/[0-9A-Za-z-]+/[0-9A-Za-z-]+/documents/([0-9A-Za-z-_.]+)/?', 'index.php?custom_attachment_name=$matches[1]&custom_attachment_type=room', 'top');
         
         // Single ROOM - the most specific rule **must** be first...
         add_rewrite_rule('locations/[0-9A-Za-z-]+/[0-9A-Za-z-]+/([0-9A-Za-z-]+)/?', 'index.php?rooms=$matches[1]', 'top');
