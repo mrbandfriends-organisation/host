@@ -1,10 +1,24 @@
 <?php
     use Roots\Sage\Utils;
+
+    global $post;
+    $post_id = $post->ID;
+    $post_slug = $post->post_name;
+
+    $test_doc = get_field('test_document');
+    //var_dump($test_doc);
+
+    //echo wp_get_attachment_link( $test_doc['ID'] );
+
+
+    
 ?>
+
 
     <?php
         $connected_location = host_building_find_connected_location(get_the_id())->post;
         $connected_location_name = $connected_location->post_title;
+        $connected_location_slug = $connected_location->post_name;
 
         $twitter_link       = get_field('building_twitter');
         $facebook_link      = get_field('building_facebook');
@@ -12,6 +26,8 @@
 
 
     ?>
+
+    <a href="/locations/<?=$connected_location_slug;?>/<?=$post_slug;?>/documents/<?=$test_doc['ID'];?>-<?=$test_doc['title'];?>/"><?=$test_doc['title'];?></a>
 
     <?php echo Utils\ob_load_template_part('templates/partials/shared/header-carousel', array(
             

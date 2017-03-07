@@ -1013,6 +1013,41 @@
                     "mime_types": ""
                 }
             ]
+        },
+        {
+            "key": "field_58bea438e5143",
+            "label": "Documents",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top",
+            "endpoint": 0
+        },
+        {
+            "key": "field_58bea441e5144",
+            "label": "Test Document",
+            "name": "test_document",
+            "type": "file",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
         }
     ],
     "location": [
@@ -1034,5 +1069,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1487757877
+    "modified": 1488888909
 }
