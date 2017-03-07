@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * APPLICATION JAVASCRIPT
  *
@@ -28,7 +30,6 @@ var bpm = require('breakpoint-tools');
  * to DOM elements. Requires "ga" object to be in global scope
  */
 (function() {
-    "use strict";
     // var GAEventTracking = require('ga-event-tracking.js');
 
     // // Initialise with selector
@@ -40,7 +41,6 @@ var bpm = require('breakpoint-tools');
  * loads SVG spritemap into the DOM for use with <use>
  */
 (function() {
-    "use strict";
 
     var SVGSpritemapLoader = require('svg-spritemap-loader.js');
 
@@ -53,15 +53,14 @@ var bpm = require('breakpoint-tools');
  * manages the toggling of off canvas menu
  */
 (function() {
-    "use strict";
 
     // Async load
     if ( bpm.matchSmaller('large') ) {
         // Async load
-        //require.ensure(['offcanvas-toggler'], function() {
+        require.ensure(['offcanvas-toggler'], function() {
             var OffCanvasToggler = require('offcanvas-toggler');
             new OffCanvasToggler();
-        //},'offcanvas-toggle');
+        },'offcanvas-toggle');
     }
 
 }());
@@ -70,7 +69,6 @@ var bpm = require('breakpoint-tools');
  * RESPONSIVE CSS IMAGE BACKGROUNDS
  */
 (function() {
-    'use strict';
     var RImgBg = require('rimg-bg.js');
     new RImgBg('.js-rimgbg');
 }());
@@ -81,9 +79,7 @@ var bpm = require('breakpoint-tools');
  * There really shouldn’t be anything here other than require()-ing bits of code in the 'ui' dir. If there is logic
  * code here, use git blame to find out who is buying the beers this week…
  */
-(function()
-{
-    "use strict";
+(function() {
 
     require('webfonts');
 
@@ -140,7 +136,7 @@ var bpm = require('breakpoint-tools');
             gadget = googleTranslateTarget.find('.goog-te-gadget');
 
             // Remove Google logo and span
-            gadget.children().not('div').remove()
+            gadget.children().not('div').remove();
 
             // Remove "powered by" text nodes
             gadget.contents().filter(function() {
@@ -244,7 +240,6 @@ var bpm = require('breakpoint-tools');
  * initalise posts "load more" module
  */
 (function() {
-   'use strict';
 
     // here need to test if container exists
     // Depending which containe exitis depends on which instance of

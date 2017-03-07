@@ -17,7 +17,7 @@
 <?php endif; ?>
 
 <?php if ( !empty($button_url) && !empty($button_text) ): ?>
-    <a href="<?php echo esc_html($button_url) ?>" class="btn split-feature__btn" <?= ( isset($external_url) ) ? Extras\link_open_new_tab_attrs() : ''; ?>>
+    <a href="<?php echo esc_html($button_url) ?>" class="btn split-feature__btn" <?= ( isset($external_url) && $external_url ) ? Extras\link_open_new_tab_attrs() : ''; ?>>
         <?php echo esc_html($button_text); ?>
     </a>
 <?php endif; ?>

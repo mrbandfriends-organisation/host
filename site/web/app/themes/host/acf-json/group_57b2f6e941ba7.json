@@ -404,6 +404,25 @@
             "disabled": 0
         },
         {
+            "key": "field_58a6e4949a106",
+            "label": "Email Address",
+            "name": "building_email_address",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
             "key": "field_57b308ed7a9cd",
             "label": "Phone No",
             "name": "building_address_phone_no",
@@ -713,9 +732,9 @@
             "endpoint": 0
         },
         {
-            "key": "field_57b577f6299ad",
-            "label": "Location title",
-            "name": "location_title",
+            "key": "field_58ad620e73ea1",
+            "label": "Location title 1",
+            "name": "location_title_1",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -729,9 +748,26 @@
             "placeholder": "",
             "prepend": "",
             "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
+            "maxlength": ""
+        },
+        {
+            "key": "field_58ad621d73ea2",
+            "label": "Location title 2",
+            "name": "location_title_2",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_57b57813299ae",
@@ -998,5 +1034,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1486727289
+    "modified": 1487757877
 }

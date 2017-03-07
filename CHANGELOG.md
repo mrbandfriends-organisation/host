@@ -7,6 +7,39 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.15.1] - 2017-02-22
+
+### Fixed
+- Re-enable dual titles for Building Location. Fixed bug where the field was single (‘location_title’) but the template was still expecting dual fields (location_title_1 and location_title_2).
+
+## [1.15.0] - 2017-02-21
+
+### Added
+- All "Show Flat" as option to map filter/types
+- Add optional Building level Social links 
+- Add new page anchor IDs as requested by client
+
+### Changed
+- Remove heading from `<nav>` element. Not required and messing with Accessbility and SEO.
+- Refactor "Availability" logic and code organisation. Now include "Join Waiting List" button when building is "Coming Soon"
+- Reinstate dual facitilies title approach
+- Do not display map filters for which there are no markers
+- Update Food to Eating and Drinking in ACF fields for Map Pin type. Client request
+
+### Fixed
+- Ensure contact page hash responds to all cases
+- Ensure Room anchors use the correct hash links
+- Remove validation from ACF fields
+- Ensure full building address is pulled through into green box at top of page
+- Layout/display of green infobox on mobile
+- Ensure footer social icons are available on mobile
+- Fix footer overflow issue caused by fixed height on Testimonial wall
+
+## [1.14.1] - 2017-02-17
+
+### Fixed
+- Building was misisng the `building_email_address` field from the ACF JSON but the data was still available. Sync'd all fields and re-created field.
+
 ## [1.14.0] - 2017-02-06
 
 ### Fixed
