@@ -102,7 +102,8 @@ class container
         add_filter( 'post_type_link', array( $this, 'modify_post_type_link' ), 10, 2 );
     }
 
-    public function modify_post_type_link( $link, $post ) {
+    public function modify_post_type_link( $link, $post ) 
+    {
           if ( 'buildings' == $post->post_type ) {
 
             $repo = Repos\Buildings::init();
@@ -116,16 +117,7 @@ class container
             return str_replace( '%location_name%', $connected_location, $link );
             
           }
-          return $link;
-    }
-
-
-
-
-          
-       
-        //add_rewrite_rule('locations/[0-9A-Za-z-]+/([0-9A-Za-z-]+)/?', 'index.php?buildings=$matches[1]', 'top');
-        
+          return $link;        
     }
 
 
