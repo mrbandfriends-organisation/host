@@ -3,11 +3,7 @@
 
     global $post;
     $post_id = $post->ID;
-    $post_slug = $post->post_name;
-
-    $test_doc = get_field('test_document');
-    // var_dump($test_doc);
-    
+    $post_slug = $post->post_name;    
 ?>
 
 
@@ -22,9 +18,7 @@
 
 
     ?>
-
-    <a href="/locations/<?=$connected_location_slug;?>/<?=$post_slug;?>/documents/<?=$test_doc['name'];?>/"><?=$test_doc['title'];?></a>
-
+    
     <?php echo Utils\ob_load_template_part('templates/partials/shared/header-carousel', array(
             
             'info_box' => Utils\ob_load_template_part('templates/snippets/shared/carousel-infobox', array(
