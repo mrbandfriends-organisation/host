@@ -7,6 +7,12 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.15.2] - 2017-03-08
+
+### Changed
+* Update WP core and Plugins due to security concerns
+* Allow minor and patch releases to WP on Production
+
 ## [1.15.1] - 2017-02-22
 
 ### Fixed
