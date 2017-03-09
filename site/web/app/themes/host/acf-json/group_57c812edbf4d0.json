@@ -72,6 +72,30 @@
             "media_upload": 1
         },
         {
+            "key": "field_58bd95faf5225",
+            "label": "Checkerboard Image",
+            "name": "checkerboard_image",
+            "type": "image",
+            "instructions": "This is the image used on the checkboard where all the Locations appear.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_57c828648b03f",
             "label": "Location",
             "name": "",
@@ -380,5 +404,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1486478103
+    "modified": 1488819252
 }

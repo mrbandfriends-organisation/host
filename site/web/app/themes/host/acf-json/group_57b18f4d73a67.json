@@ -22,11 +22,11 @@
             "maxlength": ""
         },
         {
-            "key": "field_57b192592a494",
-            "label": "Featured Building",
-            "name": "featured_building",
-            "type": "post_object",
-            "instructions": "",
+            "key": "field_58bd4864244c2",
+            "label": "Featured Buildings",
+            "name": "featured_buildings",
+            "type": "repeater",
+            "instructions": "Select the items you'd like to appear within the \"Featured Buildings\" section. For each please choose whether to utilise content from an existing Building or to define custom content.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -34,14 +34,250 @@
                 "class": "",
                 "id": ""
             },
-            "post_type": [
-                "buildings"
-            ],
-            "taxonomy": [],
-            "allow_null": 0,
-            "multiple": 0,
-            "return_format": "object",
-            "ui": 1
+            "collapsed": "",
+            "min": "",
+            "max": 1,
+            "layout": "row",
+            "button_label": "Add Row",
+            "sub_fields": [
+                {
+                    "key": "field_58bd4887244c3",
+                    "label": "Content Type",
+                    "name": "content_type",
+                    "type": "radio",
+                    "instructions": "Select the type of content for this Featured Building. Either custom content or select an existing Building from which to pull through content.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "custom": "Custom Content",
+                        "building": "Building"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "save_other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value"
+                },
+                {
+                    "key": "field_58bd48bc244c5",
+                    "label": "Building",
+                    "name": "building",
+                    "type": "post_object",
+                    "instructions": "If selected this will pull through the content from the selected Building to use as the \"Featured\" content.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_58bd4887244c3",
+                                "operator": "==",
+                                "value": "building"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "buildings"
+                    ],
+                    "taxonomy": [],
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                },
+                {
+                    "key": "field_58bd50557859a",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_58bd48a8244c4",
+                    "label": "Name",
+                    "name": "name",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_58bd4887244c3",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_58bd4cd6db536",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_58bd4887244c3",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0
+                },
+                {
+                    "key": "field_58bd4ce0db537",
+                    "label": "Imagery",
+                    "name": "imagery",
+                    "type": "gallery",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_58bd4887244c3",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "min": 2,
+                    "max": 2,
+                    "insert": "append",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_58bd4cfedb538",
+                    "label": "CTA Link",
+                    "name": "cta_link",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_58bd4887244c3",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_58bd4d04db539",
+                    "label": "CTA Text",
+                    "name": "cta_text",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_58bd4887244c3",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_58be91efc7c90",
+                    "label": "CTA External?",
+                    "name": "cta_external",
+                    "type": "true_false",
+                    "instructions": "If checked then the call to action button will open the link in a new tab\/window.",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_58bd4887244c3",
+                                "operator": "==",
+                                "value": "custom"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0
+                }
+            ]
         }
     ],
     "location": [
@@ -70,5 +306,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1473084017
+    "modified": 1488884261
 }

@@ -3,45 +3,44 @@
 ?>
 
 <nav class="in-page-nav js-sticky-nav fixedsticky">
-    <div class="container grid">
-        <div class="in-page-nav__aside gc m1-4 l1-3 grid">
-            <div class="gc l1-2">
+    <div class="in-page-nav__inner container">
+        <div class="in-page-nav__aside">
+            
                 <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'site-logo', 'classnames' => 'in-page-nav__logo' ]); ?>
-            </div>
-            <div class="gc l1-2">
+
                 <p class="h4 in-page-nav__heading">View this section:</p>
-            </div>
+            
         </div>
 
-        <ul class="in-page-nav__listing gc m3-4 l2-3 grid">
-            <li class="in-page-nav__listing-item gc l1-6">
+        <ul class="in-page-nav__listing">
+            <li class="in-page-nav__listing-item">
                 <a href="#overview" class="in-page-nav__link js-in-page-link">
-                    Room overview
+                    <span>Room overview</span>
                 </a>
             </li>
-            <li class="in-page-nav__listing-item gc l1-6">
+            <li class="in-page-nav__listing-item">
                 <a href="#details" class="in-page-nav__link js-in-page-link">
-                    The details
+                    <span>The details</span>
                 </a>
             </li>
-            <li class="in-page-nav__listing-item gc l1-6">
+            <li class="in-page-nav__listing-item">
                 <a href="#gallery" class="in-page-nav__link js-in-page-link">
-                    Gallery
+                    <span>Gallery</span>
                 </a>
             </li>
-            <li class="in-page-nav__listing-item gc l1-6">
+            <li class="in-page-nav__listing-item">
                 <a href="#pricing" class="in-page-nav__link js-in-page-link">
-                    Pricing
+                    <span>Pricing</span>
                 </a>
             </li>
-            <li class="in-page-nav__listing-item gc l1-6">
+            <li class="in-page-nav__listing-item">
                 <a href="#location" class="in-page-nav__link js-in-page-link">
-                    Location
+                    <span>Location</span>
                 </a>
             </li>
-            <li class="in-page-nav__listing-item gc l1-6">
+            <li class="in-page-nav__listing-item">
                 <a href="#awards" class="in-page-nav__link js-in-page-link">
-                    Awards
+                    <span>Awards</span>
                 </a>
             </li>
         </ul>

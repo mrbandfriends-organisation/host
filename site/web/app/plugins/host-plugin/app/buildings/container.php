@@ -85,8 +85,8 @@ class container
      */
     private function register_actions()
     {
-        add_action('wp_ajax_nopriv_buildings_load_favourites', array($this, 'getBuildingInformation'));
-        add_action('wp_ajax_buildings_load_favourites',        array($this, 'getBuildingInformation'));
+        add_action('wp_ajax_nopriv_buildings_load_favourites', array($this, 'get_building_information'));
+        add_action('wp_ajax_buildings_load_favourites',        array($this, 'get_building_information'));
     }
 
     /**
@@ -102,14 +102,17 @@ class container
 
 
 
-    public function getBuildingInformation()
+    public function get_building_information()
     {
+
+       
         // 0. if there’s nothing, bounce
-        if (!isset($_GET['id']) || !is_array($_GET['id']))
+        if (empty($_GET['id']) || !is_array($_GET['id']))
         {
             return wp_send_json( [] );
         }
 
+        
         // 1. load buildings
         $oRepo = Repos\Buildings::init();
         $aoBuildings = $oRepo->find_all([ 'post__in' => $_GET['id'] ]);
@@ -118,17 +121,18 @@ class container
         $aoJsonReturn = [];
         while ($aoBuildings->have_posts())
         {
+            
             $aoBuildings->the_post();
 
-            if ($is_external = (get_field('external_website')) === true):
-                $return_url = get_field('website_url');
-                $return_attrs = 'target="_blank" rel="noopener" rel="noreferrer"';
+            if ($is_external = ( get_field('external_website') ) === true) {
+                $return_url     = get_field('website_url');
+                $return_attrs   = 'target="_blank" rel="noopener" rel="noreferrer"';
                 $return_message = 'Take me to the website';
-            else:
-                $return_url = get_the_permalink();
-                $return_attrs = '';
+            } else {
+                $return_url     = get_the_permalink();
+                $return_attrs   = '';
                 $return_message = 'Show me this property';
-            endif;
+            }
 
             // a. basic info
             $aReturn = [
@@ -137,7 +141,7 @@ class container
                 'url'               => $return_url,
                 'attrs'             => $return_attrs,
                 'btn_message'       => $return_message,
-                'availability'      => RoomsBuildings\availability_status(get_field('availability'))
+                'availability'      => RoomsBuildings\building_availability( get_the_ID() )
             ];
 
             // b. acquire a thumbnail

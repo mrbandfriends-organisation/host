@@ -9,7 +9,7 @@ var _includes       = require('lodash.includes');
 var sFavouriteTemplate =
 '<article class="box box--fg-{{availability.foreground}} favourites__favourite" data-id="{{id}}">'+
     '<aside class="favourites__favourite__image"><img src="{{thumbnail}}" alt=""></aside>'+
-    '<header class="favourites__favourite__header">'+
+    '<div class="favourites__favourite__content"><header class="favourites__favourite__header">'+
         '<h3 class="favourites__favourite__title">'+
             '{{city}}<br>{{title}}'+
         '</h3>'+
@@ -17,7 +17,7 @@ var sFavouriteTemplate =
     '<p><strong>Availability:</strong> {{availability.text}}</p>'+
     '<footer class="favourites__favourite__footer">'+
         '<a {{attrs}} href="{{url}}" class="btn btn--small">{{btn_message}}</a>'+
-    '</footer>'+
+    '</footer></div>'+
 '</article>';
 
 function FavouriteList()
