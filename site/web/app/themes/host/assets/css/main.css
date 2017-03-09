@@ -4461,8 +4461,7 @@ a.btn {
 
 .checkerboard-item__title {
   transition: box-shadow 500ms, t;
-  background: #b71539 none no-repeat center center/cover;
-  background-blend-mode: multiply;
+  background: transparent none no-repeat center center/cover;
   box-shadow: inset #fff 0 0 0 0;
 }
 

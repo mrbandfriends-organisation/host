@@ -132,8 +132,8 @@ $checkerboard-conf: (
 .checkerboard-item__title {
     transition: box-shadow 500ms, t;
 
-    background: tint(red) none no-repeat center center/cover;
-    background-blend-mode: multiply;
+    background: transparent none no-repeat center center/cover;
+    // background-blend-mode: multiply;
 
     box-shadow: inset #fff 0 0 0 0;
 
