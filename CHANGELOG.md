@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.16.1] - 2017-03-09
+
+### Fixed
+* "Join Waiting List" button was relying on a presentational version of the Building name rather than the name of the actual Post. Correct to use the non-presentational name.
+
 ## [1.16.0] - 2017-03-09
 
 ### Fixed
