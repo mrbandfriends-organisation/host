@@ -12,6 +12,7 @@ require('expose?$!expose?jQuery!jquery');
 
 // extend things
 require('./ext/NodeList');
+require('./ext/CustomEvent');
 
 // Promise polyfill
 // https://github.com/taylorhakes/promise-polyfill
@@ -199,7 +200,7 @@ var bpm = require('breakpoint-tools');
             e.src = "//browser-update.org/update.min.js";
             document.body.appendChild(e);
         }, 3000);
-    };
+    }
     $(window).on('load', $buo_f);
 }());
 
@@ -304,7 +305,9 @@ var bpm = require('breakpoint-tools');
 
 
 
-    if ( !contactForm.length ) return;
+    if ( !contactForm.length ) {
+        return;
+    }
 
     if (queryObject !== undefined ) {
 
