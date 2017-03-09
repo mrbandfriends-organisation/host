@@ -8,6 +8,7 @@
 namespace HostPluginNamespace\App\Rooms;
 
 use HostPluginNamespace\Lib;
+use HostPluginNamespace\App\Buildings\Repos\Buildings as BuildingsRepo;
 
 class container
 {
@@ -84,7 +85,10 @@ class container
      */
     private function register_actions()
     {
+        add_action( 'template_redirect', array($this, 'custom_download_retrieval' ) );
+        add_action( 'init', array( $this, 'rewrite_rules' ), 10, 0);
         //add_action( 'ACTION_NAME', array( $this, 'CALLBACK_FUNCTION' ) );
+        //
     }
 
     /**
@@ -94,8 +98,218 @@ class container
      * classes for specific actions within the /lib/ directory.
      */
     private function register_filters()
+    {   
+        add_filter( 'post_type_link', array( $this, 'modify_post_type_link' ), 10, 2 );
+
+        add_filter( 'breadcrumb_trail_items', array( $this, 'modify_breadcrumb_items' ), 10, 2 );
+      
+    }
+
+
+    /**
+     * CUSTOM DOWNLOAD RETRIEVAL
+     * 
+     * client requirement was to have documents relating to a room accessible
+     * at a custom url end point in the format:
+     *
+     * /locations/{{city}}/{{building}}/documents/{{document-slug}}/ 
+     */
+    public function custom_download_retrieval() {
+        
+        // Custom query vars set in rewrite rules
+        $custom_attachment_type     = get_query_var('custom_attachment_type'); // "room"
+        $custom_attachment_name     = get_query_var('custom_attachment_name'); // the "name" field of the attachement
+
+        // Only handle if required query vars are present
+        if ( !empty($custom_attachment_name) && !empty($custom_attachment_type) && $custom_attachment_type === "room") {
+
+            // Retrieve Attachment posts by "name" (which is like post_name)
+            $attachment_query = new \WP_Query(array(
+                'post_type'=> 'attachment',
+                //'attachment_id' => 3734
+                'attachment' => $custom_attachment_name
+                //'post_mime_type' => 'application/pdf'    
+            ));
+
+            // If we have a matching attachement then proceed to download
+            if ( !empty($attachment_query->post) ) {
+                
+                // Get file path and derive file name
+                $file_path      = get_attached_file($attachment_query->post->ID);
+                $file_name      = basename( $file_path );
+               
+                // Force file to download
+                header('X-Robots-Tag: noindex');
+                header('Pragma: public');   // required
+                header('Expires: 0');       // no cache
+                header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+                header('Last-Modified: '.gmdate ('D, d M Y H:i:s', filemtime ($file_path)).' GMT');
+                header('Cache-Control: private',false);
+                header('Content-Type: application/pdf');
+                header('Content-Disposition: attachment; filename="' . $file_name . '"');
+                header('Content-Transfer-Encoding: binary');
+                header('Content-Length: ' . filesize($file_path));    // provide file size
+                header('Connection: close');
+                readfile($file_path);       // push it out
+                wp_die();
+            }
+        }
+    }
+
+
+    /**
+     * REWRITE RULES
+     * 
+     * creates custom permalink structures. The key is mapping the custom url structure to the 
+     * default query args generated when registering the post_type. To check what the non-pretty 
+     * url args are, simply disable pretty permalinks from within the admin and then copy the values
+     * in the url. 
+     *
+     * Note: the order in which add_rewrite_rule() is called in this method is CRIITCAL in order to ensure
+     * the rewrite rules are matched in order of specificity
+     */
+    public function rewrite_rules() 
     {
-        //add_filter( 'FILTER_NAME', array( $this, 'CALLBACK_FUNCTION' ) );
+        // Add our two rewrite tags for use in the rewrite rules
+        add_rewrite_tag('%room_name%', '([0-9A-Za-z]+)', 'rooms=');
+        add_rewrite_tag('%building_name%', '([0-9A-Za-z]+)', 'buildings='); 
+
+        // Rules for handling attachments on this room 
+        add_rewrite_tag('%custom_attachment_type%', '([A-Za-z]+)');  
+        //add_rewrite_tag('%custom_attachment_id%', '([0-9]+)');  
+        add_rewrite_tag('%custom_attachment_name%', '([0-9A-Za-z-_.]+)');  
+         
+        
+        // Specific requests for Room file attachments
+        // eg: /locations/bristol/king-square-studios/documents/3735-pdf-sample/
+        add_rewrite_rule('locations/[0-9A-Za-z-]+/[0-9A-Za-z-]+/documents/([0-9A-Za-z-_.]+)/?', 'index.php?custom_attachment_name=$matches[1]&custom_attachment_type=room', 'top');
+        
+        // Single ROOM - the most specific rule **must** be first...
+        add_rewrite_rule('locations/[0-9A-Za-z-]+/[0-9A-Za-z-]+/([0-9A-Za-z-]+)/?', 'index.php?rooms=$matches[1]', 'top');
+
+        // Single BUILDING - less specific rules last
+        add_rewrite_rule('locations/[0-9A-Za-z-]+/([0-9A-Za-z-]+)/?', 'index.php?buildings=$matches[1]', 'top');
+    }
+
+
+    /**
+     * MODIFY BREADCRUMB ITEMS
+     *
+     * modifies the default breadcrumbs so that they match the new url
+     * structure and reflect the relationships between the Room, the Building
+     * and the Location. 
+     */
+    public function modify_breadcrumb_items($items, $args) 
+    {
+        global $post; // current post
+
+        if( !empty($post) && 'rooms' == $post->post_type ) { // only do this when necessary
+            $connected = $this->get_connected_location_and_building($post->ID);
+
+            if (!empty($connected)) {
+        
+                $building_id    = $connected->building->ID;
+                $building_title = $connected->building->post_title;
+                $building_slug  = '<a href="' . get_the_permalink($building_id) . '">' . $building_title . '</a>';
+
+
+                $location_id    = $connected->location->ID;
+                $location_title = $connected->location->post_title;
+                $location_slug  = '<a href="' . get_the_permalink($location_id) . '">' . $location_title . '</a>';
+
+                // Insert at correct place in breadcrumbs
+                array_splice( $items, -1, 0, $location_slug ); 
+                array_splice( $items, -1, 0, $building_slug ); 
+
+            }
+        }
+
+        //var_dump($items);
+
+        return $items;
+    }
+
+
+
+
+    // public function modify_attachment_link( $markup, $id, $size, $permalink, $icon, $text ) {
+    //     return $markup;
+    // }
+
+
+    /**
+     * FILTERS THE PERMALINK
+     * 
+     * post type links for rooms have placeholder values which needs to be
+     * dynamically replaced with the correct values on a per post basis
+     *
+     * Note the format of the original permalink is defined when you register
+     * the post type using the "rewrite" option to define a custom slug which
+     * contains placeholder values
+     */
+    public function modify_post_type_link( $link, $post ) 
+    {
+          if ( 'rooms' == $post->post_type ) {
+            
+            $connected = $this->get_connected_location_and_building($post->ID);
+
+            if (!empty($connected)) {
+                $building_id    = $connected->building->ID;
+                $building_slug  = $connected->building->post_name;
+     
+
+                $location_slug  = $connected->location->post_name;
+
+
+                // Replace placeholders in the permalink
+                $link = str_replace( '%location_name%', $location_slug, $link );
+                $link = str_replace( '%building_name%', $building_slug, $link );
+                $link = str_replace( '%room_name%', 'twodio', $link );            
+                # code...
+            }
+          }
+          
+          return $link;
+    }
+
+
+    /**
+     * GET CONNECTED LOCATION AND BUILDING
+     *
+     * utility method to return the connected Building (and that
+     * building's connected Location) for a given Room.
+     */
+    private function get_connected_location_and_building($room_id) 
+    {
+        $rooms_repo     = Repos\Rooms::init();
+        $buildings_repo = BuildingsRepo::init();
+
+        $building_from_room = $rooms_repo->find_connected(
+            'room_to_building',
+            $room_id
+        );
+
+        $building       = $building_from_room->post;
+        
+        if ( !empty( $building ) ) {       
+            $building_id    = $building->ID;
+
+            $location_from_building = $buildings_repo->find_connected(
+                'building_to_location',
+                $building_id
+            );
+
+            $location       = $location_from_building->post;
+
+            $rtn = new \stdClass();
+
+            $rtn->building = $building;
+            $rtn->location = $location;
+        } else {
+            $rtn = false;
+        }
+
+        return $rtn;
     }
 }
 

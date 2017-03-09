@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9c5c868a1728a122a97c12c21d649dfe",
-    "content-hash": "fae14a8ee6d7294c533b6dcb15cd0426",
+    "hash": "276a734c0071bd2d8f69c8217321b11c",
+    "content-hash": "28c0692a8042daf2afdf48dd5bbea923",
     "packages": [
         {
             "name": "composer/installers",
@@ -480,6 +480,26 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/postman-smtp/"
+        },
+        {
+            "name": "wpackagist-plugin/rewrite-rules-inspector",
+            "version": "1.2.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/rewrite-rules-inspector/",
+                "reference": "tags/1.2.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/rewrite-rules-inspector.1.2.1.zip",
+                "reference": null,
+                "shasum": null
+            },
+            "require": {
+                "composer/installers": "~1.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/rewrite-rules-inspector/"
         },
         {
             "name": "wpackagist-plugin/stop-user-enumeration",

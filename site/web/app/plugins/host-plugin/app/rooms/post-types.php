@@ -42,7 +42,7 @@ class Post_Types
                  'post_type_name' => 'rooms',
                  'singular' => __( 'Room', 'host'),
                  'plural' => __( 'Rooms', 'host'),
-                 'slug' => __( 'rooms', 'host'),
+                 //'slug' => __( 'rooms', 'host'),
              ),
              array(
                  'show_in_nav_menus' => true,
@@ -55,7 +55,10 @@ class Post_Types
                      'editor',
                      'thumbnail',
                      'page-attributes'
-                 )
+                 ),
+                 'rewrite' => array( // note this creates the permalink. We then use filter on 'post_type_link' to replace the placeholders with dynamic values
+                    'slug' => __( 'locations/%location_name%/%building_name%', 'host'), // produces -> /locations/chester/fontessa-house/standard-en-suite-2/
+                )
              )
          );
          $rooms->menu_icon("dashicons-admin-home");

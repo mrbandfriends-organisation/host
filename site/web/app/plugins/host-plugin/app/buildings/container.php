@@ -84,7 +84,7 @@ class container
      * classes for specific actions within the /lib/ directory.
      */
     private function register_actions()
-    {
+    {       
         add_action('wp_ajax_nopriv_buildings_load_favourites', array($this, 'get_building_information'));
         add_action('wp_ajax_buildings_load_favourites',        array($this, 'get_building_information'));
     }
@@ -97,9 +97,44 @@ class container
      */
     private function register_filters()
     {
-        //add_filter( 'FILTER_NAME', array( $this, 'CALLBACK_FUNCTION' ) );
+        add_filter( 'post_type_link', array( $this, 'modify_post_type_link' ), 10, 2 );
     }
 
+
+    public function rewrite_rules() {
+        // Custom rewrite rule for building is handled in "Rooms" for simplicity
+        // as rules must be added in a specific order        
+    }
+
+
+    /**
+     * MODIFY POST TYPE LINK
+     * 
+     * modifies the default post type rewrite slug by replacing
+     * the placeholder value with the building's connected
+     * location via p2p
+     */
+    public function modify_post_type_link( $link, $post ) 
+    {
+          if ( 'buildings' == $post->post_type ) { // only for Buildings!
+
+            $repo = Repos\Buildings::init();
+            
+            // Find the building's connected Location
+            $query = $repo->find_connected(
+                'building_to_location',
+                $post->ID
+            );
+
+            // We assume there is only 1 - we grab the slug
+            $connected_location_slug = $query->post->post_name;
+            
+            $link = str_replace( '%location_name%', $connected_location_slug, $link );
+      
+          }
+
+          return $link;        
+    }
 
 
     public function get_building_information()
