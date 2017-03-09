@@ -7,6 +7,31 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.16.1] - 2017-03-09
+
+### Fixed
+* "Join Waiting List" button was relying on a presentational version of the Building name rather than the name of the actual Post. Correct to use the non-presentational name.
+
+## [1.16.0] - 2017-03-09
+
+### Fixed
+* Favourites functionality bug where return value of availability function was not being handled correctly by the Ajax PHP functions.
+* Fix IE11 bug with Custom Events being fired. Resolves bug with Favouriting functionality. Added polyfill to solve this.
+* Correct layout on In page nav - https://basecamp.com/1926511/projects/10607057/todos/295438609
+
+### Changed
+* Remove red tint on checkboard images. 
+* Allow user to select a custom checkboard image on a per Location basis (see above)
+* Featured Building upgrade. Ability to use custom content or select an existing building  - https://basecamp.com/1926511/projects/10607057/todos/297758419
+* Update page anchor from `#details` to `#facilities`
+
+
+## [1.15.2] - 2017-03-08
+
+### Changed
+* Update WP core and Plugins due to security concerns
+* Allow minor and patch releases to WP on Production
+
 ## [1.15.1] - 2017-02-22
 
 ### Fixed

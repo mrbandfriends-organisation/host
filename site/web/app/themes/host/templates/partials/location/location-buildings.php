@@ -62,7 +62,8 @@
 
                 $favouriteable = ( $availability_status['favouritable'] ? 'data-favouritable="' . get_the_id() . '"' : null );
 
-                $property_title = get_field('title_1');
+                $building_title  = get_the_title(); // the actual Building "post" title
+                $property_title  = get_field('title_1'); // a presentation version of the title
             ?>
             <li id="property-<?= esc_attr($counter); ?>" class="property-list__item">
                 <article class="listed-property grid">
@@ -121,7 +122,7 @@
                                     <?php echo Utils\ob_load_template_part('templates/snippets/building/conditional-buttons', array(
                                         'can_book' => $availability_status['can_book'],
                                         'can_join_waiting_list' => $availability_status['can_join_waiting_list'],
-                                        'enquiry_hall_name' => $location_title . " " . $property_title,
+                                        'enquiry_hall_name' => $location_title . " " . $building_title,
                                         'btn_modifiers' => 'btn--block'
                                     )); ?>
                                 </p>
