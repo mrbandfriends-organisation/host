@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.16.2] - 2017-03-15
+
+### Fixed
+* Cancellation policy not showing due to malplaced conditional.
+
 ## [1.16.1] - 2017-03-09
 
 ### Fixed
