@@ -38,21 +38,23 @@
         <?php echo esc_html($price_title_2); ?>
     </h2>
 
-
-        <article class="rent-cost">
-            <?php foreach ($rent_costs as $rent_cost): ?>
-                <div>
-                    <strong><?php echo esc_html($rent_cost['heading']) ?></strong>
-                    <p>
-                        <?php echo esc_html($rent_cost['explanation']) ?>
-                    </p>
-                </div>
-            <?php endforeach; ?>
-        </article>
-
-
-    <a href="<?php echo esc_html($cancellation_policy); ?>" class="pricing-section__btn btn btn--mint">
-        <?php echo the_title(); ?> cancellation policy >
-    </a>
+    <article class="rent-cost">
+        <?php foreach ($rent_costs as $rent_cost): ?>
+            <div>
+                <strong><?php echo esc_html($rent_cost['heading']) ?></strong>
+                <p>
+                    <?php echo esc_html($rent_cost['explanation']) ?>
+                </p>
+            </div>
+        <?php endforeach; ?>
+    </article>
 </div>
 <?php endif; ?>
+
+
+<?php if ( !empty($cancellation_policy) ): ?>
+<a href="<?php echo esc_html($cancellation_policy); ?>" class="pricing-section__btn btn btn--mint">
+    <?php echo the_title(); ?> cancellation policy >
+</a>
+ <?php endif; ?>
+
