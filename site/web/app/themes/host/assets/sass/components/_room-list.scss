@@ -14,7 +14,7 @@
 
     @include mq(large) {
         padding: 0 0 0 rem(60);
-        background: #fff url("/assets/images/grape-30pc.svg") repeat-y center center/rem(3000);
+        background: #fff url("/app/themes/host/assets/images/grape-30pc.svg") repeat-y center center/rem(3000);
     }
 
 }

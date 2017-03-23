@@ -3417,19 +3417,7 @@ img.mfp-img {
 }
 
 /* Slider */
-.slick-loading .slick-list {
-  background: #fff url("./ajax-loader.gif") center center no-repeat;
-}
-
 /* Icons */
-@font-face {
-  font-family: "slick";
-  src: url("./fonts/slick.eot");
-  src: url("./fonts/slick.eot?#iefix") format("embedded-opentype"), url("./fonts/slick.woff") format("woff"), url("./fonts/slick.ttf") format("truetype"), url("./fonts/slick.svg#slick") format("svg");
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* Arrows */
 .slick-prev,
 .slick-next {
@@ -8804,7 +8792,7 @@ a.article-tile__link:hover .article-tile__location {
   }
   .room-list__header{
     padding: 0 0 0 3.75rem;
-    background: #fff url("/assets/images/grape-30pc.svg") repeat-y center center/187.5rem;
+    background: #fff url("/app/themes/host/assets/images/grape-30pc.svg") repeat-y center center/187.5rem;
   }
   .room-list__header-inner{
     -ms-flex-pack: justify;

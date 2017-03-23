@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.16.3] - 2017-03-23
+
+### Fixed
+* Remove 404'ing assets.
+
 ## [1.16.2] - 2017-03-15
 
 ### Fixed
