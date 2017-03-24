@@ -57,10 +57,11 @@
 
                     <?php echo Utils\ob_load_template_part('templates/partials/home/home-locations-item.php', array(
                         'label' => get_the_title(),
-                        'url' => get_permalink(),
+                        'location_permalink' => get_permalink(),
                         'tile_image' => $checkerboard_image,
                         'available_properties' => $connected_buildings_count,
-                        'disable_am_i_feeling_lucky' => $disable_am_i_feeling_lucky
+                        'disable_am_i_feeling_lucky' => $disable_am_i_feeling_lucky,
+                        'connected_buildings' => $connected_buildings
                     )); ?>
 
                 </li>
