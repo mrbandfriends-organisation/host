@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.16.4] - 2017-03-24
+
+### Fixed
+* Refactor Locations checkboard logic - now utilises global availability utility function to check status of all Buildings within Location. Also accounts for situation where Location has no available buildings.
+
 ## [1.16.3] - 2017-03-23
 
 ### Fixed
