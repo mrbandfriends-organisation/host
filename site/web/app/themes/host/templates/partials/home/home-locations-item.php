@@ -8,7 +8,7 @@
 
     $available_buildings = array_filter($connected_buildings, function($building) {
         $availability = RoomsBuildings\building_availability($building->ID);
-        return ( $availability['status'] === "available" || $availability['status'] === "limited_availability" ) ? true : false;
+        return ( in_array( $availability['status'], ['coming_soon', 'available', 'limited_availability'] ) ) ? true : false;
     });
    
 ?>
