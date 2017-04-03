@@ -6841,6 +6841,7 @@ a.article-tile__link:hover .article-tile__location {
   display: none;
 }
 
+.homepage-split-image-hack,
 .homepage-investors-image-hack {
   display: -ms-flexbox;
   display: flex;

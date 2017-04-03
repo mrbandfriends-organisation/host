@@ -14,6 +14,10 @@
 
 <?php echo Utils\ob_load_template_part('templates/partials/shared/featured-building'); ?>
 
+<?php echo Utils\ob_load_template_part('templates/partials/home/home-promo', array(
+    'snippet' => '/home/promo'
+)); ?>
+
 <?php echo Utils\ob_load_template_part('templates/partials/shared/awards', array(
     'snippet'               => '/home/awards',
     'awards_logos_modifier' => '-left'
