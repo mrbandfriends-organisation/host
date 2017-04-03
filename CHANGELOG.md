@@ -7,6 +7,13 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.16.6] - 2017-04-03
+
+### Fixed
+* Reinstate ACF fields previously lost. Fields were lost due to faliure to sync fields. Reinstated fields:
+  * disable_am_i_feeling_lucky
+  * checkerboard_image
+
 ## [1.16.5] - 2017-04-03
 
 ### Fixed
