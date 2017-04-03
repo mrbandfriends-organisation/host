@@ -7,6 +7,14 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.16.5] - 2017-04-03
+
+### Fixed
+* Reinstate Location Title 1 & 2 fields. Previously lost somehow.
+
+### Changed
+* Ensure "Coming Soon" status counts as being "Available" on checkboard
+
 ## [1.16.4] - 2017-03-24
 
 ### Fixed

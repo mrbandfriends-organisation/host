@@ -3,22 +3,6 @@
     "title": "Location Information",
     "fields": [
         {
-            "key": "field_5894a0430aa4d",
-            "label": "Disable \"Am I Feeling Lucky\"",
-            "name": "disable_am_i_feeling_lucky",
-            "type": "true_false",
-            "instructions": "Global overide to enable the disabling of the \"I'm feeling lucky\" element for this Location on the tile for this particular location.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0
-        },
-        {
             "key": "field_57c82803458c6",
             "label": "Header",
             "name": "",
@@ -72,30 +56,6 @@
             "media_upload": 1
         },
         {
-            "key": "field_58bd95faf5225",
-            "label": "Checkerboard Image",
-            "name": "checkerboard_image",
-            "type": "image",
-            "instructions": "This is the image used on the checkboard where all the Locations appear.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "array",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
             "key": "field_57c828648b03f",
             "label": "Location",
             "name": "",
@@ -110,6 +70,44 @@
             },
             "placement": "top",
             "endpoint": 0
+        },
+        {
+            "key": "field_58de79dbbffa3",
+            "label": "Location Title 1",
+            "name": "location_title_1",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_58de79e4bffa4",
+            "label": "Location Title 2",
+            "name": "location_title_2",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         },
         {
             "key": "field_57c828748b040",
@@ -404,5 +402,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1488819252
+    "modified": 1490975293
 }
