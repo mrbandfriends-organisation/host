@@ -47,7 +47,7 @@
   
     echo Utils\ob_load_template_part('templates/components/split-feature', array(
         'align' => 'right',
-        'color' => 'grape',    
+        'color' => 'mint',    
         'content' => $main_content,
         'second' => $secondary_content
     )); 
