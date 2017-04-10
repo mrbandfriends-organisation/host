@@ -7,6 +7,12 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.16.7] - 2017-04-10
+
+### Changed
+* Client request - force all checkboard status to be based on the total number of connected buildings, not taking into account the "status" of those buildings.
+* Add Promo area to homepage
+
 ## [1.16.6] - 2017-04-03
 
 ### Fixed
