@@ -6,10 +6,14 @@
     use Roots\Sage\RoomsBuildings;
 
 
-    $available_buildings = array_filter($connected_buildings, function($building) {
-        $availability = RoomsBuildings\building_availability($building->ID);
-        return ( in_array( $availability['status'], ['coming_soon', 'available', 'limited_availability'] ) ) ? true : false;
-    });
+    // $available_buildings = array_filter($connected_buildings, function($building) {
+    //     $availability = RoomsBuildings\building_availability($building->ID);
+    //     return ( in_array( $availability['status'], ['coming_soon', 'available', 'limited_availability'] ) ) ? true : false;
+    // });
+    
+    // Client request - force all checkboard status to be based on the total number of connected buildings, not
+    // taking into account the "status" of those buildings 
+    $available_buildings = $connected_buildings;
    
 ?>
 
