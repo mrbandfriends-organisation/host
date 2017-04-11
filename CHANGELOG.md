@@ -7,6 +7,15 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+
+## [1.16.8] - 2017-04-11
+
+### Added
+* Add favicon to web route because it appears to be requested by default.
+
+### Changed
+* Re-add Promo area to homepage - work originall completed in `develop`. This may cause merge conflicts later. Be careful.
+
 ## [1.16.7] - 2017-04-10
 
 ### Changed
