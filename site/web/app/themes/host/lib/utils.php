@@ -503,3 +503,35 @@ function get_posts_for_map_markers( $data_aray = array(), $aConnectedPosts = nul
 
     }
 }
+
+
+
+/**
+ *  CHECK IF ALL ITEMS ARE EMPTY
+ *  returns true if ALL of the arguments are empty
+ *  if you need to check if ANY of the args are empty
+ *  then you need aempty() (see below)
+ */
+function mempty() {
+    foreach(func_get_args() as $arg)
+        if(empty($arg))
+            continue;
+        else
+            return false;
+    return true;
+}
+
+/**
+ *  CHECK IF ANY OF THE ITEMS ARE EMPTY
+ *  returns true if ALL of the arguments are empty
+ *  if you need to check if ANY of the args are empty
+ *  then you need aempty() (see below)
+ */
+function aempty() {
+    foreach(func_get_args() as $arg){ 
+        if(empty($arg)) {
+            return true;
+        } 
+    }
+    return false;
+}

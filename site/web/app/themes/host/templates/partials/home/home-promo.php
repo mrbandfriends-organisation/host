@@ -23,8 +23,8 @@
 
 ?>
 
-<?php if ( !Utils\aempty( $promo_title_1, $promo_title_2, $promo_content ) ) {
-  $main_content = Utils\ob_load_template_part('templates/snippets/' . $snippet, array(
+<?php if ( !Utils\aempty( $promo_title_1, $promo_title_2, $promo_content, $promo_cta_link, $promo_cta_text, $promo_cta_open_in_new_tab ) ) {
+  $main_content = Utils\ob_load_template_part('templates/snippets/home/promo.php', array(
       'title_1'             => $promo_title_1,
       'title_2'             => $promo_title_2,
       'content'             => $promo_content,
