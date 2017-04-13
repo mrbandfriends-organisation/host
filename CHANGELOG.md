@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.16.9] - 2017-04-13
+
+### Fixed
+* Ensure Home Promo will display even if CTA isn't defined. Includes optional open in new tab.
 
 ## [1.16.8] - 2017-04-11
 
