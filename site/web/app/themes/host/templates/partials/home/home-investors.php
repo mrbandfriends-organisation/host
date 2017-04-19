@@ -30,7 +30,7 @@
   $second_image = Assets\lazy_loaded_image(array(
       'src' => $investors_image,
       'alt' => $investors_image_alt,
-      'classnames' => "homepage-investors-image-hack"
+      'classnames' => "homepage-split-image-hack"
     )
   );
       

@@ -404,7 +404,7 @@
             "mime_types": ""
         },
         {
-            "key": "field_58ecab4ad6bae",
+            "key": "field_58e22b606e331",
             "label": "Promo",
             "name": "",
             "type": "tab",
@@ -420,7 +420,7 @@
             "endpoint": 0
         },
         {
-            "key": "field_58ecab55d6baf",
+            "key": "field_58e22b686e332",
             "label": "Promo Title 1",
             "name": "promo_title_1",
             "type": "text",
@@ -439,7 +439,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_58ecab5fd6bb0",
+            "key": "field_58e22b716e333",
             "label": "Promo Title 2",
             "name": "promo_title_2",
             "type": "text",
@@ -458,7 +458,7 @@
             "maxlength": ""
         },
         {
-            "key": "field_58ecab67d6bb1",
+            "key": "field_58e22b776e334",
             "label": "Promo Content",
             "name": "promo_content",
             "type": "wysiwyg",
@@ -472,12 +472,12 @@
             },
             "default_value": "",
             "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0
+            "toolbar": "full",
+            "media_upload": 1
         },
         {
-            "key": "field_58ecab7fd6bb2",
-            "label": "Promot CTA Text",
+            "key": "field_58e22ba46e335",
+            "label": "Promo CTA Text",
             "name": "promo_cta_text",
             "type": "text",
             "instructions": "",
@@ -495,8 +495,8 @@
             "maxlength": ""
         },
         {
-            "key": "field_58ecab87d6bb3",
-            "label": "Promot CTA Link",
+            "key": "field_58e22bba6e336",
+            "label": "Promo CTA Link",
             "name": "promo_cta_link",
             "type": "text",
             "instructions": "",
@@ -514,8 +514,8 @@
             "maxlength": ""
         },
         {
-            "key": "field_58ecab92d6bb4",
-            "label": "Promot CTA Open In New Tab?",
+            "key": "field_58e232b43c911",
+            "label": "Promo CTA Open In New Tab",
             "name": "promo_cta_open_in_new_tab",
             "type": "true_false",
             "instructions": "",
@@ -530,7 +530,7 @@
             "default_value": 0
         },
         {
-            "key": "field_58ecaba4d6bb5",
+            "key": "field_58e22bc46e337",
             "label": "Promo Image",
             "name": "promo_image",
             "type": "image",
@@ -573,5 +573,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1491905469
+    "modified": 1491219348
 }

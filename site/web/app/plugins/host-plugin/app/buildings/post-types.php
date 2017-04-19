@@ -42,7 +42,7 @@ class Post_Types
                  'post_type_name' => 'buildings',
                  'singular' => __( 'Building', 'host'),
                  'plural' => __( 'Buildings', 'host'),
-                 'slug' => __( 'buildings', 'host'),
+                 // 'slug' => __( 'buildings', 'host'),
              ),
              array(
                  'show_in_nav_menus' => true,
@@ -52,7 +52,10 @@ class Post_Types
                      'editor',
                      'thumbnail',
                      'page-attributes'
-                 )
+                 ),
+                'rewrite' => array(
+                    'slug' => __( 'locations/%location_name%', 'host'),
+                )
              )
          );
          $buildings->menu_icon("dashicons-building");

@@ -18,4 +18,3 @@ $cta_open_in_new_tab_attr = ( $cta_open_in_new_tab ) ? 'target="_blank"' : '';
 	<?php echo esc_html($cta_text); ?>
 </a>
 <?php endif ?>
-
