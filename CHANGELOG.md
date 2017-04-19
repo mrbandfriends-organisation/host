@@ -7,6 +7,14 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.17.0] - 2017-04-19
+
+Major restructure of Location/Building/Room url structure. Now in format: `/locations/{{location}}/{{building}}/{{room}}/`.
+
+### Added
+* Restructure URLs via custom rewrite rules and altering permalinks as required.
+* Update 301 redirects on the server to handle update.
+
 ## [1.16.9] - 2017-04-13
 
 ### Fixed
