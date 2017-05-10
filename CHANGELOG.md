@@ -7,6 +7,16 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.18.0] - 2017-05-10
+
+Upgrade of `1.17.0` to enable duplicate slugs for the individual Rooms. This is highly experimental but has been tested and appears to be solid.
+
+### Added
+* Disable standard WP restriction on duplicate slugs for “Rooms” post type only.
+* Detect all Room posts with duplicate slugs and automatically create “hard coded” rewrite rules for each.
+* Hard coded rewrite rules auto re-generated each time a “Room” post is updated.
+
+
 ## [1.17.0] - 2017-04-19
 
 Major restructure of Location/Building/Room url structure. Now in format: `/locations/{{location}}/{{building}}/{{room}}/`.
