@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.18.1] - 2017-05-10
+
+### Fixed
+* Ensure slug is always returned from `wp_unique_post_slug` otherwise you cannot update the slug __anywhere__
+
 ## [1.18.0] - 2017-05-10
 
 Upgrade of `1.17.0` to enable duplicate slugs for the individual Rooms. This is highly experimental but has been tested and appears to be solid.
