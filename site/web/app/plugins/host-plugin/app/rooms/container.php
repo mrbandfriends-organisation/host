@@ -102,7 +102,89 @@ class container
         add_filter( 'post_type_link', array( $this, 'modify_post_type_link' ), 10, 2 );
 
         add_filter( 'breadcrumb_trail_items', array( $this, 'modify_breadcrumb_items' ), 10, 2 );
-      
+
+        add_filter('generate_rewrite_rules', array( $this, 'generate_rewrite_rules' ) );
+
+        add_filter('wp_unique_post_slug', array( $this, 'allow_duplicate_slugs' ), 10, 6 );
+
+        add_action( 'post_updated', array( $this, 'flush_room_rewrite_rules' ), 10, 3 );
+        
+        
+    }
+
+
+    // public function flush_rules() {
+
+    // }
+
+
+    public function flush_room_rewrite_rules( $post_id, $post, $update ) {
+
+
+        $post_type = get_post_type($post_id);
+        
+
+        if ($post_type === 'rooms') { // if a Room post is saved we need to flush rewrite rules to regenerate all combos
+           // add_action( 'admin_init', array( $this, 'flush_rules' ) );
+           flush_rewrite_rules( false );
+        } 
+        
+    }
+
+
+    public function allow_duplicate_slugs($slug, $post_id, $post_status, $post_type, $post_parent, $original_slug) {
+        if ($post_type === "rooms") { // for Rooms allow duplicate slugs as we will generate rewrite rules for all combos
+            return $original_slug;
+        }               
+    }
+
+
+    public function generate_rewrite_rules($wp_rewrite) {
+
+        $rules = [];
+
+        // Get all the Rooms
+        $all_rooms_query = host_rooms_find_all();
+        $all_rooms = $all_rooms_query->posts; // we need the array of Posts
+
+        // Convert to array of post_slugs
+        $room_slugs = array_map(function($room) {
+            return $room->post_name;
+        }, $all_rooms);
+
+        // Count the name of times each one occurs
+        $room_slug_occurances = array_count_values($room_slugs);
+
+        // Filter to get only Posts with duplicate slugs
+        $rooms_with_duplicate_slugs = array_filter($all_rooms, function($room) use ($room_slug_occurances) {
+            return ( $room_slug_occurances[$room->post_name] > 1 );
+        });
+
+        // We need disambiguate the Rooms with duplicate slugs so WP knows how to interpret the url
+        // Get the Location and Building slug and create a rewrite rule in the format:
+        // /location/{{location_slug}}/{{building_slug}}/{{room_slug}}
+        // Then set that to resolve to a "ugly" rewrite passin the post_type and the known post ID
+        // the result is that we have "hard coded" rewrite rules in place for all posts where
+        // we know we have duplicate slugs
+        foreach ($rooms_with_duplicate_slugs as $room) {
+            
+            $connected_building = host_room_find_connected_building($room->ID);
+            
+            if ( !empty( $connected_building->post ) ) {
+                $building_id    = $connected_building->post->ID;
+                $building_slug  = $connected_building->post->post_name;
+
+                $connected_location = host_building_find_connected_location($building_id);
+
+                $location_slug = $connected_location->post->post_name;
+
+                $rules['locations/' . $location_slug . '/' . $building_slug . '/' . $room->post_name . '/?'] = 'index.php?post_type=rooms&p=' . $room->ID;
+            }             
+        }
+
+        // merge with global rules
+        $wp_rewrite->rules = $rules + $wp_rewrite->rules;
+
     }
 
 
