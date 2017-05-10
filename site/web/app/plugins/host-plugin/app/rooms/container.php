@@ -135,7 +135,9 @@ class container
     public function allow_duplicate_slugs($slug, $post_id, $post_status, $post_type, $post_parent, $original_slug) {
         if ($post_type === "rooms") { // for Rooms allow duplicate slugs as we will generate rewrite rules for all combos
             return $original_slug;
-        }               
+        }    
+
+        return $slug;           
     }
 
 
