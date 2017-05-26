@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6825e47ff12b7cd3636841e78e17eef9",
-    "content-hash": "de51fbb7019f4091137f023922b666c4",
+    "hash": "385d81bf02e98d7d9b0b4fd807939c57",
+    "content-hash": "2eb98e1fd16963a3934a5e9445343ae0",
     "packages": [
         {
             "name": "composer/installers",
@@ -621,24 +621,24 @@
             "homepage": "https://wordpress.org/plugins/wordpress-seo/"
         },
         {
-            "name": "wpackagist-plugin/zendesk",
-            "version": "1.7.0",
+            "name": "wpackagist-plugin/zopim-live-chat",
+            "version": "1.4.10",
             "source": {
                 "type": "svn",
-                "url": "https://plugins.svn.wordpress.org/zendesk/",
-                "reference": "tags/1.7.0"
+                "url": "https://plugins.svn.wordpress.org/zopim-live-chat/",
+                "reference": "tags/1.4.10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/zendesk.1.7.0.zip",
-                "reference": "tags/1.7.0",
+                "url": "https://downloads.wordpress.org/plugin/zopim-live-chat.1.4.10.zip",
+                "reference": null,
                 "shasum": null
             },
             "require": {
                 "composer/installers": "~1.0"
             },
             "type": "wordpress-plugin",
-            "homepage": "https://wordpress.org/plugins/zendesk/"
+            "homepage": "https://wordpress.org/plugins/zopim-live-chat/"
         }
     ],
     "packages-dev": [
