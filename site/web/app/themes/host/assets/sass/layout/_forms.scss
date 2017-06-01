@@ -313,11 +313,11 @@ input[type="button"] {
 
 @mixin form-select-custom() {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     background-color: #fff;
 
     select {
-        margin-bottom: 0;
+        margin-bottom: 20px;
         //padding-right: rem(40px);
     }
 

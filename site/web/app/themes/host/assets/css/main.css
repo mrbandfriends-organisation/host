@@ -851,12 +851,12 @@ input[type="button"]::-moz-focus-inner {
 
 .form-select-custom {
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   background-color: #fff;
 }
 
 .form-select-custom select {
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 .pointerevents .form-select-custom select::-ms-expand {

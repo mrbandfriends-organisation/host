@@ -1,0 +1,14 @@
+---
+- name: Update Slack
+  uri:
+    url: https://hooks.slack.com/services/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
+    method: POST
+    body: 
+      text: "I have justed deployed {{ site|title }} to the {{ env|title }} environment from the `{{ project.branch }}` branch."
+      channel: "#digital"
+      link_names: 1
+      username: "deploybot"
+      icon_emoji: ":robot_face:"
+    body_format: json
+    HEADER_Content-Type: "application/json"
+
