@@ -7,6 +7,19 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.19.0] - 2017-06-01
+
+This should have been a hotfix but commits were made to `develop` by one of the team so we elected to run a release for the sake of simplicity.
+
+### Added
+* Added `deploy_after` hook to post deployment update to Slack channel via web hooks
+
+### Changed
+* Reduce number of releases kept on server to `3` to save on disk space.
+
+### Fixed
+* Ensure validation errors displayed below `select` elements are visually positioned away from the field itself.
+
 ## [1.18.1] - 2017-05-10
 
 ### Fixed
