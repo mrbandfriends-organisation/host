@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.19.1 - 1.19.3] - 2017-06-01
+
+This release covers the process of upgrading the `johnpbloch/wordpress` composer package. It requires a very quick fix and deploy process so these hotfixes cover that process.
+
 ## [1.19.0] - 2017-06-01
 
 This should have been a hotfix but commits were made to `develop` by one of the team so we elected to run a release for the sake of simplicity.
