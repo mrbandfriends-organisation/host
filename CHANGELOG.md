@@ -7,9 +7,15 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.19.5] - 2017-06-23
+### Updated
+- Fixed roomlist hover/focus styles
+- Fixed new page Ajax loaded posts from including draft posts
+
 ## [1.19.4] - 2017-06-23
+### Updated
 - Updated footer with new UCAS mark
-- Updated staging site IP 
+- Updated staging site IP
 
 
 ## [1.19.1 - 1.19.3] - 2017-06-01
