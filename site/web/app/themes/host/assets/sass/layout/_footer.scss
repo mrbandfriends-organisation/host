@@ -185,23 +185,15 @@
 .footer-marks {
     display: flex;
     justify-content: flex-start;
-
     margin-top: rem(50);
 
     @include mq(medium) {
         justify-content: flex-end;
+        margin-right: 7.2%;
     }
 
     @include mq(xlarge) {
-        margin: 0;
-    }
-
-    .svg-icon {
-
-        &.svg-icon--mark {
-            height: rem(67);
-            width:  rem(107);
-        }
+        margin-top: 0;
     }
 
     a { display: block; }
@@ -227,6 +219,37 @@
         }
     }
 }
+
+
+ul.footer-certifications { margin: 0 0 0 -#{$spacing-unit}; }
+
+
+.footer-certifications__item {
+    @include inline-block;
+    float: none;
+    margin-left: $spacing-unit;
+
+    @include mq($until: 500px) { &:not(:last-of-type) { margin-bottom: $half-spacing-unit; } }
+}
+
+.footer-certifications__icon {
+
+    &--national-code {
+        height: 67px;
+        width: 107px;
+    }
+
+    &--ucas-mark {
+        height: 64px;
+        width: 200px;
+
+        @include mq(small) {
+            height: 80px;
+            width: 260px;
+        }
+    }
+}
+
 
 
 // ==========================================================================

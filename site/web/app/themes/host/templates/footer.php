@@ -23,6 +23,20 @@
             <?php get_template_part('templates/partials/footer-nav'); ?>
         </div>
 
+        <div class="footer__section footer__nav">
+            <ul class="footer-certifications">
+                <li class="footer-certifications__item">
+                    <a href="http://www.nationalcode.org" class="" <?php Extras\link_open_new_tab_attrs() ?>>
+                        <?= Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'national-code', 'classnames' => 'footer-certifications__icon--national-code svg-icon--mark svg-icon--white' ]); ?>
+                    </a>
+                </li>
+
+                <li class="footer-certifications__item">
+                    <?= Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'ucas-mark', 'classnames' => 'footer-certifications__icon--ucas-mark  svg-icon--mark svg-icon--white' ]); ?>
+                </li>
+            </ul>
+        </div>
+
         <div class="footer__section footer__final">
             <?php get_template_part('templates/partials/footer-utilities'); ?>
 
@@ -51,12 +65,6 @@
                             </a>
                         </li>
                     <?php endif; ?>
-
-                    <li class="footer-marks__item -large">
-                        <a href="http://www.nationalcode.org" class="footer-marks__link -large" <?php Extras\link_open_new_tab_attrs() ?>>
-                            <?php echo Utils\ob_load_template_part('templates/partials/shared/icon', [ 'icon' => 'national-code', 'classnames' => 'svg-icon--mark svg-icon--white' ]); ?>
-                        </a>
-                    </li>
                 </ul>
             </nav>
         </div>
