@@ -4823,6 +4823,7 @@ a.btn {
 
 .room-list-nav {
   margin-top: 1.875rem;
+  overflow: hidden;
   padding: 1.875rem;
 }
 
