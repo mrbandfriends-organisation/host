@@ -15,7 +15,8 @@ function ajax_load_post_query( $options = array() ) {
         'posts_per_page' => 6,
         'post_type'      => 'post',
         'order'          => 'ASC',
-        'orderby'        => 'date'
+        'orderby'        => 'date',
+        'post_status'    => 'publish'
     );
 
     $options = array_merge($defaults, (array)$options);
@@ -25,7 +26,8 @@ function ajax_load_post_query( $options = array() ) {
         'posts_per_page'    => $options['posts_per_page'],
         'post_type'         => $options['post_type'],
         'order'             => $options['order'],
-        'orderby'           => $options['orderby']
+        'orderby'           => $options['orderby'],
+        'post_status'       => $options['post_status']
     );
 
     // 2. query
@@ -54,6 +56,7 @@ function load_posts() {
        'order'          => $order,
        'orderBy'        => $orderBy
    ));
+
 
    $result = Utils\ob_load_template_part('templates/partials/listing/article-loop.php', array(
        'query' => $query

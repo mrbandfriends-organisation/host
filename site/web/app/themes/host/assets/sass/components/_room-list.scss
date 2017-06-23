@@ -38,6 +38,7 @@
 // ==========================================================================
 .room-list-nav {
     margin-top: rem(30);
+    overflow: hidden;
     padding:    rem(30);
 
     @include mq(large) {
@@ -49,10 +50,20 @@
 // .room-list-nav__list {}
 
 .room-list-nav__item {
-    position: relative;
-    transition: all ease-in-out 0.2s;
+    border: 0;
+    padding: 0;
+}
 
-    &:after {
+// `a` has been added to overdie MORRIBUND `.box a` selector
+a.room-list-nav__link {
+    border-bottom: solid 1px rgba(#000, 0.3);
+    color: brand(ink);
+    transition: all ease-in-out 0.2s;
+    padding: 10px 0;
+    position: relative;
+    width: 100%;
+
+    &:before {
         position: absolute;
         content: "";
         background-color: transparent;
@@ -69,27 +80,15 @@
         }
     }
 
-
-    &:hover {
+    &:hover,
+    &:focus {
         border-bottom-color: #fff;
-        cursor: pointer;
+        color: #fff;
+        text-decoration: none;
 
-        &:after {
+        &:before {
             opacity: 1;
         }
-
-        a.room-list-nav__link {
-            color: #fff;
-        }
-    }
-}
-
-a.room-list-nav__link {
-    color: brand(ink);
-    transition: all ease-in-out 0.2s;
-
-    &:hover {
-        text-decoration: none;
     }
 }
 
