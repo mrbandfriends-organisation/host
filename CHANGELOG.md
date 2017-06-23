@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.19.4] - 2017-06-23
+- Updated footer with new UCAS mark
+- Updated staging site IP 
+
+
 ## [1.19.1 - 1.19.3] - 2017-06-01
 
 This release covers the process of upgrading the `johnpbloch/wordpress` composer package. It requires a very quick fix and deploy process so these hotfixes cover that process.
@@ -109,7 +114,7 @@ Major restructure of Location/Building/Room url structure. Now in format: `/loca
 * Correct layout on In page nav - https://basecamp.com/1926511/projects/10607057/todos/295438609
 
 ### Changed
-* Remove red tint on checkboard images. 
+* Remove red tint on checkboard images.
 * Allow user to select a custom checkboard image on a per Location basis (see above)
 * Featured Building upgrade. Ability to use custom content or select an existing building  - https://basecamp.com/1926511/projects/10607057/todos/297758419
 * Update page anchor from `#details` to `#facilities`
@@ -130,7 +135,7 @@ Major restructure of Location/Building/Room url structure. Now in format: `/loca
 
 ### Added
 - All "Show Flat" as option to map filter/types
-- Add optional Building level Social links 
+- Add optional Building level Social links
 - Add new page anchor IDs as requested by client
 
 ### Changed
