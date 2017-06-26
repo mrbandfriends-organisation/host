@@ -103,7 +103,7 @@ class container
 
         add_filter( 'breadcrumb_trail_items', array( $this, 'modify_breadcrumb_items' ), 10, 2 );
 
-        add_filter('generate_rewrite_rules', array( $this, 'generate_rewrite_rules' ) );
+        add_filter('generate_rewrite_rules', array( $this, 'generate_rewrite_rules' ), 10 );
 
         add_filter('wp_unique_post_slug', array( $this, 'allow_duplicate_slugs' ), 10, 6 );
 
@@ -185,7 +185,9 @@ class container
         }
 
         // merge with global rules
-        $wp_rewrite->rules = $rules + $wp_rewrite->rules;
+        // with custom rules LAST so that normal rules overtake them
+        // otherwise it does not work as you would expect/want
+        $wp_rewrite->rules = $wp_rewrite->rules + $rules;
 
     }
 
