@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.20.1] - 2017-06-26
+### Updated
+- Spritesheet to a new version name so the file is "busted" on the server cache
+
 ## [1.20.0] - 2017-06-26
 ### Fixed
 - Fixes SEO title not working. Incorrect room Post was being returned. This fixes that.
