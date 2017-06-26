@@ -45,7 +45,7 @@ var bpm = require('breakpoint-tools');
 
     var SVGSpritemapLoader = require('svg-spritemap-loader.js');
 
-    new SVGSpritemapLoader( LOCALISED_VARS.stylesheet_directory_uri + '/assets/svg/sprites/output/spritesheet.svg');
+    new SVGSpritemapLoader( LOCALISED_VARS.stylesheet_directory_uri + '/assets/svg/sprites/output/spritesheet-v2.svg');
 }());
 
 
@@ -170,7 +170,7 @@ var bpm = require('breakpoint-tools');
 
 /**
  * PANORAMA LIGHTBOX
- * 
+ *
  */
 (function() {
     $(window).on('load',function() {
@@ -326,7 +326,7 @@ var bpm = require('breakpoint-tools');
  * FORCE SCROLL TO ANCHORS
  * lazy loading of images causes lots of inaccurate scrolling when
  * the browser is handling in page anchors. This typically only effects
- * the initial page load. The following caters for this by manually 
+ * the initial page load. The following caters for this by manually
  * scrolling the page to the intended target under all circumstances
  * once the page has fully loaded
  */
@@ -335,7 +335,7 @@ var bpm = require('breakpoint-tools');
         var hash = window.location.hash;
 
         if ( hash.length ) {
-            var target = $(hash.toLowerCase());            
+            var target = $(hash.toLowerCase());
 
             if (target.length) {
                 setTimeout(function() { // force scroll to happen
