@@ -7,8 +7,12 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.20.2] - 2017-06-27
+### Fixed
+- Revert SEO title fix to rewrite rules as this caused breaking knock on effects
+
 ## [1.20.1] - 2017-06-26
-### Updated
+### Changed
 - Spritesheet to a new version name so the file is "busted" on the server cache
 
 ## [1.20.0] - 2017-06-26
@@ -16,12 +20,12 @@ For more information about keeping good change logs please refer to [keep a chan
 - Fixes SEO title not working. Incorrect room Post was being returned. This fixes that.
 
 ## [1.19.5] - 2017-06-23
-### Updated
+### Changed
 - Fixed roomlist hover/focus styles
 - Fixed new page Ajax loaded posts from including draft posts
 
 ## [1.19.4] - 2017-06-23
-### Updated
+### Changed
 - Updated footer with new UCAS mark
 - Updated staging site IP
 

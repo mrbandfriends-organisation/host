@@ -187,8 +187,7 @@ class container
         // merge with global rules
         // with custom rules LAST so that normal rules overtake them
         // otherwise it does not work as you would expect/want
-        $wp_rewrite->rules = $wp_rewrite->rules + $rules;
-
+        $wp_rewrite->rules = $rules + $wp_rewrite->rules;
     }
 
 
