@@ -180,7 +180,7 @@ class container
 
                 $location_slug = $connected_location->post->post_name;
 
-                $rules['locations/' . $location_slug . '/' . $building_slug . '/' . $room->post_name . '/?'] = 'index.php?post_type=rooms&p=' . $room->ID;
+                $rules['locations/' . $location_slug . '/' . $building_slug . '/' . $room->post_name . '/?$'] = 'index.php?post_type=rooms&p=' . $room->ID;
             }             
         }
 
@@ -270,7 +270,7 @@ class container
         add_rewrite_rule('locations/[0-9A-Za-z-]+/[0-9A-Za-z-]+/documents/([0-9A-Za-z-_.]+)/?', 'index.php?custom_attachment_name=$matches[1]&custom_attachment_type=room', 'top');
         
         // Single ROOM - the most specific rule **must** be first...
-        add_rewrite_rule('locations/[0-9A-Za-z-]+/[0-9A-Za-z-]+/([0-9A-Za-z-]+)/?', 'index.php?rooms=$matches[1]', 'top');
+        add_rewrite_rule('locations/[0-9A-Za-z-]+/[0-9A-Za-z-]+/([0-9A-Za-z-]+)/?$', 'index.php?rooms=$matches[1]', 'top');
 
         // Single BUILDING - less specific rules last
         add_rewrite_rule('locations/[0-9A-Za-z-]+/([0-9A-Za-z-]+)/?', 'index.php?buildings=$matches[1]', 'top');
