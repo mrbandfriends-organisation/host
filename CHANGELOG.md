@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.21.0] - 2017-07-06
+### Fixed
+- Stub Room rewrites with end of string char to fix SEO title breaking issue Previous commits tried to resolve this issue by reversing the order of rewrites. That broke everything. This solution ensures that the rewrites match only the exact room slug and not when that room slug appears within another room slug (eg: /studio/ vs /studio-ultra-plus/). BC ticket: https://basecamp.com/1926511/projects/10607057/todos/313421833
+
 ## [1.20.2] - 2017-06-27
 ### Fixed
 - Revert SEO title fix to rewrite rules as this caused breaking knock on effects
