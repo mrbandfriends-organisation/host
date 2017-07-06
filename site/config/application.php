@@ -78,7 +78,7 @@ define('DISALLOW_FILE_EDIT', true);
 // is used for the "Add to Waiting List" option. Changing this value will
 // break critical functionality. 
 define('WAITING_LIST_FIELD', 'Add to Waiting List');
-
+define('GMAPS_API_KEY', 'AIzaSyCu22aJZ7urrk5JdvR_CFzODViIZiNiwrs'); // apikeys@mrbandfriends.co.uk
 
 /*
  * Bootstrap WordPress
