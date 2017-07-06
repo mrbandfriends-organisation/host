@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.21.2] - 2017-07-06
+### Fixed
+- Ensure we have acutally removed the GMAPS API key constant from Production env config as it's now in Application wide config.
+
 ## [1.21.1] - 2017-07-06
 ### Changed
 - Update Google Maps API to fresh version from `apikeys@mrbandfriends.co.uk`
