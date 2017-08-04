@@ -250,7 +250,7 @@ add_filter('style_loader_src', __NAMESPACE__.'\\bust_caching');
      }
      if (count($aSrcset) > 0)
      {
-         $aAttr['srcset']       = join(', ', $aSrcset);
+         $aAttr['srcset']           = join(', ', $aSrcset);
          $aAttr['data-legacy-src']  = $legacySrc[0]; // get the biggest size
      }
      unset($aSrcset);
