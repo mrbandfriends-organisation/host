@@ -30,7 +30,7 @@ function GMaps()
     //     isDraggable = true
     // }
 
-    isDraggable = true
+    isDraggable = true;
 
     // config
     var defaults = {
@@ -177,7 +177,7 @@ function GMaps()
 
         // 5. Ensuring that all buidling pins are at the front
         if( oDefinition !== undefined && oIconMap[oPlace.type] === 'red' ) {
-            oDefinition.zIndex = 10000
+            oDefinition.zIndex = 10000;
         }
 
         // 6. draw the marker and place it in bounds

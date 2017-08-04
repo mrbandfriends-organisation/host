@@ -36,8 +36,14 @@ RImgBg.prototype.init = function() {
         // Grab the first image which has a srcset
         var targetImg = $this.children('[srcset]').eq(0);
 
+        if (!targetImg[0]) {
+            return;
+        }
+
+
         // Grab the currentSrc from the src set
-        var currentSrc = targetImg[0].currentSrc || targetImg[0].src;
+        var currentSrc = targetImg[0].currentSrc || targetImg.data('ie-src') || targetImg[0].src;
+
 
         // Set the CSS background via inline style
         self._setBgImg($this, currentSrc);
