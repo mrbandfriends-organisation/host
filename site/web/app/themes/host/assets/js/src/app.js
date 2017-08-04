@@ -71,7 +71,11 @@ var bpm = require('breakpoint-tools');
  */
 (function() {
     var RImgBg = require('rimg-bg.js');
-    new RImgBg('.js-rimgbg');
+    
+    // Wait for the load event
+    $(window).on('load', function() {
+        new RImgBg('.js-rimgbg');
+    });
 }());
 
 /**
