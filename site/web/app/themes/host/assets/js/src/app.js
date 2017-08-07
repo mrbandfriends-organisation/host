@@ -1,3 +1,4 @@
+/* global LOCALISED_VARS, google */
 "use strict";
 
 /**
