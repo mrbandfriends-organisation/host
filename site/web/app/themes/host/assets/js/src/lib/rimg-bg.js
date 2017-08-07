@@ -44,12 +44,12 @@ RImgBg.prototype.init = function() {
         // Grab the currentSrc from the src set
         var currentSrc = "";
         
-        if (targetImg.attr('currentSrc') !== undefined) {
-            currentSrc = targetImg.attr('currentSrc');
+        if (targetImg[0].currentSrc !== undefined) {
+            currentSrc = targetImg[0].currentSrc;
         } else if (targetImg.data('legacy-src') !== undefined) {
             currentSrc = targetImg.data('legacy-src');
         } else {
-            currentSrc = targetImg.attr('src');
+            currentSrc = targetImg[0].src;
         }
 
 
