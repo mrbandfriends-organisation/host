@@ -52,7 +52,7 @@
                         <li class="slideshow__item js-slideshow__item box--blue js-rimgbg">
                             <?= // This is for the main background image
                                 Assets\get_responsive_image($photo_2_id, array(
-                                    'wpthumb' => 'jpeg_quality=100'                                    
+                                    //'wpthumb' => 'jpeg_quality=100'                                    
                                 ));
                             ?>
 

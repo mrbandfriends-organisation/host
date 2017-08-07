@@ -425,7 +425,7 @@ function get_post_thumb_data( $post_id, $size='full' ) {
 
 function cdnify($asset_path)
 {
-    if (WP_ENV !== 'development' && function_exists('get_rocket_cdn_url')) {
+    if (WP_ENV === 'production' && function_exists('get_rocket_cdn_url')) {
         return get_rocket_cdn_url($asset_path);
     } else {
         return $asset_path;

@@ -209,7 +209,7 @@ add_filter('style_loader_src', __NAMESPACE__.'\\bust_caching');
      // 3.5 - get a valid src either from the attachment or using the src if this has been passed directly
      if ( !absint( $image_ref ) || ( get_post_type( $image_ref ) !== 'attachment' ) ) {
          $is_direct_src = true;
-         $aAttr['src'] = $image_ref; // it's a direct image src already
+         $aAttr['src'] = Utils\cdnify($image_ref); // it's a direct image src already
          $aAttr['alt'] = $aConf['alt'];
      } else {
          $is_direct_src = false;
@@ -239,11 +239,13 @@ add_filter('style_loader_src', __NAMESPACE__.'\\bust_caching');
          // c. call out
          if ($is_direct_src) {
             $wpThumbCall    = wpthumb($image_ref, $sDim);
+            $wpThumbCall    = Utils\cdnify($wpThumbCall);
             $aSrcset[]      = $wpThumbCall . " {$iSize}w";
-            $legacySrc[]        = $wpThumbCall;
+            $legacySrc[]    = $wpThumbCall;
          } else {     
 
             $getAttachCall  = wp_get_attachment_image_url($image_ref, $sDim);
+            $getAttachCall  = Utils\cdnify($getAttachCall);
             $aSrcset[]      = $getAttachCall . " {$iSize}w";
             $legacySrc[]    = $getAttachCall;
          }
