@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.22.1] - 2017-08-07
+### Fixed
+- Reduce quality setting on Rooms images to stop overloading server
+- Ensure all `wpthumb` calls are CDNified.
+
 ## [1.22.0] - 2017-08-07
 ### Fixed
 - Set high res fallback image for legacy browsers which cannot interprety `srcset`. Previously legacy were receiving the `src` which was tiny.
