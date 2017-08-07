@@ -7,6 +7,12 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.22.0] - 2017-08-07
+### Fixed
+- Set high res fallback image for legacy browsers which cannot interprety `srcset`. Previously legacy were receiving the `src` which was tiny.
+- Remove unwanted `console.log`
+- Fix linting warnings
+
 ## [1.21.2] - 2017-07-06
 ### Fixed
 - Ensure we have acutally removed the GMAPS API key constant from Production env config as it's now in Application wide config.

@@ -35,6 +35,30 @@ function enableSwipe(el, options)
     }
 
     /**
+     * TouchMove handler
+     */
+    function fnTouchMove(ev)
+    {
+        // 1. get touch position
+        var oTouch = ev.touches[0];
+
+        // 2. store current position
+        oEnd = {
+            position: { x: oTouch.pageX, y: oTouch.pageY },
+            time:     new Date().getTime()
+        };
+
+        // 3. if we’ve moved far enough, cancel any scrolling
+        if (Math.abs(oStart.position.x - oEnd.position.x) > options.iSuppressScrollAfter)
+        {
+            ev.preventDefault();
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
      * TouchEnd handler
      */
     function fnTouchEnd(ev)
@@ -67,29 +91,7 @@ function enableSwipe(el, options)
         oEnd   = null;
     }
 
-    /**
-     * TouchMove handler
-     */
-    function fnTouchMove(ev)
-    {
-        // 1. get touch position
-        var oTouch = ev.touches[0];
-
-        // 2. store current position
-        oEnd = {
-            position: { x: oTouch.pageX, y: oTouch.pageY },
-            time:     new Date().getTime()
-        };
-
-        // 3. if we’ve moved far enough, cancel any scrolling
-        if (Math.abs(oStart.position.x - oEnd.position.x) > options.iSuppressScrollAfter)
-        {
-            ev.preventDefault();
-            return false;
-        }
-
-        return true;
-    }
+    
 
     /**
      * TouchStart handler

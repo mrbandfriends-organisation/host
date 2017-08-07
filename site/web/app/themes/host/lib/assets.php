@@ -238,14 +238,20 @@ add_filter('style_loader_src', __NAMESPACE__.'\\bust_caching');
 
          // c. call out
          if ($is_direct_src) {
-             $aSrcset[] = wpthumb($image_ref, $sDim)." {$iSize}w";
-         } else {
-             $aSrcset[] = wp_get_attachment_image_url($image_ref, $sDim)." {$iSize}w";
+            $wpThumbCall    = wpthumb($image_ref, $sDim);
+            $aSrcset[]      = $wpThumbCall . " {$iSize}w";
+            $legacySrc[]        = $wpThumbCall;
+         } else {     
+
+            $getAttachCall  = wp_get_attachment_image_url($image_ref, $sDim);
+            $aSrcset[]      = $getAttachCall . " {$iSize}w";
+            $legacySrc[]    = $getAttachCall;
          }
      }
      if (count($aSrcset) > 0)
      {
-         $aAttr['srcset'] = join(', ', $aSrcset);
+         $aAttr['srcset']           = join(', ', $aSrcset);
+         $aAttr['data-legacy-src']  = $legacySrc[0]; // get the biggest size
      }
      unset($aSrcset);
 

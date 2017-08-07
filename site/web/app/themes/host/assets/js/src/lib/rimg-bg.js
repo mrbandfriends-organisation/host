@@ -28,16 +28,30 @@ var RImgBg = function( selector ) {
 
 RImgBg.prototype.init = function() {
     var self = this;
-
     this.$selector.each(function() {
 
         var $this = $(this);
 
         // Grab the first image which has a srcset
-        var targetImg = $this.children('[srcset]').eq(0);
+        var targetImg = $this.children('img').eq(0);
+       
+        
+        if (targetImg === undefined) {
+            return;
+        }
+
 
         // Grab the currentSrc from the src set
-        var currentSrc = targetImg[0].currentSrc || targetImg[0].src;
+        var currentSrc = "";
+        
+        if (targetImg[0].currentSrc !== undefined) {
+            currentSrc = targetImg[0].currentSrc;
+        } else if (targetImg.data('legacy-src') !== undefined) {
+            currentSrc = targetImg.data('legacy-src');
+        } else {
+            currentSrc = targetImg[0].src;
+        }
+
 
         // Set the CSS background via inline style
         self._setBgImg($this, currentSrc);

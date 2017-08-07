@@ -325,7 +325,7 @@ function FavouriteManager()
 
     function removeCookie()
     {
-        Cookies.remove('favourites')
+        Cookies.remove('favourites');
      }
 
     /**

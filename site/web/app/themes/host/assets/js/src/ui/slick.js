@@ -62,7 +62,7 @@ module.exports = function()
         
         var carousel        = $('.js-slick-header-carousel');
         var shouldShuffle   = carousel.data('shuffle');
-        var slides          = carousel.find('.js-slick-header-carousel-slide')
+        var slides          = carousel.find('.js-slick-header-carousel-slide');
 
         if (shouldShuffle) { // if marked as ranomise in CMS then shuffle the slides prior to init slick
             slides.shuffle();
@@ -83,4 +83,4 @@ module.exports = function()
             ]
         });
     }());
-}
+};

@@ -31,7 +31,6 @@
      */
     var handleClick = function(link, index) {
       link.addEventListener('click', function(e) {
-        console.log(this);
         e.preventDefault();
         goToTab(index);
       });
@@ -41,7 +40,7 @@
         var hash = window.location.hash;
         
         if (hash !== undefined) {     
-            console.log(hash.toLowerCase());  
+
             var el = $('a[href^="' + hash.toLowerCase() + '"]');
 
             if (el) {
