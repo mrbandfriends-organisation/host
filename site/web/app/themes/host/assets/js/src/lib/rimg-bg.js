@@ -39,22 +39,24 @@ RImgBg.prototype.init = function() {
         if (targetImg === undefined) {
             return;
         }
+            // Grab the currentSrc from the src set
+            var currentSrc = "";
 
-
-        // Grab the currentSrc from the src set
-        var currentSrc = "";
-        
-        if (targetImg[0].currentSrc !== undefined) {
-            currentSrc = targetImg[0].currentSrc;
-        } else if (targetImg.data('legacy-src') !== undefined) {
-            currentSrc = targetImg.data('legacy-src');
-        } else {
-            currentSrc = targetImg[0].src;
-        }
+        $this.parent().imagesLoaded( function() {
+            
+            if (targetImg[0].currentSrc !== undefined) {
+                currentSrc = targetImg[0].currentSrc;
+            } else if (targetImg.data('legacy-src') !== undefined) {
+                currentSrc = targetImg.data('legacy-src');
+            } else {
+                currentSrc = targetImg[0].src;
+            }
 
 
         // Set the CSS background via inline style
         self._setBgImg($this, currentSrc);
+            
+        });
 
         // Remove the original image from the DOM
         targetImg.hide();
