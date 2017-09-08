@@ -42,7 +42,7 @@ RImgBg.prototype.init = function() {
             // Grab the currentSrc from the src set
             var currentSrc = "";
 
-        $this.parent().imagesLoaded( function() {
+        $this.parent().imagesLoaded( { background: true }, function() {
             
             if (targetImg[0].currentSrc !== undefined) {
                 currentSrc = targetImg[0].currentSrc;
@@ -52,9 +52,8 @@ RImgBg.prototype.init = function() {
                 currentSrc = targetImg[0].src;
             }
 
-
-        // Set the CSS background via inline style
-        self._setBgImg($this, currentSrc);
+            // Set the CSS background via inline style
+            self._setBgImg($this, currentSrc);
             
         });
 
