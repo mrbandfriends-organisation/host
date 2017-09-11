@@ -44,16 +44,16 @@ RImgBg.prototype.init = function() {
         }
             // Grab the currentSrc from the src set
             var currentSrc = "";
-            console.log(targetImg[0].currentSrc);
 
+        // imagesLoaded is a plugin that fires events when an element's child images load.
+        // This event will set the  background source only after the images are loaded.
         imagesLoaded( $this[0], function(){
-            console.log('images loaded');
 
+            // Under certain network conditions, currentSrc was set to be an empty string. This check falls back to legacy-src if the string is empty.
             if (targetImg[0].currentSrc !== undefined && targetImg[0].currentSrc !== '') {
                 currentSrc = targetImg[0].currentSrc;
             } else if (targetImg.data('legacy-src') !== undefined) {
                 currentSrc = targetImg.data('legacy-src');
-                console.warn('Using Legacy source: ' + currentSrc);
             } else {
                 currentSrc = targetImg[0].src;
             }
@@ -61,9 +61,6 @@ RImgBg.prototype.init = function() {
             // Set the CSS background via inline style
             self._setBgImg($this, currentSrc);
         })
-        // $this.imagesLoaded( function() {
-            
-        // });
 
         // Remove the original image from the DOM
         targetImg.hide();
