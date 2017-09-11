@@ -49,7 +49,7 @@ RImgBg.prototype.init = function() {
         imagesLoaded( $this[0], function(){
             console.log('images loaded');
 
-            if (targetImg[0].currentSrc !== undefined) {
+            if (targetImg[0].currentSrc !== undefined && targetImg[0].currentSrc !== '') {
                 currentSrc = targetImg[0].currentSrc;
             } else if (targetImg.data('legacy-src') !== undefined) {
                 currentSrc = targetImg.data('legacy-src');
