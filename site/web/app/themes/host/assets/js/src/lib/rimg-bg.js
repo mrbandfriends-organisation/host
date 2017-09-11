@@ -12,6 +12,9 @@
  * background: no-repeat 50% 50%; background-size: cover;
  */
 
+// imagesloaded: Fires event when an image loads. Used for fixing background images not being sourced in carousels.
+var imagesLoaded = require('imagesloaded');
+
 var RImgBg = function( selector ) {
     "use strict";
 
@@ -42,8 +45,9 @@ RImgBg.prototype.init = function() {
             // Grab the currentSrc from the src set
             var currentSrc = "";
 
-        $this.imagesLoaded( function() {
-            
+        imagesLoaded( $this[0], function(){
+            console.log('images loaded');
+
             if (targetImg[0].currentSrc !== undefined) {
                 currentSrc = targetImg[0].currentSrc;
             } else if (targetImg.data('legacy-src') !== undefined) {
@@ -54,8 +58,10 @@ RImgBg.prototype.init = function() {
 
             // Set the CSS background via inline style
             self._setBgImg($this, currentSrc);
+        })
+        // $this.imagesLoaded( function() {
             
-        });
+        // });
 
         // Remove the original image from the DOM
         targetImg.hide();

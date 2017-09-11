@@ -25,9 +25,6 @@ Promise._immediateFn = setAsap;
 // Breakpoint Manager
 var bpm = require('breakpoint-tools');
 
-// imagesloaded: Fires event when an image loads. Used for fixing background images not being sourced in carousels.
-require('imagesloaded.js');
-
 
 /**
  * GOGGLE EVENT TRACKINGd

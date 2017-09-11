@@ -6,11 +6,6 @@
   "engines": {
     "node": ">=5.8.0"
   },
-  "scripts": {
-    "postinstall": [
-      "composer update && bundle install"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git@mrbandfriends.git.beanstalkapp.com:/mrbandfriends/mrb-wordpress-theme.git"
