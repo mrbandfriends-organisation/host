@@ -4,6 +4,8 @@
  * MIT License
  */
 
+ /* jshint ignore:start */
+
 ( function( window, factory ) { 'use strict';
   // universal module definition
 
@@ -368,3 +370,5 @@ ImagesLoaded.makeJQueryPlugin();
 return ImagesLoaded;
 
 });
+
+/* jshint ignore:end */
