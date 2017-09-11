@@ -53,6 +53,7 @@ RImgBg.prototype.init = function() {
                 currentSrc = targetImg[0].currentSrc;
             } else if (targetImg.data('legacy-src') !== undefined) {
                 currentSrc = targetImg.data('legacy-src');
+                console.warn('Using Legacy source: ' + currentSrc);
             } else {
                 currentSrc = targetImg[0].src;
             }
