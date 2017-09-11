@@ -44,10 +44,10 @@ RImgBg.prototype.init = function() {
         }
             // Grab the currentSrc from the src set
             var currentSrc = "";
+            console.log(targetImg[0].currentSrc);
 
         imagesLoaded( $this[0], function(){
             console.log('images loaded');
-            console.log(targetImg[0].currentSrc);
 
             if (targetImg[0].currentSrc !== undefined) {
                 currentSrc = targetImg[0].currentSrc;
