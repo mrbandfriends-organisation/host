@@ -7,6 +7,13 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.23.0] - 2017-09-22
+### Fixed
+- Fix in `rimg-bg.js`:
+-- Image source was being set before the correct source was selected, resulting in an empty source for `background-image`.
+-- To fix this, the plugin `images-loaded` has been implemented, which waits for the image to load before setting it.
+-- We have also added a check for an empty `src` - if it's empty, we fall back to the legacy source.
+
 ## [1.22.1] - 2017-08-07
 ### Fixed
 - Reduce quality setting on Rooms images to stop overloading server
