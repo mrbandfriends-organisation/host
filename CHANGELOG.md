@@ -9,6 +9,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## [1.23.0] - 2017-09-22
 ### Fixed
+- Removed the `images-loaded` plugin as it was causing Room carousel images to not load.
+
+## [1.23.0] - 2017-09-22
+### Fixed
 - Fix in `rimg-bg.js`:
 -- Image source was being set before the correct source was selected, resulting in an empty source for `background-image`.
 -- To fix this, the plugin `images-loaded` has been implemented, which waits for the image to load before setting it.
