@@ -102,7 +102,7 @@ function banner_nav_language_switcher($nav, $args)
 
     // Currently footer utils menu doesnt have a string name just it's ID
     if ($args->menu == 6) {
-        return $nav.'<li class="menu-item menu-item--banner-language-switcher">'.do_shortcode('[mrb_google_translate id="google-translate-target-large"]').'</li>';
+        return $nav. Utils\ob_load_template_part('templates/menus/language-menu',    ['modifier' => 'banner']);
     }
 
     return $nav;

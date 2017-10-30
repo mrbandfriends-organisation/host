@@ -30,6 +30,13 @@ if( function_exists('acf_add_options_page') ) {
 	));
 
 	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Language Settings',
+		'menu_title'	=> 'Language Settings',
+		'parent_slug'	=> 'site-options',
+		'autoload' 		=> false,
+	));
+
+	acf_add_options_sub_page(array(
 		'page_title' 	=> 'StarRez Settings',
 		'menu_title'	=> 'StarRez Settings',
 		'parent_slug'	=> 'site-options',
