@@ -112,8 +112,9 @@ var bpm = require('breakpoint-tools');
 
 
 /**
- * Language Switcher 
- * 
+ * LANGUAGE SWITCHER 
+ * Detect value change in language menu. 
+ * Redirect user to the URL of that value.
  */
 (function() {
     $('.js-language-switcher').on('change', function() {

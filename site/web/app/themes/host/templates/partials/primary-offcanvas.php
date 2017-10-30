@@ -17,7 +17,7 @@
     </div>
 
     <div class="primary-offcanvas__section primary-offcanvas__language-changer js-offcanvas-language-changer">
-        <?php echo do_shortcode('[mrb_google_translate id="google-translate-target-small"]');  ?>
+        <?php echo Utils\ob_load_template_part('templates/menus/language-menu--offcanvas'); ?>
     </div>
 
     <div class="primary-offcanvas__section">

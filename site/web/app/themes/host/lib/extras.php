@@ -102,7 +102,7 @@ function banner_nav_language_switcher($nav, $args)
 
     // Currently footer utils menu doesnt have a string name just it's ID
     if ($args->menu == 6) {
-        return $nav. Utils\ob_load_template_part('templates/menus/language-menu',    ['modifier' => 'banner']);
+        return $nav. Utils\ob_load_template_part('templates/menus/language-menu');
     }
 
     return $nav;
