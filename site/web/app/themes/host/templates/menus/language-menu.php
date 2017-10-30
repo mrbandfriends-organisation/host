@@ -2,8 +2,8 @@
 
 <?php if (!empty($languages)) : ?>
     <li class="menu-item menu-item--banner-language-switcher">
-        <div id="google-translate-target-large">
-            <select>
+        <div>
+            <select class="js-language-switcher">
                 <option value>Select Language</option>
                 <?php foreach ($languages as $language) : ?>
 
