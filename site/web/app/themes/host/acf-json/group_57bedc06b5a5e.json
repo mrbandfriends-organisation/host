@@ -458,6 +458,25 @@
                     "maxlength": ""
                 },
                 {
+                    "key": "field_59f7494f2b57a",
+                    "label": "Simple Price Per Week Heading",
+                    "name": "price_per_week_heading",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "Rent amount Per week:",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
                     "key": "field_57befeafe6df1",
                     "label": "Simple - Price per week",
                     "name": "price_per_week",
@@ -594,5 +613,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1488888871
+    "modified": 1509378861
 }
