@@ -16,9 +16,10 @@
 
             <?php foreach ($pricing_options as $pricing_option): ?>
                 <?php
-                    $simple_weeks   = $pricing_option['number_of_weeks'];
-                    $date_range     = $pricing_option['date_range'];
-                    $price_per_week = $pricing_option['price_per_week'];
+                    $simple_weeks           = $pricing_option['number_of_weeks'];
+                    $date_range             = $pricing_option['date_range'];
+                    $price_per_week_heading = $pricing_option['price_per_week_heading'];
+                    $price_per_week         = $pricing_option['price_per_week'];
                 ?>
                 <ul class="pricing__lisiting grid grid--gutter">
                     <li class="gc l1-3 pricing__lisiting-item pricing__lisiting-item--photo">
@@ -65,7 +66,7 @@
                     <li class="gc l1-3 pricing__lisiting-item">
                         <div class="pricing-header">
                             <h4 class="pricing-header__heading plain">
-                                Rent amount Per week:
+                                <?php echo esc_html($price_per_week_heading);?>
                             </h4>
                         </div>
                         <div class="pricing-body box box--less-padding">

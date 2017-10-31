@@ -7,7 +7,15 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
-## [1.23.0] - 2017-09-22
+## [1.24.0] - 2017-10-30
+### Added
+- Added the ability to change 'Rent amount Per Week' copy on Room post types
+
+### Changed
+- Dropped gtranslate functionality for language menu switcher.  
+  Added fields in site options that allow admin to manually add languages
+
+## [1.23.1] - 2017-09-22
 ### Fixed
 - Removed the `images-loaded` plugin as it was causing Room carousel images to not load.
 
