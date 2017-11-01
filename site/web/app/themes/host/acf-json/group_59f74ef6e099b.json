@@ -27,7 +27,7 @@
                     "name": "language",
                     "type": "text",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "50",
@@ -44,9 +44,9 @@
                     "key": "field_59f74f1ba3e57",
                     "label": "Url",
                     "name": "url",
-                    "type": "text",
+                    "type": "url",
                     "instructions": "",
-                    "required": 0,
+                    "required": 1,
                     "conditional_logic": 0,
                     "wrapper": {
                         "width": "50",
@@ -54,10 +54,7 @@
                         "id": ""
                     },
                     "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "placeholder": ""
                 }
             ]
         }
@@ -79,5 +76,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1509381138
+    "modified": 1509544192
 }

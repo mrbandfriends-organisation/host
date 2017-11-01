@@ -459,7 +459,7 @@
                 },
                 {
                     "key": "field_59f7494f2b57a",
-                    "label": "Simple Price Per Week Heading",
+                    "label": "Simple - Price Per Week Heading",
                     "name": "price_per_week_heading",
                     "type": "text",
                     "instructions": "",
@@ -470,7 +470,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "Rent amount Per week:",
+                    "default_value": "Rent amount per week:",
                     "placeholder": "",
                     "prepend": "",
                     "append": "",
@@ -613,5 +613,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1509378861
+    "modified": 1509544419
 }
