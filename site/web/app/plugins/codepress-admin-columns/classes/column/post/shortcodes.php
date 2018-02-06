@@ -1,29 +1,21 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Display used shortcodes
  *
  * @since 2.3.5
  */
-class CPAC_Column_Post_Shortcodes extends CPAC_Column {
+class AC_Column_Post_Shortcodes extends AC_Column {
 
-	/**
-	 * @see CPAC_Column::init()
-	 * @since 2.3.4
-	 */
-	public function init() {
-
-		parent::init();
-
-		// Properties
-		$this->properties['type'] = 'column-shortcode';
-		$this->properties['label'] = __( 'Shortcodes', 'codepress-admin-columns' );
+	public function __construct() {
+		$this->set_type( 'column-shortcode' );
+		$this->set_label( __( 'Shortcodes', 'codepress-admin-columns' ) );
 	}
 
-	/**
-	 * @see CPAC_Column::get_value()
-	 * @since 2.3.5
-	 */
 	public function get_value( $post_id ) {
 		if ( ! ( $shortcodes = $this->get_raw_value( $post_id ) ) ) {
 			return false;
@@ -32,17 +24,17 @@ class CPAC_Column_Post_Shortcodes extends CPAC_Column {
 		$display = array();
 		foreach ( $shortcodes as $sc => $count ) {
 			$string = '[' . $sc . ']';
-			$string = $count > 1 ? $string . '<span class="cpac-rounded">' . $count . '</span>' : $string;
-			$display[ $sc ] = '<span class="cpac-spacing">' . $string . '</span>';
+
+			if ( $count > 1 ) {
+				$string .= ac_helper()->html->rounded( $count );
+			}
+
+			$display[ $sc ] = '<span class="ac-spacing">' . $string . '</span>';
 		}
 
 		return implode( ' ', $display );
 	}
 
-	/**
-	 * @see CPAC_Column::get_raw_value()
-	 * @since 2.3.5
-	 */
 	public function get_raw_value( $post_id ) {
 		global $shortcode_tags;
 
@@ -57,12 +49,17 @@ class CPAC_Column_Post_Shortcodes extends CPAC_Column {
 		$_shortcodes = array_keys( $shortcode_tags );
 		asort( $_shortcodes );
 
-		foreach ( $_shortcodes as $sc ) {
-			if ( $count = substr_count( $content, '[' . $sc ) ) {
-				$shortcodes[ $sc ] = $count;
+		foreach ( $_shortcodes as $shortcode ) {
+
+			$count = substr_count( $content, '[' . $shortcode . ']' );
+			$count += substr_count( $content, '[' . $shortcode . ' ' );
+
+			if ( $count ) {
+				$shortcodes[ $shortcode ] = $count;
 			}
 		}
 
 		return $shortcodes;
 	}
+
 }

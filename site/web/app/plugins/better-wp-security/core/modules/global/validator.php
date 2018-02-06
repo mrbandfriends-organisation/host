@@ -5,14 +5,6 @@ class ITSEC_Global_Validator extends ITSEC_Validator {
 		return 'global';
 	}
 
-	public function get_valid_log_types() {
-		return array(
-			'database' => __( 'Database Only', 'better-wp-security' ),
-			'file'     => __( 'File Only', 'better-wp-security' ),
-			'both'     => __( 'Both', 'better-wp-security' ),
-		);
-	}
-
 	protected function sanitize_settings() {
 		if ( is_dir( WP_PLUGIN_DIR . '/iwp-client' ) ) {
 			$this->sanitize_setting( 'bool', 'infinitewp_compatibility', __( 'Add InfiniteWP Compatibility', 'better-wp-security' ) );
@@ -27,16 +19,15 @@ class ITSEC_Global_Validator extends ITSEC_Validator {
 		}
 
 
-		$this->set_previous_if_empty( array( 'did_upgrade', 'log_info', 'show_new_dashboard_notice', 'show_security_check' ) );
+		$this->vars_to_skip_validate_matching_fields = array( 'digest_last_sent', 'digest_messages', 'digest_email', 'email_notifications', 'notification_email', 'backup_email' );
+		$this->set_previous_if_empty( array( 'did_upgrade', 'log_info', 'show_new_dashboard_notice', 'show_security_check', 'build', 'activation_timestamp', 'lock_file', 'cron_status', 'use_cron', 'cron_test_time' ) );
 		$this->set_default_if_empty( array( 'log_location', 'nginx_file' ) );
+		$this->preserve_setting_if_exists( array(  'digest_email', 'email_notifications', 'notification_email', 'backup_email' ) );
 
 
 		$this->sanitize_setting( 'bool', 'write_files', __( 'Write to Files', 'better-wp-security' ) );
-		$this->sanitize_setting( 'bool', 'digest_email', __( 'Send Digest Email', 'better-wp-security' ) );
 		$this->sanitize_setting( 'bool', 'blacklist', __( 'Blacklist Repeat Offender', 'better-wp-security' ) );
-		$this->sanitize_setting( 'bool', 'email_notifications', __( 'Email Lockout Notifications', 'better-wp-security' ) );
 		$this->sanitize_setting( 'bool', 'allow_tracking', __( 'Allow Data Tracking', 'better-wp-security' ) );
-		$this->sanitize_setting( 'bool', 'lock_file', __( 'Disable File Locking', 'better-wp-security' ) );
 		$this->sanitize_setting( 'bool', 'proxy_override', __( 'Override Proxy Detection', 'better-wp-security' ) );
 		$this->sanitize_setting( 'bool', 'hide_admin_bar', __( 'Hide Security Menu in Admin Bar', 'better-wp-security' ) );
 		$this->sanitize_setting( 'bool', 'show_error_codes', __( 'Show Error Codes', 'better-wp-security' ) );
@@ -57,11 +48,24 @@ class ITSEC_Global_Validator extends ITSEC_Validator {
 
 		$this->sanitize_setting( 'newline-separated-ips', 'lockout_white_list', __( 'Lockout White List', 'better-wp-security' ) );
 
-		$this->sanitize_setting( 'newline-separated-emails', 'notification_email', __( 'Notification Email', 'better-wp-security' ) );
-		$this->sanitize_setting( 'newline-separated-emails', 'backup_email', __( 'Backup Delivery Email', 'better-wp-security' ) );
 
+		$allowed_tags = $this->get_allowed_tags();
 
-		$allowed_tags = array(
+		$this->settings['lockout_message'] = trim( wp_kses( $this->settings['lockout_message'], $allowed_tags ) );
+		$this->settings['user_lockout_message'] = trim( wp_kses( $this->settings['user_lockout_message'], $allowed_tags ) );
+		$this->settings['community_lockout_message'] = trim( wp_kses( $this->settings['community_lockout_message'], $allowed_tags ) );
+	}
+
+	public function get_valid_log_types() {
+		return array(
+			'database' => __( 'Database Only', 'better-wp-security' ),
+			'file'     => __( 'File Only', 'better-wp-security' ),
+			'both'     => __( 'Both', 'better-wp-security' ),
+		);
+	}
+
+	private function get_allowed_tags() {
+		return array(
 			'a'      => array(
 				'href'  => array(),
 				'title' => array(),
@@ -79,10 +83,6 @@ class ITSEC_Global_Validator extends ITSEC_Validator {
 				'style' => array(),
 			),
 		);
-
-		$this->settings['lockout_message'] = trim( wp_kses( $this->settings['lockout_message'], $allowed_tags ) );
-		$this->settings['user_lockout_message'] = trim( wp_kses( $this->settings['user_lockout_message'], $allowed_tags ) );
-		$this->settings['community_lockout_message'] = trim( wp_kses( $this->settings['community_lockout_message'], $allowed_tags ) );
 	}
 }
 

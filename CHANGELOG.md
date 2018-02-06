@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [2.0.0] - 2018-02-06
+### Changed
+- Updated WordPress Core to 4.9.3.
+- Updated applicable plugins.
+
 ## [1.24.0] - 2017-10-30
 ### Added
 - Added the ability to change 'Rent amount Per Week' copy on Room post types
