@@ -2795,6 +2795,20 @@ div.c-tabs {
   margin-bottom: 20px;
 }
 
+.c-tab__listing-item h3.c-tab__listing-item__home {
+  margin-bottom: 5px;
+  color: #f5f5f5;
+}
+
+.c-tab__listing-item h3.c-tab__listing-item__city {
+  margin-top: 0;
+  color: #21293c;
+}
+
+.c-tab__listing-item h3.c-tab__listing-item__city::first-line {
+  color: inherit !important;
+}
+
 /**
  * Tabs no-js fallback
  */
