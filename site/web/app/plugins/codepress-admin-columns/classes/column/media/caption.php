@@ -1,39 +1,31 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
- * CPAC_Column_Media_Caption
- *
  * @since 2.0
  */
-class CPAC_Column_Media_Caption extends CPAC_Column {
+class AC_Column_Media_Caption extends AC_Column {
 
-	/**
-	 * @see CPAC_Column::init()
-	 * @since 2.2.1
-	 */
-	public function init() {
-
-		parent::init();
-
-		// Properties
-		$this->properties['type']	 = 'column-caption';
-		$this->properties['label']	 = __( 'Caption', 'codepress-admin-columns' );
+	public function __construct() {
+		$this->set_type( 'column-caption' );
+		$this->set_label( __( 'Caption', 'codepress-admin-columns' ) );
 	}
 
-	/**
-	 * @see CPAC_Column::get_value()
-	 * @since 2.0
-	 */
 	public function get_value( $id ) {
+		$value = esc_html( $this->get_raw_value( $id ) );
 
-		return $this->get_raw_value( $id );
+		if ( ! $value ) {
+			return $this->get_empty_char();
+		}
+
+		return $value;
 	}
 
-	/**
-	 * @see CPAC_Column::get_raw_value()
-	 * @since 2.3.2
-	 */
 	public function get_raw_value( $id ) {
-
-		return get_post_field( 'post_excerpt', $id );
+		return ac_helper()->post->get_raw_field( 'post_excerpt', $id );
 	}
+
 }
