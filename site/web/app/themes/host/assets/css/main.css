@@ -5757,6 +5757,17 @@ a.room-list-nav__link:hover:before, a.room-list-nav__link:focus:before {
 
 .carousel-infobox__heading {
   margin-bottom: 10px;
+  margin-top: 0;
+  color: #21293c;
+}
+
+.carousel-infobox__heading.carousel-infobox__heading--name {
+  margin-bottom: 0;
+  color: #f5f5f5;
+}
+
+.carousel-infobox__heading::first-line {
+  color: inherit !important;
 }
 
 .carousel-infobox__subheading {
