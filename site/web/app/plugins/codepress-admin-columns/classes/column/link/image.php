@@ -1,27 +1,46 @@
 <?php
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
+ * CPAC_Column_Link_Image
+ *
  * @since 2.0
  */
-class AC_Column_Link_Image extends AC_Column {
+class CPAC_Column_Link_Image extends CPAC_Column {
 
-	public function __construct() {
-		$this->set_type( 'column-image' );
-		$this->set_label( __( 'Image', 'codepress-admin-columns' ) );
+	/**
+	 * @see CPAC_Column::init()
+	 * @since 2.2.1
+	 */
+	public function init() {
+
+		parent::init();
+
+		// Properties
+		$this->properties['type']	 	= 'column-image';
+		$this->properties['label']	 	= __( 'Image', 'codepress-admin-columns' );
+
+		// Options
+		$this->options['image_size']	= '';
+		$this->options['image_size_w']	= 80;
+		$this->options['image_size_h']	= 80;
 	}
 
-	public function get_raw_value( $id ) {
+	/**
+	 * @see CPAC_Column::get_value()
+	 * @since 2.0
+	 */
+	function get_value( $id ) {
+
 		$bookmark = get_bookmark( $id );
 
-		return $bookmark->link_image;
+		return implode( $this->get_thumbnails( $bookmark->link_image ) );
 	}
 
-	public function register_settings() {
-		$this->add_setting( new AC_Settings_Column_Image( $this ) );
-	}
+	/**
+	 * @see CPAC_Column::display_settings()
+	 * @since 2.0
+	 */
+	function display_settings() {
 
+		$this->display_field_preview_size();
+	}
 }

@@ -1,37 +1,32 @@
 <?php
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
+ * CPAC_Column_Media_Dimensions
+ *
  * @since 2.0
  */
-class AC_Column_Media_Dimensions extends AC_Column_Media_Meta {
+class CPAC_Column_Media_Dimensions extends CPAC_Column {
 
-	public function __construct() {
-		parent::__construct();
+	public function init() {
+		parent::init();
 
-		$this->set_type( 'column-dimensions' );
-		$this->set_label( __( 'Dimensions', 'codepress-admin-columns' ) );
+		$this->properties['type'] = 'column-dimensions';
+		$this->properties['label'] = __( 'Dimensions', 'codepress-admin-columns' );
 	}
 
 	public function get_value( $id ) {
+		$value = $this->get_empty_char();
+
 		$meta = $this->get_raw_value( $id );
 
-		if ( empty( $meta['width'] ) || empty( $meta['height'] ) ) {
-			return $this->get_empty_char();
+		if ( ! empty( $meta['width'] ) && ! empty( $meta['height'] ) ) {
+			$value = "{$meta['width']} x {$meta['height']}";
 		}
 
-		$value = $meta['width'] . '&nbsp;&times;&nbsp;' . $meta['height'];
-
-		$tooltip = sprintf( __( 'Width : %s px', 'codepress-admin-columns' ), $meta['width'] ) . "<br/>\n" . sprintf( __( 'Height : %s px', 'codepress-admin-columns' ), $meta['height'] );
-
-		return ac_helper()->html->tooltip( $this->get_formatted_value( $value ), $tooltip );
+		return $value;
 	}
 
-	public function register_settings() {
-		$this->add_setting( new AC_Settings_Column_BeforeAfter( $this ) );
+	public function get_raw_value( $id ) {
+		return get_post_meta( $id, '_wp_attachment_metadata', true );
 	}
-
 }

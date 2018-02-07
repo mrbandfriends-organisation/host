@@ -39,7 +39,7 @@
     "oscarotero/env": "^1.0",
     "roots/wp-password-bcrypt": "1.0.0",
     "wpackagist-plugin/wordpress-seo": "^4.2",
-    "wpackagist-plugin/codepress-admin-columns": ">=2.5",
+    "wpackagist-plugin/codepress-admin-columns": "2.5.6.4",
     "wpackagist-plugin/better-wp-security": "^6.1",
     "wpackagist-plugin/stream": "^3.1",
     "wpackagist-plugin/postman-smtp": "^1.7",

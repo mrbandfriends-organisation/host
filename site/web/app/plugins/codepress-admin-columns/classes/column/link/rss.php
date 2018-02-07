@@ -1,23 +1,32 @@
 <?php
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
+ * CPAC_Column_Link_Rss
+ *
  * @since 2.0
  */
-class AC_Column_Link_Rss extends AC_Column {
+class CPAC_Column_Link_Rss extends CPAC_Column {
 
-	public function __construct() {
-		$this->set_type( 'column-rss' );
-		$this->set_label( __( 'Rss', 'codepress-admin-columns' ) );
+	/**
+	 * @see CPAC_Column::init()
+	 * @since 2.2.1
+	 */
+	public function init() {
+
+		parent::init();
+
+		// Properties
+		$this->properties['type']	 	= 'column-rss';
+		$this->properties['label']	 	= __( 'Rss', 'codepress-admin-columns' );
 	}
 
-	public function get_value( $id ) {
+	/**
+	 * @see CPAC_Column::get_value()
+	 * @since 2.0
+	 */
+	function get_value( $id ) {
+
 		$bookmark = get_bookmark( $id );
 
-		return ac_helper()->string->shorten_url( $bookmark->link_rss );
+		return $this->get_shorten_url( $bookmark->link_rss );
 	}
-
 }

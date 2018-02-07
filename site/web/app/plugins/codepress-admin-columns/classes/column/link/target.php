@@ -1,23 +1,32 @@
 <?php
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 /**
+ * CPAC_Column_Link_Target
+ *
  * @since 2.0
  */
-class AC_Column_Link_Target extends AC_Column {
+class CPAC_Column_Link_Target extends CPAC_Column {
 
-	public function __construct() {
-		$this->set_type( 'column-target' );
-		$this->set_label( __( 'Target', 'codepress-admin-columns' ) );
+	/**
+	 * @see CPAC_Column::init()
+	 * @since 2.2.1
+	 */
+	public function init() {
+
+		parent::init();
+
+		// Properties
+		$this->properties['type']	 	= 'column-target';
+		$this->properties['label']	 	= __( 'Target', 'codepress-admin-columns' );
 	}
 
-	public function get_value( $id ) {
+	/**
+	 * @see CPAC_Column::get_value()
+	 * @since 2.0
+	 */
+	function get_value( $id ) {
+
 		$bookmark = get_bookmark( $id );
 
 		return $bookmark->link_target;
 	}
-
 }
