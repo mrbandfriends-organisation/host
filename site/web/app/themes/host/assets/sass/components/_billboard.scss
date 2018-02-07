@@ -73,7 +73,18 @@
 }
 
 .billboard__main--building-intro__heading {
-    margin-top: $half-spacing-unit;
+    margin-top: 0;
+    color: brand(ink);
+
+    &.building-intro__heading__name {
+        margin-top: $half-spacing-unit;
+        margin-bottom: 0;
+        color: brand(white);
+    }
+
+    &::first-line {
+        color: inherit !important;
+    }
 }
 
 .billboard.box--grape {

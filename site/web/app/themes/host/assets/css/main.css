@@ -4609,7 +4609,18 @@ a.btn {
 }
 
 .billboard__main--building-intro__heading {
+  margin-top: 0;
+  color: #21293c;
+}
+
+.billboard__main--building-intro__heading.building-intro__heading__name {
   margin-top: 20px;
+  margin-bottom: 0;
+  color: #f5f5f5;
+}
+
+.billboard__main--building-intro__heading::first-line {
+  color: inherit !important;
 }
 
 .awards {
