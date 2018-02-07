@@ -7,14 +7,9 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
-## [2.0.1] - 2018-02-06
+## [1.25.0] - 2018-02-07
 ### Changed
-- Contact page item headers are now split into two <h3>s and do not use the ::first-line selector. This is to fix styles being broken on new lines.
-
-## [2.0.0] - 2018-02-06
-### Changed
-- Updated WordPress Core to 4.9.3.
-- Updated applicable plugins.
+- Updated WP Migrate DB Pro to 1.8.1 and the media files addon to 1.4.9
 
 ## [1.24.0] - 2017-10-30
 ### Added
