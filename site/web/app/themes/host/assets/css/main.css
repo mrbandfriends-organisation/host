@@ -6362,6 +6362,10 @@ a.room-list-nav__link:hover:before, a.room-list-nav__link:focus:before {
   list-style: none outside;
 }
 
+.nav-utilities .menu-item.highlight a {
+  color: #00c0f3;
+}
+
 .nav-utilities__link {
   display: block;
 }
