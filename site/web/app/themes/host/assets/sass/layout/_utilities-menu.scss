@@ -16,6 +16,10 @@
     justify-content: flex-end;
     margin: 0;
     list-style: none outside;
+
+    .menu-item.highlight a {
+        color: map-get($brand-palette, sky);
+    }
 }
 
 .nav-utilities__item {

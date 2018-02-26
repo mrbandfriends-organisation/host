@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.25.1] - 2018-02-26
+### Added
+- Added a class for highlighting nav menu links.
+
 ## [1.25.0] - 2018-02-07
 ### Changed
 - Updated WP Migrate DB Pro to 1.8.1 and the media files addon to 1.4.9
