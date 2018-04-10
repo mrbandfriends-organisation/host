@@ -34,10 +34,9 @@
 <div class="carosel-infobox carosel-infobox--building <?=esc_attr($social_links_modifier);?> slideshow-infobox box box--mint text-left">
 
 <?php if ( !empty($building_name) ): ?>
-    <h1 class="carousel-infobox__heading carousel-infobox__heading--name h3">
-        <?php echo esc_html($building_name); ?> building.
-    </h1>
     <h1 class="carousel-infobox__heading h3">
+        <?php echo esc_html($building_name); ?>
+        <br>
         <?=esc_html($town); ?>
     </h1>
 <?php endif; ?>
