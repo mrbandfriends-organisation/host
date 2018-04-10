@@ -9,7 +9,7 @@
 
             <h1 class="content-404__title">
                 Whoopsie!<br />
-                That’s an error.
+                That’s an error.
             </h1>
 
             <p>
