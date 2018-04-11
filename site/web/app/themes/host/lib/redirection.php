@@ -6,5 +6,5 @@
 
 
 add_filter( 'redirection_role', function( $role ) {
-return 'editor';
+    return 'edit_pages'; 
 } );
