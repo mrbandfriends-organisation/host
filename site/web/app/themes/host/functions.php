@@ -25,7 +25,8 @@ $sage_includes = [
   'lib/shortcodes.php',
   'lib/availability.php',
   'lib/walkers.php',
-  'lib/ajax-load-posts.php'
+  'lib/ajax-load-posts.php',
+  'lib/redirection.php'
 ];
 
 foreach ($sage_includes as $file) {
