@@ -115,4 +115,12 @@ if ( class_exists( 'GFCommon' ) ) {
 
     }
 
+    /**
+     * DISABLE IP ADDRESS COLLECTION
+     *
+     * Prevents GF from saving a form submitter's IP address
+     */
+
+    add_filter( 'gform_ip_address', '__return_empty_string' );
+
 } // end test for Gravity Forms being active
