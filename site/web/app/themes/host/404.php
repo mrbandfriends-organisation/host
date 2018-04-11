@@ -13,7 +13,7 @@
             </h1>
 
             <p>
-                We're sorry something went wrong there. The page your looking for could not be found.
+                We're sorry something went wrong there. The page you're looking for could not be found.
                 <br>
                 <br>
                 Don’t cry. We’ll get you home.
