@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.25.3] - 2018-04-16
+### Changed
+- Updated the <meta> tag used to verify the site with Norton Safeweb.
+
 ## [1.25.2] - 2018-04-16
 ### Added
 - Added a <meta> tag to verify the site with Norton Safeweb.
