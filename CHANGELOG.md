@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.25.2] - 2018-04-16
+### Added
+- Added a <meta> tag to verify the site with Norton Safeweb.
+
 ## [1.25.1] - 2018-02-26
 ### Added
 - Added a class for highlighting nav menu links.
