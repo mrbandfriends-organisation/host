@@ -48,6 +48,17 @@
 
 .carousel-infobox__heading {
     margin-bottom: $quarter-spacing-unit;
+    margin-top: 0;
+    color: brand(ink);
+
+    &.carousel-infobox__heading--name {
+        margin-bottom: 0;
+        color: brand(white);
+    }
+
+    &::first-line {
+        color: inherit !important;
+    }
 }
 
 // Strong elements

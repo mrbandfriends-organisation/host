@@ -160,6 +160,20 @@ div.c-tabs {
         margin-bottom: $half-spacing-unit;
     }
 
+    h3 {
+        &.c-tab__listing-item__home {
+            margin-bottom: ($quarter-spacing-unit/2);
+            color: brand(white);
+        }
+        &.c-tab__listing-item__city {
+            margin-top: 0;
+            color: brand(ink);
+            &::first-line {
+                color: inherit !important;
+            }
+        }
+    }
+
 }
 
 

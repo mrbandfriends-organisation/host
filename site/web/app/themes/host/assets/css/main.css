@@ -2795,6 +2795,20 @@ div.c-tabs {
   margin-bottom: 20px;
 }
 
+.c-tab__listing-item h3.c-tab__listing-item__home {
+  margin-bottom: 5px;
+  color: #f5f5f5;
+}
+
+.c-tab__listing-item h3.c-tab__listing-item__city {
+  margin-top: 0;
+  color: #21293c;
+}
+
+.c-tab__listing-item h3.c-tab__listing-item__city::first-line {
+  color: inherit !important;
+}
+
 /**
  * Tabs no-js fallback
  */
@@ -4595,7 +4609,18 @@ a.btn {
 }
 
 .billboard__main--building-intro__heading {
+  margin-top: 0;
+  color: #21293c;
+}
+
+.billboard__main--building-intro__heading.building-intro__heading__name {
   margin-top: 20px;
+  margin-bottom: 0;
+  color: #f5f5f5;
+}
+
+.billboard__main--building-intro__heading::first-line {
+  color: inherit !important;
 }
 
 .awards {
@@ -5732,6 +5757,17 @@ a.room-list-nav__link:hover:before, a.room-list-nav__link:focus:before {
 
 .carousel-infobox__heading {
   margin-bottom: 10px;
+  margin-top: 0;
+  color: #21293c;
+}
+
+.carousel-infobox__heading.carousel-infobox__heading--name {
+  margin-bottom: 0;
+  color: #f5f5f5;
+}
+
+.carousel-infobox__heading::first-line {
+  color: inherit !important;
 }
 
 .carousel-infobox__subheading {

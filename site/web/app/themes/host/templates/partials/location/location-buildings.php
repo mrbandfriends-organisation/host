@@ -10,8 +10,8 @@
 
     // Getting query using plugin template function. If there is PPC ID set then the query
     // if queried by this fields value
-    if( isset($_GET['location_ppc_id']) ) {
-        $buildings = host_location_find_connected_buildings_by_ppc_id( get_the_id(), $_GET['location_ppc_id'] );
+    if( isset($_GET['location_id']) ) {
+        $buildings = host_location_find_connected_buildings_by_ppc_id( get_the_id(), $_GET['location_id'] );
     } else {
         $buildings = host_location_find_connected_buildings( get_the_id() );
     }
@@ -115,6 +115,10 @@
                                 </address>
                                 
                                 <p>
+                                    <?php if ($bExternal && !empty($faqs_url)): ?>
+                                    <a href="<?=$faqs_url; ?>" class="btn btn--block"><?=get_the_title();?> FAQs</a>
+                                    <?php endif; ?>
+
                                     <?php if (!empty($sUrl) && !empty($sBtnText)): ?>
                                     <a href="<?=$sUrl; ?>" class="btn"<?=$sAtts; ?>><?=$sBtnText; ?></a>
                                     <?php endif; ?>

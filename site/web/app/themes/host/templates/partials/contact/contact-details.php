@@ -104,8 +104,10 @@
                                     <?php if ( !empty($address) ): ?>
                                         <li class="gc l1-3 flex">
                                             <div class="c-tab__listing-item">
-                                                <h3>
-                                                    <?php echo esc_html($building->post_title); ?><br>
+                                                <h3 class="c-tab__listing-item__home">
+                                                    <?php echo esc_html($building->post_title); ?>
+                                                </h3>
+                                                <h3 class="c-tab__listing-item__city">
                                                     <?php echo esc_html($location_title); ?>
                                                 </h3>
 

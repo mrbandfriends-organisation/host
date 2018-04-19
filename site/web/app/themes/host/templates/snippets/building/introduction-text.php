@@ -35,8 +35,11 @@
     <span class="h3"><?php echo esc_html($number_availibile_rooms); ?> room <?php echo esc_html($room_types); ?> to choose from.</span>
 <?php endif; ?>
 
+<h2 class="billboard__main--building-intro__heading building-intro__heading__name h2">
+  <?= esc_html($title_1); ?>
+</h2>
+
 <h2 class="billboard__main--building-intro__heading h2">
-  <?= esc_html($title_1); ?><br />
   <?= esc_html($title_2); ?>
 </h2>
 

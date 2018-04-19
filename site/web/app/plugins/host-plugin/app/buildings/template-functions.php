@@ -52,13 +52,23 @@ function host_location_find_connected_buildings( $location_id, $query_args = [] 
 function host_location_find_connected_buildings_by_ppc_id($location_id, $ppc_id) {
     // Note these items are ordered by the 'sortable' via p2p functionality
     $locationPPI = [
-        'meta_key'	 => 'location_ppc_id',
+        'meta_key'	 => 'location_ppc_ids_$_ppc_id',
         'meta_value' => $ppc_id
     ];
 
     return host_location_find_connected_buildings($location_id, $locationPPI);
 }
 
+/**
+ * UPDATE QUERY
+ * Change the default query string for Location PPC IDs to make SQL check for
+ * each entry in the repeater field, and add it as a filter.
+ */
+function host_location_id_str_replace( $location_query_str ) {
+	$location_query_str = str_replace("meta_key = 'location_ppc_ids_$", "meta_key LIKE 'location_ppc_ids_%", $location_query_str);
+	return $location_query_str;
+}
+add_filter('posts_where', 'host_location_id_str_replace');
 
 /**
  * FIND

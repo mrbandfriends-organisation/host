@@ -8,21 +8,19 @@ users:
       - "{{ web_group }}"
     keys:
       - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_david_smith_rsa.pub # Dave Smith
-      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_stuart_nelson_rsa.pub # Stuart Nelson
       - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_george_putnam_rsa.pub # George Putnam
-      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_aggesr_rsa.pub # Aggers
-      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_stuart_nelson_home_rsa.pub # Stuart home
       - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_anthony_parker_rsa.pub # Anthony Parker
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_anthony_parker_home_rsa.pub # Anthony Parker - Home
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_hannah_tinkler_rsa.pub.pub # Hannah Tinkler
   - name: "{{ admin_user }}"
     groups:
       - sudo
     keys:
       - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_david_smith_rsa.pub # Dave Smith
-      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_stuart_nelson_rsa.pub # Stuart Nelson
       - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_george_putnam_rsa.pub # George Putnam
-      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_aggesr_rsa.pub # Aggers
-      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_stuart_nelson_home_rsa.pub # Stuart home
       - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_anthony_parker_rsa.pub # Anthony Parker
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_anthony_parker_home_rsa.pub # Anthony Parker - Home
+      - https://s3-eu-west-1.amazonaws.com/sshpubkeys/mrb_hannah_tinkler_rsa.pub.pub # Hannah Tinkler
 
 web_user: web
 web_group: www-data
