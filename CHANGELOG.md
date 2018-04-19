@@ -7,6 +7,20 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.26.0] - 2018-04-19
+### Added
+- Redirection Plugin, via Composer
+
+### Changed
+- Removed "building." from page titles.
+- Prevent IP Address collection in Gravity Forms.
+- Update PPC ID feature to allow for multiple campaign IDs per building.
+  These are used as query strings in location pages to show/hide buildings.
+
+### Fixed
+- Removed whitespace character from 404 page.
+- Show FAQs button for buildings hosted externally.
+
 ## [1.25.3] - 2018-04-16
 ### Changed
 - Updated the <meta> tag used to verify the site with Norton Safeweb.
