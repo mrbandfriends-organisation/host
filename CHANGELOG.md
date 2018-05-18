@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.26.1] - 2018-05-18
+### Added
+- Add Bing Webmaster tools XML file to allow client to verify against Bing WMT
+
 ## [1.26.0] - 2018-04-19
 ### Added
 - Redirection Plugin, via Composer
