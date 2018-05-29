@@ -11,6 +11,10 @@
 
     echo Utils\ob_load_template_part('templates/partials/shared/map');
 
-    echo Utils\ob_load_template_part('templates/partials/blog/view-all');
+    if ( !( get_field('hide_news', get_the_ID() ) ) ) {
 
-    echo Utils\ob_load_template_part('templates/partials/shared/news-feed.php');
+        echo Utils\ob_load_template_part('templates/partials/blog/view-all');
+
+        echo Utils\ob_load_template_part('templates/partials/shared/news-feed.php');
+
+    }
