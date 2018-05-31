@@ -143,7 +143,27 @@
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 1
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5b0fbb0aa5ceb",
+            "label": "Hide \"Book Now\"?",
+            "name": "hide_book_now",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Select \"Yes\" to hide the Book Now button for this building on location pages.",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_57b590d8da7ad",
@@ -159,8 +179,8 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": "",
-            "max": "",
+            "min": 0,
+            "max": 0,
             "layout": "row",
             "button_label": "Add Row",
             "sub_fields": [
@@ -555,7 +575,8 @@
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 1
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_57b30befbdda6",
@@ -646,8 +667,8 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": "",
-            "max": "",
+            "min": 0,
+            "max": 0,
             "layout": "table",
             "button_label": "Add Row",
             "sub_fields": [
@@ -785,7 +806,8 @@
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 1
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_57b58abd86ca6",
@@ -801,8 +823,8 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": "",
-            "max": "",
+            "min": 0,
+            "max": 0,
             "layout": "table",
             "button_label": "Add Row",
             "sub_fields": [
@@ -967,7 +989,8 @@
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 1
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_57b57603c8ea4",
@@ -983,8 +1006,8 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": "",
-            "max": "",
+            "min": 0,
+            "max": 0,
             "layout": "table",
             "button_label": "Add Row",
             "sub_fields": [
@@ -1069,5 +1092,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1488888909
+    "modified": 1527757648
 }
