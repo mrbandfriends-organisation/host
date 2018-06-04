@@ -40,6 +40,8 @@
     position: relative; // positioning context for favourite icon
     height: 100%;
 
+    .dublin & .btn { @include button(red); }
+
     @include mq(xlarge) {
         @include container("left");
         @include two-third-container;

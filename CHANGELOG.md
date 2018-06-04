@@ -7,6 +7,12 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.26.2] - 2018-06-04
+### Added
+- Add option to hide sections on Location pages
+### Changed
+- Force red button on the Dublin building listing page at client request
+
 ## [1.26.1] - 2018-05-18
 ### Added
 - Add Bing Webmaster tools XML file to allow client to verify against Bing WMT
