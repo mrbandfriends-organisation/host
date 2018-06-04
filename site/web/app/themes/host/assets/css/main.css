@@ -3879,6 +3879,24 @@ a.btn {
   color: #00b9b5;
 }
 
+.btn--red[class] {
+  background: #d50e3c;
+}
+
+.btn--red[class]:hover {
+  background: #a50b2f;
+}
+
+.btn--red[class]:hover .svg-icon {
+  fill: #d50e3c;
+}
+
+.btn--red[class].btn--outline:hover {
+  background: transparent;
+  border: solid 1px #d50e3c;
+  color: #d50e3c;
+}
+
 .btn--sky[class] {
   background: #00c0f3;
 }
@@ -4776,6 +4794,24 @@ a.btn {
 .listed-property__content {
   position: relative;
   height: 100%;
+}
+
+.dublin .listed-property__content .btn, .dublin .listed-property__content .menu-item--banner-language-switcher select, .menu-item--banner-language-switcher .dublin .listed-property__content select {
+  background: #d50e3c;
+}
+
+.dublin .listed-property__content .btn:hover, .dublin .listed-property__content .menu-item--banner-language-switcher select:hover, .menu-item--banner-language-switcher .dublin .listed-property__content select:hover {
+  background: #a50b2f;
+}
+
+.dublin .listed-property__content .btn:hover .svg-icon, .dublin .listed-property__content .menu-item--banner-language-switcher select:hover .svg-icon, .menu-item--banner-language-switcher .dublin .listed-property__content select:hover .svg-icon {
+  fill: #d50e3c;
+}
+
+.dublin .listed-property__content .btn.btn--outline:hover, .dublin .listed-property__content .menu-item--banner-language-switcher select.btn--outline:hover, .menu-item--banner-language-switcher .dublin .listed-property__content select.btn--outline:hover {
+  background: transparent;
+  border: solid 1px #d50e3c;
+  color: #d50e3c;
 }
 
 .listed-property__title,
