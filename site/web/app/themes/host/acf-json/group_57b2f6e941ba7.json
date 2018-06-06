@@ -424,6 +424,49 @@
             "disabled": 0
         },
         {
+            "key": "field_5b17a5c3de429",
+            "label": "Map Link Override",
+            "name": "map_link_override",
+            "type": "true_false",
+            "instructions": "Select \"Yes\" to use an entered Google Maps link instead of automatically generating a link based on the address above.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Override default map behaviour with a permalink?",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5b17a61dde42a",
+            "label": "Map Link",
+            "name": "map_link",
+            "type": "url",
+            "instructions": "Enter a Google Maps link here to override the default address.\r\nTo get this link, find the location on Google Maps and select 'Share'.\r\nCopy the generated link and paste it into this field.",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5b17a5c3de429",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
             "key": "field_58a6e4949a106",
             "label": "Email Address",
             "name": "building_email_address",
@@ -1092,5 +1135,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1527757648
+    "modified": 1528276649
 }

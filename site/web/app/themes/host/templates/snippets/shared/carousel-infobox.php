@@ -19,14 +19,23 @@
     ]);
     // strip unneeded newlines
     $address = trim(preg_replace("/\n\n+/", "\n", $address));
+    
+    if( $map_override && !empty($map_link) ) {
 
-    // Address for the link to Google Maps
-    $google_maps_address = join( [
-        //$address_1 . " ",
-        $town . " ",
-        $post_code
-    ]);
-    $google_maps_address = str_replace(" ", '+', esc_html($google_maps_address));
+        $google_maps_address = $map_link;
+
+    } else {
+
+        // Address for the link to Google Maps
+        $google_maps_address = join( [
+            //$address_1 . " ",
+            $town . " ",
+            $post_code
+        ]);
+        $google_maps_address = str_replace(" ", '+', esc_html($google_maps_address));
+        $google_maps_address = "https://www.google.com/maps?daddr=" . $google_maps_address;
+
+    }
 
     $social_links_modifier = ( !empty($social_links) ) ? 'carosel-infobox--has-top-icons' : '';
 ?>
@@ -49,9 +58,8 @@
                 <?=str_replace("\n", '<br>', esc_html($address)); ?>
             </p>
 
-            <?php // Taking off to google maps with address as destination ?>
             <strong class="carousel-infobox__subheading">
-                <a class="carousel-infobox__underlink-link" href="https://www.google.com/maps?daddr=<?= $google_maps_address ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
+                <a class="carousel-infobox__underlink-link" href="<?= $google_maps_address ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
                     Get directions
                 </a>
             </strong>
