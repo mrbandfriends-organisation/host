@@ -74,16 +74,21 @@
                     <?php
                         $get_homepage_id = Utils\get_id_by_slug('home');
                         $homepage_id = (!empty($get_homepage_id) ? $get_homepage_id : null);
-                        $home_featured_building = (!empty(get_field('featured_building', $homepage_id)) ? get_field('featured_building', $homepage_id) : null);
-                        $is_external = get_field('external_website', $home_featured_building);
-                        $external_url = ($is_external) ? get_field('website_url', $home_featured_building) : null;
 
-                        if (!empty($home_featured_building)) :
+                        if ( have_rows('featured_buildings', $homepage_id) ) :
+                            while( have_rows('featured_buildings', $homepage_id) ) : the_row();
+                                $home_featured_building = get_sub_field('building');
+                                $is_external = get_field('external_website', $home_featured_building);
+                                $external_url = ($is_external) ? get_field('website_url', $home_featured_building) : null;
                     ?>
-                        <h2 class="h3">Featured home<br>Our latest or greatest</h2>
-                        <p>
-                            <a href="<?= ($is_external) ? get_field('website_url', $home_featured_building) : get_the_permalink($home_featured_building);?>" class="btn btn--white btn--small" <?php ($is_external) ?: Extras\link_open_new_tab_attrs(); ?>>Show me featured homes</a>                        </p>
-                    <?php endif; ?>
+                                <h2 class="h3">Featured home<br>Our latest or greatest</h2>
+                                <p>
+                                    <a href="<?= get_the_permalink($home_featured_building);?>" class="btn btn--white btn--small">Show me featured homes</a>
+                                </p>
+                    <?php
+                            endwhile;
+                        endif;
+                    ?>
 
                 </div>
             </li>
