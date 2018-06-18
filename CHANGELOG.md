@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.26.4] - 2018-06-18
+### Changed
+- Update repository URLs to GitHub from Beanstalk
+
 ## [1.26.3] - 2018-06-06
 ### Fixed
 - Move button modifier class `btn--red` from conditional-buttons to template call in location-buildings.php
