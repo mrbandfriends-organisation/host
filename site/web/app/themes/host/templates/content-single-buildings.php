@@ -29,6 +29,8 @@
                 'post_code'         => get_field('building_address_post_code'),
                 'phone'             => get_field('building_address_phone_no'),
                 'email'             => get_field('building_email_address'),
+                'map_override'      => get_field('map_link_override'),
+                'map_link'          => get_field('map_link'),
                 'social_links'      => array(
                     'twitter'   => $twitter_link,
                     'facebook'  => $facebook_link,

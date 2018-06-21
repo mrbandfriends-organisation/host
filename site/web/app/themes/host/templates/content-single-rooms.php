@@ -19,6 +19,8 @@ $connected_location_name = $connected_location->post_title;
         'town'              => get_field('building_address_town_city', $parent_building_id),
         'post_code'         => get_field('building_address_post_code', $parent_building_id),
         'phone'             => get_field('building_address_phone_no', $parent_building_id),
+        'map_override'      => get_field('map_link_override', $parent_building_id),
+        'map_link'          => get_field('map_link', $parent_building_id),
     ))
 )); ?>
 
