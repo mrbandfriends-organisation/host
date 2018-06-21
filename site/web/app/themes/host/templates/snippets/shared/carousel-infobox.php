@@ -59,7 +59,7 @@
             </p>
 
             <strong class="carousel-infobox__subheading">
-                <a class="carousel-infobox__underlink-link" href="<?= $google_maps_address ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
+                <a class="carousel-infobox__underlink-link" href="<?= esc_url($google_maps_address); ?>" <?php Extras\link_open_new_tab_attrs(); ?>>
                     Get directions
                 </a>
             </strong>
