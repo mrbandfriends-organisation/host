@@ -5,6 +5,7 @@
 
     $address_1 = (!empty($address_1)) ? $address_1 : '';
     $address_2 = (!empty($address_2)) ? $address_2 : '';
+    $map_override = (!empty($map_override)) ? $map_override : false;
 
     $address_lines = array(
         'address_1' => $address_1,
