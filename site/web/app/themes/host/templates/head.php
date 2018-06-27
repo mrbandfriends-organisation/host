@@ -20,6 +20,7 @@
 	</script>
 	
 
+	<?php get_template_part('templates/snippets/scripts/onetrust-cookies'); ?>
 	<?php get_template_part('templates/core/meta-icons'); ?>
 	<?php get_template_part('templates/core/fastboot-html-classes'); ?>
 	<?php get_template_part('templates/core/critical-css'); ?>
