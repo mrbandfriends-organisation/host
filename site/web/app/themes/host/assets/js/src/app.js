@@ -162,23 +162,6 @@ var bpm = require('breakpoint-tools');
 
 
 /**
- * BROWSER UPGRADE NOTICE
- */
-(function() {
-    var $buoop = {c:2};
-
-    function $buo_f(){
-        setTimeout(function() {
-            var e = document.createElement("script");
-            e.src = "//browser-update.org/update.min.js";
-            document.body.appendChild(e);
-        }, 3000);
-    }
-    $(window).on('load', $buo_f);
-}());
-
-
-/**
  * LAZY LOADING BACKGROUND IMAGES
  * uses lazysizes to detect when element is inview and then
  * finds the image and loads it by adding style attribute
