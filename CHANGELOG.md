@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.26.7] - 2018-06-28
+### Changed
+- Add Cookie Group ID to the ZenDesk chat script tag (see README.md)
+- Move Browser Upgrade notification script from app.js to Tag Manager
+
 ## [1.26.6] - 2018-06-28
 ### Changed
 - Tag Manager environment based loading

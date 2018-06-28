@@ -2,3 +2,11 @@
 
 ## Bleed Image Component
 For this component to work correctly on Safari the parent element must be `display: flex`.
+
+## ZenDesk Chat Plugin Changes
+The client requested a cookie banner (handled by OneTrust) to be added to the site to 
+handle activation/deactivation of cookies and tracking scripts. To enable configuration 
+of the ZenDesk script, a class name had to be added to its script tag. This class name 
+(`optanon-category-3`) allows the OneTrust banner to locate the script and activate/
+deactivate it as required. If and when this plugin is updated, care must be taken to 
+ensure that this classname remains.
