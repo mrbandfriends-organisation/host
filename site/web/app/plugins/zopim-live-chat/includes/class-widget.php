@@ -23,7 +23,7 @@ class Zopim_Widget
   type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
   </script>";
 
-    echo '<script>';
+    echo '<script class="optanon-category-3">';
     if ( isset( $current_user ) ):
       $firstname = $current_user->display_name;
       $useremail = $current_user->user_email;
