@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.26.6] - 2018-06-28
+### Changed
+- Tag Manager environment based loading
+
 ## [1.26.5] - 2018-06-27
 ### Added
 - OneTrust cookie banner with styles
