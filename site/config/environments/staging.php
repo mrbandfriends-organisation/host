@@ -10,4 +10,4 @@ define('DISALLOW_FILE_MODS', true);
 define('AUTOMATIC_UPDATER_DISABLED', true);
 
 // Enable Tag Manager on Staging for testing
-define('GOOGLE_TAG_MANAGER_CODE', 'GTM-ABC123');
+define('GOOGLE_TAG_MANAGER_CODE', 'GTM-M2J9ZC');
