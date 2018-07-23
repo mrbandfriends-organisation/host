@@ -122,7 +122,7 @@ function link_open_new_tab_attrs()
 
 
 add_filter( 'gform_field_content', function ($form, $field) {
-    if ($field->id === 7) {
+    if ($field->id === 6) {
       $form = html_entity_decode($form);
       $form .= '<div class="g-recaptcha" data-sitekey="' . env('RECAPTCHA_KEY') . '"></div>';
     }
