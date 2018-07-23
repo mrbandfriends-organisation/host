@@ -7,9 +7,13 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
-## [1.26.9] - 2018-07-04
-### Changed
-- Update WP_ENV checks to use CONSTANTS not relying on super globals
+## [1.26.9] - 2018-07-23
+### Added
+- Adding Recaptcha JS call to head
+
+## [1.26.9] - 2018-07-23
+### Added
+- Adding Recaptcha - Adding note here as work was done in develop
 
 ## [1.26.8] - 2018-07-04
 ### Changed
