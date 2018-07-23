@@ -4,7 +4,8 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="norton-safeweb-site-verification" content="mi48-tcrp5tocsvxj7gm6eph5g8e9bxvuwpj1b8zdrk4wbrq9y5sij0-5vpd24c4d5jlvty3vrmxz1wpyjm-qlae603ltzfj5p5l80f3efbfxxpnyvjkeao9zm1u5wo9" />
-
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	
 	<script>
 		/**
 		 * WEB FONT LOADING
