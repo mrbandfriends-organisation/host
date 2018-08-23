@@ -4,8 +4,8 @@ Tags: User Enumeration, Security, WPSCAN, fail2ban,
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4EMTVFMKXRRYY
 Requires at least: 3.4
 Requires PHP: 5.3
-Tested up to: 4.8.3
-Stable tag: 1.3.15
+Tested up to: 4.9.8
+Stable tag: 1.3.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -58,6 +58,12 @@ No, the plugin automatically detects [Fullworks Firewall](https://wordpress.org/
 
 
 == Changelog ==
+= 1.3.17 =
+* changed settings page to stop random metaboxes
+
+= 1.3.16 =
+* Reworked settings page
+
 = 1.3.15 =
 * fix to ensure scripts not enqueued unless required
 
