@@ -7,6 +7,16 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.26.11] - 2018-08-23
+### Added
+- Disable Gravity Forms form view counter via filter. It was making the DB massive.
+- Added Disable Guttenbery Plugin
+
+## Changes
+- Updated WP Core
+- Updated large number of Plugins (see Git commit log)
+- Switched local dev domain to be `.test` instead of `.dev`
+
 ## [1.26.10] - 2018-07-23
 ### Added
 - Adding Recaptcha JS call to head
