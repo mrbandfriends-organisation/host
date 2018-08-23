@@ -7,7 +7,7 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
-## [1.26.9] - 2018-07-23
+## [1.26.10] - 2018-07-23
 ### Added
 - Adding Recaptcha JS call to head
 
