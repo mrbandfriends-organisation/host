@@ -12,10 +12,17 @@ For more information about keeping good change logs please refer to [keep a chan
 - Disable Gravity Forms form view counter via filter. It was making the DB massive.
 - Added Disable Guttenbery Plugin
 
-## Changes
+## Changed
 - Updated WP Core
 - Updated large number of Plugins (see Git commit log)
 - Switched local dev domain to be `.test` instead of `.dev`
+- Remove and then re-add Admin Columns plugin because developers switch to PSR-4 which caused Git to get confused with capitlisation. If there are any deployment issues, advise removing the Plugin manually on the Production server and then re-deploying.
+
+## Removed
+- Remove unused Plugins (were all disabled on Production anyway)
+  - Breadcrumb Trail
+  - ACF Nav Menu field
+  - User Role Editor
 
 ## [1.26.10] - 2018-07-23
 ### Added
