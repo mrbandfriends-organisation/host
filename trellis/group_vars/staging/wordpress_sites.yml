@@ -13,7 +13,7 @@ wordpress_sites:
     admin_user: developers
     repo: git@github.com:mrbandfriends-organisation/host.git # replace with your Git repo URL
     repo_subtree_path: site # relative path to your Bedrock/WP directory in your repo
-    branch: hotfix/1.26.11
+    branch: develop
     multisite:
       enabled: false
     ssl:
