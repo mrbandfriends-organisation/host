@@ -9982,6 +9982,13 @@ a.article-tile__link:hover .article-tile__location {
   }
 }
 
+@media screen and (max-width: 600px){
+  .listed-room__content .slideshow__item{
+    background-blend-mode: multiply;
+    background-color: rgba(180, 85, 160, 0.95) !important;
+  }
+}
+
 @media (max-width: 19.99em){
   .gc--fixed-ratio.t-ar0:before{
     padding-top: 0;
