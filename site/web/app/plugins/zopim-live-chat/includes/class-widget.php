@@ -15,7 +15,7 @@ class Zopim_Widget
 
     echo "<!--Embed from Zendesk Chat Chat Wordpress Plugin v" . VERSION_NUMBER . "-->
   <!--Start of Zopim Live Chat Script-->
-  <script type=\"text/javascript\">
+  <script type=\"text/javascript\" class=\"optanon-category-3\">
   window.\$zopim||(function(d,s){var z=\$zopim=function(c){z._.push(c)},$=z.s=
   d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
   _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
@@ -23,7 +23,7 @@ class Zopim_Widget
   type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
   </script>";
 
-    echo '<script>';
+    echo '<script class="optanon-category-3">';
     if ( isset( $current_user ) ):
       $firstname = $current_user->display_name;
       $useremail = $current_user->user_email;

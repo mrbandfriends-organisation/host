@@ -77,6 +77,9 @@ $button-colours: (
         background: map-get($brand-palette, mint),
         color: #fff
     ),
+    red: (
+        background: map-get($brand-palette, red)
+    ),
     sky: (
         background: map-get($brand-palette, sky)
     ),

@@ -9,7 +9,7 @@ wordpress_sites:
         redirects:
           - www.host-students.com
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
-    repo: git@mrbandfriends.git.beanstalkapp.com:/mrbandfriends/host.git # replace with your Git repo URL
+    repo: git@github.com:mrbandfriends-organisation/host.git # replace with your Git repo URL
     repo_subtree_path: site # relative path to your Bedrock/WP directory in your repo
     branch: master
     multisite:
@@ -24,3 +24,5 @@ wordpress_sites:
       db_name: host_students
       db_user: host_students
       db_host: 8a34ef8d79eca02a83af0cc8b253d8943b8018d5.rackspaceclouddb.com # RS Cloud DB
+      RECAPTCHA_KEY: 6LcpXmUUAAAAAEeUPuZ4Xas5oMO3jkJWGi3Tsrub
+      RECAPTCHA_SECRET: 6LcpXmUUAAAAAKNMDvOBdgvf10sH_jpjdxJj2AdA

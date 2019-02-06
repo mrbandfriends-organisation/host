@@ -10,13 +10,25 @@ use Roots\Sage\Utils;
  */
 function google_tag_manager_code() {?>
   <?php if ( defined( 'GOOGLE_TAG_MANAGER_CODE' ) && !empty( GOOGLE_TAG_MANAGER_CODE )) { ?>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','<?php echo GOOGLE_TAG_MANAGER_CODE ?>');</script>
-    <!-- End Google Tag Manager -->
+    <?php if ( defined( 'WP_ENV' ) && WP_ENV == "production" ) { ?>
+      <!-- Google Tag Manager Production -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=imNm4KlIB5ZQxCkb-5E3Fw&gtm_preview=env-2&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','<?php echo GOOGLE_TAG_MANAGER_CODE ?>');</script>
+      <!-- End Google Tag Manager -->
+    <?php } ?>
+
+    <?php if ( defined( 'WP_ENV' ) && WP_ENV == "staging" ) { ?>
+      <!-- Google Tag Manager Staging -->
+      <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl+ '&gtm_auth=P4gMawTUaOk09rDHtmd1-A&gtm_preview=env-80&gtm_cookies_win=x';f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','<?php echo GOOGLE_TAG_MANAGER_CODE ?>');</script>
+      <!-- End Google Tag Manager -->
+    <?php } ?>
   <?php } ?>
 <?php
 }
@@ -24,10 +36,19 @@ add_action('wp_head', __NAMESPACE__ . '\\google_tag_manager_code', 0);
 
 function google_tag_manager_no_script_code() { ?>
   <?php if ( defined( 'GOOGLE_TAG_MANAGER_CODE' ) && !empty( GOOGLE_TAG_MANAGER_CODE )) { ?>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?= GOOGLE_TAG_MANAGER_CODE; ?>"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    <?php if ( defined( 'WP_ENV' ) && WP_ENV == "production" ) { ?>
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo GOOGLE_TAG_MANAGER_CODE ?>&gtm_auth=imNm4KlIB5ZQxCkb-5E3Fw&gtm_preview=env-2&gtm_cookies_win=x"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    <?php } ?>
+    
+    <?php if ( defined( 'WP_ENV' ) && WP_ENV == "staging" ) { ?>
+      <!-- Google Tag Manager (noscript) -->
+      <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo GOOGLE_TAG_MANAGER_CODE ?>&gtm_auth=P4gMawTUaOk09rDHtmd1-A&gtm_preview=env-80&gtm_cookies_win=x"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <!-- End Google Tag Manager (noscript) -->
+    <?php } ?>
   <?php } ?>
 <?php
 }

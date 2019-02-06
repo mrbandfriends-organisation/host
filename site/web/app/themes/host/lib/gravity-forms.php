@@ -123,4 +123,11 @@ if ( class_exists( 'GFCommon' ) ) {
 
     add_filter( 'gform_ip_address', '__return_empty_string' );
 
+
+    /**
+     * DISABLE FORM VIEW COUNTER
+     * https://docs.gravityforms.com/gform_disable_view_counter/
+     */
+    add_filter( 'gform_disable_view_counter', '__return_true' );
+
 } // end test for Gravity Forms being active
