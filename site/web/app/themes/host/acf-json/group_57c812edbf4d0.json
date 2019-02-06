@@ -19,6 +19,25 @@
             "endpoint": 0
         },
         {
+            "key": "field_5b0fb2c24e6fd",
+            "label": "Hide Header?",
+            "name": "hide_header",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Select this to hide the Header section from this location's page.",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        },
+        {
             "key": "field_57c827ec458c4",
             "label": "Title",
             "name": "title",
@@ -53,7 +72,8 @@
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 1
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_57c828648b03f",
@@ -85,7 +105,29 @@
                 "id": ""
             },
             "message": "",
-            "default_value": 0
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5b0fb2a84e6fc",
+            "label": "Hide Map?",
+            "name": "hide_map",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Select this to hide the Map section from this location's page.",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
         },
         {
             "key": "field_58de79dbbffa3",
@@ -160,7 +202,8 @@
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 1
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_58e21b9d8d136",
@@ -219,8 +262,8 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": "",
-            "max": "",
+            "min": 0,
+            "max": 0,
             "layout": "table",
             "button_label": "Add Row",
             "sub_fields": [
@@ -305,6 +348,25 @@
             "endpoint": 0
         },
         {
+            "key": "field_5b0d58653a7a8",
+            "label": "Hide News?",
+            "name": "hide_news",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Select this to hide the News section from this location's page.",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "Yes",
+            "ui_off_text": "No"
+        },
+        {
             "key": "field_57d6caeb9e80f",
             "label": "Title",
             "name": "news_title",
@@ -339,7 +401,8 @@
             "default_value": "",
             "tabs": "text",
             "toolbar": "basic",
-            "media_upload": 0
+            "media_upload": 0,
+            "delay": 0
         },
         {
             "key": "field_57d6e160738b6",
@@ -442,5 +505,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1491213282
+    "modified": 1527756985
 }

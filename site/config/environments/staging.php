@@ -8,3 +8,6 @@ define('DISALLOW_FILE_MODS', true);
 
 // Disable updates on non-Production
 define('AUTOMATIC_UPDATER_DISABLED', true);
+
+// Enable Tag Manager on Staging for testing
+define('GOOGLE_TAG_MANAGER_CODE', 'GTM-M2J9ZC');

@@ -3,8 +3,8 @@ Contributors: jeffrey-wp
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SSNQMST6R28Q2
 Tags: category, categories, media, library, medialibrary, image, images, media category, media categories
 Requires at least: 3.1
-Tested up to: 4.6
-Stable tag: 1.5.3
+Tested up to: 4.9.7
+Stable tag: 1.6.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,21 @@ Adds the ability to use categories in the media library.
 == Description ==
 
 Adds the ability to use categories in the WordPress Media Library. When activated a dropdown of categories will show up in the media library.
-You can change the category of multiple items at once with bulk actions.
+You can change / add / remove the category of multiple items at once with bulk actions.
+There is even an option to filter on categories when using the gallery shortcode.
+
+= Features WordPress Media Library Categories =
+* add / edit / remove categories from media items
+* change the category of multiple items at once with bulk actions
+* category options & management in the Media Library
+* filter on categories in the media library
+* filter on categories in the gallery shortcode
+* taxonomy filter
+* support for WordPress 3.1 – 4.9
+
+> <strong>Try Premium version - 100% money back guarantee</strong>
+> WordPress Media Library Categories Premium adds the option to filter on categories when inserting media into a post or page.
+> [Try now - 100% money back guarantee](https://codecanyon.net/item/media-library-categories-premium/6691290?ref=jeffrey-wp)
 
 == Installation ==
 
@@ -42,7 +56,6 @@ To upload the plugin through WordPress, instead of FTP:
 
 = How to use separate categories for the WordPress Media Library (and don't use the same categories as in posts & pages)? =
 By default the WordPress Media Library uses the same categories as WordPress does (such as in posts & pages). If you want to use separate categories for the WordPress Media Library add this code to the file functions.php located in your theme or child-theme:
-Add this code to the file functions.php located in your theme or child-theme:
 `/**
 * separate media categories from post categories
 * use a custom category called 'category_media' for the categories in the media library
@@ -54,12 +67,16 @@ Or if you have an older PHP version:
 
 
 = How to use category in the [gallery] shortcode? =
-To only show images from one category in the gallery you have to add the '`category`' parameter to the `[gallery]` shortcode.
-The value passed to the '`category`' parameter can be either the `category slug` or the `term_id`, for example with the category slug:
+To only show images from one category in the gallery you have to add the '`category`' attribute to the `[gallery]` shortcode.
+The value passed to the '`category`' attribute can be either the `category slug` or the `term_id`, for example with the category slug:
 `[gallery category="my-category-slug"]
 Or with term_id:
 [gallery category="14"]`
-If you use an incorrect slug by default WordPress shows the images that are attached to the page / post that is displayed. If you use an incorrect term_id no images are shown. Aside from this behavior, the `[gallery]` shortcode works as it does by default with the built-in shortcode from WordPress ([see the WordPress gallery shortcode codex page](https://codex.wordpress.org/Gallery_Shortcode)). Some plugins that also use the gallery shortcode (like Jetpack) disable the category option on the gallery shortcode.
+If you use an incorrect slug by default WordPress shows the images that are attached to the page / post that is displayed. If you use an incorrect term_id no images are shown. Aside from this behavior, the `[gallery]` shortcode works as it does by default with the built-in shortcode from WordPress ([see the WordPress gallery shortcode codex page](https://codex.wordpress.org/Gallery_Shortcode)). If you only want to show attachments uploaded to the page and filtered by category than use the '`id`' in combination with the '`category`' attribute. For example (the id of the post is 123):
+`[gallery category="my-category-slug" id="123"]
+Or leave id empty for current page / post:
+[gallery category="my-category-slug" id=""]`
+In this example the slug is used, but you could also use the term_id.
 
 
 = How can I filter on categories when inserting media into a post or page? =
@@ -78,6 +95,32 @@ Maintaining a plugin and keeping it up to date is hard work. Please support me b
 
 == Changelog ==
 
+= 1.6.1 =
+* Support for SCRIPT_DEBUG.
+* Only load CSS when needed.
+
+= 1.6 =
+* Notice for first time users how to separate media categories.
+* Rewrite entire plugin to improve quality and make it ready for future development.
+* Move language files to GlotPress.
+
+= 1.5.6 =
+* Remember pagenumber when using bulk actions
+* Only use wp_safe_redirect instead of wp_redirect
+* Changed donation information. [Donations are still possible and very welcome ;-)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=SSNQMST6R28Q2)
+
+= 1.5.5 =
+* Better detection if category is empty in gallery shortcode.
+* Use id attribute in gallery shortcode and show attachments in selected category and uploaded to post ID. `[gallery category="my-category-slug" id="123"]`
+* Leave id attribute empty in gallery shortcode to show attachments in selected category and upload to current post. `[gallery category="my-category-slug" id=""]`
+
+= 1.5.4 =
+* Before creating custom taxonomy check if taxonomy exists. Thanks @drpratten
+* Use filter instead of action for the displayed attachments. Thanks @clearsite
+* Japanese translations. Thanks @katsushi-kawamori
+* On some servers the active category was not selected in the dropdown in media list view.
+* Support PHP 7.1
+
 = 1.5.3 =
 * Added some default languages en_US, nl_NL, de_DE
 * Updated all links to use https://
@@ -89,7 +132,7 @@ Maintaining a plugin and keeping it up to date is hard work. Please support me b
 = 1.5.1 =
 * Support for WordPress 4.2
 * Security enhancement for add_query_arg
-* remember selected category
+* Remember selected category
 
 = 1.5 =
 * Support for WordPress 4.1

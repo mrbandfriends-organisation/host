@@ -375,8 +375,14 @@ input[type="checkbox"] {
     }
 }
 
+
+// # Custom Checkboxes
+// Add an opt-in .checkbox-custom class to prevent breaking of cookie consent forms.
+// Note that custom checkboxes are only used for the Map component on Location pages,
+// which use a separate styling found in _map.scss.
+
 // scss-lint:disable MergeableSelector
-input[type="checkbox"] + label {
+input[type="checkbox"].checkbox-custom + label {
     position: relative;
     font-weight: normal;
     cursor: pointer;
@@ -422,14 +428,13 @@ input[type="checkbox"] + label {
 
 }
 
-input[type="checkbox"]:checked + label {
+input[type="checkbox"].checkbox-custom:checked + label {
     &:before {
         // border-color: $p-color;
         // background-color: $p-color;
         content: "✔";
     }
 }
-
 
 
 

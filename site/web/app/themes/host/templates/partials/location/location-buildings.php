@@ -127,7 +127,7 @@
                                         'can_book' => $availability_status['can_book'],
                                         'can_join_waiting_list' => $availability_status['can_join_waiting_list'],
                                         'enquiry_hall_name' => $location_title . " " . $building_title,
-                                        'btn_modifiers' => 'btn--block'
+                                        'btn_modifiers' => 'btn--block btn--red'
                                     )); ?>
                                 </p>
                             </div>
