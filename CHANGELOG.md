@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.26.12] - 2019-02-06
+### Added
+- Add Parked Car SVG
+
 ## [1.26.11] - 2018-08-23
 ### Added
 - Disable Gravity Forms form view counter via filter. It was making the DB massive.
@@ -62,6 +66,7 @@ For more information about keeping good change logs please refer to [keep a chan
 - Add option to hide sections on Location pages
 ### Changed
 - Force red button on the Dublin building listing page at client request
+>>>>>>> 4bee20d485290f916f1e16b3f7fc6d7d1cb80f47
 
 ## [1.26.1] - 2018-05-18
 ### Added
