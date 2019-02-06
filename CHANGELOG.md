@@ -67,6 +67,10 @@ For more information about keeping good change logs please refer to [keep a chan
 - Add option to hide sections on Location pages
 ### Changed
 - Force red button on the Dublin building listing page at client request
+<<<<<<< HEAD
+=======
+>>>>>>> 4bee20d485290f916f1e16b3f7fc6d7d1cb80f47
+>>>>>>> hotfix/1.26.12
 
 ## [1.26.1] - 2018-05-18
 ### Added
