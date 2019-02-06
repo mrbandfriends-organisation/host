@@ -7,6 +7,10 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.26.2] - 2019-02-06
+### Added
+- Add Parked Car SVG
+
 ## [1.26.1] - 2018-05-18
 ### Added
 - Add Bing Webmaster tools XML file to allow client to verify against Bing WMT
