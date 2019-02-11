@@ -39,7 +39,7 @@ final class ITSEC_Lib {
 			w3tc_dbcache_flush();
 			w3tc_objectcache_flush();
 
-		} else if ( function_exists( 'wp_cache_clear_cache' ) && true == $page ) {
+		} elseif ( function_exists( 'wp_cache_clear_cache' ) && true == $page ) {
 
 			wp_cache_clear_cache();
 
@@ -52,84 +52,14 @@ final class ITSEC_Lib {
 	/**
 	 * Creates appropriate database tables.
 	 *
-	 * Uses dbdelta to create database tables either on activation or in the event that one is missing.
-	 *
 	 * @since 4.0.0
 	 *
 	 * @return void
 	 */
 	public static function create_database_tables() {
+		require_once( ITSEC_Core::get_core_dir() . '/lib/schema.php' );
 
-		global $wpdb;
-
-		$charset_collate = '';
-
-		if ( ! empty( $wpdb->charset ) ) {
-			$charset_collate = "DEFAULT CHARACTER SET $wpdb->charset";
-		}
-
-		if ( ! empty( $wpdb->collate ) ) {
-			$charset_collate .= " COLLATE $wpdb->collate";
-		}
-
-		//Set up log table
-		$tables = "CREATE TABLE " . $wpdb->base_prefix . "itsec_log (
-				log_id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-				log_type varchar(20) NOT NULL DEFAULT '',
-				log_function varchar(255) NOT NULL DEFAULT '',
-				log_priority int(2) NOT NULL DEFAULT 1,
-				log_date datetime NOT NULL DEFAULT '1000-01-01 00:00:00',
-				log_date_gmt datetime NOT NULL DEFAULT '1000-01-01 00:00:00',
-				log_host varchar(40),
-				log_username varchar(60),
-				log_user bigint(20) UNSIGNED,
-				log_url varchar(255),
-				log_referrer varchar(255),
-				log_data longtext NOT NULL,
-				PRIMARY KEY  (log_id),
-				KEY log_type (log_type),
-				KEY log_date_gmt (log_date_gmt)
-				) " . $charset_collate . ";";
-
-		//set up lockout table
-		$tables .= "CREATE TABLE " . $wpdb->base_prefix . "itsec_lockouts (
-				lockout_id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-				lockout_type varchar(20) NOT NULL,
-				lockout_start datetime NOT NULL,
-				lockout_start_gmt datetime NOT NULL,
-				lockout_expire datetime NOT NULL,
-				lockout_expire_gmt datetime NOT NULL,
-				lockout_host varchar(40),
-				lockout_user bigint(20) UNSIGNED,
-				lockout_username varchar(60),
-				lockout_active int(1) NOT NULL DEFAULT 1,
-				PRIMARY KEY  (lockout_id),
-				KEY lockout_expire_gmt (lockout_expire_gmt),
-				KEY lockout_host (lockout_host),
-				KEY lockout_user (lockout_user),
-				KEY lockout_username (lockout_username),
-				KEY lockout_active (lockout_active)
-				) " . $charset_collate . ";";
-
-		//set up temp table
-		$tables .= "CREATE TABLE " . $wpdb->base_prefix . "itsec_temp (
-				temp_id bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-				temp_type varchar(20) NOT NULL,
-				temp_date datetime NOT NULL,
-				temp_date_gmt datetime NOT NULL,
-				temp_host varchar(40),
-				temp_user bigint(20) UNSIGNED,
-				temp_username varchar(60),
-				PRIMARY KEY  (temp_id),
-				KEY temp_date_gmt (temp_date_gmt),
-				KEY temp_host (temp_host),
-				KEY temp_user (temp_user),
-				KEY temp_username (temp_username)
-				) " . $charset_collate . ";";
-
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-		@dbDelta( $tables );
-
+		ITSEC_Schema::create_database_tables();
 	}
 
 	/**
@@ -154,7 +84,7 @@ final class ITSEC_Lib {
 	 *
 	 * @since 4.0.0
 	 *
-	 * @param string $url          URL to filter
+	 * @param string $url URL to filter
 	 *
 	 * @return string domain name or '*' on error or domain mapped multisite
 	 * */
@@ -176,49 +106,10 @@ final class ITSEC_Lib {
 		$host_parts = explode( '.', $host );
 
 		if ( count( $host_parts ) > 2 ) {
-			$host_parts = array_slice( $host_parts, -2, 2 );
+			$host_parts = array_slice( $host_parts, - 2, 2 );
 		}
 
 		return implode( '.', $host_parts );
-	}
-
-	/**
-	 * Get path to WordPress install.
-	 *
-	 * Get the absolute filesystem path to the root of the WordPress installation.
-	 *
-	 * @since 4.3.0
-	 *
-	 * @return string Full filesystem path to the root of the WordPress installation
-	 */
-	public static function get_home_path() {
-
-		$home    = set_url_scheme( get_option( 'home' ), 'http' );
-		$siteurl = set_url_scheme( get_option( 'siteurl' ), 'http' );
-
-		if ( ! empty( $home ) && 0 !== strcasecmp( $home, $siteurl ) ) {
-
-			$wp_path_rel_to_home = str_ireplace( $home, '', $siteurl ); /* $siteurl - $home */
-			$pos                 = strripos( str_replace( '\\', '/', $_SERVER['SCRIPT_FILENAME'] ), trailingslashit( $wp_path_rel_to_home ) );
-
-			if ( $pos === false ) {
-
-				$home_path = dirname( $_SERVER['SCRIPT_FILENAME'] );
-
-			} else {
-
-				$home_path = substr( $_SERVER['SCRIPT_FILENAME'], 0, $pos );
-
-			}
-
-		} else {
-
-			$home_path = ABSPATH;
-
-		}
-
-		return trailingslashit( str_replace( '\\', '/', $home_path ) );
-
 	}
 
 	/**
@@ -284,6 +175,7 @@ final class ITSEC_Lib {
 
 			if ( ! empty( $ip ) ) {
 				$GLOBALS['__itsec_remote_ip'] = $ip;
+
 				return $ip;
 			}
 		}
@@ -293,6 +185,7 @@ final class ITSEC_Lib {
 
 		if ( ITSEC_Modules::get_setting( 'global', 'proxy_override' ) ) {
 			$GLOBALS['__itsec_remote_ip'] = $_SERVER['REMOTE_ADDR'];
+
 			return $GLOBALS['__itsec_remote_ip'];
 		}
 
@@ -312,19 +205,19 @@ final class ITSEC_Lib {
 
 		// Loop through twice. The first run won't accept a reserved or private range IP. If an acceptable IP is not
 		// found, try again while accepting reserved or private range IPs.
-		for ( $x = 0; $x < 2; $x++ ) {
+		for ( $x = 0; $x < 2; $x ++ ) {
 			foreach ( $headers as $header ) {
-				if ( ! isset( $_SERVER[$header] ) ) {
+				if ( ! isset( $_SERVER[ $header ] ) ) {
 					continue;
 				}
 
-				$ip = trim( $_SERVER[$header] );
+				$ip = trim( $_SERVER[ $header ] );
 
 				if ( empty( $ip ) ) {
 					continue;
 				}
 
-				if ( false !== ( $comma_index = strpos( $_SERVER[$header], ',' ) ) ) {
+				if ( false !== ( $comma_index = strpos( $_SERVER[ $header ], ',' ) ) ) {
 					$ip = substr( $ip, 0, $comma_index );
 				}
 
@@ -515,21 +408,21 @@ final class ITSEC_Lib {
 
 		if ( - 1 < $memory_limit ) {
 
-			$unit = strtolower( substr( $memory_limit, - 1 ) );
+			$unit         = strtolower( substr( $memory_limit, - 1 ) );
 			$memory_limit = (int) $memory_limit;
 
-			$new_unit = strtolower( substr( $new_memory_limit, - 1 ) );
+			$new_unit         = strtolower( substr( $new_memory_limit, - 1 ) );
 			$new_memory_limit = (int) $new_memory_limit;
 
 			if ( 'm' == $unit ) {
 
 				$memory_limit *= 1048576;
 
-			} else if ( 'g' == $unit ) {
+			} elseif ( 'g' == $unit ) {
 
 				$memory_limit *= 1073741824;
 
-			} else if ( 'k' == $unit ) {
+			} elseif ( 'k' == $unit ) {
 
 				$memory_limit *= 1024;
 
@@ -539,11 +432,11 @@ final class ITSEC_Lib {
 
 				$new_memory_limit *= 1048576;
 
-			} else if ( 'g' == $new_unit ) {
+			} elseif ( 'g' == $new_unit ) {
 
 				$new_memory_limit *= 1073741824;
 
-			} else if ( 'k' == $new_unit ) {
+			} elseif ( 'k' == $new_unit ) {
 
 				$new_memory_limit *= 1024;
 
@@ -640,11 +533,11 @@ final class ITSEC_Lib {
 
 		if ( false === $user ) {
 			$user = wp_get_current_user();
-		} else if ( is_int( $user ) ) {
+		} elseif ( is_int( $user ) ) {
 			$user = get_user_by( 'id', $user );
-		} else if ( is_string( $user ) ) {
+		} elseif ( is_string( $user ) ) {
 			$user = get_user_by( 'login', $user );
-		} else if ( is_object( $user ) && isset( $user->ID ) ) {
+		} elseif ( is_object( $user ) && isset( $user->ID ) ) {
 			$user = get_user_by( 'id', $user->ID );
 		} else {
 			if ( is_object( $user ) ) {
@@ -703,6 +596,12 @@ final class ITSEC_Lib {
 	 * @param string $username
 	 */
 	public static function handle_wp_login_failed( $username ) {
+		$details = self::get_login_details();
+
+		do_action( 'itsec-handle-failed-login', $username, $details );
+	}
+
+	public static function get_login_details() {
 		$authentication_types = array();
 
 		if ( isset( $_SERVER['HTTP_AUTHORIZATION'] ) ) {
@@ -710,7 +609,7 @@ final class ITSEC_Lib {
 
 			if ( 'Basic ' === $http_auth_type ) {
 				$authentication_types[] = 'header_http_basic_auth';
-			} else if ( 'OAuth ' === $http_auth_type ) {
+			} elseif ( 'OAuth ' === $http_auth_type ) {
 				$authentication_types[] = 'header_http_oauth';
 			}
 		}
@@ -727,21 +626,20 @@ final class ITSEC_Lib {
 			$authentication_types[] = 'post_oauth';
 		}
 
-		if ( defined('XMLRPC_REQUEST') && XMLRPC_REQUEST ) {
-			$source = 'xmlrpc';
+		if ( defined( 'XMLRPC_REQUEST' ) && XMLRPC_REQUEST ) {
+			$source               = 'xmlrpc';
 			$authentication_types = array( 'username_and_password' );
-		} else if ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
-			$source = 'rest_api';
+		} elseif ( defined( 'REST_REQUEST' ) && REST_REQUEST ) {
+			$source                 = 'rest_api';
 			$authentication_types[] = 'cookie';
 		} else {
-			$source = 'wp-login.php';
+			$source               = 'wp-login.php';
 			$authentication_types = array( 'username_and_password' );
 		}
 
 		$details = compact( 'source', 'authentication_types' );
-		$details = apply_filters( 'itsec-filter-failed-login-details', $details );
 
-		do_action( 'itsec-handle-failed-login', $username, $details );
+		return apply_filters( 'itsec-filter-failed-login-details', $details );
 	}
 
 	/**
@@ -777,7 +675,7 @@ final class ITSEC_Lib {
 	 */
 	public static function get_request_path() {
 		if ( ! isset( $GLOBALS['__itsec_lib_get_request_path'] ) ) {
-			$request_uri = preg_replace( '|//+|', '/', $_SERVER['REQUEST_URI'] );
+			$request_uri                             = preg_replace( '|//+|', '/', $_SERVER['REQUEST_URI'] );
 			$GLOBALS['__itsec_lib_get_request_path'] = self::get_url_path( $request_uri, self::get_home_root() );
 		}
 
@@ -800,8 +698,8 @@ final class ITSEC_Lib {
 		global $wpdb;
 		$main_options = $wpdb->base_prefix . 'options';
 
-		$lock = "itsec-lock-{$name}";
-		$now = ITSEC_Core::get_current_time_gmt();
+		$lock       = "itsec-lock-{$name}";
+		$now        = ITSEC_Core::get_current_time_gmt();
 		$release_at = $now + $expires_in;
 
 		if ( is_multisite() ) {
@@ -884,7 +782,7 @@ final class ITSEC_Lib {
 				$alloptions = wp_cache_get( 'alloptions' );
 
 				if ( is_array( $alloptions ) && isset( $alloptions[ $lock ] ) ) {
-					unset( $alloptions[$lock] );
+					unset( $alloptions[ $lock ] );
 					wp_cache_set( 'alloptions', $alloptions, 'options' );
 				} else {
 					wp_cache_delete( $lock, 'options' );
@@ -895,6 +793,31 @@ final class ITSEC_Lib {
 		} else {
 			delete_option( $lock );
 		}
+	}
+
+	public static function has_lock( $name ) {
+
+		/** @var \wpdb $wpdb */
+		global $wpdb;
+		$main_options = $wpdb->base_prefix . 'options';
+
+		$lock = "itsec-lock-{$name}";
+
+		if ( is_multisite() ) {
+			$result = $wpdb->get_var( $wpdb->prepare( "SELECT `option_value` FROM `{$main_options}` WHERE `option_name` = %s", $lock ) );
+		} else {
+			$result = $wpdb->get_var( $wpdb->prepare( "SELECT `option_value` FROM `$wpdb->options` WHERE `option_name` = %s", $lock ) );
+		}
+
+		if ( ! $result ) {
+			return false;
+		}
+
+		if ( (int) $result < ITSEC_Core::get_current_time_gmt() ) {
+			return false;
+		}
+
+		return true;
 	}
 
 	/**
@@ -924,13 +847,13 @@ final class ITSEC_Lib {
 					wp_cache_switch_to_blog( 1 );
 
 					$alloptions = wp_cache_get( 'alloptions' );
-					$set_all = false;
+					$set_all    = false;
 
 					foreach ( $rows as $row ) {
 						$lock = $row->option_name;
 
 						if ( is_array( $alloptions ) && isset( $alloptions[ $lock ] ) ) {
-							unset( $alloptions[$lock] );
+							unset( $alloptions[ $lock ] );
 							$set_all = true;
 						} else {
 							wp_cache_delete( $lock, 'options' );
@@ -997,7 +920,7 @@ final class ITSEC_Lib {
 	public static function get_ssl_support_probability() {
 		if ( is_ssl() ) {
 			$probability = 50; // The site appears to be on an SSL connection but it could be self-signed or otherwise
-			                   // not valid to a visitor.
+			// not valid to a visitor.
 		} else {
 			$probability = 0;
 		}
@@ -1084,6 +1007,18 @@ final class ITSEC_Lib {
 		return $array;
 	}
 
+	public static function print_r( $data, $args = array() ) {
+		require_once( ITSEC_Core::get_core_dir() . '/lib/debug.php' );
+
+		ITSEC_Debug::print_r( $data, $args );
+	}
+
+	public static function get_print_r( $data, $args = array() ) {
+		require_once( ITSEC_Core::get_core_dir() . '/lib/debug.php' );
+
+		return ITSEC_Debug::get_print_r( $data, $args );
+	}
+
 	/**
 	 * Check if WP Cron appears to be running properly.
 	 *
@@ -1113,11 +1048,11 @@ final class ITSEC_Lib {
 			return;
 		}
 
-		$crons = _get_cron_array();
-
-		foreach ( $crons as $timestamp => $cron ) {
-			if ( isset( $cron['itsec_cron_test'] ) ) {
-				return;
+		if ( $crons = _get_cron_array() ) {
+			foreach ( $crons as $timestamp => $cron ) {
+				if ( isset( $cron['itsec_cron_test'] ) ) {
+					return;
+				}
 			}
 		}
 
@@ -1125,5 +1060,208 @@ final class ITSEC_Lib {
 		$time = ITSEC_Core::get_current_time_gmt() + mt_rand( 6, 18 ) * HOUR_IN_SECONDS + mt_rand( 1, 60 ) * MINUTE_IN_SECONDS;
 		wp_schedule_single_event( $time, 'itsec_cron_test', array( $time ) );
 		ITSEC_Modules::set_setting( 'global', 'cron_test_time', $time );
+	}
+
+	public static function fwdslash( $string ) {
+		return '/' . ltrim( $string, '/' );
+	}
+
+	/**
+	 * Enqueue the itsec_util script.
+	 *
+	 * Will only be included once per page.
+	 *
+	 * @param array $args
+	 */
+	public static function enqueue_util( $args = array() ) {
+
+		static $enqueued = false;
+
+		if ( $enqueued ) {
+			return;
+		}
+
+		$translations = array(
+			'ajax_invalid'      => new WP_Error( 'itsec-settings-page-invalid-ajax-response', __( 'An "invalid format" error prevented the request from completing as expected. The format of data returned could not be recognized. This could be due to a plugin/theme conflict or a server configuration issue.', 'better-wp-security' ) ),
+			'ajax_forbidden'    => new WP_Error( 'itsec-settings-page-forbidden-ajax-response: %1$s "%2$s"', __( 'A "request forbidden" error prevented the request from completing as expected. The server returned a 403 status code, indicating that the server configuration is prohibiting this request. This could be due to a plugin/theme conflict or a server configuration issue. Please try refreshing the page and trying again. If the request continues to fail, you may have to alter plugin settings or server configuration that could account for this AJAX request being blocked.', 'better-wp-security' ) ),
+			'ajax_not_found'    => new WP_Error( 'itsec-settings-page-not-found-ajax-response: %1$s "%2$s"', __( 'A "not found" error prevented the request from completing as expected. The server returned a 404 status code, indicating that the server was unable to find the requested admin-ajax.php file. This could be due to a plugin/theme conflict, a server configuration issue, or an incomplete WordPress installation. Please try refreshing the page and trying again. If the request continues to fail, you may have to alter plugin settings, alter server configurations, or reinstall WordPress.', 'better-wp-security' ) ),
+			'ajax_server_error' => new WP_Error( 'itsec-settings-page-server-error-ajax-response: %1$s "%2$s"', __( 'A "internal server" error prevented the request from completing as expected. The server returned a 500 status code, indicating that the server was unable to complete the request due to a fatal PHP error or a server problem. This could be due to a plugin/theme conflict, a server configuration issue, a temporary hosting issue, or invalid custom PHP modifications. Please check your server\'s error logs for details about the source of the error and contact your hosting company for assistance if required.', 'better-wp-security' ) ),
+			'ajax_unknown'      => new WP_Error( 'itsec-settings-page-ajax-error-unknown: %1$s "%2$s"', __( 'An unknown error prevented the request from completing as expected. This could be due to a plugin/theme conflict or a server configuration issue.', 'better-wp-security' ) ),
+			'ajax_timeout'      => new WP_Error( 'itsec-settings-page-ajax-error-timeout: %1$s "%2$s"', __( 'A timeout error prevented the request from completing as expected. The site took too long to respond. This could be due to a plugin/theme conflict or a server configuration issue.', 'better-wp-security' ) ),
+			'ajax_parsererror'  => new WP_Error( 'itsec-settings-page-ajax-error-parsererror: %1$s "%2$s"', __( 'A parser error prevented the request from completing as expected. The site sent a response that jQuery could not process. This could be due to a plugin/theme conflict or a server configuration issue.', 'better-wp-security' ) ),
+		);
+
+		foreach ( $translations as $i => $translation ) {
+			$messages = ITSEC_Response::get_error_strings( $translation );
+
+			if ( $messages ) {
+				$translations[ $i ] = $messages[0];
+			}
+		}
+
+		wp_enqueue_script( 'itsec-util', plugins_url( 'admin-pages/js/util.js', __FILE__ ), array( 'jquery' ), ITSEC_Core::get_plugin_build(), true );
+		wp_localize_script( 'itsec-util', 'itsec_util', array(
+			'ajax_action'  => isset( $args['action'] ) ? $args['action'] : 'itsec_settings_page',
+			'ajax_nonce'   => wp_create_nonce( isset( $args['nonce'] ) ? $args['nonce'] : 'itsec-settings-nonce' ),
+			'translations' => $translations,
+		) );
+
+		$enqueued = true;
+	}
+
+	/**
+	 * Replace the prefix of a target string with another prefix.
+	 *
+	 * If the given target does not start with the current prefix, the string
+	 * will be returned unmodified.
+	 *
+	 * @param string $target      String to perform replacement on.
+	 * @param string $current     The current prefix.
+	 * @param string $replacement The new prefix.
+	 *
+	 * @return string
+	 */
+	public static function replace_prefix( $target, $current, $replacement ) {
+		if ( 0 !== strpos( $target, $current ) ) {
+			return $target;
+		}
+
+		$stripped = substr( $target, strlen( $current ) );
+
+		return $replacement . $stripped;
+	}
+
+	/**
+	 * Convert an iterator to an array.
+	 *
+	 * @param iterable $iterator
+	 *
+	 * @return array
+	 */
+	public static function iterator_to_array( $iterator ) {
+
+		if ( is_array( $iterator ) ) {
+			return $iterator;
+		}
+
+		// Available since PHP 5.1, but SPL which isn't guaranteed.
+		if ( function_exists( 'iterator_to_array' ) ) {
+			return iterator_to_array( $iterator );
+		}
+
+		$array = array();
+
+		foreach ( $iterator as $key => $value ) {
+			$array[ $key ] = $value;
+		}
+
+		return $array;
+	}
+
+	/**
+	 * Insert an element after a given key.
+	 *
+	 * @param string|int $key
+	 * @param array      $array
+	 * @param string|int $new_key
+	 * @param mixed      $new_value
+	 *
+	 * @return array
+	 */
+	public static function array_insert_after( $key, $array, $new_key, $new_value ) {
+		if ( array_key_exists( $key, $array ) ) {
+			$new = array();
+			foreach ( $array as $k => $value ) {
+				$new[ $k ] = $value;
+				if ( $k === $key ) {
+					$new[ $new_key ] = $new_value;
+				}
+			}
+
+			return $new;
+		}
+
+		$array[ $new_key ] = $new_value;
+
+		return $array;
+	}
+
+	/**
+	 * Array unique implementation that allows for non-scalar values.
+	 *
+	 * Will compare elements using `serialize()`.
+	 *
+	 * Keys are preserved. If a numeric array is given, the array will be re-indexed.
+	 *
+	 * @param array $array
+	 *
+	 * @return array
+	 */
+	public static function non_scalar_array_unique( $array ) {
+
+		$is_numeric = wp_is_numeric_array( $array );
+
+		$hashes = array();
+
+		foreach ( $array as $key => $value ) {
+			$hash = serialize( $value );
+
+			if ( isset( $hashes[ $hash ] ) ) {
+				unset( $array[ $key ] );
+			} else {
+				$hashes[ $hash ] = 1;
+			}
+		}
+
+		if ( $is_numeric ) {
+			return array_values( $array );
+		}
+
+		return $array;
+	}
+
+	/**
+	 * Get whatever backup plugin is being used on this site.
+	 *
+	 * @return string
+	 */
+	public static function get_backup_plugin() {
+
+		$possible = array(
+			'backupbuddy/backupbuddy.php',
+			'updraftplus/updraftplus.php',
+			'backwpup/backwpup.php',
+			'xcloner-backup-and-restore/xcloner.php',
+			'duplicator/duplicator.php',
+			'backup/backup.php',
+			'wp-db-backup/wp-db-backup.php',
+			'backupwordpress/backupwordpress.php',
+			'blogvault-real-time-backup/blogvault.php',
+			'wp-all-backup/wp-all-backup.php',
+			'vaultpress/vaultpress.php',
+		);
+
+		/**
+		 * Filter the list of possible backup plugins.
+		 *
+		 * @param string[] List of Backup Plugin __FILE__.
+		 */
+		$possible = apply_filters( 'itsec_possible_backup_plugins', $possible );
+
+		if ( ! function_exists( 'is_plugin_active' ) ) {
+			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		}
+
+		if ( ! function_exists( 'is_plugin_active' ) ) {
+			return '';
+		}
+
+		foreach ( $possible as $file ) {
+			if ( is_plugin_active( $file ) ) {
+				return $file;
+			}
+		}
+
+		return '';
 	}
 }

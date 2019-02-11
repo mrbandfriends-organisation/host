@@ -932,10 +932,6 @@ input[type="checkbox"].checkbox-custom:checked + label:before {
   content: "✔";
 }
 
-.g-recaptcha {
-  float: right;
-}
-
 button:invalid,
 select:invalid,
 input:invalid,
@@ -9983,6 +9979,13 @@ a.article-tile__link:hover .article-tile__location {
   .testimonial-wall__testimonial--until-xxlarge-flip{
     -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
+  }
+}
+
+@media screen and (max-width: 600px){
+  .listed-room__content .slideshow__item{
+    background-blend-mode: multiply;
+    background-color: rgba(180, 85, 160, 0.95) !important;
   }
 }
 

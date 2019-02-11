@@ -9,7 +9,6 @@
 final class ITSEC_Setup {
 	public static function handle_activation() {
 		self::setup_plugin_data();
-		ITSEC_Core::get_scheduler()->register_events();
 	}
 
 	public static function handle_deactivation() {
@@ -143,6 +142,12 @@ final class ITSEC_Setup {
 			ITSEC_Lib::schedule_cron_test();
 		}
 
+		if ( null === get_site_option( 'itsec-enable-grade-report', null ) ) {
+			update_site_option( 'itsec-enable-grade-report', ITSEC_Modules::get_setting( 'global', 'enable_grade_report' ) );
+		}
+
+		ITSEC_Core::get_scheduler()->register_events();
+
 		// Update stored build number.
 		ITSEC_Modules::set_setting( 'global', 'build', ITSEC_Core::get_plugin_build() );
 	}
@@ -184,8 +189,8 @@ final class ITSEC_Setup {
 	}
 
 	private static function uninstall() {
-
-		global $wpdb;
+		require_once( ITSEC_Core::get_core_dir() . '/lib/schema.php' );
+		require_once( ITSEC_Core::get_core_dir() . '/lib/class-itsec-lib-directory.php' );
 
 		ITSEC_Modules::run_uninstall();
 
@@ -194,17 +199,10 @@ final class ITSEC_Setup {
 
 		delete_site_option( 'itsec-storage' );
 		delete_site_option( 'itsec_active_modules' );
+		delete_site_option( 'itsec-enable-grade-report' );
 
-		$wpdb->query( "DROP TABLE IF EXISTS " . $wpdb->base_prefix . "itsec_log;" );
-		$wpdb->query( "DROP TABLE IF EXISTS " . $wpdb->base_prefix . "itsec_lockouts;" );
-		$wpdb->query( "DROP TABLE IF EXISTS " . $wpdb->base_prefix . "itsec_temp;" );
-
-		if ( is_dir( ITSEC_Core::get_storage_dir() ) ) {
-			require_once( ITSEC_Core::get_core_dir() . '/lib/class-itsec-lib-directory.php' );
-
-			ITSEC_Lib_Directory::remove( ITSEC_Core::get_storage_dir() );
-		}
-
+		ITSEC_Schema::remove_database_tables();
+		ITSEC_Lib_Directory::remove( ITSEC_Core::get_storage_dir() );
 		ITSEC_Lib::clear_caches();
 
 	}

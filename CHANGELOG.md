@@ -7,7 +7,28 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
-## [1.26.9] - 2018-07-23
+## [1.26.12] - 2019-02-06
+### Added
+- Add Parked Car SVG
+
+## [1.26.11] - 2018-08-23
+### Added
+- Disable Gravity Forms form view counter via filter. It was making the DB massive.
+- Added Disable Guttenbery Plugin
+
+## Changed
+- Updated WP Core
+- Updated large number of Plugins (see Git commit log)
+- Switched local dev domain to be `.test` instead of `.dev`
+- Remove and then re-add Admin Columns plugin because developers switch to PSR-4 which caused Git to get confused with capitlisation. If there are any deployment issues, advise removing the Plugin manually on the Production server and then re-deploying.
+
+## Removed
+- Remove unused Plugins (were all disabled on Production anyway)
+  - Breadcrumb Trail
+  - ACF Nav Menu field
+  - User Role Editor
+
+## [1.26.10] - 2018-07-23
 ### Added
 - Adding Recaptcha JS call to head
 
@@ -45,6 +66,7 @@ For more information about keeping good change logs please refer to [keep a chan
 - Add option to hide sections on Location pages
 ### Changed
 - Force red button on the Dublin building listing page at client request
+>>>>>>> 4bee20d485290f916f1e16b3f7fc6d7d1cb80f47
 
 ## [1.26.1] - 2018-05-18
 ### Added
