@@ -7,6 +7,9 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.26.13] - 2019-02-11
+### Added
+- Add Parked Car SVG version 2
 
 ## [1.26.12] - 2019-02-06
 ### Added
