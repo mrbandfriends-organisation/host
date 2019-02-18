@@ -7,6 +7,11 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.26.14] - 2019-02-18
+### Added
+- Redirect Debug plugin
+- Updating Redirection plugin
+
 ## [1.26.13] - 2019-02-11
 ### Added
 - Add Parked Car SVG version 2
