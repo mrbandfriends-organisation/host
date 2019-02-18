@@ -1,7 +1,7 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "25d66120c0196722dab77c975e1c1853",
@@ -414,7 +414,7 @@
             "dist": {
                 "type": "zip",
                 "url": "https://downloads.wordpress.org/plugin/codepress-admin-columns.2.5.6.4.zip",
-                "reference": "tags/2.5.6.4",
+                "reference": null,
                 "shasum": null
             },
             "require": {
@@ -545,15 +545,15 @@
         },
         {
             "name": "wpackagist-plugin/redirection",
-            "version": "3.4",
+            "version": "3.7.3",
             "source": {
                 "type": "svn",
                 "url": "https://plugins.svn.wordpress.org/redirection/",
-                "reference": "tags/3.4"
+                "reference": "tags/3.7.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://downloads.wordpress.org/plugin/redirection.3.4.zip",
+                "url": "https://downloads.wordpress.org/plugin/redirection.3.7.3.zip",
                 "reference": null,
                 "shasum": null
             },

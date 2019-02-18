@@ -71,6 +71,23 @@ class Core {
 		$this->settings_pages();
 		$this->define_public_hooks();
 
+		add_action('admin_notices', function() {
+			echo "<!-- debug -->";
+			$page             = get_current_screen()->base;
+			$display_on_pages = array(
+				'dashboard',
+				'plugins',
+				'tools',
+				'options-general',
+				'settings_page_widget-for-eventbrite-api-settings',
+			);
+			if ( ! in_array( $page, $display_on_pages ) ) {
+				return;
+			}
+
+		});
+
+
 
 	}
 
