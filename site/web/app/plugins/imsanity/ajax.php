@@ -14,16 +14,24 @@ add_action( 'wp_ajax_imsanity_resize_image', 'imsanity_resize_image' );
  */
 function imsanity_verify_permission() {
 	if ( ! current_user_can( 'activate_plugins' ) ) { // this isn't a real capability, but super admins can do anything, so it works.
-		die( json_encode( array(
-			'success' => false,
-			'message' => esc_html__( 'Administrator permission is required', 'imsanity' ),
-		) ) );
+		die(
+			json_encode(
+				array(
+					'success' => false,
+					'message' => esc_html__( 'Administrator permission is required', 'imsanity' ),
+				)
+			)
+		);
 	}
 	if ( ! wp_verify_nonce( $_REQUEST['_wpnonce'], 'imsanity-bulk' ) ) {
-		die( json_encode( array(
-			'success' => false,
-			'message' => esc_html__( 'Access token has expired, please reload the page.', 'imsanity' ),
-		) ) );
+		die(
+			json_encode(
+				array(
+					'success' => false,
+					'message' => esc_html__( 'Access token has expired, please reload the page.', 'imsanity' ),
+				)
+			)
+		);
 	}
 }
 
@@ -48,7 +56,16 @@ function imsanity_get_images() {
 	while ( $images ) {
 
 		foreach ( $images as $image ) {
+			$imagew = false;
+			$imageh = false;
+
 			$meta = unserialize( $image->file_meta );
+		
+			// If "noresize" is included in the filename then we will bypass imsanity scaling.
+			if ( ! empty( $meta['file'] ) && strpos( $meta['file'], 'noresize' ) !== false ) {
+				continue;
+			}
+
 			if ( imsanity_get_option( 'imsanity_deep_scan', false ) ) {
 				$file_path = imsanity_attachment_path( $meta, $image->ID, '', false );
 				if ( $file_path ) {
@@ -94,10 +111,14 @@ function imsanity_resize_image() {
 	$id = (int) $_POST['id'];
 
 	if ( ! $id ) {
-		die( json_encode( array(
-			'success' => false,
-			'message' => esc_html__( 'Missing ID Parameter', 'imsanity' ),
-		) ) );
+		die(
+			json_encode(
+				array(
+					'success' => false,
+					'message' => esc_html__( 'Missing ID Parameter', 'imsanity' ),
+				)
+			)
+		);
 	}
 
 	$meta = wp_get_attachment_metadata( $id );
@@ -105,13 +126,17 @@ function imsanity_resize_image() {
 	if ( $meta && is_array( $meta ) ) {
 		$uploads = wp_upload_dir();
 		$oldpath = imsanity_attachment_path( $meta['file'], $id, '', false );
-		if ( ! is_writable( $oldpath ) ) {
+		if ( empty( $oldpath ) || ! is_writable( $oldpath ) ) {
 			/* translators: %s: File-name of the image */
-			$msg = sprintf( esc_html__( '%s is not writable', 'imsanity' ), $oldpath );
-			die( json_encode( array(
-				'success' => false,
-				'message' => $msg,
-			) ) );
+			$msg = sprintf( esc_html__( '%s is not writable', 'imsanity' ), $meta['file'] );
+			die(
+				json_encode(
+					array(
+						'success' => false,
+						'message' => $msg,
+					)
+				)
+			);
 		}
 
 		$maxw = imsanity_get_option( 'imsanity_max_width', IMSANITY_DEFAULT_MAX_WIDTH );

@@ -48,6 +48,7 @@ class Zopim_Linked_View extends Zopim_Base_View
     } else {
       update_option( Zopim_Options::ZOPIM_OPTION_SALT, '' );
       update_option( Zopim_Options::ZOPIM_OPTION_CODE, 'zopim' );
+      update_option( Zopim_Options::ZENDESK_OPTION_SUBDOMAIN, '');
     }
   }
 
@@ -64,6 +65,17 @@ class Zopim_Linked_View extends Zopim_Base_View
       $accountDetails->package_id .= $this->get_message( 'plan' );
     }
 
-    Zopim_Template::load_template( 'linked-view', array_merge( array( 'messages' => $this->_messages ), (array)$accountDetails ) );
+    Zopim_Template::load_template( 'linked-view', array_merge( array( 'messages' => $this->_messages, 'dashboardLink' => ZOPIM_DASHBOARD_LINK ), (array)$accountDetails ) );
+  }
+
+  /**
+   * Renders the Zendesk Chat form with the dashboard link pointing to the subdomain
+   *
+   * @param string subdomain of the account
+   */
+  public function display_linked_view_using_subdomain( $subdomain )
+  {
+    $url = 'https://' . $subdomain . '.zendesk.com';
+    Zopim_Template::load_template( 'linked-view', array( 'messages' => $this->_messages, 'dashboardLink' => $url, 'package_id' => '' ) );
   }
 }

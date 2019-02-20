@@ -23,7 +23,8 @@ function disable_gutenberg_register_settings() {
 	add_settings_section('settings_3', 'Disable for Post Types', 'disable_gutenberg_settings_section_3', 'disable_gutenberg_options');
 	add_settings_section('settings_4', 'Disable for Templates',  'disable_gutenberg_settings_section_4', 'disable_gutenberg_options');
 	add_settings_section('settings_5', 'Disable for Post IDs',   'disable_gutenberg_settings_section_5', 'disable_gutenberg_options');
-	add_settings_section('settings_6', 'More Tools',             'disable_gutenberg_settings_section_6', 'disable_gutenberg_options');
+	add_settings_section('settings_6', 'Whitelist',              'disable_gutenberg_settings_section_6', 'disable_gutenberg_options');
+	add_settings_section('settings_7', 'More Tools',             'disable_gutenberg_settings_section_7', 'disable_gutenberg_options');
 	
 	// add_settings_field( $id, $title, $callback, $page, $section, $args );
 	add_settings_field('disable-all', __('Complete Disable', 'disable-gutenberg'), 'disable_gutenberg_callback_checkbox', 'disable_gutenberg_options', 'settings_1', array('id' => 'disable-all', 'label' => esc_html__('Disable Gutenberg everywhere', 'disable-gutenberg')));
@@ -44,14 +45,22 @@ function disable_gutenberg_register_settings() {
 		
 	}
 	
-	add_settings_field('templates',     __('Disable Templates',   'disable-gutenberg'), 'disable_gutenberg_callback_text',     'disable_gutenberg_options', 'settings_4', array('id' => 'templates',     'label' => esc_html__('Separate multiple templates with commas',        'disable-gutenberg')));
-	add_settings_field('post-ids',      __('Disable Post IDs',    'disable-gutenberg'), 'disable_gutenberg_callback_text',     'disable_gutenberg_options', 'settings_5', array('id' => 'post-ids',      'label' => esc_html__('Separate multiple post IDs with commas',         'disable-gutenberg')));
+	add_settings_field('templates', __('Disable Templates', 'disable-gutenberg'), 'disable_gutenberg_callback_text', 'disable_gutenberg_options', 'settings_4', array('id' => 'templates', 'label' => esc_html__('Separate multiple templates with commas', 'disable-gutenberg')));
+	add_settings_field('post-ids',  __('Disable Post IDs',  'disable-gutenberg'), 'disable_gutenberg_callback_text', 'disable_gutenberg_options', 'settings_5', array('id' => 'post-ids',  'label' => esc_html__('Separate multiple post IDs with commas',  'disable-gutenberg')));
 	
-	add_settings_field('disable-nag',   __('Disable Nag',         'disable-gutenberg'), 'disable_gutenberg_callback_checkbox', 'disable_gutenberg_options', 'settings_6', array('id' => 'disable-nag',   'label' => esc_html__('Disable "Try Gutenberg" nag',                    'disable-gutenberg')));
-	add_settings_field('hide-menu',     __('Plugin Menu Item',    'disable-gutenberg'), 'disable_gutenberg_callback_checkbox', 'disable_gutenberg_options', 'settings_6', array('id' => 'hide-menu',     'label' => esc_html__('Hide this plugin&rsquo;s menu item',             'disable-gutenberg')));
-	add_settings_field('hide-gut',      __('Gutenberg Menu Item', 'disable-gutenberg'), 'disable_gutenberg_callback_checkbox', 'disable_gutenberg_options', 'settings_6', array('id' => 'hide-gut',      'label' => esc_html__('Hide the Gutenberg plugin&rsquo;s menu item',    'disable-gutenberg')));
-	add_settings_field('reset_options', __('Reset Options',       'disable-gutenberg'), 'disable_gutenberg_callback_reset',    'disable_gutenberg_options', 'settings_6', array('id' => 'reset_options', 'label' => esc_html__('Restore default plugin options',                 'disable-gutenberg')));
-	add_settings_field('rate_plugin',   __('Rate Plugin',         'disable-gutenberg'), 'disable_gutenberg_callback_rate',     'disable_gutenberg_options', 'settings_6', array('id' => 'rate_plugin',   'label' => esc_html__('Show support with a 5-star rating&nbsp;&raquo;', 'disable-gutenberg')));
+	add_settings_field('whitelist-id',    __('Whitelist Post IDs',    'disable-gutenberg'), 'disable_gutenberg_callback_text', 'disable_gutenberg_options', 'settings_6', array('id' => 'whitelist-id',    'label' => esc_html__('Post IDs that always should use the Block Editor',    'disable-gutenberg')));
+	add_settings_field('whitelist-slug',  __('Whitelist Post Slugs',  'disable-gutenberg'), 'disable_gutenberg_callback_text', 'disable_gutenberg_options', 'settings_6', array('id' => 'whitelist-slug',  'label' => esc_html__('Post slugs that always should use the Block Editor',  'disable-gutenberg')));
+	add_settings_field('whitelist-title', __('Whitelist Post Titles', 'disable-gutenberg'), 'disable_gutenberg_callback_text', 'disable_gutenberg_options', 'settings_6', array('id' => 'whitelist-title', 'label' => esc_html__('Post titles that always should use the Block Editor', 'disable-gutenberg')));
+	
+	add_settings_field('disable-nag',   __('Disable Nag',         'disable-gutenberg'), 'disable_gutenberg_callback_checkbox', 'disable_gutenberg_options', 'settings_7', array('id' => 'disable-nag',   'label' => esc_html__('Disable "Try Gutenberg" nag', 'disable-gutenberg')));
+	add_settings_field('styles-enable', __('Enable Frontend',     'disable-gutenberg'), 'disable_gutenberg_callback_checkbox', 'disable_gutenberg_options', 'settings_7', array('id' => 'styles-enable', 'label' => esc_html__('Enable frontend Gutenberg styles', 'disable-gutenberg')));
+	add_settings_field('whitelist',     __('Whitelist Options',   'disable-gutenberg'), 'disable_gutenberg_callback_checkbox', 'disable_gutenberg_options', 'settings_7', array('id' => 'whitelist',     'label' => esc_html__('Display Whitelist settings', 'disable-gutenberg')));
+	add_settings_field('hide-menu',     __('Plugin Menu Item',    'disable-gutenberg'), 'disable_gutenberg_callback_checkbox', 'disable_gutenberg_options', 'settings_7', array('id' => 'hide-menu',     'label' => esc_html__('Hide this plugin&rsquo;s menu item', 'disable-gutenberg')));
+	add_settings_field('hide-gut',      __('Gutenberg Menu Item', 'disable-gutenberg'), 'disable_gutenberg_callback_checkbox', 'disable_gutenberg_options', 'settings_7', array('id' => 'hide-gut',      'label' => esc_html__('Hide Gutenberg plugin&rsquo;s menu item (for WP &lt; 5.0)', 'disable-gutenberg')));
+	add_settings_field('links-enable',  __('Display Edit Links',  'disable-gutenberg'), 'disable_gutenberg_callback_checkbox', 'disable_gutenberg_options', 'settings_7', array('id' => 'links-enable',  'label' => esc_html__('Display "Add New (Classic)" menu link and Classic/Block edit links', 'disable-gutenberg')));
+	add_settings_field('acf-enable',    __('ACF Support',         'disable-gutenberg'), 'disable_gutenberg_callback_checkbox', 'disable_gutenberg_options', 'settings_7', array('id' => 'acf-enable',    'label' => esc_html__('Enable Custom Fields Meta Box (ACF disables by default),', 'disable-gutenberg') .' <a target="_blank" rel="noopener noreferrer" href="https://m0n.co/acf">'. esc_html__('learn more', 'disable-gutenberg') .'</a>'));
+	add_settings_field('reset_options', __('Reset Options',       'disable-gutenberg'), 'disable_gutenberg_callback_reset',    'disable_gutenberg_options', 'settings_7', array('id' => 'reset_options', 'label' => esc_html__('Restore default plugin options', 'disable-gutenberg')));
+	add_settings_field('rate_plugin',   __('Rate Plugin',         'disable-gutenberg'), 'disable_gutenberg_callback_rate',     'disable_gutenberg_options', 'settings_7', array('id' => 'rate_plugin',   'label' => esc_html__('Show support with a 5-star rating&nbsp;&raquo;', 'disable-gutenberg')));
 	
 }
 
@@ -90,11 +99,21 @@ function disable_gutenberg_validate_options($input) {
 	if (isset($input['templates'])) $input['templates'] = sanitize_text_field(trim($input['templates']));
 	if (isset($input['post-ids']))  $input['post-ids']  = sanitize_text_field(trim($input['post-ids']));
 	
+	if (isset($input['whitelist-id']))    $input['whitelist-id']    = sanitize_text_field(trim($input['whitelist-id']));
+	if (isset($input['whitelist-slug']))  $input['whitelist-slug']  = sanitize_text_field(trim($input['whitelist-slug']));
+	if (isset($input['whitelist-title'])) $input['whitelist-title'] = sanitize_text_field(trim($input['whitelist-title']));
+	
 	if (!isset($input['disable-all'])) $input['disable-all'] = null;
 	$input['disable-all'] = ($input['disable-all'] == 1 ? 1 : 0);
 	
 	if (!isset($input['disable-nag'])) $input['disable-nag'] = null;
 	$input['disable-nag'] = ($input['disable-nag'] == 1 ? 1 : 0);
+	
+	if (!isset($input['styles-enable'])) $input['styles-enable'] = null;
+	$input['styles-enable'] = ($input['styles-enable'] == 1 ? 1 : 0);
+	
+	if (!isset($input['whitelist'])) $input['whitelist'] = null;
+	$input['whitelist'] = ($input['whitelist'] == 1 ? 1 : 0);
 	
 	if (!isset($input['hide-menu'])) $input['hide-menu'] = null;
 	$input['hide-menu'] = ($input['hide-menu'] == 1 ? 1 : 0);
@@ -102,13 +121,19 @@ function disable_gutenberg_validate_options($input) {
 	if (!isset($input['hide-gut'])) $input['hide-gut'] = null;
 	$input['hide-gut'] = ($input['hide-gut'] == 1 ? 1 : 0);
 	
+	if (!isset($input['links-enable'])) $input['links-enable'] = null;
+	$input['links-enable'] = ($input['links-enable'] == 1 ? 1 : 0);
+	
+	if (!isset($input['acf-enable'])) $input['acf-enable'] = null;
+	$input['acf-enable'] = ($input['acf-enable'] == 1 ? 1 : 0);
+	
 	return $input;
 	
 }
 
 function disable_gutenberg_settings_section_1() {
 	
-	echo '<p class="g7g-display">'. esc_html__('Enable this setting to completely disable Gutenberg on all post types (and use Classic Editor instead). Or, disable this setting to display more options.', 'disable-gutenberg') .'</p>';
+	echo '<p class="g7g-display">'. esc_html__('Enable this setting to completely disable Gutenberg (and restore the Classic Editor). Or, disable this setting to display more options.', 'disable-gutenberg') .'</p>';
 	
 }
 
@@ -138,7 +163,13 @@ function disable_gutenberg_settings_section_5() {
 
 function disable_gutenberg_settings_section_6() {
 	
-	echo '<p class="g7g-display">'. esc_html__('Additional tools and options for handling Gutenberg.', 'disable-gutenberg') .'</p>';
+	echo '<p class="g7g-display g7g-whitelist">'. esc_html__('Select the posts that always should use the Gutenberg Block Editor. Separate multiple values with commas.', 'disable-gutenberg') .'</p>';
+	
+}
+
+function disable_gutenberg_settings_section_7() {
+	
+	echo '<p class="g7g-display"><a class="g7g-toggle" href="#more-tools" title="'. esc_attr__('Toggle More Tools', 'disable-gutenberg') .'">'. esc_html__('Click here', 'disable-gutenberg') .'</a> '. esc_html__('to display more tools and options. Note: these options remain in effect even when hidden on this page.', 'disable-gutenberg') .'</p>';
 	
 }
 
@@ -185,7 +216,7 @@ function disable_gutenberg_callback_checkbox($args) {
 	$name = 'disable_gutenberg_options['. $id .']';
 	
 	echo '<input id="'. esc_attr($name) .'" name="'. esc_attr($name) .'" type="checkbox" '. checked($value, 1, false) .' value="1"> ';
-	echo '<label for="'. esc_attr($name) .'" class="inline-block">'. esc_html($label) .'</label>';
+	echo '<label for="'. esc_attr($name) .'" class="inline-block">'. $label .'</label>';
 	
 }
 

@@ -14,11 +14,13 @@
   <?php echo $messages[ 'current-account-label' ] ?> &rarr;
   <b><?php echo get_option( Zopim_Options::ZOPIM_OPTION_USERNAME ); ?></b>
 
-  <div class="zopim-package-title"><?php echo ucwords( $package_id ); ?></div>
+  <?php if ( $package_id != '' ) { ?>
+    <div class="zopim-package-title"><?php echo ucwords( $package_id ); ?></div>
+  <?php }?>
 
   <br><br><?php echo $messages[ 'dashboard-access-label' ]; ?>
   <br><br>
-  <a class="no-underline" href="<?php echo ZOPIM_DASHBOARD_LINK ?>"
+  <a class="no-underline" href="<?php echo $dashboardLink ?>"
      target="_blank"
      data-popup="true">
     <div class="zopim_btn_orange"><?php echo $messages[ 'launch-dashboard' ]; ?></div>
@@ -42,4 +44,3 @@
   </form>
 
 </div>
-

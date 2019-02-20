@@ -6,6 +6,7 @@ class Zopim_Options
   const ZOPIM_OPTION_USERNAME = 'zopimUsername';
   const ZOPIM_OPTION_CODE = 'zopimCode';
   const ZOPIM_OPTION_WIDGET = 'zopimWidgetOptions';
+  const ZENDESK_OPTION_SUBDOMAIN = 'zendeskSubdomain';
 
   /**
    * Returns the addional widget options set on the plugin dashboard.

@@ -77,9 +77,18 @@ class Zopim_Admin
       $login->do_login();
     }
 
-    if ( get_option( Zopim_Options::ZOPIM_OPTION_CODE ) != '' && get_option( Zopim_Options::ZOPIM_OPTION_CODE ) != 'zopim' ) {
-      $accountDetails = $this->zopim_get_account_details( get_option( Zopim_Options::ZOPIM_OPTION_SALT ) );
+    $subdomain = get_option( Zopim_Options::ZENDESK_OPTION_SUBDOMAIN );
 
+    if ($subdomain) {
+      if ( isset( $_POST[ 'widget-options' ] ) ) {
+        $linkedView->update_widget_options();
+      }
+      $linkedView->display_linked_view_using_subdomain( $subdomain );
+      return;
+    }
+
+    if ( get_option( Zopim_Options::ZOPIM_OPTION_CODE ) != '' && get_option( Zopim_Options::ZOPIM_OPTION_CODE ) != 'zopim') {
+      $accountDetails = $this->zopim_get_account_details( get_option( Zopim_Options::ZOPIM_OPTION_SALT ) );
       if ( !isset( $accountDetails ) || isset( $accountDetails->error ) ) {
         $authError = '
 	 <div class="metabox-holder">
@@ -140,5 +149,29 @@ class Zopim_Admin
     $salty = array( "salt" => get_option( Zopim_Options::ZOPIM_OPTION_SALT ) );
 
     return json_decode( $this->zopim_post_request( ZOPIM_GETACCOUNTDETAILS_URL, $salty ) );
+  }
+
+  /**
+   * Authenticates with a zendesk subdomain
+   *
+   * @return array|mixed
+   */
+  public function zendesk_authenticate( $logindata )
+  {
+    $url = 'https://' . $logindata['subdomain'] . '.zendesk.com/chat/api/integration.json';
+    $credentials = base64_encode($logindata['email'] . ':' . $logindata['password']); // use basic auth
+
+    $response = wp_remote_get($url, array(
+      'headers' => array(
+        'authorization' => 'Basic ' . $credentials,
+      ),
+    ));
+
+    if ( is_wp_error( $response ) ) {
+      $error = array( 'wp_error' => $response->get_error_message() );
+      return json_encode( $error );
+    }
+
+    return $response;
   }
 }

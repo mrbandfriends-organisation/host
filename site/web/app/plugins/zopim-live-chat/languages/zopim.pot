@@ -104,6 +104,10 @@ msgstr ""
 msgid "Sign up now"
 msgstr ""
 
+#: includes/class-login.php:19
+msgid "Subdomain (For Zendesk Chat accounts with a subdomain)"
+msgstr ""
+
 #: includes/views/login-form.php:43
 msgid "Don't have a Zendesk Chat account?"
 msgstr ""
