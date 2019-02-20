@@ -72,14 +72,18 @@ function imsanity_queue_script( $hook ) {
 	}
 	// Register the scripts that are used by the bulk resizer.
 	wp_enqueue_script( 'imsanity_script', plugins_url( '/scripts/imsanity.js', __FILE__ ), array( 'jquery' ), IMSANITY_VERSION );
-	wp_localize_script( 'imsanity_script', 'imsanity_vars', array(
-		'_wpnonce'          => wp_create_nonce( 'imsanity-bulk' ),
-		'resizing_complete' => esc_html__( 'Resizing Complete', 'imsanity' ),
-		'resize_selected'   => esc_html__( 'Resize Selected Images', 'imsanity' ),
-		'image'             => esc_html__( 'Image', 'imsanity' ),
-		'invalid_response'  => esc_html__( 'Received an invalid response, please check for errors in the Developer Tools console of your browser.', 'imsanity' ),
-		'none_found'        => esc_html__( 'There are no images that need to be resized.', 'imsanity' ),
-	) );
+	wp_localize_script(
+		'imsanity_script',
+		'imsanity_vars',
+		array(
+			'_wpnonce'          => wp_create_nonce( 'imsanity-bulk' ),
+			'resizing_complete' => esc_html__( 'Resizing Complete', 'imsanity' ),
+			'resize_selected'   => esc_html__( 'Resize Selected Images', 'imsanity' ),
+			'image'             => esc_html__( 'Image', 'imsanity' ),
+			'invalid_response'  => esc_html__( 'Received an invalid response, please check for errors in the Developer Tools console of your browser.', 'imsanity' ),
+			'none_found'        => esc_html__( 'There are no images that need to be resized.', 'imsanity' ),
+		)
+	);
 }
 
 /**
@@ -162,28 +166,36 @@ function imsanity_maybe_created_custom_table() {
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 		dbDelta( $sql );
-		$data = imsanity_get_default_multisite_settings();
 
 		// Add the rows to the database.
 		$data = imsanity_get_default_multisite_settings();
-		$wpdb->insert( $wpdb->imsanity_ms, array(
-			'setting' => 'multisite',
-			'data'    => maybe_serialize( $data ),
-		) );
-		$wpdb->insert( $wpdb->imsanity_ms, array(
-			'setting' => 'schema',
-			'data'    => IMSANITY_SCHEMA_VERSION,
-		) );
+		$wpdb->insert(
+			$wpdb->imsanity_ms,
+			array(
+				'setting' => 'multisite',
+				'data'    => maybe_serialize( $data ),
+			)
+		);
+		$wpdb->insert(
+			$wpdb->imsanity_ms,
+			array(
+				'setting' => 'schema',
+				'data'    => IMSANITY_SCHEMA_VERSION,
+			)
+		);
 	}
 
 	if ( IMSANITY_SCHEMA_VERSION != $schema ) {
 		// This is a schema update.  for the moment there is only one schema update available, from 1.0 to 1.1.
 		if ( '1.0' == $schema ) {
 			// Update from version 1.0 to 1.1.
-			$wpdb->insert( $wpdb->imsanity_ms, array(
-				'setting' => 'schema',
-				'data'    => IMSANITY_SCHEMA_VERSION,
-			) );
+			$wpdb->insert(
+				$wpdb->imsanity_ms,
+				array(
+					'setting' => 'schema',
+					'data'    => IMSANITY_SCHEMA_VERSION,
+				)
+			);
 			$wpdb->query( "ALTER TABLE $wpdb->imsanity_ms CHANGE COLUMN data data TEXT NOT NULL;" );
 		} else {
 			// @todo we don't have this yet
@@ -364,6 +376,9 @@ function imsanity_get_multisite_settings() {
 			$_imsanity_multisite_settings->imsanity_max_width_library  = $_imsanity_multisite_settings->imsanity_max_width;
 			$_imsanity_multisite_settings->imsanity_max_height_other   = $_imsanity_multisite_settings->imsanity_max_height;
 			$_imsanity_multisite_settings->imsanity_max_width_other    = $_imsanity_multisite_settings->imsanity_max_width;
+		}
+		if ( ! property_exists( $_imsanity_multisite_settings, 'imsanity_deep_scan' ) ) {
+			$_imsanity_multisite_settings->imsanity_deep_scan = false;
 		}
 	}
 	return $_imsanity_multisite_settings;

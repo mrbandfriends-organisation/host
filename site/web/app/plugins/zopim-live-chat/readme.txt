@@ -3,7 +3,7 @@ Contributors: zendesk_official
 Tags: chat, chat online, contact plugin, contact us, customer support, free chat, chat software, IM chat, live chat, live chat inc, live chat services, live chat software, live chatting, live help, live support, live web chat, livechat, live help, live support, olark, online chat, online support, php live chat, snapengage, support software, website chat, wordpress chat, wordpress live chat, wordpress live chat plugin, Zopim, zendesk, Zopim live chat, banckle, clickdesk, click desk
 Requires at least: 3.1
 Tested up to: 4.7
-Stable tag: 1.4.12
+Stable tag: 1.4.14
 
 Zendesk Chat (previously Zopim) lets you monitor and chat with visitors surfing your store in real-time. Impress them personally and ease them into their purchase.
 
@@ -48,6 +48,12 @@ What are you waiting for? Download Zendesk Chat plugin now and <a href="https://
 * Arabic | Bulgarian | Chinese | Croatian | Czech | Danish | Dutch; Flemish | Estonian | Faroese | Finnish | French | Georgian | German | Greek | Hebrew | Hungarian | Icelandic | Indonesian | Italian | Japanese | Korean | Kurdish | Latvian | Lithuanian | Macedonian | Malay | Norwegian Bokmal | Persian | Polish | Portuguese | Romanian | Russian | Serbian | Slovak | Slovenian | Spanish; Castilian | Swedish | Thai | Turkish | Ukranian | Urdu | Vietnamese
 
 == Changelog ==
+
+= 1.4.14 =
+* Support chat phase 3 and phase 4 accounts
+
+= 1.4.13 =
+* Updated copy to reflect chat phase 4 limitations
 
 = 1.4.12 =
 * Updated copy to reflect new trial length
@@ -294,6 +300,10 @@ You can easily do so by upgrading to a better plan. To find out more about the p
 = Its just not working for me! HELP! =
 
 Dont worry!! We are happy to assist! Just come on down to our site at https://www.zendesk.com/chat or leave an email for us at chat@zendesk.com and we will help you with installation.
+
+= Wordpress Integration for Chat accounts =
+
+The integration supports chat phase 4, 3 and 1 accounts. If you have a zendesk subdomain, please provide your subdomain as you are either chat phase 3 or 4 customer. If you don’t have a subdomain, leave the subdomain field as blank as you are chat phase 1 customer.
 
 == Usage ==
 

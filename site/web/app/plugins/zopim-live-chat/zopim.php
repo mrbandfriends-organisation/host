@@ -4,22 +4,19 @@
 Plugin Name: Zendesk Chat Widget
 Plugin URI: http://www.zendesk.com/chat?iref=wp_plugin
 Description: Zendesk Chat is an award winning chat solution that helps website owners to engage their visitors and convert customers into fans!
-Author: Zendesk 
-Version: 1.4.12
+Author: Zendesk
+Version: 1.4.14
 Author URI: http://www.zendesk.com/chat?iref=wp_plugin
 Text Domain: zopim
 Domain path: /language
 */
 
-define( 'VERSION_NUMBER', "1.4.12" );
+define( 'VERSION_NUMBER', "1.4.14" );
 define( 'ZOPIM_BASE_URL', "https://www.zopim.com/" );
 define( 'ZOPIM_ACCOUNT_URL', "https://account.zopim.com/" );
 define( 'ZOPIM_SIGNUP_REDIRECT_URL', ZOPIM_ACCOUNT_URL . "?aref=MjUxMjY4:1TeORR:9SP1e-iPTuAVXROJA6UU5seC8x4&visit_id=6ffe00ec3cfc11e2b5ab22000a1db8fa&utm_source=account%2Bsetup%2Bpage&utm_medium=link&utm_campaign=wp%2Bsignup2#signup" );
 define( 'ZOPIM_GETACCOUNTDETAILS_URL', ZOPIM_BASE_URL . "plugins/getAccountDetails" );
-define( 'ZOPIM_SETDISPLAYNAME_URL', ZOPIM_BASE_URL . "plugins/setDisplayName" );
-define( 'ZOPIM_SETEDITOR_URL', ZOPIM_BASE_URL . "plugins/setEditor" );
 define( 'ZOPIM_LOGIN_URL', ZOPIM_BASE_URL . "plugins/login" );
-define( 'ZOPIM_SIGNUP_URL', ZOPIM_BASE_URL . "plugins/createTrialAccount" );
 define( 'ZOPIM_DASHBOARD_LINK', "https://dashboard.zopim.com/?utm_source=wp&utm_medium=link&utm_campaign=wp%2Bdashboard" );
 define( 'ZOPIM_SMALL_LOGO', "https://dashboard.zopim.com/assets/branding/zopim.com/chatman/online.png" );
 define( 'ZOPIM_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );

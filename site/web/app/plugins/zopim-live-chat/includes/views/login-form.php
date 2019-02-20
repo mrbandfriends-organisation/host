@@ -31,7 +31,10 @@ $notices->do_notices( 'before_login' );
               <th scope="row"><?php echo $messages[ 'password' ]; ?></th>
               <td><input type="password" name="zopimPassword" value=""/></td>
             </tr>
-
+            <tr valign="top">
+              <th scope="row"><?php echo $messages[ 'subdomain' ]?></th>
+              <td><input type="text" name="<?php echo Zopim_Options::ZENDESK_OPTION_SUBDOMAIN ?>"/></td>
+            </tr>
           </table>
           <br/>
           <?php echo $messages[ 'widget-display-notice' ]; ?>
@@ -39,10 +42,10 @@ $notices->do_notices( 'before_login' );
 
           <p class="submit">
             <input id="linkup" type="submit" onclick="animateButton()" class="button-primary"
-                   value="<?php echo $messages[ 'link-up-button' ] ?>"/>
+            value="<?php echo $messages[ 'link-up-button' ] ?>"/>
             &nbsp;<?php _e( 'Don\'t have a Zendesk Chat account?', 'zopim-live-chat' ); ?> <a
-              href="<?php echo ZOPIM_SIGNUP_REDIRECT_URL; ?>" target="_blank"
-              data-popup="true"><?php echo $messages[ 'sign-up-link' ]; ?></a>.
+            href="<?php echo ZOPIM_SIGNUP_REDIRECT_URL; ?>" target="_blank"
+            data-popup="true"><?php echo $messages[ 'sign-up-link' ]; ?></a>.
           </p>
 
         </form>

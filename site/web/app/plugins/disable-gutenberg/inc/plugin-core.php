@@ -2,33 +2,37 @@
 
 if (!defined('ABSPATH')) exit;
 
-function disable_gutenberg($is_enabled, $post_type) {
+function disable_gutenberg_init() {
 	
-	$options = disable_gutenberg_get_options();
+	if (disable_gutenberg()) disable_gutenberg_remove();
 	
-	$disable_all = (isset($options['disable-all']) && !empty($options['disable-all'])) ? true : false;
+}
+
+function disable_gutenberg($post_id = false) {
 	
-	if ($disable_all) return false;
+	if (is_plugin_active('classic-editor/classic-editor.php')) return false;
 	
-	foreach (disable_gutenberg_get_enabled_user_roles() as $role) {
-		
-		$roles = disable_gutenberg_get_current_user_roles();
-		
-		if (is_array($roles) && in_array($role, $roles)) return false;
-		
-	}
+	if (disable_gutenberg_whitelist_id($post_id)) return false;
 	
-	foreach (disable_gutenberg_get_enabled_post_types() as $type) {
-		
-		if ($post_type === $type) return false;
-		
-	}
+	if (disable_gutenberg_whitelist_slug($post_id)) return false;
 	
-	if (disable_gutenberg_disable_templates()) return false;
+	if (disable_gutenberg_whitelist_title($post_id)) return false;
 	
-	if (disable_gutenberg_disable_ids()) return false;
+	if (isset($_GET['block-editor'])) return false;
 	
-	return $is_enabled;
+	if (isset($_GET['classic-editor'])) return true;
+	
+	if (disable_gutenberg_disable_all()) return true;
+	
+	if (disable_gutenberg_disable_user_role()) return true;
+	
+	if (disable_gutenberg_disable_post_type()) return true;
+	
+	if (disable_gutenberg_disable_templates()) return true;
+	
+	if (disable_gutenberg_disable_ids($post_id)) return true;
+	
+	return false;
 	
 }
 
@@ -47,6 +51,8 @@ function disable_gutenberg_get_current_user_roles($user = null) {
 }
 
 function disable_gutenberg_get_user_roles() {
+	
+	if (!function_exists('get_editable_roles')) require_once ABSPATH .'wp-admin/includes/user.php';
 	
 	$roles = get_editable_roles();
 	
@@ -75,7 +81,7 @@ function disable_gutenberg_get_enabled_user_roles() {
 		
 		preg_match('/^user-role_(.*)$/i', $key, $matches);
 		
-		if (isset($matches[1]) && !empty($matches[1])) $array[] = $matches[1];
+		if ($value && isset($matches[1]) && !empty($matches[1])) $array[] = $matches[1];
 		
 	}
 	
@@ -116,11 +122,79 @@ function disable_gutenberg_get_enabled_post_types() {
 		
 		preg_match('/^post-type_(.*)$/i', $key, $matches);
 		
-		if (isset($matches[1]) && !empty($matches[1])) $array[] = $matches[1];
+		if ($value && isset($matches[1]) && !empty($matches[1])) $array[] = $matches[1];
 		
 	}
 	
 	return apply_filters('disable_gutenberg_get_enabled_post_types', $array);
+	
+}
+
+function disable_gutenberg_disable_all() {
+	
+	$options = disable_gutenberg_get_options();
+	
+	$disable_all = (isset($options['disable-all']) && !empty($options['disable-all'])) ? true : false;
+	
+	if ($disable_all) return true;
+	
+	return false;
+	
+}
+
+function disable_gutenberg_disable_user_role() {
+	
+	foreach (disable_gutenberg_get_enabled_user_roles() as $role) {
+		
+		$roles = disable_gutenberg_get_current_user_roles();
+		
+		if (is_array($roles) && in_array($role, $roles)) return true;
+		
+	}
+	
+	return false;
+	
+}
+
+function disable_gutenberg_disable_post_type() {
+	
+	global $pagenow, $typenow;
+	
+	$post_type = null;
+	
+	if ($pagenow === 'edit.php') {
+		
+		if (empty($typenow)) $typenow = 'post';
+		
+		$post_type = $typenow;
+		
+	} elseif ($pagenow === 'post.php') {
+		
+		$post_id = isset($_GET['post']) ? $_GET['post'] : null;
+		
+		$post_type = $post_id ? get_post_type($post_id) : null;
+		
+	} elseif ($pagenow === 'post-new.php') {
+		
+		if (empty($typenow)) $typenow = 'post';
+		
+		$post_type = isset($_GET['post_type']) ? $_GET['post_type'] : null;
+		
+		if (empty($post_type)) $post_type = $typenow;
+		
+	}
+	
+	if ($post_type) {
+		
+		foreach (disable_gutenberg_get_enabled_post_types() as $type) {
+			
+			if ($post_type === $type) return true;
+			
+		}
+		
+	}
+	
+	return false;
 	
 }
 
@@ -129,6 +203,8 @@ function disable_gutenberg_disable_templates() {
 	$excluded = array();
 	
 	$template = '';
+	
+	$disable = false;
 	
 	$post_id = isset($_GET['post']) ? intval($_GET['post']) : null;
 	
@@ -144,15 +220,21 @@ function disable_gutenberg_disable_templates() {
 		
 	}
 	
-	return in_array($template, $excluded);
+	if (!empty($excluded) && !empty($template)) {
+		
+		$disable = in_array($template, $excluded, true);
+		
+	}
+	
+	return $disable;
 	
 }
 
-function disable_gutenberg_disable_ids() {
+function disable_gutenberg_disable_ids($post_id = false) {
 	
 	$excluded = array();
 	
-	$post_id = isset($_GET['post']) ? intval($_GET['post']) : null;
+	$post_id = disable_gutenberg_get_post_id($post_id);
 	
 	if (is_admin() && !empty($post_id)) {
 		
@@ -174,7 +256,7 @@ function disable_gutenberg_disable_nag() {
 	
 	$disable_nag = (isset($options['disable-nag']) && !empty($options['disable-nag'])) ? true : false;
 	
-	if ($disable_nag) remove_filter('try_gutenberg_panel', 'wp_try_gutenberg_panel');
+	if ($disable_nag) remove_filter('try_gutenberg_panel', 'wp_try_gutenberg_panel'); // until WP 5.0 beta
 	
 }
 
@@ -187,5 +269,141 @@ function disable_gutenberg_menu_items() {
 	
 	if ($hide_plugin)    remove_submenu_page('options-general.php', 'disable-gutenberg');
 	if ($hide_gutenberg) remove_menu_page('gutenberg');
+	
+}
+
+function disable_gutenberg_acf_enable_meta() {
+	
+	$options = disable_gutenberg_get_options();
+	
+	$enable = isset($options['acf-enable']) ? $options['acf-enable'] : false;
+	
+	if ($enable) add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+	
+}
+
+function disable_gutenberg_privacy_notice() {
+	
+	global $pagenow;
+	
+	if ($pagenow !== 'post.php') return;
+	
+	if (!disable_gutenberg()) return;
+	
+	remove_action('admin_notices', array('WP_Privacy_Policy_Content', 'notice'));
+	
+	add_action('edit_form_after_title', array('WP_Privacy_Policy_Content', 'notice'));
+	
+}
+
+function disable_gutenberg_whitelist($post_id = false) {
+	
+	if (disable_gutenberg_whitelist_id($post_id)) return true;
+	
+	if (disable_gutenberg_whitelist_slug($post_id)) return true;
+	
+	if (disable_gutenberg_whitelist_title($post_id)) return true;
+	
+	return false;
+	
+}
+
+function disable_gutenberg_whitelist_id($post_id = false) {
+	
+	$whitelist = array();
+	
+	$post_id = disable_gutenberg_get_post_id($post_id);
+	
+	if (is_admin() && !empty($post_id)) {
+		
+		$options = disable_gutenberg_get_options();
+		
+		$whitelist = isset($options['whitelist-id']) ? $options['whitelist-id'] : null;
+		
+		$whitelist = disable_gutenberg_explode($whitelist);
+		
+	}
+	
+	return in_array($post_id, $whitelist);
+	
+}
+
+function disable_gutenberg_whitelist_slug($post_id = false) {
+	
+	$whitelist = array();
+	
+	$slug = false;
+	
+	$post_id = disable_gutenberg_get_post_id($post_id);
+	
+	$status = get_post_status($post_id);
+	
+	if (is_admin() && !empty($post_id) && $status === 'publish') {
+		
+		$post = get_post($post_id);
+		
+		$slug = $post->post_name;
+		
+		$options = disable_gutenberg_get_options();
+		
+		$whitelist = isset($options['whitelist-slug']) ? $options['whitelist-slug'] : null;
+		
+		$whitelist = disable_gutenberg_explode($whitelist);
+		
+	}
+	
+	return in_array($slug, $whitelist);
+	
+}
+
+function disable_gutenberg_whitelist_title($post_id = false) {
+	
+	$whitelist = array();
+	
+	$title = false;
+	
+	$post_id = disable_gutenberg_get_post_id($post_id);
+	
+	if (is_admin() && !empty($post_id)) {
+		
+		$title = strtolower(get_the_title($post_id));
+		
+		$options = disable_gutenberg_get_options();
+		
+		$whitelist = isset($options['whitelist-title']) ? $options['whitelist-title'] : null;
+		
+		$whitelist = disable_gutenberg_explode($whitelist);
+		
+	}
+	
+	return in_array($title, $whitelist);
+	
+}
+
+function disable_gutenberg_explode($string) {
+	
+	$explode = array_map('trim', explode(',', $string));
+	
+	$array = array();
+	
+	foreach ($explode as $item) {
+		
+		$array[] = strtolower($item);
+		
+	}
+	
+	return $array;
+	
+}
+
+function disable_gutenberg_get_post_id($post_id = false) {
+	
+	if (empty($post_id)) {
+		
+		$post_id = isset($_GET['post']) ? intval($_GET['post']) : null;
+		
+	}
+	
+	return $post_id;
 	
 }

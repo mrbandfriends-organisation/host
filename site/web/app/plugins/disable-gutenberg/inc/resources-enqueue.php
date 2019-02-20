@@ -2,7 +2,7 @@
 
 if (!defined('ABSPATH')) exit;
 
-function disable_gutenberg_enqueue_resources_admin() {
+function disable_gutenberg_admin_enqueue_scripts() {
 	
 	$screen = get_current_screen();
 	
@@ -26,7 +26,7 @@ function disable_gutenberg_enqueue_resources_admin() {
 	
 }
 
-function disable_gutenberg_print_js_vars_admin() { ?>
+function disable_gutenberg_admin_print_scripts() { ?>
 		
 	<script type="text/javascript">
 		var 
