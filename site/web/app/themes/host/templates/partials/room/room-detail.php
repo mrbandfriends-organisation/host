@@ -70,9 +70,14 @@
 
             <h3 class="book__title h2"><?php the_title();?><br><?= get_field('from_amount'); ?></h3>
             <a class="book__link" href="#pricing">View pricing options</a>
-            <?php $booking_url = get_field('booking_url', 'option') ?>
+
+            <?php 
+                $booking_url = get_field('book_now_url');
+                $booking_text = get_field('book_now_text');
+            ?>
+
             <?php if ( !empty($booking_url) ): ?>
-                <a href="<?= esc_url($booking_url); ?>" class="book_btn btn btn--sky">Book this room</a>
+                <a href="<?= esc_url($booking_url); ?>" class="book_btn btn btn--sky"><?= esc_html($booking_text); ?></a>
             <?php endif; ?>
         </div>
     </div>

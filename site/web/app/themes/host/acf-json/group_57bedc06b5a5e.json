@@ -19,6 +19,41 @@
             "endpoint": 0
         },
         {
+            "key": "field_5c8f9f9c87a3d",
+            "label": "Book now text",
+            "name": "book_now_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Book this room",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5c8f9ffb21302",
+            "label": "Book now url",
+            "name": "book_now_url",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "https:\/\/portal.host-students.com\/StarRezPortalX\/E046082B\/15\/144\/Book_a_Room-Find_your_Host___",
+            "placeholder": ""
+        },
+        {
             "key": "field_57bf04c843a01",
             "label": "Availability",
             "name": "availability",
@@ -98,7 +133,8 @@
             "default_value": "",
             "tabs": "all",
             "toolbar": "full",
-            "media_upload": 1
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_57bedc06c21ae",
@@ -114,8 +150,8 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": "",
-            "max": "",
+            "min": 0,
+            "max": 0,
             "layout": "table",
             "button_label": "Add Row",
             "sub_fields": [
@@ -188,8 +224,8 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": "",
-            "max": "",
+            "min": 0,
+            "max": 0,
             "layout": "table",
             "button_label": "Add Row",
             "sub_fields": [
@@ -263,8 +299,8 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": "",
-            "max": "",
+            "min": 0,
+            "max": 0,
             "layout": "table",
             "button_label": "Add Row",
             "sub_fields": [
@@ -414,8 +450,8 @@
                 "id": ""
             },
             "collapsed": "",
-            "min": "",
-            "max": "",
+            "min": 0,
+            "max": 0,
             "layout": "block",
             "button_label": "Add Row",
             "sub_fields": [
@@ -509,8 +545,8 @@
                         "id": ""
                     },
                     "collapsed": "",
-                    "min": "",
-                    "max": "",
+                    "min": 0,
+                    "max": 0,
                     "layout": "row",
                     "button_label": "Add Row",
                     "sub_fields": [
@@ -568,7 +604,8 @@
                             "default_value": "",
                             "tabs": "all",
                             "toolbar": "full",
-                            "media_upload": 0
+                            "media_upload": 0,
+                            "delay": 0
                         }
                     ]
                 }
@@ -592,6 +629,25 @@
             "min_size": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_5c8fbcf5b4579",
+            "label": "book now text",
+            "name": "book_now_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Book this room",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
         }
     ],
     "location": [
@@ -613,5 +669,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1509544419
+    "modified": 1552924528
 }
