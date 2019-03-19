@@ -4,11 +4,15 @@
     $btn_modifiers = ( !empty($btn_modifiers) ) ? $btn_modifiers : '';
 ?>
 
-<?php if (  $can_book && !( get_field('hide_book_now', get_the_ID()) )  ): ?>
+<?php if (  $can_book && !( get_field('hide_book_now', get_the_ID()) ) ): ?>
 
-    <?php $booking_url = get_field('booking_url', 'option'); ?>
+            <?php 
+                $booking_url = get_field('book_now_url', get_the_ID() );
+                $booking_text = get_field('book_now_text', get_the_ID() );
+            ?>
+
     <a href="<?= esc_attr($booking_url); ?>" class="btn <?=esc_attr($btn_modifiers);?>" <?php Extras\link_open_new_tab_attrs(); ?>>
-        Book now
+    <?= esc_html($booking_text); ?>
     </a>
     
 <?php endif ?>
@@ -28,3 +32,4 @@
         Join The Waiting List
     </a>
 <?php endif ?>
+
