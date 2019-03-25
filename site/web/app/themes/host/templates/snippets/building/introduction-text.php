@@ -46,6 +46,8 @@
 <?= Utils\esc_textarea__($description); ?>
 
 <?php echo Utils\ob_load_template_part('templates/snippets/building/conditional-buttons', array(
+    'booking_url'       => $booking_url,
+    'booking_text'      => $booking_text,
     'can_book' => $availability_status['can_book'],
     'can_join_waiting_list' => $availability_status['can_join_waiting_list'],
     'enquiry_hall_name' => $location_name . " " . $building_name
