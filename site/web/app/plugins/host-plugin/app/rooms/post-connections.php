@@ -41,7 +41,8 @@ class Post_Connections
             'from' => 'rooms',
             'to' => 'buildings',
             'cardinality' => 'many-to-one',
-            'admin_column' => 'from'
+            'admin_column' => 'from',
+            'sortable' => 'any'
         ) );
     }
 }
