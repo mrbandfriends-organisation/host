@@ -15,6 +15,7 @@
     } else {
         $buildings = host_location_find_connected_buildings( get_the_id() );
     }
+
 ?>
 <section id="locations-buildings" class="band band--inset-alt property-list">
     <h2 class="vh">Properties in<br><?=the_title(); ?></h2>
@@ -34,6 +35,10 @@
                     get_field('building_address_town_city'),
                     get_field('building_address_post_code'),
                 ]);
+
+
+                $booking_url = get_field('book_now_url');
+                $booking_text = get_field('building_book_now_text');
 
                 // strip unneeded newlines
                 $address = trim(preg_replace("/\n\n+/", "\n", $address));
@@ -124,6 +129,8 @@
                                     <?php endif; ?>
                                     
                                     <?php echo Utils\ob_load_template_part('templates/snippets/building/conditional-buttons', array(
+                                        'booking_url' => $booking_url,
+                                        'booking_text' => $booking_text,
                                         'can_book' => $availability_status['can_book'],
                                         'can_join_waiting_list' => $availability_status['can_join_waiting_list'],
                                         'enquiry_hall_name' => $location_title . " " . $building_title,

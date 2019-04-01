@@ -19,41 +19,6 @@
             "endpoint": 0
         },
         {
-            "key": "field_5c8faeb6accbe",
-            "label": "Book now text",
-            "name": "book_now_text",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "Book this location",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
-        },
-        {
-            "key": "field_5c8faf5baccbf",
-            "label": "Book now url",
-            "name": "book_now_url_",
-            "type": "url",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "50",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "https:\/\/portal.host-students.com\/StarRezPortalX\/E046082B\/15\/144\/Book_a_Room-Find_your_Host___",
-            "placeholder": ""
-        },
-        {
             "key": "field_5b0fb2c24e6fd",
             "label": "Hide Header?",
             "name": "hide_header",
@@ -540,5 +505,5 @@
     ],
     "active": 1,
     "description": "",
-    "modified": 1552924602
+    "modified": 1553512365
 }

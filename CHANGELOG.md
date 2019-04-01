@@ -7,6 +7,13 @@ For more information about keeping good change logs please refer to [keep a chan
 
 ## Changelog
 
+## [1.28] - 2019-03-25
+
+## Added
+
+- Add ability to change order display of rooms via drag and drop on building pages
+- Adding conditional book now CTAs to room & building pages
+
 ## [1.27] - 2019-03-19
 
 ## Added

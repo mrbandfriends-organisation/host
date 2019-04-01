@@ -27,3 +27,30 @@ function acf_add_gmaps_key() {
 }
 
 add_action('acf/init', __NAMESPACE__ . '\\acf_add_gmaps_key');
+
+function book_now_url_default($value, $post_id, $field) {
+  if ($value === NULL) {
+    // value is NULL because it was never saved
+    $value = 'https://portal.host-students.com/StarRezPortalX/E046082B/15/144/Book_a_Room-Find_your_Host___';
+  }
+  return $value;
+}
+add_filter('acf/load_value/name=book_now_url', __NAMESPACE__ . '\\book_now_url_default', 10, 3);
+
+function building_book_now_text_default($value, $post_id, $field) {
+  if ($value === NULL) {
+    // value is NULL because it was never saved
+    $value = 'Book this building';
+  }
+  return $value;
+}
+add_filter('acf/load_value/name=building_book_now_text', __NAMESPACE__ . '\\building_book_now_text_default', 10, 3);
+
+function room_book_now_text_default($value, $post_id, $field) {
+  if ($value === NULL) {
+    // value is NULL because it was never saved
+    $value = 'Book this room';
+  }
+  return $value;
+}
+add_filter('acf/load_value/name=room_book_now_text', __NAMESPACE__ . '\\room_book_now_text_default', 10, 3);

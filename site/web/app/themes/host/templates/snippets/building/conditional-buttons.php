@@ -2,14 +2,11 @@
     use Roots\Sage\Extras;
 
     $btn_modifiers = ( !empty($btn_modifiers) ) ? $btn_modifiers : '';
+    $booking_text  = ( !empty($booking_text) ) ? $booking_text : '';
+    $booking_url   = ( !empty($booking_url) ) ? $booking_url : '';
 ?>
 
 <?php if (  $can_book && !( get_field('hide_book_now', get_the_ID()) ) ): ?>
-
-            <?php 
-                $booking_url = get_field('book_now_url', get_the_ID() );
-                $booking_text = get_field('book_now_text', get_the_ID() );
-            ?>
 
     <a href="<?= esc_attr($booking_url); ?>" class="btn <?=esc_attr($btn_modifiers);?>" <?php Extras\link_open_new_tab_attrs(); ?>>
     <?= esc_html($booking_text); ?>

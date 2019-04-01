@@ -73,7 +73,7 @@
 
             <?php 
                 $booking_url = get_field('book_now_url');
-                $booking_text = get_field('book_now_text');
+                $booking_text = get_field('room_book_now_text');
             ?>
 
             <?php if ( !empty($booking_url) ): ?>

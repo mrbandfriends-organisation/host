@@ -21,7 +21,7 @@
         {
             "key": "field_5c8fb5e19a99c",
             "label": "Book now text",
-            "name": "Book_now_text",
+            "name": "building_book_now_text",
             "type": "text",
             "instructions": "",
             "required": 0,
@@ -31,7 +31,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "Book this room",
+            "default_value": "Book this building",
             "placeholder": "",
             "prepend": "",
             "append": "",
@@ -40,7 +40,7 @@
         {
             "key": "field_5c8fb67d995f0",
             "label": "Book now url",
-            "name": "Book_now_url",
+            "name": "book_now_url",
             "type": "url",
             "instructions": "",
             "required": 0,
@@ -50,7 +50,7 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "https://portal.host-students.com/StarRezPortalX/E046082B/15/144/Book_a_Room-Find_your_Host___",
+            "default_value": "https:\/\/portal.host-students.com\/StarRezPortalX\/E046082B\/15\/144\/Book_a_Room-Find_your_Host___",
             "placeholder": ""
         },
         {
@@ -202,7 +202,7 @@
         },
         {
             "key": "field_57b590d8da7ad",
-            "label": "Links / Downloads",
+            "label": "Links \/ Downloads",
             "name": "links_downloads",
             "type": "repeater",
             "instructions": "",
@@ -273,7 +273,9 @@
                         "default": "Default",
                         "outline": "Outline"
                     },
-                    "default_value": ["default"],
+                    "default_value": [
+                        "default"
+                    ],
                     "allow_null": 0,
                     "multiple": 0,
                     "ui": 0,
@@ -416,7 +418,7 @@
         },
         {
             "key": "field_57b3089e7a9cb",
-            "label": "Town/City",
+            "label": "Town\/City",
             "name": "building_address_town_city",
             "type": "text",
             "instructions": "",
@@ -497,7 +499,7 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": "https://goo.gl/maps/locationID"
+            "placeholder": "https:\/\/goo.gl\/maps\/locationID"
         },
         {
             "key": "field_58a6e4949a106",
@@ -761,7 +763,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "file_location": "assets/svg/sprites/",
+                    "file_location": "assets\/svg\/sprites\/",
                     "file_glob": "*.svg"
                 },
                 {
@@ -1163,8 +1165,10 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": ["the_content"],
+    "hide_on_screen": [
+        "the_content"
+    ],
     "active": 1,
     "description": "",
-    "modified": 1552924733
+    "modified": 1553513951
 }
